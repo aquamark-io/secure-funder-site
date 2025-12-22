@@ -85,7 +85,7 @@
             padding: 1.5rem;
             margin: 2rem auto 0;
             max-width: 800px;
-            text-align: left;
+            text-align: center;
             font-size: 0.9375rem;
             line-height: 1.6;
             color: var(--text);
@@ -111,6 +111,7 @@
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
+            justify-content: center;
         }
 
         .nav-link {
@@ -304,7 +305,7 @@
 
             .nav-container {
                 padding: 0.5rem 1rem;
-                justify-content: flex-start;
+                justify-content: center;
             }
 
             .nav-link {
@@ -380,7 +381,7 @@
             <h1>Secure Funder™</h1>
             <p class="hero-subtitle">Technical Safeguards for Data Protection in Alternative Finance</p>
             <div class="hero-description">
-                <p>This program verifies that your organization has appropriate technical safeguards to protect merchant data from unauthorized access and external sharing. Requirements focus on <strong>observable technical controls</strong>, not written policies. Where a specific control is not in place, functionally equivalent alternatives may be accepted.</p>
+                <p>This program verifies that your organization has appropriate technical safeguards to protect merchant data from unauthorized access and external sharing. Requirements focus on <strong>observable technical controls</strong>. Where a specific control is not in place, functionally equivalent alternatives may be accepted.</p>
                 <p style="margin-top: 1rem;">Verification is conducted via non-recorded screenshare or on-site review at funder's expense. <strong>The process is collaborative</strong> — certification may proceed with agreed-upon remediation timelines or compensating controls rather than immediate disqualification.</p>
             </div>
         </div>
@@ -392,7 +393,7 @@
             <a class="nav-link" data-section="portal">Portal</a>
             <a class="nav-link" data-section="crm">CRM</a>
             <a class="nav-link" data-section="devices">Devices</a>
-            <a class="nav-link" data-section="third-party">Third-Party</a>
+            <a class="nav-link" data-section="third-party">BPO</a>
             <a class="nav-link" data-section="cloud">Cloud</a>
             <a class="nav-link" data-section="personnel">Personnel</a>
         </div>
@@ -429,9 +430,9 @@
                         </div>
                         <div class="option">
                             <div class="option-label"><strong>Option B:</strong> Email gateway to protect documents before human access</div>
-                            <div class="sub-item">Dedicated inbox for broker submissions (e.g., submissions@company.com)</div>
+                            <div class="sub-item">Dedicated inbox for broker submissions (e.g., <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="225157404f4b51514b4d4c5162414d4f52434c5b0c414d4f">[email&#160;protected]</a>)</div>
                             <div class="sub-item">Attachments routed through gateway to automatically watermark files</div>
-                            <div class="sub-item">Protected files sent to destination inbox for processing team (e.g., processing@company.com)</div>
+                            <div class="sub-item">Protected files sent to destination inbox for processing team (e.g., <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="cfbfbda0acaabcbca6a1a88faca0a2bfaea1b6e1aca0a2">[email&#160;protected]</a>)</div>
                             <div class="sub-item">Secure Funder gateway available, or any provider acceptable</div>
                         </div>
                     </div>
@@ -576,17 +577,20 @@
             </div>
         </section>
 
-        <!-- THIRD-PARTY ACCESS -->
+        <!-- BPO ACCESS -->
         <section id="third-party" class="section">
             <h2 class="section-title">
                 <span class="section-number">5</span>
-                Third-Party Access
+                BPO Access
             </h2>
 
             <div class="subsection">
-                <h3 class="subsection-title">BPO / Offshore Teams</h3>
+                <h3 class="subsection-title">On-Shore / Off-Shore Teams</h3>
+                <div class="note">
+                    <strong>Note:</strong> If you do not use BPO teams (on-shore or off-shore), skip this section.
+                </div>
                 <div class="if-then">
-                    <div class="if-then-label">IF BPO or offshore teams have access to merchant documents (via email, CRM, portal, or cloud storage), THEN choose one:</div>
+                    <div class="if-then-label">IF BPO teams have access to merchant documents (via email, CRM, portal, or cloud storage), THEN choose one:</div>
                     <div class="options">
                         <div class="option">
                             <div class="option-label"><strong>Option A:</strong> View-only access to files (no download capability)</div>
@@ -641,7 +645,7 @@
         </section>
     </div>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Tab navigation
         const navLinks = document.querySelectorAll('.nav-link');
         const sections = document.querySelectorAll('.section');
@@ -656,15 +660,3 @@
                 
                 // Add active class to clicked link
                 this.classList.add('active');
-                
-                // Show corresponding section
-                const sectionId = this.getAttribute('data-section');
-                const targetSection = document.getElementById(sectionId);
-                if (targetSection) {
-                    targetSection.classList.add('active');
-                }
-            });
-        });
-    </script>
-</body>
-</html>
