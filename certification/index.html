@@ -6,12 +6,11 @@
     <title>Secure Funder™ Certification Requirements</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #004aad;
             --primary-light: #1E40AF;
-            --accent: #60a5fa;
             --bg: #F5F7F9;
             --card-bg: #ffffff;
             --text: #0F1419;
@@ -71,7 +70,6 @@
             color: var(--highlight-text);
             padding: 0.5rem 1.25rem;
             border-radius: 20px;
-            font-family: 'Space Mono', monospace;
             font-size: 0.875rem;
             font-weight: 600;
             letter-spacing: 0.5px;
@@ -80,18 +78,18 @@
         }
 
         h1 {
-            font-size: 3rem;
-            font-weight: 700;
+            font-size: 2.5rem;
+            font-weight: 600;
             margin-bottom: 1rem;
             letter-spacing: -0.5px;
         }
 
         .hero-subtitle {
-            font-size: 1.25rem;
+            font-size: 1.125rem;
             opacity: 0.9;
             max-width: 700px;
             margin: 0 auto 2rem;
-            line-height: 1.7;
+            line-height: 1.6;
         }
 
         .hero-description {
@@ -103,8 +101,8 @@
             margin: 2rem auto 0;
             max-width: 800px;
             text-align: left;
-            font-size: 0.95rem;
-            line-height: 1.7;
+            font-size: 0.9375rem;
+            line-height: 1.6;
         }
 
         .hero-description strong {
@@ -139,7 +137,7 @@
             text-decoration: none;
             color: var(--text-light);
             font-weight: 500;
-            font-size: 0.9rem;
+            font-size: 0.9375rem;
             border-bottom: 3px solid transparent;
             transition: all 0.3s ease;
             white-space: nowrap;
@@ -163,20 +161,24 @@
         }
 
         .section {
+            display: none;
             background: var(--card-bg);
             border-radius: 12px;
             padding: 2.5rem;
-            margin-bottom: 2rem;
             border: 1px solid var(--border);
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-            scroll-margin-top: 80px;
+        }
+
+        .section.active {
+            display: block;
+            animation: fadeIn 0.4s ease-out;
         }
 
         .section-title {
             font-size: 2rem;
             color: var(--primary);
-            margin-bottom: 1.5rem;
-            font-weight: 700;
+            margin-bottom: 2rem;
+            font-weight: 600;
             display: flex;
             align-items: center;
             gap: 1rem;
@@ -188,11 +190,11 @@
             justify-content: center;
             width: 40px;
             height: 40px;
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            background: linear-gradient(135deg, #004aad, #1E40AF);
             color: white;
             border-radius: 10px;
             font-size: 1.2rem;
-            font-weight: 700;
+            font-weight: 600;
         }
 
         .subsection {
@@ -204,8 +206,8 @@
         }
 
         .subsection-title {
-            font-size: 1.25rem;
-            font-weight: 700;
+            font-size: 1.125rem;
+            font-weight: 600;
             color: var(--text);
             margin-bottom: 1rem;
             display: flex;
@@ -216,7 +218,7 @@
         .subsection-title::before {
             content: '';
             width: 4px;
-            height: 24px;
+            height: 20px;
             background: var(--primary);
             border-radius: 2px;
         }
@@ -227,10 +229,13 @@
             padding: 1rem 1.25rem;
             margin-bottom: 1rem;
             border-radius: 4px;
+            font-size: 0.9375rem;
+            line-height: 1.6;
         }
 
         .requirement strong {
             color: var(--primary);
+            font-weight: 600;
         }
 
         .if-then {
@@ -242,12 +247,10 @@
         }
 
         .if-then-label {
-            font-family: 'Space Mono', monospace;
-            font-weight: 700;
-            font-size: 0.85rem;
+            font-weight: 600;
+            font-size: 0.9375rem;
             color: var(--primary);
-            letter-spacing: 0.5px;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
         }
 
         .options {
@@ -260,10 +263,11 @@
             margin: 0.75rem 0;
             border-radius: 6px;
             border: 1px solid #e8e8e8;
+            font-size: 0.9375rem;
         }
 
         .option-label {
-            font-weight: 700;
+            font-weight: 600;
             color: var(--primary);
             margin-bottom: 0.25rem;
         }
@@ -272,6 +276,8 @@
             padding-left: 2rem;
             margin: 0.5rem 0;
             position: relative;
+            font-size: 0.9375rem;
+            line-height: 1.6;
         }
 
         .sub-item::before {
@@ -279,7 +285,7 @@
             position: absolute;
             left: 0.5rem;
             color: var(--primary);
-            font-weight: 700;
+            font-weight: 600;
         }
 
         .note {
@@ -288,106 +294,9 @@
             padding: 1rem;
             margin: 1rem 0;
             border-radius: 4px;
-            font-size: 0.9rem;
+            font-size: 0.9375rem;
             color: var(--text-light);
-            font-style: italic;
-        }
-
-        .cta-section {
-            background: linear-gradient(135deg, #004aad 0%, #1E40AF 100%);
-            color: white;
-            padding: 4rem 2rem;
-            text-align: center;
-            border-radius: 12px;
-            margin-top: 3rem;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0, 74, 173, 0.15);
-        }
-
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.03) 30%, rgba(255,255,255,0.03) 70%, transparent 70%);
-            background-size: 60px 60px;
-            opacity: 0.5;
-        }
-
-        .cta-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .cta-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .cta-section p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            margin-bottom: 2rem;
-        }
-
-        .email-link {
-            display: inline-block;
-            background: var(--primary);
-            color: white;
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 16px rgba(30, 58, 138, 0.3);
-        }
-
-        .email-link:hover {
-            background: #003d8f;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 74, 173, 0.3);
-        }
-
-        .support-list {
-            background: white;
-            border-radius: 12px;
-            padding: 2rem;
-            margin-top: 2rem;
-            text-align: left;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .support-list h3 {
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-
-        .support-item {
-            padding: 0.75rem 0;
-            border-bottom: 1px solid var(--border);
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-        }
-
-        .support-item:last-child {
-            border-bottom: none;
-        }
-
-        .support-item::before {
-            content: '✓';
-            color: var(--success);
-            font-weight: 700;
-            font-size: 1.2rem;
-            flex-shrink: 0;
+            line-height: 1.6;
         }
 
         .recommended {
@@ -413,24 +322,20 @@
             }
 
             .nav-link {
-                font-size: 0.85rem;
+                font-size: 0.875rem;
                 padding: 1rem;
             }
         }
 
-        @keyframes fadeInUp {
+        @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(10px);
             }
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
-        }
-
-        .section {
-            animation: fadeInUp 0.6s ease-out;
         }
     </style>
 </head>
@@ -449,20 +354,19 @@
 
     <nav>
         <div class="nav-container">
-            <a class="nav-link" href="#email">Email Security</a>
-            <a class="nav-link" href="#portal">Portal Security</a>
-            <a class="nav-link" href="#crm">CRM Security</a>
-            <a class="nav-link" href="#devices">Device Management</a>
-            <a class="nav-link" href="#third-party">Third-Party Access</a>
-            <a class="nav-link" href="#cloud">Cloud Storage</a>
-            <a class="nav-link" href="#personnel">Personnel Controls</a>
-            <a class="nav-link" href="#contact">Get Certified</a>
+            <a class="nav-link active" data-section="email">Email Security</a>
+            <a class="nav-link" data-section="portal">Portal Security</a>
+            <a class="nav-link" data-section="crm">CRM Security</a>
+            <a class="nav-link" data-section="devices">Device Management</a>
+            <a class="nav-link" data-section="third-party">Third-Party Access</a>
+            <a class="nav-link" data-section="cloud">Cloud Storage</a>
+            <a class="nav-link" data-section="personnel">Personnel Controls</a>
         </div>
     </nav>
 
     <div class="container">
         <!-- EMAIL SECURITY -->
-        <section id="email" class="section">
+        <section id="email" class="section active">
             <h2 class="section-title">
                 <span class="section-number">1</span>
                 Email Security
@@ -491,9 +395,9 @@
                         </div>
                         <div class="option">
                             <div class="option-label">Option B: Email gateway to protect documents before human access</div>
-                            <div class="sub-item">Dedicated inbox for broker submissions (e.g., <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="aad9dfc8c7c3d9d9c3c5c4d9eac9c5c7dacbc4d384c9c5c7">[email&#160;protected]</a>)</div>
+                            <div class="sub-item">Dedicated inbox for broker submissions (e.g., submissions@company.com)</div>
                             <div class="sub-item">Attachments routed through gateway to automatically watermark files</div>
-                            <div class="sub-item">Protected files sent to destination inbox for processing team (e.g., <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="9fefedf0fcfaececf6f1f8dffcf0f2effef1e6b1fcf0f2">[email&#160;protected]</a>)</div>
+                            <div class="sub-item">Protected files sent to destination inbox for processing team (e.g., processing@company.com)</div>
                             <div class="sub-item">Secure Funder gateway available, or any provider acceptable</div>
                         </div>
                     </div>
@@ -708,56 +612,32 @@
                 </div>
             </div>
         </section>
-
-        <!-- CTA SECTION -->
-        <section id="contact" class="cta-section">
-            <div class="cta-content">
-                <h2>Ready to Get Certified?</h2>
-                <p>Contact us for a confidential discussion about your certification journey</p>
-                <a href="/cdn-cgi/l/email-protection#99fafcebedf0fff0faf8edf0f6f7d9eafcfaecebfcffecf7fdfcebb7faf6f4" class="email-link"><span class="__cf_email__" data-cfemail="99fafcebedf0fff0faf8edf0f6f7d9eafcfaecebfcffecf7fdfcebb7faf6f4">[email&#160;protected]</span></a>
-                
-                <div class="support-list">
-                    <h3>Support & Resources</h3>
-                    <div class="support-item">
-                        <span><strong>Free pre-certification consultation</strong> to assess current security posture</span>
-                    </div>
-                    <div class="support-item">
-                        <span><strong>Email gateway solution</strong> for automated watermarking of submissions (SOC 2 infrastructure)</span>
-                    </div>
-                    <div class="support-item">
-                        <span><strong>Document watermarking services</strong> for CRM, portal, and cloud storage integration</span>
-                    </div>
-                    <div class="support-item">
-                        <span><strong>Implementation guidance</strong> and referrals to trusted partners for controls we don't provide</span>
-                    </div>
-                    <div class="support-item">
-                        <span><strong>Phased certification approach</strong> for organizations requiring time to implement controls</span>
-                    </div>
-                </div>
-            </div>
-        </section>
     </div>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-        // Smooth scrolling for navigation
-        document.querySelectorAll('.nav-link').forEach(link => {
+    <script>
+        // Tab navigation
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('.section');
+
+        navLinks.forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetSection = document.querySelector(targetId);
                 
+                // Remove active class from all links and sections
+                navLinks.forEach(l => l.classList.remove('active'));
+                sections.forEach(s => s.classList.remove('active'));
+                
+                // Add active class to clicked link
+                this.classList.add('active');
+                
+                // Show corresponding section
+                const sectionId = this.getAttribute('data-section');
+                const targetSection = document.getElementById(sectionId);
                 if (targetSection) {
-                    targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    targetSection.classList.add('active');
                 }
             });
         });
-
-        // Active nav link on scroll
-        const sections = document.querySelectorAll('.section, .cta-section');
-        const navLinks = document.querySelectorAll('.nav-link');
-
-        window.addEventListener('scroll', () => {
-            let current = '';
-            
-            sections.forEach(section => {
-                const secti
+    </script>
+</body>
+</html>
