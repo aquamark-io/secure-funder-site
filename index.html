@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Funder™ Directory</title>
+    <link rel="icon" type="image/png" href="logo-icon-black-blue.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #F5F7F9;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            color: #1a1a1a;
+        }
+
+        .announcement-banner {
+            background: linear-gradient(135deg, #004aad 0%, #1E40AF 100%);
+            color: #ffffff;
+            text-align: center;
+            padding: 1rem 2rem;
+            font-size: 0.9375rem;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+            animation: fadeIn 0.6s ease-out;
+            box-shadow: 0 2px 8px rgba(0, 74, 173, 0.15);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        .announcement-banner strong {
+            font-weight: 700;
+            color: #FEF3C7;
+        }
+
+        .header-bar {
+            background: #ffffff;
+            border-bottom: 1px solid #E8EBED;
+            animation: fadeIn 0.6s ease-out;
+            position: fixed;
+            top: 3.25rem;
+            left: 0;
+            right: 0;
+            z-index: 999;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2.2rem 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo img {
+            max-width: 150px;
+            width: 100%;
+            height: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #0F1419;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9375rem;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: #004aad;
+        }
+
+        .hero-section {
+            text-align: center;
+            padding: 4rem 2rem 3rem;
+            animation: fadeIn 0.8s ease-out 0.1s both;
+            max-width: 900px;
+            margin: 0 auto;
+            margin-top: 10rem;
+        }
+
+        .badge {
+            width: 160px;
+            height: 160px;
+            margin: 0 auto 2rem;
+            animation: fadeInFloat 0.8s ease-out 0.1s both;
+        }
+
+        .badge img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .coming-soon-tag {
+            display: inline-block;
+            background: #D1FAE5;
+            color: #065F46;
+            padding: 0.5rem 1.25rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .hero-section h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
+            color: #0F1419;
+        }
+
+        .trademark {
+            font-size: 1.5rem;
+            vertical-align: super;
+        }
+
+        .hero-section .subtitle {
+            font-size: 1.125rem;
+            color: #536471;
+            font-weight: 400;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        /* Search Bar Styles */
+        .search-container {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto 2rem;
+            padding: 0 2rem;
+        }
+
+        .search-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            width: 100%;
+        }
+
+        .search-input-wrapper {
+            position: relative;
+            flex: 1 1 auto;
+            min-width: 0;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1.25rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #9CA3AF;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .search-input {
+            display: block;
+            width: 100%;
+            padding: 1rem 1rem 1rem 3.25rem;
+            font-size: 1rem;
+            font-family: inherit;
+            border: 1px solid #D1D5DB;
+            border-radius: 8px;
+            background: #ffffff;
+            color: #1a1a1a;
+            transition: all 0.2s ease;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .search-input::placeholder {
+            color: #9CA3AF;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #004aad;
+            box-shadow: 0 0 0 3px rgba(0, 74, 173, 0.1), 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .search-button {
+            flex-shrink: 0;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: inherit;
+            background: #004aad;
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .search-button:hover {
+            background: #1E40AF;
+        }
+
+        .directory-container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 2rem 2rem 4rem;
+            animation: fadeIn 1s ease-out 0.2s both;
+        }
+
+        .plus-blue {
+            color: #004aad;
+            font-weight: 700;
+        }
+
+        .tiers-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .tier-section {
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 3rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+        }
+
+        .tier-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid #E8EBED;
+        }
+
+        .tier-badge {
+            display: inline-block;
+            padding: 0.5rem 1.25rem;
+            border-radius: 20px;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .tier-badge.earliest {
+            background: #FEF3C7;
+            color: #92400E;
+        }
+
+        .tier-badge.protected {
+            background: #D1FAE5;
+            color: #065F46;
+        }
+
+        .tier-badge.certified {
+            background: #DBEAFE;
+            color: #1E40AF;
+        }
+
+        .tier-badge.in-progress {
+            background: #F3F4F6;
+            color: #4B5563;
+        }
+
+        .tier-title {
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: #0F1419;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.3px;
+        }
+
+        .tier-description {
+            font-size: 0.9375rem;
+            color: #536471;
+            line-height: 1.6;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 3rem 2rem;
+            color: #6B7280;
+        }
+
+        .empty-state-text {
+            font-size: 1.0625rem;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        .cta-section {
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 3rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: #0F1419;
+            margin-bottom: 1rem;
+            letter-spacing: -0.3px;
+        }
+
+        .cta-section p {
+            font-size: 1.0625rem;
+            color: #536471;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            font-size: 1.0625rem;
+            font-weight: 600;
+            background: #004aad;
+            color: #ffffff;
+            border-radius: 6px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .cta-button:hover {
+            background: #1E40AF;
+            transform: translateY(-1px);
+        }
+
+        /* Founding Member Card */
+        .founding-member-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            border: 2px solid #E5E7EB;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .member-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .member-logo-info {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            flex: 1;
+        }
+
+        .member-logo {
+            width: 120px;
+            height: 120px;
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            border: 1px solid #E5E7EB;
+        }
+
+        .member-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .member-info {
+            flex: 1;
+        }
+
+        .member-tagline {
+            font-size: 1rem;
+            color: #536471;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .member-badges {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .mini-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 0.9rem;
+            border-radius: 6px;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+
+        .mini-badge.founding {
+            background: #FEF3C7;
+            color: #92400E;
+            border: 1px solid #FCD34D;
+        }
+
+        .mini-badge.sbfa {
+            background: #EFF6FF;
+            color: #1E40AF;
+            border: 1px solid #BFDBFE;
+        }
+
+        .mini-badge.document-security {
+            background: #D1FAE5;
+            color: #065F46;
+            border: 1px solid #6EE7B7;
+        }
+
+        .mini-badge-icon {
+            width: 14px;
+            height: 14px;
+        }
+
+        .member-seal-badge {
+            width: 140px;
+            height: 140px;
+            flex-shrink: 0;
+        }
+
+        .member-seal-badge img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1));
+        }
+
+        .member-description {
+            color: #374151;
+            line-height: 1.7;
+            font-size: 0.9375rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .member-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.25rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #E5E7EB;
+        }
+
+        .highlight-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .highlight-icon {
+            width: 20px;
+            height: 20px;
+            color: #10B981;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .highlight-text {
+            color: #374151;
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -200% 0;
+            }
+            100% {
+                background-position: 200% 0;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInFloat {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .search-wrapper {
+                flex-direction: column;
+            }
+
+            .search-button {
+                width: 100%;
+            }
+
+            .header-container {
+                padding: 1.5rem 2rem;
+                flex-direction: column;
+                gap: 1.5rem;
+                align-items: flex-start;
+            }
+
+            .hero-section {
+                padding: 3rem 1.5rem 2rem;
+            }
+
+            .hero-section h1 {
+                font-size: 1.875rem;
+            }
+
+            .directory-container {
+                padding: 1.5rem 1.5rem 3rem;
+            }
+
+            .tier-section {
+                padding: 2rem 1.5rem;
+            }
+
+            .founding-member-card {
+                padding: 1.5rem;
+            }
+
+            .member-header {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .member-logo-info {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .member-info {
+                width: 100%;
+                text-align: center;
+            }
+
+            .member-info > div:first-child {
+                display: flex;
+                justify-content: center;
+            }
+
+            .member-badges {
+                justify-content: center;
+            }
+
+            .member-seal-badge {
+                width: 100px;
+                height: 100px;
+                margin: 0 auto;
+            }
+
+            .member-description {
+                text-align: center;
+            }
+
+            .member-highlights {
+                grid-template-columns: 1fr;
+            }
+        }
+    
+@media (max-width: 768px) {
+  .ecg-card,
+  .ecg-card p,
+  .directory-card.ecg p {
+    text-align: center;
+  }
+}
+
+
+        @media (max-width: 768px) {
+            /* Mobile rendering reliability for the seal image */
+            .member-seal-badge {
+                display: block !important;
+                margin: 1rem auto 0 !important;
+            }
+            
+            .member-seal-badge img {
+                display: block !important;
+                width: 100% !important;
+                height: 100% !important;
+                object-fit: contain !important;
+            }
+        }
+
+</style>
+</head>
+<body>
+    <div class="announcement-banner">
+        Coming Q1 2026: The industry standard for funder security.
+    </div>
+    
+   
+           
+        </div>
+    </div>
+    
+    <div class="hero-section">
+        <h1>Secure Funder<span class="trademark">™</span> Directory</h1>
+        <p class="subtitle">
+A verified directory of funders committed to protecting sensitive information.        </p>
+    </div>
+
+    <div class="search-container">
+        <div class="search-wrapper">
+            <div class="search-input-wrapper">
+                <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.35-4.35"></path>
+                </svg>
+                <input type="text" class="search-input" placeholder="Search funders..." id="funderSearch">
+            </div>
+            <button class="search-button">Search</button>
+        </div>
+    </div>
+
+    <div class="directory-container">
+        <!-- Founding Member Card -->
+        <div class="founding-member-card">
+            <div class="member-header">
+                <div class="member-logo-info">
+                    <div class="member-info">
+                        <div style="margin-bottom: 1.5rem;">
+                            <a href="https://www.ecg.com/" target="_blank" rel="noopener noreferrer"><img src="ecg2.png" alt="Expansion Capital Group" style="max-width: 220px; width: 100%; height: auto;"></a>
+                        </div>
+                        <p class="member-tagline">Charter Member • Est. 2026</p>
+                        <div class="member-badges">
+                            <span class="mini-badge founding">
+                                <svg class="mini-badge-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                </svg>
+                                Charter Member
+                            </span>
+                            <span class="mini-badge sbfa">
+                                <svg class="mini-badge-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                SBFA Member
+                            </span>
+                            <span class="mini-badge document-security">
+                                <svg class="mini-badge-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                Document Security Layer
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="member-seal-badge">
+                    <img src="founding-badge.png" alt="Founding Secure Funder Badge">
+                </div>
+            </div>
+
+            <p class="member-description">
+Expansion Capital Group is Secure Funder™ certified following an independent review of technical safeguards designed to control the handling of sensitive information and prevent unauthorized external sharing. As the program’s charter member, their participation helped establish baseline standards and reflects the view that protecting sensitive information is not merely good practice — it is a professional responsibility.            
+            </p>
+        </div>
+
+        <div class="tier-section">
+            <div class="tier-header">
+                <div style="display: flex; justify-content: center; margin-bottom: 1.5rem;">
+                    <img src="2026-badge.png" alt="Secure Funder 2026 Badge" style="width: 120px; height: 120px; object-fit: contain;">
+                </div>
+                <h2 class="tier-title">Certified Funders</h2>
+                <p class="tier-description">
+                    Funders who meet program standards.
+                </p>
+            </div>
+            <div class="empty-state">
+                <div class="empty-state-text">Coming Q1 2026</div>
+            </div>
+        </div>
+
+        <div class="tier-section">
+            <div class="tier-header">
+                <div class="tier-badge in-progress">Coming Q1-2026</div>
+                <h2 class="tier-title">Certification In Progress</h2>
+                <p class="tier-description">
+                    Funders currently undergoing certification.
+                </p>
+            </div>
+            <div class="empty-state">
+                <div class="empty-state-text">Coming Q1 2026</div>
+            </div>
+        </div>
+
+       
+    </div>
+
+    <div style="border-top: 1px solid #E8EBED; background: #FAFBFC; margin-top: 3rem; padding: 2.5rem 2rem;">
+        <div style="max-width: 1100px; margin: 0 auto; text-align: center;">
+            <h4 style="font-size: 0.875rem; font-weight: 600; color: #6B7280; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 1rem;">About This Program</h4>
+            
+            <p style="color: #6B7280; font-size: 0.8125rem; line-height: 1.6; margin: 0;">
+The Secure Funder™ certification program is administered by <a href="https://www.aquamark.io/" target="_blank" rel="noopener noreferrer" style="color: #004aad; text-decoration: none;">Aquamark</a>, an independent third party specializing in document security and data-protection controls within the alternative finance industry. Certification is based on a technical verification process evaluating how sensitive information is handled within participating organizations, including the identification of potential vulnerabilities where data could be improperly accessed, shared, or exfiltrated.
+
+For inquiries regarding the certification program, please contact <a href="mailto:info@aquamark.io" style="color: #004aad; text-decoration: none;">info@aquamark.io
+</a>           </p>
+        </div>
+    </div>
+</body>
+</html>
