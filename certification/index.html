@@ -425,8 +425,6 @@
                             <div class="sub-item">Submissions automatically forwarded/pushed to CRM without human intervention</div>
                             <div class="sub-item">Only management may access submission inbox for configuration/troubleshooting purposes</div>
                             <div class="sub-item">Processing personnel cannot access the submission inbox</div>
-                            <div class="sub-item">If CRM is view-only (no downloads), watermarking not required</div>
-                            <div class="sub-item">If CRM allows downloads, files must be watermarked before reaching CRM or at download</div>
                         </div>
                         <div class="option">
                             <div class="option-label"><strong>Option B:</strong> Email gateway to protect documents before human access</div>
@@ -645,7 +643,7 @@
         </section>
     </div>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         // Tab navigation
         const navLinks = document.querySelectorAll('.nav-link');
         const sections = document.querySelectorAll('.section');
@@ -660,3 +658,15 @@
                 
                 // Add active class to clicked link
                 this.classList.add('active');
+                
+                // Show corresponding section
+                const sectionId = this.getAttribute('data-section');
+                const targetSection = document.getElementById(sectionId);
+                if (targetSection) {
+                    targetSection.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
