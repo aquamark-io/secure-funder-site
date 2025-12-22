@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Funder™ Certification Requirements</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a3a52;
+            --primary-light: #2d5671;
+            --accent: #e67e22;
+            --bg: #fafbfc;
+            --card-bg: #ffffff;
+            --text: #2c3e50;
+            --text-light: #546e7a;
+            --border: #e0e6ed;
+            --success: #27ae60;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.6;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.03) 30%, rgba(255,255,255,0.03) 70%, transparent 70%);
+            background-size: 60px 60px;
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            line-height: 1.7;
+        }
+
+        .hero-description {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem auto 0;
+            max-width: 800px;
+            text-align: left;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .hero-description strong {
+            color: var(--accent);
+        }
+
+        nav {
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            gap: 0.5rem;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+
+        .nav-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .nav-link {
+            padding: 1rem 1.5rem;
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 500;
+            font-size: 0.9rem;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            cursor: pointer;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+            border-bottom-color: var(--accent);
+        }
+
+        .nav-link.active {
+            color: var(--primary);
+            border-bottom-color: var(--accent);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .section {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid var(--border);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            scroll-margin-top: 80px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .subsection {
+            margin-bottom: 2rem;
+        }
+
+        .subsection:last-child {
+            margin-bottom: 0;
+        }
+
+        .subsection-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .subsection-title::before {
+            content: '';
+            width: 4px;
+            height: 24px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        .requirement {
+            background: #f8f9fa;
+            border-left: 3px solid var(--accent);
+            padding: 1rem 1.25rem;
+            margin-bottom: 1rem;
+            border-radius: 4px;
+        }
+
+        .requirement strong {
+            color: var(--primary);
+        }
+
+        .if-then {
+            background: linear-gradient(135deg, #fff9f0 0%, #fff5e6 100%);
+            border-left: 3px solid var(--accent);
+            padding: 1.25rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+        }
+
+        .if-then-label {
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--accent);
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .options {
+            margin-top: 1rem;
+        }
+
+        .option {
+            background: white;
+            padding: 1rem;
+            margin: 0.75rem 0;
+            border-radius: 6px;
+            border: 1px solid #e8e8e8;
+        }
+
+        .option-label {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .sub-item {
+            padding-left: 2rem;
+            margin: 0.5rem 0;
+            position: relative;
+        }
+
+        .sub-item::before {
+            content: '→';
+            position: absolute;
+            left: 0.5rem;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .note {
+            background: #f0f7ff;
+            border-left: 3px solid #3498db;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            border-radius: 16px;
+            margin-top: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.03) 30%, rgba(255,255,255,0.03) 70%, transparent 70%);
+            background-size: 60px 60px;
+            opacity: 0.5;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .email-link {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 16px rgba(230, 126, 34, 0.3);
+        }
+
+        .email-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(230, 126, 34, 0.4);
+        }
+
+        .support-list {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 2rem;
+            text-align: left;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .support-list h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .support-item {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .support-item:last-child {
+            border-bottom: none;
+        }
+
+        .support-item::before {
+            content: '✓';
+            color: var(--success);
+            font-weight: 700;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .recommended {
+            color: var(--success);
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .container {
+                padding: 2rem 1rem;
+            }
+
+            .nav-link {
+                font-size: 0.85rem;
+                padding: 1rem;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section {
+            animation: fadeInUp 0.6s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <div class="hero-content">
+            <div class="badge">CERTIFICATION PROGRAM 2026</div>
+            <h1>Secure Funder™</h1>
+            <p class="hero-subtitle">Technical Safeguards for Data Protection in Alternative Finance</p>
+            <div class="hero-description">
+                <p>This program verifies that your organization has appropriate technical safeguards to protect merchant data from unauthorized access and external sharing. Requirements focus on <strong>observable technical controls</strong>, not written policies. Where a specific control is not in place, functionally equivalent alternatives may be accepted.</p>
+                <p style="margin-top: 1rem;">Verification is conducted via non-recorded screenshare or on-site review at funder's expense. <strong>The process is collaborative</strong> — certification may proceed with agreed-upon remediation timelines or compensating controls rather than immediate disqualification.</p>
+            </div>
+        </div>
+    </div>
+
+    <nav>
+        <div class="nav-container">
+            <a class="nav-link" href="#email">Email Security</a>
+            <a class="nav-link" href="#portal">Portal Security</a>
+            <a class="nav-link" href="#crm">CRM Security</a>
+            <a class="nav-link" href="#devices">Device Management</a>
+            <a class="nav-link" href="#third-party">Third-Party Access</a>
+            <a class="nav-link" href="#cloud">Cloud Storage</a>
+            <a class="nav-link" href="#personnel">Personnel Controls</a>
+            <a class="nav-link" href="#contact">Get Certified</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- EMAIL SECURITY -->
+        <section id="email" class="section">
+            <h2 class="section-title">
+                <span class="section-number">1</span>
+                Email Security
+            </h2>
+
+            <div class="subsection">
+                <h3 class="subsection-title">Multi-Factor Authentication (MFA)</h3>
+                <div class="requirement">
+                    <strong>Required:</strong> MFA must be enforced for all users with access to merchant data
+                    <div class="sub-item">Acceptable implementations: Google Workspace 2-Step Verification, Microsoft Entra ID MFA, or equivalent</div>
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3 class="subsection-title">Submission Handling</h3>
+                <div class="if-then">
+                    <div class="if-then-label">IF broker submissions are accepted via email, THEN one of the following is required:</div>
+                    <div class="options">
+                        <div class="option">
+                            <div class="option-label">Option A: Automated email processing with restricted human access</div>
+                            <div class="sub-item">Submissions automatically forwarded/pushed to CRM without human intervention</div>
+                            <div class="sub-item">Only management may access submission inbox for configuration/troubleshooting purposes</div>
+                            <div class="sub-item">Processing personnel cannot access the submission inbox</div>
+                            <div class="sub-item">If CRM is view-only (no downloads), watermarking not required</div>
+                            <div class="sub-item">If CRM allows downloads, files must be watermarked before reaching CRM or at download</div>
+                        </div>
+                        <div class="option">
+                            <div class="option-label">Option B: Email gateway to protect documents before human access</div>
+                            <div class="sub-item">Dedicated inbox for broker submissions (e.g., submissions@company.com)</div>
+                            <div class="sub-item">Attachments routed through gateway to automatically watermark files</div>
+                            <div class="sub-item">Protected files sent to destination inbox for processing team (e.g., processing@company.com)</div>
+                            <div class="sub-item">Secure Funder gateway available, or any provider acceptable</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3 class="subsection-title">Outbound Email Controls</h3>
+                <div class="requirement">
+                    <strong>Required:</strong> Email rules that quarantine outbound emails with attachments for approval when sent to:
+                    <div class="sub-item">Personal email addresses (Gmail, Yahoo, Outlook.com, etc.)</div>
+                    <div class="sub-item">External corporate domains</div>
+                </div>
+                <div class="note">
+                    Note: This requirement applies to non-customer-facing roles (underwriters, processors, admin, etc.). Customer-facing roles (sales, account managers) may have legitimate needs to email externally and can be exempted from quarantine rules.
+                </div>
+                <div class="requirement">
+                    <strong>Required:</strong> Network-level blocking of personal email sites (mail.google.com, outlook.live.com, yahoo.com) on company devices
+                </div>
+                <div class="requirement">
+                    <strong>Required:</strong> Blocking of email forwarding rules to external addresses
+                </div>
+            </div>
+        </section>
+
+        <!-- PORTAL SECURITY -->
+        <section id="portal" class="section">
+            <h2 class="section-title">
+                <span class="section-number">2</span>
+                Portal Security
+            </h2>
+
+            <div class="subsection">
+                <h3 class="subsection-title">Document Access Controls</h3>
+                <div class="if-then">
+                    <div class="if-then-label">IF files are available in your portal, THEN choose one:</div>
+                    <div class="options">
+                        <div class="option">
+                            <div class="option-label">Option A: View-only access to files (no download capability)</div>
+                        </div>
+                        <div class="option">
+                            <div class="option-label">Option B: Files are watermarked before entering portal or at time of download</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CRM SECURITY -->
+        <section id="crm" class="section">
+            <h2 class="section-title">
+                <span class="section-number">3</span>
+                CRM Security
+            </h2>
+
+            <div class="subsection">
+                <h3 class="subsection-title">Multi-Factor Authentication</h3>
+                <div class="requirement">
+                    <strong>Required:</strong> MFA must be enabled for all users with access to merchant data
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3 class="subsection-title">Document Access Controls</h3>
+                <div class="if-then">
+                    <div class="if-then-label">IF documents are stored in your CRM, THEN choose one:</div>
+                    <div class="options">
+                        <div class="option">
+                            <div class="option-label">Option A: View-only access to files (no download capability)</div>
+                        </div>
+                        <div class="option">
+                            <div class="option-label">Option B: Files are watermarked before entering CRM or at time of download</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3 class="subsection-title">Access Controls</h3>
+                <div class="requirement">
+                    <strong>Required:</strong> Personnel can only access accounts assigned to them
+                    <div class="sub-item">Role-based access controls must restrict visibility to assigned deals/accounts</div>
+                </div>
+                <div class="if-then">
+                    <div class="if-then-label">IF roles require access to entire database (e.g., managers, compliance), THEN:</div>
+                    <div class="sub-item">Access to sensitive fields (SSN, DOB, EIN, contact information) restricted to roles requiring this information</div>
+                    <div class="sub-item">Documents must be view-only OR watermarked (as addressed above)</div>
+                </div>
+                <div class="if-then">
+                    <div class="if-then-label">IF full database download capability exists, THEN:</div>
+                    <div class="sub-item">This function must be restricted to senior personnel only</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DEVICE & NETWORK MANAGEMENT -->
+        <section id="devices" class="section">
+            <h2 class="section-title">
+                <span class="section-number">4</span>
+                Device & Network Management
+            </h2>
+
+            <div class="subsection">
+                <h3 class="subsection-title">Managed Devices</h3>
+                <div class="requirement">
+                    <strong>Required:</strong> All personnel accessing merchant data or documents must use company-managed devices (company-issued or managed personal devices with enforced security controls)
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3 class="subsection-title">Device Security Controls</h3>
+                <div class="requirement">
+                    <strong>Required:</strong> USB ports restricted (storage devices blocked)
+                </div>
+                <div class="requirement">
+                    <strong>Required:</strong> Screen lock timeout (maximum 15 minutes of inactivity)
+                </div>
+                <div class="requirement">
+                    <strong>Required:</strong> Network restrictions prevent installing/uninstalling applications without IT approval
+                </div>
+                <div class="requirement">
+                    <span class="recommended">Recommended:</span> Role-based printing controls (restrict printing to roles requiring hard copies)
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3 class="subsection-title">Remote Access</h3>
+                <div class="requirement">
+                    <strong>Required:</strong> Remote employees must connect via company VPN when accessing email, CRM, or portals
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3 class="subsection-title">Password Policy</h3>
+                <div class="requirement">
+                    <strong>Required:</strong> Documented password requirements including minimum complexity and periodic changes (quarterly recommended)
+                </div>
+            </div>
+        </section>
+
+        <!-- THIRD-PARTY ACCESS -->
+        <section id="third-party" class="section">
+            <h2 class="section-title">
+                <span class="section-number">5</span>
+                Third-Party Access
+            </h2>
+
+            <div class="subsection">
+                <h3 class="subsection-title">BPO / Offshore Teams</h3>
+                <div class="if-then">
+                    <div class="if-then-label">IF BPO or offshore teams have access to merchant documents (via email, CRM, portal, or cloud storage), THEN choose one:</div>
+                    <div class="options">
+                        <div class="option">
+                            <div class="option-label">Option A: View-only access to files (no download capability)</div>
+                        </div>
+                        <div class="option">
+                            <div class="option-label">Option B: Documents are watermarked before third-party access</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3 class="subsection-title">Syndication Programs</h3>
+                <div class="if-then">
+                    <div class="if-then-label">IF you operate a syndication program where participants access merchant information or documents, THEN:</div>
+                    <div class="sub-item"><strong>Required:</strong> Provide written business justification for participant access to sensitive information</div>
+                    <div class="sub-item"><strong>Required:</strong> Participants have view-only access OR documents are watermarked if downloadable</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CLOUD STORAGE -->
+        <section id="cloud" class="section">
+            <h2 class="section-title">
+                <span class="section-number">6</span>
+                Cloud Storage
+            </h2>
+
+            <div class="subsection">
+                <h3 class="subsection-title">Cloud Service Usage</h3>
+                <div class="if-then">
+                    <div class="if-then-label">IF you use cloud storage services (Google Drive, Dropbox, OneDrive, Box, etc.) to house merchant documents, THEN:</div>
+                    <div class="sub-item"><strong>Required:</strong> Disclose which services are used and who has access</div>
+                    <div class="sub-item"><strong>Required:</strong> Users have view-only access OR documents are watermarked if downloadable</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PERSONNEL CONTROLS -->
+        <section id="personnel" class="section">
+            <h2 class="section-title">
+                <span class="section-number">7</span>
+                Personnel Controls
+            </h2>
+
+            <div class="subsection">
+                <h3 class="subsection-title">Background Checks</h3>
+                <div class="requirement">
+                    <strong>Required:</strong> All personnel with access to merchant documents must pass background checks appropriate for their role
+                    <div class="sub-item">Documentation of background check process will be reviewed during verification</div>
+                    <div class="sub-item">Must demonstrate checks are conducted for all relevant personnel (redacted results acceptable)</div>
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3 class="subsection-title">Off-boarding Process</h3>
+                <div class="requirement">
+                    <strong>Required:</strong> Documented process for immediately revoking system access when employees leave or change roles
+                    <div class="sub-item">Process documentation will be reviewed during verification (sensitive information can be redacted)</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA SECTION -->
+        <section id="contact" class="cta-section">
+            <div class="cta-content">
+                <h2>Ready to Get Certified?</h2>
+                <p>Contact us for a confidential discussion about your certification journey</p>
+                <a href="mailto:certification@securefunder.com" class="email-link">certification@securefunder.com</a>
+                
+                <div class="support-list">
+                    <h3>Support & Resources</h3>
+                    <div class="support-item">
+                        <span><strong>Free pre-certification consultation</strong> to assess current security posture</span>
+                    </div>
+                    <div class="support-item">
+                        <span><strong>Email gateway solution</strong> for automated watermarking of submissions (SOC 2 infrastructure)</span>
+                    </div>
+                    <div class="support-item">
+                        <span><strong>Document watermarking services</strong> for CRM, portal, and cloud storage integration</span>
+                    </div>
+                    <div class="support-item">
+                        <span><strong>Implementation guidance</strong> and referrals to trusted partners for controls we don't provide</span>
+                    </div>
+                    <div class="support-item">
+                        <span><strong>Phased certification approach</strong> for organizations requiring time to implement controls</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Active nav link on scroll
+        const sections = document.querySelectorAll('.section, .cta-section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
