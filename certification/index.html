@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Secure Funder™ Certification Requirements</title>
     <link rel="icon" href="/2026-badge.png" type="image/png">
-<link rel="apple-touch-icon" href="/2026-badge.png">
+    <link rel="apple-touch-icon" href="/2026-badge.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -21,6 +21,7 @@
             --success: #10b981;
             --highlight: #D1FAE5;
             --highlight-text: #065F46;
+            --if-then-bg: #F0F9FF;
         }
 
         * {
@@ -37,33 +38,16 @@
         }
 
         .hero {
-            background: linear-gradient(135deg, #004aad 0%, #1E40AF 100%);
-            color: white;
+            background: var(--card-bg);
+            color: var(--text);
             padding: 3rem 2rem;
             text-align: center;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0, 74, 173, 0.15);
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.03) 30%, rgba(255,255,255,0.03) 70%, transparent 70%);
-            background-size: 60px 60px;
-            opacity: 0.5;
+            border-bottom: 1px solid var(--border);
         }
 
         .hero-content {
             max-width: 900px;
             margin: 0 auto;
-            position: relative;
-            z-index: 1;
         }
 
         .badge {
@@ -88,27 +72,27 @@
 
         .hero-subtitle {
             font-size: 1.125rem;
-            opacity: 0.9;
+            color: var(--text-light);
             max-width: 700px;
             margin: 0 auto 2rem;
             line-height: 1.6;
         }
 
         .hero-description {
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.2);
-            border-radius: 12px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
             padding: 1.5rem;
             margin: 2rem auto 0;
             max-width: 800px;
             text-align: left;
             font-size: 0.9375rem;
             line-height: 1.6;
+            color: var(--text);
         }
 
         .hero-description strong {
-            color: #FEF3C7;
+            color: var(--primary);
         }
 
         nav {
@@ -148,7 +132,6 @@
 
         .nav-link:hover {
             color: var(--primary);
-            border-bottom-color: var(--primary);
         }
 
         .nav-link.active {
@@ -165,25 +148,26 @@
         .section {
             display: none;
             background: var(--card-bg);
-            border-radius: 12px;
+            border-radius: 8px;
             padding: 2.5rem;
             border: 1px solid var(--border);
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
         }
 
         .section.active {
             display: block;
-            animation: fadeIn 0.4s ease-out;
+            animation: fadeIn 0.3s ease-out;
         }
 
         .section-title {
             font-size: 2rem;
-            color: var(--primary);
+            color: var(--text);
             margin-bottom: 2rem;
             font-weight: 600;
             display: flex;
             align-items: center;
             gap: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--border);
         }
 
         .section-number {
@@ -192,15 +176,15 @@
             justify-content: center;
             width: 40px;
             height: 40px;
-            background: linear-gradient(135deg, #004aad, #1E40AF);
+            background: var(--primary);
             color: white;
-            border-radius: 10px;
+            border-radius: 8px;
             font-size: 1.2rem;
             font-weight: 600;
         }
 
         .subsection {
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
         }
 
         .subsection:last-child {
@@ -212,47 +196,38 @@
             font-weight: 600;
             color: var(--text);
             margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .subsection-title::before {
-            content: '';
-            width: 4px;
-            height: 20px;
-            background: var(--primary);
-            border-radius: 2px;
+            padding-left: 1rem;
+            border-left: 4px solid var(--primary);
         }
 
         .requirement {
             background: #FAFBFC;
-            border-left: 3px solid var(--primary);
             padding: 1rem 1.25rem;
             margin-bottom: 1rem;
             border-radius: 4px;
             font-size: 0.9375rem;
             line-height: 1.6;
+            border-left: 3px solid var(--border);
         }
 
         .requirement strong {
-            color: var(--primary);
+            color: var(--text);
             font-weight: 600;
         }
 
         .if-then {
-            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-            border-left: 3px solid var(--primary);
+            background: var(--if-then-bg);
             padding: 1.25rem;
             margin: 1rem 0;
-            border-radius: 8px;
+            border-radius: 6px;
+            border-left: 3px solid var(--primary);
         }
 
         .if-then-label {
             font-weight: 600;
             font-size: 0.9375rem;
-            color: var(--primary);
-            margin-bottom: 0.75rem;
+            color: var(--text);
+            margin-bottom: 1rem;
         }
 
         .options {
@@ -261,44 +236,48 @@
 
         .option {
             background: white;
-            padding: 1rem;
+            padding: 1rem 1.25rem;
             margin: 0.75rem 0;
-            border-radius: 6px;
-            border: 1px solid #e8e8e8;
+            border-radius: 4px;
+            border: 1px solid var(--border);
             font-size: 0.9375rem;
         }
 
         .option-label {
             font-weight: 600;
-            color: var(--primary);
-            margin-bottom: 0.25rem;
+            color: var(--text);
+            margin-bottom: 0.5rem;
         }
 
         .sub-item {
-            padding-left: 2rem;
+            padding-left: 1.5rem;
             margin: 0.5rem 0;
             position: relative;
             font-size: 0.9375rem;
             line-height: 1.6;
+            color: var(--text);
         }
 
         .sub-item::before {
-            content: '→';
+            content: '•';
             position: absolute;
             left: 0.5rem;
-            color: var(--primary);
-            font-weight: 600;
+            color: var(--text-light);
         }
 
         .note {
-            background: #f0f7ff;
-            border-left: 3px solid #3498db;
-            padding: 1rem;
+            background: #FFFBEB;
+            border-left: 3px solid #F59E0B;
+            padding: 1rem 1.25rem;
             margin: 1rem 0;
             border-radius: 4px;
             font-size: 0.9375rem;
-            color: var(--text-light);
+            color: var(--text);
             line-height: 1.6;
+        }
+
+        .note strong {
+            font-weight: 600;
         }
 
         .recommended {
@@ -356,10 +335,10 @@
 
     <nav>
         <div class="nav-container">
-            <a class="nav-link active" data-section="email">Email Security</a>
-            <a class="nav-link" data-section="portal">Portal Security</a>
-            <a class="nav-link" data-section="crm">CRM Security</a>
-            <a class="nav-link" data-section="devices">Device Management</a>
+            <a class="nav-link active" data-section="email">Email</a>
+            <a class="nav-link" data-section="portal">Portal</a>
+            <a class="nav-link" data-section="crm">CRM</a>
+            <a class="nav-link" data-section="devices">Devices</a>
             <a class="nav-link" data-section="third-party">Third-Party Access</a>
             <a class="nav-link" data-section="cloud">Cloud Storage</a>
             <a class="nav-link" data-section="personnel">Personnel Controls</a>
@@ -414,7 +393,7 @@
                     <div class="sub-item">External corporate domains</div>
                 </div>
                 <div class="note">
-                    Note: This requirement applies to non-customer-facing roles (underwriters, processors, admin, etc.). Customer-facing roles (sales, account managers) may have legitimate needs to email externally and can be exempted from quarantine rules.
+                    <strong>Note:</strong> This requirement applies to non-customer-facing roles (underwriters, processors, admin, etc.). Customer-facing roles (sales, account managers) may have legitimate needs to email externally and can be exempted from quarantine rules.
                 </div>
                 <div class="requirement">
                     <strong>Required:</strong> Network-level blocking of personal email sites (mail.google.com, outlook.live.com, yahoo.com) on company devices
@@ -434,6 +413,9 @@
 
             <div class="subsection">
                 <h3 class="subsection-title">Document Access Controls</h3>
+                <div class="note">
+                    <strong>Note:</strong> If you do not have a broker portal, skip this section.
+                </div>
                 <div class="if-then">
                     <div class="if-then-label">IF files are available in your portal, THEN choose one:</div>
                     <div class="options">
@@ -522,7 +504,7 @@
                     <strong>Required:</strong> Network restrictions prevent installing/uninstalling applications without IT approval
                 </div>
                 <div class="requirement">
-                    <span class="recommended">Recommended:</span> Role-based printing controls (restrict printing to roles requiring hard copies)
+                    <strong>Required:</strong> Role-based printing controls (restrict printing to roles requiring hard copies)
                 </div>
             </div>
 
@@ -562,15 +544,6 @@
                     </div>
                 </div>
             </div>
-
-            <div class="subsection">
-                <h3 class="subsection-title">Syndication Programs</h3>
-                <div class="if-then">
-                    <div class="if-then-label">IF you operate a syndication program where participants access merchant information or documents, THEN:</div>
-                    <div class="sub-item"><strong>Required:</strong> Provide written business justification for participant access to sensitive information</div>
-                    <div class="sub-item"><strong>Required:</strong> Participants have view-only access OR documents are watermarked if downloadable</div>
-                </div>
-            </div>
         </section>
 
         <!-- CLOUD STORAGE -->
@@ -601,8 +574,7 @@
                 <h3 class="subsection-title">Background Checks</h3>
                 <div class="requirement">
                     <strong>Required:</strong> All personnel with access to merchant documents must pass background checks appropriate for their role
-                    <div class="sub-item">Documentation of background check process will be reviewed during verification</div>
-                    <div class="sub-item">Must demonstrate checks are conducted for all relevant personnel (redacted results acceptable)</div>
+                    <div class="sub-item">Provide signed background check authorization forms (third-party service agreements also acceptable)</div>
                 </div>
             </div>
 
