@@ -9,15 +9,16 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #1a3a52;
-            --primary-light: #2d5671;
-            --accent: #e67e22;
-            --bg: #fafbfc;
+            --primary: #1e3a8a;
+            --primary-light: #3b82f6;
+            --accent: #60a5fa;
+            --bg: #f8fafc;
             --card-bg: #ffffff;
-            --text: #2c3e50;
-            --text-light: #546e7a;
-            --border: #e0e6ed;
-            --success: #27ae60;
+            --text: #1e293b;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --success: #10b981;
+            --highlight: #dbeafe;
         }
 
         * {
@@ -105,7 +106,7 @@
         }
 
         .hero-description strong {
-            color: var(--accent);
+            color: var(--primary-light);
         }
 
         nav {
@@ -145,12 +146,12 @@
 
         .nav-link:hover {
             color: var(--primary);
-            border-bottom-color: var(--accent);
+            border-bottom-color: var(--primary-light);
         }
 
         .nav-link.active {
             color: var(--primary);
-            border-bottom-color: var(--accent);
+            border-bottom-color: var(--primary-light);
         }
 
         .container {
@@ -214,13 +215,13 @@
             content: '';
             width: 4px;
             height: 24px;
-            background: var(--accent);
+            background: var(--primary-light);
             border-radius: 2px;
         }
 
         .requirement {
-            background: #f8f9fa;
-            border-left: 3px solid var(--accent);
+            background: #f8fafc;
+            border-left: 3px solid var(--primary-light);
             padding: 1rem 1.25rem;
             margin-bottom: 1rem;
             border-radius: 4px;
@@ -231,8 +232,8 @@
         }
 
         .if-then {
-            background: linear-gradient(135deg, #fff9f0 0%, #fff5e6 100%);
-            border-left: 3px solid var(--accent);
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-left: 3px solid var(--primary-light);
             padding: 1.25rem;
             margin: 1rem 0;
             border-radius: 8px;
@@ -242,7 +243,7 @@
             font-family: 'Space Mono', monospace;
             font-weight: 700;
             font-size: 0.85rem;
-            color: var(--accent);
+            color: var(--primary);
             letter-spacing: 0.5px;
             margin-bottom: 0.5rem;
         }
@@ -275,7 +276,7 @@
             content: '→';
             position: absolute;
             left: 0.5rem;
-            color: var(--accent);
+            color: var(--primary-light);
             font-weight: 700;
         }
 
@@ -332,7 +333,7 @@
 
         .email-link {
             display: inline-block;
-            background: var(--accent);
+            background: var(--primary);
             color: white;
             padding: 1rem 2.5rem;
             border-radius: 50px;
@@ -340,12 +341,13 @@
             font-weight: 700;
             font-size: 1.1rem;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 16px rgba(230, 126, 34, 0.3);
+            box-shadow: 0 4px 16px rgba(30, 58, 138, 0.3);
         }
 
         .email-link:hover {
+            background: var(--primary-light);
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(230, 126, 34, 0.4);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
         }
 
         .support-list {
@@ -486,9 +488,9 @@
                         </div>
                         <div class="option">
                             <div class="option-label">Option B: Email gateway to protect documents before human access</div>
-                            <div class="sub-item">Dedicated inbox for broker submissions (e.g., submissions@company.com)</div>
+                            <div class="sub-item">Dedicated inbox for broker submissions (e.g., <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="aad9dfc8c7c3d9d9c3c5c4d9eac9c5c7dacbc4d384c9c5c7">[email&#160;protected]</a>)</div>
                             <div class="sub-item">Attachments routed through gateway to automatically watermark files</div>
-                            <div class="sub-item">Protected files sent to destination inbox for processing team (e.g., processing@company.com)</div>
+                            <div class="sub-item">Protected files sent to destination inbox for processing team (e.g., <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="9fefedf0fcfaececf6f1f8dffcf0f2effef1e6b1fcf0f2">[email&#160;protected]</a>)</div>
                             <div class="sub-item">Secure Funder gateway available, or any provider acceptable</div>
                         </div>
                     </div>
@@ -571,9 +573,10 @@
                 <div class="requirement">
                     <strong>Required:</strong> Personnel can only access accounts assigned to them
                     <div class="sub-item">Role-based access controls must restrict visibility to assigned deals/accounts</div>
+                    <div class="sub-item">Customer-facing sales roles must only be able to see their own deals</div>
                 </div>
                 <div class="if-then">
-                    <div class="if-then-label">IF roles require access to entire database (e.g., managers, compliance), THEN:</div>
+                    <div class="if-then-label">IF roles require access to entire database (e.g., managers, compliance, customer support), THEN:</div>
                     <div class="sub-item">Access to sensitive fields (SSN, DOB, EIN, contact information) restricted to roles requiring this information</div>
                     <div class="sub-item">Documents must be view-only OR watermarked (as addressed above)</div>
                 </div>
@@ -708,7 +711,7 @@
             <div class="cta-content">
                 <h2>Ready to Get Certified?</h2>
                 <p>Contact us for a confidential discussion about your certification journey</p>
-                <a href="mailto:certification@securefunder.com" class="email-link">certification@securefunder.com</a>
+                <a href="/cdn-cgi/l/email-protection#99fafcebedf0fff0faf8edf0f6f7d9eafcfaecebfcffecf7fdfcebb7faf6f4" class="email-link"><span class="__cf_email__" data-cfemail="99fafcebedf0fff0faf8edf0f6f7d9eafcfaecebfcffecf7fdfcebb7faf6f4">[email&#160;protected]</span></a>
                 
                 <div class="support-list">
                     <h3>Support & Resources</h3>
@@ -732,7 +735,7 @@
         </section>
     </div>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Smooth scrolling for navigation
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', function(e) {
@@ -754,20 +757,4 @@
             let current = '';
             
             sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (pageYOffset >= sectionTop - 100) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === '#' + current) {
-                    link.classList.add('active');
-                }
-            });
-        });
-    </script>
-</body>
-</html>
+                const secti
