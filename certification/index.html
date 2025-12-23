@@ -501,6 +501,27 @@
             </div>
 
             <div class="subsection">
+                <h3 class="subsection-title">Submission Handling</h3>
+                <div class="if-then">
+                    <div class="if-then-label">IF broker submissions are accepted via email, THEN one of the following is required:</div>
+                    <div class="options">
+                        <div class="option">
+                            <div class="option-label"><strong>Option A:</strong> Automated email processing with restricted human access</div>
+                            <div class="sub-item">Submissions automatically forwarded/pushed to CRM without human intervention</div>
+                            <div class="sub-item">Only management may access submission inbox for configuration/troubleshooting purposes</div>
+                            <div class="sub-item">Processing personnel cannot access the submission inbox</div>
+                        </div>
+                        <div class="option">
+                            <div class="option-label"><strong>Option B:</strong> Email gateway to protect documents before human access (Secure Funder gateway available, or other provider)</div>
+                            <div class="sub-item">Dedicated inbox for broker submissions (e.g., submissions@company.com)</div>
+                            <div class="sub-item">Attachments routed through gateway to automatically watermark files</div>
+                            <div class="sub-item">Protected files sent to destination inbox for processing team (e.g., processing@company.com)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="subsection">
                 <h3 class="subsection-title">Outbound Email Controls</h3>
                 <div class="requirement">
                     <strong>Required:</strong> Email rules that quarantine outbound emails (with attachments) for approval when sent to:
