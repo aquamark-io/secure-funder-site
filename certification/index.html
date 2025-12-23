@@ -410,7 +410,7 @@
             <div class="subsection">
                 <h3 class="subsection-title">Multi-Factor Authentication (MFA)</h3>
                 <div class="requirement">
-                    <strong>Required:</strong> MFA must be enforced for all users with access to merchant data
+                    <strong>Required:</strong> MFA must be enabled
                     <div class="sub-item">Acceptable implementations: Google Workspace 2-Step Verification, Microsoft Entra ID MFA, or equivalent</div>
                 </div>
             </div>
@@ -422,9 +422,8 @@
                     <div class="options">
                         <div class="option">
                             <div class="option-label"><strong>Option A:</strong> Automated email processing with restricted human access</div>
-                            <div class="sub-item">Submissions automatically forwarded/pushed to CRM without human intervention</div>
-                            <div class="sub-item">Only management may access submission inbox for configuration/troubleshooting purposes</div>
-                            <div class="sub-item">Processing personnel cannot access the submission inbox</div>
+                            <div class="sub-item">Submissions automatically pushed to CRM without human intervention</div>
+                            <div class="sub-item">Only management may access submission inbox for configuration/troubleshooting</div>
                         </div>
                         <div class="option">
                             <div class="option-label"><strong>Option B:</strong> Email gateway to protect documents before human access (Secure Funder gateway available, or other provider)</div>
@@ -439,15 +438,15 @@
             <div class="subsection">
                 <h3 class="subsection-title">Outbound Email Controls</h3>
                 <div class="requirement">
-                    <strong>Required:</strong> Email rules that quarantine outbound emails with attachments for approval when sent to:
+                    <strong>Required:</strong> Email rules that quarantine outbound emails (with attachments) for approval when sent to:
                     <div class="sub-item">Personal email addresses (Gmail, Yahoo, Outlook.com, etc.)</div>
                     <div class="sub-item">External corporate domains</div>
                 </div>
                 <div class="note">
-                    <strong>Note:</strong> This requirement applies to non-customer-facing roles (underwriters, processors, admin, etc.). Customer-facing roles (sales, account managers) may have legitimate needs to email externally and can be exempted from quarantine rules.
+                    <strong>Note:</strong> This requirement applies to back-office roles (underwriters, processors, etc.). Customer-facing roles (sales) may have legitimate needs to email externally and can be exempted from quarantine rules.
                 </div>
                 <div class="requirement">
-                    <strong>Required:</strong> Network-level blocking of personal email sites (mail.google.com, outlook.live.com, yahoo.com) on company devices
+                    <strong>Required:</strong> Network-level blocking of personal email sites (Gmail, Outlook, Yahoo, iCloud, etc) on company devices
                 </div>
                 <div class="requirement">
                     <strong>Required:</strong> Blocking of email forwarding rules to external addresses
@@ -491,7 +490,7 @@
             <div class="subsection">
                 <h3 class="subsection-title">Multi-Factor Authentication</h3>
                 <div class="requirement">
-                    <strong>Required:</strong> MFA must be enabled for all users with access to merchant data
+                    <strong>Required:</strong> MFA must be enabled
                 </div>
             </div>
 
@@ -514,12 +513,10 @@
                 <h3 class="subsection-title">Access Controls</h3>
                 <div class="requirement">
                     <strong>Required:</strong> Personnel can only access accounts assigned to them
-                    <div class="sub-item">Role-based access controls must restrict visibility to assigned deals/accounts</div>
-                    <div class="sub-item">Customer-facing sales roles must only be able to see their own deals</div>
                 </div>
                 <div class="if-then">
-                    <div class="if-then-label">IF roles require access to entire database (e.g., managers, compliance, customer support), THEN:</div>
-                    <div class="sub-item">Access to sensitive fields (SSN, DOB, EIN, contact information) restricted to roles requiring this information</div>
+                    <div class="if-then-label">IF roles require access to entire database (e.g., managers, customer support), THEN:</div>
+                    <div class="sub-item">Field-level access (SSN, DOB, EIN, contact information) restricted to roles requiring this information</div>
                     <div class="sub-item">Documents must be view-only OR watermarked (as addressed above)</div>
                 </div>
                 <div class="if-then">
@@ -539,14 +536,14 @@
             <div class="subsection">
                 <h3 class="subsection-title">Managed Devices</h3>
                 <div class="requirement">
-                    <strong>Required:</strong> All personnel accessing merchant data or documents must use company-managed devices (company-issued or managed personal devices with enforced security controls)
+                    <strong>Required:</strong>Personnel accessing merchant data or documents must do so from company-managed devices, including company-issued devices or approved personal devices with required security controls in place.
                 </div>
             </div>
 
             <div class="subsection">
                 <h3 class="subsection-title">Device Security Controls</h3>
                 <div class="requirement">
-                    <strong>Required:</strong> USB ports restricted (storage devices blocked)
+                    <strong>Required:</strong> USB ports: block removable storage devices
                 </div>
                 <div class="requirement">
                     <strong>Required:</strong> Screen lock timeout (maximum 15 minutes of inactivity)
@@ -559,12 +556,6 @@
                 </div>
             </div>
 
-            <div class="subsection">
-                <h3 class="subsection-title">Remote Access</h3>
-                <div class="requirement">
-                    <strong>Required:</strong> Remote employees must connect via company VPN when accessing email, CRM, or portals
-                </div>
-            </div>
 
             <div class="subsection">
                 <h3 class="subsection-title">Password Policy</h3>
@@ -611,7 +602,6 @@
                 <h3 class="subsection-title">Cloud Service Usage</h3>
                 <div class="if-then">
                     <div class="if-then-label">IF you use cloud storage services (Google Drive, Dropbox, OneDrive, Box, etc.) to house merchant documents, THEN:</div>
-                    <div class="sub-item"><strong>Required:</strong> Disclose which services are used and who has access</div>
                     <div class="sub-item"><strong>Required:</strong> Users have view-only access OR documents are watermarked if downloadable</div>
                 </div>
             </div>
@@ -628,7 +618,7 @@
                 <h3 class="subsection-title">Background Checks</h3>
                 <div class="requirement">
                     <strong>Required:</strong> All personnel with access to merchant documents must pass background checks appropriate for their role
-                    <div class="sub-item">Provide signed background check authorization forms (third-party service agreements also acceptable)</div>
+                    <div class="sub-item">Provide background check authorization form (third-party service agreements also acceptable)</div>
                 </div>
             </div>
 
@@ -636,7 +626,7 @@
                 <h3 class="subsection-title">Off-boarding Process</h3>
                 <div class="requirement">
                     <strong>Required:</strong> Documented process for immediately revoking system access when employees leave or change roles
-                    <div class="sub-item">Process documentation will be reviewed during verification (sensitive information can be redacted)</div>
+                    <div class="sub-item">Provide a copy (sensitive or proprietary information can be redacted)</div>
                 </div>
             </div>
         </section>
