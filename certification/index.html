@@ -40,13 +40,13 @@
         .hero {
             background: var(--card-bg);
             color: var(--text);
-            padding: 3rem 2rem;
+            padding: 4rem 2rem;
             text-align: center;
             border-bottom: 1px solid var(--border);
         }
 
         .hero-content {
-            max-width: 900px;
+            max-width: 800px;
             margin: 0 auto;
         }
 
@@ -73,26 +73,50 @@
         .hero-subtitle {
             font-size: 1.125rem;
             color: var(--text-light);
-            max-width: 700px;
-            margin: 0 auto 2rem;
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
             line-height: 1.6;
         }
 
-        .hero-description {
-            background: var(--bg);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin: 2rem auto 0;
-            max-width: 800px;
-            text-align: center;
-            font-size: 0.9375rem;
-            line-height: 1.6;
-            color: var(--text);
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
-        .hero-description strong {
+        .btn {
+            display: inline-block;
+            padding: 0.875rem 2rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            border: none;
+            font-family: inherit;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-light);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 74, 173, 0.2);
+        }
+
+        .btn-secondary {
+            background: white;
             color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg);
         }
 
         nav {
@@ -101,13 +125,13 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
         }
 
         .nav-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 1rem 2rem;
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
@@ -115,24 +139,53 @@
         }
 
         .nav-link {
-            padding: 1rem 1.5rem;
+            padding: 0.625rem 1rem;
             text-decoration: none;
-            color: var(--text-light);
+            color: var(--text);
             font-weight: 500;
-            font-size: 0.9375rem;
-            border-bottom: 3px solid transparent;
-            transition: all 0.3s ease;
+            font-size: 0.875rem;
+            border-radius: 6px;
+            transition: all 0.2s ease;
             white-space: nowrap;
             cursor: pointer;
+            position: relative;
+            border: 1.5px solid #BFDBFE;
+            background: #EFF6FF;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+            min-width: 110px;
+            text-align: center;
+        }
+
+        .nav-link[data-section="overview"] {
+            background: var(--highlight);
+            border-color: #A7F3D0;
+            color: var(--highlight-text);
+        }
+
+        .nav-link[data-section="overview"]:hover {
+            border-color: #6EE7B7;
+            box-shadow: 0 2px 4px rgba(16, 185, 129, 0.15);
+        }
+
+        .nav-link[data-section="overview"].active {
+            background: #10b981;
+            border-color: #10b981;
+            color: white;
+            box-shadow: 0 2px 6px rgba(16, 185, 129, 0.25);
         }
 
         .nav-link:hover {
             color: var(--primary);
+            border-color: var(--primary);
+            box-shadow: 0 2px 4px rgba(0, 74, 173, 0.15);
+            transform: translateY(-1px);
         }
 
         .nav-link.active {
-            color: var(--primary);
-            border-bottom-color: var(--primary);
+            color: white;
+            background: var(--primary);
+            border-color: var(--primary);
+            box-shadow: 0 2px 6px rgba(0, 74, 173, 0.25);
         }
 
         .container {
@@ -211,155 +264,98 @@
             font-weight: 600;
         }
 
-        .if-then {
-            background: var(--if-then-bg);
-            padding: 1.25rem;
-            margin: 1rem 0;
-            border-radius: 6px;
-            border-left: 3px solid var(--primary);
-        }
-
-        .if-then-label {
-            font-weight: 600;
-            font-size: 0.9375rem;
-            color: var(--text);
-            margin-bottom: 1rem;
-        }
-
-        .options {
-            margin-top: 1rem;
-        }
-
-        .option {
-            background: white;
-            padding: 1rem 1.25rem;
-            margin: 0.75rem 0;
-            border-radius: 4px;
-            border: 1px solid var(--border);
-            font-size: 0.9375rem;
-        }
-
-        .option-label {
-            font-weight: 400;
-            color: var(--text);
-            margin-bottom: 0.5rem;
-        }
-
-        .option-label strong {
-            font-weight: 600;
-        }
-
-        .sub-item {
-            padding-left: 1.5rem;
-            margin: 0.5rem 0;
-            position: relative;
-            font-size: 0.9375rem;
-            line-height: 1.6;
-            color: var(--text);
-        }
-
-        .sub-item::before {
-            content: '•';
-            position: absolute;
-            left: 0.5rem;
-            color: var(--text-light);
-        }
-
         .note {
-            background: #FFFBEB;
-            border-left: 3px solid #F59E0B;
+            background: #FEF3C7;
+            border: 1px solid #FDE68A;
+            border-left: 4px solid #F59E0B;
             padding: 1rem 1.25rem;
-            margin: 1rem 0;
+            margin-bottom: 1rem;
             border-radius: 4px;
             font-size: 0.9375rem;
-            color: var(--text);
             line-height: 1.6;
         }
 
         .note strong {
+            color: #92400E;
             font-weight: 600;
         }
 
-        .recommended {
-            color: var(--success);
+        .if-then {
+            background: var(--if-then-bg);
+            border: 1px solid #BFDBFE;
+            border-left: 4px solid var(--primary);
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+
+        .if-then-label {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 0.9375rem;
+        }
+
+        .options {
+            margin: 1rem 0;
+        }
+
+        .option {
+            background: white;
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+            border-radius: 4px;
+            border: 1px solid #BFDBFE;
+        }
+
+        .option:last-child {
+            margin-bottom: 0;
+        }
+
+        .option-label {
+            font-size: 0.9375rem;
+            line-height: 1.6;
+            color: var(--text);
+        }
+
+        .option-label strong {
+            color: var(--primary);
             font-weight: 600;
         }
 
-        @media (max-width: 768px) {
-            .hero {
-                padding: 2rem 1rem;
-            }
+        .sub-item {
+            margin-left: 1.5rem;
+            margin-top: 0.5rem;
+            position: relative;
+            padding-left: 1.25rem;
+            font-size: 0.9375rem;
+            line-height: 1.6;
+        }
 
-            h1 {
-                font-size: 1.75rem;
-            }
+        .sub-item:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
 
-            .hero-subtitle {
-                font-size: 1rem;
-            }
+        .overview-content {
+            font-size: 0.9375rem;
+            line-height: 1.7;
+            color: var(--text);
+            margin-bottom: 1.5rem;
+        }
 
-            .hero-description {
-                padding: 1rem;
-                font-size: 0.875rem;
-            }
+        .overview-content strong {
+            color: var(--primary);
+        }
 
-            .nav-container {
-                padding: 0.5rem 1rem;
-                justify-content: center;
-            }
-
-            .nav-link {
-                font-size: 0.8125rem;
-                padding: 0.75rem 1rem;
-                flex: 0 0 auto;
-            }
-
-            .section {
-                padding: 1.5rem 1rem;
-            }
-
-            .section-title {
-                font-size: 1.5rem;
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 0.75rem;
-            }
-
-            .section-number {
-                width: 36px;
-                height: 36px;
-                font-size: 1.1rem;
-            }
-
-            .subsection-title {
-                font-size: 1rem;
-            }
-
-            .container {
-                padding: 1.5rem 1rem;
-            }
-
-            .if-then {
-                padding: 1rem;
-            }
-
-            .option {
-                padding: 0.875rem 1rem;
-            }
-
-            .requirement {
-                padding: 0.875rem 1rem;
-            }
-
-            .sub-item {
-                font-size: 0.875rem;
-                padding-left: 1.25rem;
-            }
-
-            .note {
-                padding: 0.875rem 1rem;
-                font-size: 0.875rem;
-            }
+        .overview-note {
+            font-size: 0.875rem;
+            color: var(--text-light);
+            font-style: italic;
+            margin-top: 1rem;
         }
 
         @keyframes fadeIn {
@@ -372,66 +368,97 @@
                 transform: translateY(0);
             }
         }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .hero {
+                padding: 3rem 1.5rem;
+            }
+
+            .section {
+                padding: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav-container {
+                padding: 0 1rem;
+            }
+
+            .nav-link {
+                padding: 0.875rem 1rem;
+                font-size: 0.875rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="hero">
         <div class="hero-content">
-            <div class="badge">CERTIFICATION PROGRAM 2026</div>
-            <h1>Secure Funder™</h1>
-            <p class="hero-subtitle">Technical Safeguards for Data Protection in Alternative Finance</p>
-            <div class="hero-description">
-                <p>This program verifies that your organization has appropriate technical safeguards to protect merchant data from unauthorized access and external sharing. Requirements focus on <strong>observable technical controls</strong>. Where a specific control is not in place, functionally equivalent alternatives may be accepted.</p>
-                <p style="margin-top: 1rem;">Verification is conducted via non-recorded screenshare or on-site review at funder's expense. <strong>The process is collaborative</strong> — certification may proceed with agreed-upon remediation timelines or compensating controls rather than immediate disqualification.</p>
+            <h1>Secure Funder™ Certification</h1>
+            <p class="hero-subtitle">Join the list of verified funders in alternative finance</p>
+            <div class="cta-buttons">
+                <a href="https://aquamark.fillout.com/secure-funder" class="btn btn-primary" target="_blank">Get Certified</a>
+                <button class="btn btn-secondary" id="howItWorksBtn">How It Works</button>
             </div>
         </div>
     </div>
 
     <nav>
         <div class="nav-container">
-            <a class="nav-link active" data-section="email">Email</a>
-            <a class="nav-link" data-section="portal">Portal</a>
-            <a class="nav-link" data-section="crm">CRM</a>
-            <a class="nav-link" data-section="devices">Devices</a>
-            <a class="nav-link" data-section="third-party">BPO</a>
-            <a class="nav-link" data-section="cloud">Cloud</a>
-            <a class="nav-link" data-section="personnel">Personnel</a>
+            <a href="#overview" class="nav-link" data-section="overview">Overview</a>
+            <a href="#email" class="nav-link" data-section="email">Email</a>
+            <a href="#portal" class="nav-link" data-section="portal">Portal</a>
+            <a href="#crm" class="nav-link" data-section="crm">CRM</a>
+            <a href="#devices" class="nav-link" data-section="devices">Devices</a>
+            <a href="#third-party" class="nav-link" data-section="third-party">BPO</a>
+            <a href="#cloud" class="nav-link" data-section="cloud">Cloud</a>
+            <a href="#personnel" class="nav-link" data-section="personnel">Personnel</a>
         </div>
     </nav>
 
     <div class="container">
+        <!-- OVERVIEW -->
+        <section id="overview" class="section">
+            <h2 class="section-title">Overview</h2>
+            
+            <div class="overview-content">
+                <p>This program verifies that your organization has appropriate technical safeguards to protect merchant data from unauthorized access and external sharing. Requirements focus on <strong>observable technical controls</strong>. Where a specific control is not in place, functionally equivalent alternatives may be accepted.</p>
+                <p style="margin-top: 1rem;">Verification is conducted via non-recorded screenshare or on-site review at funder's expense. <strong>The process is collaborative</strong> — certification may proceed with agreed-upon remediation timelines or compensating controls rather than immediate disqualification.</p>
+            </div>
+
+            <div class="overview-note">
+                Explore the tabs above for full details on each component of the certification.
+            </div>
+        </section>
+
         <!-- EMAIL SECURITY -->
-        <section id="email" class="section active">
+        <section id="email" class="section">
             <h2 class="section-title">
                 <span class="section-number">1</span>
                 Email Security
             </h2>
 
             <div class="subsection">
-                <h3 class="subsection-title">Multi-Factor Authentication (MFA)</h3>
+                <h3 class="subsection-title">Multi-Factor Authentication</h3>
                 <div class="requirement">
                     <strong>Required:</strong> MFA must be enabled
-                    <div class="sub-item">Acceptable implementations: Google Workspace 2-Step Verification, Microsoft Entra ID MFA, or equivalent</div>
-                </div>
-            </div>
-
-            <div class="subsection">
-                <h3 class="subsection-title">Submission Handling</h3>
-                <div class="if-then">
-                    <div class="if-then-label">IF broker submissions are accepted via email, THEN one of the following is required:</div>
-                    <div class="options">
-                        <div class="option">
-                            <div class="option-label"><strong>Option A:</strong> Automated email processing with restricted human access</div>
-                            <div class="sub-item">Submissions automatically pushed to CRM without human intervention</div>
-                            <div class="sub-item">Only management may access submission inbox for configuration/troubleshooting</div>
-                        </div>
-                        <div class="option">
-                            <div class="option-label"><strong>Option B:</strong> Email gateway to protect documents before human access (Secure Funder gateway available, or other provider)</div>
-                            <div class="sub-item">Dedicated inbox for broker submissions (e.g., submissions@company.com)</div>
-                            <div class="sub-item">Attachments routed through gateway to automatically watermark files</div>
-                            <div class="sub-item">Protected files sent to destination inbox for processing team (e.g., processing@company.com)</div>
-                        </div>
-                    </div>
                 </div>
             </div>
 
@@ -637,25 +664,44 @@
         // Tab navigation
         const navLinks = document.querySelectorAll('.nav-link');
         const sections = document.querySelectorAll('.section');
+        const howItWorksBtn = document.getElementById('howItWorksBtn');
 
+        function showSection(sectionId) {
+            // Remove active class from all links and sections
+            navLinks.forEach(l => l.classList.remove('active'));
+            sections.forEach(s => s.classList.remove('active'));
+            
+            // Find and activate the corresponding nav link
+            const targetLink = document.querySelector(`[data-section="${sectionId}"]`);
+            if (targetLink) {
+                targetLink.classList.add('active');
+            }
+            
+            // Show the section
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.classList.add('active');
+                
+                // Scroll to container smoothly
+                const container = document.querySelector('.container');
+                if (container) {
+                    container.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
+        }
+
+        // Handle nav link clicks
         navLinks.forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
-                
-                // Remove active class from all links and sections
-                navLinks.forEach(l => l.classList.remove('active'));
-                sections.forEach(s => s.classList.remove('active'));
-                
-                // Add active class to clicked link
-                this.classList.add('active');
-                
-                // Show corresponding section
                 const sectionId = this.getAttribute('data-section');
-                const targetSection = document.getElementById(sectionId);
-                if (targetSection) {
-                    targetSection.classList.add('active');
-                }
+                showSection(sectionId);
             });
+        });
+
+        // Handle "How It Works" button
+        howItWorksBtn.addEventListener('click', function() {
+            showSection('overview');
         });
     </script>
 </body>
