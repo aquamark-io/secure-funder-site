@@ -512,7 +512,7 @@
                             <div class="sub-item">Processing personnel cannot access the submission inbox</div>
                         </div>
                         <div class="option">
-                            <div class="option-label"><strong>Option B:</strong> Email gateway to protect documents before human access (Secure Funder gateway available at no cost with watermarking service)</div>
+                            <div class="option-label"><strong>Option B:</strong> Email gateway to protect documents before human access (Secure Funder gateway available at no cost)</div>
                             <div class="sub-item">Dedicated inbox for broker submissions (e.g., submissions@company.com)</div>
                             <div class="sub-item">Attachments routed through gateway to automatically watermark files</div>
                             <div class="sub-item">Protected files sent to destination inbox for processing team (e.g., processing@company.com)</div>
@@ -722,28 +722,30 @@
         </section>
     </div>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         // Tab navigation
         const navLinks = document.querySelectorAll('.nav-link');
         const sections = document.querySelectorAll('.section');
 
-        function showSection(sectionId) {
-            // Remove active class from all links and sections
-            navLinks.forEach(l => l.classList.remove('active'));
-            sections.forEach(s => s.classList.remove('active'));
-            
-            // Find and activate the corresponding nav link
-            const targetLink = document.querySelector(`[data-section="${sectionId}"]`);
-            if (targetLink) {
-                targetLink.classList.add('active');
-            }
-            
-            // Show the section
-            const targetSection = document.getElementById(sectionId);
-            if (targetSection) {
-                targetSection.classList.add('active');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
                 
-                // Scroll to container smoothly
-                const container = document.querySelector('.container');
-                if (container) {
-                    container.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                // Remove active class from all links and sections
+                navLinks.forEach(l => l.classList.remove('active'));
+                sections.forEach(s => s.classList.remove('active'));
+                
+                // Add active class to clicked link
+                this.classList.add('active');
+                
+                // Show corresponding section
+                const sectionId = this.getAttribute('data-section');
+                const targetSection = document.getElementById(sectionId);
+                if (targetSection) {
+                    targetSection.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
