@@ -512,10 +512,13 @@
                             <div class="sub-item">Processing personnel cannot access the submission inbox</div>
                         </div>
                         <div class="option">
-                            <div class="option-label"><strong>Option B:</strong> Email gateway to protect documents before human access (Secure Funder gateway available, or other provider)</div>
+                            <div class="option-label"><strong>Option B:</strong> Email gateway to protect documents before human access (Secure Funder gateway available at no cost with watermarking service)</div>
                             <div class="sub-item">Dedicated inbox for broker submissions (e.g., submissions@company.com)</div>
                             <div class="sub-item">Attachments routed through gateway to automatically watermark files</div>
                             <div class="sub-item">Protected files sent to destination inbox for processing team (e.g., processing@company.com)</div>
+                            <div class="note" style="margin-top: 0.75rem;">
+                                <strong>Note:</strong> The Secure Funder gateway includes built-in watermarking and automatic delivery to your destination inbox—no API integration required. If using another provider, you'll need to integrate watermarking API and configure delivery of protected files.
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -719,7 +722,7 @@
         </section>
     </div>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Tab navigation
         const navLinks = document.querySelectorAll('.nav-link');
         const sections = document.querySelectorAll('.section');
@@ -744,18 +747,3 @@
                 const container = document.querySelector('.container');
                 if (container) {
                     container.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            }
-        }
-
-        // Handle nav link clicks
-        navLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const sectionId = this.getAttribute('data-section');
-                showSection(sectionId);
-            });
-        });
-    </script>
-</body>
-</html>
