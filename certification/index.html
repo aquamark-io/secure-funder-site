@@ -116,7 +116,8 @@
         }
 
         .btn-secondary:hover {
-            background: var(--bg);
+            background: #EFF6FF;
+            border-color: var(--primary-light);
         }
 
         nav {
@@ -415,14 +416,14 @@
             <p class="hero-subtitle">Join the list of verified funders in alternative finance</p>
             <div class="cta-buttons">
                 <a href="https://aquamark.fillout.com/secure-funder" class="btn btn-primary" target="_blank">Get Certified</a>
-                <button class="btn btn-secondary" id="howItWorksBtn">How It Works</button>
+                <a href="https://securefunder.org" class="btn btn-secondary" target="_blank">View Directory</a>
             </div>
         </div>
     </div>
 
     <nav>
         <div class="nav-container">
-            <a href="#overview" class="nav-link" data-section="overview">Overview</a>
+            <a href="#overview" class="nav-link active" data-section="overview">Overview</a>
             <a href="#email" class="nav-link" data-section="email">Email</a>
             <a href="#portal" class="nav-link" data-section="portal">Portal</a>
             <a href="#crm" class="nav-link" data-section="crm">CRM</a>
@@ -435,7 +436,7 @@
 
     <div class="container">
         <!-- OVERVIEW -->
-        <section id="overview" class="section">
+        <section id="overview" class="section active">
             <h2 class="section-title">Overview</h2>
             
             <div class="overview-content">
@@ -664,7 +665,6 @@
         // Tab navigation
         const navLinks = document.querySelectorAll('.nav-link');
         const sections = document.querySelectorAll('.section');
-        const howItWorksBtn = document.getElementById('howItWorksBtn');
 
         function showSection(sectionId) {
             // Remove active class from all links and sections
@@ -697,11 +697,6 @@
                 const sectionId = this.getAttribute('data-section');
                 showSection(sectionId);
             });
-        });
-
-        // Handle "How It Works" button
-        howItWorksBtn.addEventListener('click', function() {
-            showSection('overview');
         });
     </script>
 </body>
