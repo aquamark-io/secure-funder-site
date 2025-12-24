@@ -513,9 +513,9 @@
                         </div>
                         <div class="option">
                             <div class="option-label"><strong>Option B:</strong> Email gateway to protect documents before human access (Secure Funder gateway available at no cost)</div>
-                            <div class="sub-item">Dedicated inbox for broker submissions (e.g., submissions@company.com)</div>
+                            <div class="sub-item">Dedicated inbox for broker submissions (e.g., <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="ef9c9a8d82869c9c8680819caf8c80829f8e8196c18c8082">[email&#160;protected]</a>)</div>
                             <div class="sub-item">Attachments routed through gateway to automatically watermark files</div>
-                            <div class="sub-item">Protected files sent to destination inbox for processing team (e.g., processing@company.com)</div>
+                            <div class="sub-item">Protected files sent to destination inbox for processing team (e.g., <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="5b2b2934383e282832353c1b3834362b3a352275383436">[email&#160;protected]</a>)</div>
                             <div class="note" style="margin-top: 0.75rem;">
                                 <strong>Note:</strong> The Secure Funder gateway includes built-in watermarking and automatic delivery to your destination inbox—no API integration required. Watermarking is billed at $0.05 per file. If using another provider, you'll need to integrate watermarking and configure delivery of protected files.
                             </div>
@@ -582,7 +582,24 @@
             </div>
 
             <div class="subsection">
-                <h3 class="subsection-title">Document Access Controls</h3>
+                <h3 class="subsection-title">Access Controls</h3>
+                
+                <div class="requirement">
+                    <strong>Required:</strong> Role-based access - Personnel can only access accounts and information required for their role
+                    <div class="sub-item">Field-level access (SSN, DOB, EIN, contact information) restricted to roles requiring this information</div>
+                </div>
+
+                <div class="requirement">
+                    <strong>Required:</strong> User verification - During certification review, applicant will display active CRM users showing email domains and roles
+                    <div class="sub-item">All users must be from company domain(s), with exception of service-level access (developers, IT support, compliance vendors)</div>
+                    <div class="sub-item">Any external domain access requires business justification and documented role scope</div>
+                </div>
+
+                <div class="requirement">
+                    <strong>Required:</strong> Screenshot prevention - CRM must have screenshot blocking enabled, OR screen watermarking software must be implemented on devices with CRM access
+                    <div class="sub-item">Note: Secure Funder screen watermarking is available at no cost to certified funders, though any provider may be used</div>
+                </div>
+
                 <div class="if-then">
                     <div class="if-then-label">IF documents are stored in your CRM, THEN choose one:</div>
                     <div class="options">
@@ -594,18 +611,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="subsection">
-                <h3 class="subsection-title">Access Controls</h3>
-                <div class="requirement">
-                    <strong>Required:</strong> Personnel can only access accounts assigned to them
-                </div>
-                <div class="if-then">
-                    <div class="if-then-label">IF roles require access to entire database (e.g., managers, customer support), THEN:</div>
-                    <div class="sub-item">Field-level access (SSN, DOB, EIN, contact information) restricted to roles requiring this information</div>
-                    <div class="sub-item">Documents must be view-only OR watermarked (as addressed above)</div>
-                </div>
                 <div class="if-then">
                     <div class="if-then-label">IF full database download capability exists, THEN:</div>
                     <div class="sub-item">This function must be restricted to senior personnel only</div>
@@ -722,7 +728,7 @@
         </section>
     </div>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Tab navigation
         const navLinks = document.querySelectorAll('.nav-link');
         const sections = document.querySelectorAll('.section');
@@ -738,14 +744,20 @@
                 // Add active class to clicked link
                 this.classList.add('active');
                 
-                // Show corresponding section
-                const sectionId = this.getAttribute('data-section');
-                const targetSection = document.getElementById(sectionId);
-                if (targetSection) {
-                    targetSection.classList.add('active');
+                // Add active class to corresponding section
+                const targetSection = this.getAttribute('data-section');
+                const targetElement = document.getElementById(targetSection);
+                if (targetElement) {
+                    targetElement.classList.add('active');
                 }
             });
         });
+
+        // Show first section by default
+        if (sections.length > 0) {
+            sections[0].classList.add('active');
+            navLinks[0].classList.add('active');
+        }
     </script>
 </body>
 </html>
