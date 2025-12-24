@@ -534,13 +534,9 @@
                 </div>
 
                 <div class="requirement">
-Outbound emails containing attachments AND sent to personal email addresses or external domains must be technically identified and subject to administrative oversight. Organizations must maintain visibility into these transmissions sufficient to support review, investigation, and corrective action. This is typically implemented using Gmail Content Compliance in Google Workspace or Exchange Online and/or DLP rules in Microsoft 365. Organizations are encouraged to notify staff that such activity is monitored, as visibility alone helps reduce inappropriate external sharing.                    
-                </div>
+Organizations should implement an outbound email rule for back-office roles with access to sensitive information. The rule should identify outbound emails containing attachments that are sent outside the organization and copy those messages to a designated inbox, providing visibility for review and investigation if needed. Organizations are encouraged to notify staff that such activity is monitored, as visibility alone helps reduce inappropriate external sharing. </div>
                 <div class="note">
-                    <strong>Note:</strong> This requirement applies to back-office roles (underwriters, processors, etc.). Customer-facing roles and senior management may have legitimate needs to email attachments externally and can be exempted from quarantine rules.
-                </div>
-            </div>
-        </section>
+                    <strong>Note:</strong> Common implementations include Gmail Content Compliance and Microsoft Exchange Online   </section>
 
         <!-- PORTAL SECURITY -->
         <section id="portal" class="section">
