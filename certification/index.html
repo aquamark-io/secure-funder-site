@@ -259,13 +259,16 @@
             margin-bottom: 1rem;
             border-radius: 4px;
             font-size: 0.9375rem;
-            line-height: 1.6;
+            line-height: 1.7;
             border-left: 3px solid var(--border);
+            max-width: 900px;
         }
 
         .requirement strong {
             color: var(--text);
             font-weight: 600;
+            display: block;
+            margin-bottom: 0.25rem;
         }
 
         .note {
@@ -328,20 +331,19 @@
         }
 
         .sub-item {
-            margin-left: 1.5rem;
+            margin-left: 1.25rem;
             margin-top: 0.5rem;
             position: relative;
-            padding-left: 1.25rem;
+            padding-left: 1rem;
             font-size: 0.9375rem;
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
         .sub-item:before {
             content: "•";
             position: absolute;
             left: 0;
-            color: var(--primary);
-            font-weight: bold;
+            color: var(--text-light);
         }
 
         .overview-content {
@@ -478,7 +480,11 @@
             </h2>
             
             <div class="overview-content">
-                <p>Secure Funder™ verifies that your organization has appropriate technical safeguards to protect merchant data from unauthorized access and external sharing. Requirements focus on observable technical controls. Where a specific control is not in place, functionally equivalent alternatives may be accepted. Verification is conducted via (non-recorded) screenshare or on-site visit at funder's expense. The process is collaborative — certification may proceed with agreed-upon compensating controls rather than immediate disqualification.</p>
+                <p>Secure Funder™ verifies that your organization has appropriate technical safeguards to protect merchant data from unauthorized access and external sharing. Requirements focus on observable technical controls that can be demonstrated during the certification review.</p>
+                
+                <p style="margin-top: 1rem;"><strong>Verification Process:</strong> Certification is conducted via live screenshare (non-recorded) or on-site visit at the funder's expense. During the review, applicants will demonstrate their systems in real-time — for example, showing CRM user lists, displaying security settings, and walking through access controls. This hands-on approach allows us to verify controls are actively in place while respecting your operational security. The process is collaborative and designed to be efficient for both parties.</p>
+                
+                <p style="margin-top: 1rem;">Where a specific control is not currently in place, functionally equivalent alternatives may be accepted. Certification may proceed with agreed-upon compensating controls rather than immediate disqualification.</p>
             </div>
             
             <div style="margin-top: 2rem;">
@@ -496,7 +502,8 @@
             <div class="subsection">
                 <h3 class="subsection-title">Multi-Factor Authentication</h3>
                 <div class="requirement">
-                    <strong>Required:</strong> MFA must be enabled
+                    <strong>Required:</strong>
+                    MFA must be enabled
                 </div>
             </div>
 
@@ -527,7 +534,8 @@
             <div class="subsection">
                 <h3 class="subsection-title">Outbound Email Controls</h3>
                 <div class="requirement">
-                    <strong>Required:</strong> Email rules that quarantine outbound emails (with attachments) for approval when sent to:
+                    <strong>Required:</strong>
+                    Email rules that quarantine outbound emails (with attachments) for approval when sent to:
                     <div class="sub-item">Personal email addresses (Gmail, Yahoo, Outlook.com, etc.)</div>
                     <div class="sub-item">External corporate domains</div>
                 </div>
@@ -536,7 +544,8 @@
                 </div>
                
                 <div class="requirement">
-                    <strong>Required:</strong> Blocking of email forwarding rules to external addresses
+                    <strong>Required:</strong>
+                    Blocking of email forwarding rules to external addresses
                 </div>
             </div>
         </section>
@@ -577,7 +586,8 @@
             <div class="subsection">
                 <h3 class="subsection-title">Multi-Factor Authentication</h3>
                 <div class="requirement">
-                    <strong>Required:</strong> MFA must be enabled
+                    <strong>Required:</strong>
+                    MFA must be enabled
                 </div>
             </div>
 
@@ -585,18 +595,23 @@
                 <h3 class="subsection-title">Access Controls</h3>
                 
                 <div class="requirement">
-                    <strong>Required:</strong> Role-based access - Personnel can only access accounts and information required for their role
-                    <div class="sub-item">Field-level access (SSN, DOB, EIN, contact information) restricted to roles requiring this information</div>
+                    <strong>Required:</strong>
+                    Role-based access
+                    <div class="sub-item">Personnel can only access accounts and information required for their role</div>
+                    <div class="sub-item">Field-level access (e.g. SSN) restricted to roles requiring this information</div>
                 </div>
 
                 <div class="requirement">
-                    <strong>Required:</strong> User verification - During certification review, applicant will display active CRM users showing email domains and roles
-                    <div class="sub-item">All users must be from company domain(s), with exception of service-level access (developers, IT support, compliance vendors)</div>
-                    <div class="sub-item">Any external domain access requires business justification and documented role scope</div>
+                    <strong>Required:</strong>
+                    User verification
+                    <div class="sub-item">Users must be from your domain, with exception of service-level access (developers, vendors)</div>
+                    <div class="sub-item">External domain access requires business justification</div>
                 </div>
 
                 <div class="requirement">
-                    <strong>Required:</strong> Screenshot prevention - CRM must have screenshot blocking enabled, OR screen watermarking software must be implemented on devices with CRM access
+                    <strong>Required:</strong>
+                    Screenshot prevention
+                    <div class="sub-item">CRM screenshot blocking enabled, OR screen watermarking software on devices with CRM access</div>
                     <div class="sub-item">Note: Secure Funder screen watermarking is available at no cost to certified funders, though any provider may be used</div>
                 </div>
 
@@ -629,26 +644,32 @@
             <div class="subsection">
                 <h3 class="subsection-title">Managed Devices</h3>
                 <div class="requirement">
-                    <strong>Required:</strong> Systems must be accessed from company-managed devices.
+                    <strong>Required:</strong>
+                    Systems must be accessed from company-managed devices.
                 </div>
             </div>
 
             <div class="subsection">
                 <h3 class="subsection-title">Device Security Controls</h3>
                 <div class="requirement">
-                    <strong>Required:</strong> USB ports: block removable storage devices
+                    <strong>Required:</strong>
+                    USB ports: block removable storage devices
                 </div>
                 <div class="requirement">
-                    <strong>Required:</strong> Screen lock timeout (maximum 15 minutes of inactivity)
+                    <strong>Required:</strong>
+                    Screen lock timeout (maximum 15 minutes of inactivity)
                 </div>
                 <div class="requirement">
-                    <strong>Required:</strong> Network restrictions prevent installing/uninstalling applications without IT approval
+                    <strong>Required:</strong>
+                    Network restrictions prevent installing/uninstalling applications without IT approval
                 </div>
                 <div class="requirement">
-                    <strong>Required:</strong> Role-based printing controls (restrict printing to roles requiring hard copies)
+                    <strong>Required:</strong>
+                    Role-based printing controls (restrict printing to roles requiring hard copies)
                 </div>
                  <div class="requirement">
-                    <strong>Required:</strong> Network-level blocking of personal email sites (Gmail, Outlook, Yahoo, iCloud, etc)
+                    <strong>Required:</strong>
+                    Network-level blocking of personal email sites (Gmail, Outlook, Yahoo, iCloud, etc)
                 </div>
             </div>
 
@@ -656,7 +677,8 @@
             <div class="subsection">
                 <h3 class="subsection-title">Password Policy</h3>
                 <div class="requirement">
-                    <strong>Required:</strong> Copy of documented password requirements including minimum complexity and periodic changes (quarterly recommended)
+                    <strong>Required:</strong>
+                    Copy of documented password requirements including minimum complexity and periodic changes (quarterly recommended)
                 </div>
             </div>
         </section>
@@ -713,7 +735,8 @@
             <div class="subsection">
                 <h3 class="subsection-title">Background Checks</h3>
                 <div class="requirement">
-                    <strong>Required:</strong> Personnel must pass background checks appropriate for their role
+                    <strong>Required:</strong>
+                    Personnel must pass background checks appropriate for their role
                     <div class="sub-item">Provide background check authorization form for verification</div>
                 </div>
             </div>
@@ -721,7 +744,8 @@
             <div class="subsection">
                 <h3 class="subsection-title">Off-boarding Process</h3>
                 <div class="requirement">
-                    <strong>Required:</strong> Documented process for immediately revoking system access when employees leave or change roles
+                    <strong>Required:</strong>
+                    Documented process for immediately revoking system access when employees leave or change roles
                     <div class="sub-item">Provide a copy (sensitive or proprietary information can be redacted)</div>
                 </div>
             </div>
