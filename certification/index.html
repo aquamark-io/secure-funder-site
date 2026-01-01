@@ -763,8 +763,8 @@
             
             <div class="button-group" style="margin-top: 2rem;">
                 <a href="https://aquamark.fillout.com/secure-funder" class="btn-small" target="_blank">Get Certified</a>
-                <button class="btn-small" onclick="openToolsModal()" style="background: #FFFFFF; color: #0F1419; border: 2px solid #E5E7EB;">View Tools</button>
-                <a href="#" class="btn-small" style="background: #FFFFFF; color: #0F1419; border: 2px solid #E5E7EB;">Download Checklist</a>
+                <button class="btn-small" onclick="openToolsModal()" style="background: #D1FAE5; color: #065F46; border: 2px solid #A7F3D0;">View Tools</button>
+                <button class="btn-small" onclick="downloadChecklist()" style="background: #EFF6FF; color: #1E40AF; border: 2px solid #BFDBFE;">Download Checklist</button>
             </div>
         </section>
 
@@ -794,12 +794,13 @@
                             <div class="sub-item">Processing personnel cannot access the submission inbox</div>
                         </div>
                         <div class="option">
-                            <div class="option-label"><strong>Option B:</strong> Email gateway to protect documents before human access</div>
+                            <div class="option-label"><strong>Option B:</strong> Use Secure Funder Gateway to automatically watermark submissions</div>
                             <div class="sub-item">Dedicated inbox for broker submissions (e.g., submissions@yourcompany.com)</div>
                             <div class="sub-item">Attachments routed through gateway to watermark files</div>
                             <div class="sub-item">Protected files sent to destination inbox for processing team (e.g., processing@yourcompany.com)</div>
-                            <div class="note" style="margin-top: 0.75rem;">
-<strong>Note:</strong> Email gateway solutions are available that automatically watermark attachments and forward protected files to your processing inbox—no API integration required. Equivalent solutions or providers are permitted.</div>
+                            <div style="margin-top: 1rem;">
+                                <button class="btn-small" onclick="openToolsModal()" style="background: #EFF6FF; color: #1E40AF; border: 2px solid #BFDBFE;">Access Gateway</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1128,6 +1129,11 @@
 
         function closeToolsModal() {
             document.getElementById('toolsModal').classList.remove('active');
+        }
+
+        function downloadChecklist() {
+            // Open checklist in new window for printing
+            window.open('secure-funder-checklist.html', '_blank');
         }
 
         // Close modal when clicking outside
