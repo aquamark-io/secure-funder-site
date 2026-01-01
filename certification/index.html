@@ -272,9 +272,9 @@
         }
 
         .note {
-            background: #FEF3C7;
-            border: 1px solid #FDE68A;
-            border-left: 4px solid #F59E0B;
+            background: #EFF6FF;
+            border: 1px solid #BFDBFE;
+            border-left: 4px solid #3B82F6;
             padding: 1rem 1.25rem;
             margin-bottom: 1rem;
             border-radius: 4px;
@@ -283,8 +283,48 @@
         }
 
         .note strong {
-            color: #92400E;
+            color: #1E40AF;
             font-weight: 600;
+        }
+
+        /* Service Badge Links */
+        .service-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            border: none;
+        }
+
+        .service-badge svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .service-badge:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-badge.email-gateway {
+            background: #DBEAFE;
+            color: #1E40AF;
+        }
+
+        .service-badge.screen-watermark {
+            background: #FAE8FF;
+            color: #86198F;
+        }
+
+        .service-badge.doc-watermark {
+            background: #D1FAE5;
+            color: #065F46;
         }
 
         .if-then {
@@ -620,7 +660,12 @@
                             <div class="sub-item">Attachments routed through gateway to watermark files</div>
                             <div class="sub-item">Protected files sent to destination inbox for processing team (e.g., <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="0a7a7865696f797963646d4a73657f786965677a6b647324696567">[email&#160;protected]</a></div>
                             <div class="note" style="margin-top: 0.75rem;">
-<strong>Note:</strong> <a href="https://www.aquamark.io/funder-gateway" target="_blank" rel="noopener noreferrer" style="color: #0F1419; text-decoration: none; border-bottom: 1px solid #0F1419;">Secure Funder gateway</a> is available at no cost and includes built-in watermarking ($0.05 per file) with automatic delivery to your destination inbox—no API integration required and no file storage. Equivalent solutions or providers are permitted.</div>
+<strong>Note:</strong> <a href="https://www.aquamark.io/funder-gateway" target="_blank" rel="noopener noreferrer" class="service-badge email-gateway">
+                                    <svg fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                    </svg>
+                                    Email Gateway
+                                </a> is available at no cost and includes built-in watermarking ($0.05 per file) with automatic delivery to your destination inbox—no API integration required and no file storage. Equivalent solutions or providers are permitted.</div>
                         </div>
                     </div>
                 </div>
@@ -733,7 +778,7 @@
                 <div class="if-then">
                     <div class="if-then-label">IF sensitive information is accessible in your portal (e.g. SSN), THEN:</div>
                     <div class="sub-item">Screenshot blocking enabled, OR screen watermarking software on devices with portal access</div>
-                    <div class="sub-item">Note: <a href="https://www.aquamark.io/screen-watermarking" target="_blank" rel="noopener noreferrer" style="color: #0F1419; text-decoration: none; border-bottom: 1px solid #0F1419;">Secure Funder screen watermarking</a> is available at no cost, though any provider may be used</div>
+                    <div class="sub-item">Note: <a href="https://www.aquamark.io/screen-watermarking" target="_blank" rel="noopener noreferrer" class="service-badge screen-watermark"><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>Screenshot Protection</a> is available at no cost, though any provider may be used</div>
                 </div>
 
                 <div class="if-then">
@@ -743,7 +788,7 @@
                             <div class="option-label"><strong>Option A:</strong> View-only access to files (no download capability)</div>
                         </div>
                         <div class="option">
-                            <div class="option-label"><strong>Option B:</strong> Files are <a href="https://www.aquamark.io/funder-api" target="_blank" rel="noopener noreferrer" style="color: #0F1419; text-decoration: none; border-bottom: 1px solid #0F1419;">watermarked</a> before entering portal or at time of download</div>
+                            <div class="option-label"><strong>Option B:</strong> Files are <a href="https://www.aquamark.io/funder-api" target="_blank" rel="noopener noreferrer" class="service-badge doc-watermark"><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>Document Security Layer</a> before entering portal or at time of download</div>
                         </div>
                     </div>
                 </div>
@@ -782,7 +827,7 @@
                 <div class="requirement">
                     <strong>Screenshot prevention:</strong>
 <div class="sub-item">CRM screenshot blocking enabled, OR screen watermarking enforced on devices assigned to users with CRM access to sensitive information.</div>
-                    <div class="sub-item">Note: <a href="https://www.aquamark.io/screen-watermarking" target="_blank" rel="noopener noreferrer" style="color: #0F1419; text-decoration: none; border-bottom: 1px solid #0F1419;">Secure Funder screen watermarking</a> is available at no cost, though any provider may be used</div>
+                    <div class="sub-item">Note: <a href="https://www.aquamark.io/screen-watermarking" target="_blank" rel="noopener noreferrer" class="service-badge screen-watermark"><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>Screenshot Protection</a> is available at no cost, though any provider may be used</div>
                 </div>
 
                 <div class="if-then">
@@ -792,7 +837,7 @@
                             <div class="option-label"><strong>Option A:</strong> View-only access to files (no download capability)</div>
                         </div>
                         <div class="option">
-                            <div class="option-label"><strong>Option B:</strong> Files are <a href="https://www.aquamark.io/funder-api" target="_blank" rel="noopener noreferrer" style="color: #0F1419; text-decoration: none; border-bottom: 1px solid #0F1419;">watermarked</a> before entering CRM or at time of download</div>
+                            <div class="option-label"><strong>Option B:</strong> Files are <a href="https://www.aquamark.io/funder-api" target="_blank" rel="noopener noreferrer" class="service-badge doc-watermark"><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>Document Security Layer</a> before entering CRM or at time of download</div>
                         </div>
                     </div>
                 </div>
@@ -868,7 +913,7 @@
                             <div class="option-label"><strong>Option A:</strong> View-only access to files (no download capability)</div>
                         </div>
                         <div class="option">
-                            <div class="option-label"><strong>Option B:</strong> Documents are <a href="https://www.aquamark.io/funder-api" target="_blank" rel="noopener noreferrer" style="color: #0F1419; text-decoration: none; border-bottom: 1px solid #0F1419;">watermarked</a> before third-party access</div>
+                            <div class="option-label"><strong>Option B:</strong> Documents are <a href="https://www.aquamark.io/funder-api" target="_blank" rel="noopener noreferrer" class="service-badge doc-watermark"><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>Document Security Layer</a> before third-party access</div>
                         </div>
                     </div>
                 </div>
@@ -886,7 +931,7 @@
                 <h3 class="subsection-title">Cloud Service Usage</h3>
                 <div class="if-then">
                     <div class="if-then-label">IF you use cloud storage services (Google Drive, Dropbox, OneDrive, Box, etc.) to house merchant documents, THEN:</div>
-                    <div class="sub-item">Users have view-only access OR documents are <a href="https://www.aquamark.io/funder-api" target="_blank" rel="noopener noreferrer" style="color: #0F1419; text-decoration: none; border-bottom: 1px solid #0F1419;">watermarked</a> if downloadable</div>
+                    <div class="sub-item">Users have view-only access OR documents are <a href="https://www.aquamark.io/funder-api" target="_blank" rel="noopener noreferrer" class="service-badge doc-watermark"><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>Document Security Layer</a> if downloadable</div>
                 </div>
             </div>
         </section>
