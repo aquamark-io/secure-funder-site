@@ -795,7 +795,7 @@
                         <div class="option">
                             <div class="option-label"><strong>Option B:</strong> Use Secure Funder Gateway to automatically watermark submissions</div>
                             <div class="sub-item">No changes to broker submission inbox</div>
-                            <div class="sub-item">Attachments routed through gateway to watermark files</div>
+                            <div class="sub-item">Attachments routed through gateway to watermark files and embed metadata</div>
                             <div class="sub-item">Protected files sent to destination inbox for processing team (e.g., processing@yourcompany.com)</div>
                             <div style="margin-top: 1rem;">
                                 <button class="btn-small" onclick="openToolsModal()" style="background: #EFF6FF; color: #1E40AF; border: 2px solid #BFDBFE;">Access Gateway</button>
@@ -809,8 +809,7 @@
                 <h3 class="subsection-title">Outbound Email Oversight</h3>
                
                 <div class="requirement">
-                    Configure an email rule that copies outbound emails with attachments to a monitoring mailbox when emails are sent to external recipients by back-office staff. Staff should be notified that outbound emails are monitored. The goal is to deter unauthorized sharing—emails are not blocked, but copies are retained if investigation is needed.
-                </div>
+Configure an email rule that copies outbound emails with attachments to a monitoring mailbox when messages are sent to external recipients by back-office staff. Staff should be notified that outbound attachments are subject to review. Visibility into these transmissions encourages responsible handling of sensitive information while preserving normal business workflows. Emails are not blocked; copies are retained solely to support review or investigation if needed.                </div>
 
                 <div class="note">
                     <strong>Note:</strong> Common implementations include Gmail Content Compliance<span class="tooltip-container">
