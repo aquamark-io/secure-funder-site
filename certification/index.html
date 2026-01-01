@@ -764,7 +764,6 @@
             <div class="button-group" style="margin-top: 2rem;">
                 <a href="https://aquamark.fillout.com/secure-funder" class="btn-small" target="_blank">Get Certified</a>
                 <button class="btn-small" onclick="openToolsModal()" style="background: #D1FAE5; color: #065F46; border: 2px solid #A7F3D0;">Tools</button>
-                <button class="btn-small" onclick="downloadChecklist()" style="background: #EFF6FF; color: #1E40AF; border: 2px solid #BFDBFE;">Printable</button>
             </div>
         </section>
 
@@ -795,7 +794,7 @@
                         </div>
                         <div class="option">
                             <div class="option-label"><strong>Option B:</strong> Use Secure Funder Gateway to automatically watermark submissions</div>
-                            <div class="sub-item">Dedicated inbox for broker submissions (e.g., submissions@yourcompany.com)</div>
+                            <div class="sub-item">No changes to broker submission inbox</div>
                             <div class="sub-item">Attachments routed through gateway to watermark files</div>
                             <div class="sub-item">Protected files sent to destination inbox for processing team (e.g., processing@yourcompany.com)</div>
                             <div style="margin-top: 1rem;">
@@ -810,7 +809,7 @@
                 <h3 class="subsection-title">Outbound Email Oversight</h3>
                
                 <div class="requirement">
-                    Configure an email rule that copies outbound emails with attachments to a monitoring mailbox when sent to external recipients by back-office staff with access to sensitive information. Staff should be notified that outbound emails are monitored. The goal is to deter unauthorized sharing—emails are not blocked, but copies are retained if investigation is needed.
+                    Configure an email rule that copies outbound emails with attachments to a monitoring mailbox when emails are sent to external recipients by back-office staff. Staff should be notified that outbound emails are monitored. The goal is to deter unauthorized sharing—emails are not blocked, but copies are retained if investigation is needed.
                 </div>
 
                 <div class="note">
@@ -1129,11 +1128,6 @@
 
         function closeToolsModal() {
             document.getElementById('toolsModal').classList.remove('active');
-        }
-
-        function downloadChecklist() {
-            // Open checklist in new window for printing
-            window.open('certifcation-checklist', '_blank');
         }
 
         // Close modal when clicking outside
