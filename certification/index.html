@@ -327,6 +327,143 @@
             color: #065F46;
         }
 
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            animation: fadeIn 0.2s ease;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: #FFFFFF;
+            border-radius: 12px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            animation: slideUp 0.3s ease;
+        }
+
+        .modal-header {
+            padding: 2rem 2rem 1rem;
+            border-bottom: 1px solid #E5E7EB;
+        }
+
+        .modal-header h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #0F1419;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-header p {
+            color: #4B5563;
+            font-size: 0.9375rem;
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        .tool-item {
+            background: #F9FAFB;
+            border: 1px solid #E5E7EB;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            transition: all 0.2s ease;
+        }
+
+        .tool-item:hover {
+            border-color: #D1D5DB;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .tool-item h4 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #0F1419;
+            margin-bottom: 0.5rem;
+        }
+
+        .tool-item p {
+            color: #4B5563;
+            font-size: 0.9375rem;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .tool-item a {
+            display: inline-block;
+            padding: 0.625rem 1.5rem;
+            background: #0F1419;
+            color: #FFFFFF;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            transition: all 0.2s ease;
+        }
+
+        .tool-item a:hover {
+            background: #1F2937;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #6B7280;
+            cursor: pointer;
+            padding: 0.5rem;
+            line-height: 1;
+            transition: color 0.2s ease;
+        }
+
+        .modal-close:hover {
+            color: #0F1419;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         .if-then {
             background: var(--if-then-bg);
             border: 1px solid #BFDBFE;
@@ -624,8 +761,10 @@
                 
             </div>
             
-            <div style="margin-top: 2rem;">
+            <div class="button-group" style="margin-top: 2rem;">
                 <a href="https://aquamark.fillout.com/secure-funder" class="btn-small" target="_blank">Get Certified</a>
+                <button class="btn-small" onclick="openToolsModal()" style="background: #FFFFFF; color: #0F1419; border: 2px solid #E5E7EB;">View Tools</button>
+                <a href="#" class="btn-small" style="background: #FFFFFF; color: #0F1419; border: 2px solid #E5E7EB;">Download Checklist</a>
             </div>
         </section>
 
@@ -660,12 +799,7 @@
                             <div class="sub-item">Attachments routed through gateway to watermark files</div>
                             <div class="sub-item">Protected files sent to destination inbox for processing team (e.g., processing@yourcompany.com)</div>
                             <div class="note" style="margin-top: 0.75rem;">
-<strong>Note:</strong> <a href="https://www.aquamark.io/funder-gateway" target="_blank" rel="noopener noreferrer" class="service-badge email-gateway">
-                                    <svg fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                                    </svg>
-                                    Email Gateway
-                                </a> is available with built-in watermarking and automatic delivery to your destination inbox—no API integration required. Equivalent solutions or providers are permitted.</div>
+<strong>Note:</strong> Email gateway solutions are available that automatically watermark attachments and forward protected files to your processing inbox—no API integration required. Equivalent solutions or providers are permitted.</div>
                         </div>
                     </div>
                 </div>
@@ -675,7 +809,7 @@
                 <h3 class="subsection-title">Outbound Email Oversight</h3>
                
                 <div class="requirement">
-                    Implementation of outbound email monitoring for back-office roles with access to sensitive information. The monitoring rule identifies outbound emails containing attachments sent outside the organization and copies them to a designated inbox, providing visibility for investigation if needed. Organizations should notify staff that this activity is monitored—visibility alone helps deter inappropriate external sharing.
+                    Configure an email rule that copies outbound emails with attachments to a monitoring mailbox when sent to external recipients by back-office staff with access to sensitive information. Staff should be notified that outbound emails are monitored. The goal is to deter unauthorized sharing—emails are not blocked, but copies are retained if investigation is needed.
                 </div>
 
                 <div class="note">
@@ -777,7 +911,7 @@
                 <div class="if-then">
                     <div class="if-then-label">IF sensitive information is accessible in your portal (e.g. SSN), THEN:</div>
                     <div class="sub-item">Screenshot blocking enabled, OR screen watermarking software on devices with portal access</div>
-                    <div class="sub-item">Note: <a href="https://www.aquamark.io/screen-watermarking" target="_blank" rel="noopener noreferrer" class="service-badge screen-watermark"><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>Screenshot Protection</a> is available at no cost, though any provider may be used</div>
+                    <div class="sub-item">Note: Screen watermarking software is available for desktop environments, though any provider may be used</div>
                 </div>
 
                 <div class="if-then">
@@ -787,7 +921,7 @@
                             <div class="option-label"><strong>Option A:</strong> View-only access to files (no download capability)</div>
                         </div>
                         <div class="option">
-                            <div class="option-label"><strong>Option B:</strong> Files are <a href="https://www.aquamark.io/funder-api" target="_blank" rel="noopener noreferrer" class="service-badge doc-watermark"><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>Watermarked</a> before entering portal or at time of download</div>
+                            <div class="option-label"><strong>Option B:</strong> Files are watermarked before entering portal or at time of download</div>
                         </div>
                     </div>
                 </div>
@@ -826,7 +960,7 @@
                 <div class="requirement">
                     <strong>Screenshot prevention:</strong>
 <div class="sub-item">CRM screenshot blocking enabled, OR screen watermarking enforced on devices assigned to users with CRM access to sensitive information.</div>
-                    <div class="sub-item">Note: <a href="https://www.aquamark.io/screen-watermarking" target="_blank" rel="noopener noreferrer" class="service-badge screen-watermark"><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>Screenshot Protection</a> is available at no cost, though any provider may be used</div>
+                    <div class="sub-item">Note: Screen watermarking software is available for desktop environments, though any provider may be used</div>
                 </div>
 
                 <div class="if-then">
@@ -836,7 +970,7 @@
                             <div class="option-label"><strong>Option A:</strong> View-only access to files (no download capability)</div>
                         </div>
                         <div class="option">
-                            <div class="option-label"><strong>Option B:</strong> Files are <a href="https://www.aquamark.io/funder-api" target="_blank" rel="noopener noreferrer" class="service-badge doc-watermark"><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>Watermarked</a> before entering CRM or at time of download</div>
+                            <div class="option-label"><strong>Option B:</strong> Files are watermarked before entering CRM or at time of download</div>
                         </div>
                     </div>
                 </div>
@@ -912,7 +1046,7 @@
                             <div class="option-label"><strong>Option A:</strong> View-only access to files (no download capability)</div>
                         </div>
                         <div class="option">
-                            <div class="option-label"><strong>Option B:</strong> Documents are <a href="https://www.aquamark.io/funder-api" target="_blank" rel="noopener noreferrer" class="service-badge doc-watermark"><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>Watermarked</a> before third-party access</div>
+                            <div class="option-label"><strong>Option B:</strong> Documents are watermarked before third-party access</div>
                         </div>
                     </div>
                 </div>
@@ -930,7 +1064,7 @@
                 <h3 class="subsection-title">Cloud Service Usage</h3>
                 <div class="if-then">
                     <div class="if-then-label">IF you use cloud storage services (Google Drive, Dropbox, OneDrive, Box, etc.) to house merchant documents, THEN:</div>
-                    <div class="sub-item">Users have view-only access OR documents are <a href="https://www.aquamark.io/funder-api" target="_blank" rel="noopener noreferrer" class="service-badge doc-watermark"><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>Watermarked</a> if downloadable</div>
+                    <div class="sub-item">Users have view-only access OR documents are watermarked if downloadable</div>
                 </div>
             </div>
         </section>
@@ -986,6 +1120,53 @@
 
         // Show overview section by default
         document.getElementById('overview').classList.add('active');
+
+        // Modal functions
+        function openToolsModal() {
+            document.getElementById('toolsModal').classList.add('active');
+        }
+
+        function closeToolsModal() {
+            document.getElementById('toolsModal').classList.remove('active');
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('toolsModal');
+            if (event.target == modal) {
+                closeToolsModal();
+            }
+        }
     </script>
+
+    <!-- Tools Modal -->
+    <div id="toolsModal" class="modal">
+        <div class="modal-content" style="position: relative;">
+            <button class="modal-close" onclick="closeToolsModal()">&times;</button>
+            <div class="modal-header">
+                <h3>Implementation Tools</h3>
+                <p>Solutions that can help you meet certification requirements</p>
+            </div>
+            <div class="modal-body">
+                <div class="tool-item">
+                    <h4>Email Gateway</h4>
+                    <p>Automatically watermark broker email submissions before they reach your processing team—no API integration required.</p>
+                    <a href="https://www.aquamark.io/funder-gateway" target="_blank">Learn More →</a>
+                </div>
+                
+                <div class="tool-item">
+                    <h4>Document Watermarking API</h4>
+                    <p>Programmatically watermark files in your portal, CRM, or cloud storage to prevent unauthorized sharing.</p>
+                    <a href="https://www.aquamark.io/funder-api" target="_blank">Learn More →</a>
+                </div>
+                
+                <div class="tool-item">
+                    <h4>Screen Watermarking</h4>
+                    <p>Desktop application that displays visible user attribution on screens accessing sensitive merchant information.</p>
+                    <a href="https://www.aquamark.io/screen-watermarking" target="_blank">Learn More →</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
