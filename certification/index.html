@@ -593,7 +593,7 @@
     <div class="hero">
         <div class="hero-content">
             <h1>Certification Requirements</h1>
-            <p class="hero-subtitle">Join the list of verified funders in alternative finance</p>
+            <p class="hero-subtitle">Certification that separates professional operators from careless shops</p>
         </div>
     </div>
 
@@ -674,13 +674,29 @@
             <div class="subsection">
                 <h3 class="subsection-title">Outbound Email Oversight</h3>
                
-<div class="requirement">
-  Implementation of <span style="font-weight:600;">outbound email rule</span> for back-office roles with access to sensitive information. The rule identifies outbound emails containing attachments sent outside the organization and copies them to a designated inbox, providing visibility for monitoring and investigation if needed. Organizations should notify staff that this activity is monitored, as visibility alone helps reduce inappropriate external sharing.
-</div>
+                <div class="requirement">
+                    Outbound emails containing sensitive information must be monitored to detect unauthorized external sharing.
+                </div>
 
+                <div class="if-then">
+                    <div class="if-then-label">Choose one monitoring method:</div>
+                    <div class="options">
+                        <div class="option">
+                            <div class="option-label"><strong>Option A:</strong> Audit Logs (Recommended)</div>
+                            <div class="sub-item">Enable audit logging in email system (Microsoft 365, Google Workspace, etc.)</div>
+                            <div class="sub-item">Retain logs for review if breach suspected</div>
+                        </div>
+                        <div class="option">
+                            <div class="option-label"><strong>Option B:</strong> Real-Time Monitoring Mailbox</div>
+                            <div class="sub-item">Configure email system to copy outbound emails to monitoring mailbox</div>
+                            <div class="sub-item">Applies to back-office roles with access to sensitive information</div>
+                            <div class="sub-item">Rule identifies outbound emails with attachments sent outside the organization</div>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="note">
-                    <strong>Note:</strong> Common implementations include Gmail Content Compliance<span class="tooltip-container">
+                    <strong>Note:</strong> Common implementations for Option B include Gmail Content Compliance<span class="tooltip-container">
                         <span class="tooltip-icon">?</span>
                         <div class="tooltip-content">
                             <h4>Gmail (Google Workspace) — external recipient + attachment (with monitoring copy)</h4>
