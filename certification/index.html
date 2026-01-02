@@ -267,8 +267,6 @@
         .requirement strong {
             color: var(--text);
             font-weight: 600;
-            display: block;
-            margin-bottom: 0.25rem;
         }
 
         .note {
@@ -478,6 +476,14 @@
             color: var(--primary);
             margin-bottom: 1rem;
             font-size: 0.9375rem;
+        }
+
+        .if-then-label strong {
+            background: #FEF3C7;
+            padding: 0.125rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 700;
+            color: #92400E;
         }
 
         .options {
@@ -726,6 +732,10 @@
                 padding: 1rem;
             }
 
+            .if-then-label {
+                font-size: 0.9375rem;
+            }
+
             /* Prevent horizontal scroll from long content */
             .section {
                 overflow-x: hidden;
@@ -818,7 +828,7 @@
             <div class="subsection">
                 <h3 class="subsection-title">Submission Handling</h3>
                 <div class="if-then">
-                    <div class="if-then-label">IF broker submissions are accepted via email, THEN one of the following is required:</div>
+                    <div class="if-then-label"><strong>IF</strong> broker submissions are accepted via email, <strong>THEN</strong> one of the following is required:</div>
                     <div class="options">
                         <div class="option">
                             <div class="option-label"><strong>Option A:</strong> Automated email processing with restricted human access</div>
@@ -843,7 +853,13 @@
                 <h3 class="subsection-title">Outbound Email Oversight</h3>
                
                 <div class="requirement">
-Configure an email rule that copies outbound emails with attachments to a monitoring mailbox when messages are sent to external recipients by back-office staff. Staff should be informed that outbound attachments are monitored. Known oversight encourages appropriate handling of sensitive information and helps deter unauthorized sharing. Emails are not blocked; copies are retained solely to support review or investigation if needed. <br>
+Configure an email rule that copies messages to a monitoring mailbox when <strong>all</strong> of the following criteria are met:
+                    <div class="sub-item">Email is <strong>outbound</strong> and sent from your organization</div>
+                    <div class="sub-item">Message includes <strong>attachments</strong></div>
+                    <div class="sub-item">Recipients from <strong>external domain</strong> (outside your organization)</div>
+                    <div class="sub-item">Sender in <strong>deal processing role</strong> (underwriters, processors)</div>
+                    <div style="margin-top: 1rem;">Staff should be informed that outbound attachments are monitored. Known oversight encourages appropriate handling of sensitive information and helps deter unauthorized sharing. Emails are not blocked; copies are retained solely to support review or investigation if needed.</div>
+                </div>
                 <div class="note">
                     <strong>Note:</strong> Common implementations include Gmail Content Compliance<span class="tooltip-container">
                         <span class="tooltip-icon">?</span>
@@ -941,13 +957,13 @@ Configure an email rule that copies outbound emails with attachments to a monito
                 </div>
 
                 <div class="if-then">
-                    <div class="if-then-label">IF sensitive information is accessible in your portal (e.g. SSN, DOB, Address, EIN), THEN:</div>
+                    <div class="if-then-label"><strong>IF</strong> sensitive information is accessible in your portal (e.g. SSN, DOB, Address, EIN), <strong>THEN:</strong></div>
                     <div class="sub-item">Screenshot blocking enabled, OR screen watermarking software on devices with portal access</div>
                     <div class="sub-item">Note: Screen watermarking software is available for desktop environments, though any provider may be used</div>
                 </div>
 
                 <div class="if-then">
-                    <div class="if-then-label">IF files are available in your portal, THEN choose one:</div>
+                    <div class="if-then-label"><strong>IF</strong> files are available in your portal, <strong>THEN</strong> choose one:</div>
                     <div class="options">
                         <div class="option">
                             <div class="option-label"><strong>Option A:</strong> View-only access to files (no download capability)</div>
@@ -996,7 +1012,7 @@ Configure an email rule that copies outbound emails with attachments to a monito
                 </div>
 
                 <div class="if-then">
-                    <div class="if-then-label">IF documents are stored in your CRM, THEN choose one:</div>
+                    <div class="if-then-label"><strong>IF</strong> documents are stored in your CRM, <strong>THEN</strong> choose one:</div>
                     <div class="options">
                         <div class="option">
                             <div class="option-label"><strong>Option A:</strong> View-only access to files (no download capability)</div>
@@ -1008,7 +1024,7 @@ Configure an email rule that copies outbound emails with attachments to a monito
                 </div>
 
                 <div class="if-then">
-                    <div class="if-then-label">IF full database download capability exists, THEN:</div>
+                    <div class="if-then-label"><strong>IF</strong> full database download capability exists, <strong>THEN:</strong></div>
                     <div class="sub-item">This function must be restricted to senior personnel only</div>
                 </div>
             </div>
@@ -1072,7 +1088,7 @@ Configure an email rule that copies outbound emails with attachments to a monito
                     <strong>Note:</strong> If you do not use BPO teams (on-shore or off-shore), skip this section.
                 </div>
                 <div class="if-then">
-                    <div class="if-then-label">IF BPO teams have access to merchant documents (via email, CRM, portal, or cloud storage), THEN choose one:</div>
+                    <div class="if-then-label"><strong>IF</strong> BPO teams have access to merchant documents (via email, CRM, portal, or cloud storage), <strong>THEN</strong> choose one:</div>
                     <div class="options">
                         <div class="option">
                             <div class="option-label"><strong>Option A:</strong> View-only access to files (no download capability)</div>
@@ -1095,7 +1111,7 @@ Configure an email rule that copies outbound emails with attachments to a monito
             <div class="subsection">
                 <h3 class="subsection-title">Cloud Service Usage</h3>
                 <div class="if-then">
-                    <div class="if-then-label">IF you use cloud storage services (Google Drive, Dropbox, OneDrive, Box, etc.) to house merchant documents, THEN:</div>
+                    <div class="if-then-label"><strong>IF</strong> you use cloud storage services (Google Drive, Dropbox, OneDrive, Box, etc.) to house merchant documents, <strong>THEN:</strong></div>
                     <div class="sub-item">Users have view-only access OR documents are watermarked if downloadable</div>
                 </div>
             </div>
