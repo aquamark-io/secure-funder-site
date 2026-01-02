@@ -724,20 +724,43 @@
                 padding: 1rem;
             }
 
-            /* Fix navigation horizontal scroll */
-            nav {
-                overflow-x: auto;
+            /* Fix navigation - allow wrapping on mobile */
+            .nav-container {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            /* Fix modal scrolling on mobile */
+            .modal-content {
+                max-height: 90vh;
+                overflow-y: auto;
                 -webkit-overflow-scrolling: touch;
             }
 
-            .nav-container {
-                flex-wrap: nowrap;
-                justify-content: flex-start;
-                min-width: min-content;
+            /* Prevent horizontal overflow from content */
+            .requirement,
+            .note,
+            .if-then,
+            .subsection,
+            .tooltip-content {
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+                word-break: break-word;
             }
 
-            .nav-link {
-                flex-shrink: 0;
+            code {
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+                white-space: pre-wrap;
+            }
+
+            ol, ul {
+                padding-right: 1rem;
+            }
+
+            /* Ensure section doesn't overflow */
+            .section {
+                overflow-x: hidden;
             }
 
             /* Fix table horizontal scroll */
