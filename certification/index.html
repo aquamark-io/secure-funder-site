@@ -723,68 +723,6 @@
                 font-size: 0.8125rem;
                 padding: 1rem;
             }
-
-            /* Fix navigation - allow wrapping on mobile */
-            .nav-container {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            /* Fix modal scrolling on mobile */
-            .modal-content {
-                max-height: 90vh;
-                overflow-y: auto;
-                -webkit-overflow-scrolling: touch;
-            }
-
-            /* Prevent horizontal overflow from content */
-            .requirement,
-            .note,
-            .if-then,
-            .subsection,
-            .tooltip-content {
-                word-wrap: break-word;
-                overflow-wrap: break-word;
-                word-break: break-word;
-            }
-
-            code {
-                word-wrap: break-word;
-                overflow-wrap: break-word;
-                white-space: pre-wrap;
-            }
-
-            ol, ul {
-                padding-right: 1rem;
-            }
-
-            /* Ensure section doesn't overflow */
-            .section {
-                overflow-x: hidden;
-            }
-
-            /* Fix table horizontal scroll */
-            .table-wrapper {
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-                margin-left: -1.5rem;
-                margin-right: -1.5rem;
-                padding-left: 1.5rem;
-                padding-right: 1.5rem;
-            }
-
-            .comparison-table {
-                min-width: 600px;
-            }
-
-            /* Fix helper popup sizing */
-            .helper-popup {
-                width: 280px;
-                max-width: 90vw;
-                left: 50%;
-                right: auto;
-                transform: translateX(-50%);
-            }
         }
     </style>
 </head>
@@ -858,7 +796,7 @@
                             <div class="option-label"><strong>Option B:</strong> Use Secure Funder Gateway to automatically watermark submissions</div>
                             <div class="sub-item">No changes to broker submission inbox</div>
                             <div class="sub-item">Attachments routed through gateway to watermark files and embed metadata</div>
-                            <div class="sub-item">Protected files sent to destination inbox for processing team (e.g., <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="0171736e62647272686f6641786e7473626e6c71606f782f626e6c">[email&#160;protected]</a>)</div>
+                            <div class="sub-item">Protected files sent to destination inbox for processing team (e.g., processing@yourcompany.com)</div>
                             <div style="margin-top: 1rem;">
                                 <button class="btn-small" onclick="openToolsModal()" style="background: #EFF6FF; color: #1E40AF; border: 2px solid #BFDBFE;">Access Gateway</button>
                             </div>
@@ -905,7 +843,7 @@ Configure an email rule that copies outbound emails with attachments to a monito
                                         </li>
                                     </ul>
                                 </li>
-                                <li>Under actions → <strong>Also deliver to</strong> → add your monitoring mailbox (e.g., <code><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="721f1d1c1b061d001b1c15320b1d0700111d1f02131c0b5c111d1f">[email&#160;protected]</a></code>).
+                                <li>Under actions → <strong>Also deliver to</strong> → add your monitoring mailbox (e.g., <code>monitoring@yourcompany.com</code>).
                                     <ul>
                                         <li>☑ Do not deliver spam to this recipient</li>
                                         <li>☑ Suppress bounces from this recipient</li>
@@ -934,7 +872,7 @@ Configure an email rule that copies outbound emails with attachments to a monito
                                 </li>
                                 <li><strong>Do the following…</strong>
                                     <ul>
-                                        <li>Add a blind carbon copy (Bcc) to → your monitoring mailbox (e.g., <code><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="69040607001d061b00070e2910061c1b0a060419080710470a0604">[email&#160;protected]</a></code>)</li>
+                                        <li>Add a blind carbon copy (Bcc) to → your monitoring mailbox (e.g., <code>monitoring@yourcompany.com</code>)</li>
                                     </ul>
                                 </li>
                                 <li><em>(Optional but recommended)</em>
@@ -1153,7 +1091,7 @@ Configure an email rule that copies outbound emails with attachments to a monito
         </section>
     </div>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         // Tab navigation
         const navLinks = document.querySelectorAll('.nav-link');
         const sections = document.querySelectorAll('.section');
@@ -1217,4 +1155,16 @@ Configure an email rule that copies outbound emails with attachments to a monito
                 <div class="tool-item">
                     <h4>Document Watermarking API</h4>
                     <p>Programmatically watermark files in your portal, CRM, or cloud storage to prevent unauthorized sharing.</p>
-                    <a href="https://www.aquamark.io/funder-api" t
+                    <a href="https://www.aquamark.io/funder-api" target="_blank">Learn More →</a>
+                </div>
+                
+                <div class="tool-item">
+                    <h4>Screen Watermarking</h4>
+                    <p>Desktop application that displays visible user attribution on screens accessing sensitive merchant information.</p>
+                    <a href="https://www.aquamark.io/screen-watermarking" target="_blank">Learn More →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
