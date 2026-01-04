@@ -771,6 +771,14 @@
     </style>
 </head>
 <body>
+    <!-- TOP NAVIGATION BAR -->
+    <div style="background: white; border-bottom: 1px solid #E5E7EB; position: sticky; top: 0; z-index: 1000;">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0.75rem 2rem; display: flex; justify-content: space-between; align-items: center;">
+            <img src="/2026-badge.png" alt="Secure Funder Badge" style="height: 40px;">
+            <a href="https://securefunder.org" style="color: #0F1419; text-decoration: none; font-weight: 600; font-size: 0.9375rem;">Public Directory</a>
+        </div>
+    </div>
+
     <div class="hero">
         <div class="hero-content">
             <h1>Certification Requirements</h1>
@@ -807,7 +815,7 @@
             
             <div class="button-group" style="margin-top: 2rem;">
                 <a href="https://aquamark.fillout.com/secure-funder" class="btn-small" target="_blank">Get Certified</a>
-                <button class="btn-small" onclick="openToolsModal()" style="background: #D1FAE5; color: #065F46; border: 2px solid #A7F3D0;">Tools</button>
+                <button class="btn-small" onclick="openToolsModal()" style="background: #EFF6FF; color: #1E40AF; border: 2px solid #BFDBFE;">Funder Tools</button>
             </div>
         </section>
 
@@ -840,7 +848,7 @@
                             <div class="option-label"><strong>Option B:</strong> Use the Secure Funder Gateway to automatically protect submissions</div>
                             <div class="sub-item">No changes to broker submission inbox or workflow</div>
                             <div class="sub-item">Attachments routed through gateway to watermark files and embed metadata</div>
-                            <div class="sub-item">Protected files sent to destination inbox for processing team (e.g., processing@yourcompany.com)</div>
+                            <div class="sub-item">Protected files sent to destination inbox for processing team (e.g., <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2252504d414751514b4c45625b4d5750414d4f52434c5b0c414d4f">[email&#160;protected]</a>)</div>
                             <div style="margin-top: 1rem;">
                                 <button class="btn-small" onclick="openToolsModal()" style="background: #EFF6FF; color: #1E40AF; border: 2px solid #BFDBFE;">Access Gateway</button>
                             </div>
@@ -893,7 +901,7 @@ Configure an email rule that copies messages to a monitoring mailbox when <stron
                                         </li>
                                     </ul>
                                 </li>
-                                <li>Under actions → <strong>Also deliver to</strong> → add your monitoring mailbox (e.g., <code>monitoring@yourcompany.com</code>).
+                                <li>Under actions → <strong>Also deliver to</strong> → add your monitoring mailbox (e.g., <code><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="74191b1a1d001b061d1a13340d1b0106171b1904151a0d5a171b19">[email&#160;protected]</a></code>).
                                     <ul>
                                         <li>☑ Do not deliver spam to this recipient</li>
                                         <li>☑ Suppress bounces from this recipient</li>
@@ -922,7 +930,7 @@ Configure an email rule that copies messages to a monitoring mailbox when <stron
                                 </li>
                                 <li><strong>Do the following…</strong>
                                     <ul>
-                                        <li>Add a blind carbon copy (Bcc) to → your monitoring mailbox (e.g., <code>monitoring@yourcompany.com</code>)</li>
+                                        <li>Add a blind carbon copy (Bcc) to → your monitoring mailbox (e.g., <code><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="45282a2b2c312a372c2b22053c2a3037262a2835242b3c6b262a28">[email&#160;protected]</a></code>)</li>
                                     </ul>
                                 </li>
                                 <li><em>(Optional but recommended)</em>
@@ -1135,7 +1143,7 @@ Configure an email rule that copies messages to a monitoring mailbox when <stron
         </section>
     </div>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Tab navigation
         const navLinks = document.querySelectorAll('.nav-link');
         const sections = document.querySelectorAll('.section');
@@ -1199,16 +1207,4 @@ Configure an email rule that copies messages to a monitoring mailbox when <stron
                 <div class="tool-item">
                     <h4>Document Protection</h4>
                     <p>Programmatically watermark files in your portal, CRM, or cloud storage to prevent unauthorized sharing.</p>
-                    <a href="https://www.aquamark.io/funder-api" target="_blank">Learn More →</a>
-                </div>
-                
-                <div class="tool-item">
-                    <h4>Screen Protection</h4>
-                    <p>Desktop application that displays visible user attribution on screens accessing sensitive merchant information.</p>
-                    <a href="https://www.aquamark.io/screen-watermarking" target="_blank">Learn More →</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</body>
-</html>
+                    <a href="https://www.aquamark.io/funder-api"
