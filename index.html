@@ -3,27 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Secure Funder™ Certification Requirements</title>
-    <link rel="icon" href="/2026-badge.png" type="image/png">
-    <link rel="apple-touch-icon" href="/2026-badge.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #0F1419;
-            --primary-light: #1F2937;
-            --bg: #FFFFFF;
-            --card-bg: #F9FAFB;
-            --text: #0F1419;
-            --text-light: #4B5563;
-            --border: #E5E7EB;
-            --success: #0F1419;
-            --highlight: #F3F4F6;
-            --highlight-text: #374151;
-            --if-then-bg: #F9FAFB;
-        }
+    <title>Secure Funder™ Directory | Aquamark</title>
+    
+    <!-- Open Graph / Social Preview -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://securefunders.org/">
+<meta property="og:title" content="Secure Funder™ Directory">
+<meta property="og:description" content="Certified funders committed to protecting merchant information through verified technical safeguards.">
+<meta property="og:image" content="https://securefunders.org/hero.png">
 
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Secure Funder™ Directory">
+<meta name="twitter:description" content="Certified funders committed to protecting merchant information through verified technical safeguards.">
+<meta name="twitter:image" content="https://securefunders.org/hero.png">
+
+<link rel="icon" type="image/png" href="2026-badge.png">
+<link rel="apple-touch-icon" href="2026-badge.png">
+    <style>
         * {
             margin: 0;
             padding: 0;
@@ -32,261 +29,229 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            color: var(--text);
-            background: var(--bg);
-            line-height: 1.6;
+            background: #FFFFFF;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            color: #0F1419;
         }
 
-        .hero {
-            background: var(--card-bg);
-            color: var(--text);
-            padding: 4rem 2rem;
-            text-align: center;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .badge {
-            display: inline-block;
+        .announcement-banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
             background: #F3F4F6;
             color: #374151;
-            padding: 0.5rem 1.25rem;
-            border-radius: 20px;
-            font-size: 0.875rem;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            letter-spacing: -0.5px;
-        }
-
-        .hero-subtitle {
-            font-size: 1.125rem;
-            color: var(--text-light);
-            max-width: 600px;
-            margin: 0 auto 2.5rem;
-            line-height: 1.6;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            display: inline-block;
             padding: 0.875rem 2rem;
-            border-radius: 6px;
-            font-weight: 600;
-            font-size: 1rem;
-            text-decoration: none;
-            transition: all 0.2s ease;
-            cursor: pointer;
-            border: none;
-            font-family: inherit;
-            min-width: 160px;
             text-align: center;
+            z-index: 1001;
+            font-size: 0.875rem;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+            border-bottom: 1px solid #E5E7EB;
         }
 
-        .btn-primary {
-            background: var(--primary);
-            color: white;
+        .announcement-banner strong {
+            font-weight: 600;
+            color: #0F1419;
         }
 
-        .btn-primary:hover {
+        .hero-section {
+            text-align: center;
+            padding: 6rem 2rem 4rem;
+            max-width: 900px;
+            margin: 0 auto;
+            margin-top: 60px;
+        }
+
+        .hero-section h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+            letter-spacing: -0.75px;
+            color: #0F1419;
+        }
+
+        .trademark {
+            font-size: 1.875rem;
+            vertical-align: super;
+        }
+
+        .hero-section .subtitle {
+            font-size: 1.25rem;
+            color: #4B5563;
+            font-weight: 400;
+            line-height: 1.6;
+            margin-bottom: 3rem;
+        }
+
+        /* Search Bar Styles */
+        .search-container {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto 3rem;
+            padding: 0 2rem;
+        }
+
+        .search-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            width: 100%;
+        }
+
+        .search-input-wrapper {
+            position: relative;
+            flex: 1 1 auto;
+            min-width: 0;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1.25rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #9CA3AF;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .search-input {
+            display: block;
+            width: 100%;
+            padding: 1rem 1rem 1rem 3.25rem;
+            font-size: 1rem;
+            font-family: inherit;
+            border: 1px solid #E5E7EB;
+            border-radius: 8px;
+            background: #FFFFFF;
+            color: #0F1419;
+            transition: all 0.2s ease;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .search-input::placeholder {
+            color: #9CA3AF;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #0F1419;
+            box-shadow: 0 0 0 3px rgba(15, 20, 25, 0.1), 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .search-button {
+            flex-shrink: 0;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: inherit;
+            background: #0F1419;
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            white-space: nowrap;
+        }
+
+        .search-button:hover {
             background: #1F2937;
             transform: translateY(-1px);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
 
-        .btn-secondary {
-            background: white;
-            color: #0F1419;
-            border: 2px solid #E5E7EB;
+        .search-button:active {
+            transform: translateY(0);
         }
 
-        .btn-secondary:hover {
-            background: #F9FAFB;
-            border-color: #0F1419;
-        }
-
-        nav {
-            background: var(--card-bg);
-            border-bottom: 1px solid var(--border);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
-        }
-
-        .nav-container {
+        /* Directory Container */
+        .directory-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            justify-content: center;
+            padding: 0 2rem 4rem;
         }
 
-        .nav-link {
-            padding: 0.625rem 1rem;
-            text-decoration: none;
-            color: var(--text);
-            font-weight: 500;
-            font-size: 0.875rem;
-            border-radius: 6px;
-            transition: all 0.2s ease;
-            white-space: nowrap;
-            cursor: pointer;
-            position: relative;
-            border: 1.5px solid #E5E7EB;
+        /* Tier Section Styles */
+        .tier-section {
             background: #FFFFFF;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-            min-width: 110px;
-            text-align: center;
-        }
-
-        .nav-link[data-section="overview"] {
-            background: #F3F4F6;
-            border-color: #D1D5DB;
-            color: #374151;
-        }
-
-        .nav-link[data-section="overview"]:hover {
-            border-color: #9CA3AF;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .nav-link[data-section="overview"].active {
-            background: #0F1419;
-            border-color: #0F1419;
-            color: white;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-        }
-
-        .nav-link:hover {
-            color: var(--primary);
-            border-color: #0F1419;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            transform: translateY(-1px);
-        }
-
-        .nav-link.active {
-            color: white;
-            background: #0F1419;
-            border-color: #0F1419;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 3rem 2rem;
-        }
-
-        .section {
-            display: none;
-            background: var(--card-bg);
-            border-radius: 8px;
-            padding: 2.5rem;
-            border: 1px solid var(--border);
-        }
-
-        .section.active {
-            display: block;
-            animation: fadeIn 0.3s ease-out;
-        }
-
-        .section-title {
-            font-size: 2rem;
-            color: var(--text);
+            border: 1px solid #E5E7EB;
+            border-radius: 12px;
+            padding: 3rem 2.5rem;
             margin-bottom: 2rem;
-            font-weight: 600;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 0.75rem;
-            padding-bottom: 1rem;
-            border-bottom: 2px solid var(--border);
         }
 
-        .section-number {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: var(--primary);
-            color: white;
-            border-radius: 8px;
-            font-size: 1.2rem;
-            font-weight: 600;
-        }
-
-        .subsection {
+        .tier-header {
+            text-align: center;
             margin-bottom: 2.5rem;
         }
 
-        .subsection:last-child {
-            margin-bottom: 0;
-        }
-
-        .subsection-title {
-            font-size: 1.125rem;
-            font-weight: 600;
-            color: var(--text);
+        .tier-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #0F1419;
             margin-bottom: 1rem;
-            padding-left: 1rem;
-            border-left: 4px solid var(--primary);
+            letter-spacing: -0.5px;
         }
 
-        .requirement {
-            background: #FAFBFC;
-            padding: 1rem 1.25rem;
-            margin-bottom: 1rem;
-            border-radius: 4px;
-            font-size: 0.9375rem;
-            line-height: 1.7;
-            border-left: 3px solid var(--border);
-            max-width: 900px;
-        }
-
-        .requirement strong {
-            color: var(--text);
-            font-weight: 600;
-        }
-
-        .note {
-            background: #EFF6FF;
-            border: 1px solid #BFDBFE;
-            border-left: 4px solid #3B82F6;
-            padding: 1rem 1.25rem;
-            margin-bottom: 1rem;
-            border-radius: 4px;
-            font-size: 0.9375rem;
+        .tier-description {
+            font-size: 1.0625rem;
+            color: #4B5563;
             line-height: 1.6;
         }
 
-        .note strong {
-            color: #1E40AF;
-            font-weight: 600;
+        /* Charter Member Card */
+        .founding-member-card {
+            background: linear-gradient(135deg, #F9FAFB 0%, #FFFFFF 100%);
+            border: 2px solid #E5E7EB;
+            border-radius: 12px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
         }
 
-        /* Service Badge Links */
-        .service-badge {
+        .member-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            gap: 3rem;
+        }
+
+        .member-logo-info {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            flex: 1;
+        }
+
+        .member-info {
+            flex: 1;
+        }
+
+        .member-info img {
+            max-width: 220px;
+            width: 100%;
+            height: auto;
+        }
+
+        .member-tagline {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #6B7280;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin: 1rem 0 1.25rem;
+        }
+
+        .member-badges {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .mini-badge {
             display: inline-flex;
             align-items: center;
             gap: 0.375rem;
@@ -295,930 +260,352 @@
             font-size: 0.8125rem;
             font-weight: 600;
             letter-spacing: 0.3px;
-            text-decoration: none;
-            transition: all 0.2s ease;
-            border: none;
         }
 
-        .service-badge svg {
+        .mini-badge-icon {
             width: 16px;
             height: 16px;
         }
 
-        .service-badge:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        .mini-badge.founding {
+            background: #FEF3C7;
+            color: #92400E;
         }
 
-        .service-badge.email-gateway {
-            background: #FAE8FF;
-            color: #86198F;
+        .mini-badge.sbfa {
+            background: #DBEAFE;
+            color: #1E40AF;
         }
 
-        .service-badge.screen-watermark {
-            background: #FAE8FF;
-            color: #86198F;
-        }
-
-        .service-badge.doc-watermark {
+        .mini-badge.document-security {
             background: #D1FAE5;
             color: #065F46;
         }
 
-        /* Modal Styles */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 2000;
-            left: 0;
-            top: 0;
+        .mini-badge.screenshot-protection {
+            background: #FAE8FF;
+            color: #86198F;
+        }
+
+        .member-seal-badge {
+            width: 140px;
+            height: 140px;
+            flex-shrink: 0;
+        }
+
+        .member-seal-badge img {
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            animation: fadeIn 0.2s ease;
+            object-fit: contain;
+            filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
         }
 
-        .modal.active {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-content {
-            background: #FFFFFF;
-            border-radius: 12px;
-            max-width: 600px;
-            width: 90%;
-            max-height: 90vh;
-            overflow-y: auto;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-            animation: slideUp 0.3s ease;
-        }
-
-        .modal-header {
-            padding: 2rem 2rem 1rem;
-            border-bottom: 1px solid #E5E7EB;
-        }
-
-        .modal-header h3 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #0F1419;
-            margin-bottom: 0.5rem;
-        }
-
-        .modal-header p {
+        .member-description {
+            font-size: 1.0625rem;
             color: #4B5563;
-            font-size: 0.9375rem;
+            line-height: 1.8;
         }
 
-        .modal-body {
-            padding: 2rem;
-        }
-
-        .tool-item {
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 4rem 2rem;
             background: #F9FAFB;
-            border: 1px solid #E5E7EB;
             border-radius: 8px;
-            padding: 1.5rem;
-            margin-bottom: 1rem;
-            transition: all 0.2s ease;
+            border: 1px solid #E5E7EB;
         }
 
-        .tool-item:hover {
-            border-color: #D1D5DB;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
-        }
-
-        .tool-item h4 {
+        .empty-state-text {
             font-size: 1.125rem;
-            font-weight: 600;
-            color: #0F1419;
-            margin-bottom: 0.5rem;
-        }
-
-        .tool-item p {
-            color: #4B5563;
-            font-size: 0.9375rem;
-            margin-bottom: 1rem;
-            line-height: 1.6;
-        }
-
-        .tool-item a {
-            display: inline-block;
-            padding: 0.625rem 1.5rem;
-            background: #0F1419;
-            color: #FFFFFF;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: 600;
-            font-size: 0.875rem;
-            transition: all 0.2s ease;
-        }
-
-        .tool-item a:hover {
-            background: #1F2937;
-            transform: translateY(-1px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 1.5rem;
-            right: 1.5rem;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
             color: #6B7280;
-            cursor: pointer;
-            padding: 0.5rem;
-            line-height: 1;
-            transition: color 0.2s ease;
+            font-weight: 500;
         }
 
-        .modal-close:hover {
-            color: #0F1419;
+        /* Footer Section */
+        .about-footer {
+            border-top: 1px solid #E5E7EB;
+            background: #F9FAFB;
+            margin-top: 3rem;
+            padding: 3rem 2rem;
         }
 
-        .button-group {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
+        .about-footer-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: center;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .if-then {
-            background: var(--if-then-bg);
-            border: 1px solid #BFDBFE;
-            border-left: 4px solid var(--primary);
-            padding: 1.25rem;
-            margin: 1.5rem 0;
-            border-radius: 4px;
-        }
-
-        .if-then-label {
-            font-weight: 600;
-            color: var(--primary);
-            margin-bottom: 1rem;
-            font-size: 0.9375rem;
-        }
-
-        .if-then-label strong {
-            background: #FEF3C7;
-            padding: 0.125rem 0.5rem;
-            border-radius: 4px;
-            font-weight: 700;
-            color: #92400E;
-        }
-
-        .options {
-            margin: 1rem 0;
-        }
-
-        .option {
-            background: white;
-            padding: 1rem;
-            margin-bottom: 0.75rem;
-            border-radius: 4px;
-            border: 1px solid #BFDBFE;
-        }
-
-        .option:last-child {
-            margin-bottom: 0;
-        }
-
-        .option-label {
-            font-size: 0.9375rem;
-            line-height: 1.6;
-            color: var(--text);
-        }
-
-        .option-label strong {
-            color: var(--primary);
-            font-weight: 600;
-        }
-
-        .sub-item {
-            margin-left: 1.25rem;
-            margin-top: 0.5rem;
-            position: relative;
-            padding-left: 1rem;
-            font-size: 0.9375rem;
-            line-height: 1.7;
-        }
-
-        .sub-item:before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: var(--text-light);
-        }
-
-        .overview-content {
-            font-size: 0.9375rem;
-            line-height: 1.7;
-            color: var(--text);
-            margin-bottom: 1.5rem;
-        }
-
-        .explore-badge {
-            display: inline-block;
-            background: var(--highlight);
-            color: var(--highlight-text);
-            padding: 0.375rem 0.875rem;
-            border-radius: 4px;
+        .about-footer h4 {
             font-size: 0.75rem;
             font-weight: 600;
-            border: 1.5px solid #A7F3D0;
+            color: #6B7280;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
         }
 
-        .btn-small {
-            display: inline-block;
-            padding: 0.625rem 1.5rem;
-            border-radius: 6px;
-            font-weight: 600;
-            font-size: 0.875rem;
-            text-decoration: none;
-            transition: all 0.2s ease;
-            cursor: pointer;
-            background: var(--primary);
-            color: white;
-            border: none;
-        }
-
-        .btn-small:hover {
-            background: var(--primary-light);
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(0, 74, 173, 0.2);
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .tooltip-container {
-            position: relative;
-            display: inline-block;
-            margin-left: 0.25rem;
-        }
-
-        .tooltip-icon {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            background: var(--primary);
-            color: white;
-            font-size: 12px;
-            font-weight: 600;
-            cursor: help;
-            transition: all 0.2s ease;
-        }
-
-        .tooltip-icon:hover {
-            background: var(--primary-light);
-            transform: scale(1.1);
-        }
-
-        .tooltip-content {
-            visibility: hidden;
-            opacity: 0;
-            position: absolute;
-            z-index: 1000;
-            bottom: 125%;
-            left: 50%;
-            transform: translateX(-50%);
-            background: white;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 1.25rem;
-            width: 500px;
-            max-width: 90vw;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-            transition: all 0.3s ease;
-            font-size: 0.875rem;
-            line-height: 1.5;
-            text-align: left;
-        }
-
-        .tooltip-container:hover .tooltip-content {
-            visibility: visible;
-            opacity: 1;
-        }
-
-        .tooltip-content h4 {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-            color: var(--text);
-        }
-
-        .tooltip-content ol {
-            margin: 0.5rem 0 0 1.25rem;
-            padding: 0;
-        }
-
-        .tooltip-content li {
-            margin-bottom: 0.5rem;
-            color: var(--text);
-        }
-
-        .tooltip-content ul {
-            margin: 0.25rem 0 0.5rem 1.25rem;
-            padding: 0;
-            list-style-type: disc;
-        }
-
-        .tooltip-content code {
-            background: #f5f5f5;
-            padding: 0.125rem 0.375rem;
-            border-radius: 3px;
-            font-family: 'Courier New', monospace;
+        .about-footer p {
+            color: #6B7280;
             font-size: 0.8125rem;
+            line-height: 1.6;
+            margin: 0;
         }
 
-        .tooltip-content strong {
-            color: var(--text);
+        .about-footer a {
+            color: #0F1419;
+            text-decoration: none;
             font-weight: 600;
+            border-bottom: 1px solid #0F1419;
         }
 
-        .tooltip-content em {
-            font-style: italic;
-            color: var(--text-light);
+        .about-footer a:hover {
+            color: #374151;
+            border-bottom-color: #374151;
+        }
+
+        .footer {
+            padding: 2.5rem 2rem;
+            text-align: center;
+            color: #9CA3AF;
+            font-size: 0.9375rem;
+            background: #0F1419;
+            letter-spacing: 0.3px;
         }
 
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
+            .announcement-banner {
+                font-size: 0.8125rem;
+                padding: 0.75rem 1.5rem;
             }
 
-            .hero {
-                padding: 2rem 1.5rem;
+            .nav {
+                padding: 1.25rem 1.5rem;
+                top: 46px;
             }
 
-            .hero-subtitle {
-                font-size: 1rem;
-                margin-bottom: 0;
+            .nav img {
+                max-width: 130px;
             }
 
-            .container {
-                padding: 2rem 1rem;
+            .nav-buttons {
+                gap: 1.5rem;
             }
 
-            .section {
-                padding: 1.5rem;
+            .hero-section {
+                padding: 4rem 1.5rem 3rem;
+                margin-top: 60px;
             }
 
-            .section-title {
+            .hero-section h1 {
+                font-size: 2.25rem;
+            }
+
+            .trademark {
                 font-size: 1.5rem;
-                flex-direction: column;
-                align-items: flex-start;
             }
 
-            .nav-container {
-                padding: 0.75rem 1rem;
-                gap: 0.375rem;
-                flex-wrap: wrap;
+            .hero-section .subtitle {
+                font-size: 1.125rem;
+                margin-bottom: 2.5rem;
+            }
+
+            .search-container {
+                padding: 0 1.5rem;
+                margin-bottom: 2.5rem;
+            }
+
+            .search-wrapper {
+                flex-direction: column;
+            }
+
+            .search-button {
+                width: 100%;
+            }
+
+            .directory-container {
+                padding: 0 1.5rem 3rem;
+            }
+
+            .tier-section {
+                padding: 2.5rem 1.75rem;
+            }
+
+            .tier-title {
+                font-size: 1.75rem;
+            }
+
+            .founding-member-card {
+                padding: 2rem 1.75rem;
+            }
+
+            .member-header {
+                flex-direction: column;
+                align-items: center;
+                gap: 2rem;
+            }
+
+            .member-logo-info {
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .member-info {
+                width: 100%;
+            }
+
+            .member-badges {
                 justify-content: center;
             }
 
-            .nav-link {
-                padding: 0.5rem 0.75rem;
-                font-size: 0.8125rem;
-                min-width: 90px;
+            .member-seal-badge {
+                width: 120px;
+                height: 120px;
             }
 
-            .explore-badge {
-                font-size: 0.6875rem;
-                padding: 0.3rem 0.75rem;
+            .member-description {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero-section h1 {
+                font-size: 2rem;
             }
 
-            .overview-content {
-                font-size: 0.875rem;
+            .hero-section .subtitle {
+                font-size: 1rem;
             }
 
-            .btn-small {
-                font-size: 0.8125rem;
-                padding: 0.5rem 1.25rem;
+            .tier-section {
+                padding: 2rem 1.5rem;
             }
 
-            .tooltip-content {
-                width: 320px;
-                font-size: 0.8125rem;
-                padding: 1rem;
+            .tier-title {
+                font-size: 1.5rem;
             }
 
-            .if-then-label {
-                font-size: 0.9375rem;
-            }
-
-            /* Prevent horizontal scroll from long content */
-            .section {
-                overflow-x: hidden;
-            }
-
-            .requirement,
-            .note,
-            .if-then,
-            .subsection {
-                word-wrap: break-word;
-                overflow-wrap: break-word;
-            }
-
-            .requirement code,
-            .tooltip-content code,
-            .note code {
-                word-wrap: break-word;
-                overflow-wrap: break-word;
-                white-space: pre-wrap;
-            }
-
-            /* Fix modal scrolling on mobile */
-            .modal-content {
-                max-height: 90vh;
-                overflow-y: auto;
-                -webkit-overflow-scrolling: touch;
-            }
-
-            .modal-body {
-                overflow-y: visible;
+            .founding-member-card {
+                padding: 1.75rem 1.5rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- TOP NAVIGATION BAR -->
-    <div style="background: white; border-bottom: 1px solid #E5E7EB; position: sticky; top: 0; z-index: 1000;">
-        <div style="max-width: 1200px; margin: 0 auto; padding: 0.75rem 2rem; display: flex; justify-content: space-between; align-items: center;">
-            <img src="/2026-badge.png" alt="Secure Funder Badge" style="height: 80px;">
-            <a href="https://securefunder.org" style="color: #0F1419; text-decoration: none; font-weight: 600; font-size: 0.9375rem;">Public Directory</a>
+    <div class="announcement-banner">
+        Coming Q1 2026: The security standard for alternative finance.
+    </div>
+
+    
+    <div class="hero-section">
+        <h1>Secure Funder<span class="trademark">™</span> Directory</h1>
+        <p class="subtitle">
+            A verified directory of funders committed to protecting sensitive information.
+        </p>
+    </div>
+
+    <div class="search-container">
+        <div class="search-wrapper">
+            <div class="search-input-wrapper">
+                <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.35-4.35"></path>
+                </svg>
+                <input type="text" class="search-input" placeholder="Search certified funders..." id="funderSearch">
+            </div>
+            <button class="search-button">Search</button>
         </div>
     </div>
 
-    <div class="hero">
-        <div class="hero-content">
-            <h1>Certification Requirements</h1>
-            <p class="hero-subtitle">Join the list of verified funders in alternative finance</p>
+    <div class="directory-container">
+        <!-- Charter Member Card -->
+        <div class="founding-member-card">
+            <div class="member-header">
+                <div class="member-logo-info">
+                    <div class="member-info">
+                        <div style="margin-bottom: 1.5rem;">
+                            <a href="https://www.ecg.com/" target="_blank" rel="noopener noreferrer"><img src="ecg2.png" alt="Expansion Capital Group"></a>
+                        </div>
+                        <p class="member-tagline">Charter Member • Est. 2026</p>
+                        <div class="member-badges">
+                            <span class="mini-badge founding">
+                                <svg class="mini-badge-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                </svg>
+                                Charter Member
+                            </span>
+                            <span class="mini-badge sbfa">
+                                <svg class="mini-badge-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                SBFA Member
+                            </span>
+                            <span class="mini-badge document-security">
+                                <svg class="mini-badge-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                Document Security Layer
+                            </span>
+                            <span class="mini-badge screenshot-protection">
+                                <svg class="mini-badge-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                Screenshot Protection
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="member-seal-badge">
+                    <img src="founding-badge.png" alt="Founding Secure Funder Badge">
+                </div>
+            </div>
+
+            <p class="member-description">
+                Expansion Capital Group is Secure Funder™ certified following an independent assessment of technical safeguards designed to control the handling of sensitive merchant information and prevent unauthorized external sharing. As the program's charter member, their participation helped establish baseline standards centered on practical security controls that scale across funders of all sizes.
+            </p>
+        </div>
+
+        <div class="tier-section">
+            <div class="tier-header">
+                <div style="display: flex; justify-content: center; margin-bottom: 1.5rem;">
+                    <img src="2026-badge.png" alt="Secure Funder 2026 Badge" style="width: 120px; height: 120px; object-fit: contain; filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));">
+                </div>
+                <h2 class="tier-title">Certified Funders</h2>
+                <p class="tier-description">
+                    Organizations that have passed the assessment and meet all standards.
+                </p>
+            </div>
+            <div class="empty-state">
+                <div class="empty-state-text">Additional certifications launching Q1 2026</div>
+            </div>
+        </div>
+
+        <div class="tier-section">
+            <div class="tier-header">
+                <h2 class="tier-title">Certification In Progress</h2>
+                <p class="tier-description">
+                    Organizations scheduled to complete the assessment process.
+                </p>
+            </div>
+            <div class="empty-state">
+                <div class="empty-state-text">Assessments beginning Q1 2026</div>
+            </div>
         </div>
     </div>
 
-    <nav>
-        <div class="nav-container">
-            <a href="#overview" class="nav-link active" data-section="overview">Overview</a>
-            <a href="#email" class="nav-link" data-section="email">Email</a>
-            <a href="#portal" class="nav-link" data-section="portal">Portal</a>
-            <a href="#crm" class="nav-link" data-section="crm">CRM</a>
-            <a href="#devices" class="nav-link" data-section="devices">Devices</a>
-            <a href="#third-party" class="nav-link" data-section="third-party">BPO</a>
-            <a href="#cloud" class="nav-link" data-section="cloud">Cloud</a>
-            <a href="#personnel" class="nav-link" data-section="personnel">Personnel</a>
-        </div>
-    </nav>
-
-    <div class="container">
-        <!-- OVERVIEW -->
-        <section id="overview" class="section active">
-            <h2 class="section-title">
-                Overview
-            </h2>
+    <div class="about-footer">
+        <div class="about-footer-content">
+            <h4>About This Program</h4>
             
-            <div class="overview-content">
-                <p>Secure Funder™ verifies that your organization maintains appropriate technical safeguards to protect sensitive information from unauthorized access and external sharing. Verification is conducted on-site or non-recorded screenshare, where controls are demonstrated in real time. The program does not require the use of any specific vendor or platform—organizations may use their existing tools, third-party solutions, or internally developed controls. Where a specific safeguard is not in place, functionally equivalent or compensating controls may be accepted.
-</p>
-                
-            </div>
-            
-            <div class="button-group" style="margin-top: 2rem;">
-                <a href="https://aquamark.fillout.com/secure-funder" class="btn-small" target="_blank">Get Certified</a>
-                <button class="btn-small" onclick="openToolsModal()" style="background: #EFF6FF; color: #1E40AF; border: 2px solid #BFDBFE;">Funder Tools</button>
-            </div>
-        </section>
-
-        <!-- EMAIL SECURITY -->
-        <section id="email" class="section">
-            <h2 class="section-title">
-                <span class="section-number">1</span>
-                Email Security
-            </h2>
-
-            <div class="subsection">
-                <h3 class="subsection-title">Multi-Factor Authentication</h3>
-                <div class="requirement">
-                    MFA must be enabled
-                </div>
-            </div>
-
-            <div class="subsection">
-                <h3 class="subsection-title">Submission Handling</h3>
-                <div class="if-then">
-                    <div class="if-then-label"><strong>IF</strong> broker submissions are accepted via email, <strong>THEN</strong> one of the following is required:</div>
-                    <div class="options">
-                        <div class="option">
-                            <div class="option-label"><strong>Option A:</strong> Automated email processing with restricted human access</div>
-                            <div class="sub-item">Submissions automatically pushed to CRM without human intervention</div>
-                            <div class="sub-item">Only management may access submission inbox for configuration/troubleshooting purposes</div>
-                            <div class="sub-item">Processing personnel cannot access the submission inbox</div>
-                        </div>
-                        <div class="option">
-                            <div class="option-label"><strong>Option B:</strong> Use the Secure Funder Gateway to automatically protect submissions</div>
-                            <div class="sub-item">No changes to broker submission inbox or workflow</div>
-                            <div class="sub-item">Attachments routed through gateway to watermark files and embed metadata</div>
-                            <div class="sub-item">Protected files sent to destination inbox for processing team (e.g., processing@yourcompany.com)</div>
-                            <div style="margin-top: 1rem;">
-                                <button class="btn-small" onclick="openToolsModal()" style="background: #EFF6FF; color: #1E40AF; border: 2px solid #BFDBFE;">Access Gateway</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="subsection">
-                <h3 class="subsection-title">Outbound Email Oversight</h3>
-               
-                <div class="requirement">
-Configure an email rule that copies messages to a monitoring mailbox when <strong>all</strong> of the following criteria are met:
-                    <div class="sub-item">Email is <strong>outbound</strong></div>
-                    <div class="sub-item">Message includes <strong>attachments</strong></div>
-                    <div class="sub-item">Recipients from <strong>external domain</strong> (outside your organization)</div>
-                    <div class="sub-item">Sender is in a <strong>deal processing role</strong> (underwriters, processors)</div>
-                    <div style="margin-top: 1rem;">Staff should be informed that outbound attachments are monitored. Known oversight encourages appropriate handling of sensitive information and helps deter unauthorized sharing. Emails are not blocked; copies are retained solely to support review or investigation if needed.</div>
-                </div>
-                <div class="note">
-                    <strong>Note:</strong> Common implementations include Gmail Content Compliance<span class="tooltip-container">
-                        <span class="tooltip-icon">?</span>
-                        <div class="tooltip-content">
-                            <h4>Gmail (Google Workspace) — external recipient + attachment (with monitoring copy)</h4>
-                            <ol>
-                                <li>Admin console → <strong>Apps</strong> → <strong>Google Workspace</strong> → <strong>Gmail</strong> → <strong>Compliance</strong> → <strong>Content compliance</strong> → <strong>Add rule</strong>.</li>
-                                <li>Set <strong>Email messages to affect:</strong> ☑ <strong>Outbound</strong>.</li>
-                                <li>Under <strong>Expressions</strong> (set to <strong>ALL</strong> must match), click <strong>Add</strong> → choose <strong>Advanced content match</strong> and add these expressions:
-                                    <ul>
-                                        <li><strong>A) Attachment present</strong>
-                                            <ul>
-                                                <li><strong>Location:</strong> Raw message</li>
-                                                <li><strong>Match:</strong> Contains text</li>
-                                                <li><strong>Value:</strong> <code>Content-Disposition: attachment</code></li>
-                                            </ul>
-                                        </li>
-                                        <li><strong>B) External recipient exists (at least one recipient)</strong>
-                                            <ul>
-                                                <li><strong>Location:</strong> Any envelope recipient</li>
-                                                <li><strong>Match:</strong> Matches regex</li>
-                                                <li><strong>Value:</strong> <code>@</code></li>
-                                            </ul>
-                                        </li>
-                                        <li><strong>C) Exclude internal-only messages</strong>
-                                            <ul>
-                                                <li><strong>Location:</strong> Any envelope recipient</li>
-                                                <li><strong>Match:</strong> Not matches regex</li>
-                                                <li><strong>Value:</strong> <code>@yourcompany\.com$</code></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>Under actions → <strong>Also deliver to</strong> → add your monitoring mailbox (e.g., <code>monitoring@yourcompany.com</code>).
-                                    <ul>
-                                        <li>☑ Do not deliver spam to this recipient</li>
-                                        <li>☑ Suppress bounces from this recipient</li>
-                                    </ul>
-                                </li>
-                                <li>Scope the rule to the appropriate <strong>Group</strong> or <strong>OU</strong> (recommended: group for back-office).</li>
-                                <li><strong>Save</strong>.</li>
-                            </ol>
-                        </div>
-                    </span> and Microsoft Exchange Online<span class="tooltip-container">
-                        <span class="tooltip-icon">?</span>
-                        <div class="tooltip-content">
-                            <h4>Microsoft 365 (Exchange Online) — Monitor outbound attachments to external recipients</h4>
-                            <p>This setup copies outbound emails with attachments sent to <strong>any external recipient</strong> to a monitoring mailbox.</p>
-                            <strong>Step-by-step</strong>
-                            <ol>
-                                <li>Go to <strong>Exchange admin center</strong> → <strong>Mail flow</strong> → <strong>Rules</strong>.</li>
-                                <li>Click <strong>+ Add rule</strong> → <strong>Create a new rule</strong>.</li>
-                                <li><strong>Name</strong> the rule (e.g., <em>Outbound attachments to external recipients</em>).</li>
-                                <li><strong>Apply this rule if…</strong>
-                                    <ul>
-                                        <li>The sender is located → <em>Inside the organization</em></li>
-                                        <li>The recipient is located → <em>Outside the organization</em></li>
-                                        <li>Any attachment → <em>Yes</em></li>
-                                    </ul>
-                                </li>
-                                <li><strong>Do the following…</strong>
-                                    <ul>
-                                        <li>Add a blind carbon copy (Bcc) to → your monitoring mailbox (e.g., <code>monitoring@yourcompany.com</code>)</li>
-                                    </ul>
-                                </li>
-                                <li><em>(Optional but recommended)</em>
-                                    <ul>
-                                        <li>Add a <strong>policy tip</strong> or <strong>disclaimer</strong> indicating that external attachments may be monitored.</li>
-                                    </ul>
-                                </li>
-                                <li><strong>Except if…</strong> <em>(optional)</em>
-                                    <ul>
-                                        <li>Exclude specific users or groups if needed (e.g., executives).</li>
-                                    </ul>
-                                </li>
-                                <li><strong>Save</strong> the rule.</li>
-                            </ol>
-                        </div>
-                    </span>
-                </div>
-            </div>
-        </section>
-
-        <!-- PORTAL SECURITY -->
-        <section id="portal" class="section">
-            <h2 class="section-title">
-                <span class="section-number">2</span>
-                Portal Security
-            </h2>
-
-            <div class="subsection">
-                <h3 class="subsection-title">Access Controls</h3>
-                <div class="note">
-                    <strong>Note:</strong> If you do not have a portal, skip this section.
-                </div>
-
-                <div class="if-then">
-                    <div class="if-then-label"><strong>IF</strong> sensitive information is accessible in your portal (e.g. SSN), <strong>THEN:</strong></div>
-                    <div class="sub-item">Controls to deter capture of on-screen data (e.g., screenshots disabled or screen watermarking enabled)</div>
-                </div>
-
-                <div class="if-then">
-                    <div class="if-then-label"><strong>IF</strong> files are available in your portal, <strong>THEN</strong> choose one:</div>
-                    <div class="options">
-                        <div class="option">
-                            <div class="option-label"><strong>Option A:</strong> View-only access to files (no download capability)</div>
-                        </div>
-                        <div class="option">
-                            <div class="option-label"><strong>Option B:</strong> Files are watermarked before entering portal or at time of download</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CRM SECURITY -->
-        <section id="crm" class="section">
-            <h2 class="section-title">
-                <span class="section-number">3</span>
-                CRM Security
-            </h2>
-
-            <div class="subsection">
-                <h3 class="subsection-title">Multi-Factor Authentication</h3>
-                <div class="requirement">
-                    MFA must be enabled
-                </div>
-            </div>
-
-            <div class="subsection">
-                <h3 class="subsection-title">Access Controls</h3>
-                
-                <div class="requirement">
-                    <strong>Role-based access:</strong>
-                    <div class="sub-item">Personnel can only access accounts and information required for their role</div>
-<div class="sub-item">
-  Sensitive fields (e.g., SSN) are accessible only to designated roles, with controls in place to deter capture of on-screen data (e.g., screenshots disabled or screen watermarking enabled).
-</div>
-
-                </div>
-
-                <div class="requirement">
-                    <strong>User verification:</strong>
-                    <div class="sub-item">Users must be from your domain, with exception of service-level access (developers, vendors)</div>
-<div class="sub-item">External domain access must be justified when associated with other funders, brokers, or software platforms involved in alternative finance deal processing.</div>
-                </div>
-
-
-                <div class="if-then">
-                    <div class="if-then-label"><strong>IF</strong> documents are stored in your CRM, <strong>THEN</strong> choose one:</div>
-                    <div class="options">
-                        <div class="option">
-                            <div class="option-label"><strong>Option A:</strong> View-only access to files (no download capability)</div>
-                        </div>
-                        <div class="option">
-                            <div class="option-label"><strong>Option B:</strong> Files are watermarked before entering CRM or at time of download</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="if-then">
-                    <div class="if-then-label"><strong>IF</strong> full database download capability exists, <strong>THEN:</strong></div>
-                    <div class="sub-item">This function must be restricted to senior personnel only</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- DEVICE & NETWORK MANAGEMENT -->
-        <section id="devices" class="section">
-            <h2 class="section-title">
-                <span class="section-number">4</span>
-                Device & Network Management
-            </h2>
-
-            <div class="subsection">
-                <h3 class="subsection-title">Managed Devices</h3>
-                <div class="requirement">
-                    Systems must be accessed from company-managed devices.
-                </div>
-            </div>
-
-            <div class="subsection">
-                <h3 class="subsection-title">Device Security Controls</h3>
-                <div class="requirement">
-                    Block removable storage devices (USB)
-                </div>
-                 <div class="requirement">
-                    Restrict access to Task Manager
-                </div>
-                <div class="requirement">
-                    Screen lock timeout (maximum 15 minutes of inactivity)
-                </div>
-                <div class="requirement">
-                    Restrictions to prevent installing/uninstalling applications without IT approval
-                </div>
-                <div class="requirement">
-                    Restrict printing to only roles requiring hard copies
-                </div>
-                 <div class="requirement">
-                    Network-level blocking of personal email sites (Gmail, Outlook, Yahoo, iCloud, etc)
-                </div>
-            </div>
-
-
-            <div class="subsection">
-                <h3 class="subsection-title">Password Policy</h3>
-                <div class="requirement">
-                    Documented requirements including minimum complexity and periodic changes (quarterly recommended)
-                </div>
-            </div>
-        </section>
-
-        <!-- BPO ACCESS -->
-        <section id="third-party" class="section">
-            <h2 class="section-title">
-                <span class="section-number">5</span>
-                BPO Access
-            </h2>
-
-            <div class="subsection">
-                <h3 class="subsection-title">On-Shore / Off-Shore Teams</h3>
-                <div class="note">
-                    <strong>Note:</strong> If you do not use BPO teams (on-shore or off-shore), skip this section.
-                </div>
-                <div class="if-then">
-                    <div class="if-then-label"><strong>IF</strong> BPO teams have access to merchant documents (via email, CRM, portal, or cloud storage), <strong>THEN</strong> choose one:</div>
-                    <div class="options">
-                        <div class="option">
-                            <div class="option-label"><strong>Option A:</strong> View-only access to files (no download capability)</div>
-                        </div>
-                        <div class="option">
-                            <div class="option-label"><strong>Option B:</strong> Documents are watermarked before third-party access</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CLOUD STORAGE -->
-        <section id="cloud" class="section">
-            <h2 class="section-title">
-                <span class="section-number">6</span>
-                Cloud Storage
-            </h2>
-
-            <div class="subsection">
-                <h3 class="subsection-title">Cloud Service Usage</h3>
-                <div class="if-then">
-                    <div class="if-then-label"><strong>IF</strong> you use cloud storage services (Google Drive, Dropbox, OneDrive, Box, etc.) to house merchant documents, <strong>THEN:</strong></div>
-                    <div class="sub-item">Users have view-only access OR documents are watermarked if downloadable</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- PERSONNEL CONTROLS -->
-        <section id="personnel" class="section">
-            <h2 class="section-title">
-                <span class="section-number">7</span>
-                Personnel Controls
-            </h2>
-
-            <div class="subsection">
-                <h3 class="subsection-title">Background Checks</h3>
-                <div class="requirement">
-                    Personnel must pass background checks appropriate for their role
-                    <div class="sub-item">Provide background check authorization form for verification</div>
-                </div>
-            </div>
-
-            <div class="subsection">
-                <h3 class="subsection-title">Off-boarding Process</h3>
-                <div class="requirement">
-                    Documented process for immediately revoking system access when employees leave or change roles
-                </div>
-            </div>
-        </section>
+            <p>
+                The Secure Funder™ certification program is administered by <a href="https://www.aquamark.io/" target="_blank" rel="noopener noreferrer">Aquamark</a>, an independent third party specializing in document security and data protection controls within the alternative finance industry. Certification is based on a technical assessment process evaluating how sensitive merchant information is handled within participating organizations, including the identification and remediation of potential vulnerabilities where data could be improperly accessed, shared, or exfiltrated. For inquiries regarding the certification program, contact <a href="mailto:info@aquamark.io">info@aquamark.io</a>
+            </p>
+        </div>
     </div>
 
-    <script>
-        // Tab navigation
-        const navLinks = document.querySelectorAll('.nav-link');
-        const sections = document.querySelectorAll('.section');
-
-        navLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                // Remove active class from all links and sections
-                navLinks.forEach(l => l.classList.remove('active'));
-                sections.forEach(s => s.classList.remove('active'));
-
-                // Add active class to clicked link
-                this.classList.add('active');
-
-                // Show corresponding section
-                const targetSection = this.getAttribute('data-section');
-                const sectionElement = document.getElementById(targetSection);
-                if (sectionElement) {
-                    sectionElement.classList.add('active');
-                }
-            });
-        });
-
-        // Show overview section by default
-        document.getElementById('overview').classList.add('active');
-
-        // Modal functions
-        function openToolsModal() {
-            document.getElementById('toolsModal').classList.add('active');
-        }
-
-        function closeToolsModal() {
-            document.getElementById('toolsModal').classList.remove('active');
-        }
-
-        // Close modal when clicking outside
-        window.onclick = function(event) {
-            const modal = document.getElementById('toolsModal');
-            if (event.target == modal) {
-                closeToolsModal();
-            }
-        }
-    </script>
-
-    <!-- Tools Modal -->
-    <div id="toolsModal" class="modal">
-        <div class="modal-content" style="position: relative;">
-            <button class="modal-close" onclick="closeToolsModal()">&times;</button>
-            <div class="modal-header">
-                <h3>Implementation Tools</h3>
-                <p>Solutions that can help you meet certification requirements</p>
-            </div>
-            <div class="modal-body">
-                <div class="tool-item">
-                    <h4>Email Gateway</h4>
-                    <p>Automatically watermark broker email submissions upon receipt and before they reach you team—no API integration required.</p>
-                    <a href="https://www.aquamark.io/funder-gateway" target="_blank">Learn More →</a>
-                </div>
-                
-                <div class="tool-item">
-                    <h4>Document Protection</h4>
-                    <p>Programmatically watermark files in your portal, CRM, or cloud storage to prevent unauthorized sharing.</p>
-                    <a href="https://www.aquamark.io/funder-api" target="_blank">Learn More →</a>
-                </div>
-                
-                <div class="tool-item">
-                    <h4>Screen Protection</h4>
-                    <p>Desktop application that displays visible user attribution on screens accessing sensitive merchant information.</p>
-                    <a href="https://www.aquamark.io/screen-watermarking" target="_blank">Learn More →</a>
-                </div>
-            </div>
-        </div>
+    <div class="footer">
+        © 2026 Aquamark. All rights reserved.
     </div>
 </body>
 </html>
