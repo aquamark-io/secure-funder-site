@@ -1045,12 +1045,22 @@ Configure an email rule that copies messages to a monitoring mailbox when <stron
                 Device & Network Management
             </h2>
 
-            <div class="subsection">
-                <h3 class="subsection-title">Managed Devices</h3>
-                <div class="requirement">
-                    Systems must be accessed from company-managed devices.
-                </div>
-            </div>
+<div class="subsection">
+    <h3 class="subsection-title">Managed Devices</h3>
+    <div class="requirement">
+        Systems must be accessed from company-managed devices.
+    </div>
+    
+    <div class="note">
+        <strong>Remote Employees:</strong> Email attachment downloads must be disabled at the admin level for remote worker accounts. Attachments should only be viewable in-browser, not downloadable to local devices.
+        <div style="margin-top: 0.75rem;">
+            <strong>Gmail (Google Workspace):</strong> Admin console → Apps → Google Workspace → Gmail → Compliance → Create DLP rule to block attachment downloads for remote worker organizational unit or group
+        </div>
+        <div style="margin-top: 0.5rem;">
+            <strong>Microsoft 365:</strong> Exchange admin center → Recipients → Mailboxes → Select user → Mailbox features → Outlook on the web → Enable "Disable file downloads" policy
+        </div>
+    </div>
+</div>
 
             <div class="subsection">
                 <h3 class="subsection-title">Device Security Controls</h3>
