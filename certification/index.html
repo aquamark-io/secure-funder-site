@@ -671,6 +671,22 @@
             color: var(--text-light);
         }
 
+        .vendor-neutral-note {
+            background: #F0FDF4;
+            border: 1px solid #86EFAC;
+            border-left: 4px solid #22C55E;
+            padding: 1rem 1.25rem;
+            margin-bottom: 1.5rem;
+            border-radius: 4px;
+            font-size: 0.9375rem;
+            line-height: 1.6;
+        }
+
+        .vendor-neutral-note strong {
+            color: #15803D;
+            font-weight: 600;
+        }
+
         @media (max-width: 768px) {
             h1 {
                 font-size: 2rem;
@@ -810,12 +826,13 @@
             </div>
             
             <div class="overview-content">
-                <p>Secure Funder™ verifies that your organization has technical safeguards in place to prevent unauthorized use of merchant information. Verification is conducted on-site or via screenshare, where you demonstrate your controls in real time. Upon successful completion, you'll receive your official certification badge and listing in our public directory, where brokers and business owners can identify organizations committed to data protection. *Where a specific safeguard is not in place, functionally equivalent or compensating controls may be accepted.</p>
+                <p>Secure Funder™ verifies that your organization has technical safeguards in place to prevent unauthorized use of merchant information. Verification is conducted on-site or via screenshare, where you demonstrate your controls in real time. Upon successful completion, you'll receive your official certification badge and listing in our public directory, where brokers and business owners can identify organizations committed to data protection.</p>
+                
+                <p style="margin-top: 1rem;"><em>Where a specific safeguard is not in place, functionally equivalent or compensating controls may be accepted during the verification process.</em></p>
             </div>
             
             <div class="button-group" style="margin-top: 2rem;">
                 <a href="https://aquamark.fillout.com/secure-funder" class="btn-small" target="_blank">Get Certified</a>
-                <button class="btn-small" onclick="openToolsModal()" style="background: #EFF6FF; color: #1E40AF; border: 2px solid #BFDBFE;">Funder Tools</button>
             </div>
         </section>
 
@@ -847,11 +864,12 @@
                         </div>
                         <div class="option">
                             <div class="option-label"><strong>Option B:</strong> Use the Secure Funder Gateway when email submissions require human handling</div>
+                            <div style="margin: 0.75rem 0 0.75rem 1.25rem; font-style: italic; color: #6B7280; font-size: 0.9375rem;">Note: This is a specialized solution developed specifically for this industry use case</div>
                             <div class="sub-item">No changes to broker submission inbox or workflow</div>
                             <div class="sub-item">When the broker submits, attachments are automatically routed through gateway to watermark files and embed metadata</div>
                             <div class="sub-item">Files are then sent to inbox of your choice for human handling (e.g., processing@yourcompany.com)</div>
-                            <div style="margin-top: 1rem;">
-                                <button class="btn-small" onclick="openToolsModal()" style="background: #EFF6FF; color: #1E40AF; border: 2px solid #BFDBFE;">Access Gateway</button>
+                            <div style="margin-top: 1rem; margin-left: 1.25rem;">
+                                <a href="https://www.aquamark.io/funder-gateway" target="_blank" class="btn-small" style="background: #EFF6FF; color: #1E40AF; border: 2px solid #BFDBFE;">Access Gateway</a>
                             </div>
                         </div>
                     </div>
@@ -889,6 +907,7 @@
                         </div>
                         <div class="option">
                             <div class="option-label"><strong>Option B:</strong> Files are watermarked before entering portal or at time of download</div>
+                            <div class="sub-item" style="margin-top: 0.5rem; font-style: italic; color: #6B7280;">Any document watermarking solution is acceptable</div>
                         </div>
                     </div>
                 </div>
@@ -922,7 +941,7 @@
                 </div>
 
                 <div class="note">
-                    <strong>Recommended:</strong> For additional protection of sensitive fields (SSN, EIN, bank account numbers), implement screenshot restrictions via CRM settings or enable screen watermarking. This provides an additional security layer against unauthorized screen captures of highly sensitive data.
+                    <strong>Recommended:</strong> For additional protection of sensitive fields (SSN, EIN, bank account numbers), implement screenshot restrictions via CRM settings or enable screen watermarking. This provides an additional security layer against unauthorized screen captures of highly sensitive data. Any screen watermarking solution is acceptable.
                 </div>
 
                 <div class="requirement">
@@ -939,6 +958,7 @@
                         </div>
                         <div class="option">
                             <div class="option-label"><strong>Option B:</strong> Files are watermarked before entering CRM or at time of download</div>
+                            <div class="sub-item" style="margin-top: 0.5rem; font-style: italic; color: #6B7280;">Any document watermarking solution is acceptable</div>
                         </div>
                     </div>
                 </div>
@@ -970,6 +990,7 @@
                         </div>
                         <div class="option">
                             <div class="option-label"><strong>Option B:</strong> Documents are watermarked before third-party access</div>
+                            <div class="sub-item" style="margin-top: 0.5rem; font-style: italic; color: #6B7280;">Any document watermarking solution is acceptable</div>
                         </div>
                     </div>
                 </div>
@@ -988,6 +1009,7 @@
                 <div class="if-then">
                     <div class="if-then-label"><strong>IF</strong> you use cloud storage services (Google Drive, Dropbox, etc.) to house merchant documents, <strong>THEN:</strong></div>
                     <div class="sub-item">Users have view-only access OR documents are watermarked if downloadable</div>
+                    <div class="sub-item" style="margin-top: 0.5rem; font-style: italic; color: #6B7280;">Any document watermarking solution is acceptable</div>
                 </div>
             </div>
         </section>
@@ -1087,26 +1109,32 @@
         <div class="modal-content" style="position: relative;">
             <button class="modal-close" onclick="closeToolsModal()">&times;</button>
             <div class="modal-header">
-                <h3>Implementation Tools</h3>
-                <p>Solutions that can help you meet certification requirements</p>
+                <h3>Example Implementation Solutions</h3>
+                <p>These are example solutions from one vendor. Any functionally equivalent solution from any vendor is acceptable for certification.</p>
             </div>
             <div class="modal-body">
                 <div class="tool-item">
-                    <h4>Email Gateway</h4>
-                    <p>Automatically watermark broker email submissions upon receipt and before they reach you team—no API integration required.</p>
+                    <h4>Email Gateway (Aquamark)</h4>
+                    <p>Automatically watermark broker email submissions upon receipt and before they reach your team—no API integration required.</p>
                     <a href="https://www.aquamark.io/funder-gateway" target="_blank">Learn More →</a>
                 </div>
                 
                 <div class="tool-item">
-                    <h4>Document Protection</h4>
+                    <h4>Document Protection (Aquamark)</h4>
                     <p>Programmatically watermark files in your portal, CRM, or cloud storage to prevent unauthorized sharing.</p>
                     <a href="https://www.aquamark.io/funder-api" target="_blank">Learn More →</a>
                 </div>
                 
                 <div class="tool-item">
-                    <h4>Screen Protection</h4>
+                    <h4>Screen Protection (Aquamark)</h4>
                     <p>Desktop application that displays visible user attribution on screens accessing sensitive merchant information.</p>
                     <a href="https://www.aquamark.io/screen-watermarking" target="_blank">Learn More →</a>
+                </div>
+
+                <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid #E5E7EB;">
+                    <p style="font-size: 0.875rem; color: #6B7280; font-style: italic;">
+                        Note: These are provided as examples only. You may use any solution or vendor that meets the functional requirements outlined in the certification standards.
+                    </p>
                 </div>
             </div>
         </div>
