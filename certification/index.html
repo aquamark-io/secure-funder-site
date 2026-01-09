@@ -841,13 +841,13 @@
                             <div class="option-label"><strong>Option A:</strong> Automated email processing with restricted human access</div>
                             <div class="sub-item">Submissions automatically pushed to CRM without human intervention</div>
                             <div class="sub-item">Only management may access submission inbox for configuration/troubleshooting purposes</div>
-                            <div class="sub-item">Processing personnel cannot access the submission inbox</div>
+                            <div class="sub-item">Processing personnel cannot access the master submission inbox</div>
                         </div>
                         <div class="option">
-                            <div class="option-label"><strong>Option B:</strong> Use the Secure Funder Gateway to automatically protect submissions</div>
+                            <div class="option-label"><strong>Option B:</strong> Use the Secure Funder Gateway when email submissions require human handling</div>
                             <div class="sub-item">No changes to broker submission inbox or workflow</div>
-                            <div class="sub-item">Attachments routed through gateway to watermark files and embed metadata</div>
-                            <div class="sub-item">Protected files sent to destination inbox for processing team (e.g., processing@yourcompany.com)</div>
+                            <div class="sub-item">Upon receipt, attachments automatically routed to gateway to watermark files and embed metadata</div>
+                            <div class="sub-item">Files are then sent to inbox of your choice for human handling (e.g., processing@yourcompany.com)</div>
                             <div style="margin-top: 1rem;">
                                 <button class="btn-small" onclick="openToolsModal()" style="background: #EFF6FF; color: #1E40AF; border: 2px solid #BFDBFE;">Access Gateway</button>
                             </div>
@@ -912,7 +912,7 @@
 
                 <div class="requirement">
                     <strong>Role-based access:</strong>
-                    <div class="sub-item">Personnel can only access accounts and information required for their role</div>
+                    <div class="sub-item">Personnel can only access accounts and information required for their role.</div>
 <div class="sub-item">
   Sensitive fields (e.g., SSN) are accessible based on role requirements and business necessity.
 </div>
