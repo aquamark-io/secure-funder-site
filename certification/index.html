@@ -1052,12 +1052,22 @@ Configure an email rule that copies messages to a monitoring mailbox when <stron
     </div>
     
     <div class="note">
-        <strong>Remote Employees:</strong> Email attachment downloads must be disabled at the admin level for remote worker accounts. Attachments should only be viewable in-browser, not downloadable to local devices.
-        <div style="margin-top: 0.75rem;">
-            <strong>Gmail (Google Workspace):</strong> Admin console → Apps → Google Workspace → Gmail → Compliance → Create DLP rule to block attachment downloads for remote worker organizational unit or group
+        <strong>Remote Employees:</strong> Choose one of the following:
+        <div style="margin-top: 0.75rem; margin-left: 1.25rem;">
+            <strong>Option A:</strong> Disable email attachment downloads
+            <span class="tooltip-container">
+                <span class="tooltip-icon">?</span>
+                <div class="tooltip-content">
+                    <h4>How to disable attachment downloads</h4>
+                    <strong>Gmail (Google Workspace):</strong>
+                    <p>Admin console → Apps → Google Workspace → Gmail → Compliance → Create DLP rule to block attachment downloads for remote worker organizational unit or group</p>
+                    <strong>Microsoft 365:</strong>
+                    <p>Exchange admin center → Recipients → Mailboxes → Select user → Mailbox features → Outlook on the web → Enable "Disable file downloads" policy</p>
+                </div>
+            </span>
         </div>
-        <div style="margin-top: 0.5rem;">
-            <strong>Microsoft 365:</strong> Exchange admin center → Recipients → Mailboxes → Select user → Mailbox features → Outlook on the web → Enable "Disable file downloads" policy
+        <div style="margin-top: 0.5rem; margin-left: 1.25rem;">
+            <strong>Option B:</strong> Provide company-managed devices where device controls below can be enforced
         </div>
     </div>
 </div>
