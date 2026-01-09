@@ -790,8 +790,8 @@
         <div class="nav-container">
             <a href="#overview" class="nav-link active" data-section="overview">Overview</a>
             <a href="#email" class="nav-link" data-section="email">Email</a>
-            <a href="#portal" class="nav-link" data-section="portal">Portal</a>
             <a href="#crm" class="nav-link" data-section="crm">CRM</a>
+            <a href="#portal" class="nav-link" data-section="portal">Portal</a>
             <a href="#third-party" class="nav-link" data-section="third-party">BPO</a>
             <a href="#cloud" class="nav-link" data-section="cloud">Cloud</a>
             <a href="#personnel" class="nav-link" data-section="personnel">Personnel</a>
@@ -855,110 +855,17 @@
                     </div>
                 </div>
             </div>
-
-            <div class="subsection">
-                <h3 class="subsection-title">Outbound Email Oversight</h3>
-               
-                <div class="requirement">
-Configure an email rule that copies messages to a monitoring mailbox when <strong>all</strong> of the following criteria are met:
-                    <div class="sub-item">Email is <strong>outbound</strong></div>
-                    <div class="sub-item">Message includes <strong>attachments</strong></div>
-                    <div class="sub-item">Recipients from <strong>external domain</strong> (outside your organization)</div>
-                    <div class="sub-item">Sender is in a <strong>non-customer facing role</strong> (underwriters, processors, ISO reps)</div>
-                    <div style="margin-top: 1rem;">Staff should be informed that outbound attachments are monitored. Known oversight encourages appropriate handling of sensitive information and helps deter unauthorized sharing. Emails are not required to be blocked; copies are retained solely to support review or investigation if needed.</div>
-                </div>
-                <div class="note">
-                    <strong>Note:</strong> Common implementations include Gmail Content Compliance<span class="tooltip-container">
-                        <span class="tooltip-icon">?</span>
-                        <div class="tooltip-content">
-                            <h4>Gmail (Google Workspace) — external recipient + attachment (with monitoring copy)</h4>
-                            <ol>
-                                <li>Admin console → <strong>Apps</strong> → <strong>Google Workspace</strong> → <strong>Gmail</strong> → <strong>Compliance</strong> → <strong>Content compliance</strong> → <strong>Add rule</strong>.</li>
-                                <li>Set <strong>Email messages to affect:</strong> ☑ <strong>Outbound</strong>.</li>
-                                <li>Under <strong>Expressions</strong> (set to <strong>ALL</strong> must match), click <strong>Add</strong> → choose <strong>Advanced content match</strong> and add these expressions:
-                                    <ul>
-                                        <li><strong>A) Attachment present</strong>
-                                            <ul>
-                                                <li><strong>Location:</strong> Raw message</li>
-                                                <li><strong>Match:</strong> Contains text</li>
-                                                <li><strong>Value:</strong> <code>Content-Disposition: attachment</code></li>
-                                            </ul>
-                                        </li>
-                                        <li><strong>B) External recipient exists (at least one recipient)</strong>
-                                            <ul>
-                                                <li><strong>Location:</strong> Any envelope recipient</li>
-                                                <li><strong>Match:</strong> Matches regex</li>
-                                                <li><strong>Value:</strong> <code>@</code></li>
-                                            </ul>
-                                        </li>
-                                        <li><strong>C) Exclude internal-only messages</strong>
-                                            <ul>
-                                                <li><strong>Location:</strong> Any envelope recipient</li>
-                                                <li><strong>Match:</strong> Not matches regex</li>
-                                                <li><strong>Value:</strong> <code>@yourcompany\.com$</code></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>Under actions → <strong>Also deliver to</strong> → add your monitoring mailbox (e.g., <code>monitoring@yourcompany.com</code>).
-                                    <ul>
-                                        <li>☑ Do not deliver spam to this recipient</li>
-                                        <li>☑ Suppress bounces from this recipient</li>
-                                    </ul>
-                                </li>
-                                <li>Scope the rule to the appropriate <strong>Group</strong> or <strong>OU</strong> (recommended: group for back-office).</li>
-                                <li><strong>Save</strong>.</li>
-                            </ol>
-                        </div>
-                    </span> and Microsoft Exchange Online<span class="tooltip-container">
-                        <span class="tooltip-icon">?</span>
-                        <div class="tooltip-content">
-                            <h4>Microsoft 365 (Exchange Online) — Monitor outbound attachments to external recipients</h4>
-                            <p>This setup copies outbound emails with attachments sent to <strong>any external recipient</strong> to a monitoring mailbox.</p>
-                            <strong>Step-by-step</strong>
-                            <ol>
-                                <li>Go to <strong>Exchange admin center</strong> → <strong>Mail flow</strong> → <strong>Rules</strong>.</li>
-                                <li>Click <strong>+ Add rule</strong> → <strong>Create a new rule</strong>.</li>
-                                <li><strong>Name</strong> the rule (e.g., <em>Outbound attachments to external recipients</em>).</li>
-                                <li><strong>Apply this rule if…</strong>
-                                    <ul>
-                                        <li>The sender is located → <em>Inside the organization</em></li>
-                                        <li>The recipient is located → <em>Outside the organization</em></li>
-                                        <li>Any attachment → <em>Yes</em></li>
-                                    </ul>
-                                </li>
-                                <li><strong>Do the following…</strong>
-                                    <ul>
-                                        <li>Add a blind carbon copy (Bcc) to → your monitoring mailbox (e.g., <code>monitoring@yourcompany.com</code>)</li>
-                                    </ul>
-                                </li>
-                                <li><em>(Optional but recommended)</em>
-                                    <ul>
-                                        <li>Add a <strong>policy tip</strong> or <strong>disclaimer</strong> indicating that external attachments may be monitored.</li>
-                                    </ul>
-                                </li>
-                                <li><strong>Except if…</strong> <em>(optional)</em>
-                                    <ul>
-                                        <li>Exclude specific users or groups if needed (e.g., executives).</li>
-                                    </ul>
-                                </li>
-                                <li><strong>Save</strong> the rule.</li>
-                            </ol>
-                        </div>
-                    </span>
-                </div>
-            </div>
         </section>
 
         <!-- PORTAL SECURITY -->
         <section id="portal" class="section">
             <h2 class="section-title">
-                <span class="section-number">2</span>
+                <span class="section-number">3</span>
                 Portal Security
             </h2>
 
             <div class="note" style="margin-bottom: 2rem;">
-                <strong>Note:</strong> If you do not have a merchant/broker portal, skip this section.
+                <strong>Note:</strong> If you do not have a portal, skip this section.
             </div>
 
             <div class="subsection">
@@ -989,7 +896,7 @@ Configure an email rule that copies messages to a monitoring mailbox when <stron
         <!-- CRM SECURITY -->
         <section id="crm" class="section">
             <h2 class="section-title">
-                <span class="section-number">3</span>
+                <span class="section-number">2</span>
                 CRM Security
             </h2>
 
