@@ -10,20 +10,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary: #0F1419;
-            --primary-light: #1F2937;
-            --bg: #FFFFFF;
-            --card-bg: #F9FAFB;
-            --text: #0F1419;
-            --text-light: #4B5563;
-            --border: #E5E7EB;
-            --success: #0F1419;
-            --highlight: #F3F4F6;
-            --highlight-text: #374151;
-            --if-then-bg: #F9FAFB;
-        }
-
         * {
             margin: 0;
             padding: 0;
@@ -32,485 +18,284 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            color: var(--text);
-            background: var(--bg);
-            line-height: 1.6;
-        }
-
-        .hero {
-            background: var(--card-bg);
-            color: var(--text);
-            padding: 4rem 2rem;
-            text-align: center;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .badge {
-            display: inline-block;
-            background: #F3F4F6;
-            color: #374151;
-            padding: 0.5rem 1.25rem;
-            border-radius: 20px;
-            font-size: 0.875rem;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            letter-spacing: -0.5px;
-        }
-
-        .hero-subtitle {
-            font-size: 1.125rem;
-            color: var(--text-light);
-            max-width: 600px;
-            margin: 0 auto 2.5rem;
-            line-height: 1.6;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 0.875rem 2rem;
-            border-radius: 6px;
-            font-weight: 600;
-            font-size: 1rem;
-            text-decoration: none;
-            transition: all 0.2s ease;
-            cursor: pointer;
-            border: none;
-            font-family: inherit;
-            min-width: 160px;
-            text-align: center;
-        }
-
-        .btn-primary {
-            background: var(--primary);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: #1F2937;
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        }
-
-        .btn-secondary {
-            background: white;
+            background: #FAFBFC;
             color: #0F1419;
-            border: 2px solid #E5E7EB;
+            line-height: 1.6;
         }
 
-        .btn-secondary:hover {
-            background: #F9FAFB;
-            border-color: #0F1419;
-        }
-
-        nav {
-            background: var(--card-bg);
-            border-bottom: 1px solid var(--border);
+        /* Header */
+        .top-nav {
+            background: white;
+            border-bottom: 1px solid #E5E7EB;
             position: sticky;
             top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+            z-index: 1000;
         }
 
-        .nav-container {
+        .top-nav-content {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 1rem 2rem;
+            padding: 0.75rem 2rem;
             display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            justify-content: center;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .nav-link {
-            padding: 0.625rem 1rem;
+        .top-nav img {
+            height: 90px;
+        }
+
+        .top-nav a {
+            color: #0F1419;
             text-decoration: none;
-            color: var(--text);
-            font-weight: 500;
-            font-size: 0.875rem;
-            border-radius: 6px;
-            transition: all 0.2s ease;
-            white-space: nowrap;
-            cursor: pointer;
-            position: relative;
-            border: 1.5px solid #E5E7EB;
-            background: #FFFFFF;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-            min-width: 110px;
-            text-align: center;
+            font-weight: 600;
+            font-size: 0.9375rem;
         }
 
-        .nav-link[data-section="overview"] {
-            background: #F3F4F6;
-            border-color: #D1D5DB;
-            color: #374151;
-        }
-
-        .nav-link[data-section="overview"]:hover {
-            border-color: #9CA3AF;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .nav-link[data-section="overview"].active {
-            background: #0F1419;
-            border-color: #0F1419;
-            color: white;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-        }
-
-        .nav-link:hover {
-            color: var(--primary);
-            border-color: #0F1419;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            transform: translateY(-1px);
-        }
-
-        .nav-link.active {
-            color: white;
-            background: #0F1419;
-            border-color: #0F1419;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
+        /* Hero */
+        .hero {
+            background: white;
             padding: 3rem 2rem;
-        }
-
-        .section {
-            display: none;
-            background: var(--card-bg);
-            border-radius: 8px;
-            padding: 2.5rem;
-            border: 1px solid var(--border);
-        }
-
-        .section.active {
-            display: block;
-            animation: fadeIn 0.3s ease-out;
-        }
-
-        .section-title {
-            font-size: 2rem;
-            color: var(--text);
-            margin-bottom: 2rem;
-            font-weight: 600;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 0.75rem;
-            padding-bottom: 1rem;
-            border-bottom: 2px solid var(--border);
-        }
-
-        .section-number {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: var(--primary);
-            color: white;
-            border-radius: 8px;
-            font-size: 1.2rem;
-            font-weight: 600;
-        }
-
-        .subsection {
-            margin-bottom: 2.5rem;
-        }
-
-        .subsection:last-child {
-            margin-bottom: 0;
-        }
-
-        .subsection-title {
-            font-size: 1.125rem;
-            font-weight: 600;
-            color: var(--text);
-            margin-bottom: 1rem;
-            padding-left: 1rem;
-            border-left: 4px solid var(--primary);
-        }
-
-        .requirement {
-            background: #FAFBFC;
-            padding: 1rem 1.25rem;
-            margin-bottom: 1rem;
-            border-radius: 4px;
-            font-size: 0.9375rem;
-            line-height: 1.7;
-            border-left: 3px solid var(--border);
-            max-width: 900px;
-        }
-
-        .requirement strong {
-            color: var(--text);
-            font-weight: 600;
-        }
-
-        .note {
-            background: #EFF6FF;
-            border: 1px solid #BFDBFE;
-            border-left: 4px solid #3B82F6;
-            padding: 1rem 1.25rem;
-            margin-bottom: 1rem;
-            border-radius: 4px;
-            font-size: 0.9375rem;
-            line-height: 1.6;
-            width: 700px;
-        }
-
-        .note strong {
-            color: #1E40AF;
-            font-weight: 600;
-        }
-
-        /* Service Badge Links */
-        .service-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.375rem;
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            font-size: 0.8125rem;
-            font-weight: 600;
-            letter-spacing: 0.3px;
-            text-decoration: none;
-            transition: all 0.2s ease;
-            border: none;
-        }
-
-        .service-badge svg {
-            width: 16px;
-            height: 16px;
-        }
-
-        .service-badge:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-        }
-
-        .service-badge.email-gateway {
-            background: #FAE8FF;
-            color: #86198F;
-        }
-
-        .service-badge.screen-watermark {
-            background: #FAE8FF;
-            color: #86198F;
-        }
-
-        .service-badge.doc-watermark {
-            background: #D1FAE5;
-            color: #065F46;
-        }
-
-        /* Modal Styles */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 2000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            animation: fadeIn 0.2s ease;
-        }
-
-        .modal.active {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-content {
-            background: #FFFFFF;
-            border-radius: 12px;
-            max-width: 600px;
-            width: 90%;
-            max-height: 90vh;
-            overflow-y: auto;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-            animation: slideUp 0.3s ease;
-        }
-
-        .modal-header {
-            padding: 2rem 2rem 1rem;
+            text-align: center;
             border-bottom: 1px solid #E5E7EB;
         }
 
-        .modal-header h3 {
-            font-size: 1.5rem;
+        .hero h1 {
+            font-size: 2.5rem;
             font-weight: 700;
+            margin-bottom: 0.75rem;
             color: #0F1419;
-            margin-bottom: 0.5rem;
         }
 
-        .modal-header p {
-            color: #4B5563;
-            font-size: 0.9375rem;
+        .hero p {
+            font-size: 1.125rem;
+            color: #6B7280;
+            max-width: 600px;
+            margin: 0 auto 1.5rem;
         }
 
-        .modal-body {
+        .verification-badge {
+            display: inline-block;
+            background: #0F1419;
+            color: white;
+            padding: 0.5rem 1.25rem;
+            border-radius: 20px;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        /* Container */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 2rem 4rem;
+        }
+
+        /* Overview */
+        .overview {
+            background: white;
+            border-radius: 8px;
             padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid #E5E7EB;
         }
 
-        .tool-item {
-            background: #F9FAFB;
+        .overview h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #0F1419;
+        }
+
+        .overview p {
+            color: #4B5563;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        /* Section Card */
+        .section-card {
+            background: white;
             border: 1px solid #E5E7EB;
             border-radius: 8px;
-            padding: 1.5rem;
             margin-bottom: 1rem;
+            overflow: hidden;
             transition: all 0.2s ease;
         }
 
-        .tool-item:hover {
+        .section-card:hover {
             border-color: #D1D5DB;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
         }
 
-        .tool-item h4 {
+        .section-header {
+            padding: 1.5rem 2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            user-select: none;
+            transition: background 0.2s ease;
+        }
+
+        .section-header:hover {
+            background: #FAFBFC;
+        }
+
+        .section-header-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: #0F1419;
+            color: white;
+            border-radius: 8px;
             font-size: 1.125rem;
             font-weight: 600;
-            color: #0F1419;
-            margin-bottom: 0.5rem;
+            flex-shrink: 0;
         }
 
-        .tool-item p {
-            color: #4B5563;
-            font-size: 0.9375rem;
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #0F1419;
+        }
+
+        .chevron {
+            width: 24px;
+            height: 24px;
+            color: #6B7280;
+            transition: transform 0.3s ease;
+        }
+
+        .section-card.expanded .chevron {
+            transform: rotate(180deg);
+        }
+
+        .section-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .section-card.expanded .section-content {
+            max-height: 3000px;
+        }
+
+        .section-inner {
+            padding: 0 2rem 2rem 2rem;
+            border-top: 1px solid #F3F4F6;
+        }
+
+        /* Subsection */
+        .subsection {
+            margin-top: 2rem;
+        }
+
+        .subsection-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0F1419;
             margin-bottom: 1rem;
+            padding-left: 1rem;
+            border-left: 3px solid #0F1419;
+        }
+
+        /* Requirement Box */
+        .requirement {
+            background: #FAFBFC;
+            border: 1px solid #E5E7EB;
+            border-radius: 6px;
+            padding: 1rem 1.25rem;
+            margin-bottom: 1rem;
+            font-size: 0.9375rem;
+            line-height: 1.7;
+        }
+
+        .requirement strong {
+            color: #0F1419;
+            font-weight: 600;
+        }
+
+        /* Note */
+        .note {
+            background: #F0F9FF;
+            border: 1px solid #BAE6FD;
+            border-left: 3px solid #0EA5E9;
+            border-radius: 6px;
+            padding: 1rem 1.25rem;
+            margin-bottom: 1rem;
+            font-size: 0.9375rem;
             line-height: 1.6;
         }
 
-        .tool-item a {
-            display: inline-block;
-            padding: 0.625rem 1.5rem;
-            background: #0F1419;
-            color: #FFFFFF;
-            text-decoration: none;
+        .note strong {
+            color: #0369A1;
+        }
+
+        /* Conditional (IF/THEN) */
+        .conditional {
+            background: #FAFBFC;
+            border: 1px solid #E5E7EB;
             border-radius: 6px;
-            font-weight: 600;
-            font-size: 0.875rem;
-            transition: all 0.2s ease;
-        }
-
-        .tool-item a:hover {
-            background: #1F2937;
-            transform: translateY(-1px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 1.5rem;
-            right: 1.5rem;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: #6B7280;
-            cursor: pointer;
-            padding: 0.5rem;
-            line-height: 1;
-            transition: color 0.2s ease;
-        }
-
-        .modal-close:hover {
-            color: #0F1419;
-        }
-
-        .button-group {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .if-then {
-            background: var(--if-then-bg);
-            border: 1px solid #BFDBFE;
-            border-left: 4px solid var(--primary);
             padding: 1.25rem;
-            margin: 1.5rem 0;
-            border-radius: 4px;
-        }
-
-        .if-then-label {
-            font-weight: 600;
-            color: var(--primary);
             margin-bottom: 1rem;
-            font-size: 0.9375rem;
         }
 
-        .if-then-label strong {
+        .conditional-label {
+            font-size: 0.9375rem;
+            font-weight: 600;
+            color: #0F1419;
+            margin-bottom: 1rem;
+        }
+
+        .conditional-label .if {
             background: #FEF3C7;
             padding: 0.125rem 0.5rem;
             border-radius: 4px;
-            font-weight: 700;
             color: #92400E;
+            font-weight: 700;
         }
 
+        .conditional-label .then {
+            background: #FEF3C7;
+            padding: 0.125rem 0.5rem;
+            border-radius: 4px;
+            color: #92400E;
+            font-weight: 700;
+        }
+
+        /* Options */
         .options {
-            margin: 1rem 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
         }
 
         .option {
             background: white;
-            padding: 1rem;
-            margin-bottom: 0.75rem;
-            border-radius: 4px;
-            border: 1px solid #BFDBFE;
-        }
-
-        .option:last-child {
-            margin-bottom: 0;
+            border: 1px solid #E5E7EB;
+            border-radius: 6px;
+            padding: 1rem 1.25rem;
         }
 
         .option-label {
             font-size: 0.9375rem;
-            line-height: 1.6;
-            color: var(--text);
+            line-height: 1.7;
+            color: #0F1419;
         }
 
         .option-label strong {
-            color: var(--primary);
+            color: #0F1419;
             font-weight: 600;
         }
 
@@ -521,624 +306,436 @@
             padding-left: 1rem;
             font-size: 0.9375rem;
             line-height: 1.7;
+            color: #4B5563;
         }
 
         .sub-item:before {
             content: "•";
             position: absolute;
             left: 0;
-            color: var(--text-light);
+            color: #9CA3AF;
         }
 
-        .overview-content {
-            font-size: 0.9375rem;
-            line-height: 1.7;
-            color: var(--text);
-            margin-bottom: 1.5rem;
+        .sub-item em {
+            color: #6B7280;
         }
 
-        .explore-badge {
-            display: inline-block;
-            background: var(--highlight);
-            color: var(--highlight-text);
-            padding: 0.375rem 0.875rem;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            border: 1.5px solid #A7F3D0;
-        }
-
+        /* Button */
         .btn-small {
             display: inline-block;
-            padding: 0.625rem 1.5rem;
+            padding: 0.625rem 1.25rem;
+            background: #0F1419;
+            color: white;
             border-radius: 6px;
             font-weight: 600;
             font-size: 0.875rem;
             text-decoration: none;
             transition: all 0.2s ease;
-            cursor: pointer;
-            background: var(--primary);
-            color: white;
-            border: none;
+            margin-top: 0.75rem;
         }
 
         .btn-small:hover {
-            background: var(--primary-light);
+            background: #1F2937;
             transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(0, 74, 173, 0.2);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        /* Expand All */
+        .controls {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 1.5rem;
+            gap: 0.75rem;
         }
 
-        .tooltip-container {
-            position: relative;
-            display: inline-block;
-            margin-left: 0.25rem;
-        }
-
-        .tooltip-icon {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            background: var(--primary);
-            color: white;
-            font-size: 12px;
-            font-weight: 600;
-            cursor: help;
+        .expand-btn {
+            background: white;
+            border: 1px solid #E5E7EB;
+            padding: 0.625rem 1.25rem;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #0F1419;
+            cursor: pointer;
             transition: all 0.2s ease;
         }
 
-        .tooltip-icon:hover {
-            background: var(--primary-light);
-            transform: scale(1.1);
+        .expand-btn:hover {
+            border-color: #0F1419;
+            background: #FAFBFC;
         }
 
-        .tooltip-content {
-            visibility: hidden;
-            opacity: 0;
-            position: absolute;
-            z-index: 1000;
-            bottom: 125%;
-            left: 50%;
-            transform: translateX(-50%);
-            background: white;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 1.25rem;
-            width: 500px;
-            max-width: 90vw;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-            transition: all 0.3s ease;
-            font-size: 0.875rem;
-            line-height: 1.5;
-            text-align: left;
-        }
-
-        .tooltip-container:hover .tooltip-content {
-            visibility: visible;
-            opacity: 1;
-        }
-
-        .tooltip-content h4 {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-            color: var(--text);
-        }
-
-        .tooltip-content ol {
-            margin: 0.5rem 0 0 1.25rem;
-            padding: 0;
-        }
-
-        .tooltip-content li {
-            margin-bottom: 0.5rem;
-            color: var(--text);
-        }
-
-        .tooltip-content ul {
-            margin: 0.25rem 0 0.5rem 1.25rem;
-            padding: 0;
-            list-style-type: disc;
-        }
-
-        .tooltip-content code {
-            background: #f5f5f5;
-            padding: 0.125rem 0.375rem;
-            border-radius: 3px;
-            font-family: 'Courier New', monospace;
-            font-size: 0.8125rem;
-        }
-
-        .tooltip-content strong {
-            color: var(--text);
-            font-weight: 600;
-        }
-
-        .tooltip-content em {
-            font-style: italic;
-            color: var(--text-light);
-        }
-
-        .vendor-neutral-note {
-            background: #F0FDF4;
-            border: 1px solid #86EFAC;
-            border-left: 4px solid #22C55E;
-            padding: 1rem 1.25rem;
-            margin-bottom: 1.5rem;
-            border-radius: 4px;
-            font-size: 0.9375rem;
-            line-height: 1.6;
-        }
-
-        .vendor-neutral-note strong {
-            color: #15803D;
-            font-weight: 600;
-        }
-
+        /* Mobile */
         @media (max-width: 768px) {
-            h1 {
+            .hero h1 {
                 font-size: 2rem;
             }
 
-            .hero {
-                padding: 2rem 1.5rem;
-            }
-
-            .hero-subtitle {
+            .hero p {
                 font-size: 1rem;
-                margin-bottom: 0;
             }
 
             .container {
-                padding: 2rem 1rem;
+                padding: 1.5rem 1rem 3rem;
             }
 
-            .section {
-                padding: 1.5rem;
+            .section-header {
+                padding: 1.25rem 1.5rem;
+            }
+
+            .section-inner {
+                padding: 0 1.5rem 1.5rem 1.5rem;
             }
 
             .section-title {
-                font-size: 1.5rem;
+                font-size: 1.125rem;
+            }
+
+            .top-nav-content {
+                padding: 0.75rem 1.5rem;
+            }
+
+            .top-nav img {
+                height: 70px;
+            }
+
+            .overview {
+                padding: 1.5rem;
+            }
+
+            .controls {
                 flex-direction: column;
-                align-items: flex-start;
             }
 
-            .nav-container {
-                padding: 0.75rem 1rem;
-                gap: 0.375rem;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            .nav-link {
-                padding: 0.5rem 0.75rem;
-                font-size: 0.8125rem;
-                min-width: 90px;
-            }
-
-            .explore-badge {
-                font-size: 0.6875rem;
-                padding: 0.3rem 0.75rem;
-            }
-
-            .overview-content {
-                font-size: 0.875rem;
-            }
-
-            .btn-small {
-                font-size: 0.8125rem;
-                padding: 0.5rem 1.25rem;
-            }
-
-            .tooltip-content {
-                width: 320px;
-                font-size: 0.8125rem;
-                padding: 1rem;
-            }
-
-            .if-then-label {
-                font-size: 0.9375rem;
-            }
-
-            /* Prevent horizontal scroll from long content */
-            .section {
-                overflow-x: hidden;
-            }
-
-            .requirement,
-            .note,
-            .if-then,
-            .subsection {
-                word-wrap: break-word;
-                overflow-wrap: break-word;
-            }
-
-            .requirement code,
-            .tooltip-content code,
-            .note code {
-                word-wrap: break-word;
-                overflow-wrap: break-word;
-                white-space: pre-wrap;
-            }
-
-            /* Fix modal scrolling on mobile */
-            .modal-content {
-                max-height: 90vh;
-                overflow-y: auto;
-                -webkit-overflow-scrolling: touch;
-            }
-
-            .modal-body {
-                overflow-y: visible;
+            .expand-btn {
+                width: 100%;
             }
         }
     </style>
 </head>
 <body>
-    <!-- TOP NAVIGATION BAR -->
-    <div style="background: white; border-bottom: 1px solid #E5E7EB; position: sticky; top: 0; z-index: 1000;">
-        <div style="max-width: 1200px; margin: 0 auto; padding: 0.75rem 2rem; display: flex; justify-content: space-between; align-items: center;">
-<a href="https://securefunder.org/" target="_blank" rel="noopener noreferrer">
-  <img src="/2026-badge.png" alt="Secure Funder Badge" style="height: 90px;">
-</a>
-            <a href="https://securefunder.org/sign-up" style="color: #0F1419; text-decoration: none; font-weight: 600; font-size: 0.9375rem;">Sign Up</a>
-
+    <!-- Top Nav -->
+    <div class="top-nav">
+        <div class="top-nav-content">
+            <a href="https://securefunder.org/" target="_blank" rel="noopener noreferrer">
+                <img src="/2026-badge.png" alt="Secure Funder Badge">
+            </a>
+            <a href="https://securefunder.org/sign-up">Sign Up</a>
         </div>
     </div>
 
+    <!-- Hero -->
     <div class="hero">
-        <div class="hero-content">
-            <h1>Certification Standards</h1>
-            <p class="hero-subtitle">Join the list of trusted funders in alternative finance</p>
-        </div>
+        <h1>Certification Standards</h1>
+        <p>Join the list of trusted funders in alternative finance</p>
+        <span class="verification-badge">Verification: 60-90 minutes</span>
     </div>
 
-    <nav>
-        <div class="nav-container">
-            <a href="#overview" class="nav-link active" data-section="overview">Overview</a>
-            <a href="#email" class="nav-link" data-section="email">Email</a>
-            <a href="#crm" class="nav-link" data-section="crm">CRM</a>
-            <a href="#portal" class="nav-link" data-section="portal">Portal</a>
-            <a href="#third-party" class="nav-link" data-section="third-party">BPO</a>
-            <a href="#cloud" class="nav-link" data-section="cloud">Cloud</a>
-            <a href="#personnel" class="nav-link" data-section="personnel">Personnel</a>
-        </div>
-    </nav>
-
+    <!-- Container -->
     <div class="container">
-        <!-- OVERVIEW -->
-        <section id="overview" class="section active">
-            <h2 class="section-title">
-                Overview
-            </h2>
-            
-            <div style="margin-bottom: 1.5rem;">
-                <span style="display: inline-block; background: #004AAD; color: white; padding: 0.5rem 1.25rem; border-radius: 20px; font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase;">Verification: 60-90 minutes</span>
-            </div>
-            
-            <div class="overview-content">
-                <p>Secure Funder™ verifies that your organization has technical safeguards in place to prevent unauthorized use of merchant information. Verification is conducted on-site or via screenshare, where you demonstrate your controls in real time. 
-                    Upon successful completion, you'll receive your official certification badge and listing in our public directory, where brokers and business owners can identify organizations committed to data protection.
-                Where a specific safeguard is not in place, functionally equivalent or compensating controls may be accepted.</p>
-                
-            </div>
-            
-        </section>
+        <!-- Overview -->
+        <div class="overview">
+            <h2>Overview</h2>
+            <p>Secure Funder™ verifies that your organization has technical safeguards in place to prevent unauthorized use of merchant information. Verification is conducted on-site or via screenshare, where you demonstrate your controls in real time.</p>
+            <p>Upon successful completion, you'll receive your official certification badge and listing in our public directory, where brokers and business owners can identify organizations committed to data protection. Where a specific safeguard is not in place, functionally equivalent or compensating controls may be accepted.</p>
+        </div>
 
-        <!-- EMAIL SECURITY -->
-        <section id="email" class="section">
-            <h2 class="section-title">
-                <span class="section-number">1</span>
-                Email Security
-            </h2>
+        <!-- Controls -->
+        <div class="controls">
+            <button class="expand-btn" onclick="expandAll()">Expand All</button>
+            <button class="expand-btn" onclick="collapseAll()">Collapse All</button>
+        </div>
 
-            <div class="subsection">
-                <h3 class="subsection-title">Multi-Factor Authentication</h3>
-                <div class="requirement">
-                    MFA must be enabled
+        <!-- Email Security -->
+        <div class="section-card">
+            <div class="section-header" onclick="toggleSection(this)">
+                <div class="section-header-left">
+                    <div class="section-number">1</div>
+                    <h3 class="section-title">Email Security</h3>
                 </div>
+                <svg class="chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
             </div>
-
-
-            <div class="subsection">
-                <h3 class="subsection-title">Submission Handling</h3>
-                <div class="if-then">
-                    <div class="if-then-label"><strong>IF</strong> broker submissions are accepted via email, <strong>THEN</strong> one of the following is required:</div>
-                    <div class="options">
-                        <div class="option">
-                            <div class="option-label"><strong>Option A:</strong> Automated email processing with restricted human access</div>
-                            <div class="sub-item">Submissions automatically pushed to CRM without human intervention</div>
-                            <div class="sub-item">Only management may access submission inbox for configuration/troubleshooting purposes</div>
-                            <div class="sub-item">Processing personnel cannot access the submission inbox</div>
+            <div class="section-content">
+                <div class="section-inner">
+                    <div class="subsection">
+                        <h4 class="subsection-title">Multi-Factor Authentication</h4>
+                        <div class="requirement">
+                            MFA must be enabled
                         </div>
-                        <div class="option">
-                            <div class="option-label"><strong>Option B:</strong> Use the Secure Funder Gateway when email submissions require human handling</div>
-                            <div class="sub-item">No changes to broker submission inbox or workflow</div>
-                            <div class="sub-item">When the broker submits, attachments are automatically routed through gateway to watermark files and embed metadata</div>
-                            <div class="sub-item">Files are then sent to inbox of your choice for human handling (e.g., processing@yourcompany.com)</div>
-                            <div style="margin-top: 1rem; margin-left: 1.25rem;">
-                                <a href="https://www.aquamark.io/funder-gateway" target="_blank" class="btn-small" style="background: #EFF6FF; color: #1E40AF; border: 2px solid #BFDBFE;">Access Gateway</a>
+                    </div>
+
+                    <div class="subsection">
+                        <h4 class="subsection-title">Submission Handling</h4>
+                        <div class="conditional">
+                            <div class="conditional-label">
+                                <span class="if">IF</span> broker submissions are accepted via email, <span class="then">THEN</span> one of the following is required:
+                            </div>
+                            <div class="options">
+                                <div class="option">
+                                    <div class="option-label"><strong>Option A:</strong> Automated email processing with restricted human access</div>
+                                    <div class="sub-item">Submissions automatically pushed to CRM without human intervention</div>
+                                    <div class="sub-item">Only management may access submission inbox for configuration/troubleshooting purposes</div>
+                                    <div class="sub-item">Processing personnel cannot access the submission inbox</div>
+                                </div>
+                                <div class="option">
+                                    <div class="option-label"><strong>Option B:</strong> Use the Secure Funder Gateway when email submissions require human handling</div>
+                                    <div class="sub-item">No changes to broker submission inbox or workflow</div>
+                                    <div class="sub-item">When the broker submits, attachments are automatically routed through gateway to watermark files and embed metadata</div>
+                                    <div class="sub-item">Files are then sent to inbox of your choice for human handling (e.g., processing@yourcompany.com)</div>
+                                    <a href="https://www.aquamark.io/funder-gateway" target="_blank" class="btn-small">Access Gateway</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <!-- PORTAL SECURITY -->
-        <section id="portal" class="section">
-            <h2 class="section-title">
-                <span class="section-number">3</span>
-                Portal Security
-            </h2>
-
-            <div class="note" style="margin-bottom: 2rem;">
-                <strong>Note:</strong> If you do not have a portal, skip this section.
-            </div>
-
-            <div class="subsection">
-                <h3 class="subsection-title">Access Controls</h3>
-
-
-
-                
-                <div class="if-then">
-                    <div class="if-then-label"><strong>IF</strong> sensitive information is accessible in your portal (e.g. SSN), <strong>THEN:</strong></div>
-                    <div class="sub-item">Access is restricted based on role requirements and business necessity</div>
+        <!-- CRM Security -->
+        <div class="section-card">
+            <div class="section-header" onclick="toggleSection(this)">
+                <div class="section-header-left">
+                    <div class="section-number">2</div>
+                    <h3 class="section-title">CRM Security</h3>
                 </div>
-
-                <div class="if-then">
-                    <div class="if-then-label"><strong>IF</strong> files are available in your portal, <strong>THEN</strong> choose one:</div>
-                    <div class="options">
-                        <div class="option">
-                            <div class="option-label"><strong>Option A:</strong> View-only access to files (no download capability)</div>
+                <svg class="chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+            </div>
+            <div class="section-content">
+                <div class="section-inner">
+                    <div class="subsection">
+                        <h4 class="subsection-title">Multi-Factor Authentication</h4>
+                        <div class="requirement">
+                            MFA must be enabled
                         </div>
-                        <div class="option">
-                            <div class="option-label"><strong>Option B:</strong> Files are watermarked before entering portal or at time of download</div>
-                            <div class="sub-item" style="margin-top: 0.5rem; font-style: italic; color: #6B7280;">Any document watermarking solution is acceptable</div>
+                    </div>
+
+                    <div class="subsection">
+                        <h4 class="subsection-title">Access Controls</h4>
+                        <div class="requirement">
+                            <strong>Role-based access:</strong>
+                            <div class="sub-item">Personnel can only access accounts and information required for their role</div>
+                            <div class="sub-item">Sensitive fields (e.g., SSN) are accessible based on role requirements and business necessity</div>
+                        </div>
+
+                        <div class="note">
+                            <strong>Recommended:</strong> For added security, enable screenshot restrictions or screen watermarking.
+                        </div>
+
+                        <div class="requirement">
+                            <strong>User verification:</strong>
+                            <div class="sub-item">Users must be from your domain, with exception of service-level access (developers, vendors)</div>
+                        </div>
+
+                        <div class="conditional">
+                            <div class="conditional-label">
+                                <span class="if">IF</span> documents are stored in your CRM, <span class="then">THEN</span> choose one:
+                            </div>
+                            <div class="options">
+                                <div class="option">
+                                    <div class="option-label"><strong>Option A:</strong> View-only access to files (no download capability)</div>
+                                </div>
+                                <div class="option">
+                                    <div class="option-label"><strong>Option B:</strong> Files are watermarked before entering CRM or at time of download</div>
+                                    <div class="sub-item"><em>Any document watermarking solution is acceptable</em></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="conditional">
+                            <div class="conditional-label">
+                                <span class="if">IF</span> full database download capability exists, <span class="then">THEN</span>:
+                            </div>
+                            <div class="sub-item">This function must be restricted to senior personnel only</div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <!-- CRM SECURITY -->
-        <section id="crm" class="section">
-            <h2 class="section-title">
-                <span class="section-number">2</span>
-                CRM Security
-            </h2>
-
-            <div class="subsection">
-                <h3 class="subsection-title">Multi-Factor Authentication</h3>
-                <div class="requirement">
-                    MFA must be enabled
+        <!-- Portal Security -->
+        <div class="section-card">
+            <div class="section-header" onclick="toggleSection(this)">
+                <div class="section-header-left">
+                    <div class="section-number">3</div>
+                    <h3 class="section-title">Portal Security</h3>
                 </div>
+                <svg class="chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
             </div>
-
-            <div class="subsection">
-                <h3 class="subsection-title">Access Controls</h3>
-
-                <div class="requirement">
-                    <strong>Role-based access:</strong>
-                    <div class="sub-item">Personnel can only access accounts and information required for their role</div>
-<div class="sub-item">
-  Sensitive fields (e.g., SSN) are accessible based on role requirements and business necessity
-</div>
-
-                </div>
-
-                <div class="note">
-                    <strong>Recommended:</strong> For added security, enable screenshot restrictions or screen watermarking.
-                </div>
-
-                <div class="requirement">
-                    <strong>User verification:</strong>
-                    <div class="sub-item">Users must be from your domain, with exception of service-level access (developers, vendors)</div>
-                </div>
-
-
-                <div class="if-then">
-                    <div class="if-then-label"><strong>IF</strong> documents are stored in your CRM, <strong>THEN</strong> choose one:</div>
-                    <div class="options">
-                        <div class="option">
-                            <div class="option-label"><strong>Option A:</strong> View-only access to files (no download capability)</div>
-                        </div>
-                        <div class="option">
-                            <div class="option-label"><strong>Option B:</strong> Files are watermarked before entering CRM or at time of download</div>
-                            <div class="sub-item" style="margin-top: 0.5rem; font-style: italic; color: #6B7280;">Any document watermarking solution is acceptable</div>
-                        </div>
+            <div class="section-content">
+                <div class="section-inner">
+                    <div class="note">
+                        <strong>Note:</strong> If you do not have a portal, skip this section.
                     </div>
-                </div>
 
-                <div class="if-then">
-                    <div class="if-then-label"><strong>IF</strong> full database download capability exists, <strong>THEN:</strong></div>
-                    <div class="sub-item">This function must be restricted to senior personnel only</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- BPO ACCESS -->
-        <section id="third-party" class="section">
-            <h2 class="section-title">
-                <span class="section-number">4</span>
-                BPO Access
-            </h2>
-
-            <div class="subsection">
-                <h3 class="subsection-title">On-Shore / Off-Shore Teams</h3>
-                <div class="note">
-                    <strong>Note:</strong> If you do not use BPO teams (on-shore or off-shore), skip this section.
-                </div>
-                <div class="if-then">
-                    <div class="if-then-label"><strong>IF</strong> BPO teams have access to merchant documents, <strong>THEN</strong> choose one:</div>
-                    <div class="options">
-                        <div class="option">
-                            <div class="option-label"><strong>Option A:</strong> View-only access to files (no download capability)</div>
+                    <div class="subsection">
+                        <h4 class="subsection-title">Access Controls</h4>
+                        
+                        <div class="conditional">
+                            <div class="conditional-label">
+                                <span class="if">IF</span> sensitive information is accessible in your portal (e.g. SSN), <span class="then">THEN</span>:
+                            </div>
+                            <div class="sub-item">Access is restricted based on role requirements and business necessity</div>
                         </div>
-                        <div class="option">
-                            <div class="option-label"><strong>Option B:</strong> Documents are watermarked before third-party access</div>
-                            <div class="sub-item" style="margin-top: 0.5rem; font-style: italic; color: #6B7280;">Any document watermarking solution is acceptable</div>
+
+                        <div class="conditional">
+                            <div class="conditional-label">
+                                <span class="if">IF</span> files are available in your portal, <span class="then">THEN</span> choose one:
+                            </div>
+                            <div class="options">
+                                <div class="option">
+                                    <div class="option-label"><strong>Option A:</strong> View-only access to files (no download capability)</div>
+                                </div>
+                                <div class="option">
+                                    <div class="option-label"><strong>Option B:</strong> Files are watermarked before entering portal or at time of download</div>
+                                    <div class="sub-item"><em>Any document watermarking solution is acceptable</em></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <!-- CLOUD STORAGE -->
-        <section id="cloud" class="section">
-            <h2 class="section-title">
-                <span class="section-number">5</span>
-                Cloud Storage
-            </h2>
+        <!-- BPO Access -->
+        <div class="section-card">
+            <div class="section-header" onclick="toggleSection(this)">
+                <div class="section-header-left">
+                    <div class="section-number">4</div>
+                    <h3 class="section-title">BPO Access</h3>
+                </div>
+                <svg class="chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+            </div>
+            <div class="section-content">
+                <div class="section-inner">
+                    <div class="note">
+                        <strong>Note:</strong> If you do not use BPO teams (on-shore or off-shore), skip this section.
+                    </div>
 
-            <div class="subsection">
-                <h3 class="subsection-title">Cloud Service Usage</h3>
-                <div class="if-then">
-                    <div class="if-then-label"><strong>IF</strong> you use cloud storage services (Google Drive, Dropbox, etc.) to house merchant documents, <strong>THEN:</strong></div>
-                    <div class="sub-item">Users have view-only access OR documents are watermarked if downloadable</div>
-                    <div class="sub-item" style="margin-top: 0.5rem; font-style: italic; color: #6B7280;">Any document watermarking solution is acceptable</div>
+                    <div class="subsection">
+                        <h4 class="subsection-title">On-Shore / Off-Shore Teams</h4>
+                        <div class="conditional">
+                            <div class="conditional-label">
+                                <span class="if">IF</span> BPO teams have access to merchant documents, <span class="then">THEN</span> choose one:
+                            </div>
+                            <div class="options">
+                                <div class="option">
+                                    <div class="option-label"><strong>Option A:</strong> View-only access to files (no download capability)</div>
+                                </div>
+                                <div class="option">
+                                    <div class="option-label"><strong>Option B:</strong> Documents are watermarked before third-party access</div>
+                                    <div class="sub-item"><em>Any document watermarking solution is acceptable</em></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <!-- PERSONNEL CONTROLS -->
-        <section id="personnel" class="section">
-            <h2 class="section-title">
-                <span class="section-number">6</span>
-                Personnel Controls
-            </h2>
-
-            <div class="subsection">
-                <h3 class="subsection-title">Background Checks</h3>
-                <div class="requirement">
-                    Personnel must pass background checks appropriate for their role
+        <!-- Cloud Storage -->
+        <div class="section-card">
+            <div class="section-header" onclick="toggleSection(this)">
+                <div class="section-header-left">
+                    <div class="section-number">5</div>
+                    <h3 class="section-title">Cloud Storage</h3>
+                </div>
+                <svg class="chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+            </div>
+            <div class="section-content">
+                <div class="section-inner">
+                    <div class="subsection">
+                        <h4 class="subsection-title">Cloud Service Usage</h4>
+                        <div class="conditional">
+                            <div class="conditional-label">
+                                <span class="if">IF</span> you use cloud storage services (Google Drive, Dropbox, etc.) to house merchant documents, <span class="then">THEN</span>:
+                            </div>
+                            <div class="sub-item">Users have view-only access OR documents are watermarked if downloadable</div>
+                            <div class="sub-item"><em>Any document watermarking solution is acceptable</em></div>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </div>
 
-            <div class="subsection">
-                <h3 class="subsection-title">Password Policy</h3>
-                <div class="requirement">
-                    Documented requirements including minimum complexity and periodic changes <a href="https://securefunder.org/password-policy-template/" target="_blank">View sample policy</a>
+        <!-- Personnel Controls -->
+        <div class="section-card">
+            <div class="section-header" onclick="toggleSection(this)">
+                <div class="section-header-left">
+                    <div class="section-number">6</div>
+                    <h3 class="section-title">Personnel Controls</h3>
                 </div>
+                <svg class="chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
             </div>
+            <div class="section-content">
+                <div class="section-inner">
+                    <div class="subsection">
+                        <h4 class="subsection-title">Background Checks</h4>
+                        <div class="requirement">
+                            Personnel must pass background checks appropriate for their role
+                        </div>
+                    </div>
 
-            <div class="subsection">
-                <h3 class="subsection-title">Screen Security</h3>
-                <div class="requirement">
-                    Screen lock required when away from workstation
-                </div>
-            </div>
+                    <div class="subsection">
+                        <h4 class="subsection-title">Password Policy</h4>
+                        <div class="requirement">
+                            Documented requirements including minimum complexity and periodic changes <a href="https://securefunder.org/password-policy-template/" target="_blank" style="color: #0F1419; font-weight: 600;">View sample policy</a>
+                        </div>
+                    </div>
 
-            <div class="subsection">
-                <h3 class="subsection-title">Workstation Policy</h3>
-                <div class="requirement">
-                    Personal cell phones may not be used at workstations where customer data is visible
-                </div>
-            </div>
+                    <div class="subsection">
+                        <h4 class="subsection-title">Screen Security</h4>
+                        <div class="requirement">
+                            Screen lock required when away from workstation
+                        </div>
+                    </div>
 
-            <div class="subsection">
-                <h3 class="subsection-title">Off-boarding Process</h3>
-                <div class="requirement">
-                    Documented process for immediately revoking system access when employees leave or change roles
-                </div>
-            </div>
-        </section>
-    </div>
+                    <div class="subsection">
+                        <h4 class="subsection-title">Workstation Policy</h4>
+                        <div class="requirement">
+                            Personal cell phones may not be used at workstations where customer data is visible
+                        </div>
+                    </div>
 
-    <script>
-        // Tab navigation
-        const navLinks = document.querySelectorAll('.nav-link');
-        const sections = document.querySelectorAll('.section');
-
-        navLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                // Remove active class from all links and sections
-                navLinks.forEach(l => l.classList.remove('active'));
-                sections.forEach(s => s.classList.remove('active'));
-
-                // Add active class to clicked link
-                this.classList.add('active');
-
-                // Show corresponding section
-                const targetSection = this.getAttribute('data-section');
-                const sectionElement = document.getElementById(targetSection);
-                if (sectionElement) {
-                    sectionElement.classList.add('active');
-                }
-            });
-        });
-
-        // Show overview section by default
-        document.getElementById('overview').classList.add('active');
-
-        // Modal functions
-        function openToolsModal() {
-            document.getElementById('toolsModal').classList.add('active');
-        }
-
-        function closeToolsModal() {
-            document.getElementById('toolsModal').classList.remove('active');
-        }
-
-        // Close modal when clicking outside
-        window.onclick = function(event) {
-            const modal = document.getElementById('toolsModal');
-            if (event.target == modal) {
-                closeToolsModal();
-            }
-        }
-    </script>
-
-    <!-- Tools Modal -->
-    <div id="toolsModal" class="modal">
-        <div class="modal-content" style="position: relative;">
-            <button class="modal-close" onclick="closeToolsModal()">&times;</button>
-            <div class="modal-header">
-                <h3>Example Implementation Solutions</h3>
-                <p>These are example solutions from one vendor. Any functionally equivalent solution from any vendor is acceptable for certification.</p>
-            </div>
-            <div class="modal-body">
-                <div class="tool-item">
-                    <h4>Email Gateway (Aquamark)</h4>
-                    <p>Automatically watermark broker email submissions upon receipt and before they reach your team—no API integration required.</p>
-                    <a href="https://www.aquamark.io/funder-gateway" target="_blank">Learn More →</a>
-                </div>
-                
-                <div class="tool-item">
-                    <h4>Document Protection (Aquamark)</h4>
-                    <p>Programmatically watermark files in your portal, CRM, or cloud storage to prevent unauthorized sharing.</p>
-                    <a href="https://www.aquamark.io/funder-api" target="_blank">Learn More →</a>
-                </div>
-                
-                <div class="tool-item">
-                    <h4>Screen Protection (Aquamark)</h4>
-                    <p>Desktop application that displays visible user attribution on screens accessing sensitive merchant information.</p>
-                    <a href="https://www.aquamark.io/screen-watermarking" target="_blank">Learn More →</a>
-                </div>
-
-                <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid #E5E7EB;">
-                    <p style="font-size: 0.875rem; color: #6B7280; font-style: italic;">
-                        Note: These are provided as examples only. You may use any solution or vendor that meets the functional requirements outlined in the certification standards.
-                    </p>
+                    <div class="subsection">
+                        <h4 class="subsection-title">Off-boarding Process</h4>
+                        <div class="requirement">
+                            Documented process for immediately revoking system access when employees leave or change roles
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        function toggleSection(header) {
+            const card = header.closest('.section-card');
+            card.classList.toggle('expanded');
+        }
+
+        function expandAll() {
+            document.querySelectorAll('.section-card').forEach(card => {
+                card.classList.add('expanded');
+            });
+        }
+
+        function collapseAll() {
+            document.querySelectorAll('.section-card').forEach(card => {
+                card.classList.remove('expanded');
+            });
+        }
+    </script>
 </body>
 </html>
