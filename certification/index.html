@@ -93,28 +93,6 @@
             padding: 2rem 2rem 4rem;
         }
 
-        /* Overview */
-        .overview {
-            background: white;
-            border-radius: 8px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            border: 1px solid #E5E7EB;
-        }
-
-        .overview h2 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: #0F1419;
-        }
-
-        .overview p {
-            color: #4B5563;
-            line-height: 1.7;
-            margin-bottom: 1rem;
-        }
-
         /* Section Card */
         .section-card {
             background: white;
@@ -194,6 +172,11 @@
         .section-inner {
             padding: 0 2rem 2rem 2rem;
             border-top: 1px solid #F3F4F6;
+        }
+
+        .section-inner p {
+            color: #4B5563;
+            line-height: 1.7;
         }
 
         /* Subsection */
@@ -399,10 +382,6 @@
                 height: 70px;
             }
 
-            .overview {
-                padding: 1.5rem;
-            }
-
             .controls {
                 flex-direction: column;
             }
@@ -434,10 +413,69 @@
     <!-- Container -->
     <div class="container">
         <!-- Overview -->
-        <div class="overview">
-            <h2>Overview</h2>
-            <p>Secure Funder™ verifies that your organization has technical safeguards in place to prevent unauthorized use of merchant information. Verification is conducted on-site or via screenshare, where you demonstrate your controls in real time.</p>
-            <p>Upon successful completion, you'll receive your official certification badge and listing in our public directory, where brokers and business owners can identify organizations committed to data protection. Where a specific safeguard is not in place, functionally equivalent or compensating controls may be accepted.</p>
+        <div class="section-card">
+            <div class="section-header" onclick="toggleSection(this)">
+                <div class="section-header-left">
+                    <div class="section-number" style="background: #6B7280;">ℹ</div>
+                    <h3 class="section-title">Overview & How Verification Works</h3>
+                </div>
+                <svg class="chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+            </div>
+            <div class="section-content">
+                <div class="section-inner">
+                    <div class="subsection">
+                        <h4 class="subsection-title">What is Secure Funder Certification?</h4>
+                        <p style="color: #4B5563; line-height: 1.7; margin-bottom: 1rem;">
+                            Secure Funder™ verifies that your organization has technical safeguards in place to prevent unauthorized use of merchant information. Upon successful completion, you'll receive your official certification badge and listing in our public directory, where brokers and business owners can identify organizations committed to data protection.
+                        </p>
+                        <p style="color: #4B5563; line-height: 1.7;">
+                            Where a specific safeguard is not in place, functionally equivalent or compensating controls may be accepted.
+                        </p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4 class="subsection-title">How Verification Works</h4>
+                        
+                        <div class="requirement" style="background: #F0FDF4; border-color: #BBF7D0;">
+                            <strong style="color: #15803D;">You're in Control</strong>
+                            <div class="sub-item">You walk us through each requirement on a screenshare</div>
+                            <div class="sub-item">Pause, stop sharing, or reschedule at any time</div>
+                            <div class="sub-item">No trick questions or pressure—just a straightforward walkthrough</div>
+                        </div>
+
+                        <p style="color: #4B5563; line-height: 1.7; margin-bottom: 1rem;">
+                            <strong style="color: #0F1419;">The process is simple:</strong> We'll go through these requirements in order, and you'll demonstrate each control in real time. You don't need to share proprietary systems or internal documentation—just show that the safeguards are in place.
+                        </p>
+
+                        <div class="requirement">
+                            <strong>Example: Email MFA</strong>
+                            <div class="sub-item">You log out of your email and log back in</div>
+                            <div class="sub-item">We verify that MFA is prompted</div>
+                            <div class="sub-item">That's it—no need to share authentication codes or settings</div>
+                        </div>
+
+                        <div class="requirement">
+                            <strong>Example: Automated Email Processing</strong>
+                            <div class="sub-item">You provide your submission email address</div>
+                            <div class="sub-item">We send a test submission to confirm it appears in your CRM without human email access</div>
+                            <div class="sub-item">You show us it arrived—verification complete</div>
+                        </div>
+
+                        <div class="requirement">
+                            <strong>Example: Gateway Implementation</strong>
+                            <div class="sub-item">We send a test email to your gateway-protected inbox</div>
+                            <div class="sub-item">You pull up the inbox and show that files were watermarked</div>
+                            <div class="sub-item">Done</div>
+                        </div>
+
+                        <p style="color: #4B5563; line-height: 1.7; margin-top: 1.5rem;">
+                            <strong style="color: #0F1419;">Timeline:</strong> Most verifications take 60-90 minutes. If you realize mid-verification that something needs adjustment, no problem—just pause and reschedule when you're ready.
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Controls -->
@@ -483,7 +521,7 @@
                                     <div class="option-label"><strong>Option B:</strong> Use the Secure Funder Gateway when email submissions require human handling</div>
                                     <div class="sub-item">No changes to broker submission inbox or workflow</div>
                                     <div class="sub-item">When the broker submits, attachments are automatically routed through gateway to watermark files and embed metadata</div>
-                                    <div class="sub-item">Files are then sent to inbox of your choice for human handling (e.g., processing@yourcompany.com)</div>
+                                    <div class="sub-item">Files are then sent to inbox of your choice for human handling (e.g., <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="5020223f33352323393e3710293f2522333f3d20313e297e333f3d">[email&#160;protected]</a>)</div>
                                     <a href="https://www.aquamark.io/funder-gateway" target="_blank" class="btn-small">Access Gateway</a>
                                 </div>
                             </div>
@@ -719,7 +757,7 @@
         </div>
     </div>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         function toggleSection(header) {
             const card = header.closest('.section-card');
             card.classList.toggle('expanded');
@@ -728,14 +766,3 @@
         function expandAll() {
             document.querySelectorAll('.section-card').forEach(card => {
                 card.classList.add('expanded');
-            });
-        }
-
-        function collapseAll() {
-            document.querySelectorAll('.section-card').forEach(card => {
-                card.classList.remove('expanded');
-            });
-        }
-    </script>
-</body>
-</html>
