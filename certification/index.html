@@ -71,18 +71,7 @@
             font-size: 1.125rem;
             color: #6B7280;
             max-width: 600px;
-            margin: 0 auto 1.5rem;
-        }
-
-        .verification-badge {
-            display: inline-block;
-            background: #F3F4F6;
-            color: #4B5563;
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            font-size: 0.875rem;
-            font-weight: 500;
-            border: 1px solid #E5E7EB;
+            margin: 0 auto;
         }
 
         /* Container */
@@ -406,7 +395,6 @@
     <div class="hero">
         <h1>Certification Standards</h1>
         <p>Join the list of trusted funders in alternative finance</p>
-        <span class="verification-badge">Verification: 60-90 minutes</span>
     </div>
 
     <!-- Container -->
@@ -431,18 +419,10 @@
             <div class="section-content">
                 <div class="section-inner">
                     <div class="subsection">
-                        <h4 class="subsection-title">What is Secure Funder Certification?</h4>
-                        <p style="color: #4B5563; line-height: 1.7; margin-bottom: 1rem;">
-                            Secure Funder™ verifies that your organization has technical safeguards in place to prevent unauthorized use of merchant information. Upon successful completion, you'll receive your official certification badge and listing in our public directory, where brokers and business owners can identify organizations committed to data protection.
+                        <p style="color: #4B5563; line-height: 1.7; margin-bottom: 1.5rem;">
+                            <strong style="color: #0F1419;">Timeline:</strong> Most verifications take 60-90 minutes. If you realize mid-verification that something needs adjustment, no problem—just pause and reschedule when you're ready.
                         </p>
-                        <p style="color: #4B5563; line-height: 1.7;">
-                            Where a specific safeguard is not in place, functionally equivalent or compensating controls may be accepted.
-                        </p>
-                    </div>
 
-                    <div class="subsection">
-                        <h4 class="subsection-title">How Verification Works</h4>
-                        
                         <div class="requirement" style="background: #F0FDF4; border-color: #BBF7D0;">
                             <strong style="color: #15803D;">You're in Control</strong>
                             <div class="sub-item">You walk us through each requirement on a screenshare</div>
@@ -469,15 +449,11 @@
                         </div>
 
                         <div class="requirement">
-                            <strong>Example: Gateway Implementation</strong>
-                            <div class="sub-item">We send a test email to your gateway-protected inbox</div>
-                            <div class="sub-item">You pull up the inbox and show that files were watermarked</div>
-                            <div class="sub-item">Done</div>
+                            <strong>Example: CRM Role-Based Access</strong>
+                            <div class="sub-item">You log into your CRM as an underwriter and show that SSN is visible</div>
+                            <div class="sub-item">You then log in as a receptionist and show that SSN is not visible</div>
+                            <div class="sub-item">Done—we've confirmed role-based access is working</div>
                         </div>
-
-                        <p style="color: #4B5563; line-height: 1.7; margin-top: 1.5rem;">
-                            <strong style="color: #0F1419;">Timeline:</strong> Most verifications take 60-90 minutes. If you realize mid-verification that something needs adjustment, no problem—just pause and reschedule when you're ready.
-                        </p>
                     </div>
                 </div>
             </div>
@@ -520,7 +496,7 @@
                                     <div class="option-label"><strong>Option B:</strong> Use the Secure Funder Gateway when email submissions require human handling</div>
                                     <div class="sub-item">No changes to broker submission inbox or workflow</div>
                                     <div class="sub-item">When the broker submits, attachments are automatically routed through gateway to watermark files and embed metadata</div>
-                                    <div class="sub-item">Files are then sent to inbox of your choice for human handling (e.g., processing@yourcompany.com)</div>
+                                    <div class="sub-item">Files are then sent to inbox of your choice for human handling (e.g., <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1e6e6c717d7b6d6d7770795e67716b6c7d71736e7f7067307d7173">[email&#160;protected]</a>)</div>
                                     <a href="https://www.aquamark.io/funder-gateway" target="_blank" class="btn-small">Access Gateway</a>
                                 </div>
                             </div>
@@ -756,7 +732,7 @@
         </div>
     </div>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         function toggleSection(header) {
             const card = header.closest('.section-card');
             card.classList.toggle('expanded');
@@ -765,14 +741,3 @@
         function expandAll() {
             document.querySelectorAll('.section-card').forEach(card => {
                 card.classList.add('expanded');
-            });
-        }
-
-        function collapseAll() {
-            document.querySelectorAll('.section-card').forEach(card => {
-                card.classList.remove('expanded');
-            });
-        }
-    </script>
-</body>
-</html>
