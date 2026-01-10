@@ -76,14 +76,13 @@
 
         .verification-badge {
             display: inline-block;
-            background: #0F1419;
-            color: white;
-            padding: 0.5rem 1.25rem;
-            border-radius: 20px;
-            font-size: 0.8125rem;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
+            background: #F3F4F6;
+            color: #4B5563;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            border: 1px solid #E5E7EB;
         }
 
         /* Container */
@@ -166,7 +165,7 @@
         }
 
         .section-card.expanded .section-content {
-            max-height: 3000px;
+            max-height: 5000px;
         }
 
         .section-inner {
@@ -412,12 +411,18 @@
 
     <!-- Container -->
     <div class="container">
-        <!-- Overview -->
+        <!-- Controls -->
+        <div class="controls">
+            <button class="expand-btn" onclick="expandAll()">Expand All</button>
+            <button class="expand-btn" onclick="collapseAll()">Collapse All</button>
+        </div>
+
+        <!-- How It Works -->
         <div class="section-card">
             <div class="section-header" onclick="toggleSection(this)">
                 <div class="section-header-left">
                     <div class="section-number" style="background: #6B7280;">ℹ</div>
-                    <h3 class="section-title">Overview & How Verification Works</h3>
+                    <h3 class="section-title">How It Works</h3>
                 </div>
                 <svg class="chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -478,12 +483,6 @@
             </div>
         </div>
 
-        <!-- Controls -->
-        <div class="controls">
-            <button class="expand-btn" onclick="expandAll()">Expand All</button>
-            <button class="expand-btn" onclick="collapseAll()">Collapse All</button>
-        </div>
-
         <!-- Email Security -->
         <div class="section-card">
             <div class="section-header" onclick="toggleSection(this)">
@@ -521,7 +520,7 @@
                                     <div class="option-label"><strong>Option B:</strong> Use the Secure Funder Gateway when email submissions require human handling</div>
                                     <div class="sub-item">No changes to broker submission inbox or workflow</div>
                                     <div class="sub-item">When the broker submits, attachments are automatically routed through gateway to watermark files and embed metadata</div>
-                                    <div class="sub-item">Files are then sent to inbox of your choice for human handling (e.g., <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="5020223f33352323393e3710293f2522333f3d20313e297e333f3d">[email&#160;protected]</a>)</div>
+                                    <div class="sub-item">Files are then sent to inbox of your choice for human handling (e.g., processing@yourcompany.com)</div>
                                     <a href="https://www.aquamark.io/funder-gateway" target="_blank" class="btn-small">Access Gateway</a>
                                 </div>
                             </div>
@@ -757,7 +756,7 @@
         </div>
     </div>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         function toggleSection(header) {
             const card = header.closest('.section-card');
             card.classList.toggle('expanded');
@@ -766,3 +765,14 @@
         function expandAll() {
             document.querySelectorAll('.section-card').forEach(card => {
                 card.classList.add('expanded');
+            });
+        }
+
+        function collapseAll() {
+            document.querySelectorAll('.section-card').forEach(card => {
+                card.classList.remove('expanded');
+            });
+        }
+    </script>
+</body>
+</html>
