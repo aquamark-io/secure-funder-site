@@ -23,7 +23,6 @@
             line-height: 1.6;
         }
 
-        /* Header */
         .top-nav {
             background: white;
             border-bottom: 1px solid #E5E7EB;
@@ -52,7 +51,6 @@
             font-size: 0.9375rem;
         }
 
-        /* Hero */
         .hero {
             background: white;
             padding: 3rem 2rem;
@@ -74,14 +72,12 @@
             margin: 0 auto;
         }
 
-        /* Container */
         .container {
             max-width: 900px;
             margin: 0 auto;
             padding: 2rem 2rem 4rem;
         }
 
-        /* Section Card */
         .section-card {
             background: white;
             border: 1px solid #E5E7EB;
@@ -167,7 +163,6 @@
             line-height: 1.7;
         }
 
-        /* Subsection */
         .subsection {
             margin-top: 2rem;
         }
@@ -181,7 +176,6 @@
             border-left: 3px solid #0F1419;
         }
 
-        /* Requirement Box */
         .requirement {
             background: #FAFBFC;
             border: 1px solid #E5E7EB;
@@ -197,7 +191,6 @@
             font-weight: 600;
         }
 
-        /* Note */
         .note {
             background: #F0F9FF;
             border: 1px solid #BAE6FD;
@@ -213,7 +206,6 @@
             color: #0369A1;
         }
 
-        /* Conditional (IF/THEN) */
         .conditional {
             background: #FAFBFC;
             border: 1px solid #E5E7EB;
@@ -245,7 +237,6 @@
             font-weight: 700;
         }
 
-        /* Options */
         .options {
             display: flex;
             flex-direction: column;
@@ -291,7 +282,6 @@
             color: #6B7280;
         }
 
-        /* Button */
         .btn-small {
             display: inline-block;
             padding: 0.625rem 1.25rem;
@@ -311,7 +301,6 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        /* Expand All */
         .controls {
             display: flex;
             justify-content: flex-end;
@@ -336,7 +325,6 @@
             background: #FAFBFC;
         }
 
-        /* Mobile */
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2rem;
@@ -381,7 +369,6 @@
     </style>
 </head>
 <body>
-    <!-- Top Nav -->
     <div class="top-nav">
         <div class="top-nav-content">
             <a href="https://securefunder.org/" target="_blank" rel="noopener noreferrer">
@@ -391,21 +378,17 @@
         </div>
     </div>
 
-    <!-- Hero -->
     <div class="hero">
         <h1>Certification Standards</h1>
         <p>Join the list of trusted funders in alternative finance</p>
     </div>
 
-    <!-- Container -->
     <div class="container">
-        <!-- Controls -->
         <div class="controls">
             <button class="expand-btn" onclick="expandAll()">Expand All</button>
             <button class="expand-btn" onclick="collapseAll()">Collapse All</button>
         </div>
 
-        <!-- How It Works -->
         <div class="section-card">
             <div class="section-header" onclick="toggleSection(this)">
                 <div class="section-header-left">
@@ -459,7 +442,6 @@
             </div>
         </div>
 
-        <!-- Email Security -->
         <div class="section-card">
             <div class="section-header" onclick="toggleSection(this)">
                 <div class="section-header-left">
@@ -496,7 +478,7 @@
                                     <div class="option-label"><strong>Option B:</strong> Use the Secure Funder Gateway when email submissions require human handling</div>
                                     <div class="sub-item">No changes to broker submission inbox or workflow</div>
                                     <div class="sub-item">When the broker submits, attachments are automatically routed through gateway to watermark files and embed metadata</div>
-                                    <div class="sub-item">Files are then sent to inbox of your choice for human handling (e.g., <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1e6e6c717d7b6d6d7770795e67716b6c7d71736e7f7067307d7173">[email&#160;protected]</a>)</div>
+                                    <div class="sub-item">Files are then sent to inbox of your choice for human handling (e.g., processing@yourcompany.com)</div>
                                     <a href="https://www.aquamark.io/funder-gateway" target="_blank" class="btn-small">Access Gateway</a>
                                 </div>
                             </div>
@@ -506,7 +488,6 @@
             </div>
         </div>
 
-        <!-- CRM Security -->
         <div class="section-card">
             <div class="section-header" onclick="toggleSection(this)">
                 <div class="section-header-left">
@@ -569,7 +550,6 @@
             </div>
         </div>
 
-        <!-- Portal Security -->
         <div class="section-card">
             <div class="section-header" onclick="toggleSection(this)">
                 <div class="section-header-left">
@@ -615,7 +595,6 @@
             </div>
         </div>
 
-        <!-- BPO Access -->
         <div class="section-card">
             <div class="section-header" onclick="toggleSection(this)">
                 <div class="section-header-left">
@@ -653,7 +632,6 @@
             </div>
         </div>
 
-        <!-- Cloud Storage -->
         <div class="section-card">
             <div class="section-header" onclick="toggleSection(this)">
                 <div class="section-header-left">
@@ -680,7 +658,6 @@
             </div>
         </div>
 
-        <!-- Personnel Controls -->
         <div class="section-card">
             <div class="section-header" onclick="toggleSection(this)">
                 <div class="section-header-left">
@@ -732,7 +709,7 @@
         </div>
     </div>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         function toggleSection(header) {
             const card = header.closest('.section-card');
             card.classList.toggle('expanded');
@@ -741,3 +718,14 @@
         function expandAll() {
             document.querySelectorAll('.section-card').forEach(card => {
                 card.classList.add('expanded');
+            });
+        }
+
+        function collapseAll() {
+            document.querySelectorAll('.section-card').forEach(card => {
+                card.classList.remove('expanded');
+            });
+        }
+    </script>
+</body>
+</html>
