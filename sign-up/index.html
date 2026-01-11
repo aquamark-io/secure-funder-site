@@ -324,23 +324,36 @@
 
             .steps-side {
                 text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
             }
 
             .steps-side h2 {
                 text-align: center;
+                width: 100%;
             }
 
             .simple-steps {
-                max-width: 280px;
-                margin: 0 auto;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                gap: 1rem;
             }
 
             .simple-step {
-                text-align: left;
+                justify-content: center;
+                max-width: 200px;
+            }
+
+            .simple-step-text h3 {
+                text-align: center;
             }
 
             .steps-disclaimer {
                 text-align: center;
+                max-width: 280px;
             }
 
             .form-side {
