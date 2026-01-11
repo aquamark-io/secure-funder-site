@@ -16,22 +16,29 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --banner-height: 52px;
+        }
+
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             background: #FAFBFC;
             color: #0F1419;
             line-height: 1.6;
-        }
-
-          /* Professional Header */
+            padding-top: var(--banner-height);
+        }          /* Professional Header */
         .announcement-banner {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
+            height: var(--banner-height);
+            display: flex;
+            align-items: center;
+            justify-content: center;
             background: #F3F4F6;
             color: #374151;
-            padding: 0.875rem 2rem;
+            padding: 0 2rem;
             text-align: center;
             z-index: 1001;
             font-size: 0.875rem;
@@ -40,7 +47,16 @@
             border-bottom: 1px solid #E5E7EB;
         }
 
-        .announcement-banner strong {
+        .announcement-banner a {
+            color: inherit;
+            text-decoration: underline;
+        }
+
+        .announcement-banner a:hover {
+            text-decoration: none;
+        }
+
+.announcement-banner strong {
             font-weight: 600;
             color: #0F1419;
         }
@@ -49,7 +65,7 @@
             background: white;
             border-bottom: 1px solid #E5E7EB;
             position: sticky;
-            top: 0;
+            top: var(--banner-height);
             z-index: 1000;
         }
 
@@ -350,6 +366,9 @@
         }
 
         @media (max-width: 768px) {
+            :root { --banner-height: 64px; }
+            .announcement-banner { padding: 0 1rem; }
+
             .hero h1 {
                 font-size: 2rem;
             }
@@ -396,7 +415,7 @@
 <body>
 
     <div class="announcement-banner">
-        <strong>Get listed today — 6-month grace period to implement</strong></a>
+        <strong><a href="https://securefunder.org/sign-up/">Get listed today</a> — 6-month grace period to implement</strong>
     </div>
     
     <div class="top-nav">
