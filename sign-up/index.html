@@ -10,6 +10,50 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+
+        :root {
+            --banner-height: 52px;
+        }
+
+        body {
+            padding-top: var(--banner-height);
+        }
+
+        .announcement-banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: var(--banner-height);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #F3F4F6;
+            color: #374151;
+            font-size: 0.875rem;
+            font-weight: 500;
+            border-bottom: 1px solid #E5E7EB;
+            z-index: 1001;
+        }
+
+        .announcement-banner a {
+            color: #004AAD;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .announcement-banner a:hover {
+            text-decoration: underline;
+        }
+
+        .header {
+            top: var(--banner-height);
+        }
+
+        @media (max-width: 768px) {
+            :root { --banner-height: 64px; }
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -466,6 +510,12 @@
     </style>
 </head>
 <body>
+
+    <div class="announcement-banner">
+        <strong>Get listed today</strong>
+        &nbsp;— 6-month grace period to implement
+    </div>
+
     <div class="header">
         <div class="header-content">
             <img src="/2026-badge.png" alt="Secure Funder 2026" class="badge-logo">
