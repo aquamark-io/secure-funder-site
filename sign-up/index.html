@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Begin Certification</title>
-     <link rel="icon" href="/2026-badge.png" type="image/png">
+    <link rel="icon" href="/2026-badge.png" type="image/png">
     <link rel="apple-touch-icon" href="/2026-badge.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -64,11 +64,101 @@
             color: #0F1419;
         }
 
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 24px;
+            height: 18px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 101;
+        }
+
+        .menu-toggle span {
+            display: block;
+            height: 2px;
+            background: #0F1419;
+            border-radius: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        /* Mobile Navigation Overlay */
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 70%;
+            max-width: 280px;
+            height: 100vh;
+            background: #FFFFFF;
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+            transition: right 0.3s ease;
+            z-index: 99;
+            padding: 5rem 2rem 2rem;
+        }
+
+        .mobile-nav.active {
+            right: 0;
+        }
+
+        .mobile-nav-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 98;
+        }
+
+        .mobile-nav-backdrop.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .mobile-nav-link {
+            font-size: 0.9375rem;
+            color: #374151;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            transition: color 0.2s ease;
+        }
+
+        .mobile-nav-link:hover {
+            color: #0F1419;
+        }
+
         /* Main Container */
         .container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 2rem 2rem;
+            padding: 2rem;
         }
 
         /* Hero Section */
@@ -217,35 +307,43 @@
             transform: translateY(-1px);
         }
 
-  
         /* Mobile Responsive */
-        @media (max-width: 1200px) {
-            /* Next steps section removed */
-        }
-
         @media (max-width: 968px) {
+            .header-links {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
             .application-content {
                 grid-template-columns: 1fr;
-                gap: 2rem;
+                gap: 2.5rem;
+            }
+
+            .form-side {
+                margin-top: 1.5rem;
+                padding-top: 1.5rem;
+                border-top: 1px solid #E5E7EB;
             }
         }
 
         @media (max-width: 768px) {
             .container {
-                padding: 2rem 1.5rem;
+                padding: 1.5rem;
             }
 
             h1 {
                 font-size: 2rem;
             }
 
-            .application-section {
-                padding: 2rem 1.5rem;
+            .subtitle {
+                font-size: 1rem;
             }
 
-            .application-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
+            .application-section {
+                padding: 1.75rem 1.25rem;
             }
 
             .steps-side h2 {
@@ -253,11 +351,11 @@
             }
 
             .support-section {
-                padding: 2rem 1.5rem;
+                padding: 2rem 1.25rem;
             }
 
             .header {
-                padding: 0.75rem 1.5rem;
+                padding: 0.75rem 1rem;
             }
 
             .badge-logo {
@@ -272,18 +370,86 @@
                 font-size: 0.875rem;
             }
         }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 1.25rem 1rem;
+            }
+
+            h1 {
+                font-size: 1.75rem;
+            }
+
+            .application-section {
+                padding: 1.5rem 1rem;
+                border-radius: 8px;
+            }
+
+            .steps-side h2 {
+                font-size: 1.25rem;
+            }
+
+            .simple-step-check {
+                width: 24px;
+                height: 24px;
+                font-size: 0.875rem;
+            }
+
+            .simple-step-text h3 {
+                font-size: 0.9375rem;
+            }
+
+            .simple-step-text p {
+                font-size: 0.8125rem;
+            }
+
+            .badge-logo {
+                height: 45px;
+            }
+
+            .support-section {
+                padding: 1.5rem 1rem;
+                margin-top: 2rem;
+            }
+
+            .support-section h3 {
+                font-size: 1.125rem;
+            }
+
+            .support-section p {
+                font-size: 0.9375rem;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="header">
         <div class="header-content">
             <img src="/2026-badge.png" alt="Secure Funder 2026" class="badge-logo">
+            
+            <!-- Desktop Navigation -->
             <div class="header-links">
                 <a href="https://securefunder.org/certification/" target="_blank" class="requirements-link">Requirements</a>
                 <a href="https://www.aquamark.io/funder" target="_blank" class="requirements-link">Benefits</a>
             </div>
+            
+            <!-- Mobile Menu Toggle -->
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </div>
+    
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav-backdrop" id="mobileNavBackdrop"></div>
+    <nav class="mobile-nav" id="mobileNav">
+        <div class="mobile-nav-links">
+            <a href="https://securefunder.org/certification/" target="_blank" class="mobile-nav-link">Requirements</a>
+            <a href="https://www.aquamark.io/funder" target="_blank" class="mobile-nav-link">Benefits</a>
+        </div>
+    </nav>
 
     <div class="container">
         <!-- Hero Section -->
@@ -338,6 +504,51 @@
         </div>
     </div>
 
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileNav = document.getElementById('mobileNav');
+        const mobileNavBackdrop = document.getElementById('mobileNavBackdrop');
+        const body = document.body;
 
+        function toggleMenu() {
+            const isActive = menuToggle.classList.contains('active');
+            
+            if (isActive) {
+                closeMenu();
+            } else {
+                openMenu();
+            }
+        }
+
+        function openMenu() {
+            menuToggle.classList.add('active');
+            mobileNav.classList.add('active');
+            mobileNavBackdrop.classList.add('active');
+            body.style.overflow = 'hidden';
+        }
+
+        function closeMenu() {
+            menuToggle.classList.remove('active');
+            mobileNav.classList.remove('active');
+            mobileNavBackdrop.classList.remove('active');
+            body.style.overflow = '';
+        }
+
+        menuToggle.addEventListener('click', toggleMenu);
+        mobileNavBackdrop.addEventListener('click', closeMenu);
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+
+        // Close menu on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && menuToggle.classList.contains('active')) {
+                closeMenu();
+            }
+        });
+    </script>
 </body>
 </html>
