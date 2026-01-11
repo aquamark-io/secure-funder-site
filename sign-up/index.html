@@ -337,18 +337,25 @@
             .simple-steps {
                 display: flex;
                 flex-direction: column;
-                align-items: center;
-                width: 100%;
+                align-items: flex-start;
+                width: auto;
                 gap: 1rem;
+                margin: 0 auto;
             }
 
             .simple-step {
-                justify-content: center;
-                max-width: 200px;
+                display: flex;
+                align-items: flex-start;
+                gap: 1rem;
+                width: 120px;
+            }
+
+            .simple-step-check {
+                flex-shrink: 0;
             }
 
             .simple-step-text h3 {
-                text-align: center;
+                text-align: left;
             }
 
             .steps-disclaimer {
