@@ -618,8 +618,8 @@
         /* Top-right back button */
         .back-to-aquamark {
             position: fixed;
-            top: 52px; /* sits just below the fixed support banner */
-            right: 18px;
+            top: 86px; /* pulled down a bit on desktop */
+            right: 64px; /* pulled left a bit on desktop */
             z-index: 2500;
             display: inline-flex;
             align-items: center;
@@ -664,14 +664,15 @@
             width: 42px;
             height: 42px;
             border-radius: 999px;
-            border: 1px solid rgba(255,255,255,0.12);
-            background: #0F1419;
-            color: #FFFFFF;
-            box-shadow: 0 6px 18px rgba(15, 20, 25, 0.16);
+            /* Light theme on mobile to match the "Back to Aquamark" button */
+            border: 1px solid #E5E7EB;
+            background: #FFFFFF;
+            color: #0F1419;
+            box-shadow: 0 6px 18px rgba(15, 20, 25, 0.10);
             cursor: pointer;
         }
 
-        .mobile-menu-toggle:hover { background: #1a1f26; }
+        .mobile-menu-toggle:hover { background: #F9FAFB; }
         .mobile-menu-toggle svg { width: 18px; height: 18px; }
 
         .mobile-menu {
@@ -754,7 +755,8 @@
     </div>
 
     <!-- Back to Aquamark button -->
-    <a class="back-to-aquamark" href="https://www.aquamark.io/">
+    <!-- Inline top/right ensures placement even if another stylesheet overrides .back-to-aquamark -->
+    <a class="back-to-aquamark" href="https://www.aquamark.io/" style="top: 86px; right: 64px;">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M15 18l-6-6 6-6" />
         </svg>
