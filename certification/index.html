@@ -1,701 +1,813 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Certification Requirements</title>
-    <link rel="icon" href="/2026-badge.png" type="image/png">
-    <link rel="apple-touch-icon" href="/2026-badge.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Certification Requirements</title>
 
-        :root {
-            --banner-height: 52px;
-        }
+  <!-- Match Funder page asset conventions -->
+  <link rel="icon" type="image/png" href="logo-icon-black-blue.png" />
+  <link rel="apple-touch-icon" href="logo-icon-black-blue.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: #FAFBFC;
-            color: #0F1419;
-            line-height: 1.6;
-            padding-top: var(--banner-height);
-        }          /* Professional Header */
-        .announcement-banner {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: var(--banner-height);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #F3F4F6;
-            color: #374151;
-            padding: 0 2rem;
-            text-align: center;
-            z-index: 1001;
-            font-size: 0.875rem;
-            font-weight: 500;
-            letter-spacing: 0.3px;
-            border-bottom: 1px solid #E5E7EB;
-        }
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        .announcement-banner a {
-            color: inherit;
-            text-decoration: underline;
-        }
+    :root{
+      --ink: #0a0f14;
+      --ink-muted: #3d4852;
+      --ink-light: #64748b;
 
-        .announcement-banner a:hover {
-            text-decoration: none;
-        }
+      --surface: #ffffff;
+      --surface-raised: #f8fafc;
+      --surface-dark: #0f172a;
 
-.announcement-banner strong {
-            font-weight: 600;
-            color: #0F1419;
-        }
+      --border: #e2e8f0;
 
-        .top-nav {
-            background: white;
-            border-bottom: 1px solid #E5E7EB;
-            position: sticky;
-            top: var(--banner-height);
-            z-index: 1000;
-        }
+      /* Funder lander uses red accent; keep to match */
+      --accent: #dc2626;
+      --accent-soft: #fef2f2;
 
-        .top-nav-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0.75rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+      --blue: #2563eb;
+      --blue-soft: #eff6ff;
 
-        .top-nav img {
-            height: 90px;
-        }
+      --shadow-sm: 0 8px 24px rgba(0,0,0,0.06);
+      --shadow-md: 0 10px 30px rgba(0,0,0,0.10);
+    }
 
-        .top-nav a {
-            color: #0F1419;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9375rem;
-        }
+    body{
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: var(--surface);
+      color: var(--ink);
+      line-height: 1.6;
+      font-size: 17px;
+    }
 
-        .hero {
-            background: white;
-            padding: 3rem 2rem;
-            text-align: center;
-            border-bottom: 1px solid #E5E7EB;
-        }
+    /* Sticky header wrapper (matches funder page) */
+    .sticky-header{
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--surface);
+    }
 
-        .hero h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-            color: #0F1419;
-        }
+    /* Urgency banner (matches funder page) */
+    .urgency-banner{
+      background: #f1f5f9;
+      color: var(--ink);
+      padding: 0.75rem 2rem;
+      text-align: center;
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.2px;
+      border-bottom: 1px solid var(--border);
+    }
+    .urgency-banner a{
+      color: var(--ink);
+      text-decoration: underline;
+      font-weight: 700;
+      text-underline-offset: 3px;
+    }
+    .urgency-banner a:hover{ text-decoration: none; }
 
-        .hero p {
-            font-size: 1.125rem;
-            color: #6B7280;
-            max-width: 600px;
-            margin: 0 auto;
-        }
+    /* Nav (matches funder page) */
+    .nav{
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 1.25rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav img{
+      max-width: 130px;
+      height: auto;
+      cursor: pointer;
+    }
+    .nav-right{
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+    .nav-link{
+      font-size: 0.9375rem;
+      font-weight: 500;
+      color: var(--ink-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-link:hover{ color: var(--ink); }
 
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 2rem 2rem 4rem;
-        }
+    /* Hero (match funder look) */
+    .hero{
+      background: linear-gradient(180deg, #f1f5f9 0%, var(--surface) 100%);
+      padding: 4.5rem 2rem 4.5rem;
+    }
+    .hero-inner{
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .hero-eyebrow{
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--accent-soft);
+      color: var(--accent);
+      padding: 0.5rem 1rem;
+      border-radius: 100px;
+      font-size: 0.8125rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+    }
+    .hero-eyebrow::before{
+      content: '';
+      width: 8px;
+      height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse{
+      0%,100%{ opacity:1; transform:scale(1); }
+      50%{ opacity:0.5; transform:scale(1.2); }
+    }
 
-        .section-card {
-            background: white;
-            border: 1px solid #E5E7EB;
-            border-radius: 8px;
-            margin-bottom: 1rem;
-            overflow: hidden;
-            transition: all 0.2s ease;
-        }
+    .hero h1{
+      font-size: 3rem;
+      font-weight: 700;
+      line-height: 1.12;
+      letter-spacing: -1.2px;
+      margin-bottom: 1rem;
+      color: var(--ink);
+    }
+    .hero-subtitle{
+      font-size: 1.15rem;
+      color: var(--ink-muted);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+      max-width: 560px;
+    }
+    .hero-ctas{
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
 
-        .section-card:hover {
-            border-color: #D1D5DB;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-        }
+    .btn{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      font-weight: 700;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: 2px solid transparent;
+    }
+    .btn-primary{
+      background: var(--ink);
+      color: var(--surface);
+      border-color: var(--ink);
+    }
+    .btn-primary:hover{
+      background: #1e293b;
+      border-color: #1e293b;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+    .btn-outline{
+      background: var(--surface);
+      color: var(--ink);
+      border-color: var(--border);
+    }
+    .btn-outline:hover{
+      border-color: var(--ink);
+      background: var(--surface-raised);
+    }
+    .btn svg{ width: 18px; height: 18px; }
 
-        .section-header {
-            padding: 1.5rem 2rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            user-select: none;
-            transition: background 0.2s ease;
-        }
+    .hero-badge{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .hero-badge img{
+      max-width: 320px;
+      filter: drop-shadow(0 25px 50px rgba(0,0,0,0.12));
+    }
 
-        .section-header:hover {
-            background: #FAFBFC;
-        }
+    /* Social proof strip (optional but matches style) */
+    .social-proof{
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 1.25rem 2rem;
+      text-align: center;
+    }
+    .social-proof p{
+      color: var(--ink-muted);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+    }
+    .social-proof strong{ color: var(--ink); }
 
-        .section-header-left {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
+    /* Main layout */
+    .container{
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 2rem 5rem;
+    }
 
-        .section-number {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 36px;
-            height: 36px;
-            background: #0F1419;
-            color: white;
-            border-radius: 8px;
-            font-size: 1.125rem;
-            font-weight: 600;
-            flex-shrink: 0;
-        }
+    /* Controls (keep visible on mobile too) */
+    .controls{
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+      flex-wrap: wrap;
+    }
+    .expand-btn{
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 0.75rem 1.25rem;
+      border-radius: 10px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--ink);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .expand-btn:hover{
+      border-color: #cbd5e1;
+      background: var(--surface-raised);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    }
 
-        .section-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: #0F1419;
-        }
+    /* Accordion cards (restyled to match funder look) */
+    .section-card{
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      margin-bottom: 1rem;
+      overflow: hidden;
+      transition: all 0.25s ease;
+    }
+    .section-card:hover{
+      border-color: #cbd5e1;
+      box-shadow: var(--shadow-sm);
+      transform: translateY(-1px);
+    }
 
-        .chevron {
-            width: 24px;
-            height: 24px;
-            color: #6B7280;
-            transition: transform 0.3s ease;
-        }
+    .section-header{
+      padding: 1.5rem 1.75rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+      background: var(--surface);
+      transition: background 0.2s ease;
+    }
+    .section-header:hover{
+      background: var(--surface-raised);
+    }
+    .section-header-left{
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      min-width: 0;
+    }
 
-        .section-card.expanded .chevron {
-            transform: rotate(180deg);
-        }
+    .section-number{
+      width: 38px;
+      height: 38px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--ink);
+      background: var(--surface);
+      border: 2px solid var(--ink);
+      flex-shrink: 0;
+    }
+    .section-number.info{
+      border-color: var(--blue);
+      color: var(--blue);
+      background: var(--blue-soft);
+    }
 
-        .section-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-        }
+    .section-title{
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.2;
+    }
 
-        .section-card.expanded .section-content {
-            max-height: 5000px;
-        }
+    .chevron{
+      width: 22px;
+      height: 22px;
+      color: var(--ink-light);
+      transition: transform 0.3s ease;
+      flex-shrink: 0;
+    }
+    .section-card.expanded .chevron{ transform: rotate(180deg); }
 
-        .section-inner {
-            padding: 0 2rem 2rem 2rem;
-            border-top: 1px solid #F3F4F6;
-        }
+    .section-content{
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+    }
+    .section-card.expanded .section-content{ max-height: 8000px; }
 
-        .section-inner p {
-            color: #4B5563;
-            line-height: 1.7;
-        }
+    .section-inner{
+      padding: 0 1.75rem 1.75rem;
+      border-top: 1px solid var(--border);
+      background: var(--surface);
+    }
 
-        .subsection {
-            margin-top: 2rem;
-        }
+    .section-inner p{
+      color: var(--ink-muted);
+      line-height: 1.7;
+    }
 
-        .subsection-title {
-            font-size: 1rem;
-            font-weight: 600;
-            color: #0F1419;
-            margin-bottom: 1rem;
-            padding-left: 1rem;
-            border-left: 3px solid #0F1419;
-        }
+    .subsection{ margin-top: 1.75rem; }
 
-        .requirement {
-            background: #FAFBFC;
-            border: 1px solid #E5E7EB;
-            border-radius: 6px;
-            padding: 1rem 1.25rem;
-            margin-bottom: 1rem;
-            font-size: 0.9375rem;
-            line-height: 1.7;
-        }
+    .subsection-title{
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--ink);
+      margin-bottom: 0.85rem;
+      padding-left: 0.9rem;
+      border-left: 3px solid var(--ink);
+    }
 
-        .requirement strong {
-            color: #0F1419;
-            font-weight: 600;
-        }
+    /* Requirement blocks (more “cardy” like the funder page) */
+    .requirement{
+      background: var(--surface-raised);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 0.9rem;
+      font-size: 0.95rem;
+      line-height: 1.75;
+      color: var(--ink-muted);
+    }
+    .requirement strong{
+      color: var(--ink);
+      font-weight: 800;
+    }
 
-        .note {
-            background: #F0F9FF;
-            border: 1px solid #BAE6FD;
-            border-left: 3px solid #0EA5E9;
-            border-radius: 6px;
-            padding: 1rem 1.25rem;
-            margin-bottom: 1rem;
-            font-size: 0.9375rem;
-            line-height: 1.6;
-        }
+    .requirement.info{
+      background: var(--blue-soft);
+      border-color: #bfdbfe;
+    }
+    .requirement.info strong{
+      color: var(--blue);
+    }
 
-        .note strong {
-            color: #0369A1;
-        }
+    .note{
+      background: #ecfeff;
+      border: 1px solid #a5f3fc;
+      border-left: 4px solid #06b6d4;
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 0.9rem;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--ink-muted);
+    }
+    .note strong{ color: #0e7490; }
 
-        .conditional {
-            background: #FAFBFC;
-            border: 1px solid #E5E7EB;
-            border-radius: 6px;
-            padding: 1.25rem;
-            margin-bottom: 1rem;
-        }
+    .conditional{
+      background: var(--surface-raised);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.25rem;
+      margin-bottom: 0.9rem;
+    }
+    .conditional-label{
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+    .conditional-label .if,
+    .conditional-label .then{
+      background: #fef3c7;
+      padding: 0.125rem 0.5rem;
+      border-radius: 6px;
+      color: #92400e;
+      font-weight: 900;
+      letter-spacing: 0.2px;
+    }
 
-        .conditional-label {
-            font-size: 0.9375rem;
-            font-weight: 600;
-            color: #0F1419;
-            margin-bottom: 1rem;
-        }
+    .options{
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .option{
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+    }
+    .option-label{
+      font-size: 0.95rem;
+      line-height: 1.75;
+      color: var(--ink);
+    }
+    .option-label strong{ font-weight: 900; }
 
-        .conditional-label .if {
-            background: #FEF3C7;
-            padding: 0.125rem 0.5rem;
-            border-radius: 4px;
-            color: #92400E;
-            font-weight: 700;
-        }
+    .sub-item{
+      margin-left: 1.25rem;
+      margin-top: 0.5rem;
+      position: relative;
+      padding-left: 1rem;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--ink-muted);
+    }
+    .sub-item:before{
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #94a3b8;
+    }
+    .sub-item em{ color: var(--ink-light); }
 
-        .conditional-label .then {
-            background: #FEF3C7;
-            padding: 0.125rem 0.5rem;
-            border-radius: 4px;
-            color: #92400E;
-            font-weight: 700;
-        }
+    .btn-small{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.25rem;
+      background: var(--surface);
+      color: var(--ink);
+      border: 2px solid var(--border);
+      border-radius: 10px;
+      font-weight: 800;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      margin-top: 1.5rem;
+    }
+    .btn-small:hover{
+      border-color: var(--ink);
+      background: var(--surface-raised);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    }
 
-        .options {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-        }
+    /* Footer (match funder page) */
+    .footer{
+      background: var(--surface-dark);
+      color: #94a3b8;
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.875rem;
+    }
+    .footer a{
+      color: #cbd5e1;
+      text-decoration: none;
+      margin-left: 1rem;
+      transition: color 0.2s;
+    }
+    .footer a:hover{ color: #fff; }
 
-        .option {
-            background: white;
-            border: 1px solid #E5E7EB;
-            border-radius: 6px;
-            padding: 1rem 1.25rem;
-        }
+    /* Responsive */
+    @media (max-width: 968px){
+      .nav{ padding: 1rem 1.5rem; }
+      .hero-inner{
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 3rem;
+      }
+      .hero-badge{ order: -1; }
+      .hero-badge img{ max-width: 260px; }
+      .hero h1{ font-size: 2.35rem; }
+      .hero-subtitle{ margin-left: auto; margin-right: auto; }
+      .hero-ctas{ justify-content: center; }
+      .container{ padding: 2.5rem 1.5rem 4.5rem; }
+    }
 
-        .option-label {
-            font-size: 0.9375rem;
-            line-height: 1.7;
-            color: #0F1419;
-        }
-
-        .option-label strong {
-            color: #0F1419;
-            font-weight: 600;
-        }
-
-        .sub-item {
-            margin-left: 1.25rem;
-            margin-top: 0.5rem;
-            position: relative;
-            padding-left: 1rem;
-            font-size: 0.9375rem;
-            line-height: 1.7;
-            color: #4B5563;
-        }
-
-        .sub-item:before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: #9CA3AF;
-        }
-
-        .sub-item em {
-            color: #6B7280;
-        }
-
-        .btn-small {
-            display: inline-block;
-            padding: 0.625rem 1.25rem;
-            background: #F0F9FF;
-            color: #0369A1;
-            border: 1px solid #BAE6FD;
-            border-radius: 6px;
-            font-weight: 600;
-            font-size: 0.875rem;
-            text-decoration: none;
-            transition: all 0.2s ease;
-            margin-top: 1.75rem;
-        }
-
-        .btn-small:hover {
-            background: #E0F2FE;
-            border-color: #7DD3FC;
-            transform: translateY(-1px);
-            box-shadow: 0 4px 8px rgba(3, 105, 161, 0.1);
-        }
-
-        .controls {
-            display: flex;
-            justify-content: flex-end;
-            margin-bottom: 1.5rem;
-            gap: 0.75rem;
-        }
-
-        .expand-btn {
-            background: white;
-            border: 1px solid #E5E7EB;
-            padding: 0.625rem 1.25rem;
-            border-radius: 6px;
-            font-size: 0.875rem;
-            font-weight: 500;
-            color: #0F1419;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .expand-btn:hover {
-            border-color: #0F1419;
-            background: #FAFBFC;
-        }
-
-        @media (max-width: 768px) {
-            :root { --banner-height: 64px; }
-            .announcement-banner { padding: 0 1rem; }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .container {
-                padding: 1.5rem 1rem 3rem;
-            }
-
-            .section-header {
-                padding: 1.25rem 1.5rem;
-            }
-
-            .section-inner {
-                padding: 0 1.5rem 1.5rem 1.5rem;
-            }
-
-            .section-title {
-                font-size: 1.125rem;
-            }
-
-            .top-nav-content {
-                padding: 0.75rem 1.5rem;
-            }
-
-            .top-nav img {
-                height: 70px;
-            }
-
-            .controls {
-                flex-direction: column;
-                display: none;
-            }
-
-            .expand-btn {
-                width: 100%;
-            }
-        }
-    </style>
+    @media (max-width: 640px){
+      .urgency-banner{ padding: 0.75rem 1rem; font-size: 0.82rem; }
+      .hero{ padding: 3.25rem 1.25rem 3.25rem; }
+      .hero h1{ font-size: 2rem; }
+      .btn{ width: 100%; }
+      .controls{ justify-content: stretch; }
+      .expand-btn{ width: 100%; }
+      .section-header{ padding: 1.25rem 1.25rem; }
+      .section-inner{ padding: 0 1.25rem 1.25rem; }
+    }
+  </style>
 </head>
+
 <body>
-
-    <div class="announcement-banner">
-        <strong><a href="https://securefunder.org/sign-up/">Get listed today</a>
-    </div>
-    
-    <div class="top-nav">
-        <div class="top-nav-content">
-            <a href="https://securefunder.org/" target="_blank" rel="noopener noreferrer">
-                <img src="/2026-badge.png" alt="Secure Funder Badge">
-            </a>
-            <a href="https://securefunder.org/sign-up">Sign Up</a>
-        </div>
+  <div class="sticky-header">
+    <div class="urgency-banner">
+      Directory opens soon. <a href="https://securefunder.org/sign-up/">Reserve your listing →</a>
     </div>
 
-    <div class="hero">
+    <nav class="nav">
+      <img src="logo-full-black-blue.png" alt="Aquamark" onclick="window.location.href='https://www.aquamark.io'" />
+      <div class="nav-right">
+        <a href="https://securefunder.org/" class="nav-link">Directory</a>
+        <a href="https://securefunder.org/sign-up" class="nav-link">Sign Up</a>
+      </div>
+    </nav>
+  </div>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-eyebrow">Secure Funder™ Standards</div>
         <h1>Certification Requirements</h1>
-        <p>Join the list of trusted funders in alternative finance</p>
+        <p class="hero-subtitle">A clear, evidence-based walkthrough of the baseline safeguards required to be listed as Certified.</p>
+
+        <div class="hero-ctas">
+          <a href="https://securefunder.org/sign-up" class="btn btn-primary">
+            Reserve Your Listing
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+          </a>
+          <a href="https://securefunder.org/" class="btn btn-outline">View Directory</a>
+        </div>
+      </div>
+
+      <div class="hero-badge">
+        <img src="2026-badge.png" alt="Secure Funder 2026 Certification Badge" />
+      </div>
+    </div>
+  </section>
+
+  <div class="social-proof">
+    <p><strong>Simple process.</strong> Quick screenshare. Clear requirements. No sensitive business logic needed.</p>
+  </div>
+
+  <div class="container">
+    <div class="controls">
+      <button class="expand-btn" onclick="expandAll()">Expand All</button>
+      <button class="expand-btn" onclick="collapseAll()">Collapse All</button>
     </div>
 
-    <div class="container">
-        <div class="controls">
-            <button class="expand-btn" onclick="expandAll()">Expand All</button>
-            <button class="expand-btn" onclick="collapseAll()">Collapse All</button>
+    <!-- How It Works -->
+    <div class="section-card">
+      <div class="section-header" onclick="toggleSection(this)">
+        <div class="section-header-left">
+          <div class="section-number info">ℹ</div>
+          <h3 class="section-title">How It Works</h3>
         </div>
+        <svg class="chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </div>
 
-        <div class="section-card">
-            <div class="section-header" onclick="toggleSection(this)">
-                <div class="section-header-left">
-                    <div class="section-number" style="background: #0369A1;">ℹ</div>
-                    <h3 class="section-title">How It Works</h3>
-                </div>
-                <svg class="chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                </svg>
+      <div class="section-content">
+        <div class="section-inner">
+          <div class="subsection">
+            <p style="margin-bottom: 1.25rem;">
+              <strong style="color: var(--ink);">Timeline:</strong> 60-90 minutes
+            </p>
+
+            <div class="requirement info">
+              <strong>You're in Control</strong>
+              <div class="sub-item">You walk us through each requirement on a screenshare</div>
+              <div class="sub-item">Pause, stop sharing, or reschedule at any time to make adjustments</div>
+              <div class="sub-item">No trick questions—just a straightforward walkthrough</div>
+              <div class="sub-item">Focus is on confirming controls are in place, without exposing sensitive business logic, proprietary systems, or competitive processes</div>
             </div>
-            <div class="section-content">
-                <div class="section-inner">
-                    <div class="subsection">
-                        <p style="color: #4B5563; line-height: 1.7; margin-bottom: 1.5rem;">
-                            <strong style="color: #0F1419;">Timeline:</strong> 60-90 minutes
-                        </p>
 
-                        <div class="requirement" style="background: #F0F9FF; border-color: #BAE6FD;">
-                            <strong style="color: #0369A1;">You're in Control</strong>
-                            <div class="sub-item">You walk us through each requirement on a screenshare</div>
-                            <div class="sub-item">Pause, stop sharing, or reschedule at any time to make adjustments</div>
-                            <div class="sub-item">No trick questions—just a straightforward walkthrough</div>
-                            <div class="sub-item">Focus is on confirming controls are in place, without exposing sensitive business logic, proprietary systems, or competitive processes</div>
-                        </div>
-
-                        <div class="requirement">
-                            <strong>Example: Email MFA</strong>
-                            <div class="sub-item">You log out of your email and log back in</div>
-                            <div class="sub-item">We verify that MFA is prompted</div>
-                        </div>
-
-                        <div class="requirement">
-                            <strong>Example: Automated Email Processing</strong> <span style="font-size: 0.8125rem; color: #9CA3AF; font-weight: 400;">(if applicable)</span>
-                            <div class="sub-item">You provide your submission email address</div>
-                            <div class="sub-item">We send a test submission to confirm it appears in your CRM without human email access</div>
-                        </div>
-
-                       
-                    </div>
-                </div>
+            <div class="requirement">
+              <strong>Example: Email MFA</strong>
+              <div class="sub-item">You log out of your email and log back in</div>
+              <div class="sub-item">We verify that MFA is prompted</div>
             </div>
+
+            <div class="requirement">
+              <strong>Example: Automated Email Processing</strong>
+              <span style="font-size: 0.82rem; color: var(--ink-light); font-weight: 500;"> (if applicable)</span>
+              <div class="sub-item">You provide your submission email address</div>
+              <div class="sub-item">We send a test submission to confirm it appears in your CRM without human email access</div>
+            </div>
+          </div>
         </div>
-
-        <div class="section-card">
-            <div class="section-header" onclick="toggleSection(this)">
-                <div class="section-header-left">
-                    <div class="section-number">1</div>
-                    <h3 class="section-title">Email Security</h3>
-                </div>
-                <svg class="chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                </svg>
-            </div>
-            <div class="section-content">
-                <div class="section-inner">
-                    <div class="subsection">
-                        <h4 class="subsection-title">Multi-Factor Authentication</h4>
-                        <div class="requirement">
-                            MFA must be enabled
-                        </div>
-                    </div>
-
-                    <div class="subsection">
-                        <h4 class="subsection-title">Submission Handling</h4>
-                        <div class="conditional">
-                            <div class="conditional-label">
-                                <span class="if">IF</span> broker submissions are accepted via email, <span class="then">THEN</span> one of the following is required:
-                            </div>
-                            <div class="options">
-                                <div class="option">
-                                    <div class="option-label"><strong>Option A:</strong> Automated email processing with restricted human access</div>
-                                    <div class="sub-item">Submissions automatically pushed to CRM without human intervention</div>
-                                    <div class="sub-item">Only management may access submission inbox for configuration/troubleshooting purposes</div>
-                                    <div class="sub-item">Processing personnel cannot access the submission inbox</div>
-                                </div>
-                                <div class="option">
-                                    <div class="option-label"><strong>Option B:</strong> Use the Secure Funder Gateway if email submissions require human handling</div>
-                                    <div class="sub-item">No changes to broker submission inbox or workflow</div>
-                                    <div class="sub-item">Broker submits, then attachments are routed through gateway to watermark files and embed metadata</div>
-                                    <div class="sub-item">Files are then sent back to inbox of your choice for human processing</div>
-                                    <a href="https://www.aquamark.io/funder-gateway" target="_blank" class="btn-small">Access Gateway</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="section-card">
-            <div class="section-header" onclick="toggleSection(this)">
-                <div class="section-header-left">
-                    <div class="section-number">2</div>
-                    <h3 class="section-title">CRM / Portal Security</h3>
-                </div>
-                <svg class="chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                </svg>
-            </div>
-            <div class="section-content">
-                <div class="section-inner">
-                    <div class="subsection">
-                        <h4 class="subsection-title">Multi-Factor Authentication</h4>
-                        <div class="requirement">
-                            MFA must be enabled
-                        </div>
-                    </div>
-
-                    <div class="subsection">
-                        <h4 class="subsection-title">Access Controls</h4>
-                        <div class="requirement">
-                            <strong>Role-based access:</strong>
-                            <div class="sub-item">Personnel can only access accounts and information required for their role</div>
-                            <div class="sub-item">Sensitive fields (e.g., SSN) are accessible based on role requirements and business necessity</div>
-                        </div>
-
-                        <div class="note">
-                            <strong>Recommended:</strong> For added security, enable screenshot restrictions or screen watermarking.
-                        </div>
-
-                        <div class="requirement">
-                            <strong>User verification:</strong>
-                            <div class="sub-item">Users must be from your domain, with exception of service-level access (developers, vendors)</div>
-                        </div>
-
-                        <div class="conditional">
-                            <div class="conditional-label">
-                                <span class="if">IF</span> documents are accessible, <span class="then">THEN</span> choose one:
-                            </div>
-                            <div class="options">
-                                <div class="option">
-                                    <div class="option-label"><strong>Option A:</strong> View-only access to files (no download capability)</div>
-                                </div>
-                                <div class="option">
-                                    <div class="option-label"><strong>Option B:</strong> Files are watermarked before entering the system, or at time of download</div>
-                                    <div class="sub-item"><em>Any document watermarking solution is acceptable</em></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="conditional">
-                            <div class="conditional-label">
-                                <span class="if">IF</span> full database download capability exists, <span class="then">THEN</span>:
-                            </div>
-                            <div class="sub-item">This function must be restricted to senior personnel only</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="section-card">
-            <div class="section-header" onclick="toggleSection(this)">
-                <div class="section-header-left">
-                    <div class="section-number">4</div>
-                    <h3 class="section-title">Outsourcing</h3>
-                </div>
-                <svg class="chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                </svg>
-            </div>
-            <div class="section-content">
-                <div class="section-inner">
-                    <div class="note">
-                        <strong>Note:</strong> If you do not outsource processes (on-shore or off-shore), skip this section.
-                    </div>
-
-                    <div class="subsection">
-                        <div class="conditional">
-                            <div class="conditional-label">
-                                <span class="if">IF</span> BPO teams have access to merchant documents, <span class="then">THEN</span> choose one:
-                            </div>
-                            <div class="options">
-                                <div class="option">
-                                    <div class="option-label"><strong>Option A:</strong> View-only access to files (no download capability)</div>
-                                </div>
-                                <div class="option">
-                                    <div class="option-label"><strong>Option B:</strong> Documents are watermarked before third-party access</div>
-                                    <div class="sub-item"><em>Any document watermarking solution is acceptable</em></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-      
-
-        <div class="section-card">
-            <div class="section-header" onclick="toggleSection(this)">
-                <div class="section-header-left">
-                    <div class="section-number">5</div>
-                    <h3 class="section-title">Personnel Controls</h3>
-                </div>
-                <svg class="chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                </svg>
-            </div>
-            <div class="section-content">
-                <div class="section-inner">
-                    <div class="subsection">
-                        <h4 class="subsection-title">Background Checks</h4>
-                        <div class="requirement">
-                            Personnel must pass background checks appropriate for their role
-                        </div>
-                    </div>
-
-                    <div class="subsection">
-                        <h4 class="subsection-title">Password Policy</h4>
-                        <div class="requirement">
-                            Documented requirements including minimum complexity and periodic changes 
-                        </div>
-                    </div>
-
-                    <div class="subsection">
-                        <h4 class="subsection-title">Screen Security</h4>
-                        <div class="requirement">
-                            Screen lock required when away from workstation
-                        </div>
-                    </div>
-
-                    <div class="subsection">
-                        <h4 class="subsection-title">Workstation Policy</h4>
-                        <div class="requirement">
-                            Personal cell phones may not be used at workstations where customer data is visible
-                        </div>
-                    </div>
-
-                    <div class="subsection">
-                        <h4 class="subsection-title">Off-boarding Process</h4>
-                        <div class="requirement">
-                            Documented process for immediately revoking system access when employees leave or change roles
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
 
-    <script>
-        function toggleSection(header) {
-            const card = header.closest('.section-card');
-            card.classList.toggle('expanded');
-        }
+    <!-- 1 Email Security -->
+    <div class="section-card">
+      <div class="section-header" onclick="toggleSection(this)">
+        <div class="section-header-left">
+          <div class="section-number">1</div>
+          <h3 class="section-title">Email Security</h3>
+        </div>
+        <svg class="chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </div>
 
-        function expandAll() {
-            document.querySelectorAll('.section-card').forEach(card => {
-                card.classList.add('expanded');
-            });
-        }
+      <div class="section-content">
+        <div class="section-inner">
+          <div class="subsection">
+            <h4 class="subsection-title">Multi-Factor Authentication</h4>
+            <div class="requirement">MFA must be enabled</div>
+          </div>
 
-        function collapseAll() {
-            document.querySelectorAll('.section-card').forEach(card => {
-                card.classList.remove('expanded');
-            });
-        }
-    </script>
+          <div class="subsection">
+            <h4 class="subsection-title">Submission Handling</h4>
+            <div class="conditional">
+              <div class="conditional-label">
+                <span class="if">IF</span> broker submissions are accepted via email,
+                <span class="then">THEN</span> one of the following is required:
+              </div>
+
+              <div class="options">
+                <div class="option">
+                  <div class="option-label"><strong>Option A:</strong> Automated email processing with restricted human access</div>
+                  <div class="sub-item">Submissions automatically pushed to CRM without human intervention</div>
+                  <div class="sub-item">Only management may access submission inbox for configuration/troubleshooting purposes</div>
+                  <div class="sub-item">Processing personnel cannot access the submission inbox</div>
+                </div>
+
+                <div class="option">
+                  <div class="option-label"><strong>Option B:</strong> Use the Secure Funder Gateway if email submissions require human handling</div>
+                  <div class="sub-item">No changes to broker submission inbox or workflow</div>
+                  <div class="sub-item">Broker submits, then attachments are routed through gateway to watermark files and embed metadata</div>
+                  <div class="sub-item">Files are then sent back to inbox of your choice for human processing</div>
+                  <a class="btn-small" href="https://www.aquamark.io/coming-soon" target="_blank" rel="noopener noreferrer">Learn about the gateway</a>
+                </div>
+
+                <div class="option">
+                  <div class="option-label"><strong>Option C:</strong> Submissions accepted only via portal (no email submissions)</div>
+                  <div class="sub-item">Broker sends documents through a portal that restricts downloads and access</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- 2 Access Controls -->
+    <div class="section-card">
+      <div class="section-header" onclick="toggleSection(this)">
+        <div class="section-header-left">
+          <div class="section-number">2</div>
+          <h3 class="section-title">Access Controls</h3>
+        </div>
+        <svg class="chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </div>
+
+      <div class="section-content">
+        <div class="section-inner">
+
+          <div class="subsection">
+            <h4 class="subsection-title">Role-Based Access</h4>
+            <div class="requirement">Access must be restricted based on job function</div>
+          </div>
+
+          <div class="subsection">
+            <h4 class="subsection-title">Administrative Controls</h4>
+            <div class="requirement">Admin access must be limited to management</div>
+          </div>
+
+          <div class="subsection">
+            <h4 class="subsection-title">Least Privilege</h4>
+            <div class="requirement">Users may only access systems and data necessary for their role</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- 4 Document Controls (kept as-is from your original) -->
+    <div class="section-card">
+      <div class="section-header" onclick="toggleSection(this)">
+        <div class="section-header-left">
+          <div class="section-number">4</div>
+          <h3 class="section-title">Document Controls</h3>
+        </div>
+        <svg class="chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </div>
+
+      <div class="section-content">
+        <div class="section-inner">
+
+          <div class="subsection">
+            <h4 class="subsection-title">Download Restrictions</h4>
+            <div class="conditional">
+              <div class="conditional-label">
+                <span class="if">IF</span> staff can download documents from any system (CRM, inbox, portals),
+                <span class="then">THEN</span> one of the following is required:
+              </div>
+
+              <div class="options">
+                <div class="option">
+                  <div class="option-label"><strong>Option A:</strong> View-only access for processing staff</div>
+                  <div class="sub-item">Processing staff can view documents but cannot download/export</div>
+                </div>
+
+                <div class="option">
+                  <div class="option-label"><strong>Option B:</strong> Watermark documents used internally</div>
+                  <div class="sub-item">Documents used for processing must include visible attribution and embedded metadata</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h4 class="subsection-title">Storage & Sharing</h4>
+            <div class="requirement">Documents may not be stored or shared outside approved systems</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- 5 Personnel Controls -->
+    <div class="section-card">
+      <div class="section-header" onclick="toggleSection(this)">
+        <div class="section-header-left">
+          <div class="section-number">5</div>
+          <h3 class="section-title">Personnel Controls</h3>
+        </div>
+        <svg class="chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </div>
+
+      <div class="section-content">
+        <div class="section-inner">
+          <div class="subsection">
+            <h4 class="subsection-title">Background Checks</h4>
+            <div class="requirement">Personnel must pass background checks appropriate for their role</div>
+          </div>
+
+          <div class="subsection">
+            <h4 class="subsection-title">Password Policy</h4>
+            <div class="requirement">Documented requirements including minimum complexity and periodic changes</div>
+          </div>
+
+          <div class="subsection">
+            <h4 class="subsection-title">Screen Security</h4>
+            <div class="requirement">Screen lock required when away from workstation</div>
+          </div>
+
+          <div class="subsection">
+            <h4 class="subsection-title">Workstation Policy</h4>
+            <div class="requirement">Personal cell phones may not be used at workstations where customer data is visible</div>
+          </div>
+
+          <div class="subsection">
+            <h4 class="subsection-title">Off-boarding Process</h4>
+            <div class="requirement">Documented process for immediately revoking system access when employees leave or change roles</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="footer">
+    © 2026 Aquamark. All rights reserved.
+    <a href="https://www.aquamark.io/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+  </footer>
+
+  <script>
+    function toggleSection(header) {
+      const card = header.closest('.section-card');
+      card.classList.toggle('expanded');
+    }
+
+    function expandAll() {
+      document.querySelectorAll('.section-card').forEach(card => card.classList.add('expanded'));
+    }
+
+    function collapseAll() {
+      document.querySelectorAll('.section-card').forEach(card => card.classList.remove('expanded'));
+    }
+  </script>
 </body>
 </html>
