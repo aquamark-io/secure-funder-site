@@ -117,6 +117,29 @@
         .intro-icon.pink { background: #F3E8FF; }
         .intro-icon.orange { background: #FFEDD5; } /* soft orange */
 
+/* Support banner (kept small + clean) */
+.support-note {
+    margin-top: 0.75rem;
+    background: #F3F4F6;
+    border: 1px solid #E5E7EB;
+    border-radius: 10px;
+    padding: 0.55rem 0.85rem;
+    font-size: 0.825rem;
+    color: #374151;
+    line-height: 1.35;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    text-align: center;
+    flex-wrap: wrap;
+}
+
+.support-note strong {
+    color: #111827;
+    font-weight: 700;
+}
+
         /* Timeline for requirements */
         .timeline {
             max-width: 800px;
@@ -525,9 +548,62 @@
             .req-icon { width: 30px; height: 30px; border-radius: 8px; }
         }
 
+    
+
+        /* Fixed support banner */
+        .fixed-support-banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 2000;
+            background: #F3F4F6;
+            border-bottom: 1px solid #E5E7EB;
+            color: #374151;
+            font-size: 0.82rem;
+            font-weight: 500;
+            letter-spacing: 0.2px;
+        }
+
+        .fixed-support-banner .banner-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0.6rem 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            text-align: center;
+        }
+
+        .fixed-support-banner strong {
+            font-weight: 700;
+            color: #111827;
+        }
+
+        /* Make room for the fixed banner */
+        body {
+            padding-top: 42px;
+        }
+
+        @media (max-width: 480px) {
+            body { padding-top: 56px; }
+            .fixed-support-banner { font-size: 0.78rem; }
+            .fixed-support-banner .banner-inner { padding: 0.65rem 1rem; }
+        }
+
     </style>
 </head>
 <body>
+
+    <!-- Fixed Support Banner -->
+    <div class="fixed-support-banner" role="status" aria-live="polite">
+        <div class="banner-inner">
+            <strong>Need help implementing any of this?</strong>
+            <span>We’ll help your team close gaps during the grace period.</span>
+        </div>
+    </div>
+
 
     <div class="hero">
         <h1>Certification Requirements</h1>
@@ -585,7 +661,7 @@
                         <span>Earn more business</span>
                     </div>
                 </div>
-            </div>
+</div>
         </div>
     </section>
 
