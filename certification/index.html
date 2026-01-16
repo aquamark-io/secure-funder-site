@@ -587,9 +587,18 @@
         }
 
         @media (max-width: 480px) {
-            body { padding-top: 56px; }
-            .fixed-support-banner { font-size: 0.78rem; }
-            .fixed-support-banner .banner-inner { padding: 0.65rem 1rem; }
+            body { padding-top: 64px; }
+            .fixed-support-banner { font-size: 0.76rem; }
+            .fixed-support-banner .banner-inner {
+                padding: 0.6rem 1rem;
+                flex-direction: column;
+                gap: 0.15rem;
+            }
+            .fixed-support-banner strong,
+            .fixed-support-banner span {
+                display: block;
+                width: 100%;
+            }
         }
 
     </style>
@@ -706,7 +715,7 @@
                                         <strong>Option B:</strong> Use the Secure Funder Gateway if email submissions require human handling
                                         <ul class="option-list">
                                             <li>No changes to broker submission inbox or workflow</li>
-                                            <li>Attachments are routed through gateway for watermarking, ensuring staff work exclusively from secured documents</li>
+                                            <li>Attachments are routed through gateway for watermarking, ensuring staff work exclusively from protected documents</li>
                                             <li>Files sent back to inbox of your choice for human processing</li>
                                         </ul>
                                         <br>
