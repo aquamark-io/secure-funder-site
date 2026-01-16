@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Certification Requirements</title>
+    <title>Certification Requirements | Secure Funder</title>
     <link rel="icon" href="/2026-badge.png" type="image/png">
     <link rel="apple-touch-icon" href="/2026-badge.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,381 +16,448 @@
             box-sizing: border-box;
         }
 
-        :root {
-            --banner-height: 52px;
-        }
-
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: #FAFBFC;
             color: #0F1419;
             line-height: 1.6;
-            padding-top: var(--banner-height);
-        }          /* Professional Header */
-        .announcement-banner {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: var(--banner-height);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #F3F4F6;
-            color: #374151;
-            padding: 0 2rem;
-            text-align: center;
-            z-index: 1001;
-            font-size: 0.875rem;
-            font-weight: 500;
-            letter-spacing: 0.3px;
-            border-bottom: 1px solid #E5E7EB;
         }
 
-        .announcement-banner a {
-            color: inherit;
-            text-decoration: underline;
-        }
-
-        .announcement-banner a:hover {
-            text-decoration: none;
-        }
-
-.announcement-banner strong {
-            font-weight: 600;
-            color: #0F1419;
-        }
-
-        .top-nav {
-            background: white;
-            border-bottom: 1px solid #E5E7EB;
-            position: sticky;
-            top: var(--banner-height);
-            z-index: 1000;
-        }
-
-        .top-nav-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0.75rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .top-nav img {
-            height: 90px;
-        }
-
-        .top-nav a {
-            color: #0F1419;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9375rem;
-        }
-
+        /* Hero */
         .hero {
             background: white;
-            padding: 3rem 2rem;
+            padding: 5rem 2rem;
             text-align: center;
-            border-bottom: 1px solid #E5E7EB;
         }
 
         .hero h1 {
-            font-size: 2.5rem;
+            font-size: 3rem;
             font-weight: 700;
-            margin-bottom: 0.75rem;
+            margin-bottom: 1rem;
             color: #0F1419;
         }
 
         .hero p {
-            font-size: 1.125rem;
+            font-size: 1.25rem;
             color: #6B7280;
             max-width: 600px;
             margin: 0 auto;
         }
 
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 2rem 2rem 4rem;
+        /* Section styling */
+        .section {
+            padding: 5rem 2rem;
         }
 
-        .section-card {
+        .section-alt {
+            background: #F9FAFB;
+        }
+
+        .section-white {
             background: white;
-            border: 1px solid #E5E7EB;
-            border-radius: 8px;
-            margin-bottom: 1rem;
-            overflow: hidden;
-            transition: all 0.2s ease;
-        }
-
-        .section-card:hover {
-            border-color: #D1D5DB;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-        }
-
-        .section-header {
-            padding: 1.5rem 2rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            user-select: none;
-            transition: background 0.2s ease;
-        }
-
-        .section-header:hover {
-            background: #FAFBFC;
-        }
-
-        .section-header-left {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .section-number {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 36px;
-            height: 36px;
-            background: #0F1419;
-            color: white;
-            border-radius: 8px;
-            font-size: 1.125rem;
-            font-weight: 600;
-            flex-shrink: 0;
         }
 
         .section-title {
-            font-size: 1.25rem;
-            font-weight: 600;
+            font-size: 2.25rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 0.75rem;
             color: #0F1419;
         }
 
-        .chevron {
-            width: 24px;
-            height: 24px;
+        .section-subtitle {
+            font-size: 1.125rem;
             color: #6B7280;
-            transition: transform 0.3s ease;
+            text-align: center;
+            margin-bottom: 4rem;
         }
 
-        .section-card.expanded .chevron {
-            transform: rotate(180deg);
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
         }
 
-        .section-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
+        /* How It Works - Process Cards */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
         }
 
-        .section-card.expanded .section-content {
-            max-height: 5000px;
+        .process-card {
+            background: white;
+            border: 1px solid #E5E7EB;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
         }
 
-        .section-inner {
-            padding: 0 2rem 2rem 2rem;
-            border-top: 1px solid #F3F4F6;
+        .process-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.5rem;
         }
 
-        .section-inner p {
-            color: #4B5563;
+        .process-icon.yellow { background: #FEF9C3; }
+        .process-icon.blue { background: #DBEAFE; }
+        .process-icon.green { background: #D1FAE5; }
+
+        .process-card h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: #0F1419;
+        }
+
+        .process-card p {
+            font-size: 0.9375rem;
+            color: #6B7280;
             line-height: 1.7;
         }
 
-        .subsection {
-            margin-top: 2rem;
+        /* Timeline for requirements */
+        .timeline {
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        .subsection-title {
+        .timeline-item {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .timeline-marker {
+            flex-shrink: 0;
+            width: 48px;
+            height: 48px;
+            background: #0F1419;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .timeline-content {
+            flex: 1;
+            padding-top: 0.5rem;
+        }
+
+        .timeline-content h3 {
+            font-size: 1.375rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: #0F1419;
+        }
+
+        .timeline-content > p {
+            color: #6B7280;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Requirement cards within timeline */
+        .req-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .req-card {
+            background: white;
+            border: 1px solid #E5E7EB;
+            border-radius: 10px;
+            padding: 1.25rem 1.5rem;
+        }
+
+        .req-card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .req-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.875rem;
+            flex-shrink: 0;
+        }
+
+        .req-icon.check { background: #D1FAE5; color: #059669; }
+        .req-icon.shield { background: #DBEAFE; color: #2563EB; }
+        .req-icon.lock { background: #FEF9C3; color: #CA8A04; }
+        .req-icon.users { background: #FCE7F3; color: #DB2777; }
+
+        .req-card h4 {
             font-size: 1rem;
             font-weight: 600;
             color: #0F1419;
-            margin-bottom: 1rem;
-            padding-left: 1rem;
-            border-left: 3px solid #0F1419;
         }
 
-        .requirement {
-            background: #FAFBFC;
-            border: 1px solid #E5E7EB;
-            border-radius: 6px;
-            padding: 1rem 1.25rem;
-            margin-bottom: 1rem;
+        .req-card p {
             font-size: 0.9375rem;
+            color: #6B7280;
             line-height: 1.7;
         }
 
-        .requirement strong {
-            color: #0F1419;
-            font-weight: 600;
-        }
-
-        .note {
-            background: #F0F9FF;
-            border: 1px solid #BAE6FD;
-            border-left: 3px solid #0EA5E9;
-            border-radius: 6px;
-            padding: 1rem 1.25rem;
-            margin-bottom: 1rem;
-            font-size: 0.9375rem;
-            line-height: 1.6;
-        }
-
-        .note strong {
-            color: #0369A1;
-        }
-
-        .conditional {
-            background: #FAFBFC;
+        /* Conditional box */
+        .conditional-box {
+            background: #F9FAFB;
             border: 1px solid #E5E7EB;
-            border-radius: 6px;
-            padding: 1.25rem;
-            margin-bottom: 1rem;
+            border-radius: 10px;
+            padding: 1.25rem 1.5rem;
         }
 
         .conditional-label {
-            font-size: 0.9375rem;
+            font-size: 0.875rem;
             font-weight: 600;
-            color: #0F1419;
+            color: #374151;
             margin-bottom: 1rem;
         }
 
-        .conditional-label .if {
-            background: #FEF3C7;
+        .conditional-label span {
+            background: #E5E7EB;
             padding: 0.125rem 0.5rem;
             border-radius: 4px;
-            color: #92400E;
-            font-weight: 700;
+            color: #1F2937;
         }
 
-        .conditional-label .then {
-            background: #FEF3C7;
-            padding: 0.125rem 0.5rem;
-            border-radius: 4px;
-            color: #92400E;
-            font-weight: 700;
+        .options-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
         }
 
-        .options {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-        }
-
-        .option {
+        .option-card {
             background: white;
             border: 1px solid #E5E7EB;
-            border-radius: 6px;
+            border-radius: 8px;
             padding: 1rem 1.25rem;
         }
 
-        .option-label {
-            font-size: 0.9375rem;
-            line-height: 1.7;
+        .option-card strong {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 600;
             color: #0F1419;
+            margin-bottom: 0.375rem;
         }
 
-        .option-label strong {
-            color: #0F1419;
+        .option-card p {
+            font-size: 0.875rem;
+            color: #6B7280;
+            line-height: 1.6;
+        }
+
+        .option-list {
+            margin: 0.5rem 0 0 0;
+            padding-left: 1.25rem;
+            list-style: none;
+        }
+
+        .option-list li {
+            font-size: 0.875rem;
+            color: #6B7280;
+            line-height: 1.6;
+            padding: 0.125rem 0;
+            position: relative;
+        }
+
+        .option-list li::before {
+            content: "•";
+            position: absolute;
+            left: -1rem;
+            color: #9CA3AF;
+        }
+
+        /* Note box */
+        .note-box {
+            background: #EFF6FF;
+            border: 1px solid #BFDBFE;
+            border-radius: 10px;
+            padding: 1rem 1.25rem;
+            font-size: 0.9375rem;
+            color: #1E40AF;
+        }
+
+        .note-box strong {
             font-weight: 600;
         }
 
-        .sub-item {
-            margin-left: 1.25rem;
-            margin-top: 0.5rem;
-            position: relative;
-            padding-left: 1rem;
-            font-size: 0.9375rem;
-            line-height: 1.7;
-            color: #4B5563;
+        /* Info section */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
-        .sub-item:before {
+        .info-card {
+            background: white;
+            border: 1px solid #E5E7EB;
+            border-radius: 12px;
+            padding: 2rem;
+        }
+
+        .info-card h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: #0F1419;
+        }
+
+        .info-card p {
+            font-size: 0.9375rem;
+            color: #6B7280;
+            line-height: 1.7;
+        }
+
+        .info-card .highlight {
+            color: #0F1419;
+            font-weight: 500;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: white;
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #0F1419;
+        }
+
+        .cta-section p {
+            font-size: 1.125rem;
+            color: #6B7280;
+            margin-bottom: 2rem;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: #0F1419;
+            color: white;
+            text-decoration: none;
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.0625rem;
+            transition: all 0.2s ease;
+        }
+
+        .cta-btn:hover {
+            background: #1a1f26;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(15, 20, 25, 0.2);
+        }
+
+        /* Simple list in cards */
+        .simple-list {
+            margin-top: 0.75rem;
+        }
+
+        .simple-list li {
+            font-size: 0.9375rem;
+            color: #6B7280;
+            padding: 0.25rem 0;
+            padding-left: 1.25rem;
+            position: relative;
+            list-style: none;
+        }
+
+        .simple-list li::before {
             content: "•";
             position: absolute;
             left: 0;
             color: #9CA3AF;
         }
 
-        .sub-item em {
-            color: #6B7280;
-        }
-
-        .btn-small {
+        /* Gateway link */
+        .gateway-link {
             display: inline-block;
-            padding: 0.625rem 1.25rem;
-            background: #F0F9FF;
-            color: #0369A1;
-            border: 1px solid #BAE6FD;
-            border-radius: 6px;
-            font-weight: 600;
-            font-size: 0.875rem;
+            margin-top: 1rem;
+            color: #2563EB;
             text-decoration: none;
-            transition: all 0.2s ease;
-            margin-top: 1.75rem;
-        }
-
-        .btn-small:hover {
-            background: #E0F2FE;
-            border-color: #7DD3FC;
-            transform: translateY(-1px);
-            box-shadow: 0 4px 8px rgba(3, 105, 161, 0.1);
-        }
-
-        .controls {
-            display: flex;
-            justify-content: flex-end;
-            margin-bottom: 1.5rem;
-            gap: 0.75rem;
-        }
-
-        .expand-btn {
-            background: white;
-            border: 1px solid #E5E7EB;
-            padding: 0.625rem 1.25rem;
-            border-radius: 6px;
             font-size: 0.875rem;
-            font-weight: 500;
-            color: #0F1419;
-            cursor: pointer;
-            transition: all 0.2s ease;
+            font-weight: 600;
         }
 
-        .expand-btn:hover {
-            border-color: #0F1419;
-            background: #FAFBFC;
+        .gateway-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .process-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .options-row {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 768px) {
-            :root { --banner-height: 64px; }
-            .announcement-banner { padding: 0 1rem; }
+            .hero {
+                padding: 3rem 1.5rem;
+            }
 
             .hero h1 {
                 font-size: 2rem;
             }
 
             .hero p {
-                font-size: 1rem;
+                font-size: 1.0625rem;
             }
 
-            .container {
-                padding: 1.5rem 1rem 3rem;
-            }
-
-            .section-header {
-                padding: 1.25rem 1.5rem;
-            }
-
-            .section-inner {
-                padding: 0 1.5rem 1.5rem 1.5rem;
+            .section {
+                padding: 3rem 1.5rem;
             }
 
             .section-title {
-                font-size: 1.125rem;
+                font-size: 1.75rem;
+            }
+
+            .section-subtitle {
+                margin-bottom: 2.5rem;
+            }
+
+            .timeline-item {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .timeline-marker {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+
+            .timeline-content {
+                padding-top: 0;
             }
 
             .top-nav-content {
@@ -398,308 +465,299 @@
             }
 
             .top-nav img {
-                height: 70px;
-            }
-
-            .controls {
-                flex-direction: column;
-                display: none;
-            }
-
-            .expand-btn {
-                width: 100%;
+                height: 60px;
             }
         }
     </style>
 </head>
 <body>
 
-    <div class="announcement-banner">
-        <strong><a href="https://securefunder.org/sign-up/">Get listed today</a>
-    </div>
-    
-    <div class="top-nav">
-        <div class="top-nav-content">
-            <a href="https://securefunder.org/" target="_blank" rel="noopener noreferrer">
-                <img src="/2026-badge.png" alt="Secure Funder Badge">
-            </a>
-            <a href="https://securefunder.org/sign-up">Sign Up</a>
-        </div>
-    </div>
-
     <div class="hero">
         <h1>Certification Requirements</h1>
-        <p>Join the list of trusted funders in alternative finance</p>
+        <p>A straightforward process to verify your commitment to protecting merchant data</p>
     </div>
 
-    <div class="container">
-        <div class="controls">
-            <button class="expand-btn" onclick="expandAll()">Expand All</button>
-            <button class="expand-btn" onclick="collapseAll()">Collapse All</button>
-        </div>
-
-        <div class="section-card">
-            <div class="section-header" onclick="toggleSection(this)">
-                <div class="section-header-left">
-                    <div class="section-number" style="background: #0369A1;">ℹ</div>
-                    <h3 class="section-title">How It Works</h3>
-                </div>
-                <svg class="chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                </svg>
-            </div>
-            <div class="section-content">
-                <div class="section-inner">
-                    <div class="subsection">
-                        <p style="color: #4B5563; line-height: 1.7; margin-bottom: 1.5rem;">
-                            <strong style="color: #0F1419;">Timeline:</strong> 60-90 minutes
-                        </p>
-
-                        <div class="requirement" style="background: #F0F9FF; border-color: #BAE6FD;">
-                            <strong style="color: #0369A1;">You're in Control</strong>
-                            <div class="sub-item">You walk us through each requirement on a screenshare</div>
-                            <div class="sub-item">Pause, stop sharing, or reschedule at any time to make adjustments</div>
-                            <div class="sub-item">No trick questions—just a straightforward walkthrough</div>
-                            <div class="sub-item">Focus is on confirming controls are in place, without exposing sensitive business logic, proprietary systems, or competitive processes</div>
-                        </div>
-
-                        <div class="requirement">
-                            <strong>Example: Email MFA</strong>
-                            <div class="sub-item">You log out of your email and log back in</div>
-                            <div class="sub-item">We verify that MFA is prompted</div>
-                        </div>
-
-                        <div class="requirement">
-                            <strong>Example: Automated Email Processing</strong> <span style="font-size: 0.8125rem; color: #9CA3AF; font-weight: 400;">(if applicable)</span>
-                            <div class="sub-item">You provide your submission email address</div>
-                            <div class="sub-item">We send a test submission to confirm it appears in your CRM without human email access</div>
-                        </div>
-
-                        <div class="requirement">
-                            <strong>Example: CRM Role-Based Access</strong>
-                            <div class="sub-item">Log into your CRM as role(s) where SSN is visible</div>
-                            <div class="sub-item">Log into your CRM as role(s) where SSN is not visible</div>
-                        </div>
+    <!-- Process Overview -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="process-grid">
+                <div class="process-card">
+                    <div class="process-icon yellow">
+                        <svg width="24" height="24" fill="none" stroke="#CA8A04" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
                     </div>
+                    <h3>Timeline</h3>
+                    <p>Most verifications take 30-60 minutes.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-icon blue">
+                        <svg width="24" height="24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
+                    </div>
+                    <h3>You're in Control</h3>
+                    <p>You share your screen and demonstrate each control. Pause or reschedule anytime.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-icon green">
+                        <svg width="24" height="24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                    </div>
+                    <h3>You're Likely Ready</h3>
+                    <p>Most funders already have these controls in place. This just makes it official.</p>
                 </div>
             </div>
         </div>
+    </section>
 
-        <div class="section-card">
-            <div class="section-header" onclick="toggleSection(this)">
-                <div class="section-header-left">
-                    <div class="section-number">1</div>
-                    <h3 class="section-title">Email Security</h3>
-                </div>
-                <svg class="chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                </svg>
-            </div>
-            <div class="section-content">
-                <div class="section-inner">
-                    <div class="subsection">
-                        <h4 class="subsection-title">Multi-Factor Authentication</h4>
-                        <div class="requirement">
-                            MFA must be enabled
-                        </div>
-                    </div>
+    <!-- What We Verify -->
+    <section class="section section-white">
+        <div class="container">
+            <h2 class="section-title">What We Verify</h2>
+            <p class="section-subtitle">Each requirement confirms controls are in place—no trick questions.</p>
 
-                    <div class="subsection">
-                        <h4 class="subsection-title">Submission Handling</h4>
-                        <div class="conditional">
-                            <div class="conditional-label">
-                                <span class="if">IF</span> broker submissions are accepted via email, <span class="then">THEN</span> one of the following is required:
-                            </div>
-                            <div class="options">
-                                <div class="option">
-                                    <div class="option-label"><strong>Option A:</strong> Automated email processing with restricted human access</div>
-                                    <div class="sub-item">Submissions automatically pushed to CRM without human intervention</div>
-                                    <div class="sub-item">Only management may access submission inbox for configuration/troubleshooting purposes</div>
-                                    <div class="sub-item">Processing personnel cannot access the submission inbox</div>
+            <div class="timeline">
+                <!-- 1. Email Security -->
+                <div class="timeline-item">
+                    <div class="timeline-marker">1</div>
+                    <div class="timeline-content">
+                        <h3>Email Security</h3>
+                        <p>Protecting the first point of contact with broker submissions.</p>
+                        
+                        <div class="req-cards">
+                            <div class="req-card">
+                                <div class="req-card-header">
+                                    <div class="req-icon lock">
+                                        <svg width="16" height="16" fill="none" stroke="#CA8A04" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                                        </svg>
+                                    </div>
+                                    <h4>Multi-Factor Authentication</h4>
                                 </div>
-                                <div class="option">
-                                    <div class="option-label"><strong>Option B:</strong> Use the Secure Funder Gateway if email submissions require human handling</div>
-                                    <div class="sub-item">No changes to broker submission inbox or workflow</div>
-                                    <div class="sub-item">Broker submits, then attachments are routed through gateway to watermark files and embed metadata</div>
-                                    <div class="sub-item">Files are then sent back to inbox of your choice for human processing</div>
-                                    <a href="https://www.aquamark.io/funder-gateway" target="_blank" class="btn-small">Access Gateway</a>
+                                <p>MFA must be enabled on email accounts that handle submissions.</p>
+                            </div>
+
+                            <div class="conditional-box">
+                                <div class="conditional-label">
+                                    <span>IF</span> broker submissions are accepted via email, <span>THEN</span> one of the following is required:
+                                </div>
+                                <div class="options-row">
+                                    <div class="option-card">
+                                        <strong>Option A:</strong> Automated email processing with restricted human access
+                                        <ul class="option-list">
+                                            <li>Submissions automatically pushed to CRM without human intervention</li>
+                                            <li>Only management may access submission inbox for configuration/troubleshooting</li>
+                                            <li>Processing personnel cannot access the submission inbox</li>
+                                        </ul>
+                                    </div>
+                                    <div class="option-card">
+                                        <strong>Option B:</strong> Use the Secure Funder Gateway if email submissions require human handling
+                                        <ul class="option-list">
+                                            <li>No changes to broker submission inbox or workflow</li>
+                                            <li>Attachments are routed through gateway to watermark files and embed metadata</li>
+                                            <li>Files are then sent back to inbox of your choice for human processing</li>
+                                        </ul>
+                                        <p style="margin-top: 0.75rem; font-size: 0.8125rem; color: #6B7280; font-style: italic;">Any document watermarking solution is acceptable.</p>
+                                        <a href="https://www.aquamark.io/funder-gateway" target="_blank" class="gateway-link">Learn about the Gateway →</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="section-card">
-            <div class="section-header" onclick="toggleSection(this)">
-                <div class="section-header-left">
-                    <div class="section-number">2</div>
-                    <h3 class="section-title">CRM / Portal Security</h3>
-                </div>
-                <svg class="chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                </svg>
-            </div>
-            <div class="section-content">
-                <div class="section-inner">
-                    <div class="subsection">
-                        <h4 class="subsection-title">Multi-Factor Authentication</h4>
-                        <div class="requirement">
-                            MFA must be enabled
-                        </div>
-                    </div>
-
-                    <div class="subsection">
-                        <h4 class="subsection-title">Access Controls</h4>
-                        <div class="requirement">
-                            <strong>Role-based access:</strong>
-                            <div class="sub-item">Personnel can only access accounts and information required for their role</div>
-                            <div class="sub-item">Sensitive fields (e.g., SSN) are accessible based on role requirements and business necessity</div>
-                        </div>
-
-                        <div class="note">
-                            <strong>Recommended:</strong> For added security, enable screenshot restrictions or screen watermarking.
-                        </div>
-
-                        <div class="requirement">
-                            <strong>User verification:</strong>
-                            <div class="sub-item">Users must be from your domain, with exception of service-level access (developers, vendors)</div>
-                        </div>
-
-                        <div class="conditional">
-                            <div class="conditional-label">
-                                <span class="if">IF</span> documents are accessible, <span class="then">THEN</span> choose one:
-                            </div>
-                            <div class="options">
-                                <div class="option">
-                                    <div class="option-label"><strong>Option A:</strong> View-only access to files (no download capability)</div>
+                <!-- 2. CRM / Portal Security -->
+                <div class="timeline-item">
+                    <div class="timeline-marker">2</div>
+                    <div class="timeline-content">
+                        <h3>CRM / Portal Security</h3>
+                        <p>Ensuring your systems limit access to what's needed.</p>
+                        
+                        <div class="req-cards">
+                            <div class="req-card">
+                                <div class="req-card-header">
+                                    <div class="req-icon lock">
+                                        <svg width="16" height="16" fill="none" stroke="#CA8A04" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                                        </svg>
+                                    </div>
+                                    <h4>Multi-Factor Authentication</h4>
                                 </div>
-                                <div class="option">
-                                    <div class="option-label"><strong>Option B:</strong> Files are watermarked before entering the system, or at time of download</div>
-                                    <div class="sub-item"><em>Any document watermarking solution is acceptable</em></div>
+                                <p>MFA must be enabled for CRM access.</p>
+                            </div>
+
+                            <div class="req-card">
+                                <div class="req-card-header">
+                                    <div class="req-icon shield">
+                                        <svg width="16" height="16" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                        </svg>
+                                    </div>
+                                    <h4>Role-Based Access</h4>
                                 </div>
+                                <p>Personnel can only access accounts and information required for their role. Sensitive fields like SSN are restricted based on business necessity.</p>
                             </div>
-                        </div>
 
-                        <div class="conditional">
-                            <div class="conditional-label">
-                                <span class="if">IF</span> full database download capability exists, <span class="then">THEN</span>:
-                            </div>
-                            <div class="sub-item">This function must be restricted to senior personnel only</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="section-card">
-            <div class="section-header" onclick="toggleSection(this)">
-                <div class="section-header-left">
-                    <div class="section-number">4</div>
-                    <h3 class="section-title">Outsourcing</h3>
-                </div>
-                <svg class="chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                </svg>
-            </div>
-            <div class="section-content">
-                <div class="section-inner">
-                    <div class="note">
-                        <strong>Note:</strong> If you do not outsource processes (on-shore or off-shore), skip this section.
-                    </div>
-
-                    <div class="subsection">
-                        <div class="conditional">
-                            <div class="conditional-label">
-                                <span class="if">IF</span> BPO teams have access to merchant documents, <span class="then">THEN</span> choose one:
-                            </div>
-                            <div class="options">
-                                <div class="option">
-                                    <div class="option-label"><strong>Option A:</strong> View-only access to files (no download capability)</div>
+                            <div class="req-card">
+                                <div class="req-card-header">
+                                    <div class="req-icon users">
+                                        <svg width="16" height="16" fill="none" stroke="#DB2777" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                            <circle cx="12" cy="7" r="4"></circle>
+                                        </svg>
+                                    </div>
+                                    <h4>User Verification</h4>
                                 </div>
-                                <div class="option">
-                                    <div class="option-label"><strong>Option B:</strong> Documents are watermarked before third-party access</div>
-                                    <div class="sub-item"><em>Any document watermarking solution is acceptable</em></div>
+                                <p>Users must be from your domain, with exception for service-level access (developers, vendors).</p>
+                            </div>
+
+                            <div class="conditional-box">
+                                <div class="conditional-label">
+                                    <span>IF</span> documents are accessible <span>THEN</span>
+                                </div>
+                                <div class="options-row">
+                                    <div class="option-card">
+                                        <strong>Option A:</strong> View-only access to files (no download capability)
+                                    </div>
+                                    <div class="option-card">
+                                        <strong>Option B:</strong> Files are watermarked before entering the system, or at time of download
+                                    </div>
                                 </div>
                             </div>
+
+                            <div class="note-box">
+                                <strong>Note:</strong> If full database download exists, it must be restricted to senior personnel only.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Outsourcing -->
+                <div class="timeline-item">
+                    <div class="timeline-marker">3</div>
+                    <div class="timeline-content">
+                        <h3>Outsourcing</h3>
+                        <p>If you use BPO teams (on-shore or off-shore) with access to merchant documents.</p>
+                        
+                        <div class="req-cards">
+                            <div class="conditional-box">
+                                <div class="conditional-label">
+                                    <span>IF</span> BPO teams have access to documents <span>THEN</span>
+                                </div>
+                                <div class="options-row">
+                                    <div class="option-card">
+                                        <strong>Option A:</strong> View-only access to files (no download capability)
+                                    </div>
+                                    <div class="option-card">
+                                        <strong>Option B:</strong> Documents are watermarked before third-party access
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="note-box">
+                                <strong>Skip this section</strong> if you don't outsource any processes.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Personnel Controls -->
+                <div class="timeline-item">
+                    <div class="timeline-marker">4</div>
+                    <div class="timeline-content">
+                        <h3>Personnel Controls</h3>
+                        <p>Standard policies to protect data at the human level.</p>
+                        
+                        <div class="req-cards">
+                            <div class="req-card">
+                                <div class="req-card-header">
+                                    <div class="req-icon check">
+                                        <svg width="16" height="16" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <polyline points="20 6 9 17 4 12"></polyline>
+                                        </svg>
+                                    </div>
+                                    <h4>Background Checks</h4>
+                                </div>
+                                <p>Personnel must pass background checks appropriate for their role.</p>
+                            </div>
+
+                            <div class="req-card">
+                                <div class="req-card-header">
+                                    <div class="req-icon lock">
+                                        <svg width="16" height="16" fill="none" stroke="#CA8A04" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"></path>
+                                        </svg>
+                                    </div>
+                                    <h4>Password Policy</h4>
+                                </div>
+                                <p>Documented requirements including minimum complexity and periodic changes.</p>
+                            </div>
+
+                            <div class="req-card">
+                                <div class="req-card-header">
+                                    <div class="req-icon shield">
+                                        <svg width="16" height="16" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                            <line x1="8" y1="21" x2="16" y2="21"></line>
+                                            <line x1="12" y1="17" x2="12" y2="21"></line>
+                                        </svg>
+                                    </div>
+                                    <h4>Screen Security</h4>
+                                </div>
+                                <p>Screen lock required when away from workstation. Personal cell phones may not be used at workstations where customer data is visible.</p>
+                            </div>
+
+                            <div class="req-card">
+                                <div class="req-card-header">
+                                    <div class="req-icon users">
+                                        <svg width="16" height="16" fill="none" stroke="#DB2777" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                                            <polyline points="16 17 21 12 16 7"></polyline>
+                                            <line x1="21" y1="12" x2="9" y2="12"></line>
+                                        </svg>
+                                    </div>
+                                    <h4>Off-boarding Process</h4>
+                                </div>
+                                <p>Documented process for immediately revoking system access when employees leave or change roles.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </section>
 
-      
+    <!-- What to Expect -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">What to Expect</h2>
+            <p class="section-subtitle">A few examples of what verification looks like.</p>
 
-        <div class="section-card">
-            <div class="section-header" onclick="toggleSection(this)">
-                <div class="section-header-left">
-                    <div class="section-number">5</div>
-                    <h3 class="section-title">Personnel Controls</h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>Email MFA Check</h3>
+                    <p>You log out of your email and log back in. We verify that MFA is prompted.</p>
                 </div>
-                <svg class="chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                </svg>
-            </div>
-            <div class="section-content">
-                <div class="section-inner">
-                    <div class="subsection">
-                        <h4 class="subsection-title">Background Checks</h4>
-                        <div class="requirement">
-                            Personnel must pass background checks appropriate for their role
-                        </div>
-                    </div>
-
-                    <div class="subsection">
-                        <h4 class="subsection-title">Password Policy</h4>
-                        <div class="requirement">
-                            Documented requirements including minimum complexity and periodic changes
-                        </div>
-                    </div>
-
-                    <div class="subsection">
-                        <h4 class="subsection-title">Screen Security</h4>
-                        <div class="requirement">
-                            Screen lock required when away from workstation
-                        </div>
-                    </div>
-
-                    <div class="subsection">
-                        <h4 class="subsection-title">Workstation Policy</h4>
-                        <div class="requirement">
-                            Personal cell phones may not be used at workstations where customer data is visible
-                        </div>
-                    </div>
-
-                    <div class="subsection">
-                        <h4 class="subsection-title">Off-boarding Process</h4>
-                        <div class="requirement">
-                            Documented process for immediately revoking system access when employees leave or change roles
-                        </div>
-                    </div>
+                <div class="info-card">
+                    <h3>Automated Email Processing</h3>
+                    <p>You provide your submission email address. We send a test to confirm it appears in your CRM without human email access.</p>
+                </div>
+                <div class="info-card">
+                    <h3>CRM Role-Based Access</h3>
+                    <p>Log into your CRM as different roles to show where SSN is visible vs. hidden.</p>
+                </div>
+                <div class="info-card">
+                    <h3>Your Privacy Protected</h3>
+                    <p>Focus is on confirming controls exist—not exposing sensitive business logic, proprietary systems, or competitive processes.</p>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <script>
-        function toggleSection(header) {
-            const card = header.closest('.section-card');
-            card.classList.toggle('expanded');
-        }
-
-        function expandAll() {
-            document.querySelectorAll('.section-card').forEach(card => {
-                card.classList.add('expanded');
-            });
-        }
-
-        function collapseAll() {
-            document.querySelectorAll('.section-card').forEach(card => {
-                card.classList.remove('expanded');
-            });
-        }
-    </script>
 </body>
 </html>
