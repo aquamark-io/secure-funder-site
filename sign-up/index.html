@@ -146,8 +146,8 @@
             box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
             transition: right 0.3s ease;
             z-index: 99;
-            /* Lower top padding so links don't get pushed off-screen on smaller phones */
-            padding-top: calc(var(--banner-height) + 56px);
+            /* Padding handled + positioned in JS so it never hides behind the banner/header on small screens */
+            padding-top: 1.25rem;
             padding-left: 2rem;
             padding-right: 2rem;
             padding-bottom: 2rem;
@@ -524,7 +524,7 @@
             <!-- Desktop Navigation -->
             <div class="header-links">
                 <a href="https://securefunder.org/certification/" target="_blank" class="requirements-link">Requirements</a>
-<a href="https://aquamark.io/" class="requirements-link">Home</a>
+<a href="https://aquamark.io/" class="requirements-link">Go Back</a>
 
             </div>
             
@@ -542,7 +542,7 @@
     <nav class="mobile-nav" id="mobileNav">
         <div class="mobile-nav-links">
             <a href="https://securefunder.org/certification/" target="_blank" class="mobile-nav-link">Requirements</a>
-            <a href="https://aquamark.io/" class="mobile-nav-link">Home</a>
+            <a href="https://aquamark.io/" class="mobile-nav-link">Go Back</a>
 
             
         </div>
@@ -623,7 +623,17 @@
             }
         }
 
+        function positionMobileNav() {
+            const banner = document.querySelector('.announcement-banner');
+            const header = document.querySelector('.header');
+            const offset = (banner ? banner.offsetHeight : 0) + (header ? header.offsetHeight : 0);
+
+            mobileNav.style.top = offset + 'px';
+            mobileNav.style.height = 'calc(100vh - ' + offset + 'px)';
+        }
+
         function openMenu() {
+            positionMobileNav();
             menuToggle.classList.add('active');
             mobileNav.classList.add('active');
             mobileNavBackdrop.classList.add('active');
@@ -632,12 +642,21 @@
 
         function closeMenu() {
             menuToggle.classList.remove('active');
+            mobileNav.style.top = '';
+            mobileNav.style.height = '';
+
             mobileNav.classList.remove('active');
             mobileNavBackdrop.classList.remove('active');
             body.style.overflow = '';
         }
 
         menuToggle.addEventListener('click', toggleMenu);
+
+        window.addEventListener('resize', function() {
+            if (menuToggle.classList.contains('active')) {
+                positionMobileNav();
+            }
+        });
         mobileNavBackdrop.addEventListener('click', closeMenu);
 
         // Close menu when clicking on a link
