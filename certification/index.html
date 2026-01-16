@@ -49,6 +49,10 @@
             padding: 5rem 2rem;
         }
 
+        .section.section-intro {
+            padding: 2.5rem 2rem;
+        }
+
         .section-alt {
             background: #F9FAFB;
         }
@@ -77,48 +81,24 @@
             margin: 0 auto;
         }
 
-        /* How It Works - Process Cards */
-        .process-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-        }
-
-        .process-card {
-            background: white;
-            border: 1px solid #E5E7EB;
-            border-radius: 12px;
-            padding: 2rem;
+        /* Intro Block */
+        .intro-block {
             text-align: center;
         }
 
-        .process-icon {
-            width: 56px;
-            height: 56px;
-            border-radius: 12px;
+        .intro-points {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+        }
+
+        .intro-point {
             display: flex;
             align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            font-size: 1.5rem;
-        }
-
-        .process-icon.yellow { background: #FEF9C3; }
-        .process-icon.blue { background: #DBEAFE; }
-        .process-icon.green { background: #D1FAE5; }
-        .process-icon.pink { background: #FCE7F3; }
-
-        .process-card h3 {
-            font-size: 1.125rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-            color: #0F1419;
-        }
-
-        .process-card p {
+            gap: 0.5rem;
             font-size: 0.9375rem;
-            color: #6B7280;
-            line-height: 1.7;
+            color: #0F1419;
+            font-weight: 500;
         }
 
         /* Timeline for requirements */
@@ -408,17 +388,11 @@
         }
 
         /* Responsive */
-        @media (max-width: 1000px) {
-            .process-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 600px) {
-            .process-grid {
-                grid-template-columns: 1fr;
-                max-width: 400px;
-                margin: 0 auto;
+        @media (max-width: 768px) {
+            .intro-points {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
             }
 
             .options-row {
@@ -480,50 +454,32 @@
 
     <div class="hero">
         <h1>Certification Requirements</h1>
-        <p>A straightforward process to verify your commitment to protecting merchant data</p>
+        <p>Safeguards that deter backdooring.</p>
     </div>
 
     <!-- Process Overview -->
-    <section class="section section-alt">
+    <section class="section section-intro section-alt">
         <div class="container">
-            <div class="process-grid">
-                <div class="process-card">
-                    <div class="process-icon yellow">
-                        <svg width="24" height="24" fill="none" stroke="#CA8A04" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <polyline points="12 6 12 12 16 14"></polyline>
-                        </svg>
-                    </div>
-                    <h3>Timeline</h3>
-                    <p>Most verifications take 30-60 minutes.</p>
-                </div>
-                <div class="process-card">
-                    <div class="process-icon blue">
-                        <svg width="24" height="24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                        </svg>
-                    </div>
-                    <h3>You're in Control</h3>
-                    <p>You share your screen and demonstrate each control. Pause or reschedule anytime.</p>
-                </div>
-                <div class="process-card">
-                    <div class="process-icon green">
-                        <svg width="24" height="24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <div class="intro-block">
+                <div class="intro-points">
+                    <div class="intro-point">
+                        <svg width="20" height="20" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <polyline points="20 6 9 17 4 12"></polyline>
                         </svg>
+                        <span>Only takes 30 minutes</span>
                     </div>
-                    <h3>You're Likely Ready</h3>
-                    <p>Most funders already have these controls in place. This just makes it official.</p>
-                </div>
-                <div class="process-card">
-                    <div class="process-icon pink">
-                        <svg width="24" height="24" fill="none" stroke="#DB2777" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                    <div class="intro-point">
+                        <svg width="20" height="20" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <polyline points="20 6 9 17 4 12"></polyline>
                         </svg>
+                        <span>Pause session anytime</span>
                     </div>
-                    <h3>Your Privacy Protected</h3>
-                    <p>Focus is on confirming controls exist—not exposing sensitive business logic or proprietary systems.</p>
+                    <div class="intro-point">
+                        <svg width="20" height="20" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span>Most funders already have 80% in place</span>
+                    </div>
                 </div>
             </div>
         </div>
