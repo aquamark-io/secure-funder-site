@@ -652,6 +652,54 @@
             height: 16px;
         }
 
+        /* Mobile menu (only shown on small screens) */
+        .mobile-menu-toggle {
+            position: fixed;
+            top: 52px;
+            right: 16px;
+            z-index: 1100;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.12);
+            background: #0F1419;
+            color: #FFFFFF;
+            box-shadow: 0 6px 18px rgba(15, 20, 25, 0.16);
+            cursor: pointer;
+        }
+
+        .mobile-menu-toggle:hover { background: #1a1f26; }
+        .mobile-menu-toggle svg { width: 18px; height: 18px; }
+
+        .mobile-menu {
+            position: fixed;
+            top: 100px;
+            right: 16px;
+            z-index: 1100;
+            background: #FFFFFF;
+            border: 1px solid #E5E7EB;
+            border-radius: 14px;
+            box-shadow: 0 12px 30px rgba(15, 20, 25, 0.18);
+            overflow: hidden;
+            min-width: 220px;
+        }
+
+        .mobile-menu a {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.85rem 0.95rem;
+            text-decoration: none;
+            color: #0F1419;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .mobile-menu a:hover { background: #F9FAFB; }
+
         .fixed-support-banner strong {
             font-weight: 700;
             color: #111827;
@@ -660,6 +708,12 @@
         /* Make room for the fixed banner */
         body {
             padding-top: 42px;
+        }
+
+        @media (max-width: 768px) {
+            /* On smaller screens, use a hamburger menu instead of the full button */
+            .back-to-aquamark { display: none; }
+            .mobile-menu-toggle { display: inline-flex; }
         }
 
         @media (max-width: 480px) {
@@ -676,11 +730,14 @@
                 width: 100%;
             }
 
-            .back-to-aquamark {
+            .mobile-menu-toggle {
                 top: 74px; /* below the taller mobile banner */
                 right: 12px;
-                padding: 0.5rem 0.85rem;
-                font-size: 0.84rem;
+            }
+            .mobile-menu {
+                top: 126px;
+                right: 12px;
+                min-width: 210px;
             }
         }
 
@@ -697,18 +754,73 @@
     </div>
 
     <!-- Back to Aquamark button -->
-    <a class="back-to-aquamark" href="https://www.aquamark.io/funder" target="_blank" rel="noopener noreferrer">
+    <a class="back-to-aquamark" href="https://www.aquamark.io/funder">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M15 18l-6-6 6-6" />
         </svg>
         Back to Aquamark
     </a>
 
+    <!-- Mobile hamburger + menu -->
+    <button class="mobile-menu-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="4" y1="6" x2="20" y2="6"></line>
+            <line x1="4" y1="12" x2="20" y2="12"></line>
+            <line x1="4" y1="18" x2="20" y2="18"></line>
+        </svg>
+    </button>
+
+    <div id="mobileMenu" class="mobile-menu" hidden>
+        <a href="https://www.aquamark.io/funder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:16px;height:16px;">
+                <path d="M15 18l-6-6 6-6" />
+            </svg>
+            Back to Aquamark
+        </a>
+    </div>
 
     <div class="hero">
         <h1>Certification Requirements</h1>
         <p>Safeguards that deter backdooring.</p>
     </div>
+
+    <script>
+        (function () {
+            const toggle = document.querySelector('.mobile-menu-toggle');
+            const menu = document.getElementById('mobileMenu');
+            if (!toggle || !menu) return;
+
+            function closeMenu() {
+                menu.hidden = true;
+                toggle.setAttribute('aria-expanded', 'false');
+            }
+
+            toggle.addEventListener('click', function () {
+                const isOpen = !menu.hidden;
+                menu.hidden = isOpen;
+                toggle.setAttribute('aria-expanded', String(!isOpen));
+            });
+
+            // Close menu on outside click
+            document.addEventListener('click', function (e) {
+                if (menu.hidden) return;
+                const target = e.target;
+                if (toggle.contains(target) || menu.contains(target)) return;
+                closeMenu();
+            });
+
+            // Close on Escape
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') closeMenu();
+            });
+
+            // Close after selecting a link
+            menu.addEventListener('click', function (e) {
+                const t = e.target;
+                if (t && t.closest && t.closest('a')) closeMenu();
+            });
+        })();
+    </script>
 
     <!-- Process Overview -->
     <section class="section section-intro section-alt">
