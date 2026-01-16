@@ -615,6 +615,43 @@
             text-align: center;
         }
 
+        /* Top-right back button */
+        .back-to-aquamark {
+            position: fixed;
+            top: 52px; /* sits just below the fixed support banner */
+            right: 18px;
+            z-index: 2500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            background: #0F1419;
+            color: #FFFFFF;
+            text-decoration: none;
+            padding: 0.55rem 0.9rem;
+            border-radius: 999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            border: 1px solid rgba(255,255,255,0.12);
+            box-shadow: 0 6px 18px rgba(15, 20, 25, 0.16);
+            transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+            white-space: nowrap;
+        }
+
+        .back-to-aquamark:hover {
+            background: #1a1f26;
+            transform: translateY(-1px);
+            box-shadow: 0 8px 22px rgba(15, 20, 25, 0.22);
+        }
+
+        .back-to-aquamark:active {
+            transform: translateY(0);
+        }
+
+        .back-to-aquamark svg {
+            width: 16px;
+            height: 16px;
+        }
+
         .fixed-support-banner strong {
             font-weight: 700;
             color: #111827;
@@ -638,6 +675,13 @@
                 display: block;
                 width: 100%;
             }
+
+            .back-to-aquamark {
+                top: 74px; /* below the taller mobile banner */
+                right: 12px;
+                padding: 0.5rem 0.85rem;
+                font-size: 0.84rem;
+            }
         }
 
     </style>
@@ -651,6 +695,14 @@
             <span>We’ll help your team close gaps during the grace period.</span>
         </div>
     </div>
+
+    <!-- Back to Aquamark button -->
+    <a class="back-to-aquamark" href="https://www.aquamark.io/funder" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M15 18l-6-6 6-6" />
+        </svg>
+        Back to Aquamark
+    </a>
 
 
     <div class="hero">
