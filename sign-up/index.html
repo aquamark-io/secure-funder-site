@@ -146,10 +146,12 @@
             box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
             transition: right 0.3s ease;
             z-index: 99;
-            padding-top: calc(var(--banner-height) + 80px);
+            /* Lower top padding so links don't get pushed off-screen on smaller phones */
+            padding-top: calc(var(--banner-height) + 56px);
             padding-left: 2rem;
             padding-right: 2rem;
             padding-bottom: 2rem;
+            overflow-y: auto;
         }
 
         .mobile-nav.active {
@@ -540,7 +542,7 @@
     <nav class="mobile-nav" id="mobileNav">
         <div class="mobile-nav-links">
             <a href="https://securefunder.org/certification/" target="_blank" class="mobile-nav-link">Requirements</a>
-<a href="https://aquamark.io/" class="requirements-link">Go Back</a>
+            <a href="https://aquamark.io/" class="mobile-nav-link">Go Back</a>
 
             
         </div>
