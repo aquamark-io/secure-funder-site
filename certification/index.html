@@ -462,6 +462,67 @@
                 height: 60px;
             }
         }
+    
+        /* Mobile polish */
+        :root {
+            /* Helps iOS avoid text auto-zoom + keeps sizes consistent */
+            -webkit-text-size-adjust: 100%;
+            text-size-adjust: 100%;
+        }
+
+        /* Better default tap targets and prevent horizontal scroll from long words */
+        a, button { -webkit-tap-highlight-color: rgba(0,0,0,0); }
+        .req-card, .conditional-box, .option-card { overflow-wrap: anywhere; }
+
+        /* Fluid typography */
+        .hero h1 { font-size: clamp(1.85rem, 5vw, 3rem); }
+        .hero p { font-size: clamp(1.05rem, 3.2vw, 1.25rem); }
+
+        .section-title { font-size: clamp(1.6rem, 4.2vw, 2.25rem); }
+        .section-subtitle { font-size: clamp(1rem, 2.8vw, 1.125rem); }
+
+        /* Slightly tighter card shadows/borders on small screens */
+        .req-card, .info-card, .conditional-box, .option-card {
+            border-radius: 12px;
+        }
+
+        @media (max-width: 480px) {
+            .hero { padding: 2.5rem 1.25rem; }
+
+            .section { padding: 2.5rem 1.25rem; }
+            .section.section-intro { padding: 1.75rem 1.25rem; }
+
+            .intro-point {
+                width: 100%;
+                justify-content: flex-start;
+                text-align: left;
+            }
+
+            .timeline { max-width: 100%; }
+            .timeline-item { margin-bottom: 2.25rem; }
+
+            .timeline-marker {
+                width: 36px;
+                height: 36px;
+                font-size: 0.95rem;
+            }
+
+            .req-card { padding: 1rem 1.125rem; }
+            .conditional-box { padding: 1rem 1.125rem; }
+
+            .options-row { gap: 0.875rem; }
+            .option-card { padding: 0.95rem 1.05rem; }
+
+            .gateway-link { font-size: 0.9rem; }
+
+            /* Prevent “IF/THEN” label from feeling cramped */
+            .conditional-label { line-height: 1.5; }
+
+            /* Make icons a touch smaller to fit narrow widths */
+            .intro-icon { width: 34px; height: 34px; border-radius: 10px; }
+            .req-icon { width: 30px; height: 30px; border-radius: 8px; }
+        }
+
     </style>
 </head>
 <body>
