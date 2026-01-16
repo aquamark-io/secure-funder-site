@@ -80,8 +80,8 @@
         /* How It Works - Process Cards */
         .process-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
         }
 
         .process-card {
@@ -106,6 +106,7 @@
         .process-icon.yellow { background: #FEF9C3; }
         .process-icon.blue { background: #DBEAFE; }
         .process-icon.green { background: #D1FAE5; }
+        .process-icon.pink { background: #FCE7F3; }
 
         .process-card h3 {
             font-size: 1.125rem;
@@ -404,15 +405,17 @@
         }
 
         /* Responsive */
-        @media (max-width: 900px) {
+        @media (max-width: 1000px) {
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
             .process-grid {
                 grid-template-columns: 1fr;
                 max-width: 400px;
                 margin: 0 auto;
-            }
-
-            .info-grid {
-                grid-template-columns: 1fr;
             }
 
             .options-row {
@@ -508,6 +511,16 @@
                     </div>
                     <h3>You're Likely Ready</h3>
                     <p>Most funders already have these controls in place. This just makes it official.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-icon pink">
+                        <svg width="24" height="24" fill="none" stroke="#DB2777" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        </svg>
+                    </div>
+                    <h3>Your Privacy Protected</h3>
+                    <p>Focus is on confirming controls exist—not exposing sensitive business logic or proprietary systems.</p>
                 </div>
             </div>
         </div>
@@ -727,33 +740,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- What to Expect -->
-    <section class="section section-alt">
-        <div class="container">
-            <h2 class="section-title">What to Expect</h2>
-            <p class="section-subtitle">A few examples of what verification looks like.</p>
-
-            <div class="info-grid">
-                <div class="info-card">
-                    <h3>Email MFA Check</h3>
-                    <p>You log out of your email and log back in. We verify that MFA is prompted.</p>
-                </div>
-                <div class="info-card">
-                    <h3>Automated Email Processing</h3>
-                    <p>You provide your submission email address. We send a test to confirm it appears in your CRM without human email access.</p>
-                </div>
-                <div class="info-card">
-                    <h3>CRM Role-Based Access</h3>
-                    <p>Log into your CRM as different roles to show where SSN is visible vs. hidden.</p>
-                </div>
-                <div class="info-card">
-                    <h3>Your Privacy Protected</h3>
-                    <p>Focus is on confirming controls exist—not exposing sensitive business logic, proprietary systems, or competitive processes.</p>
                 </div>
             </div>
         </div>
