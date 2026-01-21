@@ -138,6 +138,67 @@
         .intro-icon.pink { background: #F3E8FF; }
         .intro-icon.orange { background: #FFEDD5; } /* soft orange */
 
+        /* Pricing Transparency Box */
+        .pricing-box {
+            margin-top: 2rem;
+            background: white;
+            border: 1px solid #E5E7EB;
+            border-radius: 12px;
+            padding: 1.25rem 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1.75rem;
+            max-width: 680px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .pricing-amount {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #0F1419;
+            white-space: nowrap;
+            flex-shrink: 0;
+            line-height: 1;
+            display: flex;
+            align-items: baseline;
+        }
+
+        .pricing-amount span {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #6B7280;
+            margin-left: 0.125rem;
+        }
+
+        .pricing-details {
+            border-left: 1px solid #E5E7EB;
+            padding-left: 1.75rem;
+        }
+
+        .pricing-details p {
+            font-size: 0.84rem;
+            color: #4B5563;
+            line-height: 1.55;
+            margin: 0;
+        }
+
+        @media (max-width: 600px) {
+            .pricing-box {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+                padding: 1.25rem 1.5rem;
+            }
+
+            .pricing-details {
+                border-left: none;
+                border-top: 1px solid #E5E7EB;
+                padding-left: 0;
+                padding-top: 1rem;
+            }
+        }
+
 /* Support banner (kept small + clean) */
 .support-note {
     margin-top: 0.75rem;
@@ -1095,6 +1156,18 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="section section-white" style="padding-top: 2.5rem; padding-bottom: 2.5rem; border-top: 1px solid #E5E7EB;">
+        <div class="container">
+            <div class="pricing-box">
+                <div class="pricing-amount">$2,499<span>/year</span></div>
+                <div class="pricing-details">
+                    <p>Covers initial verification, your Secure Funder™ listing + badge, and ongoing directory placement on securefunder.org and various industry sites. This ensures only serious, qualified organizations carry the designation.</p>
                 </div>
             </div>
         </div>
