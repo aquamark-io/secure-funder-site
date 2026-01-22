@@ -108,32 +108,34 @@
         }
 
         .intro-points {
-            text-align: center;
-            color: #4B5563;
+            display: flex;
+            justify-content: center;
+            gap: 1.75rem;
+            flex-wrap: wrap;
+        }
+
+        .intro-point {
+            display: flex;
+            align-items: center;
+            gap: 0.625rem;
             font-size: 0.9375rem;
-            line-height: 1.8;
+            color: #0F1419;
+            font-weight: 500;
         }
 
-        .intro-points span {
-            white-space: nowrap;
-        }
-
-        .intro-points .sep {
-            color: #D1D5DB;
-            margin: 0 0.75rem;
-        }
-
-        /* Mobile: stack vertically */
+        /* Mobile: stack points and keep checkmarks aligned */
         @media (max-width: 640px) {
             .intro-points {
-                display: flex;
                 flex-direction: column;
-                align-items: center;
-                gap: 0.5rem;
-                line-height: 1.6;
+                align-items: flex-start;
+                gap: 0.85rem;
             }
-            .intro-points .sep {
-                display: none;
+            .intro-point {
+                width: 100%;
+                justify-content: flex-start;
+            }
+            .intro-point svg {
+                flex-shrink: 0;
             }
         }
 
@@ -522,8 +524,35 @@
             text-decoration: underline;
         }
 
+        /* Terms Content */
+        .terms-content p {
+            font-size: 0.9375rem;
+            color: #4B5563;
+            line-height: 1.8;
+            margin-bottom: 1.25rem;
+        }
+
+        .terms-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .terms-content a {
+            color: #2563EB;
+            text-decoration: underline;
+        }
+
+        .terms-content a:hover {
+            color: #1D4ED8;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
+            .intro-points {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
             .options-row {
                 grid-template-columns: 1fr;
             }
@@ -659,16 +688,6 @@
         <h1>Certification Requirements</h1>
         <p>Simple safeguards to protect your brokers' submissions.</p>
     </div>
-    <!-- Process Overview -->
-    <section class="section section-intro section-alt">
-        <div class="container">
-            <div class="intro-block">
-                <div class="intro-points">
-                    <span>15-minute screenshare</span><span class="sep">|</span><span>Pause anytime</span><span class="sep">|</span><span>Common-sense controls</span><span class="sep">|</span><span>No trick questions</span><span class="sep">|</span><span>Earn more business</span>
-                </div>
-</div>
-        </div>
-    </section>
 
     <!-- Requirements -->
     <section class="section section-white" style="padding-bottom: 2rem;">
@@ -892,13 +911,27 @@
         </div>
     </section>
 
-    <!-- Disclaimer -->
-    <section class="section section-alt" style="padding-top: 2rem; padding-bottom: 3rem;">
-        <div style="text-align: center; max-width: 1400px; margin: 0 auto; padding: 0 2rem;">
-            <div style="margin-bottom: 0.75rem;">
-            </div>
-          
-            <div style="text-align:center; font-weight:800; margin-top:1.5rem; font-size:1rem; color:#111827;">Terms and Conditions</div>
-<p id="termsText" style="font-size: 0.825rem; color: #9CA3AF; max-width: 1500px; margin: 1.25rem auto 0; line-height: 1.7;">
 
-Now accepting listing reservations. The Secure Funder™ <a href="https://securefunder.org/" target="_blank" rel="noopener noreferrer" style="text-decoration: underline;">Directory</a> opens April 1, 2026. Upon enrollment, your organization will immediately appear in the Directory with an “In Progress” status, signaling your commitment to data security. Verification must be completed within ninety (90) days of enrollment to achieve “Certified” status; listings will be removed if verification is not scheduled within this period. Verification is conducted via live screen share, is not recorded, and may be paused or rescheduled at any time. All information reviewed during verification is treated as confidential. Secure Funder™ is designed for funders of all sizes and focuses narrowly on protecting submissions and the documents associated with them—without being overly intrusive to your operations. While no program can prevent theft entirely, the certification is designed to materially reduce exposure and deter misuse through practical, verifiable safeguards. The annual program fee is $2,499 USD. No payment is due until verification is scheduled. Monthly payment arrangements are available upon request; contact <a href="/cdn-cgi/l/email-protection#6f060109002f0e1e1a0e020e1d04410600" target="_blank" style="text-decoration: underline;"><span class="__cf_email__" data-cfemail="bfd6d1d9d0ffdececaded2decdd491d6d0">[email&#160;protected]</span></a> for details. The fee covers verification, program administration, and ongoing Directory placement, including initiatives to expand community-level visibility so small business owners can access trusted funder listings locally. By enrolling, you agree to notify Secure Funder™ promptly of any material changes that may affect your certification status. Certification may be revoked if required safeguards are no longer maintained or if information provided during verification was mater
+    <!-- Terms and Conditions -->
+    <section class="section section-alt">
+        <div class="container" style="max-width: 800px;">
+            <h2 class="section-title" style="margin-bottom: 2rem;">Terms and Conditions</h2>
+            
+            <div class="terms-content">
+                <p>The Secure Funder™ certification program exists to establish a trusted, objective source for identifying funders committed to protecting broker submissions. Certification is based entirely on verifiable safeguards, applied consistently across all participants, with no exceptions to the requirements. Funders who participate are stepping forward to lead change in an industry that has long needed it, demonstrating their commitment to operating responsibly.</p>
+
+                <p>Now accepting listing reservations. The Secure Funder™ <a href="https://securefunder.org/" target="_blank" rel="noopener noreferrer">Directory</a> opens April 1, 2026. Upon enrollment, your organization will immediately appear in the Directory with an "In Progress" status, signaling your commitment to data security. Once verification is complete, your listing will be upgraded to "Certified" status. Verification must be completed within ninety (90) days of enrollment; listings will be removed if verification is not scheduled within this period.</p>
+
+                <p>Verification is conducted via live screen share, expected to take 15–30 minutes. Sessions are not recorded and may be paused or rescheduled at any time. All information reviewed during verification is treated as confidential. Secure Funder™ is designed for funders of all sizes and focuses narrowly on protecting submissions and the documents associated with them — without being overly intrusive to your operations.</p>
+
+                <p>While no program can prevent theft entirely, the certification is designed to materially reduce exposure and deter misuse through practical, verifiable safeguards.</p>
+
+                <p>The annual program fee is $2,499 USD. No payment is due until verification is scheduled. Monthly payment arrangements are available upon request; contact <a href="mailto:info@aquamark.io">info@aquamark.io</a> for details. The fee covers verification, program administration, and ongoing Directory placement, including initiatives to expand community-level visibility so small business owners can access trusted funder listings locally.</p>
+
+                <p>By enrolling, you agree to notify Secure Funder™ promptly of any material changes that may affect your certification status. Certification may be revoked if required safeguards are no longer maintained or if information provided during verification was materially inaccurate.</p>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
