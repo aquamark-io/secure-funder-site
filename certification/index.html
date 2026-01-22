@@ -231,23 +231,7 @@
         }
 
         .timeline-item {
-            display: flex;
-            gap: 2rem;
             margin-bottom: 3rem;
-        }
-
-        .timeline-marker {
-            flex-shrink: 0;
-            width: 48px;
-            height: 48px;
-            background: #0F1419;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.25rem;
-            font-weight: 600;
         }
 
         .timeline-content {
@@ -567,12 +551,6 @@
                 gap: 1rem;
             }
 
-            .timeline-marker {
-                width: 40px;
-                height: 40px;
-                font-size: 1rem;
-            }
-
             .timeline-content {
                 padding-top: 0;
             }
@@ -624,12 +602,6 @@
             .timeline { max-width: 100%; }
             .timeline-item { margin-bottom: 2.25rem; }
 
-            .timeline-marker {
-                width: 36px;
-                height: 36px;
-                font-size: 0.95rem;
-            }
-
             .req-card { padding: 1rem 1.125rem; }
             .conditional-box { padding: 1rem 1.125rem; }
 
@@ -677,43 +649,7 @@
         }
 
         /* Top-right back button */
-        .back-to-aquamark {
-            position: fixed;
-            top: 86px; /* pulled down a bit on desktop */
-            right: 64px; /* pulled left a bit on desktop */
-            z-index: 2500;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.45rem;
-            background: #FFFFFF;
-            color: #0F1419;
-            text-decoration: none;
-            padding: 0.55rem 0.9rem;
-            border-radius: 999px;
-            font-size: 0.875rem;
-            font-weight: 600;
-            border: 1px solid #E5E7EB;
-            box-shadow: 0 6px 18px rgba(15, 20, 25, 0.10);
-            transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
-            white-space: nowrap;
-        }
-
-        .back-to-aquamark:hover {
-            background: #F9FAFB;
-            transform: translateY(-1px);
-            box-shadow: 0 8px 22px rgba(15, 20, 25, 0.14);
-        }
-
-        .back-to-aquamark:active {
-            transform: translateY(0);
-        }
-
-        .back-to-aquamark svg {
-            width: 16px;
-            height: 16px;
-        }
-
-        /* Mobile menu (only shown on small screens) */
+/* Mobile menu (only shown on small screens) */
         .mobile-menu-toggle {
             position: fixed;
             top: 52px;
@@ -725,8 +661,7 @@
             width: 42px;
             height: 42px;
             border-radius: 999px;
-            /* Light theme on mobile to match the "Back to Aquamark" button */
-            border: 1px solid #E5E7EB;
+border: 1px solid #E5E7EB;
             background: #FFFFFF;
             color: #0F1419;
             box-shadow: 0 6px 18px rgba(15, 20, 25, 0.10);
@@ -774,8 +709,7 @@
 
         @media (max-width: 768px) {
             /* On smaller screens, use a hamburger menu instead of the full button */
-            .back-to-aquamark { display: none; }
-            .mobile-menu-toggle { display: inline-flex; }
+.mobile-menu-toggle { display: inline-flex; }
         }
 
         @media (max-width: 480px) {
@@ -814,17 +748,7 @@
             <span>Our team can assist during the grace period.</span>
         </div>
     </div>
-
-    <!-- Back to Aquamark button -->
-    <!-- Inline top/right ensures placement even if another stylesheet overrides .back-to-aquamark -->
-    <a class="back-to-aquamark" href="https://www.aquamark.io/" style="top: 86px; right: 64px;">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M15 18l-6-6 6-6" />
-        </svg>
-        Back to Aquamark
-    </a>
-
-    <!-- Mobile hamburger + menu -->
+<!-- Mobile hamburger + menu -->
     <button class="mobile-menu-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <line x1="4" y1="6" x2="20" y2="6"></line>
@@ -834,13 +758,7 @@
     </button>
 
     <div id="mobileMenu" class="mobile-menu" hidden>
-        <a href="https://www.aquamark.io/">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:16px;height:16px;">
-                <path d="M15 18l-6-6 6-6" />
-            </svg>
-            Back to Aquamark
-        </a>
-    </div>
+</div>
 
     <div class="hero">
         <h1>Certification Requirements</h1>
@@ -931,8 +849,7 @@
             <div class="timeline">
                 <!-- 1. Email Security -->
                 <div class="timeline-item">
-                    <div class="timeline-marker">1</div>
-                    <div class="timeline-content">
+<div class="timeline-content">
                         <h3>Email Security</h3>
                         <p>Prevent access to unprotected submissions.</p>
                         
@@ -982,8 +899,7 @@
 
                 <!-- 2. CRM / Portal Security -->
                 <div class="timeline-item">
-                    <div class="timeline-marker">2</div>
-                    <div class="timeline-content">
+<div class="timeline-content">
                         <h3>CRM / Portal Security</h3>
                         <p>Ensuring your systems limit access to what's needed.</p>
                         
@@ -1049,8 +965,7 @@
 
                 <!-- 3. Outsourcing -->
                 <div class="timeline-item">
-                    <div class="timeline-marker">3</div>
-                    <div class="timeline-content">
+<div class="timeline-content">
                         <h3>Outsourcing</h3>
                         <p>If you use BPO teams (on-shore or off-shore) with access to merchant documents.</p>
                         
@@ -1078,8 +993,7 @@
 
                 <!-- 4. Personnel Controls -->
                 <div class="timeline-item">
-                    <div class="timeline-marker">4</div>
-                    <div class="timeline-content">
+<div class="timeline-content">
                         <h3>Personnel Controls</h3>
                         <p>Standard policies to protect data at the human level.</p>
                         
