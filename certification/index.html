@@ -587,156 +587,46 @@
             border-radius: 12px;
         }
 
-        @media (max-width: 480px) {
-            .hero { padding: 2.5rem 1.25rem; }
-
-            .section { padding: 2.5rem 1.25rem; }
-            .section.section-intro { padding: 1.75rem 1.25rem; }
-
-            .intro-point {
-                width: 100%;
-                justify-content: flex-start;
-                text-align: left;
-            }
-
-            .timeline { max-width: 100%; }
-            .timeline-item { margin-bottom: 2.25rem; }
-
-            .req-card { padding: 1rem 1.125rem; }
-            .conditional-box { padding: 1rem 1.125rem; }
-
-            .options-row { gap: 0.875rem; }
-            .option-card { padding: 0.95rem 1.05rem; }
-
-            .gateway-link { font-size: 0.9rem; }
-
-            /* Prevent “IF/THEN” label from feeling cramped */
-            .conditional-label { line-height: 1.5; }
-
-            /* Make icons a touch smaller to fit narrow widths */
-            .intro-icon { width: 34px; height: 34px; border-radius: 10px; }
-            .req-icon { width: 30px; height: 30px; border-radius: 8px; }
-        }
-
     
-
         /* Fixed support banner */
         .fixed-support-banner {
             position: fixed;
             top: 0;
             left: 0;
-            right: 0;
             width: 100%;
-            box-sizing: border-box;
-            z-index: 2000;
-            background: #F3F4F6;
+            z-index: 9999;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
             border-bottom: 1px solid #E5E7EB;
-            color: #374151;
-            font-size: 0.82rem;
-            font-weight: 500;
-            letter-spacing: 0.2px;
         }
-
         .fixed-support-banner .banner-inner {
             max-width: 1100px;
             margin: 0 auto;
-            padding: 0.6rem 1.25rem;
+            padding: 0.65rem 1.25rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 0.5rem;
+            gap: 0.6rem;
+            font-size: 0.95rem;
+            color: #111827;
             text-align: center;
         }
-
-        /* Top-right back button */
-/* Mobile menu (only shown on small screens) */
-        .mobile-menu-toggle {
-            position: fixed;
-            top: 52px;
-            right: 16px;
-            z-index: 1100;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            width: 42px;
-            height: 42px;
-            border-radius: 999px;
-border: 1px solid #E5E7EB;
-            background: #FFFFFF;
-            color: #0F1419;
-            box-shadow: 0 6px 18px rgba(15, 20, 25, 0.10);
-            cursor: pointer;
-        }
-
-        .mobile-menu-toggle:hover { background: #F9FAFB; }
-        .mobile-menu-toggle svg { width: 18px; height: 18px; }
-
-        .mobile-menu {
-            position: fixed;
-            top: 100px;
-            right: 16px;
-            z-index: 1100;
-            background: #FFFFFF;
-            border: 1px solid #E5E7EB;
-            border-radius: 14px;
-            box-shadow: 0 12px 30px rgba(15, 20, 25, 0.18);
-            overflow: hidden;
-            min-width: 220px;
-        }
-
-        .mobile-menu a {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.85rem 0.95rem;
-            text-decoration: none;
-            color: #0F1419;
-            font-weight: 600;
-            font-size: 0.95rem;
-        }
-
-        .mobile-menu a:hover { background: #F9FAFB; }
-
         .fixed-support-banner strong {
-            font-weight: 700;
-            color: #111827;
+            font-weight: 600;
         }
-
-        /* Make room for the fixed banner */
         body {
-            padding-top: 42px;
+            padding-top: 56px;
         }
-
-        @media (max-width: 768px) {
-            /* On smaller screens, use a hamburger menu instead of the full button */
-.mobile-menu-toggle { display: inline-flex; }
-        }
-
-        @media (max-width: 480px) {
+        @media (max-width: 640px) {
             body { padding-top: 64px; }
-            .fixed-support-banner { font-size: 0.76rem; }
             .fixed-support-banner .banner-inner {
-                padding: 0.6rem 1rem;
-                flex-direction: column;
-                gap: 0.15rem;
-            }
-            .fixed-support-banner strong,
-            .fixed-support-banner span {
-                display: block;
-                width: 100%;
-            }
-
-            .mobile-menu-toggle {
-                top: 74px; /* below the taller mobile banner */
-                right: 12px;
-            }
-            .mobile-menu {
-                top: 126px;
-                right: 12px;
-                min-width: 210px;
+                padding: 0.7rem 1rem;
+                flex-wrap: wrap;
+                gap: 0.35rem;
             }
         }
-
+    
     </style>
 </head>
 <body>
@@ -748,61 +638,10 @@ border: 1px solid #E5E7EB;
             <span>Our team can assist during the grace period.</span>
         </div>
     </div>
-<!-- Mobile hamburger + menu -->
-    <button class="mobile-menu-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <line x1="4" y1="6" x2="20" y2="6"></line>
-            <line x1="4" y1="12" x2="20" y2="12"></line>
-            <line x1="4" y1="18" x2="20" y2="18"></line>
-        </svg>
-    </button>
-
-    <div id="mobileMenu" class="mobile-menu" hidden>
-</div>
-
     <div class="hero">
         <h1>Certification Requirements</h1>
         <p>Safeguards that deter backdooring.</p>
     </div>
-
-    <script>
-        (function () {
-            const toggle = document.querySelector('.mobile-menu-toggle');
-            const menu = document.getElementById('mobileMenu');
-            if (!toggle || !menu) return;
-
-            function closeMenu() {
-                menu.hidden = true;
-                toggle.setAttribute('aria-expanded', 'false');
-            }
-
-            toggle.addEventListener('click', function () {
-                const isOpen = !menu.hidden;
-                menu.hidden = isOpen;
-                toggle.setAttribute('aria-expanded', String(!isOpen));
-            });
-
-            // Close menu on outside click
-            document.addEventListener('click', function (e) {
-                if (menu.hidden) return;
-                const target = e.target;
-                if (toggle.contains(target) || menu.contains(target)) return;
-                closeMenu();
-            });
-
-            // Close on Escape
-            document.addEventListener('keydown', function (e) {
-                if (e.key === 'Escape') closeMenu();
-            });
-
-            // Close after selecting a link
-            menu.addEventListener('click', function (e) {
-                const t = e.target;
-                if (t && t.closest && t.closest('a')) closeMenu();
-            });
-        })();
-    </script>
-
     <!-- Process Overview -->
     <section class="section section-intro section-alt">
         <div class="container">
@@ -1069,8 +908,8 @@ border: 1px solid #E5E7EB;
             <div style="text-align:center; font-weight:800; margin-top:1.5rem; font-size:1rem; color:#111827;">Terms and Conditions</div>
 <p style="font-size: 0.8rem; color: #9CA3AF; max-width: 1500px; margin: 1.25rem auto 0; line-height: 1.7;">
 
-Now accepting listing reservations. The Secure Funder™ Directory opens April 1, 2026. Upon enrollment, your organization will immediately appear in the Directory with "In Progress" status, signaling your commitment to data security. Verification must be completed within ninety (90) days of enrollment to achieve "Certified" status; listings will be removed if verification is not scheduled within this period. Verification is conducted via live screen share, is not recorded, and may be paused or rescheduled at any time. All information reviewed during verification is treated as confidential.
-The annual Program fee is $2,499 USD. No payment is due until verification is scheduled. Monthly payment arrangements are available upon request; contact info@aquamark.io for details. The fee covers verification, program administration, and ongoing Directory placement, including initiatives to expand community-level visibility so small business owners can access trusted funder listings locally.
+Now accepting listing reservations. The Secure Funder™ <a href="https://securefunder.org/" target="_blank" rel="noopener noreferrer" style="text-decoration: underline;">Directory</a> opens April 1, 2026. Upon enrollment, your organization will immediately appear in the Directory with "In Progress" status, signaling your commitment to data security. Verification must be completed within ninety (90) days of enrollment to achieve "Certified" status; listings will be removed if verification is not scheduled within this period. Verification is conducted via live screen share, is not recorded, and may be paused or rescheduled at any time. All information reviewed during verification is treated as confidential.
+The annual Program fee is $2,499 USD. No payment is due until verification is scheduled. Monthly payment arrangements are available upon request; contact <a href="mailto:info@aquamark.io" target="_blank" style="text-decoration: underline;">info@aquamark.io</a> for details. The fee covers verification, program administration, and ongoing Directory placement, including initiatives to expand community-level visibility so small business owners can access trusted funder listings locally.
 By enrolling, you agree to notify Secure Funder™ promptly of any material changes that may affect your certification status. Certification may be revoked if required safeguards are no longer maintained or if information provided during verification was materially inaccurate. Secure Funder™ certification verifies that practical safeguards are in place designed to materially reduce data exposure and misuse; no program can eliminate such risks entirely. Certification badges are issued annually.
 
 </p>
