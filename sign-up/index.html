@@ -59,142 +59,6 @@
             line-height: 1.6;
         }
 
-        /* Header */
-        .header {
-            background: #FFFFFF;
-            border-bottom: 1px solid #E5E7EB;
-            padding: 1rem 2rem;
-            position: sticky;
-            top: var(--banner-height);
-            z-index: 100;
-        }
-
-        .header-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-        }
-
-        .header-links {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .badge-logo {
-            height: 70px;
-            width: auto;
-        }
-
-        .requirements-link {
-            font-size: 0.9375rem;
-            color: #374151;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.2s ease;
-        }
-
-        .requirements-link:hover {
-            color: #0F1419;
-        }
-
-        /* Mobile Menu Toggle */
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 24px;
-            height: 18px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0;
-            z-index: 101;
-        }
-
-        .menu-toggle span {
-            display: block;
-            height: 2px;
-            background: #0F1419;
-            border-radius: 1px;
-            transition: all 0.3s ease;
-        }
-
-        .menu-toggle.active span:nth-child(1) {
-            transform: translateY(8px) rotate(45deg);
-        }
-
-        .menu-toggle.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .menu-toggle.active span:nth-child(3) {
-            transform: translateY(-8px) rotate(-45deg);
-        }
-
-        /* Mobile Navigation Overlay */
-        .mobile-nav {
-            position: fixed;
-            top: 0;
-            right: -100%;
-            width: 70%;
-            max-width: 280px;
-            height: 100vh;
-            background: #FFFFFF;
-            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
-            transition: right 0.3s ease;
-            z-index: 99;
-            /* Padding handled + positioned in JS so it never hides behind the banner/header on small screens */
-            padding-top: 1.25rem;
-            padding-left: 2rem;
-            padding-right: 2rem;
-            padding-bottom: 2rem;
-            overflow-y: auto;
-        }
-
-        .mobile-nav.active {
-            right: 0;
-        }
-
-        .mobile-nav-backdrop {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background: rgba(0, 0, 0, 0.3);
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 98;
-        }
-
-        .mobile-nav-backdrop.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .mobile-nav-links {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .mobile-nav-link {
-            font-size: 0.9375rem;
-            color: #374151;
-            text-decoration: none;
-            font-weight: 500;
-            padding: 0.5rem 0;
-            transition: color 0.2s ease;
-        }
-
-        .mobile-nav-link:hover {
-            color: #0F1419;
-        }
-
         /* Main Container */
         .container {
             max-width: 1400px;
@@ -440,22 +304,6 @@
             .support-section {
                 padding: 2rem 1.25rem;
             }
-
-            .header {
-                padding: 0.75rem 1rem;
-            }
-
-            .badge-logo {
-                height: 50px;
-            }
-
-            .header-links {
-                gap: 1rem;
-            }
-
-            .requirements-link {
-                font-size: 0.875rem;
-            }
         }
 
         @media (max-width: 480px) {
@@ -491,10 +339,6 @@
                 font-size: 0.8125rem;
             }
 
-            .badge-logo {
-                height: 45px;
-            }
-
             .support-section {
                 padding: 1.5rem 1rem;
                 margin-top: 2rem;
@@ -516,22 +360,7 @@
         <strong>Get listed today</strong>
         &nbsp;— 3-month grace period to implement
     </div>
-
-    <div class="header">
-        <div class="header-content">
-            <a href="https://www.aquamark.io/funder">
-                <img src="/2026-badge.png" alt="Secure Funder 2026" class="badge-logo">
-            </a>
-        </div>
-    </div>
     
-    <!-- Mobile Navigation -->
-    <div class="mobile-nav-backdrop" id="mobileNavBackdrop"></div>
-    <nav class="mobile-nav" id="mobileNav">
-        <div class="mobile-nav-links">
-        </div>
-    </nav>
-
     <div class="container">
         <!-- Hero Section -->
         <div class="hero-section">
@@ -589,62 +418,6 @@
 </p>        </div>
     </div>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-        // Mobile Menu Toggle
-        const menuToggle = document.getElementById('menuToggle');
-        const mobileNav = document.getElementById('mobileNav');
-        const mobileNavBackdrop = document.getElementById('mobileNavBackdrop');
-        const body = document.body;
-
-        function toggleMenu() {
-            const isActive = menuToggle.classList.contains('active');
-            
-            if (isActive) {
-                closeMenu();
-            } else {
-                openMenu();
-            }
-        }
-
-        function positionMobileNav() {
-            const banner = document.querySelector('.announcement-banner');
-            const header = document.querySelector('.header');
-            const offset = (banner ? banner.offsetHeight : 0) + (header ? header.offsetHeight : 0);
-
-            mobileNav.style.top = offset + 'px';
-            mobileNav.style.height = 'calc(100vh - ' + offset + 'px)';
-        }
-
-        function openMenu() {
-            positionMobileNav();
-            menuToggle.classList.add('active');
-            mobileNav.classList.add('active');
-            mobileNavBackdrop.classList.add('active');
-            body.style.overflow = 'hidden';
-        }
-
-        function closeMenu() {
-            menuToggle.classList.remove('active');
-            mobileNav.style.top = '';
-            mobileNav.style.height = '';
-
-            mobileNav.classList.remove('active');
-            mobileNavBackdrop.classList.remove('active');
-            body.style.overflow = '';
-        }
-
-        menuToggle.addEventListener('click', toggleMenu);
-
-        window.addEventListener('resize', function() {
-            if (menuToggle.classList.contains('active')) {
-                positionMobileNav();
-            }
-        });
-        mobileNavBackdrop.addEventListener('click', closeMenu);
-
-        // Close menu when clicking on a link
-        document.querySelectorAll('.mobile-nav-link').forEach(link => {
-            link.addEventListener('click', closeMenu);
-        });
-
-        // Close menu on esca
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+</body>
+</html>
