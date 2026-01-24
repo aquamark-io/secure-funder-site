@@ -39,6 +39,7 @@
         .hero {
             background: white;
             padding: 3rem 2rem 2rem 2rem;
+            margin-top: 0;
             text-align: center;
             width: 100%;
             box-sizing: border-box;
@@ -632,8 +633,8 @@
             left: 0;
             width: 100%;
             z-index: 9999;
-            background: #EFF6FF;
-            border-bottom: 1px solid #BFDBFE;
+            background: #D1FAE5;
+            border-bottom: 1px solid #A7F3D0;
         }
         .fixed-support-banner .banner-inner {
             max-width: 1100px;
@@ -644,7 +645,7 @@
             justify-content: center;
             gap: 0.6rem;
             font-size: 0.75rem;
-            color: #111827;
+            color: #065F46;
             text-align: center;
         }
         .fixed-support-banner strong {
@@ -652,6 +653,17 @@
         }
         body {
             padding-top: 56px;
+        }
+        /* White background under the fixed banner */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 120px;
+            background: white;
+            z-index: -1;
         }
         @media (max-width: 640px) {
             body { padding-top: 64px; }
@@ -687,8 +699,8 @@
     <!-- Fixed Support Banner -->
     <div class="fixed-support-banner" role="status" aria-live="polite">
         <div class="banner-inner">
-            <strong>Get listed today.</strong>
-            <span>3-month grace period to implement.</span>
+            <strong>All funders welcome.</strong>
+            <span>No safeguards yet? No problem — we'll help you get there.</span>
         </div>
     </div>
     <div class="hero">
@@ -929,7 +941,7 @@
             
            <div class="terms-buttons" style="text-align: center; margin-bottom: 1.5rem; display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;">
   <a href="https://securefunder.org/sign-up/" style="display: inline-block; background: #F9FAFB; color: #374151; text-decoration: none; padding: 0.5rem 1rem; border-radius: 6px; font-weight: 500; font-size: 0.8125rem; border: 1px solid #9CA3AF; transition: background 0.2s ease;">
-    Join Program
+    Get Listed
   </a>
 
   <a href="https://www.aquamark.io/contact/" style="display: inline-block; background: #F9FAFB; color: #374151; text-decoration: none; padding: 0.5rem 1rem; border-radius: 6px; font-weight: 500; font-size: 0.8125rem; border: 1px solid #9CA3AF; transition: background 0.2s ease;">
@@ -951,7 +963,7 @@
 
                 <p>While no program can prevent theft entirely, the certification is designed to materially reduce exposure and deter misuse through practical, verifiable safeguards.</p>
 
-                <p>The annual program fee is $2,499 USD. No payment is due until verification is scheduled. Monthly payment arrangements are available upon request; contact <a href="mailto:info@aquamark.io" style="color: #2563EB;">info@aquamark.io</a> for details. The fee covers verification, program administration, and ongoing Directory placement, including initiatives to expand community-level visibility so small business owners can access trusted funder listings locally.</p>
+                <p>The annual program fee is $2,499 USD. No payment is due until verification is scheduled. Monthly payment arrangements are available upon request; contact <a href="/cdn-cgi/l/email-protection#acc5c2cac3eccdddd9cdc1cddec782c5c3" style="color: #2563EB;"><span class="__cf_email__" data-cfemail="81e8efe7eec1e0f0f4e0ece0f3eaafe8ee">[email&#160;protected]</span></a> for details. The fee covers verification, program administration, and ongoing Directory placement, including initiatives to expand community-level visibility so small business owners can access trusted funder listings locally. New digital badges are issued annually with updated designs.</p>
 
                 <p>By enrolling, you agree to notify Secure Funder™ promptly of any material changes that may affect your certification status. Certification may be revoked if required safeguards are no longer maintained or if information provided during verification is found to be materially inaccurate.</p>
             </div>
