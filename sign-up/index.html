@@ -6,44 +6,17 @@
     <title>Join Directory</title>
     <link rel="icon" href="/2026-badge.png" type="image/png">
     <link rel="apple-touch-icon" href="/2026-badge.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-
         :root {
-            --banner-height: 52px;
-        }
-
-        body {
-            padding-top: var(--banner-height);
-        }
-
-        .announcement-banner {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: var(--banner-height);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #F3F4F6;
-            color: #374151;
-            font-size: 0.875rem;
-            font-weight: 500;
-            border-bottom: 1px solid #E5E7EB;
-            z-index: 1001;
-        }
-
-        .announcement-banner a {
-            color: #004AAD;
-            font-weight: 600;
-            text-decoration: none;
-        }
-
-        .announcement-banner a:hover {
-            text-decoration: underline;
+            --slate-900: #0f172a;
+            --slate-700: #334155;
+            --slate-500: #64748b;
+            --slate-300: #cbd5e1;
+            --slate-100: #f1f5f9;
+            --white: #ffffff;
+            --accent: #0369a1;
+            --accent-light: #0ea5e9;
+            --banner-height: 40px;
         }
 
         * {
@@ -53,15 +26,38 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: #FAFBFC;
-            color: #0F1419;
-            line-height: 1.6;
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--white);
+            color: var(--slate-900);
+            line-height: 1.5;
+            padding-top: var(--banner-height);
+        }
+
+        /* Fixed Banner */
+        .announcement-banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: var(--banner-height);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--accent);
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 0.8125rem;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+            z-index: 1001;
+        }
+
+        .announcement-banner strong {
+            color: #ffffff;
         }
 
         /* Main Container */
         .container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 2rem;
         }
@@ -69,48 +65,44 @@
         /* Hero Section */
         .hero-section {
             text-align: center;
+            padding: 2rem 0 1.5rem;
+            border-bottom: 1px solid var(--slate-300);
             margin-bottom: 2rem;
         }
 
         h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #0F1419;
-            margin-bottom: 1rem;
+            font-size: 2.25rem;
+            font-weight: bold;
+            color: var(--slate-900);
+            margin-bottom: 0.875rem;
             letter-spacing: -0.5px;
         }
 
         .subtitle {
-            font-size: 1.125rem;
-            color: #4B5563;
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.7;
+            font-size: 1.0625rem;
+            color: var(--slate-500);
         }
 
         /* Application Section - Two Column */
         .application-section {
-            background: #FFFFFF;
-            border-radius: 12px;
+            background: var(--slate-100);
+            border: 1px solid var(--slate-300);
             padding: 2.5rem;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-            border: 1px solid #E5E7EB;
             margin-bottom: 2rem;
         }
 
         .application-content {
             display: grid;
-            grid-template-columns: 320px 1fr;
-            gap: 4rem;
+            grid-template-columns: 280px 1fr;
+            gap: 3rem;
             align-items: start;
         }
 
         .steps-side h2 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #0F1419;
+            font-size: 1.375rem;
+            font-weight: bold;
+            color: var(--slate-900);
             margin-bottom: 1.25rem;
-            letter-spacing: -0.3px;
         }
 
         .simple-steps {
@@ -122,46 +114,38 @@
         .simple-step {
             display: flex;
             align-items: flex-start;
-            gap: 1rem;
+            gap: 0.875rem;
         }
 
         .simple-step-check {
             flex-shrink: 0;
             width: 28px;
             height: 28px;
-            background: #004AAD;
-            color: #FFFFFF;
-            border-radius: 50%;
+            background: var(--accent);
+            color: #ffffff;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1rem;
-            font-weight: 700;
+            font-weight: bold;
         }
 
         .simple-step-text {
-            padding-top: 0.125rem;
+            padding-top: 0.25rem;
         }
 
         .simple-step-text h3 {
             font-size: 1rem;
-            font-weight: 500;
-            color: #0F1419;
-            margin-bottom: 0;
-        }
-
-        .simple-step-text p {
-            font-size: 0.875rem;
-            color: #6B7280;
-            margin-top: 0.125rem;
+            font-weight: 600;
+            color: var(--slate-900);
         }
 
         .steps-disclaimer {
             margin-top: 1.5rem;
             padding-top: 1.5rem;
-            border-top: 1px solid #E5E7EB;
-            font-size: 0.60rem;
-            color: #6B7280;
+            border-top: 1px solid var(--slate-300);
+            font-size: 0.6875rem;
+            color: var(--slate-500);
             line-height: 1.6;
         }
 
@@ -174,57 +158,39 @@
 
         /* Support Section */
         .support-section {
-            background: #F3F4F6;
-            padding: 2.5rem;
-            border-radius: 8px;
+            background: var(--slate-100);
+            border: 1px solid var(--slate-300);
+            padding: 2rem;
             text-align: center;
-            margin-top: 3rem;
         }
 
         .support-section h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: #0F1419;
-            margin-bottom: 0.75rem;
+            font-size: 1.125rem;
+            font-weight: bold;
+            color: var(--slate-900);
+            margin-bottom: 0.5rem;
         }
 
         .support-section p {
-            font-size: 1rem;
-            color: #4B5563;
-            margin-bottom: 1.5rem;
-        }
-
-        .support-button {
-            display: inline-block;
-            padding: 0.875rem 2rem;
-            background: #FFFFFF;
-            color: #0F1419;
-            border: 2px solid #0F1419;
-            border-radius: 6px;
-            font-weight: 600;
             font-size: 0.9375rem;
-            text-decoration: none;
-            transition: all 0.2s ease;
+            color: var(--slate-500);
         }
 
-        .support-button:hover {
-            background: #F9FAFB;
-            transform: translateY(-1px);
+        .support-section a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .support-section a:hover {
+            text-decoration: underline;
         }
 
         /* Mobile Responsive */
         @media (max-width: 968px) {
-            .header-links {
-                display: none;
-            }
-
-            .menu-toggle {
-                display: flex;
-            }
-
             .application-content {
                 grid-template-columns: 1fr;
-                gap: 2.5rem;
+                gap: 2rem;
             }
 
             .steps-side {
@@ -234,29 +200,14 @@
                 align-items: center;
             }
 
-            .steps-side h2 {
-                text-align: center;
-                width: 100%;
-            }
-
             .simple-steps {
-                display: flex;
-                flex-direction: column;
                 align-items: flex-start;
                 width: auto;
-                gap: 1rem;
                 margin: 0 auto;
             }
 
             .simple-step {
-                display: flex;
-                align-items: flex-start;
-                gap: 1rem;
-                width: 120px;
-            }
-
-            .simple-step-check {
-                flex-shrink: 0;
+                width: 100px;
             }
 
             .simple-step-text h3 {
@@ -269,15 +220,20 @@
             }
 
             .form-side {
-                margin-top: 1.5rem;
-                padding-top: 1.5rem;
-                border-top: 1px solid #E5E7EB;
+                margin-top: 1rem;
+                padding-top: 2rem;
+                border-top: 1px solid var(--slate-300);
             }
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 640px) {
             :root { 
-                --banner-height: 64px; 
+                --banner-height: 48px; 
+            }
+
+            .announcement-banner {
+                font-size: 0.75rem;
+                padding: 0 1rem;
             }
 
             .container {
@@ -285,7 +241,7 @@
             }
 
             h1 {
-                font-size: 2rem;
+                font-size: 1.75rem;
             }
 
             .subtitle {
@@ -293,36 +249,11 @@
             }
 
             .application-section {
-                padding: 1.75rem 1.25rem;
-            }
-
-            .steps-side h2 {
-                font-size: 1.375rem;
-                text-align: center;
-            }
-
-            .support-section {
-                padding: 2rem 1.25rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 1.25rem 1rem;
-            }
-
-            h1 {
-                font-size: 1.75rem;
-            }
-
-            .application-section {
-                padding: 1.5rem 1rem;
-                border-radius: 8px;
+                padding: 1.5rem;
             }
 
             .steps-side h2 {
                 font-size: 1.25rem;
-                text-align: center;
             }
 
             .simple-step-check {
@@ -335,21 +266,16 @@
                 font-size: 0.9375rem;
             }
 
-            .simple-step-text p {
-                font-size: 0.8125rem;
-            }
-
             .support-section {
-                padding: 1.5rem 1rem;
-                margin-top: 2rem;
+                padding: 1.5rem;
             }
 
             .support-section h3 {
-                font-size: 1.125rem;
+                font-size: 1rem;
             }
 
             .support-section p {
-                font-size: 0.9375rem;
+                font-size: 0.875rem;
             }
         }
     </style>
@@ -357,8 +283,7 @@
 <body>
 
     <div class="announcement-banner">
-        <strong>Get listed today</strong>
-        &nbsp;— 3-month grace period to implement
+        <strong>Get listed today</strong>&nbsp;— 3-month grace period to implement
     </div>
     
     <div class="container">
@@ -410,10 +335,8 @@
         <!-- Support Section -->
         <div class="support-section">
             <h3>Need Implementation Help?</h3>
-<p>
-  We're here to support you —
-  <a href="mailto:info@aquamark.io" style="color:#004AAD; text-decoration:none; font-weight:600;">info@aquamark.io</a>
-</p>        </div>
+            <p>We're here to support you — <a href="mailto:info@aquamark.io">info@aquamark.io</a></p>
+        </div>
     </div>
 
 </body>
