@@ -21,23 +21,18 @@
     <link rel="icon" type="image/png" href="2026-badge.png">
     <link rel="apple-touch-icon" href="2026-badge.png">
     
-    <!-- Professional serif + clean sans pairing -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
-    
     <style>
         :root {
-            --navy: #1a2744;
-            --navy-light: #2a3a5c;
-            --gold: #b8952f;
-            --gold-light: #d4af37;
-            --cream: #faf9f7;
-            --warm-white: #ffffff;
-            --text-primary: #1a2744;
-            --text-secondary: #4a5568;
-            --border: #e2e0dc;
-            --border-dark: #c9c5be;
+            --slate-900: #0f172a;
+            --slate-700: #334155;
+            --slate-500: #64748b;
+            --slate-300: #cbd5e1;
+            --slate-100: #f1f5f9;
+            --white: #ffffff;
+            --accent: #0369a1; /* Modern teal-blue */
+            --accent-light: #0ea5e9;
+            --gold: #ca8a04;
+            --gold-light: #eab308;
         }
 
         * {
@@ -47,50 +42,47 @@
         }
 
         body {
-            font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: var(--cream);
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--white);
             min-height: 100vh;
-            color: var(--text-primary);
-            line-height: 1.6;
+            color: var(--slate-900);
+            line-height: 1.5;
         }
 
-        /* Announcement - more formal, understated */
+        /* Announcement */
         .announcement {
-            background: var(--navy);
-            color: rgba(255, 255, 255, 0.9);
+            background: var(--accent);
+            color: rgba(255, 255, 255, 0.95);
             padding: 0.625rem 1.5rem;
             text-align: center;
             font-size: 0.8125rem;
             font-weight: 500;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.3px;
         }
 
         .announcement strong {
-            color: var(--gold-light);
-            font-weight: 600;
+            color: #ffffff;
         }
 
-        /* Hero - dignified, editorial */
+        /* Hero */
         .hero {
-            background: var(--warm-white);
-            border-bottom: 1px solid var(--border);
-            padding: 4rem 2rem 3.5rem;
+            background: var(--white);
+            border-bottom: 1px solid var(--slate-300);
+            padding: 3.5rem 2rem 3rem;
             text-align: center;
         }
 
         .hero-inner {
-            max-width: 720px;
+            max-width: 680px;
             margin: 0 auto;
         }
 
         .hero h1 {
-            font-family: 'Libre Baskerville', Georgia, serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--navy);
-            margin-bottom: 1rem;
+            font-size: 2.25rem;
+            font-weight: bold;
+            color: var(--slate-900);
+            margin-bottom: 0.875rem;
             letter-spacing: -0.5px;
-            line-height: 1.2;
         }
 
         .hero h1 sup {
@@ -99,21 +91,21 @@
         }
 
         .hero .tagline {
-            font-size: 1.125rem;
-            color: var(--text-secondary);
-            max-width: 540px;
+            font-size: 1.0625rem;
+            color: var(--slate-500);
+            max-width: 520px;
             margin: 0 auto;
         }
 
-        /* Search - cleaner, less "app-like" */
+        /* Search */
         .search-section {
-            background: var(--warm-white);
-            border-bottom: 1px solid var(--border);
-            padding: 1.5rem 2rem;
+            background: var(--slate-100);
+            border-bottom: 1px solid var(--slate-300);
+            padding: 1.25rem 2rem;
         }
 
         .search-inner {
-            max-width: 600px;
+            max-width: 560px;
             margin: 0 auto;
             display: flex;
             gap: 0;
@@ -121,181 +113,169 @@
 
         .search-input {
             flex: 1;
-            padding: 0.75rem 1rem;
+            padding: 0.6875rem 1rem;
             font-size: 0.9375rem;
             font-family: inherit;
-            border: 1px solid var(--border-dark);
+            border: 1px solid var(--slate-300);
             border-right: none;
-            background: var(--warm-white);
-            color: var(--text-primary);
+            background: var(--white);
+            color: var(--slate-900);
         }
 
         .search-input::placeholder {
-            color: #9ca3af;
+            color: var(--slate-500);
         }
 
         .search-input:focus {
             outline: none;
-            border-color: var(--navy);
+            border-color: var(--accent);
         }
 
         .search-btn {
-            padding: 0.75rem 1.5rem;
+            padding: 0.6875rem 1.25rem;
             font-size: 0.875rem;
-            font-weight: 600;
+            font-weight: bold;
             font-family: inherit;
-            background: var(--navy);
+            background: var(--accent);
             color: white;
-            border: 1px solid var(--navy);
+            border: 1px solid var(--accent);
             cursor: pointer;
-            transition: background 0.2s;
-            letter-spacing: 0.3px;
+            transition: background 0.15s;
         }
 
         .search-btn:hover {
-            background: var(--navy-light);
+            background: var(--slate-900);
+            border-color: var(--slate-900);
         }
 
-        /* Main directory area */
+        /* Directory */
         .directory {
-            max-width: 960px;
+            max-width: 920px;
             margin: 0 auto;
-            padding: 3rem 2rem 4rem;
+            padding: 2.5rem 2rem 3.5rem;
         }
 
-        /* Section styling - less "card", more "registry" */
+        /* Section */
         .section {
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
         }
 
         .section-header {
             display: flex;
             align-items: center;
-            gap: 1rem;
-            padding-bottom: 1rem;
-            border-bottom: 2px solid var(--navy);
-            margin-bottom: 1.5rem;
+            gap: 0.875rem;
+            padding-bottom: 0.875rem;
+            border-bottom: 2px solid var(--slate-900);
+            margin-bottom: 1rem;
         }
 
         .section-badge {
-            width: 56px;
-            height: 56px;
+            width: 48px;
+            height: 48px;
             object-fit: contain;
         }
 
         .section-title {
-            font-family: 'Libre Baskerville', Georgia, serif;
-            font-size: 1.375rem;
-            font-weight: 700;
-            color: var(--navy);
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: var(--slate-900);
         }
 
         .section-description {
-            color: var(--text-secondary);
+            color: var(--slate-500);
             font-size: 0.9375rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.25rem;
         }
 
-        /* Charter section - subtle gold accent */
+        /* Charter section - gold accent */
         .section.charter .section-header {
             border-bottom-color: var(--gold);
         }
 
-        .section.charter .section-title {
-            color: var(--gold);
-        }
-
-        /* Member list area */
+        /* Member list */
         .member-list {
-            background: var(--warm-white);
-            border: 1px solid var(--border);
-            min-height: 140px;
+            background: var(--slate-100);
+            border: 1px solid var(--slate-300);
+            min-height: 120px;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
         .empty-notice {
-            color: var(--text-secondary);
+            color: var(--slate-500);
             font-size: 0.9375rem;
             font-style: italic;
         }
 
-        /* When populated - grid of logos/names */
+        /* Member grid (for when populated) */
         .member-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
             gap: 1px;
-            background: var(--border);
+            background: var(--slate-300);
             width: 100%;
         }
 
         .member-item {
-            background: var(--warm-white);
-            padding: 1.5rem;
+            background: var(--white);
+            padding: 1.25rem;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 0.75rem;
-            min-height: 120px;
+            gap: 0.5rem;
+            min-height: 100px;
         }
 
         .member-item img {
-            max-width: 120px;
-            max-height: 48px;
+            max-width: 110px;
+            max-height: 44px;
             object-fit: contain;
         }
 
-        .member-item span {
-            font-size: 0.8125rem;
-            color: var(--text-secondary);
-            text-align: center;
-        }
-
-        /* About footer - institutional feel */
+        /* About */
         .about {
-            background: var(--warm-white);
-            border-top: 1px solid var(--border);
-            padding: 2.5rem 2rem;
+            background: var(--slate-100);
+            border-top: 1px solid var(--slate-300);
+            padding: 2rem 2rem;
         }
 
         .about-inner {
-            max-width: 720px;
+            max-width: 960px;
             margin: 0 auto;
             text-align: center;
         }
 
         .about-label {
             font-size: 0.6875rem;
-            font-weight: 600;
-            color: var(--text-secondary);
+            font-weight: bold;
+            color: var(--slate-500);
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.625rem;
         }
 
         .about p {
-            color: var(--text-secondary);
-            font-size: 0.875rem;
+            color: var(--slate-700);
+            font-size: 0.8125rem;
             line-height: 1.7;
         }
 
         .about a {
-            color: var(--navy);
+            color: var(--accent);
             text-decoration: underline;
-            text-underline-offset: 2px;
         }
 
         .about a:hover {
-            color: var(--navy-light);
+            color: var(--slate-900);
         }
 
         /* Footer */
         .footer {
-            background: var(--navy);
-            color: rgba(255, 255, 255, 0.6);
-            padding: 1.5rem 2rem;
+            background: var(--slate-900);
+            color: rgba(255, 255, 255, 0.5);
+            padding: 1.25rem 2rem;
             text-align: center;
             font-size: 0.8125rem;
         }
@@ -303,11 +283,11 @@
         /* Responsive */
         @media (max-width: 640px) {
             .hero {
-                padding: 3rem 1.5rem 2.5rem;
+                padding: 2.5rem 1.5rem 2rem;
             }
 
             .hero h1 {
-                font-size: 1.875rem;
+                font-size: 1.75rem;
             }
 
             .hero .tagline {
@@ -315,7 +295,7 @@
             }
 
             .search-section {
-                padding: 1.25rem 1.5rem;
+                padding: 1rem 1.5rem;
             }
 
             .search-inner {
@@ -323,7 +303,7 @@
             }
 
             .search-input {
-                border-right: 1px solid var(--border-dark);
+                border-right: 1px solid var(--slate-300);
                 border-bottom: none;
             }
 
@@ -332,12 +312,12 @@
             }
 
             .section-header {
-                gap: 0.75rem;
+                gap: 0.625rem;
             }
 
             .section-badge {
-                width: 44px;
-                height: 44px;
+                width: 40px;
+                height: 40px;
             }
 
             .section-title {
@@ -414,7 +394,7 @@
         <div class="about-inner">
             <div class="about-label">About This Program</div>
             <p>
-                The Secure Funder™ certification program is administered by Aquamark, an independent third party specializing in document security and data protection controls within the alternative finance industry. Certification is based on a technical assessment process evaluating how sensitive merchant information is handled within participating organizations, including the identification and remediation of potential vulnerabilities where data could be improperly accessed, shared, or exfiltrated. For inquiries regarding the certification program, contact <a href="mailto:certifications@aquamark.co">certifications@aquamark.co</a>.
+                The Secure Funder™ certification program is administered by Aquamark, an independent third party specializing in document security and data protection controls within the alternative finance industry. Certification is based on a technical assessment process evaluating how sensitive merchant information is handled within participating organizations, including the identification and remediation of potential vulnerabilities where data could be improperly accessed, shared, or exfiltrated. For inquiries regarding the certification program, contact <a href="mailto:info@aquamark.io">info@aquamark.io</a>.
             </p>
         </div>
     </div>
