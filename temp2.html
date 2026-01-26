@@ -1,0 +1,783 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Secure Funder™ Directory</title>
+  <meta name="description" content="Public directory of organizations participating in Secure Funder™. Listings publish at launch (April 1, 2026)." />
+
+  <!-- Social preview -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Secure Funder™ Directory" />
+  <meta property="og:description" content="Public directory of organizations participating in Secure Funder™. Listings publish at launch (April 1, 2026)." />
+  <meta property="og:url" content="https://securefunder.org/" />
+  <meta property="og:image" content="https://securefunder.org/hero.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <style>
+    :root{
+      --bg: #F6F7F8;
+      --paper: #FFFFFF;
+      --ink: #111827;
+      --muted: #4B5563;
+      --line: #D1D5DB;
+      --line2:#E5E7EB;
+      --accent:#1F2937;
+      --accent2:#6B7280;
+      --gold:#B0892E;
+      --ok:#0F766E;
+      --warn:#B45309;
+      --radius: 10px;
+      --shadow: 0 6px 18px rgba(17,24,39,.06);
+      --max: 1120px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--ink);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      line-height:1.45;
+    }
+    a{color:inherit; text-underline-offset: 3px}
+    a:hover{color:#0B1220}
+
+    /* Top notice (non-SaaS, "registry" vibe) */
+    .notice{
+      background:#111827;
+      color:#fff;
+      padding:10px 16px;
+      font-size:14px;
+      letter-spacing:.2px;
+    }
+    .notice-inner{
+      max-width:var(--max);
+      margin:0 auto;
+      display:flex;
+      gap:12px;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .notice b{font-weight:700}
+    .notice a{
+      color:#fff;
+      opacity:.9;
+    }
+    .notice a:hover{opacity:1}
+
+    /* Header */
+    header{
+      max-width:var(--max);
+      margin:22px auto 0;
+      padding:0 16px;
+    }
+    .masthead{
+      background:var(--paper);
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:22px 22px 18px;
+    }
+    .mast-top{
+      display:flex;
+      gap:18px;
+      align-items:flex-start;
+      justify-content:space-between;
+      flex-wrap:wrap;
+    }
+    .brand{
+      display:flex;
+      gap:14px;
+      align-items:flex-start;
+      min-width: 260px;
+    }
+    .seal{
+      width:52px;
+      height:52px;
+      border:1.5px solid var(--line);
+      border-radius: 999px;
+      display:grid;
+      place-items:center;
+      background:#FAFAFA;
+      position:relative;
+      flex:0 0 auto;
+    }
+    .seal:before{
+      content:"";
+      width:38px;height:38px;
+      border:1.5px dashed var(--gold);
+      border-radius:999px;
+      position:absolute;
+      inset:6px;
+      opacity:.9;
+    }
+    .seal span{
+      font-weight:800;
+      font-size:14px;
+      letter-spacing:.8px;
+      color:var(--gold);
+      position:relative;
+    }
+    h1{
+      margin:0;
+      font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
+      font-size:28px;
+      letter-spacing:.2px;
+      line-height:1.15;
+    }
+    .tm{font-size:.7em; vertical-align:super}
+    .subtitle{
+      margin:8px 0 0;
+      color:var(--muted);
+      max-width: 720px;
+      font-size:15.5px;
+    }
+
+    .header-actions{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+    .btn{
+      border:1px solid var(--line);
+      background:#fff;
+      padding:10px 12px;
+      border-radius:8px;
+      font-size:14px;
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      white-space:nowrap;
+    }
+    .btn:hover{border-color:#9CA3AF}
+    .btn.primary{
+      background:#111827;
+      color:#fff;
+      border-color:#111827;
+    }
+    .btn.primary:hover{background:#0B1220}
+
+    /* Filter bar (directory-style, not "app") */
+    .filters{
+      margin-top:16px;
+      padding-top:16px;
+      border-top:1px solid var(--line2);
+      display:flex;
+      gap:10px;
+      align-items:flex-end;
+      flex-wrap:wrap;
+    }
+    .field{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+      min-width: 240px;
+      flex: 1 1 260px;
+    }
+    .field label{
+      font-size:12px;
+      color:var(--accent2);
+      letter-spacing:.3px;
+      text-transform:uppercase;
+    }
+    input[type="search"], select{
+      width:100%;
+      border:1px solid var(--line);
+      border-radius:8px;
+      padding:10px 12px;
+      font-size:14.5px;
+      background:#fff;
+      outline:none;
+    }
+    input[type="search"]:focus, select:focus{
+      border-color:#9CA3AF;
+      box-shadow:0 0 0 3px rgba(17,24,39,.08);
+    }
+    .tiny{
+      font-size:12.5px;
+      color:var(--muted);
+      margin:8px 0 0;
+    }
+
+    main{
+      max-width:var(--max);
+      margin:18px auto 48px;
+      padding:0 16px;
+      display:flex;
+      flex-direction:column;
+      gap:16px;
+    }
+
+    /* Sections */
+    .section{
+      background:var(--paper);
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .section-head{
+      padding:18px 20px 14px;
+      border-bottom:1px solid var(--line2);
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      justify-content:space-between;
+      flex-wrap:wrap;
+    }
+    .section-title{
+      margin:0;
+      font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
+      font-size:18px;
+      letter-spacing:.2px;
+    }
+    .section-desc{
+      margin:6px 0 0;
+      color:var(--muted);
+      font-size:14px;
+      max-width: 760px;
+    }
+    .pill{
+      border:1px solid var(--line);
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:12px;
+      color:var(--muted);
+      background:#FAFAFA;
+      white-space:nowrap;
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+    }
+    .dot{
+      width:8px;height:8px;border-radius:999px;background:var(--accent2);
+      display:inline-block;
+    }
+    .dot.ok{background:var(--ok)}
+    .dot.warn{background:var(--warn)}
+    .dot.gold{background:var(--gold)}
+
+    .grid{
+      padding:18px 20px 22px;
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap:12px;
+    }
+
+    /* Listing tile: flatter, registry-like */
+    .card{
+      border:1px solid var(--line2);
+      border-radius:10px;
+      padding:12px;
+      background:#fff;
+      display:flex;
+      gap:12px;
+      align-items:center;
+      min-height:78px;
+    }
+    .logo{
+      width:54px;height:54px;
+      border-radius:10px;
+      border:1px solid var(--line2);
+      background:#F9FAFB;
+      display:grid;
+      place-items:center;
+      color:#6B7280;
+      font-size:12px;
+      letter-spacing:.3px;
+      flex:0 0 auto;
+      overflow:hidden;
+    }
+    .logo img{width:100%; height:100%; object-fit:contain; background:#fff}
+    .meta{
+      display:flex;
+      flex-direction:column;
+      gap:4px;
+      min-width:0;
+    }
+    .name{
+      font-weight:650;
+      font-size:14.5px;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      max-width: 100%;
+    }
+    .line{
+      font-size:12.5px;
+      color:var(--muted);
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      max-width: 100%;
+    }
+    .tags{
+      display:flex;
+      gap:6px;
+      flex-wrap:wrap;
+      margin-top:2px;
+    }
+    .tag{
+      font-size:11.5px;
+      padding:3px 8px;
+      border:1px solid var(--line2);
+      border-radius:999px;
+      color:#374151;
+      background:#FAFAFA;
+    }
+
+    /* Empty state */
+    .empty{
+      padding:18px 20px 22px;
+      color:var(--muted);
+      font-size:14px;
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+    }
+    .empty .icon{
+      width:36px;height:36px;border-radius:10px;
+      border:1px dashed var(--line);
+      display:grid;place-items:center;
+      color:var(--accent2);
+      flex:0 0 auto;
+      margin-top:2px;
+      background:#FAFAFA;
+    }
+
+    /* About / footnotes */
+    .about{
+      padding:18px 20px 22px;
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:18px;
+    }
+    .about h3{
+      margin:0 0 8px;
+      font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
+      font-size:16px;
+    }
+    .about p{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+    }
+    .facts{
+      border:1px solid var(--line2);
+      border-radius:10px;
+      padding:12px;
+      background:#FAFAFA;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      height:fit-content;
+    }
+    .fact{
+      font-size:13.5px;
+      color:#374151;
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+    }
+    .fact b{color:var(--ink)}
+    .fact .k{
+      width:12px;height:12px;border-radius:3px;background:#E5E7EB;margin-top:3px;flex:0 0 auto
+    }
+
+    footer{
+      max-width:var(--max);
+      margin:0 auto 34px;
+      padding:0 16px;
+      color:var(--muted);
+      font-size:12.5px;
+    }
+    footer .foot{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+      padding-top:12px;
+      border-top:1px solid var(--line);
+    }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .grid{grid-template-columns: repeat(2, minmax(0, 1fr));}
+      .about{grid-template-columns: 1fr; }
+    }
+    @media (max-width: 560px){
+      h1{font-size:24px}
+      .grid{grid-template-columns: 1fr;}
+      .masthead{padding:18px}
+      .section-head{padding:16px}
+      .grid,.empty,.about{padding:16px}
+    }
+
+    /* Print-friendly (directory vibe) */
+    @media print{
+      .notice, .header-actions, .filters{display:none !important;}
+      body{background:#fff}
+      .masthead,.section{box-shadow:none}
+      a{text-decoration:none}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="notice" role="status" aria-live="polite">
+    <div class="notice-inner">
+      <div>
+        <b>Public Directory Launch:</b> April 1, 2026
+        <span style="opacity:.75;">•</span>
+        Listings publish at launch. Logos and entries will appear in each section once live.
+      </div>
+      <div>
+        <a href="#about">About</a>
+        <span style="opacity:.55;">&nbsp;•&nbsp;</span>
+        <a href="mailto:info@aquamark.io">Contact</a>
+      </div>
+    </div>
+  </div>
+
+  <header>
+    <div class="masthead">
+      <div class="mast-top">
+        <div class="brand" aria-label="Secure Funder Directory">
+          <div class="seal" aria-hidden="true"><span>SF</span></div>
+          <div>
+            <h1>Secure Funder<span class="tm">™</span> Directory</h1>
+            <p class="subtitle">
+              A public registry of organizations participating in the Secure Funder<span class="tm">™</span> program.
+              This directory focuses specifically on practical safeguards that protect broker submissions and the documents associated with them.
+            </p>
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <a class="btn primary" href="https://securefunder.org/" target="_blank" rel="noopener noreferrer">
+            Program Overview
+          </a>
+          <a class="btn" href="mailto:info@aquamark.io">
+            Email: info@aquamark.io
+          </a>
+        </div>
+      </div>
+
+      <div class="filters" aria-label="Directory filters">
+        <div class="field">
+          <label for="q">Search directory</label>
+          <input id="q" type="search" placeholder="Search organizations…" autocomplete="off" />
+          <div class="tiny">Tip: search by organization name, location, or notes (e.g., “UK”, “ISO”, “Certified”).</div>
+        </div>
+        <div class="field" style="flex:0 0 260px; min-width:220px;">
+          <label for="status">Section</label>
+          <select id="status">
+            <option value="all">All sections</option>
+            <option value="charter">Certified Charter Members</option>
+            <option value="certified">Certified Members</option>
+            <option value="progress">Certification In Progress</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- SECTION: CHARTER -->
+    <section class="section" id="charter">
+      <div class="section-head">
+        <div>
+          <h2 class="section-title">Certified Charter Members</h2>
+          <p class="section-desc">
+            Organizations recognized as early participants at launch. Certified status indicates verification has been completed.
+          </p>
+        </div>
+        <div class="pill" aria-label="Section status">
+          <span class="dot gold" aria-hidden="true"></span>
+          Publishing begins April 1, 2026
+        </div>
+      </div>
+
+      <div class="grid" data-section="charter" id="grid-charter" aria-label="Charter listings">
+        <!-- JS will render listings here -->
+      </div>
+      <div class="empty" id="empty-charter" hidden>
+        <div class="icon" aria-hidden="true">⟡</div>
+        <div>
+          <div style="font-weight:650;color:var(--ink);margin-bottom:3px;">Listings will appear at launch.</div>
+          Charter member logos and names will publish on April 1, 2026.
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: CERTIFIED -->
+    <section class="section" id="certified">
+      <div class="section-head">
+        <div>
+          <h2 class="section-title">Certified Members</h2>
+          <p class="section-desc">
+            Verified organizations that have completed the Secure Funder<span class="tm">™</span> safeguards review.
+          </p>
+        </div>
+        <div class="pill" aria-label="Section status">
+          <span class="dot ok" aria-hidden="true"></span>
+          Publishing begins April 1, 2026
+        </div>
+      </div>
+
+      <div class="grid" data-section="certified" id="grid-certified" aria-label="Certified listings">
+        <!-- JS will render listings here -->
+      </div>
+      <div class="empty" id="empty-certified" hidden>
+        <div class="icon" aria-hidden="true">⟡</div>
+        <div>
+          <div style="font-weight:650;color:var(--ink);margin-bottom:3px;">Listings will appear at launch.</div>
+          Certified member logos and names will publish on April 1, 2026.
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: IN PROGRESS -->
+    <section class="section" id="progress">
+      <div class="section-head">
+        <div>
+          <h2 class="section-title">Certification In Progress</h2>
+          <p class="section-desc">
+            Organizations that have enrolled and are actively scheduling or completing verification. Status will update once verification is complete.
+          </p>
+        </div>
+        <div class="pill" aria-label="Section status">
+          <span class="dot warn" aria-hidden="true"></span>
+          Publishing begins April 1, 2026
+        </div>
+      </div>
+
+      <div class="grid" data-section="progress" id="grid-progress" aria-label="In progress listings">
+        <!-- JS will render listings here -->
+      </div>
+      <div class="empty" id="empty-progress" hidden>
+        <div class="icon" aria-hidden="true">⟡</div>
+        <div>
+          <div style="font-weight:650;color:var(--ink);margin-bottom:3px;">Listings will appear at launch.</div>
+          “In Progress” logos and names will publish on April 1, 2026.
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="section-head">
+        <div>
+          <h2 class="section-title">About This Directory</h2>
+          <p class="section-desc">
+            Secure Funder<span class="tm">™</span> is intentionally narrow in scope: it focuses on safeguards that reduce unauthorized access to submissions and the documents associated with them.
+            It is not positioned as a comprehensive security audit.
+          </p>
+        </div>
+        <div class="pill">
+          <span class="dot" aria-hidden="true"></span>
+          Public resource
+        </div>
+      </div>
+
+      <div class="about">
+        <div>
+          <h3>What the public should know</h3>
+          <p>
+            Directory placement reflects the organization’s participation and status in the program at the time of publication.
+            Verification is performed through practical review of safeguards. No program can prevent all misuse; the objective is to materially reduce exposure and deter common misuse through verifiable controls.
+          </p>
+          <div style="height:10px"></div>
+          <p>
+            Questions or corrections can be directed to <a href="mailto:info@aquamark.io">info@aquamark.io</a>.
+          </p>
+        </div>
+
+        <aside class="facts" aria-label="Key facts">
+          <div class="fact"><span class="k"></span><div><b>Launch date:</b> April 1, 2026</div></div>
+          <div class="fact"><span class="k"></span><div><b>Status labels:</b> Charter, Certified, In Progress</div></div>
+          <div class="fact"><span class="k"></span><div><b>Scope:</b> Document + submission safeguards</div></div>
+          <div class="fact"><span class="k"></span><div><b>Contact:</b> <a href="mailto:info@aquamark.io">info@aquamark.io</a></div></div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="foot">
+      <div>© <span id="y"></span> Secure Funder™. All rights reserved.</div>
+      <div>
+        <a href="#charter">Charter</a> ·
+        <a href="#certified">Certified</a> ·
+        <a href="#progress">In Progress</a> ·
+        <a href="#about">About</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ==============================
+    // DIRECTORY DATA (edit this later)
+    // ==============================
+    // Add logos by setting `logoUrl` (e.g., "logos/acme.png" or full URL).
+    // Pre-launch: leave arrays empty (defaults to empty-state).
+    const DIRECTORY = {
+      charter: [
+        // Example:
+        // { name: "Example Capital", location: "New York, NY", notes: "Charter member", logoUrl: "logos/example.png", tags: ["Charter", "Certified"] }
+      ],
+      certified: [
+        // { name: "Example Funding", location: "Chicago, IL", notes: "Certified", logoUrl: "", tags: ["Certified"] }
+      ],
+      progress: [
+        // { name: "Example Finance", location: "Austin, TX", notes: "Scheduling verification", logoUrl: "", tags: ["In Progress"] }
+      ]
+    };
+
+    const els = {
+      q: document.getElementById("q"),
+      status: document.getElementById("status"),
+      grids: {
+        charter: document.getElementById("grid-charter"),
+        certified: document.getElementById("grid-certified"),
+        progress: document.getElementById("grid-progress")
+      },
+      empties: {
+        charter: document.getElementById("empty-charter"),
+        certified: document.getElementById("empty-certified"),
+        progress: document.getElementById("empty-progress")
+      }
+    };
+
+    document.getElementById("y").textContent = new Date().getFullYear();
+
+    function normalize(s){
+      return (s || "").toString().toLowerCase().trim();
+    }
+
+    function matchesQuery(item, query){
+      if(!query) return true;
+      const hay = [
+        item.name, item.location, item.notes, (item.tags || []).join(" ")
+      ].map(normalize).join(" • ");
+      return hay.includes(query);
+    }
+
+    function buildCard(item){
+      const card = document.createElement("div");
+      card.className = "card";
+      card.setAttribute("role","listitem");
+
+      const logo = document.createElement("div");
+      logo.className = "logo";
+      if(item.logoUrl){
+        const img = document.createElement("img");
+        img.src = item.logoUrl;
+        img.alt = item.name + " logo";
+        logo.textContent = "";
+        logo.appendChild(img);
+      } else {
+        logo.textContent = "LOGO";
+        logo.setAttribute("aria-label","Logo placeholder");
+      }
+
+      const meta = document.createElement("div");
+      meta.className = "meta";
+
+      const name = document.createElement("div");
+      name.className = "name";
+      name.textContent = item.name || "Organization Name";
+
+      const line1 = document.createElement("div");
+      line1.className = "line";
+      line1.textContent = item.location ? item.location : "Location (optional)";
+
+      const line2 = document.createElement("div");
+      line2.className = "line";
+      line2.textContent = item.notes ? item.notes : "";
+
+      meta.appendChild(name);
+      meta.appendChild(line1);
+      if(item.notes) meta.appendChild(line2);
+
+      if(item.tags && item.tags.length){
+        const tags = document.createElement("div");
+        tags.className = "tags";
+        item.tags.slice(0,4).forEach(t=>{
+          const span = document.createElement("span");
+          span.className = "tag";
+          span.textContent = t;
+          tags.appendChild(span);
+        });
+        meta.appendChild(tags);
+      }
+
+      card.appendChild(logo);
+      card.appendChild(meta);
+      return card;
+    }
+
+    function render(){
+      const q = normalize(els.q.value);
+      const sectionFilter = els.status.value; // all | charter | certified | progress
+
+      const sections = ["charter","certified","progress"];
+      sections.forEach(sec=>{
+        // show/hide entire section based on filter (via section element)
+        const sectionEl = document.getElementById(sec);
+        if(sectionFilter !== "all" && sectionFilter !== sec){
+          sectionEl.style.display = "none";
+          return;
+        } else {
+          sectionEl.style.display = "";
+        }
+
+        const data = (DIRECTORY[sec] || []).filter(item => matchesQuery(item, q));
+        const grid = els.grids[sec];
+        const empty = els.empties[sec];
+
+        grid.innerHTML = "";
+        grid.setAttribute("role","list");
+
+        if(data.length === 0){
+          // If there are NO items at all (pre-launch), show empty-state.
+          // If there are items but search filtered them all out, show a search-based empty message.
+          const total = (DIRECTORY[sec] || []).length;
+
+          if(total === 0){
+            empty.hidden = false;
+            grid.style.display = "none";
+          } else {
+            empty.hidden = true;
+            grid.style.display = "grid";
+            const msg = document.createElement("div");
+            msg.className = "empty";
+            msg.innerHTML = `
+              <div class="icon" aria-hidden="true">⟡</div>
+              <div>
+                <div style="font-weight:650;color:var(--ink);margin-bottom:3px;">No matches in this section.</div>
+                Try a different search term or choose “All sections”.
+              </div>
+            `;
+            grid.style.display = "block";
+            grid.appendChild(msg);
+          }
+          return;
+        }
+
+        empty.hidden = true;
+        grid.style.display = "grid";
+        data.forEach(item => grid.appendChild(buildCard(item)));
+      });
+    }
+
+    els.q.addEventListener("input", render);
+    els.status.addEventListener("change", render);
+    render();
+  </script>
+</body>
+</html>
