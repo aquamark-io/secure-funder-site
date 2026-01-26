@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Funder™ Directory</title>
+    
+    <!-- Open Graph / Social Preview -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://securefunders.org/">
+    <meta property="og:title" content="Secure Funder™ Directory">
+    <meta property="og:description" content="Certified funders committed to protecting merchant information through verified technical safeguards.">
+    <meta property="og:image" content="https://securefunders.org/hero.png">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Secure Funder™ Directory">
+    <meta name="twitter:description" content="Certified funders committed to protecting merchant information through verified technical safeguards.">
+    <meta name="twitter:image" content="https://securefunders.org/hero.png">
+    
+    <link rel="icon" type="image/png" href="2026-badge.png">
+    <link rel="apple-touch-icon" href="2026-badge.png">
+    
+    <!-- Professional serif + clean sans pairing -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --navy: #1a2744;
+            --navy-light: #2a3a5c;
+            --gold: #b8952f;
+            --gold-light: #d4af37;
+            --cream: #faf9f7;
+            --warm-white: #ffffff;
+            --text-primary: #1a2744;
+            --text-secondary: #4a5568;
+            --border: #e2e0dc;
+            --border-dark: #c9c5be;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--cream);
+            min-height: 100vh;
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* Announcement - more formal, understated */
+        .announcement {
+            background: var(--navy);
+            color: rgba(255, 255, 255, 0.9);
+            padding: 0.625rem 1.5rem;
+            text-align: center;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .announcement strong {
+            color: var(--gold-light);
+            font-weight: 600;
+        }
+
+        /* Hero - dignified, editorial */
+        .hero {
+            background: var(--warm-white);
+            border-bottom: 1px solid var(--border);
+            padding: 4rem 2rem 3.5rem;
+            text-align: center;
+        }
+
+        .hero-inner {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-family: 'Libre Baskerville', Georgia, serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+        }
+
+        .hero h1 sup {
+            font-size: 0.5em;
+            vertical-align: super;
+        }
+
+        .hero .tagline {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 540px;
+            margin: 0 auto;
+        }
+
+        /* Search - cleaner, less "app-like" */
+        .search-section {
+            background: var(--warm-white);
+            border-bottom: 1px solid var(--border);
+            padding: 1.5rem 2rem;
+        }
+
+        .search-inner {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            gap: 0;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            font-size: 0.9375rem;
+            font-family: inherit;
+            border: 1px solid var(--border-dark);
+            border-right: none;
+            background: var(--warm-white);
+            color: var(--text-primary);
+        }
+
+        .search-input::placeholder {
+            color: #9ca3af;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--navy);
+        }
+
+        .search-btn {
+            padding: 0.75rem 1.5rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            font-family: inherit;
+            background: var(--navy);
+            color: white;
+            border: 1px solid var(--navy);
+            cursor: pointer;
+            transition: background 0.2s;
+            letter-spacing: 0.3px;
+        }
+
+        .search-btn:hover {
+            background: var(--navy-light);
+        }
+
+        /* Main directory area */
+        .directory {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 3rem 2rem 4rem;
+        }
+
+        /* Section styling - less "card", more "registry" */
+        .section {
+            margin-bottom: 3rem;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--navy);
+            margin-bottom: 1.5rem;
+        }
+
+        .section-badge {
+            width: 56px;
+            height: 56px;
+            object-fit: contain;
+        }
+
+        .section-title {
+            font-family: 'Libre Baskerville', Georgia, serif;
+            font-size: 1.375rem;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        .section-description {
+            color: var(--text-secondary);
+            font-size: 0.9375rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Charter section - subtle gold accent */
+        .section.charter .section-header {
+            border-bottom-color: var(--gold);
+        }
+
+        .section.charter .section-title {
+            color: var(--gold);
+        }
+
+        /* Member list area */
+        .member-list {
+            background: var(--warm-white);
+            border: 1px solid var(--border);
+            min-height: 140px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .empty-notice {
+            color: var(--text-secondary);
+            font-size: 0.9375rem;
+            font-style: italic;
+        }
+
+        /* When populated - grid of logos/names */
+        .member-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 1px;
+            background: var(--border);
+            width: 100%;
+        }
+
+        .member-item {
+            background: var(--warm-white);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            min-height: 120px;
+        }
+
+        .member-item img {
+            max-width: 120px;
+            max-height: 48px;
+            object-fit: contain;
+        }
+
+        .member-item span {
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+            text-align: center;
+        }
+
+        /* About footer - institutional feel */
+        .about {
+            background: var(--warm-white);
+            border-top: 1px solid var(--border);
+            padding: 2.5rem 2rem;
+        }
+
+        .about-inner {
+            max-width: 720px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-label {
+            font-size: 0.6875rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 0.75rem;
+        }
+
+        .about p {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            line-height: 1.7;
+        }
+
+        .about a {
+            color: var(--navy);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        .about a:hover {
+            color: var(--navy-light);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--navy);
+            color: rgba(255, 255, 255, 0.6);
+            padding: 1.5rem 2rem;
+            text-align: center;
+            font-size: 0.8125rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            .hero {
+                padding: 3rem 1.5rem 2.5rem;
+            }
+
+            .hero h1 {
+                font-size: 1.875rem;
+            }
+
+            .hero .tagline {
+                font-size: 1rem;
+            }
+
+            .search-section {
+                padding: 1.25rem 1.5rem;
+            }
+
+            .search-inner {
+                flex-direction: column;
+            }
+
+            .search-input {
+                border-right: 1px solid var(--border-dark);
+                border-bottom: none;
+            }
+
+            .directory {
+                padding: 2rem 1.5rem 3rem;
+            }
+
+            .section-header {
+                gap: 0.75rem;
+            }
+
+            .section-badge {
+                width: 44px;
+                height: 44px;
+            }
+
+            .section-title {
+                font-size: 1.125rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="announcement">
+        Directory opens <strong>April 1, 2026</strong>
+    </div>
+
+    <header class="hero">
+        <div class="hero-inner">
+            <h1>Secure Funder<sup>™</sup> Directory</h1>
+            <p class="tagline">
+                Organizations independently verified for safeguarding sensitive information in alternative finance.
+            </p>
+        </div>
+    </header>
+
+    <div class="search-section">
+        <div class="search-inner">
+            <input type="text" class="search-input" placeholder="Search certified members..." id="funderSearch">
+            <button class="search-btn">Search</button>
+        </div>
+    </div>
+
+    <main class="directory">
+        <!-- Charter Members -->
+        <section class="section charter">
+            <div class="section-header">
+                <img src="founding-badge.png" alt="Charter Member" class="section-badge">
+                <h2 class="section-title">Charter Members</h2>
+            </div>
+            <p class="section-description">
+                Founding program members who helped establish the certification standard.
+            </p>
+            <div class="member-list">
+                <span class="empty-notice">Directory opens April 2026</span>
+            </div>
+        </section>
+
+        <!-- Certified Members -->
+        <section class="section">
+            <div class="section-header">
+                <img src="2026-badge.png" alt="2026 Certified" class="section-badge">
+                <h2 class="section-title">Certified Members</h2>
+            </div>
+            <p class="section-description">
+                Organizations that have completed verification and earned certification.
+            </p>
+            <div class="member-list">
+                <span class="empty-notice">Directory opens April 2026</span>
+            </div>
+        </section>
+
+        <!-- In Progress -->
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">Certification In Progress</h2>
+            </div>
+            <p class="section-description">
+                Organizations actively completing the verification process.
+            </p>
+            <div class="member-list">
+                <span class="empty-notice">Directory opens April 2026</span>
+            </div>
+        </section>
+    </main>
+
+    <div class="about">
+        <div class="about-inner">
+            <div class="about-label">About This Program</div>
+            <p>
+                The Secure Funder™ certification program is administered by Aquamark, an independent third party specializing in document security and data protection controls within the alternative finance industry. Certification is based on a technical assessment process evaluating how sensitive merchant information is handled within participating organizations, including the identification and remediation of potential vulnerabilities where data could be improperly accessed, shared, or exfiltrated. For inquiries regarding the certification program, contact <a href="mailto:certifications@aquamark.co">certifications@aquamark.co</a>.
+            </p>
+        </div>
+    </div>
+
+    <footer class="footer">
+        © 2026 Secure Funder™ Certification Program
+    </footer>
+</body>
+</html>
