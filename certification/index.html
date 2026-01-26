@@ -6,10 +6,19 @@
     <title>Certification Requirements | Secure Funder</title>
     <link rel="icon" href="/2026-badge.png" type="image/png">
     <link rel="apple-touch-icon" href="/2026-badge.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --slate-900: #0f172a;
+            --slate-700: #334155;
+            --slate-500: #64748b;
+            --slate-300: #cbd5e1;
+            --slate-100: #f1f5f9;
+            --white: #ffffff;
+            --accent: #0369a1;
+            --accent-light: #0ea5e9;
+            --gold: #ca8a04;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -21,271 +30,136 @@
             max-width: 100%;
             overflow-x: hidden;
         }
-        
-        /* Prevent any child from causing horizontal scroll */
-        body > * {
-            max-width: 100vw;
-        }
-
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #FAFBFC;
-            color: #0F1419;
-            line-height: 1.6;
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--white);
+            color: var(--slate-900);
+            line-height: 1.5;
+            padding-top: 40px;
+        }
+
+        /* Fixed Banner */
+        .fixed-banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 9999;
+            background: var(--accent);
+            color: rgba(255, 255, 255, 0.95);
+            padding: 0.625rem 1.5rem;
+            text-align: center;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+        }
+
+        .fixed-banner strong {
+            color: #ffffff;
         }
 
         /* Hero */
         .hero {
-            background: white;
-            padding: 3rem 2rem 2rem 2rem;
-            margin-top: 0;
+            background: var(--white);
+            border-bottom: 1px solid var(--slate-300);
+            padding: 3.5rem 2rem 3rem;
             text-align: center;
-            width: 100%;
-            box-sizing: border-box;
-            overflow-x: hidden;
+        }
+
+        .hero-inner {
+            max-width: 960px;
+            margin: 0 auto;
         }
 
         .hero h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: #0F1419;
+            font-size: 2.25rem;
+            font-weight: bold;
+            color: var(--slate-900);
+            margin-bottom: 0.875rem;
+            letter-spacing: -0.5px;
         }
 
         .hero p {
-            font-size: 1.25rem;
-            color: #6B7280;
-            max-width: 700px;
-            margin: 0 auto;
+            font-size: 1.0625rem;
+            color: var(--slate-500);
         }
 
         /* Section styling */
         .section {
-            padding: 5rem 2rem;
-            width: 100%;
-            box-sizing: border-box;
-            overflow-x: hidden;
-        }
-
-        .section.section-intro {
             padding: 2.5rem 2rem;
+            width: 100%;
         }
 
         .section-alt {
-            background: #F9FAFB;
-        }
-
-        .section-white {
-            background: white;
-        }
-
-        .section-title {
-            font-size: 2.25rem;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 0.75rem;
-            color: #0F1419;
-        }
-
-        .section-subtitle {
-            font-size: 1.125rem;
-            color: #6B7280;
-            text-align: center;
-            margin-bottom: 4rem;
+            background: var(--slate-100);
+            border-top: 1px solid var(--slate-300);
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 800px;
             width: 100%;
             margin: 0 auto;
-            padding: 0;
-            box-sizing: border-box;
         }
-
-        /* Intro Block */
-        .intro-block {
-            text-align: center;
-        }
-
-        .intro-points {
-            display: flex;
-            justify-content: center;
-            gap: 1.75rem;
-            flex-wrap: wrap;
-        }
-
-        .intro-point {
-            display: flex;
-            align-items: center;
-            gap: 0.625rem;
-            font-size: 0.9375rem;
-            color: #0F1419;
-            font-weight: 500;
-        }
-
-        /* Mobile: stack points and keep checkmarks aligned */
-        @media (max-width: 640px) {
-            .intro-points {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 0.85rem;
-            }
-            .intro-point {
-                width: 100%;
-                justify-content: flex-start;
-            }
-            .intro-point svg {
-                flex-shrink: 0;
-            }
-        }
-
-        .intro-icon {
-            width: 36px;
-            height: 36px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .intro-icon.yellow { background: #FEF9C3; }
-        .intro-icon.blue { background: #DBEAFE; }
-        .intro-icon.green { background: #D1FAE5; }
-        .intro-icon.pink { background: #F3E8FF; }
-        .intro-icon.orange { background: #FFEDD5; } /* soft orange */
-
-        /* Pricing Transparency Box */
-        .pricing-box {
-            margin-top: 2rem;
-            background: white;
-            border: 1px solid #E5E7EB;
-            border-radius: 12px;
-            padding: 1.25rem 2rem;
-            display: flex;
-            align-items: center;
-            gap: 1.75rem;
-            max-width: 680px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .pricing-amount {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #0F1419;
-            white-space: nowrap;
-            flex-shrink: 0;
-            line-height: 1;
-            display: flex;
-            align-items: baseline;
-        }
-
-        .pricing-amount span {
-            font-size: 1rem;
-            font-weight: 500;
-            color: #6B7280;
-            margin-left: 0.125rem;
-        }
-
-        .pricing-details {
-            border-left: 1px solid #E5E7EB;
-            padding-left: 1.75rem;
-        }
-
-        .pricing-details p {
-            font-size: 0.84rem;
-            color: #4B5563;
-            line-height: 1.55;
-            margin: 0;
-        }
-
-        @media (max-width: 600px) {
-            .pricing-box {
-                flex-direction: column;
-                text-align: center;
-                gap: 1rem;
-                padding: 1.25rem 1.5rem;
-            }
-
-            .pricing-details {
-                border-left: none;
-                border-top: 1px solid #E5E7EB;
-                padding-left: 0;
-                padding-top: 1rem;
-            }
-        }
-
-/* Support banner (kept small + clean) */
-.support-note {
-    margin-top: 0.75rem;
-    background: #F3F4F6;
-    border: 1px solid #E5E7EB;
-    border-radius: 10px;
-    padding: 0.55rem 0.85rem;
-    font-size: 0.75rem;
-    color: #374151;
-    line-height: 1.35;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.35rem;
-    text-align: center;
-    flex-wrap: wrap;
-}
-
-.support-note strong {
-    color: #111827;
-    font-weight: 700;
-}
 
         /* Timeline for requirements */
         .timeline {
             max-width: 800px;
             width: 100%;
             margin: 0 auto;
-            overflow: hidden;
         }
 
         .timeline-item {
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
+            padding-bottom: 2.5rem;
+            border-bottom: 1px solid var(--slate-300);
         }
 
-        .timeline-content {
-            flex: 1;
-            padding-top: 0.5rem;
-            min-width: 0;
-            overflow: hidden;
+        .timeline-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
         }
 
         .timeline-content h3 {
-            font-size: 1.375rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-            color: #0F1419;
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: var(--slate-900);
         }
 
         .timeline-content > p {
-            color: #6B7280;
-            margin-bottom: 1.5rem;
+            color: var(--slate-500);
+            margin-bottom: 1.25rem;
+            font-size: 0.9375rem;
         }
 
-        /* Requirement cards within timeline */
+        .terms-link {
+            font-size: 0.75rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .terms-link a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .terms-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* Requirement cards */
         .req-cards {
             display: flex;
             flex-direction: column;
             gap: 1rem;
-            width: 100%;
-            overflow: hidden;
         }
 
         .req-card {
-            background: white;
-            border: 1px solid #E5E7EB;
-            border-radius: 10px;
+            background: var(--slate-100);
+            border: 1px solid var(--slate-300);
             padding: 1.25rem 1.5rem;
-            min-width: 0;
-            word-break: break-word;
         }
 
         .req-card-header {
@@ -298,88 +172,70 @@
         .req-icon {
             width: 32px;
             height: 32px;
-            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.875rem;
             flex-shrink: 0;
         }
 
-        .req-icon.check { background: #D1FAE5; color: #059669; }
-        .req-icon.shield { background: #DBEAFE; color: #2563EB; }
-        .req-icon.lock { background: #FEF9C3; color: #CA8A04; }
-        .req-icon.users { background: #FCE7F3; color: #DB2777; }
+        .req-icon.check { color: #059669; }
+        .req-icon.shield { color: var(--accent); }
+        .req-icon.lock { color: var(--gold); }
+        .req-icon.users { color: #db2777; }
 
         .req-card h4 {
             font-size: 1rem;
-            font-weight: 600;
-            color: #0F1419;
+            font-weight: bold;
+            color: var(--slate-900);
         }
 
         .req-card p {
             font-size: 0.9375rem;
-            color: #6B7280;
-            line-height: 1.7;
+            color: var(--slate-500);
+            line-height: 1.6;
         }
 
         /* Conditional box */
         .conditional-box {
-            background: #F9FAFB;
-            border: 1px solid #E5E7EB;
-            border-radius: 10px;
+            background: var(--slate-100);
+            border: 1px solid var(--slate-300);
             padding: 1.25rem 1.5rem;
-            width: 100%;
-            box-sizing: border-box;
-            overflow: hidden;
         }
 
         .conditional-label {
             font-size: 0.875rem;
             font-weight: 600;
-            color: #374151;
+            color: var(--slate-700);
             margin-bottom: 1rem;
         }
 
         .conditional-label span {
-            background: #E5E7EB;
+            background: var(--slate-300);
             padding: 0.125rem 0.5rem;
-            border-radius: 4px;
-            color: #1F2937;
+            color: var(--slate-900);
         }
 
         .options-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 1rem;
-            width: 100%;
-            overflow: hidden;
         }
 
         .option-card {
-            background: white;
-            border: 1px solid #E5E7EB;
-            border-radius: 8px;
+            background: var(--white);
+            border: 1px solid var(--slate-300);
             padding: 1rem 1.25rem;
             font-size: 0.875rem;
-            color: #6B7280;
+            color: var(--slate-500);
             line-height: 1.6;
-            min-width: 0;
-            word-break: break-word;
         }
 
         .option-card strong {
             display: block;
             font-size: 0.875rem;
-            font-weight: 600;
-            color: #0F1419;
+            font-weight: bold;
+            color: var(--slate-900);
             margin-bottom: 0.25rem;
-        }
-
-        .option-card p {
-            font-size: 0.875rem;
-            color: #6B7280;
-            line-height: 1.6;
         }
 
         .option-list {
@@ -390,7 +246,7 @@
 
         .option-list li {
             font-size: 0.875rem;
-            color: #6B7280;
+            color: var(--slate-500);
             line-height: 1.6;
             padding: 0.125rem 0;
             position: relative;
@@ -400,135 +256,78 @@
             content: "•";
             position: absolute;
             left: -1rem;
-            color: #9CA3AF;
+            color: var(--slate-500);
         }
 
         /* Note box */
         .note-box {
-            background: #EFF6FF;
-            border: 1px solid #BFDBFE;
-            border-radius: 10px;
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
             padding: 1rem 1.25rem;
             font-size: 0.9375rem;
-            color: #1E40AF;
-            word-break: break-word;
+            color: #1e40af;
         }
 
         .note-box strong {
-            font-weight: 600;
-        }
-
-        /* Info section */
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .info-card {
-            background: white;
-            border: 1px solid #E5E7EB;
-            border-radius: 12px;
-            padding: 2rem;
-        }
-
-        .info-card h3 {
-            font-size: 1.125rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-            color: #0F1419;
-        }
-
-        .info-card p {
-            font-size: 0.9375rem;
-            color: #6B7280;
-            line-height: 1.7;
-        }
-
-        .info-card .highlight {
-            color: #0F1419;
-            font-weight: 500;
-        }
-
-        /* CTA Section */
-        .cta-section {
-            background: white;
-            padding: 5rem 2rem;
-            text-align: center;
-        }
-
-        .cta-section h2 {
-            font-size: 2.25rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: #0F1419;
-        }
-
-        .cta-section p {
-            font-size: 1.125rem;
-            color: #6B7280;
-            margin-bottom: 2rem;
-        }
-
-        .cta-btn {
-            display: inline-block;
-            background: #0F1419;
-            color: white;
-            text-decoration: none;
-            padding: 1rem 2.5rem;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 1.0625rem;
-            transition: all 0.2s ease;
-        }
-
-        .cta-btn:hover {
-            background: #1a1f26;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(15, 20, 25, 0.2);
-        }
-
-        /* Simple list in cards */
-        .simple-list {
-            margin-top: 0.75rem;
-        }
-
-        .simple-list li {
-            font-size: 0.9375rem;
-            color: #6B7280;
-            padding: 0.25rem 0;
-            padding-left: 1.25rem;
-            position: relative;
-            list-style: none;
-        }
-
-        .simple-list li::before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: #9CA3AF;
+            font-weight: bold;
         }
 
         /* Gateway link */
         .gateway-link {
             display: inline-block;
             margin-top: 1rem;
-            color: #2563EB;
+            color: var(--accent);
             text-decoration: none;
             font-size: 0.875rem;
-            font-weight: 600;
+            font-weight: bold;
         }
 
         .gateway-link:hover {
             text-decoration: underline;
         }
 
-        /* Terms Content */
+        /* Terms Section */
+        .terms-header {
+            font-size: 1rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 1.25rem;
+            color: var(--slate-900);
+        }
+
+        .terms-buttons {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            display: flex;
+            gap: 0.75rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .terms-buttons a {
+            display: inline-block;
+            background: var(--white);
+            color: var(--slate-700);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            font-weight: 600;
+            font-size: 0.8125rem;
+            border: 1px solid var(--slate-300);
+            transition: background 0.2s ease;
+        }
+
+        .terms-buttons a:hover {
+            background: var(--slate-100);
+        }
+
+        .terms-content {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
         .terms-content p {
             font-size: 0.8125rem;
-            color: #4B5563;
+            color: var(--slate-700);
             line-height: 1.75;
             margin-bottom: 1rem;
         }
@@ -538,185 +337,94 @@
         }
 
         .terms-content a {
-            color: #2563EB;
+            color: var(--accent);
             text-decoration: underline;
         }
 
         .terms-content a:hover {
-            color: #1D4ED8;
+            color: var(--slate-900);
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .intro-points {
-                flex-direction: column;
-                align-items: center;
-                gap: 1rem;
-            }
-
             .options-row {
                 grid-template-columns: 1fr;
             }
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 640px) {
+            body {
+                padding-top: 48px;
+            }
+
+            .fixed-banner {
+                padding: 0.5rem 1rem;
+                font-size: 0.75rem;
+            }
+
             .hero {
-                padding: 3rem 1.5rem;
+                padding: 2.5rem 1.5rem 2rem;
             }
 
             .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero p {
-                font-size: 1.0625rem;
-            }
-
-            .section {
-                padding: 3rem 1.5rem;
-            }
-
-            .section-title {
                 font-size: 1.75rem;
             }
 
-            .section-subtitle {
-                margin-bottom: 2.5rem;
+            .hero p {
+                font-size: 1rem;
             }
 
-            .timeline-item {
-                flex-direction: column;
-                gap: 1rem;
+            .section {
+                padding: 2rem 1.5rem;
             }
 
-            .timeline-content {
-                padding-top: 0;
+            .timeline-content h3 {
+                font-size: 1.125rem;
             }
 
-            .top-nav-content {
-                padding: 0.75rem 1.5rem;
+            .terms-buttons {
+                flex-wrap: nowrap;
+                gap: 0.5rem;
             }
 
-            .top-nav img {
-                height: 60px;
+            .terms-buttons a {
+                padding: 0.375rem 0.625rem;
+                font-size: 0.6875rem;
+            }
+
+            .terms-content {
+                max-width: 92vw;
+            }
+
+            .terms-content p {
+                font-size: 0.75rem;
             }
         }
-    
-        /* Mobile polish */
-        :root {
-            /* Helps iOS avoid text auto-zoom + keeps sizes consistent */
-            -webkit-text-size-adjust: 100%;
-            text-size-adjust: 100%;
-        }
-
-        /* Better default tap targets and prevent horizontal scroll from long words */
-        a, button { -webkit-tap-highlight-color: rgba(0,0,0,0); }
-        .req-card, .conditional-box, .option-card { overflow-wrap: anywhere; }
-
-        /* Fluid typography */
-        .hero h1 { font-size: clamp(1.85rem, 5vw, 3rem); }
-        .hero p { font-size: clamp(1.05rem, 3.2vw, 1.25rem); }
-
-        .section-title { font-size: clamp(1.6rem, 4.2vw, 2.25rem); }
-        .section-subtitle { font-size: clamp(1rem, 2.8vw, 1.125rem); }
-
-        /* Slightly tighter card shadows/borders on small screens */
-        .req-card, .info-card, .conditional-box, .option-card {
-            border-radius: 12px;
-        }
-
-    
-        /* Fixed support banner */
-        .fixed-support-banner {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 9999;
-            background: #D1FAE5;
-            border-bottom: 1px solid #A7F3D0;
-        }
-        .fixed-support-banner .banner-inner {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0.65rem 1.25rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.6rem;
-            font-size: 0.75rem;
-            color: #065F46;
-            text-align: center;
-        }
-        .fixed-support-banner strong {
-            font-weight: 600;
-        }
-        body {
-            padding-top: 56px;
-        }
-        /* White background under the fixed banner */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 120px;
-            background: white;
-            z-index: -1;
-        }
-        @media (max-width: 640px) {
-            body { padding-top: 64px; }
-            .fixed-support-banner .banner-inner {
-                padding: 0.7rem 1rem;
-                flex-wrap: wrap;
-                gap: 0.35rem;
-            }
-        }
-    
-    
-
-/* Mobile-only: widen Terms container slightly and reduce size a bit */
-@media (max-width: 640px) {
-  #termsText{
-    max-width: 92vw !important;
-    font-size: 0.75rem !important;
-  }
-  .terms-buttons {
-    flex-wrap: nowrap !important;
-    gap: 0.5rem !important;
-  }
-  .terms-buttons a,
-  .terms-buttons button {
-    padding: 0.375rem 0.625rem !important;
-    font-size: 0.6875rem !important;
-  }
-}
-</style>
+    </style>
 </head>
 <body>
 
-    <!-- Fixed Support Banner -->
-    <div class="fixed-support-banner" role="status" aria-live="polite">
-        <div class="banner-inner">
-            <strong>All funders welcome.</strong>
-            <span>No safeguards yet? No problem — we'll help you get there.</span>
-        </div>
-    </div>
-    <div class="hero">
-        <h1>Certification Requirements</h1>
-        <p>Anyone can say they’re secure. Not everyone can prove it.</p>
+    <!-- Fixed Banner -->
+    <div class="fixed-banner">
+        <strong>All funders welcome.</strong> No safeguards yet? No problem — we'll help you get there.
     </div>
 
+    <header class="hero">
+        <div class="hero-inner">
+            <h1>Certification Requirements</h1>
+            <p>Anyone can say they're secure. Not everyone can prove it.</p>
+        </div>
+    </header>
+
     <!-- Requirements -->
-    <section class="section section-white" style="padding-top: 2rem; padding-bottom: 2rem;">
+    <section class="section">
         <div class="container">
             <div class="timeline">
                 <!-- 1. Email Security -->
                 <div class="timeline-item">
-<div class="timeline-content">
-                        <p style="font-size: 0.75rem; margin-bottom: 1.25rem;">
-                            <a href="#terms" style="color: #2563EB; text-decoration: none;">i. Program Terms</a>
+                    <div class="timeline-content">
+                        <p class="terms-link">
+                            <a href="#terms">i. Program Terms</a>
                         </p>
                         <h3>Email Security</h3>
                         <p>Prevent access to unprotected submissions.</p>
@@ -725,7 +433,7 @@
                             <div class="req-card">
                                 <div class="req-card-header">
                                     <div class="req-icon lock">
-                                        <svg width="16" height="16" fill="none" stroke="#CA8A04" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                                             <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
                                             <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
                                         </svg>
@@ -753,9 +461,7 @@
                                             <li>No changes to broker submission inbox or workflow</li>
                                             <li>Attachments are routed through gateway for watermarking and returned, ensuring staff work exclusively from protected documents</li>
                                         </ul>
-                                        <br>
                                         <a href="https://www.aquamark.io/funder-gateway" target="_blank" class="gateway-link">Access the Gateway →</a>
-
                                     </div>
                                 </div>
                             </div>
@@ -765,7 +471,7 @@
 
                 <!-- 2. CRM / Portal Security -->
                 <div class="timeline-item">
-<div class="timeline-content">
+                    <div class="timeline-content">
                         <h3>CRM / Portal Security</h3>
                         <p>Ensuring your systems limit access to what's needed.</p>
                         
@@ -773,7 +479,7 @@
                             <div class="req-card">
                                 <div class="req-card-header">
                                     <div class="req-icon lock">
-                                        <svg width="16" height="16" fill="none" stroke="#CA8A04" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                                             <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
                                             <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
                                         </svg>
@@ -786,7 +492,7 @@
                             <div class="req-card">
                                 <div class="req-card-header">
                                     <div class="req-icon shield">
-                                        <svg width="16" height="16" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                                             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
                                         </svg>
                                     </div>
@@ -798,7 +504,7 @@
                             <div class="req-card">
                                 <div class="req-card-header">
                                     <div class="req-icon users">
-                                        <svg width="16" height="16" fill="none" stroke="#DB2777" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                                             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                                             <circle cx="12" cy="7" r="4"></circle>
                                         </svg>
@@ -818,8 +524,7 @@
                                     </div>
                                     <div class="option-card">
                                         <strong>Option B:</strong> Files are watermarked before entering the system, or at time of download
-                                    <br>
-                                        <p style="margin-top: 0.75rem; font-size: 0.8125rem; color: #6B7280; font-style: italic;">Any document watermarking solution is acceptable.</p>
+                                        <p style="margin-top: 0.75rem; font-size: 0.8125rem; color: var(--slate-500); font-style: italic;">Any document watermarking solution is acceptable.</p>
                                         <a href="https://www.aquamark.io/funder-watermarking" target="_blank" class="gateway-link">Set up watermarking →</a>
                                     </div>
                                 </div>
@@ -834,7 +539,7 @@
 
                 <!-- 3. Outsourcing -->
                 <div class="timeline-item">
-<div class="timeline-content">
+                    <div class="timeline-content">
                         <h3>Outsourcing</h3>
                         <p>If you use BPO teams (on-shore or off-shore) with access to merchant documents.</p>
                         
@@ -849,9 +554,7 @@
                                     </div>
                                     <div class="option-card">
                                         <strong>Option B:</strong> Documents are watermarked before third-party access
-                                    
-                                        <br>
-                                        <p style="margin-top: 0.75rem; font-size: 0.8125rem; color: #6B7280; font-style: italic;">Any document watermarking solution is acceptable.</p>
+                                        <p style="margin-top: 0.75rem; font-size: 0.8125rem; color: var(--slate-500); font-style: italic;">Any document watermarking solution is acceptable.</p>
                                         <a href="https://www.aquamark.io/funder-watermarking" target="_blank" class="gateway-link">Set up watermarking →</a>
                                     </div>
                                 </div>
@@ -866,7 +569,7 @@
 
                 <!-- 4. Personnel Controls -->
                 <div class="timeline-item">
-<div class="timeline-content">
+                    <div class="timeline-content">
                         <h3>Personnel Controls</h3>
                         <p>Standard policies to protect data at the human level.</p>
                         
@@ -878,7 +581,7 @@
                             <div class="req-card">
                                 <div class="req-card-header">
                                     <div class="req-icon check">
-                                        <svg width="16" height="16" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                                             <polyline points="20 6 9 17 4 12"></polyline>
                                         </svg>
                                     </div>
@@ -890,7 +593,7 @@
                             <div class="req-card">
                                 <div class="req-card-header">
                                     <div class="req-icon lock">
-                                        <svg width="16" height="16" fill="none" stroke="#CA8A04" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                                             <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"></path>
                                         </svg>
                                     </div>
@@ -902,7 +605,7 @@
                             <div class="req-card">
                                 <div class="req-card-header">
                                     <div class="req-icon shield">
-                                        <svg width="16" height="16" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                                             <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
                                             <line x1="8" y1="21" x2="16" y2="21"></line>
                                             <line x1="12" y1="17" x2="12" y2="21"></line>
@@ -916,7 +619,7 @@
                             <div class="req-card">
                                 <div class="req-card-header">
                                     <div class="req-icon users">
-                                        <svg width="16" height="16" fill="none" stroke="#DB2777" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                                             <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
                                             <polyline points="16 17 21 12 16 7"></polyline>
                                             <line x1="21" y1="12" x2="9" y2="12"></line>
@@ -933,39 +636,29 @@
         </div>
     </section>
 
-
     <!-- Terms and Conditions -->
     <section id="terms" class="section section-alt">
         <div class="container" style="max-width: 1000px;">
-            <h3 style="font-size: 1rem; font-weight: 700; text-align: center; margin-bottom: 1.25rem; color: #0F1419;">Terms and Conditions</h3>
+            <h3 class="terms-header">Terms and Conditions</h3>
             
-           <div class="terms-buttons" style="text-align: center; margin-bottom: 1.5rem; display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;">
-  <a href="https://securefunder.org/sign-up/" style="display: inline-block; background: #F9FAFB; color: #374151; text-decoration: none; padding: 0.5rem 1rem; border-radius: 6px; font-weight: 500; font-size: 0.8125rem; border: 1px solid #9CA3AF; transition: background 0.2s ease;">
-    Get Listed
-  </a>
+            <div class="terms-buttons">
+                <a href="https://securefunder.org/sign-up/">Get Listed</a>
+                <a href="https://www.aquamark.io/contact/">Ask a Question</a>
+                <a href="https://www.aquamark.io/" target="_blank" rel="noopener noreferrer">About Aquamark</a>
+            </div>
 
-  <a href="https://www.aquamark.io/contact/" style="display: inline-block; background: #F9FAFB; color: #374151; text-decoration: none; padding: 0.5rem 1rem; border-radius: 6px; font-weight: 500; font-size: 0.8125rem; border: 1px solid #9CA3AF; transition: background 0.2s ease;">
-    Ask a Question
-  </a>
-
-  <a href="https://www.aquamark.io/" target="_blank" rel="noopener noreferrer" style="display: inline-block; background: #F9FAFB; color: #374151; text-decoration: none; padding: 0.5rem 1rem; border-radius: 6px; font-weight: 500; font-size: 0.8125rem; border: 1px solid #9CA3AF; transition: background 0.2s ease;">
-    About Aquamark
-  </a>
-</div>
-
-            
             <div class="terms-content">
                 <p>The Secure Funder™ certification program exists to establish an independent source for identifying trusted funders. Certification is based entirely on verifiable safeguards, applied consistently across all participants. Equivalent controls may be accepted when they meet the intent of the requirements and can be verified during the review. Participant's enrollment represents a voluntary commitment to elevated standards of data security and responsible business practices within the alternative finance industry.</p>
 
-<p>The <a href="https://securefunder.org/" target="_blank" rel="noopener noreferrer">Secure Funder™ Directory</a> opens April 1, 2026. Organizations enrolled prior will be recognized as CHARTER MEMBERS. Upon enrollment, your organization will immediately appear in the Directory with an "In Progress" status, signaling your commitment to operating responsibly. Once verification is complete, your listing will be upgraded to "Certified" status. Safeguards do not need to be in place at the time of enrollment, but must be implemented before your scheduled verification. Verification must be completed within ninety (90) days of enrollment; listings will be removed if verification is not scheduled within this period.</p>
+                <p>The <a href="https://securefunder.org/" target="_blank" rel="noopener noreferrer">Secure Funder™ Directory</a> opens April 1, 2026. Organizations enrolled prior will be recognized as CHARTER MEMBERS. Upon enrollment, your organization will immediately appear in the Directory with an "In Progress" status, signaling your commitment to operating responsibly. Once verification is complete, your listing will be upgraded to "Certified" status. Safeguards do not need to be in place at the time of enrollment, but must be implemented before your scheduled verification. Verification must be completed within ninety (90) days of enrollment; listings will be removed if verification is not scheduled within this period.</p>
 
                 <p>Verification is conducted via live screen share and expected to take 15–30 minutes. Sessions are not recorded and may be paused or rescheduled at any time. All information reviewed during verification is treated as confidential. Secure Funder™ is designed for funders of all sizes and focuses narrowly on protecting submissions and the documents associated with them.</p>
 
                 <p>While no program can prevent theft entirely, the certification is designed to materially reduce exposure and deter misuse through practical, verifiable safeguards.</p>
 
-                <p>The annual program fee is $2,499 USD. No payment is due until verification is scheduled. Monthly payment arrangements are available upon request; contact <a href="mailto:info@aquamark.io" style="color: #2563EB;">info@aquamark.io</a> for details. The fee covers verification, program administration, and ongoing Directory placement, including initiatives to expand community-level visibility and promote Directory availability through local business resource platforms. New digital badges are issued annually with updated designs.</p>
+                <p>The annual program fee is $2,499 USD. No payment is due until verification is scheduled. Monthly payment arrangements are available upon request; contact <a href="mailto:info@aquamark.io">info@aquamark.io</a> for details. The fee covers verification, program administration, and ongoing Directory placement, including initiatives to expand community-level visibility and promote Directory availability through local business resource platforms. New digital badges are issued annually with updated designs.</p>
 
-                <p>By enrolling, you agree to notify Secure Funder™ promptly of any material changes that may affect your certification status. Certification may be revoked if required safeguards are no longer maintained or if information provided during verification is found to be materially inaccurate.</p>
+                <p>By enrolling, you agree to notify Secure Funder™ promptly of any material changes that may affect your certification status. Certification may be revoked if required safeguards are no longer maintained or if information provided during verification is found to be inaccurate.</p>
             </div>
         </div>
     </section>
