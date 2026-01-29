@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Verification Works | Secure Funder</title>
+    <link rel="icon" href="/2026-badge.png" type="image/png">
+    <link rel="apple-touch-icon" href="/2026-badge.png">
+    <style>
+        :root {
+            --slate-900: #0f172a;
+            --slate-700: #334155;
+            --slate-500: #64748b;
+            --slate-300: #cbd5e1;
+            --slate-100: #f1f5f9;
+            --white: #ffffff;
+            --accent: #0369a1;
+            --accent-light: #0ea5e9;
+            --gold: #ca8a04;
+            --green: #059669;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--white);
+            color: var(--slate-900);
+            line-height: 1.5;
+        }
+
+        /* Hero */
+        .hero {
+            background: var(--white);
+            border-bottom: 1px solid var(--slate-300);
+            padding: 3.5rem 2rem 3rem;
+            text-align: center;
+        }
+
+        .hero-inner {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.25rem;
+            font-weight: bold;
+            color: var(--slate-900);
+            margin-bottom: 0.875rem;
+            letter-spacing: -0.5px;
+        }
+
+        .hero p {
+            font-size: 1.0625rem;
+            color: var(--slate-500);
+        }
+
+        /* Section styling */
+        .section {
+            padding: 2.5rem 2rem;
+            width: 100%;
+        }
+
+        .section-alt {
+            background: var(--slate-100);
+            border-top: 1px solid var(--slate-300);
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        /* Key principles box */
+        .principles-box {
+            background: #f0fdf4;
+            border: 2px solid #86efac;
+            padding: 1.5rem 2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .principles-box h2 {
+            font-size: 1.125rem;
+            font-weight: bold;
+            color: var(--green);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .principles-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .principles-list li {
+            font-size: 0.9375rem;
+            color: var(--slate-700);
+            padding: 0.5rem 0;
+            padding-left: 1.75rem;
+            position: relative;
+        }
+
+        .principles-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--green);
+            font-weight: bold;
+        }
+
+        /* Format section */
+        .format-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .format-card {
+            background: var(--white);
+            border: 1px solid var(--slate-300);
+            padding: 1.25rem;
+            text-align: center;
+        }
+
+        .format-icon {
+            width: 32px;
+            height: 32px;
+            margin: 0 auto 0.75rem;
+            color: var(--accent);
+        }
+
+        .format-card h4 {
+            font-size: 0.9375rem;
+            font-weight: bold;
+            color: var(--slate-900);
+            margin-bottom: 0.25rem;
+        }
+
+        .format-card p {
+            font-size: 0.8125rem;
+            color: var(--slate-500);
+        }
+
+        /* Note box */
+        .note-box {
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            padding: 1rem 1.25rem;
+            font-size: 0.9375rem;
+            color: #1e40af;
+        }
+
+        .note-box strong {
+            font-weight: bold;
+        }
+
+        /* Timeline for examples */
+        .timeline {
+            max-width: 800px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            margin-bottom: 2.5rem;
+            padding-bottom: 2.5rem;
+            border-bottom: 1px solid var(--slate-300);
+        }
+
+        .timeline-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .timeline-content h3 {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: var(--slate-900);
+        }
+
+        .timeline-content > p {
+            color: var(--slate-500);
+            margin-bottom: 1.25rem;
+            font-size: 0.9375rem;
+        }
+
+        /* Example cards */
+        .example-card {
+            background: var(--slate-100);
+            border: 1px solid var(--slate-300);
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .example-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .example-card-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .example-icon {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: var(--accent);
+        }
+
+        .example-card h4 {
+            font-size: 1rem;
+            font-weight: bold;
+            color: var(--slate-900);
+        }
+
+        .example-card p {
+            font-size: 0.9375rem;
+            color: var(--slate-500);
+            line-height: 1.6;
+        }
+
+        .what-we-ask {
+            background: var(--white);
+            border: 1px solid var(--slate-300);
+            padding: 1rem 1.25rem;
+            margin-top: 1rem;
+            font-size: 0.875rem;
+        }
+
+        .what-we-ask strong {
+            color: var(--slate-900);
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .what-we-ask span {
+            color: var(--slate-500);
+        }
+
+        /* Section header */
+        .section-header {
+            font-size: 1rem;
+            font-weight: bold;
+            color: var(--slate-500);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .format-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero {
+                padding: 2.5rem 1.5rem 2rem;
+            }
+
+            .hero h1 {
+                font-size: 1.75rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section {
+                padding: 2rem 1.5rem;
+            }
+
+            .timeline-content h3 {
+                font-size: 1.125rem;
+            }
+
+            .principles-box {
+                padding: 1.25rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <div class="hero-inner">
+            <h1>How Verification Works</h1>
+            <p>A 15–30 minute screen share where you demonstrate the safeguards you've implemented.</p>
+        </div>
+    </header>
+
+    <!-- Session Format & Approach -->
+    <section class="section">
+        <div class="container">
+            
+            <!-- Format Grid -->
+            <div class="format-grid">
+                <div class="format-card">
+                    <div class="format-icon">
+                        <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                            <line x1="8" y1="21" x2="16" y2="21"></line>
+                            <line x1="12" y1="17" x2="12" y2="21"></line>
+                        </svg>
+                    </div>
+                    <h4>Live Screen Share</h4>
+                    <p>Via Zoom, Google Meet, or your preference</p>
+                </div>
+                <div class="format-card">
+                    <div class="format-icon">
+                        <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                    </div>
+                    <h4>15–30 Minutes</h4>
+                    <p>Most sessions complete in under 20 minutes</p>
+                </div>
+                <div class="format-card">
+                    <div class="format-icon">
+                        <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        </svg>
+                    </div>
+                    <h4>Not Recorded</h4>
+                    <p>All information reviewed is confidential</p>
+                </div>
+            </div>
+
+            <!-- Note box -->
+            <div class="note-box" style="margin-bottom: 2.5rem;">
+                <strong>Working together:</strong> If something doesn't meet requirements, we'll explain what's needed and give you time to implement it. Verification can be paused or rescheduled at any time.
+            </div>
+
+            <!-- Key Principles -->
+            <div class="principles-box">
+                <h2>
+                    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    </svg>
+                    Our Approach
+                </h2>
+                <ul class="principles-list">
+                    <li>You share your screen — we never access your systems directly</li>
+                    <li>You only show what's necessary to verify each control</li>
+                    <li>Pause or reschedule anytime</li>
+                    <li>Sessions are not recorded</li>
+                    <li>Our goal is to work with you to achieve certification</li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Examples -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header">What to Expect</div>
+            
+            <div class="timeline">
+                <!-- MFA -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Multi-Factor Authentication</h3>
+                        <p>Verifying MFA is enabled for email and CRM access.</p>
+                        
+                        <div class="example-card">
+                            <div class="example-card-header">
+                                <div class="example-icon">
+                                    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                                    </svg>
+                                </div>
+                                <h4>What We Ask</h4>
+                            </div>
+                            <p>Log out of your email and CRM, then log back in while sharing your screen. We'll confirm that MFA is prompted during the login process.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Email Submissions -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Email Submission Handling</h3>
+                        <p>Verifying how broker submissions via email are processed.</p>
+                        
+                        <div class="example-card">
+                            <div class="example-card-header">
+                                <div class="example-icon">
+                                    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                        <polyline points="22,6 12,13 2,6"></polyline>
+                                    </svg>
+                                </div>
+                                <h4>If Automated Processing</h4>
+                            </div>
+                            <p>We'll send a test submission in real time to confirm it gets added to your CRM without human intervention.</p>
+                        </div>
+
+                        <div class="example-card">
+                            <div class="example-card-header">
+                                <div class="example-icon">
+                                    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                        <polyline points="14 2 14 8 20 8"></polyline>
+                                    </svg>
+                                </div>
+                                <h4>If No Email Submissions</h4>
+                            </div>
+                            <p>We'll ask to see a copy of your ISO guidelines or broker documentation confirming that portal and/or API are the only accepted submission methods.</p>
+                        </div>
+
+                        <div class="example-card">
+                            <div class="example-card-header">
+                                <div class="example-icon">
+                                    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                    </svg>
+                                </div>
+                                <h4>If Using Email Watermarking</h4>
+                            </div>
+                            <p>We'll verify it in real time by sending a test submission and confirming attachments are watermarked upon arrival.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Role-Based Access -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Role-Based Access Controls</h3>
+                        <p>Verifying that sensitive information is only visible to those with business necessity.</p>
+                        
+                        <div class="example-card">
+                            <div class="example-card-header">
+                                <div class="example-icon">
+                                    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="9" cy="7" r="4"></circle>
+                                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                    </svg>
+                                </div>
+                                <h4>What We Ask</h4>
+                            </div>
+                            <p>As an admin, log in as various users in different roles to demonstrate that sensitive information (SSN, bank details, etc.) is only visible to those who need it for their job function.</p>
+                            <div class="what-we-ask">
+                                <strong>For documents:</strong>
+                                <span>Show that files are either view-only, or if downloadable, they're already watermarked or get watermarked at time of download.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- User Verification -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>User Verification</h3>
+                        <p>Confirming that system access is limited to appropriate personnel.</p>
+                        
+                        <div class="example-card">
+                            <div class="example-card-header">
+                                <div class="example-icon">
+                                    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="12" cy="7" r="4"></circle>
+                                    </svg>
+                                </div>
+                                <h4>What We Ask</h4>
+                            </div>
+                            <p>A quick scroll through your user list. We're confirming no external entities have access—particularly brokerages, software platforms, or other lending companies—even if under common ownership.</p>
+                            <div class="what-we-ask">
+                                <strong>If related entities do have access:</strong>
+                                <span>We'll discuss the business rationale and determine if it meets the intent of the requirement.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
