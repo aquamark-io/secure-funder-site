@@ -36,6 +36,29 @@
             background: var(--white);
             color: var(--slate-900);
             line-height: 1.5;
+            padding-top: 40px;
+        }
+
+        /* Fixed Banner */
+        .fixed-banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 9999;
+            background: var(--slate-100);
+            color: var(--slate-700);
+            padding: 0.625rem 1.5rem;
+            text-align: center;
+            font-size: 0.8125rem;
+            font-weight: 400;
+            letter-spacing: 0.2px;
+            border-bottom: 1px solid var(--slate-300);
+        }
+
+        .fixed-banner strong {
+            font-weight: 600;
+            color: var(--slate-900);
         }
 
         /* Hero */
@@ -114,7 +137,7 @@
         }
 
         .terms-link {
-            font-size: 0.8rem;
+            font-size: 0.625rem;
             margin-bottom: 1rem;
             display: block;
         }
@@ -374,6 +397,11 @@
     </style>
 </head>
 <body>
+
+    <!-- Fixed Banner -->
+    <div class="fixed-banner">
+        Participants enrolled before the <strong>April 1 launch</strong> will be recognized as Charter Members.
+    </div>
 
     <header class="hero">
         <div class="hero-inner">
