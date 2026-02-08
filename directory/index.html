@@ -13,8 +13,8 @@
   <meta name="twitter:card" content="summary_large_image" />
 
   <!-- Favicons -->
-  <link rel="icon" type="image/png" sizes="32x32" href="badge-2026.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="badge-2026.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../badge-2026.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../badge-2026.png" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -40,12 +40,13 @@
       --border: #DAE3EC;
       --border-light: #EAF0F5;
 
-      --font: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-display: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-body: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: var(--font);
+      font-family: var(--font-body);
       color: var(--text-primary);
       background: var(--white);
       line-height: 1.6;
@@ -108,6 +109,7 @@
       padding: 72px 0 48px;
     }
     .page-hero h1 {
+      font-family: var(--font-display);
       font-size: 2.3rem;
       letter-spacing: -0.02em;
       margin-bottom: 14px;
@@ -131,6 +133,7 @@
       margin-bottom: 8px;
     }
     .section-title {
+      font-family: var(--font-display);
       font-size: 1.6rem;
       margin-bottom: 10px;
     }
@@ -188,7 +191,7 @@
   <nav class="main-nav">
     <div class="container nav-inner">
       <a href="/" class="logo">
-        <img src="badge-2026.png" alt="Secure Funder badge">
+        <img src="../badge-2026.png" alt="Secure Funder badge">
         Secure Funder™
       </a>
     </div>
