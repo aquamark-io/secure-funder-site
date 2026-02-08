@@ -11,9 +11,13 @@
   <meta property="og:description" content="The public record of organizations independently verified for responsible handling of sensitive merchant information." />
   <meta property="og:image" content="https://securefunder.org/badge-2026.png" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Secure Funder™ Directory" />
+  <meta name="twitter:description" content="The public record of organizations independently verified for responsible handling of sensitive merchant information." />
+  <meta name="twitter:image" content="https://securefunder.org/badge-2026.png" />
 
   <!-- Favicons -->
   <link rel="icon" type="image/png" sizes="32x32" href="../badge-2026.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../badge-2026.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="../badge-2026.png" />
 
   <!-- Fonts -->
@@ -26,13 +30,16 @@
       --utility-height: 34px;
       --navy: #0F2137;
       --navy-mid: #1A3455;
+      --slate: #3D5A80;
       --steel: #6B8BAD;
+      --sky: #93B5D0;
       --ice: #C5D9E8;
       --pearl: #EFF4F8;
       --cloud: #F6F9FC;
       --white: #FFFFFF;
       --blue-accent: #4FA3D1;
       --blue-accent-soft: #7BBCE1;
+      --blue-accent-pale: #E7F2FA;
 
       --text-primary: #0F2137;
       --text-secondary: #4A6480;
@@ -44,43 +51,43 @@
       --font-body: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
       font-family: var(--font-body);
       color: var(--text-primary);
       background: var(--white);
       line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* Utility Bar */
+    /* ===== UTILITY BAR ===== */
     .utility-bar {
       background: var(--navy);
       color: var(--ice);
       font-size: 0.8rem;
       height: var(--utility-height);
-      display: flex;
-      align-items: center;
-      justify-content: center;
       letter-spacing: 0.06em;
       position: sticky;
       top: 0;
       z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
     }
+    .utility-text { width: 100%; text-align: center; pointer-events: none; }
 
-    /* Nav */
+    /* ===== NAV ===== */
     .main-nav {
       background: var(--white);
       border-bottom: 1px solid var(--border);
       position: sticky;
       top: var(--utility-height);
       z-index: 150;
+      box-shadow: 0 1px 4px rgba(15,33,55,0.04);
     }
-    .container {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-    .nav-inner {
+    .main-nav .container {
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -89,183 +96,576 @@
     .logo {
       display: flex;
       align-items: center;
-      gap: 12px;
       text-decoration: none;
       color: var(--navy);
-      font-weight: 700;
-      font-size: 1.25rem;
     }
-    .logo img {
+    .logo-mark {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-text {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+    .logo-tm { font-size: 0.55em; vertical-align: super; font-weight: 400; margin-left: 1px; }
+    .logo-badge {
       width: 38px;
       height: 38px;
       border-radius: 999px;
-      border: 1px solid rgba(15,33,55,0.1);
+      box-shadow: 0 2px 10px rgba(15,33,55,0.12);
+      border: 1px solid rgba(15,33,55,0.10);
+      flex: 0 0 auto;
     }
 
-    /* Page Hero */
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-primary);
+      font-size: 0.88rem;
+      font-weight: 500;
+      padding: 8px 14px;
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+    .nav-links a:hover { background: var(--pearl); }
+    .nav-links .btn-member {
+      background: var(--navy);
+      color: var(--white);
+      font-weight: 600;
+      margin-left: 6px;
+    }
+    .nav-links .btn-member:hover { background: var(--navy-mid); }
+
+    .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+    .mobile-toggle span { display: block; width: 22px; height: 2px; background: var(--navy); margin: 5px 0; }
+
+    /* ===== CONTAINERS ===== */
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+    .container-narrow { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+
+    /* ===== BUTTONS ===== */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--blue-accent);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 13px 26px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: all 0.25s;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-primary:hover {
+      background: var(--blue-accent-soft);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(15,33,55,0.14);
+    }
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--navy);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 13px 26px;
+      border-radius: 6px;
+      text-decoration: none;
+      border: 1.5px solid var(--border);
+      transition: all 0.25s;
+    }
+    .btn-ghost:hover { border-color: var(--navy); background: var(--pearl); }
+
+    /* ===== PAGE HERO ===== */
     .page-hero {
       background: var(--cloud);
       border-bottom: 1px solid var(--border-light);
-      padding: 72px 0 48px;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      top: -210px;
+      right: -120px;
+      width: 640px;
+      height: 640px;
+      background: radial-gradient(circle, rgba(79,163,209,0.09) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .page-hero-inner {
+      padding: 72px 0 44px;
+    }
+    .hero-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blue-accent);
+      margin-bottom: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .hero-label::before {
+      content: '';
+      width: 22px;
+      height: 1.5px;
+      background: var(--blue-accent);
     }
     .page-hero h1 {
       font-family: var(--font-display);
-      font-size: 2.3rem;
+      font-size: 2.35rem;
+      font-weight: 700;
+      line-height: 1.15;
       letter-spacing: -0.02em;
-      margin-bottom: 14px;
+      color: var(--navy);
+      margin-bottom: 16px;
+      max-width: 860px;
     }
     .page-hero p {
-      font-size: 1.02rem;
+      font-size: 1.03rem;
+      line-height: 1.75;
       color: var(--text-secondary);
-      max-width: 760px;
+      max-width: 860px;
+      margin-bottom: 22px;
+    }
+    .hero-meta {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 10px;
     }
 
-    /* Sections */
-    section {
-      padding: 64px 0;
-    }
+
+    /* ===== DIRECTORY SECTIONS ===== */
+    main { background: var(--white); }
+    section { padding: 64px 0; }
     .section-label {
       font-size: 0.7rem;
-      letter-spacing: 0.14em;
       font-weight: 700;
-      color: var(--blue-accent);
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      margin-bottom: 8px;
+      color: var(--blue-accent);
+      margin-bottom: 10px;
     }
     .section-title {
       font-family: var(--font-display);
       font-size: 1.6rem;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
       margin-bottom: 10px;
+      color: var(--navy);
     }
     .section-subtitle {
+      font-size: 0.98rem;
       color: var(--text-secondary);
+      line-height: 1.7;
       max-width: 760px;
     }
+    .section-header { margin-bottom: 22px; }
 
     .registry-card {
-      margin-top: 24px;
       background: var(--cloud);
       border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 24px;
+      padding: 22px;
+      overflow: hidden;
     }
 
+    /* Empty state */
     .empty-state {
-      min-height: 120px;
       display: flex;
       align-items: center;
       justify-content: center;
-      border: 1px dashed rgba(15,33,55,0.2);
+      min-height: 120px;
       border-radius: 10px;
+      border: 1px dashed rgba(15,33,55,0.18);
+      background: rgba(255,255,255,0.65);
       color: var(--text-muted);
       text-align: center;
-      padding: 20px;
+      padding: 18px;
+    }
+    .empty-state p {
+      max-width: 560px;
+      font-size: 0.92rem;
+      line-height: 1.65;
+    }
+    .empty-state .date {
+      color: var(--text-secondary);
+      font-weight: 600;
     }
 
-    /* Footer */
+    /* Future-ready logo grid (kept but not shown until you populate) */
+    .logo-grid {
+      display: none; /* turn to grid when ready */
+      grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .logo-tile {
+      background: var(--white);
+      padding: 18px;
+      min-height: 92px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .logo-tile img {
+      max-width: 120px;
+      max-height: 44px;
+      object-fit: contain;
+      filter: grayscale(0%);
+    }
+
+    /* Divider section styling */
+    .section-alt {
+      background: var(--cloud);
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    /* ===== CTA (lightweight) ===== */
+    .mini-cta {
+      padding: 0 0 78px;
+      background: var(--white);
+    }
+    .mini-cta-box {
+      background: var(--navy);
+      border-radius: 14px;
+      padding: 34px 28px;
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.10);
+    }
+    .mini-cta-box::before {
+      content: '';
+      position: absolute;
+      inset: -120px -160px auto auto;
+      width: 520px;
+      height: 520px;
+      background: radial-gradient(circle, rgba(123,188,225,0.18) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .mini-cta-inner {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 18px;
+      align-items: center;
+    }
+    .mini-cta h3 {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin-bottom: 6px;
+    }
+    .mini-cta p {
+      color: var(--ice);
+      font-size: 0.93rem;
+      line-height: 1.7;
+      max-width: 720px;
+    }
+    .mini-cta-actions {
+      display: flex;
+      gap: 10px;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+    }
+    .btn-ghost-white {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 13px 18px;
+      border-radius: 6px;
+      text-decoration: none;
+      border: 1.5px solid rgba(255,255,255,0.28);
+      transition: all 0.25s;
+    }
+    .btn-ghost-white:hover { border-color: rgba(255,255,255,0.55); background: rgba(255,255,255,0.06); }
+
+    /* ===== FOOTER ===== */
     footer {
       background: var(--navy);
-      color: var(--steel);
-      padding: 48px 0 24px;
+      color: var(--ice);
+      padding: 56px 0 0;
     }
-    footer a {
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 44px;
+      padding-bottom: 44px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .footer-brand p {
+      font-size: 0.86rem;
+      color: var(--steel);
+      line-height: 1.7;
+      margin-top: 14px;
+      max-width: 320px;
+    }
+    .footer-col h4 {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+    .footer-col a {
+      display: block;
       color: var(--steel);
       text-decoration: none;
+      font-size: 0.86rem;
+      margin-bottom: 9px;
+      transition: color 0.2s;
     }
-    footer a:hover {
-      color: var(--blue-accent-soft);
+    .footer-col a:hover { color: var(--blue-accent-soft); }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 0;
+      font-size: 0.76rem;
+      color: var(--steel);
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .footer-bottom a { color: var(--steel); text-decoration: none; }
+    .footer-bottom a:hover { color: var(--blue-accent-soft); }
+
+    .footer-badge {
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.14);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+      opacity: 0.95;
     }
 
+    /* ===== RESPONSIVE ===== */
     @media (max-width: 900px) {
-      .page-hero h1 { font-size: 1.8rem; }
+      .nav-links { display: none; }
+      .mobile-toggle { display: block; }
+
+      .page-hero-inner { padding: 56px 0 36px; }
+      .page-hero h1 { font-size: 1.85rem; }
+      section { padding: 54px 0; }
+
+      .mini-cta-inner { grid-template-columns: 1fr; }
+      .mini-cta-actions { justify-content: flex-start; }
+      .footer-grid { grid-template-columns: 1fr; gap: 28px; }
     }
   </style>
 </head>
 
 <body>
-
+  <!-- Utility Bar -->
   <div class="utility-bar">
-    Directory opening April 1, 2026
+    <span class="utility-text">Directory opening April 1, 2026</span>
   </div>
 
+  <!-- Navigation -->
   <nav class="main-nav">
-    <div class="container nav-inner">
-      <a href="/" class="logo">
-        <img src="../badge-2026.png" alt="Secure Funder badge">
-        Secure Funder™
+    <div class="container">
+      <a href="/" class="logo" aria-label="Secure Funder Home">
+        <div class="logo-mark">
+          <img class="logo-badge" src="../badge-2026.png" alt="Secure Funder 2026 Certified Member badge" />
+          <div class="logo-text">Secure Funder<span class="logo-tm">™</span></div>
+        </div>
       </a>
+      <ul class="nav-links">
+        <li><a href="/#about">About</a></li>
+        <li><a href="/directory">Directory</a></li>
+        <li><a href="/#leadership">Leadership</a></li>
+        <li><a href="/#press">Press</a></li>
+        <li><a href="/#membership">Membership</a></li>
+        <li><a href="/#membership" class="btn-member">Apply Now</a></li>
+      </ul>
+      <button class="mobile-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
 
+  <!-- Page Hero -->
   <header class="page-hero">
     <div class="container">
-      <h1>Secure Funder™ Directory</h1>
-      <p>
-        The public record of organizations independently verified for responsible handling
-        of sensitive merchant information.
-      </p>
+      <div class="page-hero-inner">
+        <div class="hero-label">Member Directory</div>
+        <h1>Secure Funder™ Directory</h1>
+        <p>
+          Alternative Finance's public record of organizations independently verified for responsible handling of sensitive merchant information.
+        </p>
+      </div>
     </div>
   </header>
 
-  <main>
-
+    <!-- Charter Members -->
     <section>
       <div class="container">
-        <div class="section-label">Founding Cohort</div>
-        <h2 class="section-title">Charter Members</h2>
-        <p class="section-subtitle">
-          Organizations that enrolled during the program’s founding period and helped
-          establish the initial certification standard.
-        </p>
+        <div class="section-header">
+          <div class="section-label">Founding Cohort</div>
+          <h2 class="section-title">Charter Members</h2>
+          <p class="section-subtitle">
+            Organizations that enrolled during the program’s founding period and helped establish the initial certification standard.
+            Charter recognition reflects early participation — certification status is listed separately.
+          </p>
+        </div>
 
         <div class="registry-card">
+          <!-- When ready, replace empty-state with your logo grid -->
           <div class="empty-state">
-            Listings will appear when the directory opens April 1, 2026.
+            <p>
+              Listings will appear when the directory opens on <span class="date">April 1, 2026</span>.
+            </p>
+          </div>
+
+          <!-- FUTURE (enable when populated) -->
+          <div class="logo-grid" aria-label="Charter Members logo grid">
+            <!--
+            <div class="logo-tile"><img src="logos/example.svg" alt="Example Funding"></div>
+            -->
           </div>
         </div>
       </div>
     </section>
 
-    <section style="background: var(--cloud); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);">
+    <!-- Certified Members -->
+    <section class="section-alt">
       <div class="container">
-        <div class="section-label">Verified</div>
-        <h2 class="section-title">Certified Members</h2>
-        <p class="section-subtitle">
-          Organizations that have completed independent verification and meet Secure Funder requirements.
-        </p>
+        <div class="section-header">
+          <div class="section-label">Verified</div>
+          <h2 class="section-title">Certified Members</h2>
+          <p class="section-subtitle">
+            Organizations that have completed verification and meet Secure Funder certification requirements.
+          </p>
+        </div>
 
         <div class="registry-card">
           <div class="empty-state">
-            Listings will appear when the directory opens April 1, 2026.
+            <p>
+              Listings will appear when the directory opens on <span class="date">April 1, 2026</span>.
+            </p>
+          </div>
+
+          <div class="logo-grid" aria-label="Certified Members logo grid">
+            <!--
+            <div class="logo-tile"><img src="logos/example.svg" alt="Example Funding"></div>
+            -->
           </div>
         </div>
       </div>
     </section>
 
+    <!-- In Progress -->
     <section>
       <div class="container">
-        <div class="section-label">Status</div>
-        <h2 class="section-title">Verification In Progress</h2>
-        <p class="section-subtitle">
-          Organizations actively completing verification. This status does not indicate certification.
-        </p>
+        <div class="section-header">
+          <div class="section-label">Status</div>
+          <h2 class="section-title">Verification In Progress</h2>
+          <p class="section-subtitle">
+            Organizations currently completing the verification process. This status reflects participation and active progress, not certification.
+          </p>
+        </div>
 
         <div class="registry-card">
           <div class="empty-state">
-            Listings will appear when the directory opens April 1, 2026.
+            <p>
+              Listings will appear when the directory opens on <span class="date">April 1, 2026</span>.
+            </p>
+          </div>
+
+          <div class="logo-grid" aria-label="In Progress logo grid">
+            <!--
+            <div class="logo-tile"><img src="logos/example.svg" alt="Example Funding"></div>
+            -->
           </div>
         </div>
       </div>
     </section>
 
+    <!-- Lightweight CTA -->
+    <section class="mini-cta">
+      <div class="container">
+        <div class="mini-cta-box">
+          <div class="mini-cta-inner">
+            <div>
+              <h3>Enrollment is open.</h3>
+              <p>
+                Organizations may enroll now and appear as <strong>In Progress</strong> while completing verification. Certified status is reflected publicly upon completion.
+              </p>
+            </div>
+            <div class="mini-cta-actions">
+              <a class="btn-primary" href="/#membership">Apply for Membership</a>
+              <a class="btn-ghost-white" href="/certification">View Requirements</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
+  <!-- Footer -->
   <footer>
     <div class="container">
-      © 2026 Secure Funder™ Certification Program · Independently administered by
-      <a href="https://aquamark.io" target="_blank">Aquamark</a>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo" style="color: white; gap: 12px;">
+            <img class="footer-badge" src="../badge-2026.png" alt="Secure Funder 2026 Certified Member badge" />
+            <div class="logo-text" style="color: white;">Secure Funder<span class="logo-tm">™</span></div>
+          </div>
+          <p>
+            An independent certification program establishing baseline data-handling standards in alternative finance.
+            Administered by Aquamark.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Program</h4>
+          <a href="/#about">About</a>
+          <a href="/certification">Requirements</a>
+          <a href="/#membership">Membership</a>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <a href="/directory">Member Directory</a>
+          <a href="/#press">Press &amp; Media</a>
+          <a href="mailto:info@aquamark.io">Ask a Question</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="https://aquamark.io" target="_blank" rel="noopener">Send a Message</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Secure Funder™ Certification Program. All rights reserved.</span>
+        <span>Independently administered by <a href="https://aquamark.io" target="_blank" rel="noopener">Aquamark</a></span>
+      </div>
     </div>
   </footer>
-
 </body>
 </html>
