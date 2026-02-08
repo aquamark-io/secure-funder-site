@@ -1,499 +1,687 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>How Verification Works | Secure Funder</title>
-    <link rel="icon" href="/2026-badge.png" type="image/png">
-    <link rel="apple-touch-icon" href="/2026-badge.png">
-    <style>
-        :root {
-            --slate-900: #0f172a;
-            --slate-700: #334155;
-            --slate-500: #64748b;
-            --slate-300: #cbd5e1;
-            --slate-100: #f1f5f9;
-            --white: #ffffff;
-            --accent: #0369a1;
-            --accent-light: #0ea5e9;
-            --gold: #ca8a04;
-            --green: #059669;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How Verification Works — Secure Funder™</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="../new-icon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../new-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../new-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --utility-height: 34px;
+      --navy: #0F2137;
+      --navy-mid: #1A3455;
+      --slate: #3D5A80;
+      --steel: #6B8BAD;
+      --sky: #93B5D0;
+      --ice: #C5D9E8;
+      --pearl: #EFF4F8;
+      --cloud: #F6F9FC;
+      --white: #FFFFFF;
+      --blue-accent: #4FA3D1;
+      --blue-accent-soft: #7BBCE1;
+      --blue-accent-pale: #E7F2FA;
+      --text-primary: #0F2137;
+      --text-secondary: #4A6480;
+      --text-muted: #7A96AE;
+      --border: #DAE3EC;
+      --border-light: #EAF0F5;
+      --info-bg: #E7F2FA;
+      --info-border: #B4D5EA;
+      --info-text: #1A3455;
+      --font-display: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-body: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body); color: var(--text-primary);
+      background: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased;
+    }
 
-        html, body {
-            width: 100%;
-            max-width: 100%;
-            overflow-x: hidden;
-        }
+    /* ===== UTILITY BAR ===== */
+    .utility-bar {
+      background: var(--navy); color: var(--ice); font-size: 0.8rem;
+      height: var(--utility-height); letter-spacing: 0.06em;
+      position: sticky; top: 0; z-index: 200;
+      display: flex; align-items: center; justify-content: center; text-align: center;
+    }
+    .utility-text { width: 100%; text-align: center; pointer-events: none; }
 
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: var(--white);
-            color: var(--slate-900);
-            line-height: 1.5;
-        }
+    /* ===== NAV ===== */
+    .main-nav {
+      background: var(--white); border-bottom: 1px solid var(--border);
+      position: sticky; top: var(--utility-height); z-index: 150;
+      box-shadow: 0 1px 4px rgba(15,33,55,0.04);
+    }
+    .main-nav .container {
+      display: flex; justify-content: space-between; align-items: center; height: 68px;
+    }
+    .logo {
+      display: flex; align-items: center; text-decoration: none; color: var(--navy); gap: 12px;
+    }
+    .logo-text { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; letter-spacing: -0.01em; }
+    .logo-tm { font-size: 0.55em; vertical-align: super; font-weight: 400; margin-left: 1px; }
+    .logo-badge { width: 38px; height: 38px; flex: 0 0 auto; }
+    .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; }
+    .nav-links a {
+      text-decoration: none; color: var(--text-primary);
+      font-size: 0.88rem; font-weight: 500; padding: 8px 14px;
+      border-radius: 6px; transition: all 0.2s;
+    }
+    .nav-links a:hover { background: var(--pearl); }
+    .nav-links .btn-member { background: var(--navy); color: var(--white); font-weight: 600; margin-left: 6px; }
+    .nav-links .btn-member:hover { background: var(--navy-mid); }
+    .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+    .mobile-toggle span { display: block; width: 22px; height: 2px; background: var(--navy); margin: 5px 0; }
 
-        /* Hero */
-        .hero {
-            background: var(--white);
-            border-bottom: 1px solid var(--slate-300);
-            padding: 3.5rem 2rem 3rem;
-            text-align: center;
-        }
+    /* ===== CONTAINERS ===== */
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+    .container-narrow { max-width: 800px; margin: 0 auto; padding: 0 24px; }
 
-        .hero-inner {
-            max-width: 960px;
-            margin: 0 auto;
-        }
+    /* ===== PAGE HEADER ===== */
+    .page-header {
+      background: var(--cloud); border-bottom: 1px solid var(--border-light);
+      padding: 64px 0 52px; position: relative; overflow: hidden;
+    }
+    .page-header::before {
+      content: ''; position: absolute; top: -200px; right: -100px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(79,163,209,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-label {
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--blue-accent); margin-bottom: 14px;
+      display: inline-flex; align-items: center; gap: 10px;
+    }
+    .hero-label::before { content: ''; width: 22px; height: 1.5px; background: var(--blue-accent); }
+    .page-header h1 {
+      font-family: var(--font-display); font-size: 2.2rem; font-weight: 700;
+      line-height: 1.15; letter-spacing: -0.02em; color: var(--navy);
+      margin-bottom: 16px; max-width: 640px;
+    }
+    .page-header p {
+      font-size: 1.02rem; color: var(--text-secondary); line-height: 1.75; max-width: 600px;
+    }
 
-        .hero h1 {
-            font-size: 2.25rem;
-            font-weight: bold;
-            color: var(--slate-900);
-            margin-bottom: 0.875rem;
-            letter-spacing: -0.5px;
-        }
+    /* ===== FORMAT CARDS ===== */
+    .format-section {
+      padding: 56px 0;
+      background: var(--white);
+    }
+    .format-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .format-card {
+      background: var(--cloud);
+      border: 1px solid var(--border-light);
+      border-radius: 10px;
+      padding: 24px 20px;
+      text-align: center;
+    }
+    .format-icon {
+      width: 36px; height: 36px;
+      margin: 0 auto 12px;
+      color: var(--blue-accent);
+    }
+    .format-card h4 {
+      font-family: var(--font-display);
+      font-size: 0.92rem; font-weight: 600; color: var(--navy); margin-bottom: 3px;
+    }
+    .format-card p {
+      font-size: 0.82rem; color: var(--text-muted);
+    }
 
-        .hero p {
-            font-size: 1.0625rem;
-            color: var(--slate-500);
-        }
+    /* Approach box */
+    .approach-box {
+      background: var(--info-bg);
+      border: 1px solid var(--info-border);
+      border-radius: 10px;
+      padding: 24px 28px;
+    }
+    .approach-box h3 {
+      font-family: var(--font-display);
+      font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 14px;
+    }
+    .approach-item {
+      display: flex; align-items: flex-start; gap: 10px;
+      margin-bottom: 8px; font-size: 0.88rem; color: var(--info-text); line-height: 1.6;
+    }
+    .approach-item:last-child { margin-bottom: 0; }
+    .approach-item svg { color: var(--blue-accent); min-width: 16px; margin-top: 3px; }
 
-        /* Section styling */
-        .section {
-            padding: 2.5rem 2rem;
-            width: 100%;
-        }
+    /* ===== EXAMPLES SECTION ===== */
+    .examples-section {
+      padding: 56px 0 72px;
+      background: var(--cloud);
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+    }
+    .examples-header {
+      margin-bottom: 12px;
+    }
+    .section-label {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--blue-accent); margin-bottom: 10px;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 1.5rem; font-weight: 700; line-height: 1.2;
+      letter-spacing: -0.01em; color: var(--navy); margin-bottom: 8px;
+    }
+    .section-subtitle {
+      font-size: 0.94rem; color: var(--text-secondary); line-height: 1.7; max-width: 620px;
+      margin-bottom: 36px;
+    }
+    .section-subtitle a {
+      color: var(--blue-accent); text-decoration: none; font-weight: 500;
+    }
+    .section-subtitle a:hover { text-decoration: underline; }
 
-        .section-alt {
-            background: var(--slate-100);
-            border-top: 1px solid var(--slate-300);
-        }
+    /* Verification items */
+    .verify-item {
+      margin-bottom: 36px;
+      padding-bottom: 36px;
+      border-bottom: 1px solid var(--border);
+    }
+    .verify-item:last-child {
+      border-bottom: none; margin-bottom: 0; padding-bottom: 0;
+    }
+    .verify-item h3 {
+      font-family: var(--font-display);
+      font-size: 1.1rem; font-weight: 700; color: var(--navy); margin-bottom: 4px;
+    }
+    .verify-item > p {
+      font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 16px;
+    }
 
-        .container {
-            max-width: 800px;
-            width: 100%;
-            margin: 0 auto;
-        }
+    /* Example cards */
+    .ex-cards {
+      display: flex; flex-direction: column; gap: 12px;
+    }
+    .ex-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 18px 22px;
+    }
+    .ex-card-header {
+      display: flex; align-items: center; gap: 12px; margin-bottom: 6px;
+    }
+    .ex-icon {
+      width: 28px; height: 28px; min-width: 28px;
+      border-radius: 6px; display: flex; align-items: center; justify-content: center;
+      border: 1px solid var(--border-light); background: var(--cloud); color: var(--blue-accent);
+    }
+    .ex-card h4 {
+      font-family: var(--font-display);
+      font-size: 0.88rem; font-weight: 600; color: var(--navy);
+    }
+    .ex-card p {
+      font-size: 0.86rem; color: var(--text-secondary); line-height: 1.65;
+    }
+    .ex-card .addl {
+      border-left: 3px solid var(--border);
+      padding: 10px 16px;
+      margin-top: 12px;
+      font-size: 0.84rem;
+    }
+    .ex-card .addl strong {
+      color: var(--navy); display: block; margin-bottom: 2px; font-size: 0.84rem;
+    }
+    .ex-card .addl span {
+      color: var(--text-secondary); line-height: 1.6;
+    }
 
-        /* Key principles box */
-        .principles-box {
-            background: #f0f9ff;
-            border: 2px solid #bae6fd;
-            padding: 1.5rem 2rem;
-            margin-bottom: 2.5rem;
-        }
+    /* ===== CTA ===== */
+    .page-cta {
+      background: var(--white); padding: 56px 0;
+    }
+    .cta-box {
+      background: var(--navy); border-radius: 14px; padding: 36px 32px;
+      color: var(--white); position: relative; overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.10);
+    }
+    .cta-box::before {
+      content: ''; position: absolute; inset: -120px -160px auto auto;
+      width: 520px; height: 520px;
+      background: radial-gradient(circle, rgba(123,188,225,0.18) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .cta-inner {
+      position: relative; display: grid; grid-template-columns: 1.2fr 0.8fr;
+      gap: 18px; align-items: center;
+    }
+    .cta-box h3 {
+      font-family: var(--font-display); font-size: 1.25rem; font-weight: 700;
+      letter-spacing: -0.01em; margin-bottom: 6px;
+    }
+    .cta-box p { color: var(--ice); font-size: 0.93rem; line-height: 1.7; }
+    .cta-actions { display: flex; gap: 10px; justify-content: flex-end; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--blue-accent); color: var(--white);
+      font-family: var(--font-body); font-size: 0.9rem; font-weight: 600;
+      padding: 13px 26px; border-radius: 6px;
+      text-decoration: none; transition: all 0.25s; border: none; cursor: pointer;
+    }
+    .btn-primary:hover { background: var(--blue-accent-soft); transform: translateY(-1px); box-shadow: 0 4px 14px rgba(15,33,55,0.14); }
+    .btn-ghost-white {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent; color: var(--white);
+      font-family: var(--font-body); font-size: 0.9rem; font-weight: 500;
+      padding: 13px 18px; border-radius: 6px;
+      text-decoration: none; border: 1.5px solid rgba(255,255,255,0.28); transition: all 0.25s;
+    }
+    .btn-ghost-white:hover { border-color: rgba(255,255,255,0.55); background: rgba(255,255,255,0.06); }
 
-        .principles-box h2 {
-            font-size: 1.125rem;
-            font-weight: bold;
-            color: var(--accent);
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
+    /* ===== FOOTER ===== */
+    footer { background: var(--navy); color: var(--ice); padding: 56px 0 0; }
+    .footer-grid {
+      display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 44px; padding-bottom: 44px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .footer-brand p {
+      font-size: 0.86rem; color: var(--steel); line-height: 1.7; margin-top: 14px; max-width: 280px;
+    }
+    .footer-col h4 {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--white); margin-bottom: 16px;
+    }
+    .footer-col a {
+      display: block; color: var(--steel); text-decoration: none;
+      font-size: 0.86rem; margin-bottom: 9px; transition: color 0.2s;
+    }
+    .footer-col a:hover { color: var(--blue-accent-soft); }
+    .footer-bottom {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 22px 0; font-size: 0.76rem; color: var(--steel);
+    }
+    .footer-bottom a { color: var(--steel); text-decoration: none; }
+    .footer-bottom a:hover { color: var(--blue-accent-soft); }
 
-        .principles-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .page-header { animation: fadeUp 0.5s ease-out; }
+    .format-section { animation: fadeUp 0.6s ease-out 0.1s both; }
 
-        .principles-list li {
-            font-size: 0.9375rem;
-            color: var(--slate-700);
-            padding: 0.5rem 0;
-            padding-left: 1.75rem;
-            position: relative;
-        }
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .format-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .mobile-toggle { display: block; }
+      .page-header h1 { font-size: 1.85rem; }
+      .logo-badge { width: 32px; height: 32px; }
+      .cta-inner { grid-template-columns: 1fr; }
+      .cta-actions { justify-content: flex-start; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+      .footer-brand { grid-column: 1 / -1; }
+      .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+    }
 
-        .principles-list li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-            font-weight: bold;
-        }
+    @media (max-width: 600px) {
+      .container { padding: 0 16px; }
+      .container-narrow { padding: 0 16px; }
+      .utility-bar { font-size: 0.72rem; height: 30px; }
+      :root { --utility-height: 30px; }
+      .main-nav .container { height: 56px; }
+      .logo-badge { width: 30px; height: 30px; }
+      .logo-text { font-size: 1.15rem; }
+      .page-header { padding: 44px 0 36px; }
+      .page-header h1 { font-size: 1.5rem; }
+      .page-header p { font-size: 0.93rem; }
+      .format-section { padding: 40px 0; }
+      .format-card { padding: 20px 18px; }
+      .approach-box { padding: 20px 22px; }
+      .examples-section { padding: 44px 0 56px; }
+      .section-title { font-size: 1.3rem; }
+      .verify-item h3 { font-size: 1rem; }
+      .ex-card { padding: 16px 18px; }
+      .page-cta { padding: 44px 0; }
+      .cta-box { padding: 28px 20px; }
+      .cta-box h3 { font-size: 1.1rem; }
+      .cta-actions { flex-direction: column; width: 100%; }
+      .cta-actions .btn-primary,
+      .cta-actions .btn-ghost-white { width: 100%; justify-content: center; }
+      footer { padding: 40px 0 0; }
+      .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+      .footer-brand p { max-width: 100%; }
+    }
 
-        /* Format section */
-        .format-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
+    @media (max-width: 380px) {
+      .page-header h1 { font-size: 1.3rem; }
+      .container { padding: 0 14px; }
+    }
 
-        .format-card {
-            background: var(--white);
-            border: 1px solid var(--slate-300);
-            padding: 1.25rem;
-            text-align: center;
-        }
-
-        .format-icon {
-            width: 32px;
-            height: 32px;
-            margin: 0 auto 0.75rem;
-            color: var(--accent);
-        }
-
-        .format-card h4 {
-            font-size: 0.9375rem;
-            font-weight: bold;
-            color: var(--slate-900);
-            margin-bottom: 0.25rem;
-        }
-
-        .format-card p {
-            font-size: 0.8125rem;
-            color: var(--slate-500);
-        }
-
-        /* Note box */
-        .note-box {
-            background: #eff6ff;
-            border: 1px solid #bfdbfe;
-            padding: 1rem 1.25rem;
-            font-size: 0.9375rem;
-            color: #1e40af;
-        }
-
-        .note-box strong {
-            font-weight: bold;
-        }
-
-        /* Timeline for examples */
-        .timeline {
-            max-width: 800px;
-            width: 100%;
-            margin: 0 auto;
-        }
-
-        .timeline-item {
-            margin-bottom: 2.5rem;
-            padding-bottom: 2.5rem;
-            border-bottom: 1px solid var(--slate-300);
-        }
-
-        .timeline-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-
-        .timeline-content h3 {
-            font-size: 1.25rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-            color: var(--slate-900);
-        }
-
-        .timeline-content > p {
-            color: var(--slate-500);
-            margin-bottom: 1.25rem;
-            font-size: 0.9375rem;
-        }
-
-        /* Example cards */
-        .example-card {
-            background: var(--slate-100);
-            border: 1px solid var(--slate-300);
-            padding: 1.25rem 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .example-card:last-child {
-            margin-bottom: 0;
-        }
-
-        .example-card-header {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.75rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .example-icon {
-            width: 32px;
-            height: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            color: var(--accent);
-        }
-
-        .example-card h4 {
-            font-size: 1rem;
-            font-weight: bold;
-            color: var(--slate-900);
-        }
-
-        .example-card p {
-            font-size: 0.9375rem;
-            color: var(--slate-500);
-            line-height: 1.6;
-        }
-
-        .what-we-ask {
-            border-left: 3px solid var(--slate-300);
-            padding: 0.75rem 1.25rem;
-            margin-top: 1rem;
-            font-size: 0.875rem;
-        }
-
-        .what-we-ask strong {
-            color: var(--slate-900);
-            display: block;
-            margin-bottom: 0.25rem;
-        }
-
-        .what-we-ask span {
-            color: var(--slate-500);
-        }
-
-        /* Section header */
-        .section-header {
-            font-size: 1rem;
-            font-weight: bold;
-            color: var(--slate-500);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 1.5rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .format-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 640px) {
-            .hero {
-                padding: 2.5rem 1.5rem 2rem;
-            }
-
-            .hero h1 {
-                font-size: 1.75rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .section {
-                padding: 2rem 1.5rem;
-            }
-
-            .timeline-content h3 {
-                font-size: 1.125rem;
-            }
-
-            .principles-box {
-                padding: 1.25rem 1.5rem;
-            }
-        }
-    </style>
+    /* Mobile nav menu */
+    .mobile-menu {
+      display: none; position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: var(--white); z-index: 1000;
+      flex-direction: column; padding: 24px;
+    }
+    .mobile-menu.active { display: flex; }
+    .mobile-menu-header {
+      display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px;
+    }
+    .mobile-menu-close {
+      background: none; border: none; cursor: pointer;
+      font-size: 1.5rem; color: var(--navy); padding: 8px;
+    }
+    .mobile-menu a {
+      display: block; padding: 14px 0; font-size: 1.05rem; font-weight: 500;
+      color: var(--navy); text-decoration: none; border-bottom: 1px solid var(--border-light);
+    }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu .btn-member-mobile {
+      display: block; margin-top: 24px; padding: 14px;
+      background: var(--navy); color: var(--white);
+      text-align: center; border-radius: 8px; font-weight: 600;
+      text-decoration: none; font-size: 0.95rem;
+    }
+  </style>
 </head>
 <body>
 
-    <header class="hero">
-        <div class="hero-inner">
-            <h1>How Verification Works</h1>
+  <!-- Utility Bar -->
+  <div class="utility-bar">
+    <span class="utility-text">Directory opening April 1, 2026</span>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="main-nav">
+    <div class="container">
+      <a href="/" class="logo" aria-label="Secure Funder Home">
+        <img class="logo-badge" src="../new-icon.png" alt="Secure Funder">
+        <div class="logo-text">Secure Funder<span class="logo-tm">™</span></div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/#about">About</a></li>
+        <li><a href="/directory">Directory</a></li>
+        <li><a href="/#leadership">Leadership</a></li>
+        <li><a href="/#press">Press</a></li>
+        <li><a href="/#membership">Membership</a></li>
+        <li><a href="https://securefunder.org/contact/" class="btn-member">Apply Now</a></li>
+      </ul>
+      <button class="mobile-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="container">
+      <div class="hero-label">Verification</div>
+      <h1>How Verification Works</h1>
+      <p>A brief, structured walkthrough conducted via screen share.</p>
+    </div>
+  </div>
+
+  <!-- Session Format -->
+  <section class="format-section">
+    <div class="container-narrow">
+
+      <div class="format-grid">
+        <div class="format-card">
+          <div class="format-icon">
+            <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+              <line x1="8" y1="21" x2="16" y2="21"></line>
+              <line x1="12" y1="17" x2="12" y2="21"></line>
+            </svg>
+          </div>
+          <h4>Live Screen Share</h4>
+          <p>Via Google Meet</p>
         </div>
-    </header>
-
-    <!-- Session Format & Approach -->
-    <section class="section">
-        <div class="container">
-            
-            <!-- Format Grid -->
-            <div class="format-grid">
-                <div class="format-card">
-                    <div class="format-icon">
-                        <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-                            <line x1="8" y1="21" x2="16" y2="21"></line>
-                            <line x1="12" y1="17" x2="12" y2="21"></line>
-                        </svg>
-                    </div>
-                    <h4>Live Screen Share</h4>
-                    <p>Google Meet invitation</p>
-                </div>
-                <div class="format-card">
-                    <div class="format-icon">
-                        <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <polyline points="12 6 12 12 16 14"></polyline>
-                        </svg>
-                    </div>
-                    <h4>15–30 Minutes</h4>
-                    <p>Quick and effective</p>
-                </div>
-                <div class="format-card">
-                    <div class="format-icon">
-                        <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                        </svg>
-                    </div>
-                    <h4>Not Recorded</h4>
-                    <p>Your information is confidential</p>
-                </div>
-            </div>
-
-            <!-- Key Principles -->
-            <div class="principles-box">
-                <h2>
-                    Our Approach
-                </h2>
-                <ul class="principles-list">
-                    <li>You share your screen — we never access your systems directly</li>
-                    <li>You only show what's necessary to verify each control</li>
-                    <li>Pause or reschedule anytime — including disabling screen share between requirements</li>
-                    <li>Our goal is to work with you to achieve certification</li>
-                </ul>
-            </div>
-
+        <div class="format-card">
+          <div class="format-icon">
+            <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+          </div>
+          <h4>15–30 Minutes</h4>
+          <p>Quick and focused</p>
         </div>
-    </section>
-
-    <!-- Examples -->
-    <section class="section section-alt">
-        <div class="container">
-            <div class="section-header">Example Verifications</div>
-            <p style="color: var(--slate-500); font-size: 0.9375rem; margin-bottom: 2rem;">These are a few examples to give you a general idea of what verification looks like. The full list of requirements is available on the <a href="https://securefunder.org/requirements/" target="_blank" style="color: var(--accent);">Requirements</a> page.</p>
-            
-            <div class="timeline">
-                <!-- MFA -->
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>Multi-Factor Authentication</h3>
-                        <p>Verifying MFA is enabled for email and CRM access.</p>
-                        
-                        <div class="example-card">
-                            <div class="example-card-header">
-                                <div class="example-icon">
-                                    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                                    </svg>
-                                </div>
-                                <h4>What We Ask</h4>
-                            </div>
-                            <p>Log out of your email and CRM, then log back in while sharing your screen. We'll confirm that MFA is prompted during the login process.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Email Submissions -->
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>Email Submission Handling</h3>
-                        <p>Verifying how broker submissions via email are processed.</p>
-                        
-                        <div class="example-card">
-                            <div class="example-card-header">
-                                <div class="example-icon">
-                                    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                                        <polyline points="22,6 12,13 2,6"></polyline>
-                                    </svg>
-                                </div>
-                                <h4>If Automated Processing</h4>
-                            </div>
-                            <p>We'll send a test submission in real time to confirm it gets added to your CRM without human intervention.</p>
-                        </div>
-
-                        <div class="example-card">
-                            <div class="example-card-header">
-                                <div class="example-icon">
-                                    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                                        <polyline points="14 2 14 8 20 8"></polyline>
-                                    </svg>
-                                </div>
-                                <h4>If No Email Submissions</h4>
-                            </div>
-                            <p>We'll ask to see a copy of your ISO guidelines or broker documentation confirming that portal and/or API are the only accepted submission methods.</p>
-                        </div>
-
-                        <div class="example-card">
-                            <div class="example-card-header">
-                                <div class="example-icon">
-                                    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                                    </svg>
-                                </div>
-                                <h4>If Using Email Watermarking</h4>
-                            </div>
-                            <p>We'll verify it in real time by sending a test submission and confirming attachments are watermarked upon arrival.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Role-Based Access -->
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>Role-Based Access Controls</h3>
-                        <p>Verifying that sensitive information is only visible to those with business necessity.</p>
-                        
-                        <div class="example-card">
-                            <div class="example-card-header">
-                                <div class="example-icon">
-                                    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                                        <circle cx="9" cy="7" r="4"></circle>
-                                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                                    </svg>
-                                </div>
-                                <h4>What We Ask</h4>
-                            </div>
-                            <p>As an admin, log in as users in various roles to demonstrate that sensitive information (SSN, DOB, etc.) is only visible to those who need it for their job function.</p>
-                            <div class="what-we-ask">
-                                <strong>For documents:</strong>
-                                <span>Show that files are either view-only, or if downloadable, they're already watermarked or get watermarked at time of download.</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- User Verification -->
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>User Verification</h3>
-                        <p>Confirming that system access is limited to appropriate personnel.</p>
-                        
-                        <div class="example-card">
-                            <div class="example-card-header">
-                                <div class="example-icon">
-                                    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                                        <circle cx="12" cy="7" r="4"></circle>
-                                    </svg>
-                                </div>
-                                <h4>What We Ask</h4>
-                            </div>
-                            <p>A quick scroll through your user list. We're confirming no external entities have access—particularly brokerages, software platforms, or other lending companies—even if under common ownership.</p>
-                            <div class="what-we-ask">
-                                <strong>If related entities do have access:</strong>
-                                <span>We'll discuss the business rationale and determine if it meets the intent of the requirement.</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="format-card">
+          <div class="format-icon">
+            <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+          </div>
+          <h4>Not Recorded</h4>
+          <p>All information is confidential</p>
         </div>
-    </section>
+      </div>
+
+      <div class="approach-box">
+        <h3>Our Approach</h3>
+        <div class="approach-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Any member of your organization with appropriate system access may conduct the session</span>
+        </div>
+        <div class="approach-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Your representative shares their screen — we do not access your systems directly</span>
+        </div>
+        <div class="approach-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Only information necessary to verify each control is displayed</span>
+        </div>
+        <div class="approach-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Sessions may be paused or rescheduled at any time, including between individual requirements</span>
+        </div>
+        <div class="approach-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>The objective is to work with your organization to achieve certification</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Example Verifications -->
+  <section class="examples-section">
+    <div class="container-narrow">
+
+      <div class="examples-header">
+        <div class="section-label">Reference</div>
+        <div class="section-title">Sample Verification Procedures</div>
+      </div>
+      <p class="section-subtitle">Representative examples of what is reviewed during a session. The complete list of verifiable controls is available on the <a href="/certification">Requirements</a> page.</p>
+
+      <!-- MFA -->
+      <div class="verify-item">
+        <h3>Multi-Factor Authentication</h3>
+        <p>Verifying MFA is enabled for email and CRM access.</p>
+        <div class="ex-cards">
+          <div class="ex-card">
+            <div class="ex-card-header">
+              <div class="ex-icon">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+              </div>
+              <h4>What We Ask</h4>
+            </div>
+            <p>Log out of your email and CRM, then log back in while sharing your screen. We confirm that a multi-factor prompt is triggered during the login process.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Email Submissions -->
+      <div class="verify-item">
+        <h3>Email Submission Handling</h3>
+        <p>Verifying how broker submissions via email are processed.</p>
+        <div class="ex-cards">
+          <div class="ex-card">
+            <div class="ex-card-header">
+              <div class="ex-icon">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              </div>
+              <h4>If Automated Processing</h4>
+            </div>
+            <p>A test submission is sent in real time to confirm it is routed to your CRM without human intervention.</p>
+          </div>
+
+          <div class="ex-card">
+            <div class="ex-card-header">
+              <div class="ex-icon">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+              </div>
+              <h4>If No Email Submissions</h4>
+            </div>
+            <p>We review your ISO guidelines or broker documentation confirming that portal and/or API are the only accepted submission methods.</p>
+          </div>
+
+          <div class="ex-card">
+            <div class="ex-card-header">
+              <div class="ex-icon">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+              </div>
+              <h4>If Using Email Watermarking</h4>
+            </div>
+            <p>Verified in real time by sending a test submission and confirming attachments are watermarked upon arrival.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Role-Based Access -->
+      <div class="verify-item">
+        <h3>Role-Based Access Controls</h3>
+        <p>Verifying that sensitive information is only visible to those with business necessity.</p>
+        <div class="ex-cards">
+          <div class="ex-card">
+            <div class="ex-card-header">
+              <div class="ex-icon">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+              </div>
+              <h4>What We Ask</h4>
+            </div>
+            <p>Using admin access, log in as users in various roles to demonstrate that sensitive fields (SSN, DOB, etc.) are restricted to personnel with a documented business need.</p>
+            <div class="addl">
+              <strong>For documents:</strong>
+              <span>Show that files are either view-only, or if downloadable, they're already watermarked or get watermarked at time of download.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- User Verification -->
+      <div class="verify-item">
+        <h3>User Verification</h3>
+        <p>Confirming that system access is limited to appropriate personnel.</p>
+        <div class="ex-cards">
+          <div class="ex-card">
+            <div class="ex-card-header">
+              <div class="ex-icon">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+              </div>
+              <h4>What We Ask</h4>
+            </div>
+            <p>A review of your user list to confirm no external entities have access — particularly brokerages, software platforms, or other lending companies — including those under common ownership.</p>
+            <div class="addl">
+              <strong>If related entities have access:</strong>
+              <span>The business rationale is reviewed to determine whether it meets the intent of the requirement.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="page-cta">
+    <div class="container">
+      <div class="cta-box">
+        <div class="cta-inner">
+          <div>
+            <h3>Questions about verification?</h3>
+            <p>We're happy to walk through the process before you apply.</p>
+          </div>
+          <div class="cta-actions">
+            <a class="btn-primary" href="https://securefunder.org/contact/">Get in Touch</a>
+            <a class="btn-ghost-white" href="/certification">View Requirements</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo" style="color: white;">
+            <div class="logo-text" style="color: white;">Secure Funder<span class="logo-tm">™</span></div>
+          </div>
+          <p>An independent certification program establishing baseline data-handling standards in alternative finance. Administered by Aquamark.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Program</h4>
+          <a href="/#about">About</a>
+          <a href="/certification">Requirements</a>
+          <a href="/#membership">Membership</a>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <a href="/directory">Member Directory</a>
+          <a href="/#press">Press & Media</a>
+          <a href="https://securefunder.org/contact/">Ask a Question</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="https://securefunder.org/contact/" target="_blank">Send a Message</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Secure Funder™ Certification Program. All rights reserved.</span>
+        <span>Independently administered by <a href="https://aquamark.io" target="_blank">Aquamark</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-header">
+      <a href="/" class="logo" aria-label="Secure Funder Home">
+        <img src="../new-icon.png" alt="Secure Funder" style="width:30px;height:30px;">
+        <div class="logo-text">Secure Funder<span class="logo-tm">™</span></div>
+      </a>
+      <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">✕</button>
+    </div>
+    <a href="/#about" onclick="closeMobileMenu()">About</a>
+    <a href="/directory" onclick="closeMobileMenu()">Directory</a>
+    <a href="/#leadership" onclick="closeMobileMenu()">Leadership</a>
+    <a href="/#press" onclick="closeMobileMenu()">Press</a>
+    <a href="/#membership" onclick="closeMobileMenu()">Membership</a>
+    <a href="https://securefunder.org/contact/" class="btn-member-mobile">Apply Now</a>
+  </div>
+
+  <script>
+    const toggle = document.querySelector('.mobile-toggle');
+    const menu = document.getElementById('mobileMenu');
+    const closeBtn = document.getElementById('mobileMenuClose');
+    function closeMobileMenu() { menu.classList.remove('active'); document.body.style.overflow = ''; }
+    toggle.addEventListener('click', () => { menu.classList.add('active'); document.body.style.overflow = 'hidden'; });
+    closeBtn.addEventListener('click', closeMobileMenu);
+  </script>
 
 </body>
 </html>
