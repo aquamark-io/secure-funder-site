@@ -1,687 +1,877 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Certification Requirements | Secure Funder</title>
-    <link rel="icon" href="/2026-badge.png" type="image/png">
-    <link rel="apple-touch-icon" href="/2026-badge.png">
-    <style>
-        :root {
-            --slate-900: #0f172a;
-            --slate-700: #334155;
-            --slate-500: #64748b;
-            --slate-300: #cbd5e1;
-            --slate-100: #f1f5f9;
-            --white: #ffffff;
-            --accent: #0369a1;
-            --accent-light: #0ea5e9;
-            --gold: #ca8a04;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Certification Requirements — Secure Funder™</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="badge-2026.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="badge-2026.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="badge-2026.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --utility-height: 34px;
+      --navy: #0F2137;
+      --navy-mid: #1A3455;
+      --slate: #3D5A80;
+      --steel: #6B8BAD;
+      --sky: #93B5D0;
+      --ice: #C5D9E8;
+      --pearl: #EFF4F8;
+      --cloud: #F6F9FC;
+      --white: #FFFFFF;
+      --blue-accent: #4FA3D1;
+      --blue-accent-soft: #7BBCE1;
+      --blue-accent-pale: #E7F2FA;
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      --text-primary: #0F2137;
+      --text-secondary: #4A6480;
+      --text-muted: #7A96AE;
+      --border: #DAE3EC;
+      --border-light: #EAF0F5;
+      --font-display: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-body: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 
-        html, body {
-            width: 100%;
-            max-width: 100%;
-            overflow-x: hidden;
-        }
+      --green-bg: #f0fdf4;
+      --green-border: #bbf7d0;
+      --green-text: #15803d;
+      --info-bg: #E7F2FA;
+      --info-border: #B4D5EA;
+      --info-text: #1A3455;
+    }
 
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: var(--white);
-            color: var(--slate-900);
-            line-height: 1.5;
-        }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      color: var(--text-primary);
+      background: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
 
-        /* Hero */
-        .hero {
-            background: var(--white);
-            border-bottom: 1px solid var(--slate-300);
-            padding: 3.5rem 2rem 3rem;
-            text-align: center;
-        }
+    /* ===== UTILITY BAR ===== */
+    .utility-bar {
+      background: var(--navy);
+      color: var(--ice);
+      font-size: 0.8rem;
+      height: var(--utility-height);
+      letter-spacing: 0.06em;
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .utility-text {
+      width: 100%;
+      text-align: center;
+      pointer-events: none;
+    }
 
-        .hero-inner {
-            max-width: 960px;
-            margin: 0 auto;
-        }
+    /* ===== NAV ===== */
+    .main-nav {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      position: sticky; top: var(--utility-height); z-index: 150;
+      box-shadow: 0 1px 4px rgba(15,33,55,0.04);
+    }
+    .main-nav .container {
+      display: flex; justify-content: space-between; align-items: center; height: 68px;
+    }
+    .logo {
+      display: flex; align-items: center; text-decoration: none; color: var(--navy);
+    }
+    .logo-text {
+      font-family: var(--font-display);
+      font-size: 1.3rem; font-weight: 700; letter-spacing: -0.01em;
+    }
+    .logo-tm { font-size: 0.55em; vertical-align: super; font-weight: 400; margin-left: 1px; }
+    .logo-mark {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-badge-lg {
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      box-shadow: 0 2px 10px rgba(15,33,55,0.12);
+      border: 1px solid rgba(15,33,55,0.10);
+      flex: 0 0 auto;
+    }
+    .nav-links {
+      display: flex; align-items: center; gap: 4px; list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none; color: var(--text-primary);
+      font-size: 0.88rem; font-weight: 500; padding: 8px 14px;
+      border-radius: 6px; transition: all 0.2s;
+    }
+    .nav-links a:hover { background: var(--pearl); }
+    .nav-links .btn-member {
+      background: var(--navy); color: var(--white); font-weight: 600; margin-left: 6px;
+    }
+    .nav-links .btn-member:hover { background: var(--navy-mid); }
+    .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+    .mobile-toggle span { display: block; width: 22px; height: 2px; background: var(--navy); margin: 5px 0; }
 
-        .hero h1 {
-            font-size: 2.25rem;
-            font-weight: bold;
-            color: var(--slate-900);
-            margin-bottom: 0.875rem;
-            letter-spacing: -0.5px;
-        }
+    /* ===== CONTAINERS ===== */
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+    .container-narrow { max-width: 800px; margin: 0 auto; padding: 0 24px; }
 
-        .hero p {
-            font-size: 1.0625rem;
-            color: var(--slate-500);
-        }
+    /* ===== PAGE HEADER ===== */
+    .page-header {
+      background: var(--cloud);
+      border-bottom: 1px solid var(--border-light);
+      padding: 56px 0 48px;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    .page-header::before {
+      content: ''; position: absolute; top: -200px; right: -100px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(79,163,209,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .page-header .section-label {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--blue-accent); margin-bottom: 12px;
+    }
+    .page-header h1 {
+      font-family: var(--font-display);
+      font-size: 2.1rem; font-weight: 700; line-height: 1.2;
+      letter-spacing: -0.02em; color: var(--navy); margin-bottom: 14px;
+    }
+    .page-header p {
+      font-size: 1rem; color: var(--text-secondary); line-height: 1.7; max-width: 580px; margin: 0 auto;
+    }
 
-        /* Section styling */
-        .section {
-            padding: 2.5rem 2rem;
-            width: 100%;
-        }
+    /* ===== QUICK LINKS BAR ===== */
+    .quick-links {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+    .quick-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--white);
+      color: var(--text-secondary);
+      text-decoration: none;
+      padding: 7px 16px;
+      font-weight: 500;
+      font-size: 0.8rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+    .quick-links a:hover {
+      border-color: var(--navy);
+      color: var(--navy);
+      background: var(--white);
+    }
 
-        .section-alt {
-            background: var(--slate-100);
-            border-top: 1px solid var(--slate-300);
-        }
+    /* ===== REQUIREMENTS SECTION ===== */
+    .requirements-section {
+      padding: 56px 0 80px;
+      background: var(--white);
+    }
 
-        .container {
-            max-width: 800px;
-            width: 100%;
-            margin: 0 auto;
-        }
+    /* Important note banner */
+    .note-banner {
+      background: var(--info-bg);
+      border: 1px solid var(--info-border);
+      border-radius: 10px;
+      padding: 24px 28px;
+      font-size: 0.9rem;
+      color: var(--info-text);
+      line-height: 1.75;
+      margin-bottom: 48px;
+    }
+    .note-banner strong {
+      font-weight: 700;
+    }
+    .note-banner a {
+      color: var(--blue-accent);
+      text-decoration: underline;
+      font-weight: 500;
+    }
+    .note-banner a:hover {
+      color: var(--navy);
+    }
 
-        /* Timeline for requirements */
-        .timeline {
-            max-width: 800px;
-            width: 100%;
-            margin: 0 auto;
-        }
+    /* Timeline items */
+    .timeline-item {
+      margin-bottom: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .timeline-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    .timeline-item h3 {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+    .timeline-item > .timeline-content > p {
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+      font-size: 0.92rem;
+    }
 
-        .timeline-item {
-            margin-bottom: 2.5rem;
-            padding-bottom: 2.5rem;
-            border-bottom: 1px solid var(--slate-300);
-        }
+    /* Requirement cards */
+    .req-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .req-card {
+      background: var(--cloud);
+      border: 1px solid var(--border-light);
+      border-radius: 8px;
+      padding: 18px 22px;
+    }
+    .req-card-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 6px;
+    }
+    .req-icon {
+      width: 30px;
+      height: 30px;
+      min-width: 30px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--border-light);
+      background: var(--white);
+    }
+    .req-icon.check { color: var(--blue-accent); }
+    .req-icon.shield { color: var(--blue-accent); }
+    .req-icon.lock { color: var(--blue-accent); }
+    .req-icon.users { color: var(--blue-accent); }
 
-        .timeline-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
+    .req-card h4 {
+      font-family: var(--font-display);
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--navy);
+    }
+    .req-card p {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
 
-        .timeline-content h3 {
-            font-size: 1.25rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-            color: var(--slate-900);
-        }
+    /* Conditional box */
+    .conditional-box {
+      background: var(--cloud);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px 22px;
+    }
+    .conditional-label {
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 14px;
+      line-height: 1.6;
+    }
+    .conditional-label span {
+      background: var(--navy);
+      color: var(--white);
+      padding: 2px 8px;
+      border-radius: 3px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+    .options-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .option-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 18px;
+      font-size: 0.86rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+    .option-card strong {
+      display: block;
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+    .option-list {
+      margin: 10px 0 0 0;
+      padding-left: 18px;
+      list-style: none;
+    }
+    .option-list li {
+      font-size: 0.86rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      padding: 2px 0;
+      position: relative;
+    }
+    .option-list li::before {
+      content: "•";
+      position: absolute;
+      left: -14px;
+      color: var(--text-muted);
+    }
 
-        .timeline-content > p {
-            color: var(--slate-500);
-            margin-bottom: 1.25rem;
-            font-size: 0.9375rem;
-        }
+    /* Note box */
+    .note-box {
+      background: var(--info-bg);
+      border: 1px solid var(--info-border);
+      border-radius: 8px;
+      padding: 16px 20px;
+      font-size: 0.88rem;
+      color: var(--info-text);
+      line-height: 1.7;
+    }
+    .note-box strong {
+      font-weight: 700;
+    }
+    .note-box a {
+      color: var(--blue-accent);
+      text-decoration: underline;
+    }
+    .note-box a:hover {
+      color: var(--navy);
+    }
+    .note-box-green {
+      background: var(--blue-accent-pale);
+      border: 1px solid var(--info-border);
+      border-radius: 8px;
+      padding: 16px 20px;
+      font-size: 0.88rem;
+      color: var(--info-text);
+      line-height: 1.7;
+    }
 
-        .terms-link {
-            font-size: 0.625rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
+    /* Gateway link */
+    .gateway-link {
+      display: inline-block;
+      margin-top: 12px;
+      color: var(--blue-accent);
+      text-decoration: none;
+      font-size: 0.86rem;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    .gateway-link:hover {
+      color: var(--navy);
+      text-decoration: underline;
+    }
 
-        .terms-link a {
-            color: var(--accent);
-            text-decoration: none;
-            font-size: 0.625rem;
-        }
+    /* ===== TERMS SECTION ===== */
+    .terms-section {
+      background: var(--cloud);
+      border-top: 1px solid var(--border-light);
+      padding: 64px 0;
+    }
+    .terms-header {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 20px;
+      color: var(--navy);
+    }
+    .terms-buttons {
+      text-align: center;
+      margin-bottom: 28px;
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .terms-buttons a {
+      display: inline-block;
+      background: var(--white);
+      color: var(--text-secondary);
+      text-decoration: none;
+      padding: 8px 16px;
+      font-weight: 600;
+      font-size: 0.8rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+    .terms-buttons a:hover {
+      border-color: var(--navy);
+      color: var(--navy);
+    }
+    .terms-content {
+      max-width: 1072px;
+      margin: 0 auto;
+    }
+    .terms-content p {
+      font-size: 0.84rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 14px;
+    }
+    .terms-content p:last-child {
+      margin-bottom: 0;
+    }
+    .terms-content a {
+      color: var(--blue-accent);
+      text-decoration: underline;
+    }
+    .terms-content a:hover {
+      color: var(--navy);
+    }
 
-        .terms-link a:hover {
-            text-decoration: underline;
-        }
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--navy); color: var(--ice); padding: 56px 0 0;
+    }
+    .footer-grid {
+      display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 44px; padding-bottom: 44px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .footer-brand p {
+      font-size: 0.86rem; color: var(--steel); line-height: 1.7;
+      margin-top: 14px; max-width: 280px;
+    }
+    .footer-badge {
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.14);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+      opacity: 0.95;
+    }
+    .footer-col h4 {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--white); margin-bottom: 16px;
+    }
+    .footer-col a {
+      display: block; color: var(--steel); text-decoration: none;
+      font-size: 0.86rem; margin-bottom: 9px; transition: color 0.2s;
+    }
+    .footer-col a:hover { color: var(--blue-accent-soft); }
+    .footer-bottom {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 22px 0; font-size: 0.76rem; color: var(--steel);
+    }
+    .footer-bottom a { color: var(--steel); text-decoration: none; }
+    .footer-bottom a:hover { color: var(--blue-accent-soft); }
 
-        /* Requirement cards */
-        .req-cards {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .page-header { animation: fadeUp 0.5s ease-out; }
+    .requirements-section .container-narrow { animation: fadeUp 0.6s ease-out 0.1s both; }
 
-        .req-card {
-            background: var(--slate-100);
-            border: 1px solid var(--slate-300);
-            padding: 1.25rem 1.5rem;
-        }
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .options-row {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .nav-links { display: none; }
+      .mobile-toggle { display: block; }
+      .page-header h1 { font-size: 1.7rem; }
+      .logo-badge-lg { width: 38px; height: 38px; }
+    }
 
-        .req-card-header {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .req-icon {
-            width: 32px;
-            height: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .req-icon.check { color: #059669; }
-        .req-icon.shield { color: var(--accent); }
-        .req-icon.lock { color: var(--gold); }
-        .req-icon.users { color: #db2777; }
-
-        .req-card h4 {
-            font-size: 1rem;
-            font-weight: bold;
-            color: var(--slate-900);
-        }
-
-        .req-card p {
-            font-size: 0.9375rem;
-            color: var(--slate-500);
-            line-height: 1.6;
-        }
-
-        /* Conditional box */
-        .conditional-box {
-            background: var(--slate-100);
-            border: 1px solid var(--slate-300);
-            padding: 1.25rem 1.5rem;
-        }
-
-        .conditional-label {
-            font-size: 0.875rem;
-            font-weight: 600;
-            color: var(--slate-700);
-            margin-bottom: 1rem;
-        }
-
-        .conditional-label span {
-            background: var(--slate-300);
-            padding: 0.125rem 0.5rem;
-            color: var(--slate-900);
-        }
-
-        .options-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-        }
-
-        .option-card {
-            background: var(--white);
-            border: 1px solid var(--slate-300);
-            padding: 1rem 1.25rem;
-            font-size: 0.875rem;
-            color: var(--slate-500);
-            line-height: 1.6;
-        }
-
-        .option-card strong {
-            display: block;
-            font-size: 0.875rem;
-            font-weight: bold;
-            color: var(--slate-900);
-            margin-bottom: 0.25rem;
-        }
-
-        .option-list {
-            margin: 0.75rem 0 0 0;
-            padding-left: 1.25rem;
-            list-style: none;
-        }
-
-        .option-list li {
-            font-size: 0.875rem;
-            color: var(--slate-500);
-            line-height: 1.6;
-            padding: 0.125rem 0;
-            position: relative;
-        }
-
-        .option-list li::before {
-            content: "•";
-            position: absolute;
-            left: -1rem;
-            color: var(--slate-500);
-        }
-
-        /* Note box */
-        .note-box {
-            background: #eff6ff;
-            border: 1px solid #bfdbfe;
-            padding: 1rem 1.25rem;
-            font-size: 0.9375rem;
-            color: #1e40af;
-        }
-
-        .note-box strong {
-            font-weight: bold;
-        }
-
-        /* Gateway link */
-        .gateway-link {
-            display: inline-block;
-            margin-top: 1rem;
-            color: var(--accent);
-            text-decoration: none;
-            font-size: .91rem;
-            font-weight: bold;
-        }
-
-        .gateway-link:hover {
-            text-decoration: underline;
-        }
-
-        /* Terms Section */
-        .terms-header {
-            font-size: 1rem;
-            font-weight: bold;
-            text-align: center;
-            margin-bottom: 1.25rem;
-            color: var(--slate-900);
-        }
-
-        .terms-buttons {
-            text-align: center;
-            margin-bottom: 1.5rem;
-            display: flex;
-            gap: 0.75rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .terms-buttons a {
-            display: inline-block;
-            background: var(--white);
-            color: var(--slate-700);
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            font-weight: 600;
-            font-size: 0.8125rem;
-            border: 1px solid var(--slate-300);
-            transition: background 0.2s ease;
-        }
-
-        .terms-buttons a:hover {
-            background: var(--slate-100);
-        }
-
-        .terms-content {
-            max-width: 960px;
-            margin: 0 auto;
-        }
-
-        .terms-content p {
-            font-size: 0.8125rem;
-            color: var(--slate-700);
-            line-height: 1.75;
-            margin-bottom: 1rem;
-        }
-
-        .terms-content p:last-child {
-            margin-bottom: 0;
-        }
-
-        .terms-content a {
-            color: var(--accent);
-            text-decoration: underline;
-        }
-
-        .terms-content a:hover {
-            color: var(--slate-900);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .options-row {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 640px) {
-            .hero {
-                padding: 2.5rem 1.5rem 2rem;
-            }
-
-            .hero h1 {
-                font-size: 1.75rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .section {
-                padding: 2rem 1.5rem;
-            }
-
-            .timeline-content h3 {
-                font-size: 1.125rem;
-            }
-
-            .terms-buttons {
-                flex-wrap: nowrap;
-                gap: 0.5rem;
-            }
-
-            .terms-buttons a {
-                padding: 0.375rem 0.625rem;
-                font-size: 0.6875rem;
-            }
-
-            .terms-content {
-                max-width: 92vw;
-            }
-
-            .terms-content p {
-                font-size: 0.75rem;
-            }
-        }
-    </style>
+    @media (max-width: 640px) {
+      .page-header { padding: 40px 0 36px; }
+      .page-header h1 { font-size: 1.5rem; }
+      .requirements-section { padding: 40px 0 60px; }
+      .quick-links a { font-size: 0.72rem; padding: 6px 12px; }
+      .terms-content p { font-size: 0.78rem; }
+    }
+  </style>
 </head>
 <body>
 
-    <header class="hero">
-        <div class="hero-inner">
-            <h1>Certification Requirements</h1>
-            <p>A structured, lightweight way to demonstrate responsible handling of broker submissions.</p>
+  <!-- Utility Bar -->
+  <div class="utility-bar">
+    <span class="utility-text">Directory opening April 1, 2026</span>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="main-nav">
+    <div class="container">
+      <a href="/" class="logo" aria-label="Secure Funder Home">
+        <div class="logo-mark">
+          <img class="logo-badge logo-badge-lg" src="badge-2026.png" alt="Secure Funder 2026 Certified Member badge">
+          <div class="logo-text">Secure Funder<span class="logo-tm">™</span></div>
         </div>
-    </header>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/#about">About</a></li>
+        <li><a href="/directory">Directory</a></li>
+        <li><a href="/#leadership">Leadership</a></li>
+        <li><a href="/#press">Press</a></li>
+        <li><a href="/#membership">Membership</a></li>
+        <li><a href="/#membership" class="btn-member">Apply Now</a></li>
+      </ul>
+      <button class="mobile-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
 
-    <!-- Requirements -->
-    <section class="section">
-        <div class="container">
-            <div class="timeline">
-                <!-- 1. Email Security -->
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <p class="terms-link" style="margin-bottom: 0.25rem;">
-                            <a href="#terms">i. Program Terms</a>
-                        </p>
-                        <p class="terms-link" style="margin-bottom: 0.25rem;">
-                            <a href="https://securefunder.org/" target="_blank" rel="noopener noreferrer">ii. Directory</a>
-                        </p>
-                          <p class="terms-link" style="margin-bottom: 0.25rem;">
-                            <a href="https://securefunder.org/verification" target="_blank" rel="noopener noreferrer">iii. How Verification Works</a>
-                        </p>
-                        <p class="terms-link" style="margin-bottom: 1.5rem;">
-                            <a href="https://securefunder.org/sign-up/" target="_blank" rel="noopener noreferrer">iv. Get Listed</a>
-                        </p>
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="container">
+      <div class="section-label">Certification</div>
+      <h1>Certification Requirements</h1>
+      <p>A structured, lightweight way to demonstrate responsible handling of sensitive information.</p>
 
-                        <div class="note-box" style="margin-bottom: 2.5rem;">
-                            <strong>Important note:</strong> These requirements reflect the standards we verify, but we recognize that every organization is different. If you have equivalent controls that provide the same level of protection, we're happy to review them. The objective is safeguarding submissions—not rigid compliance.
-                            <br><br>
-                            If you're unsure whether your current setup meets a requirement, <a href="https://www.aquamark.io/contact" style="color: #1e40af; text-decoration: underline;">contact us</a> with the details and a team member will respond within 24 hours.
-                            <br><br>
-                            All funders are welcome. You do not need every requirement in place at the time of enrollment. Once enrolled, you'll be listed as "In Progress" to signal your commitment, with 90 days to complete verification. Extensions are available under certain circumstances.
-                        </div>
-                        
-                        <h3>Email Security</h3>
-                        <p>Prevent access to unprotected submissions.</p>
-                        
-                        <div class="req-cards">
-                            <div class="req-card">
-                                <div class="req-card-header">
-                                    <div class="req-icon lock">
-                                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                                        </svg>
-                                    </div>
-                                    <h4>Multi-Factor Authentication</h4>
-                                </div>
-                                <p>MFA must be enabled.</p>
-                            </div>
+    </div>
+  </div>
 
-                            <div class="conditional-box">
-                                <div class="conditional-label">
-                                    <span>IF</span> broker submissions are accepted via email, <span>THEN</span> one of the following is required:
-                                </div>
-                                <div class="options-row">
-                                    <div class="option-card">
-                                        <strong>Option A:</strong> Automated email processing with restricted human access
-                                        <ul class="option-list">
-                                            <li>Submissions pushed to CRM without human intervention</li>
-                                            <li>Only management may access submission inbox, not processing personnel</li>
-                                        </ul>
-                                    </div>
-                                    <div class="option-card">
-                                        <strong>Option B:</strong> Use Secure Funder™ email protection if submissions require human handling
-                                        <ul class="option-list">
-                                            <li>No changes for ISOs — continue emailing deals as usual</li>
-                                           <li>Inbound email triggers webhook to watermark attachments</li>
-                                             <li>Processors work exclusively from protected files, instantly reducing risk.</li>
-                                        </ul>
-                                        <br>
-                                        <a href="https://www.aquamark.io/funder-gateway" target="_blank" class="gateway-link">How It Works →</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+  <!-- Requirements -->
+  <section class="requirements-section">
+    <div class="container-narrow">
+
+      <!-- Important Note Banner -->
+      <div class="note-banner">
+        <strong>Important note:</strong> These requirements reflect the standards we verify, but we recognize that every organization is different. If you have equivalent controls that provide the same level of protection, we're happy to review them. The objective is safeguarding submissions — not rigid compliance.
+        <br><br>
+        If you're unsure whether your current setup meets a requirement, <a href="https://www.aquamark.io/contact">contact us</a> with the details and a team member will respond within 24 hours.
+      </div>
+
+      <!-- 1. Email Security -->
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <h3>Email Security</h3>
+          <p>Prevent access to unprotected submissions.</p>
+
+          <div class="req-cards">
+            <div class="req-card">
+              <div class="req-card-header">
+                <div class="req-icon lock">
+                  <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                  </svg>
                 </div>
-
-                <!-- 2. CRM / Portal Security -->
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>CRM / Portal Security</h3>
-                        <p>Ensuring your systems limit access to what's needed.</p>
-                        
-                        <div class="req-cards">
-                            <div class="req-card">
-                                <div class="req-card-header">
-                                    <div class="req-icon lock">
-                                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                                        </svg>
-                                    </div>
-                                    <h4>Multi-Factor Authentication</h4>
-                                </div>
-                                <p>MFA must be enabled.</p>
-                            </div>
-
-                            <div class="req-card">
-                                <div class="req-card-header">
-                                    <div class="req-icon shield">
-                                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                                        </svg>
-                                    </div>
-                                    <h4>Role-Based Access</h4>
-                                </div>
-                                <p>Personnel can only access accounts and information required for their role. Sensitive fields like SSN are restricted based on business necessity.</p>
-                            </div>
-
-                            <div class="req-card">
-                                <div class="req-card-header">
-                                    <div class="req-icon users">
-                                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                                            <circle cx="12" cy="7" r="4"></circle>
-                                        </svg>
-                                    </div>
-                                    <h4>User Verification</h4>
-                                </div>
-                                <p>Users must be from your domain, with exception for service-level access (developers, vendors).</p>
-                            </div>
-
-                            <div class="conditional-box">
-                                <div class="conditional-label">
-                                    <span>IF</span> documents are accessible <span>THEN</span>
-                                </div>
-                                <div class="options-row">
-                                    <div class="option-card">
-                                        <strong>Option A:</strong> View-only access to files (no download capability)
-                                    </div>
-                                    <div class="option-card">
-                                        <strong>Option B:</strong> Files are watermarked before entering the system, or at time of download
-                                        <p style="margin-top: 0.75rem; font-size: 0.8125rem; color: var(--slate-500); font-style: italic;">Any document watermarking solution is acceptable.</p>
-                                        <a href="https://www.aquamark.io/funder-watermarking" target="_blank" class="gateway-link">How It Works →</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="note-box">
-                                <strong>Note:</strong> If full database download exists, it must be restricted to senior personnel only.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 3. Cloud Storage & Third-Party Services -->
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>Cloud Storage & Third-Party Services</h3>
-                        <p>Understanding how documents are protected outside your core systems.</p>
-                        
-                        <div class="req-cards">
-                            <div class="note-box">
-                                If you use any cloud storage or third-party services that house documents, we'd like to understand what roles have access, what kind of access, and how that side is kept secure or is being monitored.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 4. Outsourcing -->
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>Outsourcing</h3>
-                        <p>If you use BPO teams (on-shore or off-shore) with access to merchant documents.</p>
-                        
-                        <div class="req-cards">
-                            <div class="conditional-box">
-                                <div class="conditional-label">
-                                    <span>IF</span> BPO teams have access to submission documents <span>THEN</span>
-                                </div>
-                                <div class="options-row">
-                                    <div class="option-card">
-                                        <strong>Option A:</strong> View-only access to files (no download capability)
-                                    </div>
-                                    <div class="option-card">
-                                        <strong>Option B:</strong> Documents are watermarked before third-party access
-                                        <p style="margin-top: 0.75rem; font-size: 0.8125rem; color: var(--slate-500); font-style: italic;">Any document watermarking solution is acceptable.</p>
-                                        <a href="https://www.aquamark.io/funder-watermarking" target="_blank" class="gateway-link">How It Works →</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="note-box">
-                                <strong>Skip this section</strong> if you don't outsource any processes.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 5. Personnel Controls -->
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>Personnel Controls</h3>
-                        <p>Standard policies to protect data at the human level.</p>
-                        
-                        <div class="req-cards">
-                            <div class="note-box">
-                                For these items, provide copies of your documented policies. Redactions to protect proprietary information are acceptable.
-                            </div>
-
-                            <div class="req-card">
-                                <div class="req-card-header">
-                                    <div class="req-icon check">
-                                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                            <polyline points="20 6 9 17 4 12"></polyline>
-                                        </svg>
-                                    </div>
-                                    <h4>Background Checks</h4>
-                                </div>
-                                <p>Personnel must pass background checks appropriate for their role.</p>
-                            </div>
-
-                            <div class="req-card">
-                                <div class="req-card-header">
-                                    <div class="req-icon lock">
-                                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                            <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"></path>
-                                        </svg>
-                                    </div>
-                                    <h4>Password Policy</h4>
-                                </div>
-                                <p>Documented requirements including minimum complexity and periodic changes.</p>
-                            </div>
-
-                            <div class="req-card">
-                                <div class="req-card-header">
-                                    <div class="req-icon shield">
-                                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-                                            <line x1="8" y1="21" x2="16" y2="21"></line>
-                                            <line x1="12" y1="17" x2="12" y2="21"></line>
-                                        </svg>
-                                    </div>
-                                    <h4>Screen Security</h4>
-                                </div>
-                                <p>Screen lock required when away from workstation. Personal cell phones may not be used at workstations where customer data is visible.</p>
-                            </div>
-
-                            <div class="req-card">
-                                <div class="req-card-header">
-                                    <div class="req-icon users">
-                                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
-                                            <polyline points="16 17 21 12 16 7"></polyline>
-                                            <line x1="21" y1="12" x2="9" y2="12"></line>
-                                        </svg>
-                                    </div>
-                                    <h4>Off-boarding Process</h4>
-                                </div>
-                                <p>Documented process for immediately revoking system access when employees leave or change roles.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 6. Culture & Leadership (Suggested) -->
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>Culture & Leadership</h3>
-                        <p>Setting the tone from the top.</p>
-                        
-                        <div class="req-cards">
-                            <div class="note-box" style="background: #f0fdf4; border-color: #bbf7d0; color: #15803d;">
-                                Consider communicating your Secure Funder™ certification internally. Leadership visibility around security standards reinforces expectations and underscores your commitment to industry-wide best practices. Whether incorporated into onboarding, team meetings, or internal communications, it signals that protecting sensitive information is a core operational priority—not just a compliance exercise.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Terms and Conditions -->
-    <section id="terms" class="section section-alt">
-        <div class="container" style="max-width: 1000px;">
-            <h3 class="terms-header">Terms and Conditions</h3>
-            
-            <div class="terms-buttons">
-                <a href="https://securefunder.org/sign-up/" target="_blank" rel="noopener noreferrer">Get Listed</a>
-                <a href="https://securefunder.org/" target="_blank" rel="noopener noreferrer">Directory</a>
-                <a href="https://www.aquamark.io/contact/" target="_blank" rel="noopener noreferrer">Ask a Question</a>
+                <h4>Multi-Factor Authentication</h4>
+              </div>
+              <p>MFA must be enabled.</p>
             </div>
 
-            <div class="terms-content">
-                <p>The Secure Funder™ certification program establishes an independent standard for identifying trusted funders in the alternative finance industry. Certification is based exclusively on verifiable safeguards that are applied consistently across all participants. Equivalent controls may be accepted when they meet the intent of the requirements and can be independently verified during review.</p>
-
-                <p>Enrollment in the program represents a voluntary commitment to elevated standards of data security and responsible business practices. Secure Funder™ is designed for funders of all sizes and focuses narrowly on protecting submissions and the documents associated with them.</p>
-
-                <p>The <a href="https://securefunder.org/" target="_blank" rel="noopener noreferrer">Secure Funder™ Directory</a> opens April 1, 2026. Organizations that enroll prior to this date will be recognized as Charter Members.</p>
-
-                <p>Safeguards are not required to be in place at the time of enrollment, but must be fully implemented prior to verification. Verification must be completed within ninety (90) days of enrollment. Listings will be removed if verification is not scheduled within this period, though extensions may be granted under special circumstances.</p>
-
-                <p>Verification is conducted via live screen share. All information reviewed during verification is treated as confidential. Participants should review <a href="https://securefunder.org/verification" target="_blank" rel="noopener noreferrer">How Verification Works</a> in advance of their session.</p>
-
-                <p>While no program can prevent theft entirely, Secure Funder™ is designed to materially reduce exposure and deter misuse through practical, verifiable safeguards, without introducing unnecessary operational disruption.</p>
-
-                <p>The annual program fee is $2,499 USD. This fee covers verification, program administration, ongoing Directory placement, and supports Secure Funder’s role as a visible sponsor at major industry conferences—extending recognition and visibility for participating funders.For organizations using Aquamark tools such as watermarking (not required for certification), the annual fee is waived. No payment is due until verification is scheduled. Monthly payment arrangements are available upon request; contact info@aquamark.io for details.</p>
-
-                <p>Participants agree to promptly notify Secure Funder™ of any material changes that may affect certification status. Certification may be revoked if required safeguards are no longer maintained or if information provided during verification is found to be inaccurate.</p>
-
-                <p>Digital certification badges are issued annually and feature updated designs each year.</p>
+            <div class="conditional-box">
+              <div class="conditional-label">
+                <span>IF</span> broker submissions are accepted via email, <span>THEN</span> one of the following is required:
+              </div>
+              <div class="options-row">
+                <div class="option-card">
+                  <strong>Option A:</strong> Automated email processing with restricted human access
+                  <ul class="option-list">
+                    <li>Submissions pushed to CRM without human intervention</li>
+                    <li>Only management may access submission inbox, not processing personnel</li>
+                  </ul>
+                </div>
+                <div class="option-card">
+                  <strong>Option B:</strong> Use Secure Funder™ email protection if submissions require human handling
+                  <ul class="option-list">
+                    <li>No changes for ISOs — continue emailing deals as usual</li>
+                    <li>Inbound email triggers webhook to watermark attachments</li>
+                    <li>Processors work exclusively from protected files, instantly reducing risk.</li>
+                  </ul>
+                  <a href="https://www.aquamark.io/funder-gateway" target="_blank" class="gateway-link">How It Works →</a>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
-    </section>
+      </div>
+
+      <!-- 2. CRM / Portal Security -->
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <h3>CRM / Portal Security</h3>
+          <p>Ensuring your systems limit access to what's needed.</p>
+
+          <div class="req-cards">
+            <div class="req-card">
+              <div class="req-card-header">
+                <div class="req-icon lock">
+                  <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                  </svg>
+                </div>
+                <h4>Multi-Factor Authentication</h4>
+              </div>
+              <p>MFA must be enabled.</p>
+            </div>
+
+            <div class="req-card">
+              <div class="req-card-header">
+                <div class="req-icon shield">
+                  <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                  </svg>
+                </div>
+                <h4>Role-Based Access</h4>
+              </div>
+              <p>Personnel can only access accounts and information required for their role. Sensitive fields like SSN are restricted based on business necessity.</p>
+            </div>
+
+            <div class="req-card">
+              <div class="req-card-header">
+                <div class="req-icon users">
+                  <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                  </svg>
+                </div>
+                <h4>User Verification</h4>
+              </div>
+              <p>Users must be from your domain, with exception for service-level access (developers, vendors).</p>
+            </div>
+
+            <div class="conditional-box">
+              <div class="conditional-label">
+                <span>IF</span> documents are accessible <span>THEN</span>
+              </div>
+              <div class="options-row">
+                <div class="option-card">
+                  <strong>Option A:</strong> View-only access to files (no download capability)
+                </div>
+                <div class="option-card">
+                  <strong>Option B:</strong> Files are watermarked before entering the system, or at time of download
+                  <p style="margin-top: 10px; font-size: 0.82rem; color: var(--text-muted); font-style: italic;">Any document watermarking solution is acceptable.</p>
+                  <a href="https://www.aquamark.io/funder-watermarking" target="_blank" class="gateway-link">How It Works →</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="note-box">
+              <strong>Note:</strong> If full database download exists, it must be restricted to senior personnel only.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Cloud Storage & Third-Party Services -->
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <h3>Cloud Storage & Third-Party Services</h3>
+          <p>Understanding how documents are protected outside your core systems.</p>
+
+          <div class="req-cards">
+            <div class="note-box">
+              If you use any cloud storage or third-party services that house documents, we'd like to understand what roles have access, what kind of access, and how that side is kept secure or is being monitored.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Outsourcing -->
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <h3>Outsourcing</h3>
+          <p>If you use BPO teams (on-shore or off-shore) with access to merchant documents.</p>
+
+          <div class="req-cards">
+            <div class="conditional-box">
+              <div class="conditional-label">
+                <span>IF</span> BPO teams have access to submission documents <span>THEN</span>
+              </div>
+              <div class="options-row">
+                <div class="option-card">
+                  <strong>Option A:</strong> View-only access to files (no download capability)
+                </div>
+                <div class="option-card">
+                  <strong>Option B:</strong> Documents are watermarked before third-party access
+                  <p style="margin-top: 10px; font-size: 0.82rem; color: var(--text-muted); font-style: italic;">Any document watermarking solution is acceptable.</p>
+                  <a href="https://www.aquamark.io/funder-watermarking" target="_blank" class="gateway-link">How It Works →</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="note-box">
+              <strong>Skip this section</strong> if you don't outsource any processes.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. Personnel Controls -->
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <h3>Personnel Controls</h3>
+          <p>Standard policies to protect data at the human level.</p>
+
+          <div class="req-cards">
+            <div class="note-box">
+              For these items, provide copies of your documented policies. Redactions to protect proprietary information are acceptable.
+            </div>
+
+            <div class="req-card">
+              <div class="req-card-header">
+                <div class="req-icon check">
+                  <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </div>
+                <h4>Background Checks</h4>
+              </div>
+              <p>Personnel must pass background checks appropriate for their role.</p>
+            </div>
+
+            <div class="req-card">
+              <div class="req-card-header">
+                <div class="req-icon lock">
+                  <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                    <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"></path>
+                  </svg>
+                </div>
+                <h4>Password Policy</h4>
+              </div>
+              <p>Documented requirements including minimum complexity and periodic changes.</p>
+            </div>
+
+            <div class="req-card">
+              <div class="req-card-header">
+                <div class="req-icon shield">
+                  <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                    <line x1="8" y1="21" x2="16" y2="21"></line>
+                    <line x1="12" y1="17" x2="12" y2="21"></line>
+                  </svg>
+                </div>
+                <h4>Screen Security</h4>
+              </div>
+              <p>Screen lock required when away from workstation. Personal cell phones may not be used at workstations where customer data is visible.</p>
+            </div>
+
+            <div class="req-card">
+              <div class="req-card-header">
+                <div class="req-icon users">
+                  <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                    <polyline points="16 17 21 12 16 7"></polyline>
+                    <line x1="21" y1="12" x2="9" y2="12"></line>
+                  </svg>
+                </div>
+                <h4>Off-boarding Process</h4>
+              </div>
+              <p>Documented process for immediately revoking system access when employees leave or change roles.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. Culture & Leadership -->
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <h3>Culture & Leadership</h3>
+          <p>Setting the tone from the top.</p>
+
+          <div class="req-cards">
+            <div class="note-box-green">
+              Consider communicating your Secure Funder™ certification internally. Leadership visibility around security standards reinforces expectations and underscores your commitment to industry-wide best practices. Whether incorporated into onboarding, team meetings, or internal communications, it signals that protecting sensitive information is a core operational priority — not just a compliance exercise.
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Terms and Conditions -->
+  <section id="terms" class="terms-section">
+    <div class="container">
+      <h3 class="terms-header">Terms and Conditions</h3>
+
+
+
+      <div class="terms-content">
+        <p>The Secure Funder™ certification program establishes an independent standard for identifying trusted funders in the alternative finance industry. Certification is based exclusively on verifiable safeguards that are applied consistently across all participants. Equivalent controls may be accepted when they meet the intent of the requirements and can be independently verified during review.</p>
+
+        <p>Enrollment in the program represents a voluntary commitment to elevated standards of data security and responsible business practices. Secure Funder™ is designed for funders of all sizes and focuses narrowly on protecting submissions and the documents associated with them.</p>
+
+        <p>The <a href="https://securefunder.org/" target="_blank">Secure Funder™ Directory</a> opens April 1, 2026. Organizations that enroll prior to this date will be recognized as Charter Members.</p>
+
+        <p>Safeguards are not required to be in place at the time of enrollment, but must be fully implemented prior to verification. Verification must be completed within ninety (90) days of enrollment. Listings will be removed if verification is not scheduled within this period, though extensions may be granted under special circumstances.</p>
+
+        <p>Verification is conducted via live screen share. All information reviewed during verification is treated as confidential. Participants should review <a href="https://securefunder.org/verification" target="_blank">How Verification Works</a> in advance of their session.</p>
+
+        <p>While no program can prevent theft entirely, Secure Funder™ is designed to materially reduce exposure and deter misuse through practical, verifiable safeguards, without introducing unnecessary operational disruption.</p>
+
+        <p>The annual program fee is $2,499 USD. This fee covers verification, program administration, ongoing Directory placement, and supports Secure Funder's role as a visible sponsor at major industry conferences — extending recognition and visibility for participating funders. For organizations using Aquamark tools such as watermarking (not required for certification), the annual fee is waived. No payment is due until verification is scheduled. Monthly payment arrangements are available upon request.</p>
+
+        <p>Participants agree to promptly notify Secure Funder™ of any material changes that may affect certification status. Certification may be revoked if required safeguards are no longer maintained or if information provided during verification is found to be inaccurate.</p>
+
+        <p>Digital certification badges are issued upon successful verification and may be displayed on company websites and materials. Badges remain valid for the duration of active membership.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo" style="color: white; gap: 12px;">
+            <img class="footer-badge" src="badge-2026.png" alt="Secure Funder 2026 Certified Member badge">
+            <div class="logo-text" style="color: white;">Secure Funder<span class="logo-tm">™</span></div>
+          </div>
+          <p>An independent certification program establishing baseline data-handling standards in alternative finance. Administered by Aquamark.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Program</h4>
+          <a href="/#about">About</a>
+          <a href="/certification">Requirements</a>
+          <a href="/#membership">Membership</a>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <a href="/directory">Member Directory</a>
+          <a href="/#press">Press & Media</a>
+          <a href="/contact">Ask a Question</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="https://aquamark.io" target="_blank">Send a Message</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Secure Funder™ Certification Program. All rights reserved.</span>
+        <span>Independently administered by <a href="https://aquamark.io" target="_blank">Aquamark</a></span>
+      </div>
+    </div>
+  </footer>
 
 </body>
 </html>
