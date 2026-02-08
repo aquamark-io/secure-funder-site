@@ -471,7 +471,7 @@
     /* Small tablet / large phone */
     @media (max-width: 900px) {
       .hero-inner { grid-template-columns: 1fr; }
-      .hero-content { padding: 48px 0 12px; padding-right: 0; text-align: center; align-items: center; }
+      .hero-content { padding: 48px 0 12px; padding-right: 0; }
       .hero-image { 
         display: block; 
         max-width: 100%; 
@@ -483,9 +483,7 @@
         grid-template-columns: 1fr; gap: 32px;
       }
       .hero h1 { font-size: 1.95rem; }
-      .hero p { margin-left: auto; margin-right: auto; }
-      .hero-label { justify-content: center; }
-      .hero-actions { flex-direction: column; align-items: center; width: 100%; }
+      .hero-actions { flex-direction: column; align-items: flex-start; }
       .press-grid { grid-template-columns: 1fr; }
       .nav-links { display: none; }
       .mobile-toggle { display: block; }
@@ -493,22 +491,11 @@
       .photo-break-overlay { padding: 24px; }
       .photo-break-text h2 { font-size: 1.2rem; }
       .section-title { font-size: 1.6rem; }
-      .section-header { text-align: center; }
-      .section-subtitle { margin-left: auto; margin-right: auto; }
-      .leadership-photo { width: 160px; height: 160px; margin: 0 auto; }
-      .leadership-content { text-align: center; }
-      .leadership-info p { margin-left: auto; margin-right: auto; }
+      .leadership-photo { width: 160px; height: 160px; }
       .membership-card { max-width: 100%; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
-      .footer-brand { grid-column: 1 / -1; text-align: center; }
-      .footer-brand p { margin-left: auto; margin-right: auto; }
-      .footer-brand .logo { justify-content: center; }
-      .footer-col { text-align: center; }
+      .footer-brand { grid-column: 1 / -1; }
       .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
-      .about-text { text-align: center; }
-      .about-text p { margin-left: auto; margin-right: auto; }
-      .directory-text { text-align: center; }
-      .step-item { text-align: left; }
     }
 
     /* Mobile */
@@ -532,9 +519,8 @@
       }
       .hero-actions { width: 100%; }
       .mission-banner p { font-size: 0.98rem; }
-      .section-label { text-align: center; }
-      .section-title { font-size: 1.4rem; text-align: center; }
-      .section-subtitle { font-size: 0.92rem; text-align: center; }
+      .section-title { font-size: 1.4rem; }
+      .section-subtitle { font-size: 0.92rem; }
       .about-sidebar { padding: 24px; }
       .directory-sidebar { padding: 24px; }
       .photo-break { height: 180px; }
@@ -553,10 +539,9 @@
       .cta-actions { flex-direction: column; align-items: center; width: 100%; }
       .cta-actions .btn-primary, .cta-actions .btn-ghost-white { width: 100%; }
       footer { padding: 40px 0 0; }
-      .footer-grid { grid-template-columns: 1fr; gap: 28px; text-align: center; }
+      .footer-grid { grid-template-columns: 1fr; gap: 28px; }
       .footer-brand { grid-column: auto; }
       .footer-brand p { max-width: 100%; }
-      .footer-col { text-align: center; }
       .btn-enroll { padding: 14px; font-size: 0.9rem; }
     }
 
@@ -870,10 +855,7 @@
         <div class="membership-card">
           <h3>Annual Membership</h3>
           <div class="price">$2,499</div>
-          <div class="price-note">monthly installments available</div>
-          <div style="background: var(--blue-accent-pale); border-radius: 8px; padding: 12px 16px; margin-bottom: 20px; font-size: 0.84rem; color: var(--navy); font-weight: 500; line-height: 1.55; text-align: left;">
-            No payment required until verification is scheduled. Apply in 1 minute.
-          </div>
+          <div style="font-size: 0.76rem; color: var(--text-muted); margin-bottom: 32px; line-height: 1.5; text-align: center;">No payment required until verification is scheduled. Monthly installments available. Apply in 1 minute.</div>
           <div class="includes">
             <div class="includes-label">Membership Includes</div>
             <div class="includes-item">
@@ -890,7 +872,7 @@
             </div>
             <div class="includes-item">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Member visibility at sponsored industry events</span>
+              <span>Member visibility at sponsored events</span>
             </div>
 
           </div>
