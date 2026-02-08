@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What Is Document Watermarking? — Secure Funder™</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="../../new-icon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../new-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../new-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --utility-height: 34px;
+      --navy: #0F2137;
+      --navy-mid: #1A3455;
+      --slate: #3D5A80;
+      --steel: #6B8BAD;
+      --sky: #93B5D0;
+      --ice: #C5D9E8;
+      --pearl: #EFF4F8;
+      --cloud: #F6F9FC;
+      --white: #FFFFFF;
+      --blue-accent: #4FA3D1;
+      --blue-accent-soft: #7BBCE1;
+      --blue-accent-pale: #E7F2FA;
+      --text-primary: #0F2137;
+      --text-secondary: #4A6480;
+      --text-muted: #7A96AE;
+      --border: #DAE3EC;
+      --border-light: #EAF0F5;
+      --font-display: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-body: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      color: var(--text-primary);
+      background: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ===== UTILITY BAR ===== */
+    .utility-bar {
+      background: var(--navy); color: var(--ice); font-size: 0.8rem;
+      height: var(--utility-height); letter-spacing: 0.06em;
+      position: sticky; top: 0; z-index: 200;
+      display: flex; align-items: center; justify-content: center; text-align: center;
+    }
+    .utility-text { width: 100%; text-align: center; pointer-events: none; }
+
+    /* ===== NAV ===== */
+    .main-nav {
+      background: var(--white); border-bottom: 1px solid var(--border);
+      position: sticky; top: var(--utility-height); z-index: 150;
+      box-shadow: 0 1px 4px rgba(15,33,55,0.04);
+    }
+    .main-nav .container {
+      display: flex; justify-content: space-between; align-items: center; height: 68px;
+    }
+    .logo {
+      display: flex; align-items: center; text-decoration: none; color: var(--navy); gap: 12px;
+    }
+    .logo-text {
+      font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; letter-spacing: -0.01em;
+    }
+    .logo-tm { font-size: 0.55em; vertical-align: super; font-weight: 400; margin-left: 1px; }
+    .logo-badge { width: 38px; height: 38px; flex: 0 0 auto; }
+    .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; }
+    .nav-links a {
+      text-decoration: none; color: var(--text-primary);
+      font-size: 0.88rem; font-weight: 500; padding: 8px 14px;
+      border-radius: 6px; transition: all 0.2s;
+    }
+    .nav-links a:hover { background: var(--pearl); }
+    .nav-links .btn-member { background: var(--navy); color: var(--white); font-weight: 600; margin-left: 6px; }
+    .nav-links .btn-member:hover { background: var(--navy-mid); }
+    .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+    .mobile-toggle span { display: block; width: 22px; height: 2px; background: var(--navy); margin: 5px 0; }
+
+    /* ===== CONTAINERS ===== */
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+    /* ===== PAGE HEADER ===== */
+    .page-header {
+      background: var(--cloud); border-bottom: 1px solid var(--border-light);
+      padding: 64px 0 52px; position: relative; overflow: hidden;
+    }
+    .page-header::before {
+      content: ''; position: absolute; top: -200px; right: -100px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(79,163,209,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-label {
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--blue-accent); margin-bottom: 14px;
+      display: inline-flex; align-items: center; gap: 10px;
+    }
+    .hero-label::before { content: ''; width: 22px; height: 1.5px; background: var(--blue-accent); }
+    .breadcrumb {
+      font-size: 0.82rem; color: var(--text-muted); margin-bottom: 20px;
+    }
+    .breadcrumb a {
+      color: var(--text-muted); text-decoration: none; transition: color 0.2s;
+    }
+    .breadcrumb a:hover { color: var(--navy); }
+    .breadcrumb span { margin: 0 6px; }
+    .page-header h1 {
+      font-family: var(--font-display); font-size: 2.1rem; font-weight: 700;
+      line-height: 1.15; letter-spacing: -0.02em; color: var(--navy);
+      margin-bottom: 16px; max-width: 640px;
+    }
+    .page-header .subtitle {
+      font-size: 1.02rem; color: var(--text-secondary); line-height: 1.75; max-width: 600px;
+    }
+
+    /* ===== ARTICLE ===== */
+    .article-section {
+      padding: 56px 0 72px;
+      background: var(--white);
+    }
+    .article-body {
+      max-width: 720px;
+    }
+    .article-body h2 {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin: 40px 0 12px;
+    }
+    .article-body h2:first-child { margin-top: 0; }
+    .article-body p {
+      font-size: 0.94rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+    .article-body p:last-child { margin-bottom: 0; }
+
+    /* How it works steps */
+    .how-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin: 20px 0 28px;
+    }
+    .how-step {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .how-step-num {
+      width: 32px; height: 32px; min-width: 32px;
+      border-radius: 50%;
+      background: var(--cloud);
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 0.82rem; color: var(--navy);
+      margin-top: 2px;
+    }
+    .how-step-text h4 {
+      font-family: var(--font-display);
+      font-size: 0.92rem; font-weight: 600; color: var(--navy); margin-bottom: 2px;
+    }
+    .how-step-text p {
+      font-size: 0.88rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 0;
+    }
+
+    /* Key points */
+    .key-points {
+      background: var(--cloud);
+      border: 1px solid var(--border-light);
+      border-radius: 10px;
+      padding: 24px 28px;
+      margin: 24px 0 28px;
+    }
+    .key-points h3 {
+      font-family: var(--font-display);
+      font-size: 0.92rem; font-weight: 700; color: var(--navy); margin-bottom: 14px;
+    }
+    .key-point {
+      display: flex; align-items: flex-start; gap: 10px;
+      margin-bottom: 10px; font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6;
+    }
+    .key-point:last-child { margin-bottom: 0; }
+    .key-point svg { color: var(--blue-accent); min-width: 16px; margin-top: 3px; }
+
+    /* Provider note */
+    .provider-note {
+      background: var(--cloud);
+      border-left: 3px solid var(--blue-accent);
+      border-radius: 0 8px 8px 0;
+      padding: 22px 26px;
+      margin: 32px 0 0;
+    }
+    .provider-note h3 {
+      font-family: var(--font-display);
+      font-size: 0.95rem; font-weight: 600; color: var(--navy); margin-bottom: 8px;
+    }
+    .provider-note p {
+      font-size: 0.88rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 0;
+    }
+    .provider-note a {
+      color: var(--blue-accent); text-decoration: none; font-weight: 600; transition: color 0.2s;
+    }
+    .provider-note a:hover { color: var(--navy); text-decoration: underline; }
+
+    /* Back link */
+    .back-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      margin-top: 36px;
+      color: var(--text-muted); text-decoration: none; font-size: 0.86rem; font-weight: 500;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--navy); }
+
+    /* ===== FOOTER ===== */
+    footer { background: var(--navy); color: var(--ice); padding: 56px 0 0; }
+    .footer-grid {
+      display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 44px; padding-bottom: 44px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .footer-brand p {
+      font-size: 0.86rem; color: var(--steel); line-height: 1.7; margin-top: 14px; max-width: 280px;
+    }
+    .footer-col h4 {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--white); margin-bottom: 16px;
+    }
+    .footer-col a {
+      display: block; color: var(--steel); text-decoration: none;
+      font-size: 0.86rem; margin-bottom: 9px; transition: color 0.2s;
+    }
+    .footer-col a:hover { color: var(--blue-accent-soft); }
+    .footer-bottom {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 22px 0; font-size: 0.76rem; color: var(--steel);
+    }
+    .footer-bottom a { color: var(--steel); text-decoration: none; }
+    .footer-bottom a:hover { color: var(--blue-accent-soft); }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .page-header { animation: fadeUp 0.5s ease-out; }
+    .article-section { animation: fadeUp 0.6s ease-out 0.1s both; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .mobile-toggle { display: block; }
+      .page-header h1 { font-size: 1.75rem; }
+      .logo-badge { width: 32px; height: 32px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+      .footer-brand { grid-column: 1 / -1; }
+      .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+    }
+
+    @media (max-width: 600px) {
+      .container { padding: 0 16px; }
+      .utility-bar { font-size: 0.72rem; height: 30px; }
+      :root { --utility-height: 30px; }
+      .main-nav .container { height: 56px; }
+      .logo-badge { width: 30px; height: 30px; }
+      .logo-text { font-size: 1.15rem; }
+      .page-header { padding: 44px 0 36px; }
+      .page-header h1 { font-size: 1.45rem; }
+      .page-header .subtitle { font-size: 0.93rem; }
+      .article-section { padding: 40px 0 56px; }
+      .article-body h2 { font-size: 1.1rem; margin-top: 32px; }
+      .article-body p { font-size: 0.9rem; }
+      .key-points { padding: 20px 22px; }
+      .provider-note { padding: 18px 22px; }
+      footer { padding: 40px 0 0; }
+      .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+      .footer-brand p { max-width: 100%; }
+    }
+
+    @media (max-width: 380px) {
+      .page-header h1 { font-size: 1.25rem; }
+      .container { padding: 0 14px; }
+    }
+
+    /* Mobile nav menu */
+    .mobile-menu {
+      display: none; position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: var(--white); z-index: 1000;
+      flex-direction: column; padding: 24px;
+    }
+    .mobile-menu.active { display: flex; }
+    .mobile-menu-header {
+      display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px;
+    }
+    .mobile-menu-close {
+      background: none; border: none; cursor: pointer;
+      font-size: 1.5rem; color: var(--navy); padding: 8px;
+    }
+    .mobile-menu a {
+      display: block; padding: 14px 0; font-size: 1.05rem; font-weight: 500;
+      color: var(--navy); text-decoration: none; border-bottom: 1px solid var(--border-light);
+    }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu .btn-member-mobile {
+      display: block; margin-top: 24px; padding: 14px;
+      background: var(--navy); color: var(--white);
+      text-align: center; border-radius: 8px; font-weight: 600;
+      text-decoration: none; font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="main-nav" style="top: 0;">
+    <div class="container">
+      <a href="/" class="logo" aria-label="Secure Funder Home">
+        <img class="logo-badge" src="../../new-icon.png" alt="Secure Funder">
+        <div class="logo-text">Secure Funder<span class="logo-tm">™</span></div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/#about">About</a></li>
+        <li><a href="/directory">Directory</a></li>
+        <li><a href="/#leadership">Leadership</a></li>
+        <li><a href="/#press">Press</a></li>
+        <li><a href="/#membership">Membership</a></li>
+        <li><a href="https://securefunder.org/contact/" class="btn-member">Apply Now</a></li>
+      </ul>
+      <button class="mobile-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="/certification">Certification Requirements</a>
+        <span>›</span>
+        Document Watermarking
+      </div>
+      <h1>What Is Document Watermarking?</h1>
+      <p class="subtitle">A simple, proven approach to making every document traceable.</p>
+    </div>
+  </div>
+
+  <!-- Article -->
+  <section class="article-section">
+    <div class="container">
+      <div class="article-body">
+
+        <div class="provider-note">
+          <h3>Available Provider</h3>
+          <p><a href="https://www.aquamark.io/funder-watermarking" target="_blank">Aquamark</a> offers document watermarking built specifically for the alternative finance industry, including email-based automation and API integration for CRMs and portals. Aquamark administers the Secure Funder™ program, but use of Aquamark products is not required for certification.</p>
+        </div>
+
+        <h2>How It Works</h2>
+        <p>When a broker submits a deal — bank statements, credit applications, tax returns — the documents are automatically watermarked before anyone at the funding company handles them. Each watermark includes identifying information such as the funder's name, the partner or broker who submitted the deal, and a timestamp. The result is a document that is fully usable for underwriting but visibly traceable to its origin.</p>
+
+        <p>This serves two purposes. First, it acts as a visible deterrent: personnel who know that every file they touch carries their organization's name are far less likely to redistribute it. Second, if a document does resurface outside the organization — repackaged in another deal or sold to a competitor — the watermark identifies exactly where the leak occurred and which submission it came from.</p>
+
+        <p>For brokers and partners, nothing changes. They continue submitting deals the same way they always have. The watermarking happens on the funder's side, automatically, before processing staff ever see the files.</p>
+
+        <h2>How It Works in Practice</h2>
+        <p>For Secure Funder™ certification, watermarking can be applied at different points depending on how your organization receives and processes submissions:</p>
+
+        <div class="how-steps">
+          <div class="how-step">
+            <div class="how-step-num">1</div>
+            <div class="how-step-text">
+              <h4>Email Submissions</h4>
+              <p>Inbound emails containing broker submissions trigger an automated process that applies watermarks to attachments before they reach processing personnel. The broker's workflow is unchanged — they continue emailing deals as usual.</p>
+            </div>
+          </div>
+          <div class="how-step">
+            <div class="how-step-num">2</div>
+            <div class="how-step-text">
+              <h4>CRM / Portal Downloads</h4>
+              <p>Watermarks are applied when files enter the system or at the point of download. Personnel who access documents receive copies that are already marked, so there's no additional step in their workflow.</p>
+            </div>
+          </div>
+          <div class="how-step">
+            <div class="how-step-num">3</div>
+            <div class="how-step-text">
+              <h4>Third-Party / BPO Access</h4>
+              <p>If outsourced teams access merchant documents, watermarking ensures that every file they handle is traceable — reducing exposure without requiring changes to their existing tools or processes.</p>
+            </div>
+          </div>
+        </div>
+
+        <h2>Why It Matters</h2>
+        <p>In the alternative finance industry, the same bank statement can pass through multiple organizations during a single deal cycle. Without any form of protection, there is no way to identify where a leaked document originated. This makes it easy for bad actors to redistribute merchant data without accountability — a practice commonly known as "backdooring."</p>
+
+        <p>Watermarking doesn't prevent someone from viewing a document. It makes the document traceable, which changes the risk calculus for anyone considering misuse. When personnel know that files carry identifying marks, the incentive to mishandle them drops significantly.</p>
+
+        <div class="key-points">
+          <h3>Key Characteristics</h3>
+          <div class="key-point">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Watermarks are applied automatically — no manual steps required from processing personnel</span>
+          </div>
+          <div class="key-point">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Compatible with OCR and fraud detection tools — watermarking does not interfere with downstream processing</span>
+          </div>
+          <div class="key-point">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>No file storage required — documents are processed and returned without being retained by the watermarking provider</span>
+          </div>
+          <div class="key-point">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Can be integrated via API or email automation depending on your intake workflow</span>
+          </div>
+        </div>
+
+        <h2>Certification Context</h2>
+        <p>Within the Secure Funder™ requirements, watermarking is one of two accepted options for protecting accessible documents. The alternative is restricting files to view-only access with no download capability. Organizations may choose whichever approach fits their operational workflow — or use both in different areas of their process.</p>
+
+        <p>Any document watermarking solution that meets the described criteria is acceptable for certification. The program does not require a specific vendor or product.</p>
+
+        <a href="/certification" class="back-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+          Back to Certification Requirements
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo" style="color: white;">
+            <div class="logo-text" style="color: white;">Secure Funder<span class="logo-tm">™</span></div>
+          </div>
+          <p>An independent certification program establishing baseline data-handling standards in alternative finance. Administered by Aquamark.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Program</h4>
+          <a href="/#about">About</a>
+          <a href="/certification">Requirements</a>
+          <a href="/#membership">Membership</a>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <a href="/directory">Member Directory</a>
+          <a href="/#press">Press & Media</a>
+          <a href="https://securefunder.org/contact/">Ask a Question</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="https://securefunder.org/contact/" target="_blank">Send a Message</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Secure Funder™ Certification Program. All rights reserved.</span>
+        <span>Independently administered by <a href="https://aquamark.io" target="_blank">Aquamark</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-header">
+      <a href="/" class="logo" aria-label="Secure Funder Home">
+        <img src="../../new-icon.png" alt="Secure Funder" style="width:30px;height:30px;">
+        <div class="logo-text">Secure Funder<span class="logo-tm">™</span></div>
+      </a>
+      <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">✕</button>
+    </div>
+    <a href="/#about" onclick="closeMobileMenu()">About</a>
+    <a href="/directory" onclick="closeMobileMenu()">Directory</a>
+    <a href="/#leadership" onclick="closeMobileMenu()">Leadership</a>
+    <a href="/#press" onclick="closeMobileMenu()">Press</a>
+    <a href="/#membership" onclick="closeMobileMenu()">Membership</a>
+    <a href="https://securefunder.org/contact/" class="btn-member-mobile">Apply Now</a>
+  </div>
+
+  <script>
+    const toggle = document.querySelector('.mobile-toggle');
+    const menu = document.getElementById('mobileMenu');
+    const closeBtn = document.getElementById('mobileMenuClose');
+    function closeMobileMenu() { menu.classList.remove('active'); document.body.style.overflow = ''; }
+    toggle.addEventListener('click', () => { menu.classList.add('active'); document.body.style.overflow = 'hidden'; });
+    closeBtn.addEventListener('click', closeMobileMenu);
+  </script>
+
+</body>
+</html>
