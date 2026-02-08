@@ -50,9 +50,7 @@
       letter-spacing: 0.02em;
     }
     .utility-bar .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      display: flex; justify-content: space-between; align-items: center;
     }
     .utility-bar a { color: var(--ice); text-decoration: none; transition: color 0.2s; }
     .utility-bar a:hover { color: var(--gold-light); }
@@ -62,57 +60,31 @@
     .main-nav {
       background: var(--white);
       border-bottom: 1px solid var(--border);
-      position: sticky;
-      top: 0;
-      z-index: 100;
+      position: sticky; top: 0; z-index: 100;
       box-shadow: 0 1px 4px rgba(15,33,55,0.04);
     }
     .main-nav .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      height: 68px;
+      display: flex; justify-content: space-between; align-items: center; height: 68px;
     }
     .logo {
-      display: flex;
-      align-items: center;
-      gap: 0;
-      text-decoration: none;
-      color: var(--navy);
+      display: flex; align-items: center; text-decoration: none; color: var(--navy);
     }
     .logo-text {
       font-family: var(--font-display);
-      font-size: 1.3rem;
-      font-weight: 700;
-      letter-spacing: -0.01em;
+      font-size: 1.3rem; font-weight: 700; letter-spacing: -0.01em;
     }
-    .logo-tm {
-      font-size: 0.55em;
-      vertical-align: super;
-      font-weight: 400;
-      margin-left: 1px;
-    }
+    .logo-tm { font-size: 0.55em; vertical-align: super; font-weight: 400; margin-left: 1px; }
     .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      list-style: none;
+      display: flex; align-items: center; gap: 4px; list-style: none;
     }
     .nav-links a {
-      text-decoration: none;
-      color: var(--text-primary);
-      font-size: 0.88rem;
-      font-weight: 500;
-      padding: 8px 14px;
-      border-radius: 6px;
-      transition: all 0.2s;
+      text-decoration: none; color: var(--text-primary);
+      font-size: 0.88rem; font-weight: 500; padding: 8px 14px;
+      border-radius: 6px; transition: all 0.2s;
     }
     .nav-links a:hover { background: var(--pearl); }
     .nav-links .btn-member {
-      background: var(--navy);
-      color: var(--white);
-      font-weight: 600;
-      margin-left: 6px;
+      background: var(--navy); color: var(--white); font-weight: 600; margin-left: 6px;
     }
     .nav-links .btn-member:hover { background: var(--navy-mid); }
     .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
@@ -152,36 +124,27 @@
     .hero {
       background: var(--cloud);
       border-bottom: 1px solid var(--border-light);
-      position: relative;
-      overflow: hidden;
+      position: relative; overflow: hidden;
     }
     .hero::before {
-      content: '';
-      position: absolute;
-      top: -200px; right: -100px;
+      content: ''; position: absolute; top: -200px; right: -100px;
       width: 600px; height: 600px;
       background: radial-gradient(circle, rgba(184,134,45,0.05) 0%, transparent 70%);
       pointer-events: none;
     }
     .hero-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      min-height: 480px;
+      display: grid; grid-template-columns: 1fr 1fr; min-height: 480px;
     }
     .hero-content {
       padding: 72px 48px 72px 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+      display: flex; flex-direction: column; justify-content: center;
     }
     .hero-label {
       font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em;
       text-transform: uppercase; color: var(--gold); margin-bottom: 18px;
       display: flex; align-items: center; gap: 10px;
     }
-    .hero-label::before {
-      content: ''; width: 22px; height: 1.5px; background: var(--gold);
-    }
+    .hero-label::before { content: ''; width: 22px; height: 1.5px; background: var(--gold); }
     .hero h1 {
       font-family: var(--font-display);
       font-size: 2.5rem; font-weight: 700; line-height: 1.15;
@@ -202,9 +165,7 @@
 
     /* ===== MISSION BANNER ===== */
     .mission-banner {
-      background: var(--white);
-      border-bottom: 1px solid var(--border-light);
-      padding: 34px 0;
+      background: var(--white); border-bottom: 1px solid var(--border-light); padding: 34px 0;
     }
     .mission-banner .container-narrow { text-align: center; }
     .mission-banner p {
@@ -228,16 +189,11 @@
       font-size: 1rem; color: var(--text-secondary); line-height: 1.7; max-width: 580px;
     }
     .section-header { margin-bottom: 48px; }
-    .section-header.center { text-align: center; }
-    .section-header.center .section-subtitle { margin: 0 auto; }
 
     /* ===== ABOUT ===== */
     .about-section { background: var(--white); }
     .about-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 56px;
-      align-items: start;
+      display: grid; grid-template-columns: 1.2fr 1fr; gap: 56px; align-items: start;
     }
     .about-text p {
       font-size: 1rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 18px;
@@ -287,58 +243,23 @@
       border-bottom: 1px solid var(--border-light);
     }
     .directory-content {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start;
     }
-    .directory-preview {
+    .directory-text .section-subtitle { margin-bottom: 24px; }
+    .directory-sidebar {
       background: var(--white); border: 1px solid var(--border);
-      border-radius: 12px; padding: 36px;
+      border-radius: 12px; padding: 34px;
     }
-    .directory-tier {
-      display: flex; align-items: center; gap: 16px;
-      padding: 16px 0; border-bottom: 1px solid var(--border-light);
-    }
-    .directory-tier:last-child { border-bottom: none; }
-    .tier-badge {
-      width: 40px; height: 40px; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 0.75rem; font-weight: 700; min-width: 40px;
-    }
-    .tier-badge.charter { background: var(--gold-bg); color: var(--gold); border: 1.5px solid var(--gold); }
-    .tier-badge.certified { background: var(--pearl); color: var(--slate); border: 1.5px solid var(--border); }
-    .tier-badge.progress { background: var(--cloud); color: var(--text-muted); border: 1.5px solid var(--border-light); }
-    .tier-info h4 { font-size: 0.92rem; font-weight: 600; color: var(--navy); margin-bottom: 2px; }
-    .tier-info p { font-size: 0.8rem; color: var(--text-muted); }
-    .directory-launch {
-      margin-top: 24px; padding: 14px 20px;
-      background: var(--gold-bg); border: 1px solid rgba(184,134,45,0.2);
-      border-radius: 8px; text-align: center;
-      font-size: 0.86rem; color: var(--gold); font-weight: 600;
-    }
-
-    /* ===== STANDARDS ===== */
-    .standards-section { background: var(--white); }
-    .standards-intro {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 56px;
-      align-items: start;
-    }
-    .standards-text p {
-      font-size: 1rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 16px;
-    }
-    .standards-areas {
-      background: var(--cloud);
-      border-radius: 10px;
-      padding: 34px;
-      border: 1px solid var(--border-light);
-    }
-    .standards-areas h3 {
+    .directory-sidebar h3 {
       font-family: var(--font-display);
-      font-size: 1.05rem; font-weight: 600; color: var(--navy); margin-bottom: 20px;
+      font-size: 1.05rem; font-weight: 600; color: var(--navy); margin-bottom: 8px;
+    }
+    .directory-sidebar > p {
+      font-size: 0.86rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 22px;
     }
     .area-item {
       display: flex; align-items: center; gap: 12px;
-      padding: 12px 0;
+      padding: 13px 0;
       border-bottom: 1px solid var(--border-light);
       font-size: 0.92rem; color: var(--text-primary); font-weight: 500;
     }
@@ -347,15 +268,13 @@
       width: 8px; height: 8px; min-width: 8px;
       border-radius: 50%; background: var(--gold);
     }
-    .standards-cta {
-      margin-top: 32px;
+    .directory-sidebar .sidebar-cta {
+      margin-top: 22px;
     }
 
     /* ===== LEADERSHIP ===== */
     .leadership-section {
-      background: var(--cloud);
-      border-top: 1px solid var(--border-light);
-      border-bottom: 1px solid var(--border-light);
+      background: var(--white);
     }
     .leadership-content {
       display: grid; grid-template-columns: 200px 1fr; gap: 48px; align-items: center;
@@ -378,7 +297,11 @@
     }
 
     /* ===== MEMBERSHIP ===== */
-    .membership-section { background: var(--white); }
+    .membership-section {
+      background: var(--cloud);
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+    }
     .membership-grid {
       display: grid; grid-template-columns: 1fr 380px; gap: 56px; align-items: start;
     }
@@ -398,7 +321,7 @@
     }
     .step-item p { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.65; }
     .membership-card {
-      background: var(--cloud); border: 1px solid var(--border);
+      background: var(--white); border: 1px solid var(--border);
       border-radius: 12px; padding: 36px; text-align: center;
     }
     .membership-card h3 {
@@ -433,9 +356,7 @@
     .btn-enroll:hover { background: var(--navy-mid); transform: translateY(-1px); box-shadow: 0 4px 14px rgba(15,33,55,0.15); }
 
     /* ===== PRESS ===== */
-    .press-section {
-      background: var(--cloud); border-top: 1px solid var(--border-light);
-    }
+    .press-section { background: var(--white); }
     .press-grid {
       display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
     }
@@ -512,7 +433,7 @@
       .hero-content { padding: 56px 0; padding-right: 0; }
       .hero-image { display: none; }
       .about-grid, .directory-content, .membership-grid, .footer-grid,
-      .leadership-content, .standards-intro {
+      .leadership-content {
         grid-template-columns: 1fr; gap: 32px;
       }
       .hero h1 { font-size: 1.95rem; }
@@ -555,7 +476,6 @@
       </a>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
-        <li><a href="#standards">Standards</a></li>
         <li><a href="#directory">Directory</a></li>
         <li><a href="#leadership">Leadership</a></li>
         <li><a href="#press">Press</a></li>
@@ -578,7 +498,7 @@
           <p>Secure Funder™ certifies organizations that meet baseline standards for handling sensitive merchant information. Independently administered. Publicly listed.</p>
           <div class="hero-actions">
             <a href="#membership" class="btn-primary">Apply for Membership</a>
-            <a href="#standards" class="btn-ghost">View Requirements</a>
+            <a href="#directory" class="btn-ghost">View Directory</a>
           </div>
         </div>
         <!-- STOCK PHOTO: 800×700px min. Professional/business setting. Portrait or square. -->
@@ -592,7 +512,7 @@
   <!-- Mission -->
   <div class="mission-banner">
     <div class="container-narrow">
-      <p>Our mission is to promote responsible data handling across the alternative finance industry by establishing practical, independently verified standards that protect merchants, partners, and the organizations that serve them.</p>
+      <p>Our mission is to promote responsible data handling across the alternative finance industry by establishing practical, independently verified standards that protect merchants and partners.</p>
     </div>
   </div>
 
@@ -641,7 +561,7 @@
             </div>
             <div>
               <h4>Practical</h4>
-              <p>Standards reflect how organizations actually operate. Equivalent controls are accepted.</p>
+              <p>Standards for organizations of all sizes. Equivalent controls are accepted.</p>
             </div>
           </div>
         </div>
@@ -660,64 +580,25 @@
     </div>
   </div>
 
-  <!-- Directory -->
+  <!-- Directory + Areas of Review -->
   <section id="directory" class="directory-section">
     <div class="container">
       <div class="directory-content">
-        <div>
+        <div class="directory-text">
           <div class="section-label">Member Directory</div>
           <h2 class="section-title">The Public Record of Verified Organizations</h2>
-          <p class="section-subtitle">A publicly searchable listing of every organization that has completed independent verification — available to brokers, merchants, and partners.</p>
+          <p class="section-subtitle">A publicly searchable listing of every organization that has completed independent verification — available to brokers, merchants, and partners. Organizations are listed as "In Progress" upon enrollment, signaling their commitment before verification is complete.</p>
         </div>
-        <div class="directory-preview">
-          <div class="directory-tier">
-            <div class="tier-badge charter">★</div>
-            <div class="tier-info">
-              <h4>Charter Members</h4>
-              <p>Founding participants who helped establish the standard</p>
-            </div>
-          </div>
-          <div class="directory-tier">
-            <div class="tier-badge certified">✓</div>
-            <div class="tier-info">
-              <h4>Certified Members</h4>
-              <p>Organizations that have completed full verification</p>
-            </div>
-          </div>
-          <div class="directory-tier">
-            <div class="tier-badge progress">◐</div>
-            <div class="tier-info">
-              <h4>In Progress</h4>
-              <p>Organizations actively completing the verification process</p>
-            </div>
-          </div>
-          <div class="directory-launch">Directory opens April 1, 2026</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Standards -->
-  <section id="standards" class="standards-section">
-    <div class="container">
-      <div class="standards-intro">
-        <div class="standards-text">
-          <div class="section-label">Certification Standards</div>
-          <h2 class="section-title">What Verification Covers</h2>
-          <p>Certification focuses on one core question: are sensitive documents and data protected, and when access is needed, is it accounted for?</p>
-          <p>The program evaluates practical safeguards across a few key areas — how information comes in, who can access it, and what controls are in place to prevent misuse. Requirements are straightforward, and most organizations already have many of them in place.</p>
-          <div class="standards-cta">
-            <a href="/requirements" class="btn-ghost">View Full Requirements →</a>
-          </div>
-        </div>
-        <div class="standards-areas">
+        <div class="directory-sidebar">
           <h3>Areas of Review</h3>
-          <div class="area-item"><div class="area-dot"></div> Email &amp; document intake</div>
-          <div class="area-item"><div class="area-dot"></div> System access &amp; permissions</div>
-          <div class="area-item"><div class="area-dot"></div> Cloud storage &amp; third-party services</div>
-          <div class="area-item"><div class="area-dot"></div> Outsourcing &amp; offshore access</div>
-          <div class="area-item"><div class="area-dot"></div> Personnel &amp; off-boarding</div>
-          <div class="area-item"><div class="area-dot"></div> Organizational culture &amp; leadership</div>
+          <p>Certification focuses lightweight safeguards without disrupting your operation.</p>
+          <div class="area-item"><div class="area-dot"></div> Document intake and storage</div>
+          <div class="area-item"><div class="area-dot"></div> System access and permissions</div>
+          <div class="area-item"><div class="area-dot"></div> Personnel policies</div>
+          <div class="area-item"><div class="area-dot"></div> Organizational culture and leadership</div>
+          <div class="sidebar-cta">
+            <a href="/requirements" class="btn-ghost" style="width: 100%; justify-content: center;">View Full Requirements →</a>
+          </div>
         </div>
       </div>
     </div>
@@ -741,7 +622,7 @@
       <h2 class="section-title" style="margin-bottom: 36px;">Program Director</h2>
       <div class="leadership-content">
         <div class="leadership-photo">
-          <img src="/mnt/user-data/uploads/headshot.png" alt="Christina Duncan — Program Director, Secure Funder" />
+          <img src="headshot.png" alt="Christina Duncan — Program Director, Secure Funder" />
         </div>
         <div class="leadership-info">
           <h3>Christina Duncan</h3>
@@ -759,33 +640,33 @@
         <div>
           <div class="section-label">Membership</div>
           <h2 class="section-title">How to Join</h2>
-          <p class="section-subtitle" style="margin-bottom: 36px;">Membership is open to any funding organization in alternative finance. The process is straightforward — most organizations already have many of the required safeguards in place.</p>
+          <p class="section-subtitle" style="margin-bottom: 36px;">Membership is open to any funding organization in alternative finance.</p>
           <div class="step-item">
             <div class="step-num">1</div>
             <div>
               <h4>Apply</h4>
-              <p>Submit your organization's information. We'll confirm eligibility and walk you through the process.</p>
+              <p>Submit your organization's information. We'll confirm eligibility and provide instructions.</p>
             </div>
           </div>
           <div class="step-item">
             <div class="step-num">2</div>
             <div>
-              <h4>Prepare</h4>
-              <p>Review the requirements and address any gaps. Enrolled organizations have 90 days to complete verification.</p>
+              <h4>Get Listed Immediately</h4>
+              <p>Upon enrollment, your organization is listed in the directory as "In Progress" — signaling your commitment.</p>
             </div>
           </div>
           <div class="step-item">
             <div class="step-num">3</div>
             <div>
-              <h4>Verify</h4>
-              <p>Complete a brief screen share review. All information reviewed during verification is treated as confidential.</p>
+              <h4>Prepare &amp; Verify</h4>
+              <p>Review the requirements, address any gaps, and complete a brief screen share review. All information is treated as confidential.</p>
             </div>
           </div>
           <div class="step-item">
             <div class="step-num">4</div>
             <div>
-              <h4>Get Listed</h4>
-              <p>Certified members appear in the public directory with a digital badge for websites, email signatures, and marketing.</p>
+              <h4>Certified</h4>
+              <p>Members receive certified status in the directory, visibility at Secure Funder–sponsored industry events, and a digital badge.</p>
             </div>
           </div>
         </div>
@@ -801,7 +682,7 @@
             </div>
             <div class="includes-item">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Public listing in the Secure Funder Directory</span>
+              <span>Immediate directory listing upon enrollment</span>
             </div>
             <div class="includes-item">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
@@ -809,7 +690,7 @@
             </div>
             <div class="includes-item">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Directory placement and partner visibility</span>
+              <span>Member visibility at sponsored industry events</span>
             </div>
             <div class="includes-item">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
@@ -840,11 +721,7 @@
           <h3>Certification Coming to Alternative Finance</h3>
           <div class="press-date">December 2025</div>
         </a>
-        <a href="https://debanked.com/2025/07/grok-read-my-iso-agreement/" class="press-card" target="_blank">
-          <div class="press-source">deBanked</div>
-          <h3>Grok, Read My ISO Agreement</h3>
-          <div class="press-date">July 2025</div>
-        </a>
+        
       </div>
     </div>
   </section>
@@ -880,7 +757,6 @@
         <div class="footer-col">
           <h4>Program</h4>
           <a href="#about">About</a>
-          <a href="#standards">Standards</a>
           <a href="/requirements">Requirements</a>
           <a href="#membership">Membership</a>
         </div>
