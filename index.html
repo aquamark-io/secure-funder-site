@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Secure Funder™ — Independent Certification for Alternative Finance Organizations</title>
-  <link rel="icon" type="image/png" sizes="32x32" href="badge-2026.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="badge-2026.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="badge-2026.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="sf-icon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="sf-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="sf-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;500;600;700;800&display=swap" rel="stylesheet">
@@ -86,7 +86,7 @@
       display: flex; justify-content: space-between; align-items: center; height: 68px;
     }
     .logo {
-      display: flex; align-items: center; text-decoration: none; color: var(--navy);
+      display: flex; align-items: center; text-decoration: none; color: var(--navy); gap: 12px;
     }
     .logo-text {
       font-family: var(--font-display);
@@ -152,7 +152,7 @@
       pointer-events: none;
     }
     .hero-inner {
-      display: grid; grid-template-columns: 1fr 1fr; min-height: 480px;
+      display: grid; grid-template-columns: 1fr 1fr; min-height: 480px; align-items: center;
     }
     .hero-content {
       padding: 72px 48px 72px 0;
@@ -178,18 +178,18 @@
       position: relative;
       overflow: hidden;
       background: var(--cloud);
-      border-radius: 16px; /* rounded all 4 corners */
+      border-radius: 16px;
       display: flex;
       align-items: center;
       justify-content: center;
+      aspect-ratio: 16 / 9;
     }
     .hero-image img {
       width: 100%;
-      height: auto;        /* prevent side cropping */
-      max-height: 100%;
-      object-fit: contain; /* ensure full image visible */
+      height: 100%;
+      object-fit: cover;
       display: block;
-      border-radius: 16px; /* round image itself as well */
+      border-radius: 16px;
     }
 
 
@@ -458,10 +458,26 @@
     .footer-bottom a:hover { color: var(--blue-accent-soft); }
 
     /* ===== RESPONSIVE ===== */
+
+    /* Tablet */
+    @media (max-width: 1024px) {
+      .hero-inner { grid-template-columns: 1fr 1fr; gap: 24px; }
+      .about-grid { gap: 36px; }
+      .directory-content { gap: 36px; }
+      .membership-grid { grid-template-columns: 1fr 340px; gap: 36px; }
+      .footer-grid { grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 28px; }
+    }
+
+    /* Small tablet / large phone */
     @media (max-width: 900px) {
       .hero-inner { grid-template-columns: 1fr; }
-      .hero-content { padding: 56px 0; padding-right: 0; }
-      .hero-image { display: none; }
+      .hero-content { padding: 48px 0 12px; padding-right: 0; }
+      .hero-image { 
+        display: block; 
+        max-width: 100%; 
+        margin-bottom: 32px;
+        aspect-ratio: 16 / 9;
+      }
       .about-grid, .directory-content, .membership-grid, .footer-grid,
       .leadership-content {
         grid-template-columns: 1fr; gap: 32px;
@@ -471,11 +487,102 @@
       .nav-links { display: none; }
       .mobile-toggle { display: block; }
       .hero-actions { flex-direction: column; align-items: flex-start; }
-      .photo-break { height: 200px; }
+      .photo-break { height: 220px; }
       .photo-break-overlay { padding: 24px; }
       .photo-break-text h2 { font-size: 1.2rem; }
       .section-title { font-size: 1.6rem; }
       .leadership-photo { width: 160px; height: 160px; }
+      .membership-card { max-width: 100%; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .footer-brand { grid-column: 1 / -1; }
+      .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+    }
+
+    /* Mobile */
+    @media (max-width: 600px) {
+      .container { padding: 0 16px; }
+      .container-narrow { padding: 0 16px; }
+      section { padding: 56px 0; }
+      .utility-bar { font-size: 0.72rem; height: 30px; }
+      :root { --utility-height: 30px; }
+      .main-nav .container { height: 56px; }
+      .logo-badge-lg { width: 32px; height: 32px; }
+      .logo-text { font-size: 1.15rem; }
+      .hero h1 { font-size: 1.6rem; }
+      .hero p { font-size: 0.95rem; }
+      .hero-content { padding: 36px 0 8px; }
+      .hero-label { font-size: 0.7rem; }
+      .hero-image { border-radius: 10px; }
+      .hero-image img { border-radius: 10px; }
+      .btn-primary, .btn-ghost, .btn-ghost-white { 
+        padding: 12px 22px; font-size: 0.86rem; width: 100%; justify-content: center; 
+      }
+      .hero-actions { width: 100%; }
+      .mission-banner p { font-size: 0.98rem; }
+      .section-title { font-size: 1.4rem; }
+      .section-subtitle { font-size: 0.92rem; }
+      .about-sidebar { padding: 24px; }
+      .directory-sidebar { padding: 24px; }
+      .photo-break { height: 180px; }
+      .photo-break-overlay { padding: 20px; }
+      .photo-break-text h2 { font-size: 1.05rem; }
+      .leadership-content { grid-template-columns: 1fr; text-align: center; }
+      .leadership-photo { width: 140px; height: 140px; margin: 0 auto; }
+      .leadership-info p { max-width: 100%; }
+      .membership-card { padding: 28px 20px; }
+      .membership-card .price { font-size: 2.1rem; }
+      .step-item { gap: 14px; }
+      .step-num { width: 34px; height: 34px; min-width: 34px; font-size: 0.8rem; }
+      .press-card { padding: 20px; }
+      .cta-bg { padding: 60px 0; }
+      .cta-section .section-title { font-size: 1.4rem; }
+      .cta-actions { flex-direction: column; align-items: center; width: 100%; }
+      .cta-actions .btn-primary, .cta-actions .btn-ghost-white { width: 100%; }
+      footer { padding: 40px 0 0; }
+      .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+      .footer-brand { grid-column: auto; }
+      .footer-brand p { max-width: 100%; }
+      .btn-enroll { padding: 14px; font-size: 0.9rem; }
+    }
+
+    /* Small phone */
+    @media (max-width: 380px) {
+      .hero h1 { font-size: 1.4rem; }
+      .container { padding: 0 14px; }
+      .membership-card .price { font-size: 1.85rem; }
+      .section-title { font-size: 1.25rem; }
+    }
+
+    /* Mobile nav menu */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: var(--white);
+      z-index: 1000;
+      flex-direction: column;
+      padding: 24px;
+    }
+    .mobile-menu.active { display: flex; }
+    .mobile-menu-header {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 32px;
+    }
+    .mobile-menu-close {
+      background: none; border: none; cursor: pointer;
+      font-size: 1.5rem; color: var(--navy); padding: 8px;
+    }
+    .mobile-menu a {
+      display: block; padding: 14px 0;
+      font-size: 1.05rem; font-weight: 500; color: var(--navy);
+      text-decoration: none; border-bottom: 1px solid var(--border-light);
+    }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu .btn-member-mobile {
+      display: block; margin-top: 24px; padding: 14px;
+      background: var(--navy); color: var(--white);
+      text-align: center; border-radius: 8px; font-weight: 600;
+      text-decoration: none; font-size: 0.95rem;
     }
 
     @keyframes fadeUp {
@@ -522,7 +629,6 @@
     }
     @media (max-width: 900px) {
       .logo-badge { width: 30px; height: 30px; }
-      .hero-badge { width: 46px; height: 46px; }
     }
 
   
@@ -550,10 +656,8 @@
   <nav class="main-nav">
     <div class="container">
       <a href="/" class="logo" aria-label="Secure Funder Home">
-        <div class="logo-mark">
-          <img class="logo-badge logo-badge-lg" src="badge-2026.png" alt="Secure Funder 2026 Certified Member badge">
+          <img class="logo-badge logo-badge-lg" src="sf-icon.png" alt="Secure Funder">
           <div class="logo-text">Secure Funder<span class="logo-tm">™</span></div>
-        </div>
       </a>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
@@ -584,7 +688,7 @@
         </div>
         <!-- STOCK PHOTO: 800×700px min. Professional/business setting. Portrait or square. -->
         <div class="hero-image">
-          <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&h=700&fit=crop&crop=faces" alt="Business professionals in discussion" />
+          <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=900&h=500&fit=crop&crop=faces" alt="Business professionals in discussion" />
         </div>
       </div>
     </div>
@@ -755,6 +859,9 @@
           <h3>Annual Membership</h3>
           <div class="price">$2,499</div>
           <div class="price-note">monthly installments available</div>
+          <div style="background: var(--blue-accent-pale); border-radius: 8px; padding: 12px 16px; margin-bottom: 20px; font-size: 0.84rem; color: var(--navy); font-weight: 500; line-height: 1.55; text-align: left;">
+            No payment required until verification is scheduled. Apply in 1 minute.
+          </div>
           <div class="includes">
             <div class="includes-label">Membership Includes</div>
             <div class="includes-item">
@@ -827,8 +934,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <div class="logo" style="color: white; gap: 12px;">
-            <img class="footer-badge" src="badge-2026.png" alt="Secure Funder 2026 Certified Member badge">
+          <div class="logo" style="color: white;">
             <div class="logo-text" style="color: white;">Secure Funder<span class="logo-tm">™</span></div>
           </div>
           <p>An independent certification program establishing baseline data-handling standards in alternative finance. Administered by Aquamark.</p>
@@ -843,7 +949,7 @@
           <h4>Resources</h4>
           <a href="/directory">Member Directory</a>
           <a href="#press">Press & Media</a>
-          <a href="mailto:info@aquamark.io">Ask a Question</a>
+          <a href="/cdn-cgi/l/email-protection#20494e464f60415155414d41524b0e494f">Ask a Question</a>
         </div>
         <div class="footer-col">
           <h4>Contact</h4>
@@ -856,6 +962,32 @@
       </div>
     </div>
   </footer>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-header">
+      <a href="/" class="logo" aria-label="Secure Funder Home">
+        <img class="logo-badge" src="sf-icon.png" alt="Secure Funder" style="width:30px;height:30px;">
+        <div class="logo-text">Secure Funder<span class="logo-tm">™</span></div>
+      </a>
+      <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">✕</button>
+    </div>
+    <a href="#about" onclick="closeMobileMenu()">About</a>
+    <a href="/directory" onclick="closeMobileMenu()">Directory</a>
+    <a href="#leadership" onclick="closeMobileMenu()">Leadership</a>
+    <a href="#press" onclick="closeMobileMenu()">Press</a>
+    <a href="#membership" onclick="closeMobileMenu()">Membership</a>
+    <a href="https://securefunder.org/contact/" class="btn-member-mobile">Apply Now</a>
+  </div>
+
+  <script>
+    const toggle = document.querySelector('.mobile-toggle');
+    const menu = document.getElementById('mobileMenu');
+    const closeBtn = document.getElementById('mobileMenuClose');
+    function closeMobileMenu() { menu.classList.remove('active'); document.body.style.overflow = ''; }
+    toggle.addEventListener('click', () => { menu.classList.add('active'); document.body.style.overflow = 'hidden'; });
+    closeBtn.addEventListener('click', closeMobileMenu);
+  </script>
 
 </body>
 </html>
