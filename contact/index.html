@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Secure Funder™</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="../badge-2026.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../badge-2026.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../badge-2026.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --utility-height: 34px;
+      --navy: #0F2137;
+      --navy-mid: #1A3455;
+      --slate: #3D5A80;
+      --steel: #6B8BAD;
+      --sky: #93B5D0;
+      --ice: #C5D9E8;
+      --pearl: #EFF4F8;
+      --cloud: #F6F9FC;
+      --white: #FFFFFF;
+      --blue-accent: #4FA3D1;
+      --blue-accent-soft: #7BBCE1;
+      --blue-accent-pale: #E7F2FA;
+
+      --text-primary: #0F2137;
+      --text-secondary: #4A6480;
+      --text-muted: #7A96AE;
+      --border: #DAE3EC;
+      --border-light: #EAF0F5;
+      --font-display: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-body: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      color: var(--text-primary);
+      background: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ===== UTILITY BAR ===== */
+    .utility-bar {
+      background: var(--navy);
+      color: var(--ice);
+      font-size: 0.8rem;
+      height: var(--utility-height);
+      letter-spacing: 0.06em;
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .utility-text {
+      width: 100%;
+      text-align: center;
+      pointer-events: none;
+    }
+
+    /* ===== NAV ===== */
+    .main-nav {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      position: sticky; top: var(--utility-height); z-index: 150;
+      box-shadow: 0 1px 4px rgba(15,33,55,0.04);
+    }
+    .main-nav .container {
+      display: flex; justify-content: space-between; align-items: center; height: 68px;
+    }
+    .logo {
+      display: flex; align-items: center; text-decoration: none; color: var(--navy);
+    }
+    .logo-text {
+      font-family: var(--font-display);
+      font-size: 1.3rem; font-weight: 700; letter-spacing: -0.01em;
+    }
+    .logo-tm { font-size: 0.55em; vertical-align: super; font-weight: 400; margin-left: 1px; }
+    .logo-mark {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-badge-lg {
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      box-shadow: 0 2px 10px rgba(15,33,55,0.12);
+      border: 1px solid rgba(15,33,55,0.10);
+      flex: 0 0 auto;
+    }
+    .nav-links {
+      display: flex; align-items: center; gap: 4px; list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none; color: var(--text-primary);
+      font-size: 0.88rem; font-weight: 500; padding: 8px 14px;
+      border-radius: 6px; transition: all 0.2s;
+    }
+    .nav-links a:hover { background: var(--pearl); }
+    .nav-links .btn-member {
+      background: var(--navy); color: var(--white); font-weight: 600; margin-left: 6px;
+    }
+    .nav-links .btn-member:hover { background: var(--navy-mid); }
+    .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+    .mobile-toggle span { display: block; width: 22px; height: 2px; background: var(--navy); margin: 5px 0; }
+
+    /* ===== CONTAINERS ===== */
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+    .container-narrow { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+
+    /* ===== PAGE HEADER ===== */
+    .page-header {
+      background: var(--cloud);
+      border-bottom: 1px solid var(--border-light);
+      padding: 56px 0 48px;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-header::before {
+      content: ''; position: absolute; top: -200px; right: -100px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(79,163,209,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .page-header .section-label {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--blue-accent); margin-bottom: 12px;
+    }
+    .page-header h1 {
+      font-family: var(--font-display);
+      font-size: 2.1rem; font-weight: 700; line-height: 1.2;
+      letter-spacing: -0.02em; color: var(--navy); margin-bottom: 14px;
+    }
+    .page-header p {
+      font-size: 1rem; color: var(--text-secondary); line-height: 1.7; max-width: 540px;
+    }
+
+    /* ===== CONTACT CONTENT ===== */
+    .contact-section {
+      padding: 64px 0 80px;
+      background: var(--white);
+    }
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 56px;
+      align-items: start;
+    }
+
+    /* Form embed wrapper */
+    .form-wrapper {
+      background: var(--cloud);
+      border: 1px solid var(--border-light);
+      border-radius: 12px;
+      padding: 36px;
+      min-height: 500px;
+    }
+
+    /* Sidebar */
+    .contact-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+    .sidebar-card {
+      background: var(--cloud);
+      border-radius: 10px;
+      padding: 28px;
+      border-left: 3px solid var(--blue-accent);
+    }
+    .sidebar-card h3 {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+    .sidebar-card p {
+      font-size: 0.86rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+    .sidebar-card a {
+      color: var(--blue-accent);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .sidebar-card a:hover {
+      color: var(--navy);
+    }
+
+    .contact-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-top: 14px;
+    }
+    .contact-detail-icon {
+      width: 30px;
+      height: 30px;
+      min-width: 30px;
+      border-radius: 6px;
+      background: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--blue-accent);
+      border: 1px solid var(--border-light);
+      margin-top: 1px;
+    }
+    .contact-detail div p {
+      margin: 0;
+    }
+    .contact-detail h4 {
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 2px;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--navy); color: var(--ice); padding: 56px 0 0;
+    }
+    .footer-grid {
+      display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 44px; padding-bottom: 44px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .footer-brand p {
+      font-size: 0.86rem; color: var(--steel); line-height: 1.7;
+      margin-top: 14px; max-width: 280px;
+    }
+    .footer-badge {
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.14);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+      opacity: 0.95;
+    }
+    .footer-col h4 {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--white); margin-bottom: 16px;
+    }
+    .footer-col a {
+      display: block; color: var(--steel); text-decoration: none;
+      font-size: 0.86rem; margin-bottom: 9px; transition: color 0.2s;
+    }
+    .footer-col a:hover { color: var(--blue-accent-soft); }
+    .footer-bottom {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 22px 0; font-size: 0.76rem; color: var(--steel);
+    }
+    .footer-bottom a { color: var(--steel); text-decoration: none; }
+    .footer-bottom a:hover { color: var(--blue-accent-soft); }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .page-header { animation: fadeUp 0.5s ease-out; }
+    .contact-layout { animation: fadeUp 0.6s ease-out 0.1s both; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .contact-layout {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .nav-links { display: none; }
+      .mobile-toggle { display: block; }
+      .page-header h1 { font-size: 1.7rem; }
+      .form-wrapper { padding: 20px; }
+      .logo-badge-lg {
+        width: 38px;
+        height: 38px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Utility Bar -->
+  <div class="utility-bar">
+    <span class="utility-text">Directory opening April 1, 2026</span>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="main-nav">
+    <div class="container">
+      <a href="/" class="logo" aria-label="Secure Funder Home">
+        <div class="logo-mark">
+          <img class="logo-badge logo-badge-lg" src="../badge-2026.png" alt="Secure Funder 2026 Certified Member badge">
+          <div class="logo-text">Secure Funder<span class="logo-tm">™</span></div>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/#about">About</a></li>
+        <li><a href="/directory">Directory</a></li>
+        <li><a href="/#leadership">Leadership</a></li>
+        <li><a href="/#press">Press</a></li>
+        <li><a href="/#membership">Membership</a></li>
+        <li><a href="/#membership" class="btn-member">Apply Now</a></li>
+      </ul>
+      <button class="mobile-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="container">
+      <div class="section-label">Contact</div>
+      <h1>Get in Touch</h1>
+      <p>Have a question about the program, membership, or certification requirements? We're happy to help.</p>
+    </div>
+  </div>
+
+  <!-- Contact Content -->
+  <section class="contact-section">
+    <div class="container">
+      <div class="contact-layout">
+
+        <!-- Fillout Embed -->
+        <div class="form-wrapper">
+          <div style="width:100%;height:500px;" data-fillout-id="f4xre3GBxfus" data-fillout-embed-type="standard" data-fillout-inherit-parameters data-fillout-dynamic-resize></div>
+          <script src="https://server.fillout.com/embed/v1/"></script>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="contact-sidebar">
+          <div class="sidebar-card">
+            <h3>Membership Inquiries</h3>
+            <p>Interested in certification or have questions about the application process? Fill out the form and we'll follow up within one business day.</p>
+          </div>
+
+          <div class="sidebar-card">
+            <h3>Quick Links</h3>
+            <div class="contact-detail">
+              <div class="contact-detail-icon">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              </div>
+              <div>
+                <h4>Requirements</h4>
+                <p><a href="/certification">View full certification requirements →</a></p>
+              </div>
+            </div>
+            <div class="contact-detail">
+              <div class="contact-detail-icon">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <div>
+                <h4>Directory</h4>
+                <p><a href="/directory">View the member directory →</a></p>
+              </div>
+            </div>
+            <div class="contact-detail">
+              <div class="contact-detail-icon">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <div>
+                <h4>About the Program</h4>
+                <p><a href="/#about">Learn how Secure Funder works →</a></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="sidebar-card">
+            <h3>Administered by Aquamark</h3>
+            <p>Secure Funder is independently administered by <a href="https://aquamark.io" target="_blank">Aquamark</a>, a document security company serving the alternative finance industry.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo" style="color: white; gap: 12px;">
+            <img class="footer-badge" src="../badge-2026.png" alt="Secure Funder 2026 Certified Member badge">
+            <div class="logo-text" style="color: white;">Secure Funder<span class="logo-tm">™</span></div>
+          </div>
+          <p>An independent certification program establishing baseline data-handling standards in alternative finance. Administered by Aquamark.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Program</h4>
+          <a href="/#about">About</a>
+          <a href="/certification">Requirements</a>
+          <a href="/#membership">Membership</a>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <a href="/directory">Member Directory</a>
+          <a href="/#press">Press & Media</a>
+          <a href="/contact">Ask a Question</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="https://aquamark.io" target="_blank">Send a Message</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Secure Funder™ Certification Program. All rights reserved.</span>
+        <span>Independently administered by <a href="https://aquamark.io" target="_blank">Aquamark</a></span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
