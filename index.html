@@ -302,6 +302,67 @@
       margin-top: 22px;
     }
 
+    /* ===== VISION ===== */
+    .vision-section {
+      background: var(--navy);
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+    .vision-section::before {
+      content: '';
+      position: absolute;
+      top: -120px;
+      right: -80px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(79,163,209,0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .vision-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+    .vision-image {
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .vision-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 12px;
+    }
+    .vision-content {
+      position: relative;
+      z-index: 1;
+    }
+    .vision-section .section-label {
+      color: var(--blue-accent-soft);
+    }
+    .vision-section .section-title {
+      color: var(--white);
+      margin-bottom: 22px;
+    }
+    .vision-body {
+      font-size: 1.02rem;
+      line-height: 1.85;
+      color: var(--ice);
+    }
+    .vision-body p {
+      margin-bottom: 16px;
+    }
+    .vision-body p:last-child {
+      margin-bottom: 0;
+    }
+    @media (max-width: 900px) {
+      .vision-grid { grid-template-columns: 1fr; gap: 32px; }
+      .vision-image { max-height: 300px; }
+    }
+
     /* ===== LEADERSHIP ===== */
     .leadership-section {
       background: var(--white);
@@ -788,16 +849,24 @@
     </div>
   </section>
 
-  <!-- Photo Break 2 -->
-  <!-- STOCK PHOTO: 1400×500px min. Trust/partnership. Landscape. Dark overlay applied. -->
-  <div class="photo-break">
-    <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1400&h=500&fit=crop&crop=center" alt="Team collaboration" />
-    <div class="photo-break-overlay">
-      <div class="photo-break-text">
-        <h2>Most organizations already have safeguards in place. Certification makes them visible.</h2>
+  <!-- Vision -->
+  <section class="vision-section">
+    <div class="container">
+      <div class="vision-grid">
+        <div class="vision-image">
+          <img src="owners.png" alt="Small business owners" />
+        </div>
+        <div class="vision-content">
+          <div class="section-label">Looking Ahead</div>
+          <h2 class="section-title">Meeting Small Business Owners Where They Are</h2>
+          <div class="vision-body">
+            <p>Small business owners arrive at alternative finance from every direction—after exhausting grants and traditional lending, through online searches, or via referrals. While marketplace sites and paid directories exist, none require independent verification, leaving business owners with no clear way to distinguish responsible, trustworthy organizations from those that are not.</p>
+            <p>Our long-term goal is to make the Secure Funder directory accessible through the channels business owners already rely on—from online search to community organizations and local small-business resource centers—so that wherever they begin, they have a verified, trusted starting point before choosing a provider.</p>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 
   <!-- Leadership -->
   <section id="leadership" class="leadership-section">
