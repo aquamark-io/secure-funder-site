@@ -249,6 +249,223 @@
     }
 
 
+    /* ===== DIRECTORY TOOLBAR ===== */
+    .directory-toolbar {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 28px 0;
+    }
+    .toolbar-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr auto;
+      gap: 14px;
+      align-items: start;
+    }
+    .filter-field {
+      position: relative;
+    }
+    .filter-label {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 7px;
+    }
+    .filter-input {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      outline: none;
+      font-family: var(--font-body);
+      font-size: 0.92rem;
+      color: var(--text-primary);
+      background: var(--white);
+      padding: 11px 14px 11px 38px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .filter-input:focus {
+      border-color: var(--blue-accent);
+      box-shadow: 0 0 0 3px rgba(79,163,209,0.12);
+    }
+    .filter-input::placeholder { color: #A8BFCF; }
+    .search-icon {
+      position: absolute;
+      left: 13px;
+      top: calc(0.72rem + 7px + 12px); /* label height + margin + input padding */
+      width: 16px; height: 16px;
+      color: var(--text-muted);
+      pointer-events: none;
+    }
+
+    /* Multi-select dropdown */
+    .multi-select { position: relative; }
+    .multi-select-button {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--white);
+      cursor: pointer;
+      padding: 11px 14px;
+      font-family: var(--font-body);
+      font-size: 0.92rem;
+      color: var(--text-primary);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .multi-select-button:hover { border-color: var(--steel); }
+    .multi-select-button[aria-expanded="true"] {
+      border-color: var(--blue-accent);
+      box-shadow: 0 0 0 3px rgba(79,163,209,0.12);
+    }
+    .multi-select-button .value {
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      color: var(--text-primary);
+    }
+    .multi-select-button .value.placeholder { color: #A8BFCF; }
+    .multi-select-button .chev {
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      transition: transform 0.2s;
+      flex-shrink: 0;
+    }
+    .multi-select-button[aria-expanded="true"] .chev { transform: rotate(180deg); }
+
+    .multi-select-menu {
+      display: none;
+      position: absolute;
+      left: 0; right: 0;
+      top: calc(100% + 6px);
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      box-shadow: 0 12px 32px rgba(15,33,55,0.12);
+      padding: 8px;
+      z-index: 120;
+      max-height: 320px;
+      overflow-y: auto;
+    }
+    .multi-select-menu.open { display: block; }
+    .menu-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 10px;
+      border-radius: 7px;
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.15s;
+    }
+    .menu-row:hover { background: var(--cloud); }
+    .menu-row input[type="checkbox"] {
+      width: 16px; height: 16px;
+      accent-color: var(--blue-accent);
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .menu-row span { font-size: 0.9rem; color: var(--text-primary); }
+    .menu-footer {
+      display: flex;
+      gap: 8px;
+      padding: 8px 6px 4px;
+      border-top: 1px solid var(--border-light);
+      margin-top: 6px;
+    }
+    .btn-menu {
+      flex: 1;
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 7px 10px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: var(--white);
+      color: var(--navy);
+      cursor: pointer;
+      transition: all 0.15s;
+      text-align: center;
+    }
+    .btn-menu:hover { background: var(--pearl); border-color: var(--navy); }
+
+    /* Selected product tags */
+    .selected-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--blue-accent-pale);
+      border: 1px solid rgba(79,163,209,0.22);
+      color: var(--navy);
+      font-size: 0.78rem;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+    .tag button {
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      color: var(--slate);
+      font-size: 0.85rem;
+      line-height: 1;
+      padding: 0;
+      transition: color 0.15s;
+    }
+    .tag button:hover { color: var(--navy); }
+
+    /* Clear all button */
+    .btn-clear-all {
+      align-self: end;
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 11px 18px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--white);
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
+      margin-bottom: 1px;
+    }
+    .btn-clear-all:hover { background: var(--pearl); border-color: var(--navy); color: var(--navy); }
+
+    /* Results summary */
+    .results-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 14px;
+      font-size: 0.84rem;
+      color: var(--text-muted);
+    }
+    .results-count {
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+
+    @media (max-width: 900px) {
+      .toolbar-inner { grid-template-columns: 1fr; }
+      .btn-clear-all { justify-self: start; }
+    }
+    @media (max-width: 600px) {
+      .directory-toolbar { padding: 20px 0; }
+    }
+
     /* ===== DIRECTORY SECTIONS ===== */
     main { background: var(--white); }
     section { padding: 64px 0; }
@@ -590,6 +807,49 @@
     </div>
   </header>
 
+  <!-- Search & Filter Toolbar -->
+  <div class="directory-toolbar">
+    <div class="container">
+      <div class="toolbar-inner">
+        <!-- Name Search -->
+        <div class="filter-field">
+          <label class="filter-label" for="searchInput">Search by company name</label>
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input id="searchInput" class="filter-input" type="search" placeholder="e.g. 'IOU Financial'" autocomplete="off" />
+        </div>
+
+        <!-- Product Multi-Select -->
+        <div class="filter-field">
+          <span class="filter-label">Filter by product type</span>
+          <div class="multi-select" id="productFilter">
+            <button type="button" class="multi-select-button" id="productButton" aria-haspopup="listbox" aria-expanded="false">
+              <span class="value placeholder" id="productValue">All products</span>
+              <span class="chev">▾</span>
+            </button>
+            <div class="multi-select-menu" id="productMenu" role="listbox" aria-label="Product filter menu">
+              <!-- populated by JS -->
+              <div class="menu-footer">
+                <button type="button" class="btn-menu" id="selectAllBtn">Select all</button>
+                <button type="button" class="btn-menu" id="clearProductsBtn">Clear</button>
+              </div>
+            </div>
+            <div class="selected-tags" id="selectedTags" aria-label="Selected product filters"></div>
+          </div>
+        </div>
+
+        <!-- Clear All -->
+        <button class="btn-clear-all" type="button" id="clearAllBtn">Clear all</button>
+      </div>
+
+      <div class="results-bar" aria-live="polite">
+        <span class="results-count" id="resultsCount">Showing 0 organizations</span>
+        <span id="resultsHint">Filters will apply as listings are added.</span>
+      </div>
+    </div>
+  </div>
+
+  <main>
+
     <!-- Charter Members -->
     <section>
       <div class="container">
@@ -602,18 +862,13 @@
         </div>
 
         <div class="registry-card">
-          <!-- When ready, replace empty-state with your logo grid -->
-          <div class="empty-state">
+          <div class="empty-state" data-empty="true">
             <p>
               Listings will appear when the directory opens on <span class="date">April 1, 2026</span>.
             </p>
           </div>
 
-          <!-- FUTURE (enable when populated) -->
-          <div class="logo-grid" aria-label="Charter Members logo grid">
-            <!--
-            <div class="logo-tile"><img src="logos/example.svg" alt="Example Funding"></div>
-            -->
+          <div class="logo-grid" id="gridCharter" aria-label="Charter Members logo grid">
           </div>
         </div>
       </div>
@@ -631,16 +886,13 @@
         </div>
 
         <div class="registry-card">
-          <div class="empty-state">
+          <div class="empty-state" data-empty="true">
             <p>
               Listings will appear when the directory opens on <span class="date">April 1, 2026</span>.
             </p>
           </div>
 
-          <div class="logo-grid" aria-label="Certified Members logo grid">
-            <!--
-            <div class="logo-tile"><img src="logos/example.svg" alt="Example Funding"></div>
-            -->
+          <div class="logo-grid" id="gridCertified" aria-label="Certified Members logo grid">
           </div>
         </div>
       </div>
@@ -658,16 +910,13 @@
         </div>
 
         <div class="registry-card">
-          <div class="empty-state">
+          <div class="empty-state" data-empty="true">
             <p>
               Listings will appear when the directory opens on <span class="date">April 1, 2026</span>.
             </p>
           </div>
 
-          <div class="logo-grid" aria-label="In Progress logo grid">
-            <!--
-            <div class="logo-tile"><img src="logos/example.svg" alt="Example Funding"></div>
-            -->
+          <div class="logo-grid" id="gridInProgress" aria-label="In Progress logo grid">
           </div>
         </div>
       </div>
@@ -748,12 +997,279 @@
   </div>
 
   <script>
+    /* ===== Mobile Menu ===== */
     const toggle = document.querySelector('.mobile-toggle');
     const menu = document.getElementById('mobileMenu');
     const closeBtn = document.getElementById('mobileMenuClose');
     function closeMobileMenu() { menu.classList.remove('active'); document.body.style.overflow = ''; }
     toggle.addEventListener('click', () => { menu.classList.add('active'); document.body.style.overflow = 'hidden'; });
     closeBtn.addEventListener('click', closeMobileMenu);
+
+    /* ===== Directory Data =====
+       PRODUCTS: the picklist options for filtering.
+       MEMBERS: add organizations here when populating the directory.
+       Each member needs: name, status ('charter'|'certified'|'in_progress'),
+       products (array of product keys), and optionally logo (URL) and url (website).
+    */
+    const PRODUCTS = [
+      { key: "working-capital",       label: "Working Capital" },
+      { key: "merchant-cash-advance", label: "Merchant Cash Advance" },
+      { key: "term-loan",             label: "Term Loan" },
+      { key: "equipment-financing",   label: "Equipment Financing" },
+      { key: "line-of-credit",        label: "Line of Credit" },
+      { key: "factoring",             label: "Factoring" },
+      { key: "asset-based-lending",   label: "Asset-Based Lending" },
+      { key: "credit-card-split",     label: "Credit Card Split" }
+    ];
+
+    // ── Add members here when ready ──
+    // Example:
+    // { name: "IOU Financial", status: "charter", products: ["working-capital","term-loan"], logo: "logos/iou.svg", url: "https://ioufinancial.com" }
+    const MEMBERS = [];
+
+    /* ===== DOM refs ===== */
+    const els = {
+      search:         document.getElementById('searchInput'),
+      productFilter:  document.getElementById('productFilter'),
+      productButton:  document.getElementById('productButton'),
+      productMenu:    document.getElementById('productMenu'),
+      productValue:   document.getElementById('productValue'),
+      selectedTags:   document.getElementById('selectedTags'),
+      selectAllBtn:   document.getElementById('selectAllBtn'),
+      clearProductsBtn: document.getElementById('clearProductsBtn'),
+      clearAllBtn:    document.getElementById('clearAllBtn'),
+      resultsCount:   document.getElementById('resultsCount'),
+      resultsHint:    document.getElementById('resultsHint'),
+      gridCharter:    document.getElementById('gridCharter'),
+      gridCertified:  document.getElementById('gridCertified'),
+      gridInProgress: document.getElementById('gridInProgress')
+    };
+
+    const state = { query: "", selectedProducts: new Set() };
+
+    function normalize(s) { return (s || "").toLowerCase().trim(); }
+
+    // Product filter uses OR logic: show funder if they offer ANY of the selected products
+    function matchesProducts(member) {
+      if (state.selectedProducts.size === 0) return true;
+      return (member.products || []).some(p => state.selectedProducts.has(p));
+    }
+
+    function matchesQuery(member) {
+      if (!state.query) return true;
+      return normalize(member.name).includes(state.query);
+    }
+
+    function filterMembers() {
+      return MEMBERS.filter(m => matchesQuery(m) && matchesProducts(m));
+    }
+
+    function byStatus(list, status) {
+      return list.filter(m => m.status === status);
+    }
+
+    function buildTile(member) {
+      const tile = document.createElement('div');
+      tile.className = 'logo-tile';
+
+      const inner = document.createElement(member.url ? 'a' : 'div');
+      if (member.url) {
+        inner.href = member.url;
+        inner.target = "_blank";
+        inner.rel = "noopener";
+        inner.style.cssText = "display:inline-flex;align-items:center;justify-content:center;width:100%;height:100%;text-decoration:none;";
+      }
+
+      if (member.logo) {
+        const img = document.createElement('img');
+        img.src = member.logo;
+        img.alt = member.name;
+        inner.appendChild(img);
+      } else {
+        const name = document.createElement('div');
+        name.textContent = member.name;
+        name.style.cssText = "font-weight:700;color:var(--navy);text-align:center;line-height:1.2;font-size:0.96rem;padding:10px;";
+        inner.appendChild(name);
+      }
+
+      tile.appendChild(inner);
+      return tile;
+    }
+
+    function setSectionVisibility(sectionEl, count, directoryClosed) {
+      const card = sectionEl.querySelector('.registry-card');
+      if (!card) return;
+      const empty = card.querySelector('[data-empty="true"]');
+      const grid = card.querySelector('.logo-grid');
+
+      if (count > 0) {
+        empty.style.display = 'none';
+        grid.style.display = 'grid';
+      } else {
+        empty.style.display = 'flex';
+        grid.style.display = 'none';
+        if (!directoryClosed) {
+          empty.innerHTML = '<p>No matches for the current filters.</p>';
+        }
+      }
+    }
+
+    function renderDirectory() {
+      const filtered = filterMembers();
+
+      [els.gridCharter, els.gridCertified, els.gridInProgress].forEach(g => { if (g) g.innerHTML = ""; });
+
+      const charter    = byStatus(filtered, "charter");
+      const certified  = byStatus(filtered, "certified");
+      const inProgress = byStatus(filtered, "in_progress");
+
+      charter.forEach(m    => els.gridCharter    && els.gridCharter.appendChild(buildTile(m)));
+      certified.forEach(m  => els.gridCertified  && els.gridCertified.appendChild(buildTile(m)));
+      inProgress.forEach(m => els.gridInProgress && els.gridInProgress.appendChild(buildTile(m)));
+
+      const directoryClosed = MEMBERS.length === 0;
+      const total = filtered.length;
+
+      els.resultsCount.textContent = `Showing ${total} organization${total === 1 ? '' : 's'}`;
+      if (directoryClosed) {
+        els.resultsHint.textContent = "Filters will apply as listings are added.";
+      } else if (total === 0) {
+        els.resultsHint.textContent = "No matches — try adjusting your search.";
+      } else {
+        els.resultsHint.textContent = "Results update as you type.";
+      }
+
+      // Update section visibility
+      const sections = document.querySelectorAll('main > section:not(.mini-cta)');
+      if (sections[0]) setSectionVisibility(sections[0], charter.length, directoryClosed);
+      if (sections[1]) setSectionVisibility(sections[1], certified.length, directoryClosed);
+      if (sections[2]) setSectionVisibility(sections[2], inProgress.length, directoryClosed);
+    }
+
+    /* ===== Product Multi-Select ===== */
+    function buildProductMenu() {
+      const footer = els.productMenu.querySelector('.menu-footer');
+      PRODUCTS.forEach(p => {
+        const row = document.createElement('div');
+        row.className = 'menu-row';
+        row.setAttribute('role', 'option');
+        row.dataset.key = p.key;
+
+        const cb = document.createElement('input');
+        cb.type = 'checkbox';
+        cb.checked = state.selectedProducts.has(p.key);
+
+        const label = document.createElement('span');
+        label.textContent = p.label;
+
+        row.appendChild(cb);
+        row.appendChild(label);
+
+        row.addEventListener('click', (e) => {
+          if (e.target.tagName.toLowerCase() === 'input') return;
+          cb.checked = !cb.checked;
+          toggleProduct(p.key, cb.checked);
+        });
+        cb.addEventListener('change', () => toggleProduct(p.key, cb.checked));
+
+        els.productMenu.insertBefore(row, footer);
+      });
+    }
+
+    function toggleProduct(key, on) {
+      if (on) state.selectedProducts.add(key); else state.selectedProducts.delete(key);
+      syncSelectedTags();
+      renderDirectory();
+    }
+
+    function syncSelectedTags() {
+      els.selectedTags.innerHTML = "";
+      const selected = Array.from(state.selectedProducts);
+
+      if (selected.length === 0) {
+        els.productValue.textContent = "All products";
+        els.productValue.classList.add('placeholder');
+        return;
+      }
+
+      const labels = selected.map(k => (PRODUCTS.find(p => p.key === k) || {}).label || k);
+      els.productValue.textContent = labels.join(", ");
+      els.productValue.classList.remove('placeholder');
+
+      selected.forEach(k => {
+        const p = PRODUCTS.find(x => x.key === k);
+        const tag = document.createElement('span');
+        tag.className = 'tag';
+        tag.textContent = p ? p.label : k;
+
+        const x = document.createElement('button');
+        x.type = 'button';
+        x.setAttribute('aria-label', `Remove ${tag.textContent}`);
+        x.textContent = "×";
+        x.addEventListener('click', () => {
+          state.selectedProducts.delete(k);
+          const row = els.productMenu.querySelector(`.menu-row[data-key="${k}"] input`);
+          if (row) row.checked = false;
+          syncSelectedTags();
+          renderDirectory();
+        });
+
+        tag.appendChild(x);
+        els.selectedTags.appendChild(tag);
+      });
+    }
+
+    function openMenu()   { els.productMenu.classList.add('open'); els.productButton.setAttribute('aria-expanded', 'true'); }
+    function closeMenu()  { els.productMenu.classList.remove('open'); els.productButton.setAttribute('aria-expanded', 'false'); }
+    function toggleMenu() { els.productMenu.classList.contains('open') ? closeMenu() : openMenu(); }
+
+    /* ===== Wire up ===== */
+    buildProductMenu();
+    syncSelectedTags();
+    renderDirectory();
+
+    els.search.addEventListener('input', (e) => {
+      state.query = normalize(e.target.value);
+      renderDirectory();
+    });
+
+    els.productButton.addEventListener('click', (e) => { e.preventDefault(); toggleMenu(); });
+
+    document.addEventListener('click', (e) => {
+      if (!els.productFilter.contains(e.target)) closeMenu();
+    });
+
+    els.selectAllBtn.addEventListener('click', () => {
+      state.selectedProducts = new Set(PRODUCTS.map(p => p.key));
+      PRODUCTS.forEach(p => {
+        const cb = els.productMenu.querySelector(`.menu-row[data-key="${p.key}"] input`);
+        if (cb) cb.checked = true;
+      });
+      syncSelectedTags();
+      renderDirectory();
+    });
+
+    els.clearProductsBtn.addEventListener('click', () => {
+      state.selectedProducts.clear();
+      PRODUCTS.forEach(p => {
+        const cb = els.productMenu.querySelector(`.menu-row[data-key="${p.key}"] input`);
+        if (cb) cb.checked = false;
+      });
+      syncSelectedTags();
+      renderDirectory();
+    });
+
+    els.clearAllBtn.addEventListener('click', () => {
+      els.search.value = "";
+      state.query = "";
+      state.selectedProducts.clear();
+      PRODUCTS.forEach(p => {
+        const cb = els.productMenu.querySelector(`.menu-row[data-key="${p.key}"] input`);
+        if (cb) cb.checked = false;
+      });
+      syncSelectedTags();
+      renderDirectory();
+    });
   </script>
 
 </body>
