@@ -292,6 +292,9 @@
       grid-template-columns: 1fr 1fr;
       gap: 12px;
     }
+    .cond-options.three-col {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
     .cond-option {
       background: var(--white);
       border: 1px solid var(--border);
@@ -491,6 +494,7 @@
     /* ===== RESPONSIVE ===== */
     @media (max-width: 900px) {
       .cond-options { grid-template-columns: 1fr; }
+      .cond-options.three-col { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
       .footer-brand { grid-column: 1 / -1; }
       .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
@@ -654,7 +658,7 @@
             <div class="cond-label">
               <span>IF</span> submissions are accepted via email <span>THEN</span> one of the following is required:
             </div>
-            <div class="cond-options">
+            <div class="cond-options three-col">
               <div class="cond-option">
                 <strong>Option A: Automated Processing</strong>
                 Submissions are pushed to CRM without human intervention. Only management may access the submission inbox directly.
@@ -682,6 +686,10 @@
   Email Protection Solution →
 </a>
 
+              </div>
+              <div class="cond-option">
+                <strong>Option C: Download Controls</strong>
+                If documents are downloaded without watermarking, appropriate controls should be in place — such as blocking access to personal email platforms (Gmail, Yahoo, Hotmail, iCloud, etc.) and implementing email monitoring rules that flag outgoing messages with attachments sent to external domains.
               </div>
             </div>
           </div>
@@ -730,7 +738,7 @@
             <div class="cond-label">
               <span>IF</span> documents are accessible within your CRM <span>THEN</span>
             </div>
-            <div class="cond-options">
+            <div class="cond-options three-col">
               <div class="cond-option">
                 <strong>Option A: View-Only</strong>
                 File access restricted to view-only — no download capability.
@@ -740,6 +748,10 @@
                 Files are watermarked before entering the system, or at time of download.
                 <p class="wm-note">Any document watermarking solution is acceptable.</p>
                 <a href="/watermarking" class="gateway-link">What is document watermarking? →</a>
+              </div>
+              <div class="cond-option">
+                <strong>Option C: Download Controls</strong>
+                If documents are downloaded without watermarking, appropriate controls should be in place — such as blocking access to personal email platforms (Gmail, Yahoo, Hotmail, iCloud, etc.) and implementing email monitoring rules that flag outgoing messages with attachments sent to external domains.
               </div>
             </div>
           </div>
@@ -776,7 +788,7 @@
             <div class="cond-label">
               <span>IF</span> BPO teams have access to submission documents <span>THEN</span>
             </div>
-            <div class="cond-options">
+            <div class="cond-options three-col">
               <div class="cond-option">
                 <strong>Option A: View-Only</strong>
                 Third-party teams have view-only access to files — no download capability.
@@ -786,6 +798,10 @@
                 Documents are watermarked before third-party access.
                 <p class="wm-note">Any document watermarking solution is acceptable.</p>
                 <a href="/watermarking" class="gateway-link">What is document watermarking? →</a>
+              </div>
+              <div class="cond-option">
+                <strong>Option C: Download Controls</strong>
+                If documents are downloaded without watermarking, appropriate controls should be in place — such as blocking access to personal email platforms (Gmail, Yahoo, Hotmail, iCloud, etc.) and implementing email monitoring rules that flag outgoing messages with attachments sent to external domains.
               </div>
             </div>
           </div>
