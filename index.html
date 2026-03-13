@@ -650,6 +650,70 @@
       text-decoration: none; font-size: 0.95rem;
     }
 
+    /* ===== NO CHANGES SECTION ===== */
+    .no-changes-section {
+      background: var(--white);
+      border-bottom: 1px solid var(--border-light);
+      padding: 64px 0;
+    }
+    .no-changes-inner {
+      max-width: 880px;
+      margin: 0 auto;
+    }
+    .no-changes-inner .section-label {
+      text-align: center;
+    }
+    .no-changes-inner .section-title {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    .no-changes-subtitle {
+      text-align: center;
+      font-size: 1rem;
+      color: var(--text-secondary);
+      line-height: 1.75;
+      max-width: 640px;
+      margin: 0 auto 40px;
+    }
+    .no-changes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .no-changes-card {
+      background: var(--cloud);
+      border: 1px solid var(--border-light);
+      border-radius: 10px;
+      padding: 28px 24px;
+    }
+    .no-changes-card .nc-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--blue-accent);
+      margin-bottom: 16px;
+    }
+    .no-changes-card h4 {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+    .no-changes-card p {
+      font-size: 0.86rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+    @media (max-width: 900px) {
+      .no-changes-grid { grid-template-columns: 1fr; gap: 16px; }
+    }
+
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(16px); }
       to { opacity: 1; transform: translateY(0); }
@@ -762,6 +826,43 @@
       <p>Our mission is to promote responsible data handling across the alternative finance industry by independently verifying organizations that implement protective safeguards.</p>
     </div>
   </div>
+
+  <!-- No Changes Required -->
+  <section class="no-changes-section">
+    <div class="container">
+      <div class="no-changes-inner">
+        <div class="section-label" style="text-align:center;">How It Works</div>
+        <h2 class="section-title" style="text-align:center;">Built Around What You Already Do</h2>
+        <p class="no-changes-subtitle">Certification verifies the protections you have in place — it doesn't prescribe new ones.</p>
+        <div class="no-changes-grid">
+          <div class="no-changes-card">
+            <div class="nc-icon">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <h4>No Workflow Changes</h4>
+            <p>We review what you already do. If your intake, storage, and access controls meet the standard, there's nothing to change.</p>
+          </div>
+          <div class="no-changes-card">
+            <div class="nc-icon">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <h4>No Required Technology</h4>
+            <p>Use whatever CRM, portal, or file system works for your team. We're evaluating practices, not platforms.</p>
+          </div>
+          <div class="no-changes-card">
+            <div class="nc-icon">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            </div>
+            <h4>No Prescriptive Process</h4>
+            <p>Requirements focus on outcomes — that merchant data is protected — not on how you get there. Your process stays yours.</p>
+          </div>
+        </div>
+        <p style="text-align:center; margin-top: 32px; font-size: 0.82rem; font-weight: 600; color: var(--blue-accent); line-height: 1.6;">
+          Don't have controls yet? We'll help you get there.
+        </p>
+      </div>
+    </div>
+  </section>
 
   <!-- About -->
   <section id="about" class="about-section">
