@@ -365,6 +365,62 @@
       .vision-image { max-height: 400px; aspect-ratio: auto; }
     }
 
+    /* ===== VERIFICATION BANNER ===== */
+    .verification-banner {
+      background: var(--navy);
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+      padding: 64px 0;
+      text-align: center;
+    }
+    .verification-banner::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(79,163,209,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .verification-banner .container-narrow {
+      position: relative;
+      z-index: 1;
+    }
+    .verification-banner .vb-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--blue-accent-soft);
+      margin-bottom: 16px;
+    }
+    .verification-banner h2 {
+      font-family: var(--font-display);
+      font-size: 1.65rem;
+      font-weight: 700;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+      color: var(--white);
+      margin-bottom: 18px;
+    }
+    .verification-banner p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--ice);
+      max-width: 620px;
+      margin: 0 auto;
+    }
+    .verification-banner .vb-divider {
+      width: 48px;
+      height: 2px;
+      background: var(--blue-accent);
+      margin: 0 auto 20px;
+      border-radius: 2px;
+    }
+
     /* ===== LEADERSHIP ===== */
     .leadership-section {
       background: var(--white);
@@ -875,9 +931,19 @@
           </div>
         </div>
         <div class="no-changes-note">
-          <strong>IMPORTANT:</strong> Organizations are not required to meet every criterion at enrollment. There is a 90-day grace period to remediate any gaps before verification. Requirements can be accesssed below.
+          <strong>Important:</strong> Organizations are not required to meet every criterion at enrollment. There is a 90-day grace period to remediate any gaps before verification. Requirements can be accesssed below.
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Verification Banner -->
+  <section class="verification-banner">
+    <div class="container-narrow">
+      <div class="vb-eyebrow">Independent Verification</div>
+      <h2>Certification Requires More Than Enrollment.</h2>
+      <div class="vb-divider"></div>
+      <p>Secure Funder is not a paid directory. Every listed organization undergoes a live, independent review of their data-handling practices before receiving certification. Membership signals intent. Verification confirms it.</p>
     </div>
   </section>
 
