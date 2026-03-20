@@ -710,7 +710,7 @@
     .no-changes-section {
       background: var(--white);
       border-bottom: 1px solid var(--border-light);
-      padding: 64px 0;
+      padding: 56px 0;
     }
     .no-changes-inner {
       max-width: 880px;
@@ -721,7 +721,7 @@
     }
     .no-changes-inner .section-title {
       text-align: center;
-      margin-bottom: 10px;
+      margin-bottom: 32px;
     }
     .no-changes-subtitle {
       text-align: center;
@@ -734,35 +734,49 @@
     .no-changes-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+      gap: 0;
+      position: relative;
     }
     .no-changes-card {
-      background: var(--cloud);
-      border: 1px solid var(--border-light);
-      border-radius: 10px;
-      padding: 28px 24px;
+      background: transparent;
+      border: none;
+      border-radius: 0;
+      padding: 0 32px;
+      text-align: center;
+      position: relative;
+    }
+    /* vertical divider lines between items */
+    .no-changes-card:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 4px;
+      bottom: 4px;
+      width: 1px;
+      background: var(--border);
     }
     .no-changes-card .nc-icon {
       width: 36px;
       height: 36px;
-      border-radius: 8px;
-      background: var(--white);
-      border: 1px solid var(--border);
+      border-radius: 50%;
+      background: transparent;
+      border: none;
       display: flex;
       align-items: center;
       justify-content: center;
       color: var(--blue-accent);
-      margin-bottom: 16px;
+      margin: 0 auto 12px;
     }
     .no-changes-card h4 {
       font-family: var(--font-display);
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       font-weight: 600;
       color: var(--navy);
-      margin-bottom: 6px;
+      margin-bottom: 5px;
+      letter-spacing: -0.01em;
     }
     .no-changes-note {
-      margin-top: 32px;
+      margin-top: 36px;
       padding: 20px 24px;
       background: var(--cloud);
       border: 1px solid var(--border-light);
@@ -780,12 +794,14 @@
       font-weight: 600;
     }
     .no-changes-card p {
-      font-size: 0.86rem;
+      font-size: 0.85rem;
       color: var(--text-secondary);
-      line-height: 1.65;
+      line-height: 1.6;
     }
     @media (max-width: 900px) {
-      .no-changes-grid { grid-template-columns: 1fr; gap: 16px; }
+      .no-changes-grid { grid-template-columns: 1fr; gap: 28px; }
+      .no-changes-card { padding: 0; }
+      .no-changes-card:not(:last-child)::after { display: none; }
     }
 
     @keyframes fadeUp {
@@ -906,7 +922,7 @@
     <div class="container">
       <div class="no-changes-inner">
         <div class="section-label" style="text-align:center;">How It Works</div>
-        <h2 class="section-title" style="text-align:center;">Built Around What You Already Do</h2><br>
+        <h2 class="section-title" style="text-align:center;">Built Around What You Already Do</h2>
         <div class="no-changes-grid">
           <div class="no-changes-card">
             <div class="nc-icon">
@@ -942,8 +958,6 @@
     <div class="container-narrow">
       <div class="vb-eyebrow">Independent Verification</div>
       <h2>Verified, Not Just Listed.</h2>
-      <div class="vb-divider"></div>
-      <p>Secure Funder is not a paid directory. Every organization undergoes an independent review.</p>
     </div>
   </section>
 
