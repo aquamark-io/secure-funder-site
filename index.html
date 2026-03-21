@@ -195,17 +195,17 @@
 
     /* ===== MISSION BANNER ===== */
     .mission-banner {
-      background: var(--white); border-bottom: 1px solid var(--border-light); padding: 34px 0;
+      background: var(--white); border-bottom: 1px solid var(--border-light); padding: 48px 0;
     }
     .mission-banner .container-narrow { text-align: center; }
     .mission-banner p {
       font-family: var(--font-display);
-      font-size: 1.1rem; font-weight: 400; color: var(--text-secondary);
-      font-style: italic; line-height: 1.75;
+      font-size: 1.15rem; font-weight: 400; color: var(--text-secondary);
+      font-style: italic; line-height: 1.8; max-width: 680px; margin: 0 auto;
     }
 
     /* ===== SECTIONS ===== */
-    section { padding: 80px 0; }
+    section { padding: 88px 0; }
     .section-label {
       font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em;
       text-transform: uppercase; color: var(--blue-accent); margin-bottom: 12px;
@@ -218,7 +218,7 @@
     .section-subtitle {
       font-size: 1rem; color: var(--text-secondary); line-height: 1.7; max-width: 580px;
     }
-    .section-header { margin-bottom: 48px; }
+    .section-header { margin-bottom: 52px; }
 
     /* ===== ABOUT ===== */
     .about-section { background: var(--white); }
@@ -371,7 +371,7 @@
       color: var(--white);
       position: relative;
       overflow: hidden;
-      padding: 52px 0;
+      padding: 64px 0;
       text-align: center;
     }
     .verification-banner::before {
@@ -471,7 +471,7 @@
     .step-item p { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.65; }
     .membership-card {
       background: var(--white); border: 1px solid var(--border);
-      border-radius: 12px; padding: 36px; text-align: center;
+      border-radius: 12px; padding: 40px; text-align: center;
     }
     .membership-card h3 {
       font-family: var(--font-display);
@@ -484,14 +484,14 @@
     .membership-card .price-note {
       font-size: 0.82rem; color: var(--text-muted); margin-bottom: 22px;
     }
-    .membership-card .includes { text-align: left; margin-bottom: 24px; }
+    .membership-card .includes { text-align: left; margin-bottom: 28px; padding-top: 24px; border-top: 1px solid var(--border-light); }
     .membership-card .includes-label {
       font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em;
       text-transform: uppercase; color: var(--text-muted); margin-bottom: 12px;
     }
     .includes-item {
-      display: flex; align-items: flex-start; gap: 9px;
-      margin-bottom: 16px; font-size: 0.86rem; color: var(--text-primary); line-height: 1.55;
+      display: flex; align-items: flex-start; gap: 10px;
+      margin-bottom: 14px; font-size: 0.86rem; color: var(--text-primary); line-height: 1.6;
     }
     .includes-item:last-child { margin-bottom: 0; }
     .includes-item svg { color: var(--blue-accent); min-width: 16px; margin-top: 3px; }
@@ -507,7 +507,8 @@
     /* ===== PRESS ===== */
     .press-section { background: var(--white); }
     .press-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
+      max-width: 800px;
     }
     .press-card {
       background: var(--white); border: 1px solid var(--border);
@@ -710,7 +711,7 @@
     .no-changes-section {
       background: var(--white);
       border-bottom: 1px solid var(--border-light);
-      padding: 56px 0;
+      padding: 72px 0;
     }
     .no-changes-inner {
       max-width: 880px;
@@ -721,7 +722,7 @@
     }
     .no-changes-inner .section-title {
       text-align: center;
-      margin-bottom: 32px;
+      margin-bottom: 44px;
     }
     .no-changes-subtitle {
       text-align: center;
@@ -729,7 +730,7 @@
       color: var(--text-secondary);
       line-height: 1.75;
       max-width: 640px;
-      margin: 0 auto 40px;
+      margin: 0 auto 48px;
     }
     .no-changes-grid {
       display: grid;
@@ -741,7 +742,7 @@
       background: transparent;
       border: none;
       border-radius: 0;
-      padding: 0 32px;
+      padding: 8px 36px;
       text-align: center;
       position: relative;
     }
@@ -756,28 +757,28 @@
       background: var(--border);
     }
     .no-changes-card .nc-icon {
-      width: 36px;
-      height: 36px;
+      width: 42px;
+      height: 42px;
       border-radius: 50%;
-      background: transparent;
+      background: var(--blue-accent-pale);
       border: none;
       display: flex;
       align-items: center;
       justify-content: center;
       color: var(--blue-accent);
-      margin: 0 auto 12px;
+      margin: 0 auto 16px;
     }
     .no-changes-card h4 {
       font-family: var(--font-display);
-      font-size: 0.92rem;
+      font-size: 0.95rem;
       font-weight: 600;
       color: var(--navy);
-      margin-bottom: 5px;
+      margin-bottom: 8px;
       letter-spacing: -0.01em;
     }
     .no-changes-note {
-      margin-top: 36px;
-      padding: 20px 24px;
+      margin-top: 44px;
+      padding: 22px 28px;
       background: var(--cloud);
       border: 1px solid var(--border-light);
       border-left: 3px solid var(--blue-accent);
@@ -794,9 +795,9 @@
       font-weight: 600;
     }
     .no-changes-card p {
-      font-size: 0.85rem;
+      font-size: 0.86rem;
       color: var(--text-secondary);
-      line-height: 1.6;
+      line-height: 1.7;
     }
     @media (max-width: 900px) {
       .no-changes-grid { grid-template-columns: 1fr; gap: 28px; }
@@ -929,25 +930,25 @@
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
             </div>
             <h4>No Workflow Changes</h4>
-            <p>We review what you already do.</p>
+            <p>We review the practices you already have in place — not force new ones.</p>
           </div>
           <div class="no-changes-card">
             <div class="nc-icon">
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
             </div>
             <h4>No Required Technology</h4>
-            <p>Use the systems that work for you.</p>
+            <p>Use whatever CRM, portal, or systems already work for your team.</p>
           </div>
           <div class="no-changes-card">
             <div class="nc-icon">
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
             </div>
             <h4>No Prescriptive Process</h4>
-            <p>Requirements focus on outcomes.</p>
+            <p>Requirements focus on outcomes and results, not how you get there.</p>
           </div>
         </div>
         <div class="no-changes-note">
-          <strong>IMPORTANT:</strong> Organizations are not required to meet every criterion at enrollment. There is a 90-day grace period to remediate any gaps before verification. Requirements can be accesssed below.
+          <strong>IMPORTANT:</strong> Organizations are not required to meet every criterion at enrollment. There is a 90-day grace period to remediate any gaps before verification. Requirements can be accessed below.
         </div>
       </div>
     </div>
@@ -958,6 +959,7 @@
     <div class="container-narrow">
       <div class="vb-eyebrow">Independent Verification</div>
       <h2>Verified, Not Just Listed.</h2>
+      <p style="margin-top: 14px;">Every certified organization completes a live screenshare verification session — confirming that safeguards are active, not just claimed.</p>
     </div>
   </section>
 
