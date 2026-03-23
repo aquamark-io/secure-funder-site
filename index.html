@@ -319,29 +319,42 @@
       background: radial-gradient(circle, rgba(79,163,209,0.1) 0%, transparent 70%);
       pointer-events: none;
     }
-    .vision-grid {
-      display: grid;
-      grid-template-columns: 5fr 6fr;
-      gap: 72px;
-      align-items: center;
-    }
-    .vision-image {
-      border-radius: 12px;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .vision-image img {
-      width: 60%;
-      height: 60%;
-      object-fit: cover;
-      display: block;
-      border-radius: 12px;
-    }
-    .vision-content {
+    .eligibility-content {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
       position: relative;
       z-index: 1;
+    }
+    .eligibility-subtitle {
+      font-size: 1.02rem;
+      line-height: 1.8;
+      color: var(--ice);
+      margin-bottom: 28px;
+    }
+    .eligibility-tags {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 32px;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .eligibility-tag {
+      padding: 10px 18px;
+      border: 1px solid rgba(79,163,209,0.3);
+      border-radius: 20px;
+      font-size: 0.85rem;
+      color: var(--ice);
+      letter-spacing: 0.01em;
+      text-align: center;
+    }
+    .eligibility-differentiator {
+      font-size: 0.82rem;
+      color: var(--blue-accent-soft);
+      letter-spacing: 0.02em;
+      font-weight: 500;
     }
     .vision-section .section-label {
       color: var(--blue-accent-soft);
@@ -363,8 +376,7 @@
       margin-bottom: 0;
     }
     @media (max-width: 900px) {
-      .vision-grid { grid-template-columns: 1fr; gap: 32px; }
-      .vision-image { max-height: 400px; aspect-ratio: auto; }
+      .eligibility-tags { grid-template-columns: 1fr; max-width: 260px; }
     }
 
     /* ===== VERIFICATION BANNER ===== */
@@ -1071,20 +1083,26 @@
     </div>
   </section>
 
-  <!-- Vision -->
+  <!-- Eligibility -->
   <section class="vision-section">
     <div class="container">
-      <div class="vision-grid">
-        <div class="vision-image">
-          <img src="happy-guy.png" alt="Small business owners" />
+      <div class="eligibility-content">
+        <div class="section-label">Eligibility</div>
+        <h2 class="section-title">Are You Eligible?</h2>
+        <p class="eligibility-subtitle">Any organization that funds directly into one or more of these products.</p>
+        <div class="eligibility-tags">
+          <span class="eligibility-tag">Working Capital</span>
+          <span class="eligibility-tag">Merchant Cash Advance</span>
+          <span class="eligibility-tag">Term Loan</span>
+          <span class="eligibility-tag">Equipment Financing</span>
+          <span class="eligibility-tag">Line of Credit</span>
+          <span class="eligibility-tag">Invoice Factoring</span>
+          <span class="eligibility-tag">E-Commerce</span>
+          <span class="eligibility-tag">Asset-Based Lending</span>
+          <span class="eligibility-tag">SBA</span>
+          <span class="eligibility-tag">Credit Card Split</span>
         </div>
-        <div class="vision-content">
-          <div class="section-label">Market Signal</div>
-          <h2 class="section-title">A Visible Presence in a Competitive Market</h2>
-          <div class="vision-body">
-            <p>Secure Funder provides a public, centralized way for brokers and small business owners to identify credible funding sources — giving your organization greater visibility at key decision points.</p>
-          </div>
-        </div>
+        <div class="eligibility-differentiator">Certification is requirements-based — verified through live review, not self-attestation.</div>
       </div>
     </div>
   </section>
