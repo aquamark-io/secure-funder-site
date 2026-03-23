@@ -420,33 +420,6 @@
       margin: 0 auto 20px;
       border-radius: 2px;
     }
-    .broker-perspective {
-      position: relative; z-index: 1; text-align: center;
-    }
-    .signal-split {
-      display: grid; grid-template-columns: 1fr auto 1fr; gap: 0;
-      text-align: left; max-width: 820px; margin: 32px auto 0;
-    }
-    .signal-col { padding: 0 32px; }
-    .signal-col h4 {
-      font-family: var(--font-display);
-      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em;
-      text-transform: uppercase; color: var(--blue-accent-soft); margin-bottom: 18px;
-    }
-    .signal-item {
-      display: flex; align-items: flex-start; gap: 10px;
-      margin-bottom: 14px; font-size: 0.86rem; color: var(--ice); line-height: 1.6;
-    }
-    .signal-item:last-child { margin-bottom: 0; }
-    .signal-item svg { color: var(--blue-accent-soft); min-width: 15px; margin-top: 3px; }
-    .signal-divider {
-      width: 1px; background: rgba(255,255,255,0.1);
-    }
-    @media (max-width: 900px) {
-      .signal-split { grid-template-columns: 1fr; gap: 28px; max-width: 440px; }
-      .signal-col { padding: 0; }
-      .signal-divider { display: none; }
-    }
 
     /* ===== LEADERSHIP ===== */
     .leadership-section {
@@ -981,46 +954,12 @@
     </div>
   </section>
 
-  <!-- What Certification Signals -->
+  <!-- Verification Banner -->
   <section class="verification-banner">
-    <div class="container">
-      <div class="broker-perspective">
-        <div class="vb-eyebrow">What Certification Signals</div>
-        <h2>The standard that sets you apart.</h2>
-        <div class="signal-split">
-          <div class="signal-col">
-            <h4>To Brokers</h4>
-            <div class="signal-item">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Data-handling practices confirmed through live verification</span>
-            </div>
-            <div class="signal-item">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Documented access controls and personnel policies in place</span>
-            </div>
-            <div class="signal-item">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Accountability beyond a verbal commitment</span>
-            </div>
-          </div>
-          <div class="signal-divider"></div>
-          <div class="signal-col">
-            <h4>To Merchants</h4>
-            <div class="signal-item">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Financial documents handled under verified safeguards</span>
-            </div>
-            <div class="signal-item">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Organization publicly listed and held to ongoing standards</span>
-            </div>
-            <div class="signal-item">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>A third-party record of responsible operations</span>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="container-narrow">
+      <div class="vb-eyebrow">Independent Verification</div>
+      <h2>Verified, Not Just Listed.</h2>
+      <p style="margin-top: 14px;">Every certified organization completes a live screenshare verification session — confirming that safeguards are active, not just claimed.</p>
     </div>
   </section>
 
