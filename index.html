@@ -422,6 +422,25 @@
       margin: 0 auto 20px;
       border-radius: 2px;
     }
+    .stat-highlight {
+      margin-top: 40px;
+      text-align: center;
+    }
+    .stat-highlight .stat-number {
+      font-family: var(--font-display);
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: var(--blue-accent-soft);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+    .stat-highlight .stat-label {
+      font-size: 0.85rem;
+      line-height: 1.6;
+      color: var(--ice);
+      max-width: 420px;
+      margin: 0 auto;
+    }
 
     /* ===== LEADERSHIP ===== */
     .leadership-section {
@@ -736,27 +755,23 @@
     }
     .no-changes-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: 1fr;
       gap: 0;
       position: relative;
+      max-width: 320px;
+      margin: 0 auto;
     }
     .no-changes-card {
       background: transparent;
       border: none;
       border-radius: 0;
-      padding: 8px 36px;
+      padding: 12px 0;
       text-align: center;
       position: relative;
     }
     /* vertical divider lines between items */
     .no-changes-card:not(:last-child)::after {
-      content: '';
-      position: absolute;
-      right: 0;
-      top: 4px;
-      bottom: 4px;
-      width: 1px;
-      background: var(--border);
+      display: none;
     }
     .no-changes-card .nc-icon {
       width: 42px;
@@ -948,7 +963,11 @@
     <div class="container-narrow">
       <div class="vb-eyebrow">Standard of Trust</div>
       <h2>Trusted by the Brokers Who Matter</h2>
-      <p style="margin-top: 14px;">Brokers don’t see your internal processes — they decide based on trust. Secure Funder provides a visible signal that your organization handles submissions responsibly, helping you stand out to brokers who prioritize where their deals are sent.</p>
+      <p style="margin-top: 14px;">Brokers decide based on trust. Certification gives you a visible signal that sets you apart.</p>
+      <div class="stat-highlight">
+        <div class="stat-number">83%</div>
+        <div class="stat-label">of brokers vet funders before signing up</div>
+      </div>
     </div>
   </section>
 
