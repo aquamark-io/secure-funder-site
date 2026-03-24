@@ -302,12 +302,13 @@
       margin-top: 22px;
     }
 
-    /* ===== VISION ===== */
+    /* ===== VISION / ELIGIBILITY ===== */
     .vision-section {
-      background: var(--navy);
-      color: var(--white);
+      background: var(--white);
+      color: var(--text-primary);
       position: relative;
       overflow: hidden;
+      border-bottom: 1px solid var(--border-light);
     }
     .vision-section::before {
       content: '';
@@ -316,12 +317,12 @@
       right: -80px;
       width: 500px;
       height: 500px;
-      background: radial-gradient(circle, rgba(79,163,209,0.1) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(79,163,209,0.08) 0%, transparent 70%);
       pointer-events: none;
     }
     .eligibility-content {
       text-align: center;
-      max-width: 700px;
+      max-width: 960px;
       margin: 0 auto;
       position: relative;
       z-index: 1;
@@ -329,44 +330,46 @@
     .eligibility-subtitle {
       font-size: 1.02rem;
       line-height: 1.8;
-      color: var(--ice);
+      color: var(--text-secondary);
       margin-bottom: 28px;
     }
     .eligibility-tags {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(5, 1fr);
       gap: 10px;
       margin-bottom: 32px;
-      max-width: 480px;
+      max-width: 100%;
       margin-left: auto;
       margin-right: auto;
     }
     .eligibility-tag {
-      padding: 10px 18px;
-      border: 1px solid rgba(79,163,209,0.3);
+      padding: 10px 20px;
+      border: 1px solid var(--border);
       border-radius: 20px;
       font-size: 0.85rem;
-      color: var(--ice);
+      white-space: nowrap;
+      color: var(--text-primary);
       letter-spacing: 0.01em;
       text-align: center;
+      background: var(--cloud);
     }
     .eligibility-differentiator {
       font-size: 0.82rem;
-      color: var(--blue-accent-soft);
+      color: var(--blue-accent);
       letter-spacing: 0.02em;
       font-weight: 500;
     }
     .vision-section .section-label {
-      color: var(--blue-accent-soft);
+      color: var(--blue-accent);
     }
     .vision-section .section-title {
-      color: var(--white);
+      color: var(--navy);
       margin-bottom: 22px;
     }
     .vision-body {
       font-size: 1.02rem;
       line-height: 1.85;
-      color: var(--ice);
+      color: var(--text-secondary);
       letter-spacing: 0.015em;
     }
     .vision-body p {
@@ -376,7 +379,10 @@
       margin-bottom: 0;
     }
     @media (max-width: 900px) {
-      .eligibility-tags { grid-template-columns: 1fr; max-width: 260px; }
+      .eligibility-tags { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .eligibility-tags { grid-template-columns: repeat(2, 1fr); }
     }
 
     /* ===== VERIFICATION BANNER ===== */
@@ -1006,6 +1012,30 @@
     </div>
   </section>
 
+  <!-- Eligibility -->
+  <section class="vision-section">
+    <div class="container">
+      <div class="eligibility-content">
+        <div class="section-label">Eligibility</div>
+        <h2 class="section-title">Are You Eligible?</h2>
+        <p class="eligibility-subtitle">Any organization that funds directly into one or more of these products.</p>
+        <div class="eligibility-tags">
+          <span class="eligibility-tag">Working Capital</span>
+          <span class="eligibility-tag">Merchant Cash Advance</span>
+          <span class="eligibility-tag">Term Loan</span>
+          <span class="eligibility-tag">Equipment Financing</span>
+          <span class="eligibility-tag">Line of Credit</span>
+          <span class="eligibility-tag">Invoice Factoring</span>
+          <span class="eligibility-tag">E-Commerce</span>
+          <span class="eligibility-tag">Asset-Based Lending</span>
+          <span class="eligibility-tag">SBA</span>
+          <span class="eligibility-tag">Credit Card Split</span>
+        </div>
+        <div class="eligibility-differentiator">Certification is requirements-based — verified through live review, not self-attestation.</div>
+      </div>
+    </div>
+  </section>
+
   <!-- About -->
   <section id="about" class="about-section">
     <div class="container">
@@ -1079,30 +1109,6 @@
           <div class="area-item"><div class="area-dot"></div> Culture and leadership</div>
 
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Eligibility -->
-  <section class="vision-section">
-    <div class="container">
-      <div class="eligibility-content">
-        <div class="section-label">Eligibility</div>
-        <h2 class="section-title">Are You Eligible?</h2>
-        <p class="eligibility-subtitle">Any organization that funds directly into one or more of these products.</p>
-        <div class="eligibility-tags">
-          <span class="eligibility-tag">Working Capital</span>
-          <span class="eligibility-tag">Merchant Cash Advance</span>
-          <span class="eligibility-tag">Term Loan</span>
-          <span class="eligibility-tag">Equipment Financing</span>
-          <span class="eligibility-tag">Line of Credit</span>
-          <span class="eligibility-tag">Invoice Factoring</span>
-          <span class="eligibility-tag">E-Commerce</span>
-          <span class="eligibility-tag">Asset-Based Lending</span>
-          <span class="eligibility-tag">SBA</span>
-          <span class="eligibility-tag">Credit Card Split</span>
-        </div>
-        <div class="eligibility-differentiator">Certification is requirements-based — verified through live review, not self-attestation.</div>
       </div>
     </div>
   </section>
