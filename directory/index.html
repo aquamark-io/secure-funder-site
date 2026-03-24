@@ -301,37 +301,30 @@
 
     /* Product checkbox grid (always visible) */
     .product-checkboxes {
-      margin-top: 18px;
-    }
-    .product-checkboxes-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 12px;
-    }
-    .product-checkbox-actions {
-      display: flex;
-      gap: 6px;
+      margin-top: 28px;
     }
     .product-checkbox-grid {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
       gap: 8px;
     }
     .product-chip {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 8px;
-      padding: 8px 14px;
+      padding: 9px 10px;
       border-radius: 999px;
       border: 1.5px solid var(--border);
       background: var(--white);
       cursor: pointer;
       user-select: none;
       transition: all 0.2s;
-      font-size: 0.86rem;
+      font-size: 0.84rem;
       font-weight: 500;
       color: var(--text-secondary);
+      white-space: nowrap;
+      text-align: center;
     }
     .product-chip:hover {
       border-color: var(--steel);
@@ -405,9 +398,8 @@
     }
     @media (max-width: 600px) {
       .directory-toolbar { padding: 20px 0; }
-      .product-checkboxes-header { flex-direction: column; align-items: flex-start; gap: 8px; }
-      .product-checkbox-grid { gap: 6px; }
-      .product-chip { font-size: 0.82rem; padding: 7px 11px; }
+      .product-checkbox-grid { grid-template-columns: repeat(2, 1fr); gap: 6px; }
+      .product-chip { font-size: 0.82rem; padding: 7px 8px; }
     }
 
     /* ===== DIRECTORY SECTIONS ===== */
@@ -767,13 +759,7 @@ The public record of verified funders in alternative finance.        </p>
 
       <!-- Product Checkboxes — always visible -->
       <div class="product-checkboxes" id="productFilter">
-        <div class="product-checkboxes-header">
-          <span class="filter-label" style="margin-bottom:0">Filter by product type</span>
-          <div class="product-checkbox-actions">
-            <button type="button" class="btn-menu" id="selectAllBtn">Select all</button>
-            <button type="button" class="btn-menu" id="clearProductsBtn">Clear</button>
-          </div>
-        </div>
+        <span class="filter-label" style="margin-bottom:12px">Filter by product type</span>
         <div class="product-checkbox-grid" id="productCheckboxGrid" role="group" aria-label="Product type filters">
           <!-- populated by JS -->
         </div>
@@ -972,8 +958,6 @@ The public record of verified funders in alternative finance.        </p>
       search:         document.getElementById('searchInput'),
       productFilter:  document.getElementById('productFilter'),
       productGrid:    document.getElementById('productCheckboxGrid'),
-      selectAllBtn:   document.getElementById('selectAllBtn'),
-      clearProductsBtn: document.getElementById('clearProductsBtn'),
       clearAllBtn:    document.getElementById('clearAllBtn'),
       resultsCount:   document.getElementById('resultsCount'),
       resultsHint:    document.getElementById('resultsHint'),
@@ -1128,18 +1112,6 @@ The public record of verified funders in alternative finance.        </p>
 
     els.search.addEventListener('input', (e) => {
       state.query = normalize(e.target.value);
-      renderDirectory();
-    });
-
-    els.selectAllBtn.addEventListener('click', () => {
-      state.selectedProducts = new Set(PRODUCTS.map(p => p.key));
-      syncChipStates();
-      renderDirectory();
-    });
-
-    els.clearProductsBtn.addEventListener('click', () => {
-      state.selectedProducts.clear();
-      syncChipStates();
       renderDirectory();
     });
 
