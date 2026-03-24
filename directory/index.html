@@ -257,9 +257,9 @@
     }
     .toolbar-inner {
       display: grid;
-      grid-template-columns: 1fr 1fr auto;
+      grid-template-columns: 1fr auto;
       gap: 14px;
-      align-items: start;
+      align-items: end;
     }
     .filter-field {
       position: relative;
@@ -299,91 +299,63 @@
       pointer-events: none;
     }
 
-    /* Multi-select dropdown */
-    .multi-select { position: relative; }
-    .multi-select-button {
-      width: 100%;
+    /* Product checkbox grid (always visible) */
+    .product-checkboxes {
+      margin-top: 18px;
+    }
+    .product-checkboxes-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 10px;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      background: var(--white);
-      cursor: pointer;
-      padding: 11px 14px;
-      font-family: var(--font-body);
-      font-size: 0.92rem;
-      color: var(--text-primary);
-      transition: border-color 0.2s, box-shadow 0.2s;
+      margin-bottom: 12px;
     }
-    .multi-select-button:hover { border-color: var(--steel); }
-    .multi-select-button[aria-expanded="true"] {
-      border-color: var(--blue-accent);
-      box-shadow: 0 0 0 3px rgba(79,163,209,0.12);
-    }
-    .multi-select-button .value {
-      display: -webkit-box;
-      -webkit-line-clamp: 1;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-      color: var(--text-primary);
-    }
-    .multi-select-button .value.placeholder { color: #A8BFCF; }
-    .multi-select-button .chev {
-      color: var(--text-muted);
-      font-size: 0.8rem;
-      transition: transform 0.2s;
-      flex-shrink: 0;
-    }
-    .multi-select-button[aria-expanded="true"] .chev { transform: rotate(180deg); }
-
-    .multi-select-menu {
-      display: none;
-      position: absolute;
-      left: 0; right: 0;
-      top: calc(100% + 6px);
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      box-shadow: 0 12px 32px rgba(15,33,55,0.12);
-      padding: 8px;
-      z-index: 120;
-      max-height: 320px;
-      overflow-y: auto;
-    }
-    .multi-select-menu.open { display: block; }
-    .menu-row {
+    .product-checkbox-actions {
       display: flex;
+      gap: 6px;
+    }
+    .product-checkbox-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .product-chip {
+      display: inline-flex;
       align-items: center;
-      gap: 10px;
-      padding: 9px 10px;
-      border-radius: 7px;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1.5px solid var(--border);
+      background: var(--white);
       cursor: pointer;
       user-select: none;
-      transition: background 0.15s;
+      transition: all 0.2s;
+      font-size: 0.86rem;
+      font-weight: 500;
+      color: var(--text-secondary);
     }
-    .menu-row:hover { background: var(--cloud); }
-    .menu-row input[type="checkbox"] {
-      width: 16px; height: 16px;
+    .product-chip:hover {
+      border-color: var(--steel);
+      background: var(--pearl);
+    }
+    .product-chip.active {
+      border-color: var(--blue-accent);
+      background: var(--blue-accent-pale);
+      color: var(--navy);
+      font-weight: 600;
+    }
+    .product-chip input[type="checkbox"] {
+      width: 15px;
+      height: 15px;
       accent-color: var(--blue-accent);
       cursor: pointer;
       flex-shrink: 0;
-    }
-    .menu-row span { font-size: 0.9rem; color: var(--text-primary); }
-    .menu-footer {
-      display: flex;
-      gap: 8px;
-      padding: 8px 6px 4px;
-      border-top: 1px solid var(--border-light);
-      margin-top: 6px;
+      margin: 0;
     }
     .btn-menu {
-      flex: 1;
       font-family: var(--font-body);
       font-size: 0.8rem;
       font-weight: 600;
-      padding: 7px 10px;
+      padding: 7px 14px;
       border-radius: 6px;
       border: 1px solid var(--border);
       background: var(--white);
@@ -391,40 +363,9 @@
       cursor: pointer;
       transition: all 0.15s;
       text-align: center;
+      white-space: nowrap;
     }
     .btn-menu:hover { background: var(--pearl); border-color: var(--navy); }
-
-    /* Selected product tags */
-    .selected-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 8px;
-    }
-    .tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: var(--blue-accent-pale);
-      border: 1px solid rgba(79,163,209,0.22);
-      color: var(--navy);
-      font-size: 0.78rem;
-      font-weight: 600;
-      line-height: 1.2;
-    }
-    .tag button {
-      border: none;
-      background: transparent;
-      cursor: pointer;
-      color: var(--slate);
-      font-size: 0.85rem;
-      line-height: 1;
-      padding: 0;
-      transition: color 0.15s;
-    }
-    .tag button:hover { color: var(--navy); }
 
     /* Clear all button */
     .btn-clear-all {
@@ -459,11 +400,14 @@
     }
 
     @media (max-width: 900px) {
-      .toolbar-inner { grid-template-columns: 1fr; }
+      .toolbar-inner { grid-template-columns: 1fr auto; }
       .btn-clear-all { justify-self: start; }
     }
     @media (max-width: 600px) {
       .directory-toolbar { padding: 20px 0; }
+      .product-checkboxes-header { flex-direction: column; align-items: flex-start; gap: 8px; }
+      .product-checkbox-grid { gap: 6px; }
+      .product-chip { font-size: 0.82rem; padding: 7px 11px; }
     }
 
     /* ===== DIRECTORY SECTIONS ===== */
@@ -817,27 +761,22 @@ The most trusted sources of funding in alternative finance—independently verif
           <input id="searchInput" class="filter-input" type="search" placeholder="e.g. 'Funder'" autocomplete="off" />
         </div>
 
-        <!-- Product Multi-Select -->
-        <div class="filter-field">
-          <span class="filter-label">Filter by product type</span>
-          <div class="multi-select" id="productFilter">
-            <button type="button" class="multi-select-button" id="productButton" aria-haspopup="listbox" aria-expanded="false">
-              <span class="value placeholder" id="productValue">All products</span>
-              <span class="chev">▾</span>
-            </button>
-            <div class="multi-select-menu" id="productMenu" role="listbox" aria-label="Product filter menu">
-              <!-- populated by JS -->
-              <div class="menu-footer">
-                <button type="button" class="btn-menu" id="selectAllBtn">Select all</button>
-                <button type="button" class="btn-menu" id="clearProductsBtn">Clear</button>
-              </div>
-            </div>
-            <div class="selected-tags" id="selectedTags" aria-label="Selected product filters"></div>
-          </div>
-        </div>
-
         <!-- Clear All -->
         <button class="btn-clear-all" type="button" id="clearAllBtn">Clear all</button>
+      </div>
+
+      <!-- Product Checkboxes — always visible -->
+      <div class="product-checkboxes" id="productFilter">
+        <div class="product-checkboxes-header">
+          <span class="filter-label" style="margin-bottom:0">Filter by product type</span>
+          <div class="product-checkbox-actions">
+            <button type="button" class="btn-menu" id="selectAllBtn">Select all</button>
+            <button type="button" class="btn-menu" id="clearProductsBtn">Clear</button>
+          </div>
+        </div>
+        <div class="product-checkbox-grid" id="productCheckboxGrid" role="group" aria-label="Product type filters">
+          <!-- populated by JS -->
+        </div>
       </div>
 
       <div class="results-bar" aria-live="polite">
@@ -1032,10 +971,7 @@ The most trusted sources of funding in alternative finance—independently verif
     const els = {
       search:         document.getElementById('searchInput'),
       productFilter:  document.getElementById('productFilter'),
-      productButton:  document.getElementById('productButton'),
-      productMenu:    document.getElementById('productMenu'),
-      productValue:   document.getElementById('productValue'),
-      selectedTags:   document.getElementById('selectedTags'),
+      productGrid:    document.getElementById('productCheckboxGrid'),
       selectAllBtn:   document.getElementById('selectAllBtn'),
       clearProductsBtn: document.getElementById('clearProductsBtn'),
       clearAllBtn:    document.getElementById('clearAllBtn'),
@@ -1147,86 +1083,47 @@ The most trusted sources of funding in alternative finance—independently verif
       if (sections[2]) setSectionVisibility(sections[2], inProgress.length, directoryClosed);
     }
 
-    /* ===== Product Multi-Select ===== */
-    function buildProductMenu() {
-      const footer = els.productMenu.querySelector('.menu-footer');
+    /* ===== Product Checkbox Grid ===== */
+    function buildProductCheckboxes() {
       PRODUCTS.forEach(p => {
-        const row = document.createElement('div');
-        row.className = 'menu-row';
-        row.setAttribute('role', 'option');
-        row.dataset.key = p.key;
+        const chip = document.createElement('label');
+        chip.className = 'product-chip';
+        chip.dataset.key = p.key;
 
         const cb = document.createElement('input');
         cb.type = 'checkbox';
         cb.checked = state.selectedProducts.has(p.key);
+        cb.addEventListener('change', () => {
+          toggleProduct(p.key, cb.checked);
+          chip.classList.toggle('active', cb.checked);
+        });
 
         const label = document.createElement('span');
         label.textContent = p.label;
 
-        row.appendChild(cb);
-        row.appendChild(label);
-
-        row.addEventListener('click', (e) => {
-          if (e.target.tagName.toLowerCase() === 'input') return;
-          cb.checked = !cb.checked;
-          toggleProduct(p.key, cb.checked);
-        });
-        cb.addEventListener('change', () => toggleProduct(p.key, cb.checked));
-
-        els.productMenu.insertBefore(row, footer);
+        chip.appendChild(cb);
+        chip.appendChild(label);
+        els.productGrid.appendChild(chip);
       });
     }
 
     function toggleProduct(key, on) {
       if (on) state.selectedProducts.add(key); else state.selectedProducts.delete(key);
-      syncSelectedTags();
       renderDirectory();
     }
 
-    function syncSelectedTags() {
-      els.selectedTags.innerHTML = "";
-      const selected = Array.from(state.selectedProducts);
-
-      if (selected.length === 0) {
-        els.productValue.textContent = "All products";
-        els.productValue.classList.add('placeholder');
-        return;
-      }
-
-      const labels = selected.map(k => (PRODUCTS.find(p => p.key === k) || {}).label || k);
-      els.productValue.textContent = labels.join(", ");
-      els.productValue.classList.remove('placeholder');
-
-      selected.forEach(k => {
-        const p = PRODUCTS.find(x => x.key === k);
-        const tag = document.createElement('span');
-        tag.className = 'tag';
-        tag.textContent = p ? p.label : k;
-
-        const x = document.createElement('button');
-        x.type = 'button';
-        x.setAttribute('aria-label', `Remove ${tag.textContent}`);
-        x.textContent = "×";
-        x.addEventListener('click', () => {
-          state.selectedProducts.delete(k);
-          const row = els.productMenu.querySelector(`.menu-row[data-key="${k}"] input`);
-          if (row) row.checked = false;
-          syncSelectedTags();
-          renderDirectory();
-        });
-
-        tag.appendChild(x);
-        els.selectedTags.appendChild(tag);
+    function syncChipStates() {
+      els.productGrid.querySelectorAll('.product-chip').forEach(chip => {
+        const key = chip.dataset.key;
+        const cb = chip.querySelector('input');
+        const isSelected = state.selectedProducts.has(key);
+        cb.checked = isSelected;
+        chip.classList.toggle('active', isSelected);
       });
     }
 
-    function openMenu()   { els.productMenu.classList.add('open'); els.productButton.setAttribute('aria-expanded', 'true'); }
-    function closeMenu()  { els.productMenu.classList.remove('open'); els.productButton.setAttribute('aria-expanded', 'false'); }
-    function toggleMenu() { els.productMenu.classList.contains('open') ? closeMenu() : openMenu(); }
-
     /* ===== Wire up ===== */
-    buildProductMenu();
-    syncSelectedTags();
+    buildProductCheckboxes();
     renderDirectory();
 
     els.search.addEventListener('input', (e) => {
@@ -1234,29 +1131,15 @@ The most trusted sources of funding in alternative finance—independently verif
       renderDirectory();
     });
 
-    els.productButton.addEventListener('click', (e) => { e.preventDefault(); toggleMenu(); });
-
-    document.addEventListener('click', (e) => {
-      if (!els.productFilter.contains(e.target)) closeMenu();
-    });
-
     els.selectAllBtn.addEventListener('click', () => {
       state.selectedProducts = new Set(PRODUCTS.map(p => p.key));
-      PRODUCTS.forEach(p => {
-        const cb = els.productMenu.querySelector(`.menu-row[data-key="${p.key}"] input`);
-        if (cb) cb.checked = true;
-      });
-      syncSelectedTags();
+      syncChipStates();
       renderDirectory();
     });
 
     els.clearProductsBtn.addEventListener('click', () => {
       state.selectedProducts.clear();
-      PRODUCTS.forEach(p => {
-        const cb = els.productMenu.querySelector(`.menu-row[data-key="${p.key}"] input`);
-        if (cb) cb.checked = false;
-      });
-      syncSelectedTags();
+      syncChipStates();
       renderDirectory();
     });
 
@@ -1264,11 +1147,7 @@ The most trusted sources of funding in alternative finance—independently verif
       els.search.value = "";
       state.query = "";
       state.selectedProducts.clear();
-      PRODUCTS.forEach(p => {
-        const cb = els.productMenu.querySelector(`.menu-row[data-key="${p.key}"] input`);
-        if (cb) cb.checked = false;
-      });
-      syncSelectedTags();
+      syncChipStates();
       renderDirectory();
     });
   </script>
