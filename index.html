@@ -13,6 +13,8 @@
   <style>
     :root {
       --utility-height: 42px;
+      --utility-height-mobile: 56px;
+      --nav-height: 68px;
       --navy: #0F2137;
       --navy-mid: #1A3455;
       --slate: #3D5A80;
@@ -43,6 +45,7 @@
       background: var(--white);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
+      padding-top: calc(var(--utility-height) + var(--nav-height));
     }
 
     /* ===== UTILITY BAR ===== */
@@ -53,8 +56,10 @@
       font-weight: 600;
       height: var(--utility-height);
       letter-spacing: 0.04em;
-      position: sticky;
+      position: fixed;
       top: 0;
+      left: 0;
+      right: 0;
       z-index: 200;
       display: flex;
       align-items: center;
@@ -86,26 +91,6 @@
       position: relative;
     }
 
-    .utility-banner-link::before,
-    .utility-banner-link::after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      width: 44px;
-      height: 1px;
-      background: linear-gradient(90deg, rgba(123,188,225,0) 0%, rgba(123,188,225,0.75) 100%);
-      transform: translateY(-50%);
-    }
-
-    .utility-banner-link::before {
-      left: max(18px, calc(50% - 290px));
-    }
-
-    .utility-banner-link::after {
-      right: max(18px, calc(50% - 290px));
-      transform: translateY(-50%) scaleX(-1);
-    }
-
     .utility-banner-link:hover {
       background: rgba(255,255,255,0.04);
     }
@@ -131,9 +116,12 @@
     }
 
     @media (max-width: 640px) {
+      body {
+        padding-top: calc(var(--utility-height-mobile) + var(--nav-height));
+      }
+
       .utility-bar {
-        height: auto;
-        min-height: 56px;
+        height: var(--utility-height-mobile);
       }
 
       .utility-banner-link {
@@ -141,10 +129,6 @@
         padding: 8px 14px;
       }
 
-      .utility-banner-link::before,
-      .utility-banner-link::after {
-        display: none;
-      }
 
       .utility-copy {
         display: flex;
@@ -184,7 +168,11 @@
     .main-nav {
       background: var(--white);
       border-bottom: 1px solid var(--border);
-      position: sticky; top: var(--utility-height); z-index: 150;
+      position: fixed;
+      top: var(--utility-height);
+      left: 0;
+      right: 0;
+      z-index: 190;
       box-shadow: 0 1px 4px rgba(15,33,55,0.04);
     }
     .main-nav .container {
@@ -786,10 +774,10 @@
       section { padding: 56px 0; }
       .utility-bar { font-size: 0.72rem; }
       .utility-banner-link { gap: 8px; padding: 0 12px; }
-      .utility-banner-link::before, .utility-banner-link::after { display: none; }
       .utility-copy { gap: 4px; }
       .utility-eyebrow { font-size: 0.62rem; letter-spacing: 0.1em; }
-      :root { --utility-height: 36px; }
+      body { padding-top: calc(var(--utility-height-mobile) + 56px); }
+      .main-nav { top: var(--utility-height-mobile); }
       .main-nav .container { height: 56px; }
       .logo-badge-lg { width: 32px; height: 32px; }
       .logo-text { font-size: 1.15rem; }
