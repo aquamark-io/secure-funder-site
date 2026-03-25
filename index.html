@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --utility-height: 34px;
+      --utility-height: 42px;
       --navy: #0F2137;
       --navy-mid: #1A3455;
       --slate: #3D5A80;
@@ -47,33 +47,108 @@
 
     /* ===== UTILITY BAR ===== */
     .utility-bar {
-      background: var(--navy);
-      color: var(--ice);
-      font-size: 0.8rem;
+      background: linear-gradient(90deg, #0D1B2D 0%, #13263D 52%, #17304C 100%);
+      color: var(--white);
+      font-size: 0.82rem;
+      font-weight: 600;
       height: var(--utility-height);
-      letter-spacing: 0.06em;
+      letter-spacing: 0.04em;
       position: sticky;
       top: 0;
       z-index: 200;
-
       display: flex;
       align-items: center;
       justify-content: center;
-
       text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      box-shadow: inset 0 -1px 0 rgba(255,255,255,0.04);
     }
 
     .utility-text {
       width: 100%;
       text-align: center;
-      pointer-events: none;
     }
     .utility-bar .container {
       display: flex; justify-content: space-between; align-items: center;
     }
-    .utility-bar a { color: var(--ice); text-decoration: none; transition: color 0.2s; }
-    .utility-bar a:hover { color: var(--blue-accent-soft); }
+    .utility-bar a { color: var(--white); text-decoration: none; transition: color 0.2s, background 0.2s; }
+    .utility-bar a:hover { color: var(--white); }
     .utility-links { display: flex; gap: 20px; }
+
+    .utility-banner-link {
+      width: 100%;
+      min-height: 100%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 0 18px;
+      position: relative;
+    }
+
+    .utility-banner-link::before,
+    .utility-banner-link::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      width: 44px;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(123,188,225,0) 0%, rgba(123,188,225,0.75) 100%);
+      transform: translateY(-50%);
+    }
+
+    .utility-banner-link::before {
+      left: max(18px, calc(50% - 290px));
+    }
+
+    .utility-banner-link::after {
+      right: max(18px, calc(50% - 290px));
+      transform: translateY(-50%) scaleX(-1);
+    }
+
+    .utility-banner-link:hover {
+      background: rgba(255,255,255,0.04);
+    }
+
+    .banner-icon-wrap {
+      width: 22px;
+      height: 22px;
+      min-width: 22px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      background: rgba(123,188,225,0.12);
+      border: 1px solid rgba(123,188,225,0.26);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+    }
+
+    .banner-icon {
+      width: 13px;
+      height: 13px;
+      color: var(--blue-accent-soft);
+      flex: 0 0 auto;
+    }
+
+    .utility-copy {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .utility-eyebrow {
+      color: var(--blue-accent-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.68rem;
+      font-weight: 700;
+    }
+
+    .utility-message {
+      color: rgba(255,255,255,0.95);
+    }
 
     /* ===== NAV ===== */
     .main-nav {
@@ -679,8 +754,12 @@
       .container { padding: 0 16px; }
       .container-narrow { padding: 0 16px; }
       section { padding: 56px 0; }
-      .utility-bar { font-size: 0.72rem; height: 30px; }
-      :root { --utility-height: 30px; }
+      .utility-bar { font-size: 0.72rem; }
+      .utility-banner-link { gap: 8px; padding: 0 12px; }
+      .utility-banner-link::before, .utility-banner-link::after { display: none; }
+      .utility-copy { gap: 4px; }
+      .utility-eyebrow { font-size: 0.62rem; letter-spacing: 0.1em; }
+      :root { --utility-height: 36px; }
       .main-nav .container { height: 56px; }
       .logo-badge-lg { width: 32px; height: 32px; }
       .logo-text { font-size: 1.15rem; }
@@ -909,7 +988,18 @@
 
   <!-- Utility Bar -->
   <div class="utility-bar">
-    <span class="utility-text">Directory opening April 1, 2026</span>
+    <a href="https://securefunder.org/contact/" class="utility-text utility-banner-link" aria-label="Join the founding group of funders">
+      <span class="banner-icon-wrap" aria-hidden="true">
+        <svg class="banner-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3l7 4v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V7l7-4z"></path>
+          <path d="M9.5 12.5l1.7 1.7 3.3-3.7"></path>
+        </svg>
+      </span>
+      <span class="utility-copy">
+        <span class="utility-eyebrow">Founding Group</span>
+        <span class="utility-message">Join the founding group of funders ahead of the April 1</span>
+      </span>
+    </a>
   </div>
 
   <!-- Navigation -->
