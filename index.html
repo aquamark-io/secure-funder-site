@@ -166,7 +166,9 @@
 
     /* ===== NAV ===== */
     .main-nav {
-      background: var(--white);
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
       position: fixed;
       top: var(--utility-height);
@@ -214,7 +216,7 @@
       padding: 13px 26px; border-radius: 6px;
       text-decoration: none; transition: all 0.25s; border: none; cursor: pointer;
     }
-    .btn-primary:hover { background: var(--blue-accent-soft); transform: translateY(-1px); box-shadow: 0 4px 14px rgba(184,134,45,0.25); }
+    .btn-primary:hover { background: var(--blue-accent-soft); transform: translateY(-1px); box-shadow: 0 4px 14px rgba(79,163,209,0.3); }
     .btn-ghost {
       display: inline-flex; align-items: center; gap: 8px;
       background: transparent; color: var(--navy);
@@ -241,7 +243,13 @@
     .hero::before {
       content: ''; position: absolute; top: -200px; right: -100px;
       width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(79,163,209,0.08) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(79,163,209,0.10) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: ''; position: absolute; bottom: -150px; left: -80px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(15,33,55,0.04) 0%, transparent 70%);
       pointer-events: none;
     }
     .hero-inner {
@@ -325,6 +333,7 @@
     .about-sidebar {
       background: var(--cloud); border-radius: 10px; padding: 34px;
       border-left: 3px solid var(--blue-accent);
+      box-shadow: 0 4px 20px rgba(15,33,55,0.04);
     }
     .about-sidebar h3 {
       font-family: var(--font-display);
@@ -338,6 +347,7 @@
       width: 30px; height: 30px; min-width: 30px; border-radius: 6px;
       background: var(--white); display: flex; align-items: center; justify-content: center;
       color: var(--blue-accent); margin-top: 2px; border: 1px solid var(--border-light);
+      box-shadow: 0 1px 4px rgba(15,33,55,0.05);
     }
     .principle-item h4 { font-size: 0.88rem; font-weight: 600; color: var(--navy); margin-bottom: 2px; }
     .principle-item p { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.55; }
@@ -618,7 +628,14 @@
     .step-item p { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.65; }
     .membership-card {
       background: var(--white); border: 1px solid var(--border);
+      border-top: 3px solid var(--blue-accent);
       border-radius: 12px; padding: 40px; text-align: center;
+      box-shadow: 0 8px 30px rgba(15,33,55,0.06), 0 1px 3px rgba(15,33,55,0.04);
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+    .membership-card:hover {
+      box-shadow: 0 12px 40px rgba(15,33,55,0.09), 0 2px 6px rgba(15,33,55,0.05);
+      transform: translateY(-2px);
     }
     .membership-card h3 {
       font-family: var(--font-display);
@@ -660,12 +677,13 @@
     .press-card {
       background: var(--white); border: 1px solid var(--border);
       border-radius: 10px; padding: 26px;
-      text-decoration: none; color: inherit; transition: all 0.25s;
+      text-decoration: none; color: inherit;
+      transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
       display: flex; flex-direction: column;
     }
     .press-card:hover {
-      border-color: var(--ice); box-shadow: 0 6px 20px rgba(15,33,55,0.05);
-      transform: translateY(-2px);
+      border-color: var(--ice); box-shadow: 0 8px 28px rgba(15,33,55,0.07);
+      transform: translateY(-3px);
     }
     .press-source {
       font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em;
@@ -914,6 +932,7 @@
       justify-content: center;
       color: var(--blue-accent);
       margin: 0 auto 16px;
+      box-shadow: 0 2px 8px rgba(79,163,209,0.15);
     }
     .no-changes-card h4 {
       font-family: var(--font-body);
@@ -957,6 +976,39 @@
       to { opacity: 1; transform: translateY(0); }
     }
     .hero-content { animation: fadeUp 0.6s ease-out; }
+    .hero-image { animation: fadeUp 0.6s ease-out 0.15s both; }
+
+    /* ===== SCROLL REVEAL ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    /* ===== SECTION DIVIDERS ===== */
+    .section-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      height: 1px;
+      background: transparent;
+    }
+    .section-divider::before {
+      content: '';
+      width: 48px;
+      height: 2px;
+      background: var(--blue-accent);
+      border-radius: 2px;
+      opacity: 0.4;
+    }
   
     /* ===== BADGE PLACEMENT ===== */
     .logo-mark {
@@ -1015,8 +1067,8 @@
   <div class="utility-bar">
     <a href="https://securefunder.org/contact/" class="utility-text utility-banner-link" aria-label="Join the founding group of funders">
       <span class="utility-copy">
-        <span class="utility-eyebrow">Founding Group</span>
-        <span class="utility-message">Join the founding group of funders ahead of the April 1 directory launch</span>
+        <span class="utility-eyebrow">Apply</span>
+        <span class="utility-message">Now accepting applications</span>
       </span>
     </a>
   </div>
@@ -1065,7 +1117,7 @@
 
   <!-- Mission -->
   <div class="mission-banner">
-    <div class="container-narrow">
+    <div class="container-narrow reveal">
       <p>Our mission is to advance responsible data handling across alternative finance by bringing funders of all sizes together to reduce opportunities for unauthorized sharing of submissions.</p>
     </div>
   </div>
@@ -1077,21 +1129,21 @@
         <div class="section-label" style="text-align:center;">How It Works</div>
         <h2 class="section-title" style="text-align:center;">Built Around What You Already Do</h2>
         <div class="no-changes-grid">
-          <div class="no-changes-card">
+          <div class="no-changes-card reveal">
             <div class="nc-icon">
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
             </div>
             <h4>No Workflow Changes</h4>
             <p class="nc-desc">We verify what you already do — your existing processes are the starting point.</p>
           </div>
-          <div class="no-changes-card">
+          <div class="no-changes-card reveal reveal-delay-1">
             <div class="nc-icon">
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
             </div>
             <h4>No Required Technology</h4>
             <p class="nc-desc">Use whatever CRM, portal, or tools you already have in place.</p>
           </div>
-          <div class="no-changes-card">
+          <div class="no-changes-card reveal reveal-delay-2">
             <div class="nc-icon">
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
             </div>
@@ -1110,7 +1162,7 @@
       <div class="vb-eyebrow">Standard of Trust</div>
       <h2>Trusted by Those Who Matter</h2>
       <p style="margin-top: 14px;">The industry runs on trust. Certification gives you a visible signal that sets you apart.</p>
-      <div class="stats-row">
+      <div class="stats-row reveal">
         <div class="stat-highlight">
           <div class="stat-number">83%</div>
           <div class="stat-label">of brokers vet funders before signing up</div>
@@ -1132,7 +1184,7 @@
         <div class="section-label">Eligibility</div>
         <h2 class="section-title">Are You Eligible?</h2>
         <p class="eligibility-subtitle">Any organization that funds directly into one or more of these products.</p>
-        <div class="eligibility-tags">
+        <div class="eligibility-tags reveal">
           <span class="eligibility-tag">Working Capital</span>
           <span class="eligibility-tag">Merchant Cash Advance</span>
           <span class="eligibility-tag">Term Loan</span>
@@ -1151,7 +1203,7 @@
   <!-- About -->
   <section id="about" class="about-section">
     <div class="container">
-      <div class="about-grid">
+      <div class="about-grid reveal">
         <div class="about-text">
           <div class="section-label">About</div>
           <h2 class="section-title">Why Secure Funder Exists</h2>
@@ -1192,6 +1244,8 @@
     </div>
   </section>
 
+  <div class="section-divider"></div>
+
   <!-- Photo Break -->
   <!-- STOCK PHOTO: 1400×500px min. Office/collaboration. Landscape. Dark overlay applied. -->
   <div class="photo-break">
@@ -1206,7 +1260,7 @@
   <!-- Directory + Areas of Review -->
   <section id="directory" class="directory-section">
     <div class="container">
-      <div class="directory-content">
+      <div class="directory-content reveal">
         <div class="directory-text">
           <div class="section-label">Member Directory</div>
           <h2 class="section-title">The Public Record of Verified Organizations</h2>
@@ -1230,7 +1284,7 @@
     <div class="container">
       <div class="section-label">Leadership</div>
       <h2 class="section-title" style="margin-bottom: 36px;">Program Director</h2>
-      <div class="leadership-content">
+      <div class="leadership-content reveal">
         <div class="leadership-photo">
           <img src="headshot.png" alt="Christina Duncan — Program Director, Secure Funder" />
         </div>
@@ -1246,7 +1300,7 @@
   <!-- Membership -->
   <section id="membership" class="membership-section">
     <div class="container">
-      <div class="membership-grid">
+      <div class="membership-grid reveal">
         <div>
           <div class="section-label">Membership</div>
           <h2 class="section-title">How to Join</h2>
@@ -1328,7 +1382,7 @@
         <div class="section-label">Press &amp; Media</div>
         <h2 class="section-title">In the News</h2>
       </div>
-      <div class="press-grid">
+      <div class="press-grid reveal">
         <a href="https://www.einpresswire.com/article/884909199/aquamark-finalizes-secure-funder-requirements-to-combat-backdooring-directory-reservations-now-open" class="press-card" target="_blank">
           <div class="press-source">EIN Presswire</div>
           <h3>Aquamark Finalizes Secure Funder Requirements; Directory Reservations Now Open</h3>
@@ -1353,7 +1407,7 @@
       </div>
       <div class="container-narrow">
         <h2 class="section-title">Charter membership is open now.</h2>
-        <p class="section-subtitle">Join the first group of organizations establishing data-handling standards in alternative finance. The directory launches April 1, 2026.</p>
+        <p class="section-subtitle">Join the growing group of organizations establishing data-handling standards in alternative finance.</p>
         <div class="cta-actions">
           <a href="https://securefunder.org/contact/" class="btn-primary">Apply for Membership</a>
           <a href="/certification" class="btn-ghost-white">View Requirements</a>
@@ -1420,6 +1474,18 @@
     function closeMobileMenu() { menu.classList.remove('active'); document.body.style.overflow = ''; }
     toggle.addEventListener('click', () => { menu.classList.add('active'); document.body.style.overflow = 'hidden'; });
     closeBtn.addEventListener('click', closeMobileMenu);
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   </script>
 
 </body>
