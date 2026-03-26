@@ -80,7 +80,9 @@
 
     /* ===== NAV ===== */
     .main-nav {
-      background: var(--white);
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
       position: sticky;
       top: var(--utility-height);
@@ -201,7 +203,17 @@
       right: -120px;
       width: 640px;
       height: 640px;
-      background: radial-gradient(circle, rgba(79,163,209,0.09) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(79,163,209,0.10) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .page-hero::after {
+      content: '';
+      position: absolute;
+      bottom: -150px;
+      left: -80px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(15,33,55,0.04) 0%, transparent 70%);
       pointer-events: none;
     }
     .page-hero-inner {
@@ -283,11 +295,11 @@
       color: var(--text-primary);
       background: var(--white);
       padding: 11px 14px 11px 38px;
-      transition: border-color 0.2s, box-shadow 0.2s;
+      transition: border-color 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s cubic-bezier(0.22, 1, 0.36, 1);
     }
     .filter-input:focus {
       border-color: var(--blue-accent);
-      box-shadow: 0 0 0 3px rgba(79,163,209,0.12);
+      box-shadow: 0 0 0 3px rgba(79,163,209,0.10), 0 2px 8px rgba(79,163,209,0.08);
     }
     .filter-input::placeholder { color: #A8BFCF; }
     .search-icon {
@@ -319,7 +331,7 @@
       background: var(--white);
       cursor: pointer;
       user-select: none;
-      transition: all 0.2s;
+      transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
       font-size: 0.84rem;
       font-weight: 500;
       color: var(--text-secondary);
@@ -436,6 +448,7 @@
       border-radius: 12px;
       padding: 22px;
       overflow: hidden;
+      box-shadow: 0 2px 12px rgba(15,33,55,0.03);
     }
 
     /* Empty state */
@@ -445,11 +458,12 @@
       justify-content: center;
       min-height: 120px;
       border-radius: 10px;
-      border: 1px dashed rgba(15,33,55,0.18);
-      background: rgba(255,255,255,0.65);
+      border: 1px dashed rgba(15,33,55,0.14);
+      background: rgba(255,255,255,0.75);
       color: var(--text-muted);
       text-align: center;
       padding: 18px;
+      transition: background 0.3s ease;
     }
     .empty-state p {
       max-width: 560px;
@@ -477,6 +491,10 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      transition: background 0.25s ease;
+    }
+    .logo-tile:hover {
+      background: var(--pearl);
     }
     .logo-tile img {
       max-width: 120px;
@@ -505,6 +523,12 @@
       position: relative;
       overflow: hidden;
       border: 1px solid rgba(255,255,255,0.10);
+      box-shadow: 0 8px 30px rgba(15,33,55,0.12);
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+    .mini-cta-box:hover {
+      box-shadow: 0 12px 40px rgba(15,33,55,0.18);
+      transform: translateY(-2px);
     }
     .mini-cta-box::before {
       content: '';
@@ -670,6 +694,25 @@
       .section-title { font-size: 1.2rem; }
     }
 
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .page-hero-inner { animation: fadeUp 0.6s ease-out; }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+
     /* Mobile nav menu */
     .mobile-menu {
       display: none;
@@ -777,7 +820,7 @@ The public record of verified funders in alternative finance.        </p>
     <!-- Charter Members -->
     <section>
       <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal">
           <div class="section-label">Founding Cohort</div>
           <h2 class="section-title">Charter Members</h2>
           <p class="section-subtitle">
@@ -801,7 +844,7 @@ The public record of verified funders in alternative finance.        </p>
     <!-- Certified Members -->
     <section class="section-alt">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal">
           <div class="section-label">Verified</div>
           <h2 class="section-title">Certified Members</h2>
           <p class="section-subtitle">
@@ -825,7 +868,7 @@ The public record of verified funders in alternative finance.        </p>
     <!-- In Progress -->
     <section>
       <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal">
           <div class="section-label">Status</div>
           <h2 class="section-title">Verification In Progress</h2>
           <p class="section-subtitle">
@@ -849,7 +892,7 @@ The public record of verified funders in alternative finance.        </p>
     <!-- Lightweight CTA -->
     <section class="mini-cta">
       <div class="container">
-        <div class="mini-cta-box">
+        <div class="mini-cta-box reveal">
           <div class="mini-cta-inner">
             <div>
               <h3>Enrollment is open.</h3>
@@ -928,6 +971,17 @@ The public record of verified funders in alternative finance.        </p>
     function closeMobileMenu() { menu.classList.remove('active'); document.body.style.overflow = ''; }
     toggle.addEventListener('click', () => { menu.classList.add('active'); document.body.style.overflow = 'hidden'; });
     closeBtn.addEventListener('click', closeMobileMenu);
+
+    // Scroll reveal
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
     /* ===== Directory Data =====
        PRODUCTS: the picklist options for filtering.
