@@ -885,10 +885,10 @@
     }
     .no-changes-grid {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 0;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
       position: relative;
-      max-width: 320px;
+      max-width: 880px;
       margin: 0 auto;
     }
     .no-changes-card {
@@ -918,11 +918,18 @@
     .no-changes-card h4 {
       font-family: var(--font-body);
       font-size: 0.95rem;
-      font-weight: 400;
+      font-weight: 600;
       line-height: 1.75;
-      color: var(--text-secondary);
-      margin-bottom: 8px;
+      color: var(--text-primary);
+      margin-bottom: 6px;
       letter-spacing: 0;
+    }
+    .nc-desc {
+      font-size: 0.84rem;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      max-width: 240px;
+      margin: 0 auto;
     }
     .no-changes-note {
       margin-top: 44px;
@@ -940,7 +947,7 @@
     }
 
     @media (max-width: 900px) {
-      .no-changes-grid { grid-template-columns: 1fr; gap: 28px; }
+      .no-changes-grid { grid-template-columns: 1fr; gap: 24px; max-width: 360px; }
       .no-changes-card { padding: 0; }
       .no-changes-card:not(:last-child)::after { display: none; }
     }
@@ -1009,7 +1016,7 @@
     <a href="https://securefunder.org/contact/" class="utility-text utility-banner-link" aria-label="Join the founding group of funders">
       <span class="utility-copy">
         <span class="utility-eyebrow">Founding Group</span>
-        <span class="utility-message">Join the founding group of funders ahead of the April 1</span>
+        <span class="utility-message">Join the founding group of funders ahead of the April 1 directory launch</span>
       </span>
     </a>
   </div>
@@ -1044,8 +1051,8 @@
           <h1>Independent Certification for Alternative Finance Organizations</h1>
           <p>A recognized group of funders trusted by brokers and small business owners.</p>
           <div class="hero-actions">
-            <a href="https://securefunder.org/#membership" class="btn-primary">Requirements</a>
-<a href="https://securefunder.org/directory" class="btn-ghost" target="_blank" rel="noopener noreferrer">View Directory</a>
+            <a href="https://securefunder.org/contact/" class="btn-primary">Apply for Membership</a>
+<a href="/certification" class="btn-ghost">View Requirements →</a>
           </div>
         </div>
         <!-- STOCK PHOTO: 800×700px min. Professional/business setting. Portrait or square. -->
@@ -1075,18 +1082,21 @@
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
             </div>
             <h4>No Workflow Changes</h4>
+            <p class="nc-desc">We verify what you already do — your existing processes are the starting point.</p>
           </div>
           <div class="no-changes-card">
             <div class="nc-icon">
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
             </div>
             <h4>No Required Technology</h4>
+            <p class="nc-desc">Use whatever CRM, portal, or tools you already have in place.</p>
           </div>
           <div class="no-changes-card">
             <div class="nc-icon">
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
             </div>
             <h4>No Prescriptive Process</h4>
+            <p class="nc-desc">Standards are outcome-based, not one-size-fits-all checklists.</p>
           </div>
         </div>
         
@@ -1111,6 +1121,7 @@
           <div class="stat-label">business owners research funders before signing</div>
         </div>
       </div>
+      <p style="font-size: 0.72rem; color: var(--steel); margin-top: 28px; letter-spacing: 0.02em;">Based on industry survey data and broker feedback</p>
     </div>
   </section>
 
