@@ -269,9 +269,75 @@
     }
     .toolbar-inner {
       display: grid;
-      grid-template-columns: 1fr auto;
+      grid-template-columns: 1fr 1fr auto;
       gap: 14px;
       align-items: end;
+    }
+    .filter-select {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      outline: none;
+      font-family: var(--font-body);
+      font-size: 0.92rem;
+      color: var(--text-primary);
+      background: var(--white);
+      padding: 11px 14px;
+      transition: border-color 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+      cursor: pointer;
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%237A96AE' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 36px;
+    }
+    .filter-select:focus {
+      border-color: var(--blue-accent);
+      box-shadow: 0 0 0 3px rgba(79,163,209,0.10), 0 2px 8px rgba(79,163,209,0.08);
+    }
+    .filter-select {
+      text-align: left;
+    }
+    .product-dropdown {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      margin-top: 4px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      box-shadow: 0 8px 24px rgba(15,33,55,0.10);
+      z-index: 100;
+      max-height: 260px;
+      overflow-y: auto;
+    }
+    .product-dropdown.open {
+      display: block;
+    }
+    .product-dropdown-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      cursor: pointer;
+      font-size: 0.88rem;
+      color: var(--text-primary);
+      transition: background 0.15s;
+      user-select: none;
+    }
+    .product-dropdown-item:hover {
+      background: var(--pearl);
+    }
+    .product-dropdown-item input[type="checkbox"] {
+      width: 15px;
+      height: 15px;
+      accent-color: var(--blue-accent);
+      cursor: pointer;
+      flex-shrink: 0;
+      margin: 0;
     }
     .filter-field {
       position: relative;
@@ -405,13 +471,12 @@
     }
 
     @media (max-width: 900px) {
-      .toolbar-inner { grid-template-columns: 1fr auto; }
+      .toolbar-inner { grid-template-columns: 1fr 1fr; }
       .btn-clear-all { justify-self: start; }
     }
     @media (max-width: 600px) {
       .directory-toolbar { padding: 20px 0; }
-      .product-checkbox-grid { grid-template-columns: repeat(2, 1fr); gap: 6px; }
-      .product-chip { font-size: 0.82rem; padding: 7px 8px; }
+      .toolbar-inner { grid-template-columns: 1fr; }
     }
 
     /* ===== DIRECTORY SECTIONS ===== */
@@ -879,16 +944,19 @@ The public record of verified funders in alternative finance.        </p>
           <input id="searchInput" class="filter-input" type="search" placeholder="e.g. 'Funder'" autocomplete="off" />
         </div>
 
+        <!-- Product Type Multi-Select -->
+        <div class="filter-field" style="position:relative;">
+          <label class="filter-label">Product type</label>
+          <button type="button" class="filter-select" id="productDropdownBtn">
+            <span id="productDropdownLabel" style="color:#A8BFCF;">All products</span>
+          </button>
+          <div class="product-dropdown" id="productDropdown">
+            <div class="product-dropdown-list" id="productDropdownList"></div>
+          </div>
+        </div>
+
         <!-- Clear All -->
         <button class="btn-clear-all" type="button" id="clearAllBtn">Clear all</button>
-      </div>
-
-      <!-- Product Checkboxes — always visible -->
-      <div class="product-checkboxes" id="productFilter">
-        <span class="filter-label" style="margin-bottom:12px">Filter by product type</span>
-        <div class="product-checkbox-grid" id="productCheckboxGrid" role="group" aria-label="Product type filters">
-          <!-- populated by JS -->
-        </div>
       </div>
 
       <div class="results-bar" aria-live="polite">
@@ -1102,15 +1170,17 @@ The public record of verified funders in alternative finance.        </p>
 
     /* ===== DOM refs ===== */
     const els = {
-      search:         document.getElementById('searchInput'),
-      productFilter:  document.getElementById('productFilter'),
-      productGrid:    document.getElementById('productCheckboxGrid'),
-      clearAllBtn:    document.getElementById('clearAllBtn'),
-      resultsCount:   document.getElementById('resultsCount'),
-      resultsHint:    document.getElementById('resultsHint'),
-      gridCharter:    document.getElementById('gridCharter'),
-      gridCertified:  document.getElementById('gridCertified'),
-      gridInProgress: document.getElementById('gridInProgress')
+      search:           document.getElementById('searchInput'),
+      productBtn:       document.getElementById('productDropdownBtn'),
+      productLabel:     document.getElementById('productDropdownLabel'),
+      productDropdown:  document.getElementById('productDropdown'),
+      productList:      document.getElementById('productDropdownList'),
+      clearAllBtn:      document.getElementById('clearAllBtn'),
+      resultsCount:     document.getElementById('resultsCount'),
+      resultsHint:      document.getElementById('resultsHint'),
+      gridCharter:      document.getElementById('gridCharter'),
+      gridCertified:    document.getElementById('gridCertified'),
+      gridInProgress:   document.getElementById('gridInProgress')
     };
 
     const state = { query: "", selectedProducts: new Set() };
@@ -1230,47 +1300,60 @@ The public record of verified funders in alternative finance.        </p>
       if (sections[2]) setSectionVisibility(sections[2], inProgress.length, directoryClosed);
     }
 
-    /* ===== Product Checkbox Grid ===== */
-    function buildProductCheckboxes() {
+    /* ===== Product Multi-Select Dropdown ===== */
+    function updateProductLabel() {
+      if (state.selectedProducts.size === 0) {
+        els.productLabel.textContent = 'All products';
+        els.productLabel.style.color = '#A8BFCF';
+      } else if (state.selectedProducts.size === 1) {
+        const key = [...state.selectedProducts][0];
+        els.productLabel.textContent = PRODUCT_MAP[key] || key;
+        els.productLabel.style.color = 'var(--text-primary)';
+      } else {
+        els.productLabel.textContent = state.selectedProducts.size + ' selected';
+        els.productLabel.style.color = 'var(--text-primary)';
+      }
+    }
+
+    function buildProductDropdown() {
       PRODUCTS.forEach(p => {
-        const chip = document.createElement('label');
-        chip.className = 'product-chip';
-        chip.dataset.key = p.key;
+        const item = document.createElement('label');
+        item.className = 'product-dropdown-item';
 
         const cb = document.createElement('input');
         cb.type = 'checkbox';
-        cb.checked = state.selectedProducts.has(p.key);
+        cb.value = p.key;
         cb.addEventListener('change', () => {
-          toggleProduct(p.key, cb.checked);
-          chip.classList.toggle('active', cb.checked);
+          if (cb.checked) state.selectedProducts.add(p.key);
+          else state.selectedProducts.delete(p.key);
+          updateProductLabel();
+          renderDirectory();
         });
 
         const label = document.createElement('span');
         label.textContent = p.label;
 
-        chip.appendChild(cb);
-        chip.appendChild(label);
-        els.productGrid.appendChild(chip);
+        item.appendChild(cb);
+        item.appendChild(label);
+        els.productList.appendChild(item);
       });
     }
 
-    function toggleProduct(key, on) {
-      if (on) state.selectedProducts.add(key); else state.selectedProducts.delete(key);
-      renderDirectory();
-    }
+    // Toggle dropdown open/close
+    els.productBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      els.productDropdown.classList.toggle('open');
+    });
 
-    function syncChipStates() {
-      els.productGrid.querySelectorAll('.product-chip').forEach(chip => {
-        const key = chip.dataset.key;
-        const cb = chip.querySelector('input');
-        const isSelected = state.selectedProducts.has(key);
-        cb.checked = isSelected;
-        chip.classList.toggle('active', isSelected);
-      });
-    }
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!els.productDropdown.contains(e.target) && e.target !== els.productBtn) {
+        els.productDropdown.classList.remove('open');
+      }
+    });
 
     /* ===== Wire up ===== */
-    buildProductCheckboxes();
+    buildProductDropdown();
     renderDirectory();
 
     els.search.addEventListener('input', (e) => {
@@ -1282,7 +1365,8 @@ The public record of verified funders in alternative finance.        </p>
       els.search.value = "";
       state.query = "";
       state.selectedProducts.clear();
-      syncChipStates();
+      els.productList.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+      updateProductLabel();
       renderDirectory();
     });
   </script>
