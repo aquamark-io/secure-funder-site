@@ -502,7 +502,7 @@
     }
     .member-card-logo {
       width: 100%;
-      height: 64px;
+      height: 77px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -520,8 +520,8 @@
       text-decoration: none;
     }
     .member-card-logo img {
-      max-width: 130px;
-      max-height: 40px;
+      max-width: 156px;
+      max-height: 48px;
       object-fit: contain;
     }
     .member-card-logo .logo-placeholder {
@@ -533,9 +533,9 @@
       line-height: 1.25;
     }
     .member-card-name {
-      font-weight: 700;
-      font-size: 0.95rem;
-      color: var(--navy);
+      font-weight: 400;
+      font-size: 0.88rem;
+      color: var(--text-secondary);
       line-height: 1.3;
     }
     .member-card-name a {
@@ -1087,17 +1087,17 @@ The public record of verified funders in alternative finance.        </p>
 
     // ── Charter Members ──
     const MEMBERS = [
-      { name: "BriteCap", status: "charter", products: [], logo: "/britecap.png", url: "https://example.com" },
-      { name: "Kalamata", status: "charter", products: [], logo: "/kalamata.png", url: "https://example.com" },
-      { name: "Vox", status: "charter", products: [], logo: "/vox.png", url: "https://example.com" },
-      { name: "Nexi", status: "charter", products: [], logo: "/nexi.png", url: "https://example.com" },
-      { name: "Grantly", status: "charter", products: [], logo: "/grantly.png", url: "https://example.com" },
-      { name: "Breakout", status: "charter", products: [], logo: "/breakout.png", url: "https://example.com" },
-      { name: "RTMI", status: "charter", products: [], logo: "/rtmi.png", url: "https://example.com" },
-      { name: "Cobalt", status: "charter", products: [], logo: "/cobalt.png", url: "https://example.com" },
-      { name: "DLP", status: "charter", products: [], logo: "/dlp.png", url: "https://example.com" },
-      { name: "Diesel", status: "charter", products: [], logo: "/diesel.png", url: "https://example.com" },
-      { name: "Capybara", status: "charter", products: [], logo: "/capybara.png", url: "https://example.com" }
+      { name: "BriteCap Financial", status: "charter", products: [], logo: "britecap.png", url: "https://example.com" },
+      { name: "Kalamata Capital", status: "charter", products: [], logo: "kalamata.png", url: "https://example.com" },
+      { name: "VOX Funding", status: "charter", products: [], logo: "vox.png", url: "https://example.com" },
+      { name: "Nexi Finance", status: "charter", products: [], logo: "nexi.png", url: "https://example.com" },
+      { name: "Grantly Funding", status: "charter", products: [], logo: "grantly.png", url: "https://example.com" },
+      { name: "Breakout Finance", status: "charter", products: [], logo: "breakout.png", url: "https://example.com" },
+      { name: "RTMI Capital", status: "charter", products: [], logo: "rtmi.png", url: "https://example.com" },
+      { name: "Cobalt Funding", status: "charter", products: [], logo: "cobalt.png", url: "https://example.com" },
+      { name: "DLP Funding", status: "charter", products: [], logo: "dlp.png", url: "https://example.com" },
+      { name: "Diesel Funding", status: "charter", products: [], logo: "diesel.png", url: "https://example.com" },
+      { name: "Capybara Capital", status: "charter", products: [], logo: "capybara.png", url: "https://example.com" }
     ];
 
     /* ===== DOM refs ===== */
@@ -1171,11 +1171,11 @@ The public record of verified funders in alternative finance.        </p>
       logoWrap.appendChild(linkEl);
       card.appendChild(logoWrap);
 
-      // Status badge
-      const badge = document.createElement('span');
-      badge.className = 'member-card-status status-' + member.status;
-      badge.textContent = STATUS_LABELS[member.status] || member.status;
-      card.appendChild(badge);
+      // Funder name
+      const nameEl = document.createElement('div');
+      nameEl.className = 'member-card-name';
+      nameEl.textContent = member.name;
+      card.appendChild(nameEl);
 
       return card;
     }
