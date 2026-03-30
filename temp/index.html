@@ -631,6 +631,23 @@
       color: var(--text-muted);
       white-space: nowrap;
     }
+    .status-pass {
+      color: #1A7F37;
+      font-weight: 600;
+    }
+    .status-fail {
+      color: #CF222E;
+      font-weight: 600;
+    }
+    .charter-star {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #B8860B;
+      letter-spacing: 0.02em;
+    }
     .member-card-name a {
       text-decoration: none;
       color: inherit;
@@ -991,53 +1008,66 @@ The public record of verified funders in alternative finance. Trusted to protect
 
   <main>
 
-    <!-- Charter Members -->
+    <!-- Stage 1: Applied for Verification -->
     <section>
       <div class="container">
         <div class="section-header reveal">
-          <div class="section-label">Founding Cohort</div>
-          <h2 class="section-title">Charter Members</h2>
+          <div class="section-label">Stage 1</div>
+          <h2 class="section-title">Applied for Verification</h2>
           <p class="section-subtitle">
-            Organizations that set an early example during the program’s founding period in April 2026.
+            Organizations that have applied for Secure Funder™ certification. New participants are given a 90-day grace period to complete implementation of certification requirements.
           </p>
         </div>
 
         <div class="registry-card">
           <div class="empty-state" data-empty="true">
-            <p>
-              No organizations listed in this category yet.
-            </p>
+            <p>No organizations listed in this category yet.</p>
           </div>
-
-          <div class="logo-grid" id="gridCharter" aria-label="Charter Members logo grid">
-          </div>
+          <div class="logo-grid" id="gridApplied" aria-label="Applied for Verification logo grid"></div>
         </div>
       </div>
     </section>
 
-    <!-- Certified Members -->
+    <!-- Stage 2: Review in Process -->
     <section class="section-alt">
       <div class="container">
         <div class="section-header reveal">
-          <div class="section-label">Verified</div>
-          <h2 class="section-title">Member Organizations</h2>
+          <div class="section-label">Stage 2</div>
+          <h2 class="section-title">Review in Process</h2>
           <p class="section-subtitle">
-            Our latest particpants. New members are given a 90-day grace period to complete implementation of certification requirements.
+            Organizations currently undergoing the Secure Funder™ verification review.
           </p>
         </div>
 
         <div class="registry-card">
           <div class="empty-state" data-empty="true">
-            <p>
-              No organizations listed in this category yet.
-            </p>
+            <p>No organizations listed in this category yet.</p>
           </div>
-
-          <div class="logo-grid" id="gridCertified" aria-label="Certified Members logo grid">
-          </div>
+          <div class="logo-grid" id="gridReview" aria-label="Review in Process logo grid"></div>
         </div>
       </div>
     </section>
+
+    <!-- Stage 3: Verification Complete -->
+    <section>
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-label">Stage 3</div>
+          <h2 class="section-title">Verification Complete</h2>
+          <p class="section-subtitle">
+            Organizations that have completed the Secure Funder™ verification process.
+          </p>
+        </div>
+
+        <div class="registry-card">
+          <div class="empty-state" data-empty="true">
+            <p>No organizations listed in this category yet.</p>
+          </div>
+          <div class="logo-grid" id="gridComplete" aria-label="Verification Complete logo grid"></div>
+        </div>
+      </div>
+    </section>
+
 
     <!-- Lightweight CTA -->
     <section class="mini-cta">
@@ -1047,7 +1077,7 @@ The public record of verified funders in alternative finance. Trusted to protect
             <div>
               <h3>Enrollment is open.</h3>
               <p>
-                Organizations may enroll now and appear as <strong>In Progress</strong> while completing verification. Certified status is reflected publicly upon completion.
+                Organizations may apply now and will progress through the verification stages publicly. A 90-day grace period is provided to complete implementation of certification requirements.
               </p>
             </div>
             <div class="mini-cta-actions">
@@ -1154,17 +1184,17 @@ The public record of verified funders in alternative finance. Trusted to protect
 
     // ── Charter Members ──
     const MEMBERS = [
-      { name: "Breakout Finance", status: "charter", products: ["term-loan", "factoring", "asset-based-lending"], logo: "/breakout.png", url: "https://www.breakoutfinance.com/" },
-      { name: "BriteCap Financial", status: "charter", products: ["merchant-cash-advance", "working-capital", "term-loan", "line-of-credit"], logo: "/britecap.png", url: "https://www.britecap.com/", logoScale: 1.59 },
-      { name: "Cobalt Funding", status: "charter", products: ["merchant-cash-advance"], logo: "/cobalt.png", url: "https://www.cobaltfunding.com/", logoScale: 1.2 },
-      { name: "Diesel Funding", status: "charter", products: ["merchant-cash-advance"], logo: "/diesel.png", url: "https://www.dieselfunding.com/" },
-      { name: "DLP Funding", status: "charter", products: ["merchant-cash-advance"], logo: "/dlp.png", url: "https://dlpfunding.com/" },
-      { name: "Fintap", status: "charter", products: ["merchant-cash-advance"], logo: "/fintap.png", url: "https://www.fintap.com/" },
-      { name: "Grantly Funding", status: "charter", products: ["merchant-cash-advance"], logo: "/grantly.png", url: "https://grantlyfunding.com/" },
-      { name: "Kalamata Capital", status: "charter", products: ["merchant-cash-advance", "working-capital"], logo: "/kalamata.png", url: "https://www.kalamatacapitalgroup.com/" },
-      { name: "Nexi Finance", status: "charter", products: ["merchant-cash-advance", "working-capital", "factoring", "line-of-credit"], logo: "/nexi.png", url: "https://gonexi.com/" },
-      { name: "RTMI Capital", status: "charter", products: ["line-of-credit", "factoring", "term-loan"], logo: "/rtmi.png", url: "https://www.rtmicapital.com/", logoScale: 1.2 },
-      { name: "VOX Funding", status: "charter", products: ["merchant-cash-advance", "working-capital", "factoring"], logo: "/vox.png", url: "https://www.voxfunding.com/business-funding/", logoScale: 1.59 }
+      { name: "Breakout Finance", status: "applied", charter: true, products: ["term-loan", "factoring", "asset-based-lending"], logo: "/breakout.png", url: "https://www.breakoutfinance.com/" },
+      { name: "BriteCap Financial", status: "applied", charter: true, products: ["merchant-cash-advance", "working-capital", "term-loan", "line-of-credit"], logo: "/britecap.png", url: "https://www.britecap.com/", logoScale: 1.59 },
+      { name: "Cobalt Funding", status: "applied", charter: true, products: ["merchant-cash-advance"], logo: "/cobalt.png", url: "https://www.cobaltfunding.com/", logoScale: 1.2 },
+      { name: "Diesel Funding", status: "applied", charter: true, products: ["merchant-cash-advance"], logo: "/diesel.png", url: "https://www.dieselfunding.com/" },
+      { name: "DLP Funding", status: "applied", charter: true, products: ["merchant-cash-advance"], logo: "/dlp.png", url: "https://dlpfunding.com/" },
+      { name: "Fintap", status: "applied", charter: true, products: ["merchant-cash-advance"], logo: "/fintap.png", url: "https://www.fintap.com/" },
+      { name: "Grantly Funding", status: "applied", charter: true, products: ["merchant-cash-advance"], logo: "/grantly.png", url: "https://grantlyfunding.com/" },
+      { name: "Kalamata Capital", status: "applied", charter: true, products: ["merchant-cash-advance", "working-capital"], logo: "/kalamata.png", url: "https://www.kalamatacapitalgroup.com/" },
+      { name: "Nexi Finance", status: "applied", charter: true, products: ["merchant-cash-advance", "working-capital", "factoring", "line-of-credit"], logo: "/nexi.png", url: "https://gonexi.com/" },
+      { name: "RTMI Capital", status: "applied", charter: true, products: ["line-of-credit", "factoring", "term-loan"], logo: "/rtmi.png", url: "https://www.rtmicapital.com/", logoScale: 1.2 },
+      { name: "VOX Funding", status: "applied", charter: true, products: ["merchant-cash-advance", "working-capital", "factoring"], logo: "/vox.png", url: "https://www.voxfunding.com/business-funding/", logoScale: 1.59 }
     ];
 
     /* ===== DOM refs ===== */
@@ -1177,8 +1207,9 @@ The public record of verified funders in alternative finance. Trusted to protect
       clearAllBtn:      document.getElementById('clearAllBtn'),
       resultsCount:     document.getElementById('resultsCount'),
       resultsHint:      document.getElementById('resultsHint'),
-      gridCharter:      document.getElementById('gridCharter'),
-      gridCertified:    document.getElementById('gridCertified')
+      gridApplied:      document.getElementById('gridApplied'),
+      gridReview:       document.getElementById('gridReview'),
+      gridComplete:     document.getElementById('gridComplete')
     };
 
     const state = { query: "", selectedProducts: new Set() };
@@ -1205,9 +1236,10 @@ The public record of verified funders in alternative finance. Trusted to protect
     }
 
     const STATUS_LABELS = {
-      charter: "Certification In Progress",
-      certified: "Certified",
-      in_progress: "In Progress"
+      applied: "Applied",
+      review: "Under Review",
+      passed: "Verified — Pass",
+      failed: "Verified — Fail"
     };
 
     const PRODUCT_MAP = {};
@@ -1216,6 +1248,14 @@ The public record of verified funders in alternative finance. Trusted to protect
     function buildTile(member) {
       const card = document.createElement('div');
       card.className = 'member-card';
+
+      // Charter star
+      if (member.charter) {
+        const star = document.createElement('div');
+        star.className = 'charter-star';
+        star.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> Charter Member';
+        card.appendChild(star);
+      }
 
       // Logo area
       const logoWrap = document.createElement('div');
@@ -1251,7 +1291,10 @@ The public record of verified funders in alternative finance. Trusted to protect
 
       const statusText = document.createElement('span');
       statusText.className = 'status-detail';
-      statusText.textContent = member.status === 'certified' ? 'Certified' : 'Verification Pending';
+      const statusLabels = { applied: 'Applied', review: 'Under Review', passed: 'Pass', failed: 'Fail' };
+      statusText.textContent = statusLabels[member.status] || member.status;
+      if (member.status === 'passed') statusText.classList.add('status-pass');
+      if (member.status === 'failed') statusText.classList.add('status-fail');
       statusLine.appendChild(statusText);
 
       card.appendChild(statusLine);
@@ -1280,13 +1323,15 @@ The public record of verified funders in alternative finance. Trusted to protect
     function renderDirectory() {
       const filtered = filterMembers();
 
-      [els.gridCharter, els.gridCertified].forEach(g => { if (g) g.innerHTML = ""; });
+      [els.gridApplied, els.gridReview, els.gridComplete].forEach(g => { if (g) g.innerHTML = ""; });
 
-      const charter    = byStatus(filtered, "charter");
-      const certified  = byStatus(filtered, "certified");
+      const applied  = byStatus(filtered, "applied");
+      const review   = byStatus(filtered, "review");
+      const complete = filtered.filter(m => m.status === "passed" || m.status === "failed");
 
-      charter.forEach(m    => els.gridCharter    && els.gridCharter.appendChild(buildTile(m)));
-      certified.forEach(m  => els.gridCertified  && els.gridCertified.appendChild(buildTile(m)));
+      applied.forEach(m  => els.gridApplied  && els.gridApplied.appendChild(buildTile(m)));
+      review.forEach(m   => els.gridReview   && els.gridReview.appendChild(buildTile(m)));
+      complete.forEach(m => els.gridComplete && els.gridComplete.appendChild(buildTile(m)));
 
       const directoryClosed = MEMBERS.length === 0;
       const total = filtered.length;
@@ -1302,8 +1347,9 @@ The public record of verified funders in alternative finance. Trusted to protect
 
       // Update section visibility
       const sections = document.querySelectorAll('main > section:not(.mini-cta)');
-      if (sections[0]) setSectionVisibility(sections[0], charter.length, directoryClosed);
-      if (sections[1]) setSectionVisibility(sections[1], certified.length, directoryClosed);
+      if (sections[0]) setSectionVisibility(sections[0], applied.length, directoryClosed);
+      if (sections[1]) setSectionVisibility(sections[1], review.length, directoryClosed);
+      if (sections[2]) setSectionVisibility(sections[2], complete.length, directoryClosed);
     }
 
     /* ===== Product Multi-Select Dropdown ===== */
