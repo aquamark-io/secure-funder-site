@@ -490,12 +490,14 @@
 
     /* ===== VERIFICATION BANNER ===== */
     .verification-banner {
-      background: rgba(15,33,55,0.92);
-      color: var(--white);
+      background: var(--cloud);
+      color: var(--text-primary);
       position: relative;
       overflow: hidden;
       padding: 64px 0;
       text-align: center;
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
     }
     .verification-banner::before {
       content: '';
@@ -505,7 +507,7 @@
       transform: translateX(-50%);
       width: 600px;
       height: 600px;
-      background: radial-gradient(circle, rgba(79,163,209,0.08) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(79,163,209,0.10) 0%, transparent 70%);
       pointer-events: none;
     }
     .verification-banner .container-narrow {
@@ -517,7 +519,7 @@
       font-weight: 700;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--blue-accent-soft);
+      color: var(--blue-accent);
       margin-bottom: 16px;
     }
     .verification-banner h2 {
@@ -526,13 +528,13 @@
       font-weight: 700;
       line-height: 1.25;
       letter-spacing: -0.01em;
-      color: var(--white);
+      color: var(--navy);
       margin-bottom: 0;
     }
     .verification-banner p {
       font-size: 1rem;
       line-height: 1.8;
-      color: var(--ice);
+      color: var(--text-secondary);
       max-width: 700px;
       margin: 0 auto;
     }
@@ -553,7 +555,7 @@
     .stats-divider {
       width: 1px;
       height: 60px;
-      background: rgba(79,163,209,0.25);
+      background: var(--border);
     }
     .stat-highlight {
       text-align: center;
@@ -562,14 +564,14 @@
       font-family: var(--font-display);
       font-size: 3.5rem;
       font-weight: 700;
-      color: var(--blue-accent-soft);
+      color: var(--blue-accent);
       line-height: 1;
       margin-bottom: 10px;
     }
     .stat-highlight .stat-label {
       font-size: 0.85rem;
       line-height: 1.6;
-      color: var(--ice);
+      color: var(--text-secondary);
       max-width: 200px;
       margin: 0 auto;
     }
@@ -1173,7 +1175,7 @@
           <div class="stat-label">business owners research funders before signing</div>
         </div>
       </div>
-      <p style="font-size: 0.72rem; color: var(--steel); margin-top: 28px; letter-spacing: 0.02em;">Based on industry survey data and broker feedback</p>
+      <p style="font-size: 0.72rem; color: var(--text-muted); margin-top: 28px; letter-spacing: 0.02em;">Based on industry survey data and broker feedback</p>
     </div>
   </section>
 
