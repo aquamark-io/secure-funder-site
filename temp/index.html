@@ -603,6 +603,11 @@
       color: var(--text-secondary);
       line-height: 1.3;
     }
+    .member-card-status-text {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
     .member-card-name a {
       text-decoration: none;
       color: inherit;
@@ -1243,11 +1248,11 @@ The public record of verified funders in alternative finance.        </p>
       nameEl.textContent = member.name;
       card.appendChild(nameEl);
 
-      // Status badge
-      const badge = document.createElement('span');
-      badge.className = 'member-card-status status-' + member.status;
-      badge.textContent = STATUS_LABELS[member.status] || member.status;
-      card.appendChild(badge);
+      // Status text
+      const statusEl = document.createElement('div');
+      statusEl.className = 'member-card-status-text';
+      statusEl.textContent = member.status === 'certified' ? 'Status: Certified' : 'Status: Verification Pending';
+      card.appendChild(statusEl);
 
       return card;
     }
