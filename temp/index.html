@@ -1150,17 +1150,17 @@ The public record of verified funders in alternative finance.        </p>
 
     // ── Charter Members ──
     const MEMBERS = [
-      { name: "BriteCap Financial", status: "charter", products: [], logo: "/britecap.png", url: "https://example.com", logoScale: 1.59 },
-      { name: "Kalamata Capital", status: "charter", products: [], logo: "/kalamata.png", url: "https://example.com" },
-      { name: "VOX Funding", status: "charter", products: [], logo: "/vox.png", url: "https://example.com", logoScale: 1.59 },
-      { name: "Nexi Finance", status: "charter", products: [], logo: "/nexi.png", url: "https://example.com" },
-      { name: "Grantly Funding", status: "charter", products: [], logo: "/grantly.png", url: "https://example.com" },
-      { name: "Breakout Finance", status: "charter", products: [], logo: "/breakout.png", url: "https://example.com" },
-      { name: "RTMI Capital", status: "charter", products: [], logo: "/rtmi.png", url: "https://example.com", logoScale: 1.2 },
-      { name: "Cobalt Funding", status: "charter", products: [], logo: "/cobalt.png", url: "https://example.com", logoScale: 1.2 },
-      { name: "DLP Funding", status: "charter", products: [], logo: "/dlp.png", url: "https://example.com" },
-      { name: "Diesel Funding", status: "charter", products: [], logo: "/diesel.png", url: "https://example.com" },
-      { name: "Capybara Capital", status: "charter", products: [], logo: "/capybara.png", url: "https://example.com" }
+      { name: "BriteCap Financial", status: "charter", products: ["merchant-cash-advance", "working-capital", "term-loan", "line-of-credit"], logo: "/britecap.png", url: "https://www.britecap.com/", logoScale: 1.59 },
+      { name: "Kalamata Capital", status: "charter", products: ["merchant-cash-advance", "working-capital"], logo: "/kalamata.png", url: "https://www.kalamatacapitalgroup.com/" },
+      { name: "VOX Funding", status: "charter", products: ["merchant-cash-advance", "working-capital", "factoring"], logo: "/vox.png", url: "https://www.voxfunding.com/business-funding/", logoScale: 1.59 },
+      { name: "Nexi Finance", status: "charter", products: ["merchant-cash-advance", "working-capital", "factoring", "line-of-credit"], logo: "/nexi.png", url: "https://gonexi.com/" },
+      { name: "Grantly Funding", status: "charter", products: ["merchant-cash-advance"], logo: "/grantly.png", url: "https://grantlyfunding.com/" },
+      { name: "Breakout Finance", status: "charter", products: ["term-loan", "factoring", "asset-based-lending"], logo: "/breakout.png", url: "https://www.breakoutfinance.com/" },
+      { name: "RTMI Capital", status: "charter", products: ["line-of-credit", "factoring", "term-loan"], logo: "/rtmi.png", url: "https://www.rtmicapital.com/", logoScale: 1.2 },
+      { name: "Cobalt Funding", status: "charter", products: ["merchant-cash-advance"], logo: "/cobalt.png", url: "https://www.cobaltfunding.com/", logoScale: 1.2 },
+      { name: "DLP Funding", status: "charter", products: ["merchant-cash-advance"], logo: "/dlp.png", url: "https://dlpfunding.com/" },
+      { name: "Diesel Funding", status: "charter", products: ["merchant-cash-advance"], logo: "/diesel.png", url: "https://www.dieselfunding.com/" },
+      { name: "Capybara Capital", status: "charter", products: ["merchant-cash-advance"], logo: "/capybara.png", url: "https://capybarausa.com/" }
     ];
 
     /* ===== DOM refs ===== */
@@ -1202,7 +1202,7 @@ The public record of verified funders in alternative finance.        </p>
     }
 
     const STATUS_LABELS = {
-      charter: "Charter Member",
+      charter: "Certification In Progress",
       certified: "Certified",
       in_progress: "In Progress"
     };
@@ -1242,6 +1242,12 @@ The public record of verified funders in alternative finance.        </p>
       nameEl.className = 'member-card-name';
       nameEl.textContent = member.name;
       card.appendChild(nameEl);
+
+      // Status badge
+      const badge = document.createElement('span');
+      badge.className = 'member-card-status status-' + member.status;
+      badge.textContent = STATUS_LABELS[member.status] || member.status;
+      card.appendChild(badge);
 
       return card;
     }
