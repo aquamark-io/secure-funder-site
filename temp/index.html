@@ -608,6 +608,29 @@
       color: var(--text-muted);
       margin-top: 2px;
     }
+    .member-card-status-line {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      margin-top: 2px;
+    }
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: rgba(79,163,209,0.12);
+      color: #2D7FAA;
+      white-space: nowrap;
+    }
+    .status-detail {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
     .member-card-name a {
       text-decoration: none;
       color: inherit;
@@ -1248,11 +1271,21 @@ The public record of verified funders in alternative finance.        </p>
       nameEl.textContent = member.name;
       card.appendChild(nameEl);
 
-      // Status text
-      const statusEl = document.createElement('div');
-      statusEl.className = 'member-card-status-text';
-      statusEl.textContent = member.status === 'certified' ? 'Status: Certified' : 'Status: Verification Pending';
-      card.appendChild(statusEl);
+      // Status line: pill + text
+      const statusLine = document.createElement('div');
+      statusLine.className = 'member-card-status-line';
+
+      const pill = document.createElement('span');
+      pill.className = 'status-pill';
+      pill.textContent = 'Certification Status:';
+      statusLine.appendChild(pill);
+
+      const statusText = document.createElement('span');
+      statusText.className = 'status-detail';
+      statusText.textContent = member.status === 'certified' ? 'Certified' : 'Verification Pending';
+      statusLine.appendChild(statusText);
+
+      card.appendChild(statusLine);
 
       return card;
     }
