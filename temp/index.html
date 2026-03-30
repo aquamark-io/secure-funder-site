@@ -1022,7 +1022,7 @@ The public record of verified funders in alternative finance.        </p>
           <div class="section-label">Verified</div>
           <h2 class="section-title">Certified Members</h2>
           <p class="section-subtitle">
-            Organizations that have completed verification and meet Secure Funder certification requirements.
+            Organizations that have completed verification. New participants are given a 90-day grace period to complete implementation of certification requirements.
           </p>
         </div>
 
@@ -1034,30 +1034,6 @@ The public record of verified funders in alternative finance.        </p>
           </div>
 
           <div class="logo-grid" id="gridCertified" aria-label="Certified Members logo grid">
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- In Progress -->
-    <section>
-      <div class="container">
-        <div class="section-header reveal">
-          <div class="section-label">Status</div>
-          <h2 class="section-title">Verification In Progress</h2>
-          <p class="section-subtitle">
-            Organizations currently completing the verification process.
-          </p>
-        </div>
-
-        <div class="registry-card">
-          <div class="empty-state" data-empty="true">
-            <p>
-              No organizations listed in this category yet.
-            </p>
-          </div>
-
-          <div class="logo-grid" id="gridInProgress" aria-label="In Progress logo grid">
           </div>
         </div>
       </div>
@@ -1202,8 +1178,7 @@ The public record of verified funders in alternative finance.        </p>
       resultsCount:     document.getElementById('resultsCount'),
       resultsHint:      document.getElementById('resultsHint'),
       gridCharter:      document.getElementById('gridCharter'),
-      gridCertified:    document.getElementById('gridCertified'),
-      gridInProgress:   document.getElementById('gridInProgress')
+      gridCertified:    document.getElementById('gridCertified')
     };
 
     const state = { query: "", selectedProducts: new Set() };
@@ -1305,15 +1280,13 @@ The public record of verified funders in alternative finance.        </p>
     function renderDirectory() {
       const filtered = filterMembers();
 
-      [els.gridCharter, els.gridCertified, els.gridInProgress].forEach(g => { if (g) g.innerHTML = ""; });
+      [els.gridCharter, els.gridCertified].forEach(g => { if (g) g.innerHTML = ""; });
 
       const charter    = byStatus(filtered, "charter");
       const certified  = byStatus(filtered, "certified");
-      const inProgress = byStatus(filtered, "in_progress");
 
       charter.forEach(m    => els.gridCharter    && els.gridCharter.appendChild(buildTile(m)));
       certified.forEach(m  => els.gridCertified  && els.gridCertified.appendChild(buildTile(m)));
-      inProgress.forEach(m => els.gridInProgress && els.gridInProgress.appendChild(buildTile(m)));
 
       const directoryClosed = MEMBERS.length === 0;
       const total = filtered.length;
@@ -1331,7 +1304,6 @@ The public record of verified funders in alternative finance.        </p>
       const sections = document.querySelectorAll('main > section:not(.mini-cta)');
       if (sections[0]) setSectionVisibility(sections[0], charter.length, directoryClosed);
       if (sections[1]) setSectionVisibility(sections[1], certified.length, directoryClosed);
-      if (sections[2]) setSectionVisibility(sections[2], inProgress.length, directoryClosed);
     }
 
     /* ===== Product Multi-Select Dropdown ===== */
