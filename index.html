@@ -490,7 +490,7 @@
 
     /* ===== VERIFICATION BANNER ===== */
     .verification-banner {
-      background: var(--cloud);
+      background: var(--white);
       color: var(--text-primary);
       position: relative;
       overflow: hidden;
@@ -500,15 +500,7 @@
       border-bottom: 1px solid var(--border-light);
     }
     .verification-banner::before {
-      content: '';
-      position: absolute;
-      top: -100px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(79,163,209,0.10) 0%, transparent 70%);
-      pointer-events: none;
+      display: none;
     }
     .verification-banner .container-narrow {
       position: relative;
@@ -519,7 +511,7 @@
       font-weight: 700;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--blue-accent);
+      color: var(--slate);
       margin-bottom: 16px;
     }
     .verification-banner h2 {
