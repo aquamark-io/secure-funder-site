@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Program Terms & Privacy Policy — Secure Funder™</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="blue-ring.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="blue-ring.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="blue-ring.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --utility-height: 42px;
+      --utility-height-mobile: 56px;
+      --nav-height: 68px;
+      --navy: #0F2137;
+      --navy-mid: #1A3455;
+      --slate: #3D5A80;
+      --steel: #6B8BAD;
+      --ice: #C5D9E8;
+      --pearl: #EFF4F8;
+      --cloud: #F6F9FC;
+      --white: #FFFFFF;
+      --blue-accent: #4FA3D1;
+      --blue-accent-soft: #7BBCE1;
+      --blue-accent-pale: #E7F2FA;
+      --text-primary: #0F2137;
+      --text-secondary: #4A6480;
+      --text-muted: #7A96AE;
+      --border: #DAE3EC;
+      --border-light: #EAF0F5;
+      --font-display: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-body: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      color: var(--text-primary);
+      background: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      padding-top: calc(var(--utility-height) + var(--nav-height));
+    }
+
+    /* UTILITY BAR */
+    .utility-bar {
+      background: linear-gradient(90deg, #0D1B2D 0%, #13263D 52%, #17304C 100%);
+      color: var(--white);
+      font-size: 0.82rem; font-weight: 600;
+      height: var(--utility-height);
+      letter-spacing: 0.04em;
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 200;
+      display: flex; align-items: center; justify-content: center;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .utility-text { width: 100%; text-align: center; }
+    .utility-banner-link {
+      width: 100%; min-height: 100%;
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 0 18px; text-decoration: none; color: var(--white);
+    }
+    .utility-banner-link:hover { background: rgba(255,255,255,0.04); }
+    .utility-copy { display: inline-flex; align-items: baseline; gap: 8px; flex-wrap: wrap; justify-content: center; }
+    .utility-eyebrow { color: var(--blue-accent-soft); text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.68rem; font-weight: 700; }
+    .utility-message { color: rgba(255,255,255,0.95); }
+    @media (max-width: 640px) {
+      body { padding-top: calc(var(--utility-height-mobile) + var(--nav-height)); }
+      .utility-bar { height: var(--utility-height-mobile); }
+      .utility-copy { display: flex; flex-direction: column; align-items: center; gap: 2px; text-align: center; }
+      .utility-eyebrow { font-size: 0.58rem; letter-spacing: 0.16em; line-height: 1; }
+      .utility-message { display: block; font-size: 0.80rem; line-height: 1.22; }
+    }
+
+    /* NAV */
+    .main-nav {
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      position: fixed; top: var(--utility-height); left: 0; right: 0;
+      z-index: 190;
+      box-shadow: 0 1px 4px rgba(15,33,55,0.04);
+    }
+    .main-nav .container { display: flex; justify-content: space-between; align-items: center; height: 68px; }
+    .logo { display: flex; align-items: center; text-decoration: none; color: var(--navy); gap: 12px; }
+    .logo-text { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; letter-spacing: -0.01em; }
+    .logo-tm { font-size: 0.55em; vertical-align: super; font-weight: 400; margin-left: 1px; }
+    .logo-badge-lg { width: 44px; height: 44px; }
+    .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; }
+    .nav-links a {
+      text-decoration: none; color: var(--text-primary);
+      font-size: 0.88rem; font-weight: 500; padding: 8px 14px;
+      border-radius: 6px; transition: all 0.2s;
+    }
+    .nav-links a:hover { background: var(--pearl); }
+    .nav-links .btn-member { background: var(--navy); color: var(--white); font-weight: 600; margin-left: 6px; }
+    .nav-links .btn-member:hover { background: var(--navy-mid); }
+    .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+    .mobile-toggle span { display: block; width: 22px; height: 2px; background: var(--navy); margin: 5px 0; }
+
+    .container { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
+    .container-narrow { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+
+    /* PAGE HEADER */
+    .page-header {
+      background: var(--cloud);
+      border-bottom: 1px solid var(--border-light);
+      padding: 64px 0 56px;
+      text-align: center;
+    }
+    .page-header .section-label {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--blue-accent); margin-bottom: 12px;
+    }
+    .page-header h1 {
+      font-family: var(--font-display);
+      font-size: 2.1rem; font-weight: 700; line-height: 1.2;
+      letter-spacing: -0.02em; color: var(--navy); margin-bottom: 12px;
+    }
+    .page-header p {
+      font-size: 1rem; color: var(--text-secondary); line-height: 1.7;
+    }
+    .page-header .version {
+      font-size: 0.78rem; color: var(--text-muted); margin-top: 8px;
+      letter-spacing: 0.02em;
+    }
+
+    /* TERMS CONTENT */
+    .terms-body {
+      padding: 64px 0 80px;
+    }
+    .terms-body h2 {
+      font-family: var(--font-display);
+      font-size: 1.15rem; font-weight: 700; color: var(--navy);
+      margin: 48px 0 14px; padding-top: 32px;
+      border-top: 1px solid var(--border-light);
+    }
+    .terms-body h2:first-of-type {
+      margin-top: 0; padding-top: 0; border-top: none;
+    }
+    .terms-body p {
+      font-size: 0.92rem; color: var(--text-secondary); line-height: 1.8;
+      margin-bottom: 14px;
+    }
+    .terms-body p:last-child { margin-bottom: 0; }
+    .terms-body ul {
+      list-style: none; padding: 0; margin: 0 0 14px;
+    }
+    .terms-body ul li {
+      font-size: 0.92rem; color: var(--text-secondary); line-height: 1.8;
+      padding: 4px 0 4px 20px; position: relative;
+    }
+    .terms-body ul li::before {
+      content: '';
+      position: absolute; left: 0; top: 14px;
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--blue-accent);
+    }
+    .terms-divider {
+      font-family: var(--font-display);
+      font-size: 1.35rem; font-weight: 700; color: var(--navy);
+      margin: 56px 0 8px; padding-top: 40px;
+      border-top: 2px solid var(--navy);
+      letter-spacing: -0.01em;
+    }
+    .terms-body .contact-block {
+      margin-top: 16px;
+      font-size: 0.92rem; color: var(--text-secondary); line-height: 1.8;
+    }
+    .terms-body .contact-block a {
+      color: var(--blue-accent); text-decoration: none;
+    }
+    .terms-body .contact-block a:hover { text-decoration: underline; }
+
+    /* FOOTER */
+    footer { background: var(--navy); color: var(--ice); padding: 56px 0 0; }
+    .footer-grid {
+      display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 44px; padding-bottom: 44px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .footer-brand p { font-size: 0.86rem; color: var(--steel); line-height: 1.7; margin-top: 14px; max-width: 280px; }
+    .footer-col h4 { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 14px; }
+    .footer-col a { display: block; font-size: 0.86rem; color: var(--steel); text-decoration: none; margin-bottom: 10px; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--white); }
+    .footer-bottom {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 0; font-size: 0.78rem; color: var(--slate);
+    }
+    .footer-bottom a { color: var(--steel); text-decoration: none; }
+    .footer-bottom a:hover { color: var(--white); }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .mobile-toggle { display: block; }
+      .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+      .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+    }
+    @media (max-width: 600px) {
+      body { padding-top: calc(var(--utility-height-mobile) + 56px); }
+      .main-nav { top: var(--utility-height-mobile); }
+      .main-nav .container { height: 56px; }
+      .logo-badge-lg { width: 32px; height: 32px; }
+      .logo-text { font-size: 1.15rem; }
+      .page-header { padding: 44px 0 40px; }
+      .page-header h1 { font-size: 1.6rem; }
+      .terms-body { padding: 44px 0 56px; }
+      .terms-body h2 { font-size: 1.05rem; margin: 36px 0 12px; padding-top: 24px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+    }
+    @media (max-width: 380px) {
+      .page-header h1 { font-size: 1.4rem; }
+      .container { padding: 0 14px; }
+    }
+
+    /* MOBILE MENU */
+    .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--white); z-index: 1000; flex-direction: column; padding: 24px; }
+    .mobile-menu.active { display: flex; }
+    .mobile-menu-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; }
+    .mobile-menu-close { background: none; border: none; cursor: pointer; font-size: 1.5rem; color: var(--navy); padding: 8px; }
+    .mobile-menu a { display: block; padding: 14px 0; font-size: 1.05rem; font-weight: 500; color: var(--navy); text-decoration: none; border-bottom: 1px solid var(--border-light); }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu .btn-member-mobile { display: block; margin-top: 24px; padding: 14px; background: var(--navy); color: var(--white); text-align: center; border-radius: 8px; font-weight: 600; text-decoration: none; font-size: 0.95rem; }
+  </style>
+</head>
+<body>
+
+  <!-- Utility Bar -->
+  <div class="utility-bar">
+    <a href="https://securefunder.org/contact/" class="utility-text utility-banner-link">
+      <span class="utility-copy">
+        <span class="utility-eyebrow">Apply</span>
+        <span class="utility-message">Now accepting applications</span>
+      </span>
+    </a>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="main-nav">
+    <div class="container">
+      <a href="https://securefunder.org/" class="logo">
+        <img class="logo-badge-lg" src="blue-ring.png" alt="Secure Funder">
+        <div class="logo-text">Secure Funder<span class="logo-tm">™</span></div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="https://securefunder.org/#about">About</a></li>
+        <li><a href="https://securefunder.org/directory">Directory</a></li>
+        <li><a href="https://securefunder.org/#leadership">Leadership</a></li>
+        <li><a href="https://securefunder.org/#press">Press</a></li>
+        <li><a href="https://securefunder.org/#membership">Membership</a></li>
+        <li><a href="https://securefunder.org/contact/" class="btn-member">Apply Now</a></li>
+      </ul>
+      <button class="mobile-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="container-narrow">
+      <div class="section-label">Legal</div>
+      <h1>Program Terms &amp; Privacy Policy</h1>
+      <p>Policies governing participation in the Secure Funder™ certification program.</p>
+      <div class="version">Version 1.0 &nbsp;·&nbsp; Effective April 1, 2026</div>
+    </div>
+  </div>
+
+  <!-- Terms Content -->
+  <div class="terms-body">
+    <div class="container-narrow">
+
+      <h2>1. Program Overview</h2>
+      <p>Secure Funder™ is an independent certification program for the alternative finance industry. Certification is based on verifiable safeguards applied consistently across participating organizations. Equivalent controls may be accepted when they satisfy the intent of a requirement and can be independently verified.</p>
+      <p>The program is designed for funders of all sizes and focuses on protecting submissions and the documents associated with them. Enrollment is voluntary.</p>
+
+      <h2>2. Certification Guarantee</h2>
+      <p>Certification is not guaranteed. Participants must meet all program requirements. Open or pending litigation involving misuse, unauthorized sharing, or mishandling of customer data will pause the certification process. Certification status will not be granted while such matters remain outstanding.</p>
+
+      <h2>3. Verification Process</h2>
+      <p>Verification may be completed through either of the following methods:</p>
+      <ul>
+        <li><strong>Live verification</strong> — a structured walkthrough conducted via screen share. The participant is in control at all times. Secure Funder™ does not access participant systems directly. Live sessions are not recorded.</li>
+        <li><strong>Online verification</strong> — a self-guided process completed through the Secure Funder™ portal. Participants answer questions, upload supporting documentation, and provide video evidence where applicable.</li>
+      </ul>
+      <p>All submissions, regardless of method, go through a final review before certification is granted.</p>
+
+      <h2>4. Evidence Handling &amp; Data Security</h2>
+      <p>Documents, videos, and other materials submitted during verification are housed on SOC 2 certified infrastructure and maintained using reasonable administrative and technical safeguards appropriate to the nature of the information provided.</p>
+      <p>Documentation is retained only for as long as reasonably necessary to support verification records, program administration, and related status determinations, after which it is securely deleted or destroyed in a manner intended to prevent unauthorized access.</p>
+
+      <h2>5. Confidentiality</h2>
+      <p>Secure Funder™ treats non-public information shared during verification as confidential and uses such information solely for the purpose of conducting the verification review and administering the program.</p>
+      <p>Except as required by law, Secure Funder™ does not disclose internal materials, operational details, policies, procedures, or other non-public information obtained during verification to third parties. Access to submitted materials is limited to individuals directly involved in the verification process or program administration and only on a need-to-know basis.</p>
+      <p>Secure Funder™ does not publish internal documentation or detailed findings beyond an organization's participation status, verification status, or other limited program-related designation.</p>
+
+      <h2>6. Enrollment, Timeline &amp; Payment</h2>
+      <p>Safeguards are not required to be in place at enrollment, but must be fully implemented before verification. Verification must be completed within 90 days of enrollment. Listings may be removed if verification is not scheduled within that period, although extensions may be granted under special circumstances.</p>
+      <p>The annual program fee is $2,499 USD. No payment is due until verification is scheduled. Once verification is scheduled, payment instructions and portal access will be provided. Monthly installments are available.</p>
+
+      <h2>7. Refund Policy</h2>
+      <p>No refunds are available once verification has commenced. This applies regardless of outcome, including if the participant does not pass verification or does not complete the verification process.</p>
+
+      <h2>8. Participant Responsibilities</h2>
+      <p>To support an efficient and fair review, participating organizations are expected to:</p>
+      <ul>
+        <li>Provide accurate and complete information relevant to the safeguards being reviewed</li>
+        <li>Present materials and demonstrations in good faith</li>
+        <li>Notify Secure Funder™ of any material changes that may affect certification status</li>
+        <li>Notify Secure Funder™ if a material inaccuracy is later discovered in information previously provided</li>
+        <li>Cooperate reasonably with follow-up questions or clarification requests related to the review</li>
+      </ul>
+      <p>Verification depends on the accuracy and completeness of the information made available at the time of assessment. Misrepresentation of information during the verification process is grounds for immediate revocation of certification with no refund.</p>
+
+      <h2>9. Certification Status &amp; Badge Usage</h2>
+      <p>Digital certification badges are issued upon successful verification and remain valid for the duration of active membership. Badges may only be displayed while the organization holds active Secure Funder™ certified status.</p>
+      <p>Certification may be revoked if required safeguards are no longer maintained or if information provided during verification is found to be inaccurate. Upon revocation or lapse of certification, organizations must promptly remove all Secure Funder™ badges, marks, and references to certified status from their materials.</p>
+
+      <h2>10. Nature &amp; Limits of Certification</h2>
+      <p>Secure Funder™ certification reflects alignment with program requirements at the time of review. It does not constitute:</p>
+      <ul>
+        <li>A regulatory examination</li>
+        <li>A legal opinion</li>
+        <li>A cybersecurity audit</li>
+        <li>A guarantee of future performance</li>
+        <li>A representation that risk has been eliminated</li>
+      </ul>
+      <p>Certification does not guarantee the prevention of data theft, unauthorized sharing, or misuse. A certification outcome reflects Secure Funder™'s determination that the participating organization demonstrated alignment with applicable program requirements based on the information available during the review period.</p>
+
+      <h2>11. Limitation of Liability &amp; Indemnification</h2>
+      <p>Secure Funder™ and its affiliates, including Aquamark and Duncan Consulting LLC, shall not be held liable for any claims, damages, losses, or liabilities arising from a participant's certification status, lack thereof, or any actions taken in reliance on certification.</p>
+      <p>Participants agree to indemnify and hold harmless Secure Funder™, Aquamark, Duncan Consulting LLC, and their respective officers, employees, and agents from any claims, demands, or actions arising out of the participant's enrollment, verification, certification status, or use of program materials.</p>
+
+      <h2>12. Program Amendments</h2>
+      <p>Secure Funder™ is designed to evolve alongside emerging regulation and compliance expectations so members can stay ahead of change. Program requirements, policies, and terms may be updated from time to time to reflect industry developments, regulatory changes, or operational improvements.</p>
+      <p>Participants will be notified of material changes in advance. Continued participation following notice of changes constitutes acceptance of updated terms.</p>
+
+      <h2>13. Governing Law</h2>
+      <p>These terms shall be governed by and construed in accordance with the laws of the State of California, without regard to its conflict of laws provisions.</p>
+
+      <!-- PRIVACY POLICY -->
+      <div class="terms-divider">Privacy Policy</div>
+
+      <h2>14. Information We Collect</h2>
+      <p>Secure Funder™ collects information necessary to administer the certification program. This may include:</p>
+      <ul>
+        <li>Contact information such as name, email address, phone number, and company name</li>
+        <li>Verification materials including documents, screenshots, and video recordings submitted during the review process</li>
+        <li>Billing information necessary to process program fees</li>
+      </ul>
+
+      <h2>15. How We Collect Information</h2>
+      <p>Information is collected through the following channels:</p>
+      <ul>
+        <li>Email correspondence</li>
+        <li>Forms on securefunder.org</li>
+        <li>The Secure Funder™ verification portal</li>
+      </ul>
+
+      <h2>16. How We Use Information</h2>
+      <p>Information collected is used solely for the purpose of administering the Secure Funder™ certification program — including verification, certification status management, program communications, and billing. Information is not used for marketing, advertising, or any purpose unrelated to the program.</p>
+
+      <h2>17. Information Sharing</h2>
+      <p>Secure Funder™ does not sell, share, or disclose personal or organizational information to third parties. Information is accessible only to individuals directly involved in program administration and verification, and only on a need-to-know basis. Disclosure may occur only if required by law.</p>
+
+      <h2>18. Data Retention</h2>
+      <p>Information is retained only for as long as reasonably necessary to support verification records and program administration. When information is no longer needed, it is securely deleted or destroyed.</p>
+
+      <h2>19. Your Rights</h2>
+      <p>Participants may request deletion of their personal information at any time by contacting Secure Funder™ using the information below. Requests will be processed promptly. Deletion of verification materials may affect certification status.</p>
+      <p>Under the California Consumer Privacy Act (CCPA), California residents have the right to know what personal information is collected, request its deletion, and opt out of any sale of personal information. Secure Funder™ does not sell personal information.</p>
+
+      <h2>20. Children's Privacy</h2>
+      <p>Secure Funder™ does not knowingly collect information from individuals under the age of 18. The program is designed for business organizations in the alternative finance industry.</p>
+
+      <h2>21. Cookies</h2>
+      <p>The Secure Funder™ website may use essential cookies necessary for site functionality. No tracking cookies, advertising cookies, or third-party analytics cookies are used.</p>
+
+      <h2>22. Questions</h2>
+      <p>Questions regarding these terms, privacy practices, verification, or the handling of submitted materials may be directed to:</p>
+      <div class="contact-block">
+        Secure Funder™<br>
+        <a href="mailto:info@aquamark.io">info@aquamark.io</a><br>
+        (415) 500-1117
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo" style="color: white;">
+            <div class="logo-text" style="color: white;">Secure Funder<span class="logo-tm">™</span></div>
+          </div>
+          <p>An independent certification program establishing baseline data-handling standards in alternative finance. Administered by Aquamark.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Program</h4>
+          <a href="https://securefunder.org/#about">About</a>
+          <a href="https://securefunder.org/certification">Requirements</a>
+          <a href="https://securefunder.org/#membership">Membership</a>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <a href="https://securefunder.org/directory">Member Directory</a>
+          <a href="https://securefunder.org/#press">Press & Media</a>
+          <a href="https://securefunder.org/contact/">Ask a Question</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="https://securefunder.org/contact/">Send a Message</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Secure Funder™ Certification Program. All rights reserved.</span>
+        <span>Independently administered by <a href="https://aquamark.io" target="_blank">Aquamark</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-header">
+      <a href="https://securefunder.org/" class="logo">
+        <img src="blue-ring.png" alt="Secure Funder" style="width:30px;height:30px;">
+        <div class="logo-text">Secure Funder<span class="logo-tm">™</span></div>
+      </a>
+      <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">✕</button>
+    </div>
+    <a href="https://securefunder.org/#about" onclick="closeMobileMenu()">About</a>
+    <a href="https://securefunder.org/directory" onclick="closeMobileMenu()">Directory</a>
+    <a href="https://securefunder.org/#leadership" onclick="closeMobileMenu()">Leadership</a>
+    <a href="https://securefunder.org/#press" onclick="closeMobileMenu()">Press</a>
+    <a href="https://securefunder.org/#membership" onclick="closeMobileMenu()">Membership</a>
+    <a href="https://securefunder.org/contact/" class="btn-member-mobile">Apply Now</a>
+  </div>
+
+  <script>
+    const toggle = document.querySelector('.mobile-toggle');
+    const menu = document.getElementById('mobileMenu');
+    const closeBtn = document.getElementById('mobileMenuClose');
+    function closeMobileMenu() { menu.classList.remove('active'); document.body.style.overflow = ''; }
+    toggle.addEventListener('click', () => { menu.classList.add('active'); document.body.style.overflow = 'hidden'; });
+    closeBtn.addEventListener('click', closeMobileMenu);
+  </script>
+
+</body>
+</html>
