@@ -483,10 +483,20 @@
     .vision-body p:last-child {
       margin-bottom: 0;
     }
-    @media (max-width: 900px) {
-      .eligibility-tags { grid-template-columns: repeat(3, 1fr); }
-      .wwlf-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
-    }
+@media (max-width: 900px) {
+  .eligibility-tags { 
+    grid-template-columns: repeat(3, 1fr); 
+  }
+
+  .wwlf-grid { 
+    grid-template-columns: 1fr !important; 
+    gap: 32px !important; 
+  }
+
+  .wwlf-copy {
+    text-align: center;
+  }
+}
     @media (max-width: 600px) {
       .eligibility-tags { grid-template-columns: repeat(2, 1fr); }
     }
@@ -1296,7 +1306,7 @@
         </div>
         <div style="margin-top: 80px;">
          <div class="wwlf-grid" style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 56px; align-items: center;">
-  <div style="text-align: left;">
+  <div class="wwlf-copy">
     <h2 class="section-title">What We Look For</h2>
     <p style="font-size: 1rem; line-height: 1.85; color: var(--text-secondary); margin: 0;">
       We review the systems that house merchant data and documents to understand what information can be extracted and what safeguards are in place to limit unauthorized external distribution.
