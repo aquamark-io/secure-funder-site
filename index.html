@@ -305,6 +305,52 @@
       font-style: normal; line-height: 1.85; max-width: 1100px; margin: 0;
     }
 
+.mission-linkedin-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 30px;
+  padding: 14px 16px;
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 12px;
+  background: rgba(255,255,255,0.04);
+  text-decoration: none;
+  color: var(--white);
+  transition: background 0.22s ease, border-color 0.22s ease, transform 0.22s ease;
+}
+
+.mission-linkedin-card:hover {
+  background: rgba(255,255,255,0.07);
+  border-color: rgba(255,255,255,0.22);
+  transform: translateY(-1px);
+}
+
+.mission-linkedin-icon {
+  width: 34px;
+  height: 34px;
+  display: block;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.mission-linkedin-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+}
+
+.mission-linkedin-text span {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--white);
+}
+
+.mission-linkedin-text small {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.78);
+  letter-spacing: 0.01em;
+}
+    
     /* ===== SECTIONS ===== */
     section { padding: 88px 0; }
     .section-label {
@@ -1023,6 +1069,32 @@
       margin-right: auto;
     }
 
+
+    @media (max-width: 640px) {
+  .mission-linkedin-card {
+    margin-top: 24px;
+    padding: 13px 14px;
+    gap: 12px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .mission-linkedin-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .mission-linkedin-text span {
+    font-size: 0.9rem;
+  }
+
+  .mission-linkedin-text small {
+    font-size: 0.78rem;
+  }
+}
+
+This version gives you tha
+
     @media (max-width: 900px) {
       .no-changes-grid { grid-template-columns: 1fr; gap: 24px; max-width: 360px; }
       .no-changes-card { padding: 0; }
@@ -1243,12 +1315,26 @@
     </div>
   </section>
 
-  <!-- Mission -->
-  <div class="mission-banner">
-    <div class="container-narrow reveal">
-      <p><span style="font-size: 1.25rem; font-weight: 700; color: var(--white); text-transform: uppercase; letter-spacing: 0.06em;">Our mission</span> is to address a longstanding gap in alternative finance: the absence of standards around how sensitive information is handled. The program exists to encourage practical safeguards, strengthen trust across partnerships, and better protect small businesses as they move through the funding process.</p>
-    </div>
+<!-- Mission -->
+<div class="mission-banner">
+  <div class="container-narrow reveal">
+    <p><span style="font-size: 1.25rem; font-weight: 700; color: var(--white); text-transform: uppercase; letter-spacing: 0.06em;">Our mission</span> is to address a longstanding gap in alternative finance: the absence of standards around how sensitive information is handled. The program exists to encourage practical safeguards, strengthen trust across partnerships, and better protect small businesses as they move through the funding process.</p>
+
+    <a
+      href="https://www.linkedin.com/company/secure-funder"
+      class="mission-linkedin-card"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Follow Secure Funder on LinkedIn"
+    >
+      <img src="linkedIn.png" alt="LinkedIn" class="mission-linkedin-icon">
+      <div class="mission-linkedin-text">
+        <span>Follow Secure Funder</span>
+        <small>for program updates and announcements</small>
+      </div>
+    </a>
   </div>
+</div>
 
   <!-- Member Benefits -->
   <section class="benefits-section">
