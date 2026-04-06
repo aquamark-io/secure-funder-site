@@ -1150,7 +1150,7 @@
       { name: "DLP Funding", status: "applied", charter: true, products: ["merchant-cash-advance"], logo: "/dlp.png", url: "https://dlpfunding.com/" },
       { name: "Fintap", status: "applied", charter: true, products: ["merchant-cash-advance"], logo: "/fintap.png", url: "https://www.fintap.com/" },
       { name: "Grantly Funding", status: "applied", charter: true, products: ["merchant-cash-advance"], logo: "/grantly.png", url: "https://grantlyfunding.com/" },
-      { name: "Kalamata Capital", status: "verification", charter: true, products: ["merchant-cash-advance", "working-capital"], logo: "/kalamata.png", url: "https://www.kalamatacapitalgroup.com/" },
+      { name: "Kalamata Capital", status: "review", charter: true, products: ["merchant-cash-advance", "working-capital"], logo: "/kalamata.png", url: "https://www.kalamatacapitalgroup.com/" },
       { name: "RTMI Capital", status: "applied", charter: true, products: ["line-of-credit", "factoring", "term-loan"], logo: "/rtmi.png", url: "https://www.rtmicapital.com/", logoScale: 1.2 },
       { name: "VOX Funding", status: "applied", charter: true, products: ["merchant-cash-advance", "working-capital", "factoring"], logo: "/vox.png", url: "https://www.voxfunding.com/business-funding/", logoScale: 1.59 }
     ];
@@ -1195,7 +1195,7 @@
 
     const STATUS_LABELS = {
       applied: "Applied",
-      review: "Under Review",
+      review: "Verification",
       passed: "Verified — Pass",
       failed: "Verified — Fail"
     };
@@ -1241,7 +1241,7 @@
 
       const statusText = document.createElement('span');
       statusText.className = 'status-detail';
-      const statusLabels = { applied: 'Applied', review: 'Under Review', passed: 'Pass', failed: 'Fail' };
+      const statusLabels = { applied: 'Applied', review: 'Verification', passed: 'Pass', failed: 'Fail' };
       statusText.textContent = statusLabels[member.status] || member.status;
       if (member.status === 'passed') statusText.classList.add('status-pass');
       if (member.status === 'failed') statusText.classList.add('status-fail');
