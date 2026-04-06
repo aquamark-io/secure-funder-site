@@ -1192,75 +1192,7 @@ This version gives you tha
       }
     }
 
-    /* ===== VERIFICATION METHODS ===== */
-    .verification-methods {
-      background: var(--white);
-      border-top: 1px solid var(--border-light);
-      border-bottom: 1px solid var(--border-light);
-    }
-    .verification-methods-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 28px;
-      max-width: 820px;
-      margin: 0 auto;
-    }
-    .vm-card {
-      background: var(--cloud);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 36px 32px 32px;
-      text-align: center;
-      transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .vm-card:hover {
-      box-shadow: 0 8px 28px rgba(15,33,55,0.06);
-      transform: translateY(-2px);
-    }
-    .vm-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background: var(--blue-accent-pale);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--blue-accent);
-      margin-bottom: 18px;
-      box-shadow: 0 2px 8px rgba(79,163,209,0.12);
-    }
-    .vm-card h4 {
-      font-family: var(--font-display);
-      font-size: 1.05rem;
-      font-weight: 600;
-      color: var(--navy);
-      margin-bottom: 8px;
-    }
-    .vm-card p {
-      font-size: 0.88rem;
-      color: var(--text-secondary);
-      line-height: 1.65;
-      margin-bottom: 22px;
-      flex-grow: 1;
-    }
-    .vm-card .btn-primary {
-      width: 100%;
-      justify-content: center;
-      font-size: 0.86rem;
-      padding: 11px 22px;
-    }
-    @media (max-width: 600px) {
-      .verification-methods-grid {
-        grid-template-columns: 1fr;
-        gap: 18px;
-      }
-      .vm-card {
-        padding: 28px 24px 24px;
-      }
-    }
+
 
   </style>
 </head>
@@ -1307,7 +1239,7 @@ This version gives you tha
           <p>A recognized group of funders you can trust.</p>
           <div class="hero-actions">
             <a href="https://securefunder.org/contact/" class="btn-primary" target="_blank" rel="noopener noreferrer">Apply for Membership</a>
-<a href="/certification" class="btn-ghost" target="_blank" rel="noopener noreferrer">View Requirements →</a>
+<a href="#membership" class="btn-ghost">View Requirements →</a>
           </div>
         </div>
         <!-- STOCK PHOTO: 800×700px min. Professional/business setting. Portrait or square. -->
@@ -1414,32 +1346,7 @@ This version gives you tha
     </div>
   </section>
 
-  <!-- Verification Methods -->
-  <section class="verification-methods">
-    <div class="container">
-      <div class="section-header" style="text-align: center;">
-        <div class="section-label">Verification</div>
-        <h2 class="section-title">Two Ways to Get Verified</h2>
-        <p class="section-subtitle" style="margin: 0 auto;">Choose your preferred method.</p>
-      </div>
-      <div class="verification-methods-grid reveal">
-        <div class="vm-card">
-          <div class="vm-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-          </div>
-          <h4>Online Verification</h4>
-          <p>Complete verification on your own time through our portal — answer questions, upload documents, and submit screen recordings for review.</p>
-        </div>
-        <div class="vm-card">
-          <div class="vm-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          </div>
-          <h4>Live Session</h4>
-          <p>Walk through your systems in a brief, guided screen share with our team. Collaborative and typically completed in 30-60 minutes.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+
 
   <!-- Verification Banner -->
   <section class="verification-banner">
