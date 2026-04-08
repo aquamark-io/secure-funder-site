@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Program Terms & Privacy Policy — Secure Funder™</title>
-  <link rel="icon" type="image/png" sizes="32x32" href="../../blue-ring.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../../blue-ring.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="../../blue-ring.png">
+  <title>Secure Funder™ — Independent Certification for Alternative Finance Organizations</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="blue-ring.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="blue-ring.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="blue-ring.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;500;600;700;800&display=swap" rel="stylesheet">
@@ -19,6 +19,7 @@
       --navy-mid: #1A3455;
       --slate: #3D5A80;
       --steel: #6B8BAD;
+      --sky: #93B5D0;
       --ice: #C5D9E8;
       --pearl: #EFF4F8;
       --cloud: #F6F9FC;
@@ -26,6 +27,7 @@
       --blue-accent: #4FA3D1;
       --blue-accent-soft: #7BBCE1;
       --blue-accent-pale: #E7F2FA;
+      
       --text-primary: #0F2137;
       --text-secondary: #4A6480;
       --text-muted: #7A96AE;
@@ -34,6 +36,7 @@
       --font-display: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
       --font-body: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
     }
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
@@ -45,193 +48,1159 @@
       padding-top: calc(var(--utility-height) + var(--nav-height));
     }
 
-    /* UTILITY BAR */
+    /* ===== UTILITY BAR ===== */
     .utility-bar {
       background: linear-gradient(90deg, #0D1B2D 0%, #13263D 52%, #17304C 100%);
       color: var(--white);
-      font-size: 0.82rem; font-weight: 600;
+      font-size: 0.82rem;
+      font-weight: 600;
       height: var(--utility-height);
       letter-spacing: 0.04em;
-      position: fixed; top: 0; left: 0; right: 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
       z-index: 200;
-      display: flex; align-items: center; justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
       border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-    .utility-text { width: 100%; text-align: center; }
-    .utility-banner-link {
-      width: 100%; min-height: 100%;
-      display: inline-flex; align-items: center; justify-content: center;
-      padding: 0 18px; text-decoration: none; color: var(--white);
-    }
-    .utility-banner-link:hover { background: rgba(255,255,255,0.04); }
-    .utility-copy { display: inline-flex; align-items: baseline; gap: 8px; flex-wrap: wrap; justify-content: center; }
-    .utility-eyebrow { color: var(--blue-accent-soft); text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.68rem; font-weight: 700; }
-    .utility-message { color: rgba(255,255,255,0.95); }
-    @media (max-width: 640px) {
-      body { padding-top: calc(var(--utility-height-mobile) + var(--nav-height)); }
-      .utility-bar { height: var(--utility-height-mobile); }
-      .utility-copy { display: flex; flex-direction: column; align-items: center; gap: 2px; text-align: center; }
-      .utility-eyebrow { font-size: 0.58rem; letter-spacing: 0.16em; line-height: 1; }
-      .utility-message { display: block; font-size: 0.80rem; line-height: 1.22; }
+      box-shadow: inset 0 -1px 0 rgba(255,255,255,0.04);
     }
 
-    /* NAV */
+    .utility-text {
+      width: 100%;
+      text-align: center;
+    }
+    .utility-bar .container {
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .utility-bar a { color: var(--white); text-decoration: none; transition: color 0.2s, background 0.2s; }
+    .utility-bar a:hover { color: var(--white); }
+    .utility-links { display: flex; gap: 20px; }
+
+    .utility-banner-link {
+      width: 100%;
+      min-height: 100%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      padding: 0 18px;
+      position: relative;
+    }
+
+    .utility-banner-link:hover {
+      background: rgba(255,255,255,0.04);
+    }
+
+    .utility-copy {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .utility-eyebrow {
+      color: var(--blue-accent-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.68rem;
+      font-weight: 700;
+    }
+
+    .utility-message {
+      color: rgba(255,255,255,0.95);
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding-top: calc(var(--utility-height-mobile) + var(--nav-height));
+      }
+
+      .utility-bar {
+        height: var(--utility-height-mobile);
+      }
+
+      .utility-banner-link {
+        gap: 0;
+        padding: 8px 14px;
+      }
+
+
+      .utility-copy {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2px;
+        text-align: center;
+      }
+
+      .utility-eyebrow {
+        font-size: 0.58rem;
+        letter-spacing: 0.16em;
+        line-height: 1;
+      }
+
+      .utility-message {
+        display: block;
+        font-size: 0.80rem;
+        line-height: 1.22;
+        letter-spacing: 0.01em;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .utility-banner-link {
+        padding: 8px 12px;
+        gap: 8px;
+      }
+
+      .utility-message {
+        font-size: 0.74rem;
+      }
+    }
+
+    /* ===== NAV ===== */
     .main-nav {
       background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
-      position: fixed; top: var(--utility-height); left: 0; right: 0;
+      position: fixed;
+      top: var(--utility-height);
+      left: 0;
+      right: 0;
       z-index: 190;
       box-shadow: 0 1px 4px rgba(15,33,55,0.04);
     }
-    .main-nav .container { display: flex; justify-content: space-between; align-items: center; height: 68px; }
-    .logo { display: flex; align-items: center; text-decoration: none; color: var(--navy); gap: 12px; }
-    .logo-text { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; letter-spacing: -0.01em; }
+    .main-nav .container {
+      display: flex; justify-content: space-between; align-items: center; height: 68px;
+    }
+    .logo {
+      display: flex; align-items: center; text-decoration: none; color: var(--navy); gap: 12px;
+    }
+    .logo-text {
+      font-family: var(--font-display);
+      font-size: 1.3rem; font-weight: 700; letter-spacing: -0.01em;
+    }
     .logo-tm { font-size: 0.55em; vertical-align: super; font-weight: 400; margin-left: 1px; }
-    .logo-badge-lg { width: 44px; height: 44px; }
-    .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; }
+    .nav-links {
+      display: flex; align-items: center; gap: 4px; list-style: none;
+    }
     .nav-links a {
       text-decoration: none; color: var(--text-primary);
       font-size: 0.88rem; font-weight: 500; padding: 8px 14px;
       border-radius: 6px; transition: all 0.2s;
     }
     .nav-links a:hover { background: var(--pearl); }
-    .nav-links .btn-member { background: var(--navy); color: var(--white); font-weight: 600; margin-left: 6px; }
+    .nav-links .btn-member {
+      background: var(--navy); color: var(--white); font-weight: 600; margin-left: 6px;
+    }
     .nav-links .btn-member:hover { background: var(--navy-mid); }
     .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
     .mobile-toggle span { display: block; width: 22px; height: 2px; background: var(--navy); margin: 5px 0; }
 
+    /* ===== CONTAINERS ===== */
     .container { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
     .container-narrow { max-width: 880px; margin: 0 auto; padding: 0 24px; }
 
-    /* PAGE HEADER */
-    .page-header {
+    /* ===== BUTTONS ===== */
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--blue-accent); color: var(--white);
+      font-family: var(--font-body); font-size: 0.9rem; font-weight: 600;
+      padding: 13px 26px; border-radius: 6px;
+      text-decoration: none; transition: all 0.25s; border: none; cursor: pointer;
+    }
+    .btn-primary:hover { background: var(--blue-accent-soft); transform: translateY(-1px); box-shadow: 0 4px 14px rgba(79,163,209,0.3); }
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent; color: var(--navy);
+      font-family: var(--font-body); font-size: 0.9rem; font-weight: 600;
+      padding: 13px 26px; border-radius: 6px;
+      text-decoration: none; border: 2px solid var(--border); transition: all 0.25s;
+    }
+    .btn-ghost:hover { border-color: var(--navy); background: var(--pearl); }
+    .btn-ghost-white {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent; color: var(--white);
+      font-family: var(--font-body); font-size: 0.9rem; font-weight: 500;
+      padding: 13px 26px; border-radius: 6px;
+      text-decoration: none; border: 2px solid rgba(255,255,255,0.3); transition: all 0.25s;
+    }
+    .btn-ghost-white:hover { border-color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.06); }
+
+    /* ===== HERO ===== */
+    .hero {
       background: var(--cloud);
       border-bottom: 1px solid var(--border-light);
-      padding: 64px 0 56px;
-      text-align: center;
+      position: relative; overflow: hidden;
     }
-    .page-header .section-label {
+    .hero::before {
+      content: ''; position: absolute; top: -200px; right: -100px;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(79,163,209,0.13) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: ''; position: absolute; bottom: -150px; left: -80px;
+      width: 550px; height: 550px;
+      background: radial-gradient(circle, rgba(79,163,209,0.09) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      display: grid; grid-template-columns: 1fr 1.2fr; min-height: 480px; align-items: center; gap: 48px;
+    }
+    .hero-content {
+      padding: 72px 24px 72px 0;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .hero-label {
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--blue-accent); margin-bottom: 18px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .hero-label::before { content: ''; width: 22px; height: 1.5px; background: var(--blue-accent); }
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: 2.5rem; font-weight: 700; line-height: 1.15;
+      letter-spacing: -0.02em; color: var(--navy); margin-bottom: 22px;
+    }
+    .hero p {
+      font-size: 1.05rem; line-height: 1.75; color: var(--text-secondary);
+      margin-bottom: 34px; max-width: 520px;
+    }
+    .hero-actions { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+    .hero-image {
+      position: relative;
+      overflow: hidden;
+      background: var(--cloud);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      aspect-ratio: 16 / 9;
+    }
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 16px;
+    }
+
+
+    /* ===== MISSION BANNER ===== */
+    .mission-banner {
+      background: var(--navy); border-bottom: none; padding: 52px 0;
+    }
+    .mission-banner .container-narrow { text-align: left; }
+    .mission-banner p {
+      font-family: var(--font-display);
+      font-size: 1.12rem; font-weight: 400; color: rgba(255,255,255,0.9);
+      font-style: normal; line-height: 1.85; max-width: 1100px; margin: 0;
+    }
+
+.mission-linkedin-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 30px;
+  padding: 14px 16px;
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 12px;
+  background: rgba(255,255,255,0.04);
+  text-decoration: none;
+  color: var(--white);
+  transition: background 0.22s ease, border-color 0.22s ease, transform 0.22s ease;
+}
+
+.mission-linkedin-card:hover {
+  background: rgba(255,255,255,0.07);
+  border-color: rgba(255,255,255,0.22);
+  transform: translateY(-1px);
+}
+
+.mission-linkedin-icon {
+  width: 34px;
+  height: 34px;
+  display: block;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.mission-linkedin-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+}
+
+.mission-linkedin-text span {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--white);
+}
+
+.mission-linkedin-text small {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.78);
+  letter-spacing: 0.01em;
+}
+    
+    /* ===== SECTIONS ===== */
+    section { padding: 88px 0; }
+    .section-label {
       font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em;
       text-transform: uppercase; color: var(--blue-accent); margin-bottom: 12px;
     }
-    .page-header h1 {
+    .section-title {
       font-family: var(--font-display);
-      font-size: 2.1rem; font-weight: 700; line-height: 1.2;
-      letter-spacing: -0.02em; color: var(--navy); margin-bottom: 12px;
+      font-size: 1.9rem; font-weight: 700; line-height: 1.2;
+      letter-spacing: -0.01em; margin-bottom: 14px; color: var(--navy);
     }
-    .page-header p {
-      font-size: 1rem; color: var(--text-secondary); line-height: 1.7;
+    .section-subtitle {
+      font-size: 1rem; color: var(--text-secondary); line-height: 1.7; max-width: 580px;
     }
-    .page-header .version {
-      font-size: 0.78rem; color: var(--text-muted); margin-top: 8px;
-      letter-spacing: 0.02em;
-    }
+    .section-header { margin-bottom: 52px; }
 
-    /* TERMS CONTENT */
-    .terms-body {
-      padding: 64px 0 80px;
+    /* ===== ABOUT ===== */
+    .about-section { background: var(--white); }
+    .about-grid {
+      display: grid; grid-template-columns: 1.2fr 1fr; gap: 56px; align-items: start;
     }
-    .terms-body h2 {
+    .about-text p {
+      font-size: 1rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 18px;
+    }
+    .about-text p:first-of-type { font-size: 1rem; color: var(--text-primary); }
+    .about-sidebar {
+      background: var(--cloud); border-radius: 10px; padding: 34px;
+      border-left: 3px solid var(--blue-accent);
+      box-shadow: 0 4px 20px rgba(15,33,55,0.04);
+    }
+    .about-sidebar h3 {
       font-family: var(--font-display);
-      font-size: 1.15rem; font-weight: 700; color: var(--navy);
-      margin: 48px 0 14px; padding-top: 32px;
+      font-size: 1.1rem; font-weight: 600; margin-bottom: 20px; color: var(--navy);
+    }
+    .principle-item {
+      display: flex; gap: 14px; margin-bottom: 18px; align-items: flex-start;
+    }
+    .principle-item:last-child { margin-bottom: 0; }
+    .principle-icon {
+      width: 30px; height: 30px; min-width: 30px; border-radius: 6px;
+      background: var(--white); display: flex; align-items: center; justify-content: center;
+      color: var(--blue-accent); margin-top: 2px; border: 1px solid var(--border-light);
+      box-shadow: 0 1px 4px rgba(15,33,55,0.05);
+    }
+    .principle-item h4 { font-size: 0.88rem; font-weight: 600; color: var(--navy); margin-bottom: 2px; }
+    .principle-item p { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.55; }
+
+    /* ===== PHOTO BREAK ===== */
+    .photo-break {
+      position: relative; overflow: hidden;
+      background: var(--navy);
+      padding: 100px 0;
+    }
+    .photo-break img { display: none; }
+    .photo-break-overlay {
+      position: relative;
+      background: none;
+      display: flex; align-items: center; justify-content: center; padding: 0 48px;
+    }
+    .photo-break-text { color: var(--white); max-width: 800px; text-align: center; }
+    .photo-break-text h2 {
+      font-family: var(--font-display);
+      font-size: 1.5rem; font-weight: 600; line-height: 1.35; margin-bottom: 0;
+    }
+    .photo-break-text p { font-size: 0.9rem; color: var(--ice); }
+
+    /* ===== DIRECTORY ===== */
+    .directory-section {
+      background: var(--cloud);
       border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
     }
-    .terms-body h2:first-of-type {
-      margin-top: 0; padding-top: 0; border-top: none;
+    .directory-content {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start;
     }
-    .terms-body p {
-      font-size: 0.92rem; color: var(--text-secondary); line-height: 1.8;
-      margin-bottom: 14px;
+    .directory-text .section-subtitle { margin-bottom: 24px; }
+    .directory-sidebar {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 12px; padding: 34px;
     }
-    .terms-body p:last-child { margin-bottom: 0; }
-    .terms-body ul {
-      list-style: none; padding: 0; margin: 0 0 14px;
-    }
-    .terms-body ul li {
-      font-size: 0.92rem; color: var(--text-secondary); line-height: 1.8;
-      padding: 4px 0 4px 20px; position: relative;
-    }
-    .terms-body ul li::before {
-      content: '';
-      position: absolute; left: 0; top: 14px;
-      width: 6px; height: 6px; border-radius: 50%;
-      background: var(--blue-accent);
-    }
-    .terms-divider {
+    .directory-sidebar h3 {
       font-family: var(--font-display);
-      font-size: 1.35rem; font-weight: 700; color: var(--navy);
-      margin: 56px 0 8px; padding-top: 40px;
-      border-top: 2px solid var(--navy);
-      letter-spacing: -0.01em;
+      font-size: 1.05rem; font-weight: 600; color: var(--navy); margin-bottom: 8px;
     }
-    .terms-body .contact-block {
-      margin-top: 16px;
-      font-size: 0.92rem; color: var(--text-secondary); line-height: 1.8;
+    .directory-sidebar > p {
+      font-size: 0.86rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 22px;
     }
-    .terms-body .contact-block a {
-      color: var(--blue-accent); text-decoration: none;
+    .area-item {
+      display: flex; align-items: center; gap: 12px;
+      padding: 13px 0;
+      border-bottom: 1px solid var(--border-light);
+      font-size: 0.92rem; color: var(--text-primary); font-weight: 500;
     }
-    .terms-body .contact-block a:hover { text-decoration: underline; }
+    .area-item:last-child { border-bottom: none; }
+    .area-dot {
+      width: 8px; height: 8px; min-width: 8px;
+      border-radius: 50%; background: var(--blue-accent);
+    }
+    .directory-sidebar .sidebar-cta {
+      margin-top: 22px;
+    }
 
-    /* FOOTER */
-    footer { background: var(--navy); color: var(--ice); padding: 56px 0 0; }
+    /* ===== VISION / ELIGIBILITY ===== */
+    .vision-section {
+      background: var(--white);
+      color: var(--text-primary);
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .vision-section::before {
+      content: '';
+      position: absolute;
+      top: -120px;
+      right: -80px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(79,163,209,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .eligibility-content {
+      text-align: center;
+      max-width: 960px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .eligibility-subtitle {
+      font-size: 1.02rem;
+      line-height: 1.8;
+      color: var(--text-secondary);
+      margin-bottom: 28px;
+    }
+    .eligibility-tags {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+      margin-bottom: 32px;
+      max-width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .eligibility-tag {
+      padding: 10px 20px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      font-size: 0.85rem;
+      white-space: nowrap;
+      color: var(--text-primary);
+      letter-spacing: 0.01em;
+      text-align: center;
+      background: var(--cloud);
+    }
+    .eligibility-differentiator {
+      font-size: 0.82rem;
+      color: var(--blue-accent);
+      letter-spacing: 0.02em;
+      font-weight: 500;
+    }
+    .vision-section .section-label {
+      color: var(--blue-accent);
+    }
+    .vision-section .section-title {
+      color: var(--navy);
+      margin-bottom: 22px;
+    }
+    .vision-body {
+      font-size: 1.02rem;
+      line-height: 1.85;
+      color: var(--text-secondary);
+      letter-spacing: 0.015em;
+    }
+    .vision-body p {
+      margin-bottom: 16px;
+    }
+    .vision-body p:last-child {
+      margin-bottom: 0;
+    }
+    .wwlf-copy {
+      text-align: left;
+    }
+@media (max-width: 900px) {
+  .eligibility-tags { 
+    grid-template-columns: repeat(3, 1fr); 
+  }
+
+  .wwlf-grid { 
+    grid-template-columns: 1fr !important; 
+    gap: 32px !important; 
+  }
+
+  .wwlf-copy {
+    text-align: center;
+  }
+}
+    @media (max-width: 600px) {
+      .eligibility-tags { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* ===== VERIFICATION BANNER ===== */
+    .verification-banner {
+      background: var(--cloud);
+      color: var(--text-primary);
+      position: relative;
+      overflow: hidden;
+      padding: 64px 0;
+      text-align: center;
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+    }
+    .verification-banner::before {
+      display: none;
+    }
+    .verification-banner .container-narrow {
+      position: relative;
+      z-index: 1;
+    }
+    .verification-banner .vb-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--slate);
+      margin-bottom: 16px;
+    }
+    .verification-banner h2 {
+      font-family: var(--font-display);
+      font-size: 1.65rem;
+      font-weight: 700;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+      color: var(--navy);
+      margin-bottom: 0;
+    }
+    .verification-banner p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--text-secondary);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .verification-banner .vb-divider {
+      width: 48px;
+      height: 2px;
+      background: var(--blue-accent);
+      margin: 0 auto 20px;
+      border-radius: 2px;
+    }
+    .stats-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 48px;
+      margin-top: 40px;
+    }
+    .stats-divider {
+      width: 1px;
+      height: 60px;
+      background: var(--border);
+    }
+    .stat-highlight {
+      text-align: center;
+    }
+    .stat-highlight .stat-number {
+      font-family: var(--font-display);
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: var(--blue-accent);
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+    .stat-highlight .stat-label {
+      font-size: 0.85rem;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      max-width: 200px;
+      margin: 0 auto;
+    }
+    @media (max-width: 500px) {
+      .stats-row { flex-direction: column; gap: 28px; }
+      .stats-divider { width: 48px; height: 1px; }
+    }
+
+    /* ===== MEMBERSHIP BENEFITS ===== */
+    .benefits-section {
+      background: var(--cloud);
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+    }
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+      margin-top: 48px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .benefit-card {
+      background: var(--white);
+      border: 1px solid var(--border-light);
+      border-radius: 14px;
+      padding: 40px 36px 36px;
+      text-align: left;
+      transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .benefit-card:hover {
+      box-shadow: 0 8px 28px rgba(15,33,55,0.06);
+      transform: translateY(-2px);
+    }
+    .benefit-card h4 {
+      font-family: var(--font-display);
+      font-size: 1.05rem; font-weight: 600; color: var(--navy);
+      margin-bottom: 10px; line-height: 1.3;
+    }
+    .benefit-card p {
+      font-size: 0.92rem; color: var(--text-secondary); line-height: 1.7;
+    }
+    .benefit-stat {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--blue-accent);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+    @media (max-width: 600px) {
+      .benefits-grid { grid-template-columns: 1fr; gap: 20px; }
+      .benefit-card { padding: 32px 24px 28px; }
+    }
+
+    /* ===== LEADERSHIP ===== */
+    .leadership-section {
+      background: var(--white);
+    }
+    .leadership-content {
+      display: grid; grid-template-columns: 200px 1fr; gap: 48px; align-items: center;
+    }
+    .leadership-photo {
+      width: 200px; height: 200px; border-radius: 12px; overflow: hidden;
+      border: 3px solid var(--white);
+      box-shadow: 0 4px 20px rgba(15,33,55,0.08);
+    }
+    .leadership-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+    .leadership-info h3 {
+      font-family: var(--font-display);
+      font-size: 1.3rem; font-weight: 700; color: var(--navy); margin-bottom: 2px;
+    }
+    .leadership-info .role {
+      font-size: 0.88rem; font-weight: 600; color: var(--blue-accent); margin-bottom: 16px;
+    }
+    .leadership-info p {
+      font-size: 0.95rem; line-height: 1.75; color: var(--text-secondary); max-width: 560px;
+    }
+
+    /* ===== MEMBERSHIP ===== */
+    .membership-section {
+      background: var(--cloud);
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+    }
+    .membership-grid {
+      display: grid; grid-template-columns: 1fr 480px; gap: 56px; align-items: start;
+    }
+    .step-item {
+      display: flex; gap: 18px; margin-bottom: 28px; align-items: flex-start;
+    }
+    .step-item:last-child { margin-bottom: 0; }
+    .step-num {
+      width: 38px; height: 38px; min-width: 38px; border-radius: 50%;
+      background: var(--navy); color: var(--white);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 0.85rem; margin-top: 2px;
+    }
+    .step-item h4 {
+      font-family: var(--font-display);
+      font-size: 1.02rem; font-weight: 600; color: var(--navy); margin-bottom: 5px;
+    }
+    .step-item p { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.65; }
+    .membership-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-top: 3px solid var(--blue-accent);
+      border-radius: 12px; padding: 40px; text-align: center;
+      box-shadow: 0 8px 30px rgba(15,33,55,0.06), 0 1px 3px rgba(15,33,55,0.04);
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+    .membership-card:hover {
+      box-shadow: 0 12px 40px rgba(15,33,55,0.09), 0 2px 6px rgba(15,33,55,0.05);
+      transform: translateY(-2px);
+    }
+    .membership-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.1rem; font-weight: 600; color: var(--navy); margin-bottom: 4px;
+    }
+    .membership-card .price {
+      font-family: var(--font-display);
+      font-size: 2.5rem; font-weight: 700; color: var(--navy); margin: 14px 0 4px;
+    }
+    .membership-card .price-note {
+      font-size: 0.82rem; color: var(--text-muted); margin-bottom: 22px;
+    }
+    .membership-card .includes { text-align: left; margin-bottom: 28px; padding-top: 24px; border-top: 1px solid var(--border-light); }
+    .membership-card .includes-label {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--text-muted); margin-bottom: 12px;
+    }
+    .includes-item {
+      display: flex; align-items: flex-start; gap: 10px;
+      margin-bottom: 14px; font-size: 0.86rem; color: var(--text-primary); line-height: 1.6;
+    }
+    .includes-item:last-child { margin-bottom: 0; }
+    .includes-item svg { color: var(--blue-accent); min-width: 16px; margin-top: 3px; }
+    .btn-enroll {
+      display: block; width: 100%; padding: 13px;
+      background: var(--navy); color: var(--white);
+      font-family: var(--font-body); font-size: 0.92rem; font-weight: 600;
+      border: none; border-radius: 8px; cursor: pointer;
+      text-decoration: none; text-align: center; transition: all 0.25s;
+    }
+    .btn-enroll:hover { background: var(--navy-mid); transform: translateY(-1px); box-shadow: 0 4px 14px rgba(15,33,55,0.15); }
+
+    /* ===== PRESS ===== */
+    .press-section { background: var(--white); }
+    .press-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    }
+    .press-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 10px; padding: 26px;
+      text-decoration: none; color: inherit;
+      transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+      display: flex; flex-direction: column;
+    }
+    .press-card:hover {
+      border-color: var(--ice); box-shadow: 0 8px 28px rgba(15,33,55,0.07);
+      transform: translateY(-3px);
+    }
+    .press-source {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px;
+    }
+    .press-logo {
+      height: auto; width: 120px; margin-bottom: 10px; display: block;
+      object-fit: contain;
+    }
+    .press-card h3 {
+      font-family: var(--font-display);
+      font-size: 0.98rem; font-weight: 600; color: var(--navy);
+      margin-bottom: 10px; line-height: 1.4; flex-grow: 1;
+    }
+    .press-date { font-size: 0.8rem; color: var(--text-muted); }
+
+    /* ===== CTA ===== */
+    .cta-section {
+      position: relative; overflow: hidden; color: var(--white);
+      text-align: center; padding: 0;
+    }
+    .cta-bg { position: relative; padding: 90px 0; }
+    .cta-bg-image { position: absolute; inset: 0; z-index: 0; }
+    .cta-bg-image img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; }
+    .cta-bg-image::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(0deg, rgba(15,33,55,0.92), rgba(15,33,55,0.82));
+    }
+    .cta-bg .container-narrow { position: relative; z-index: 1; }
+    .cta-section .section-title { color: var(--white); font-size: 1.75rem; }
+    .cta-section .section-subtitle { color: var(--ice); margin: 0 auto 32px; }
+    .cta-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--navy); color: var(--ice); padding: 56px 0 0;
+    }
     .footer-grid {
       display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr;
       gap: 44px; padding-bottom: 44px;
       border-bottom: 1px solid rgba(255,255,255,0.06);
     }
-    .footer-brand p { font-size: 0.86rem; color: var(--steel); line-height: 1.7; margin-top: 14px; max-width: 280px; }
-    .footer-col h4 { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 14px; }
-    .footer-col a { display: block; font-size: 0.86rem; color: var(--steel); text-decoration: none; margin-bottom: 10px; transition: color 0.2s; }
-    .footer-col a:hover { color: var(--white); }
+    .footer-brand p {
+      font-size: 0.86rem; color: var(--steel); line-height: 1.7;
+      margin-top: 14px; max-width: 280px;
+    }
+    .footer-col h4 {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--white); margin-bottom: 16px;
+    }
+    .footer-col a {
+      display: block; color: var(--steel); text-decoration: none;
+      font-size: 0.86rem; margin-bottom: 9px; transition: color 0.2s;
+    }
+    .footer-col a:hover { color: var(--blue-accent-soft); }
     .footer-bottom {
       display: flex; justify-content: space-between; align-items: center;
-      padding: 20px 0; font-size: 0.78rem; color: var(--slate);
+      padding: 22px 0; font-size: 0.76rem; color: var(--steel);
     }
     .footer-bottom a { color: var(--steel); text-decoration: none; }
-    .footer-bottom a:hover { color: var(--white); }
+    .footer-bottom a:hover { color: var(--blue-accent-soft); }
 
-    /* RESPONSIVE */
+    /* ===== RESPONSIVE ===== */
+
+    /* Tablet */
+    @media (max-width: 1024px) {
+      .hero-inner { grid-template-columns: 1fr 1fr; gap: 24px; }
+      .about-grid { gap: 36px; }
+      .directory-content { gap: 36px; }
+      .membership-grid { grid-template-columns: 1fr 440px; gap: 36px; }
+      .footer-grid { grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 28px; }
+    }
+
+    /* Small tablet / large phone */
     @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-content { padding: 48px 0 12px; padding-right: 0; }
+      .hero-image { 
+        display: block; 
+        max-width: 100%; 
+        margin-bottom: 32px;
+        aspect-ratio: 16 / 9;
+      }
+      .about-grid, .directory-content, .membership-grid, .footer-grid,
+      .leadership-content {
+        grid-template-columns: 1fr; gap: 32px;
+      }
+      .hero h1 { font-size: 1.95rem; }
+      .hero-actions { flex-direction: column; align-items: flex-start; }
+      .press-grid { grid-template-columns: 1fr; }
       .nav-links { display: none; }
       .mobile-toggle { display: block; }
-      .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+      .photo-break { height: auto; }
+      .photo-break-overlay { padding: 24px; justify-content: center; }
+      .photo-break-text h2 { font-size: 1.2rem; }
+      .section-title { font-size: 1.6rem; }
+      .leadership-photo { width: 160px; height: 160px; margin: 0 auto; }
+      .leadership-content { text-align: center; }
+      .leadership-info p { max-width: 100%; }
+      .membership-card { max-width: 100%; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .footer-brand { grid-column: 1 / -1; }
       .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
     }
+
+    /* Mobile */
     @media (max-width: 600px) {
+      .container { padding: 0 16px; }
+      .container-narrow { padding: 0 16px; }
+      section { padding: 56px 0; }
+      .utility-bar { font-size: 0.72rem; }
+      .utility-banner-link { gap: 8px; padding: 0 12px; }
+      .utility-copy { gap: 4px; }
+      .utility-eyebrow { font-size: 0.62rem; letter-spacing: 0.1em; }
       body { padding-top: calc(var(--utility-height-mobile) + 56px); }
       .main-nav { top: var(--utility-height-mobile); }
       .main-nav .container { height: 56px; }
       .logo-badge-lg { width: 32px; height: 32px; }
       .logo-text { font-size: 1.15rem; }
-      .page-header { padding: 44px 0 40px; }
-      .page-header h1 { font-size: 1.6rem; }
-      .terms-body { padding: 44px 0 56px; }
-      .terms-body h2 { font-size: 1.05rem; margin: 36px 0 12px; padding-top: 24px; }
+      .hero h1 { font-size: 1.6rem; }
+      .hero p { font-size: 0.95rem; }
+      .hero-content { padding: 36px 0 8px; }
+      .hero-label { font-size: 0.7rem; }
+      .hero-image { border-radius: 10px; }
+      .hero-image img { border-radius: 10px; }
+      .btn-primary, .btn-ghost, .btn-ghost-white { 
+        padding: 12px 22px; font-size: 0.86rem; width: 100%; justify-content: center; 
+      }
+      .hero-actions { width: 100%; }
+      .mission-banner p { font-size: 0.98rem; }
+      .section-title { font-size: 1.4rem; }
+      .section-subtitle { font-size: 0.92rem; }
+      .about-sidebar { padding: 24px; }
+      .directory-sidebar { padding: 24px; }
+      .photo-break { height: auto; }
+      .photo-break-overlay { padding: 20px; }
+      .photo-break-text h2 { font-size: 1.05rem; }
+      .leadership-content { grid-template-columns: 1fr; text-align: center; }
+      .leadership-photo { width: 140px; height: 140px; margin: 0 auto; }
+      .leadership-info p { max-width: 100%; }
+      .membership-card { padding: 28px 20px; }
+      .membership-card .price { font-size: 2.1rem; }
+      .step-item { gap: 14px; }
+      .step-num { width: 34px; height: 34px; min-width: 34px; font-size: 0.8rem; }
+      .press-card { padding: 20px; }
+      .cta-bg { padding: 60px 0; }
+      .cta-section .section-title { font-size: 1.4rem; }
+      .cta-actions { flex-direction: column; align-items: center; width: 100%; }
+      .cta-actions .btn-primary, .cta-actions .btn-ghost-white { width: 100%; }
+      footer { padding: 40px 0 0; }
       .footer-grid { grid-template-columns: 1fr; gap: 28px; }
-    }
-    @media (max-width: 380px) {
-      .page-header h1 { font-size: 1.4rem; }
-      .container { padding: 0 14px; }
+      .footer-brand { grid-column: auto; }
+      .footer-brand p { max-width: 100%; }
+      .btn-enroll { padding: 14px; font-size: 0.9rem; }
     }
 
-    /* MOBILE MENU */
-    .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--white); z-index: 1000; flex-direction: column; padding: 24px; }
+    /* Small phone */
+    @media (max-width: 380px) {
+      .hero h1 { font-size: 1.4rem; }
+      .container { padding: 0 14px; }
+      .membership-card .price { font-size: 1.85rem; }
+      .section-title { font-size: 1.25rem; }
+    }
+
+    /* Mobile nav menu */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: var(--white);
+      z-index: 1000;
+      flex-direction: column;
+      padding: 24px;
+    }
     .mobile-menu.active { display: flex; }
-    .mobile-menu-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; }
-    .mobile-menu-close { background: none; border: none; cursor: pointer; font-size: 1.5rem; color: var(--navy); padding: 8px; }
-    .mobile-menu a { display: block; padding: 14px 0; font-size: 1.05rem; font-weight: 500; color: var(--navy); text-decoration: none; border-bottom: 1px solid var(--border-light); }
+    .mobile-menu-header {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 32px;
+    }
+    .mobile-menu-close {
+      background: none; border: none; cursor: pointer;
+      font-size: 1.5rem; color: var(--navy); padding: 8px;
+    }
+    .mobile-menu a {
+      display: block; padding: 14px 0;
+      font-size: 1.05rem; font-weight: 500; color: var(--navy);
+      text-decoration: none; border-bottom: 1px solid var(--border-light);
+    }
     .mobile-menu a:last-child { border-bottom: none; }
-    .mobile-menu .btn-member-mobile { display: block; margin-top: 24px; padding: 14px; background: var(--navy); color: var(--white); text-align: center; border-radius: 8px; font-weight: 600; text-decoration: none; font-size: 0.95rem; }
+    .mobile-menu .btn-member-mobile {
+      display: block; margin-top: 24px; padding: 14px;
+      background: var(--navy); color: var(--white);
+      text-align: center; border-radius: 8px; font-weight: 600;
+      text-decoration: none; font-size: 0.95rem;
+    }
+
+    /* ===== NO CHANGES SECTION ===== */
+    .no-changes-section {
+      background: var(--white);
+      border-bottom: 1px solid var(--border-light);
+      padding: 72px 0;
+    }
+    .no-changes-inner {
+      max-width: 880px;
+      margin: 0 auto;
+    }
+    .no-changes-inner .section-label {
+      text-align: center;
+    }
+    .no-changes-inner .section-title {
+      text-align: center;
+      margin-bottom: 44px;
+    }
+    .no-changes-subtitle {
+      text-align: center;
+      font-size: 1rem;
+      color: var(--text-secondary);
+      line-height: 1.75;
+      max-width: 640px;
+      margin: 0 auto 48px;
+    }
+    .no-changes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      position: relative;
+      max-width: 880px;
+      margin: 0 auto;
+    }
+    .no-changes-card {
+      background: transparent;
+      border: none;
+      border-radius: 0;
+      padding: 12px 0;
+      text-align: center;
+      position: relative;
+    }
+    /* vertical divider lines between items */
+    .no-changes-card:not(:last-child)::after {
+      display: none;
+    }
+    .no-changes-card .nc-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--blue-accent-pale);
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--blue-accent);
+      margin: 0 auto 16px;
+      box-shadow: 0 2px 8px rgba(79,163,209,0.15);
+    }
+    .no-changes-card h4 {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 600;
+      line-height: 1.75;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+      letter-spacing: 0;
+    }
+    .nc-desc {
+      font-size: 0.84rem;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      max-width: 240px;
+      margin: 0 auto;
+    }
+    .no-changes-note {
+      margin-top: 44px;
+      padding: 22px 28px;
+      background: var(--cloud);
+      border: 1px solid var(--border-light);
+      border-left: 3px solid var(--blue-accent);
+      border-radius: 6px;
+      font-size: 0.86rem;
+      line-height: 1.7;
+      color: var(--text-secondary);
+      max-width: 820px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+
+    @media (max-width: 640px) {
+  .mission-linkedin-card {
+    margin-top: 24px;
+    padding: 13px 14px;
+    gap: 12px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .mission-linkedin-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .mission-linkedin-text span {
+    font-size: 0.9rem;
+  }
+
+  .mission-linkedin-text small {
+    font-size: 0.78rem;
+  }
+}
+
+This version gives you tha
+
+    @media (max-width: 900px) {
+      .no-changes-grid { grid-template-columns: 1fr; gap: 24px; max-width: 360px; }
+      .no-changes-card { padding: 0; }
+      .no-changes-card:not(:last-child)::after { display: none; }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .hero-content { animation: fadeUp 0.6s ease-out; }
+    .hero-image { animation: fadeUp 0.6s ease-out 0.15s both; }
+
+    /* ===== SCROLL REVEAL ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    /* ===== SECTION DIVIDERS ===== */
+    .section-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      height: 1px;
+      background: transparent;
+    }
+    .section-divider::before {
+      content: '';
+      width: 48px;
+      height: 2px;
+      background: var(--blue-accent);
+      border-radius: 2px;
+      opacity: 0.4;
+    }
+  
+    /* ===== BADGE PLACEMENT ===== */
+    .logo-mark {
+      display: inline-flex;
+      align-items: center;
+      gap: 0;
+    }
+    .logo-badge {
+      width: 34px;
+      height: 34px;
+      flex: 0 0 auto;
+    }
+    .hero-badge {
+      width: 54px;
+      height: 54px;
+      border-radius: 999px;
+      box-shadow: 0 8px 22px rgba(15,33,55,0.18);
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.06);
+    }
+    .hero-label-row {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+    .footer-badge {
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.14);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+      opacity: 0.95;
+    }
+    @media (max-width: 900px) {
+      .logo-badge { width: 30px; height: 30px; }
+    }
+
+  
+    .logo-badge-lg {
+      width: 44px;
+      height: 44px;
+    }
+    @media (max-width: 900px) {
+      .logo-badge-lg {
+        width: 38px;
+        height: 38px;
+      }
+    }
+
+
+
   </style>
 </head>
 <body>
 
   <!-- Utility Bar -->
   <div class="utility-bar">
-    <a href="https://securefunder.org/contact/" class="utility-text utility-banner-link">
+    <a href="https://securefunder.org/contact/" class="utility-text utility-banner-link" aria-label="Join the founding group of funders">
       <span class="utility-copy">
         <span class="utility-eyebrow">Apply</span>
         <span class="utility-message">Now accepting applications</span>
@@ -242,17 +1211,17 @@
   <!-- Navigation -->
   <nav class="main-nav">
     <div class="container">
-      <a href="https://securefunder.org/" class="logo">
-        <img class="logo-badge-lg" src="../../blue-ring.png" alt="Secure Funder">
-        <div class="logo-text">Secure Funder<span class="logo-tm">™</span></div>
+      <a href="/" class="logo" aria-label="Secure Funder Home">
+          <img class="logo-badge logo-badge-lg" src="blue-ring.png" alt="Secure Funder">
+          <div class="logo-text">Secure Funder<span class="logo-tm">™</span></div>
       </a>
       <ul class="nav-links">
-        <li><a href="https://securefunder.org/#about">About</a></li>
-        <li><a href="https://securefunder.org/directory">Directory</a></li>
-        <li><a href="https://securefunder.org/#leadership">Leadership</a></li>
-        <li><a href="https://securefunder.org/#press">Press</a></li>
-        <li><a href="https://securefunder.org/#membership">Membership</a></li>
-        <li><a href="https://securefunder.org/contact/" class="btn-member">Apply Now</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="/directory" target="_blank" rel="noopener noreferrer">Directory</a></li>
+        <li><a href="#leadership">Leadership</a></li>
+        <li><a href="#press">Press</a></li>
+        <li><a href="#membership">Membership</a></li>
+        <li><a href="https://securefunder.org/#membership" class="btn-member">Apply Now</a></li>
       </ul>
       <button class="mobile-toggle" aria-label="Menu">
         <span></span><span></span><span></span>
@@ -260,129 +1229,347 @@
     </div>
   </nav>
 
-  <!-- Page Header -->
-  <div class="page-header">
-    <div class="container-narrow">
-      <div class="section-label">Legal</div>
-      <h1>Program Terms &amp; Privacy Policy</h1>
-      <p>Policies governing participation in Secure Funder™ certification.</p>
-    </div>
-  </div>
-
-  <!-- Terms Content -->
-  <div class="terms-body">
-    <div class="container-narrow">
-
-      <h2>1. Program Overview</h2>
-      <p>Secure Funder™ is an independent certification program for the alternative finance industry. Certification is based on verifiable safeguards applied consistently across participating organizations. Equivalent controls may be accepted when they satisfy the intent of a requirement and can be independently verified.</p>
-      <p>The program is designed for funders of all sizes and focuses on protecting submissions and the documents associated with them. Enrollment is voluntary.</p>
-
-      <h2>2. Certification Guarantee</h2>
-      <p>Certification is not guaranteed. Participants must meet all program requirements. Open or pending litigation involving misuse, unauthorized sharing, or mishandling of customer data will pause the certification process. Certification status will not be granted while such matters remain outstanding.</p>
-
-      <h2>3. Verification Process</h2>
-      <p>Verification may be completed through either of the following methods:</p>
-      <ul>
-        <li><strong>Live verification</strong> — a structured walkthrough conducted via screen share. The participant is in control at all times. Secure Funder™ does not access participant systems directly. Live sessions are not recorded.</li>
-        <li><strong>Online verification</strong> — a self-guided process completed through the Secure Funder™ portal. Participants answer questions, upload supporting documentation, and provide video evidence where applicable.</li>
-      </ul>
-      <p>All submissions, regardless of method, go through a final review before certification is granted.</p>
-
-      <h2>4. Evidence Handling &amp; Data Security</h2>
-      <p>For participants using the online verification method, unless otherwise requested, documents, video recordings, and other materials submitted during verification are retained only through completion of the final review process. Once final review is complete, verification has been passed, and certified status has been granted, those materials are deleted from our database and are not retained in backup systems.</p>
-      <p>During final review, we prepare written notes summarizing the safeguards and materials reviewed so that we maintain an internal record of the basis for the determination without retaining the underlying submitted materials. This approach is intended to support the highest level of security and confidentiality for participant information.</p>
-
-      <h2>5. Confidentiality</h2>
-      <p>Secure Funder™ treats non-public information shared during verification as confidential and uses such information solely for the purpose of conducting the verification review and administering the program.</p>
-      <p>Except as required by law, Secure Funder™ does not disclose internal materials, operational details, policies, procedures, or other non-public information obtained during verification to third parties. Access to submitted materials is limited to individuals directly involved in the verification process or program administration and only on a need-to-know basis.</p>
-      <p>Secure Funder™ does not publish internal documentation or detailed findings beyond an organization's participation status, verification status, or other limited program-related designation.</p>
-
-      <h2>6. Enrollment, Timeline &amp; Payment</h2>
-      <p>Safeguards are not required to be in place at enrollment, but must be fully implemented before verification. Verification must be completed within 90 days of enrollment. Listings may be removed if verification is not scheduled within that period, although extensions may be granted under special circumstances.</p>
-      <p>The annual program fee is $2,499 USD. Monthly installments are available upon request.</p>
-
-      <h2>7. Refund Policy</h2>
-      <p>No refunds are available once verification has commenced. This applies regardless of outcome, including if the participant does not pass verification or does not complete the verification process.</p>
-
-      <h2>8. Participant Responsibilities</h2>
-      <p>To support an efficient and fair review, participating organizations are expected to:</p>
-      <ul>
-        <li>Provide accurate and complete information relevant to the safeguards being reviewed</li>
-        <li>Present materials and demonstrations in good faith</li>
-        <li>Notify Secure Funder™ of any material changes that may affect certification status</li>
-        <li>Notify Secure Funder™ if a material inaccuracy is later discovered in information previously provided</li>
-        <li>Cooperate reasonably with follow-up questions or clarification requests related to the review</li>
-      </ul>
-      <p>Verification depends on the accuracy and completeness of the information made available at the time of assessment. Misrepresentation of information during the verification process is grounds for immediate revocation of certification with no refund.</p>
-
-      <h2>9. Certification Status &amp; Badge Usage</h2>
-      <p>Digital certification badges are issued upon successful verification and remain valid for the duration of active membership. Badges may only be displayed while the organization holds active Secure Funder™ certified status.</p>
-      <p>Certification may be revoked if required safeguards are no longer maintained or if information provided during verification is found to be inaccurate. Upon revocation or lapse of certification, organizations must promptly remove all Secure Funder™ badges, marks, and references to certified status from their materials.</p>
-
-      <h2>10. Nature &amp; Limits of Certification</h2>
-      <p>Secure Funder™ certification reflects alignment with program requirements at the time of review. It does not constitute:</p>
-      <ul>
-        <li>A regulatory examination</li>
-        <li>A legal opinion</li>
-        <li>A cybersecurity audit</li>
-        <li>A guarantee of future performance</li>
-        <li>A representation that risk has been eliminated</li>
-      </ul>
-      <p>Certification does not guarantee the prevention of data theft, unauthorized sharing, or misuse. A certification outcome reflects Secure Funder™'s determination that the participating organization demonstrated alignment with applicable program requirements based on the information available during the review period.</p>
-
-      <h2>11. Program Amendments</h2>
-      <p>Secure Funder™ is designed to evolve alongside emerging regulation and compliance expectations so members can stay ahead of change. Program requirements, policies, and terms may be updated from time to time to reflect industry developments, regulatory changes, or operational improvements.</p>
-      <p>Participants will be notified of material changes in advance. Continued participation following notice of changes constitutes acceptance of updated terms.</p>
-
-
-      <!-- PRIVACY POLICY -->
-      <div class="terms-divider">Privacy Policy</div>
-
-      <h2>14. Information We Collect</h2>
-      <p>Secure Funder™ collects information necessary to administer the certification program. This may include:</p>
-      <ul>
-        <li>Contact information such as name, email address, phone number, and company name</li>
-        <li>Verification materials including documents, screenshots, and video recordings submitted during the review process</li>
-        <li>Billing information necessary to process program fees</li>
-      </ul>
-
-      <h2>15. How We Collect Information</h2>
-      <p>Information is collected through the following channels:</p>
-      <ul>
-        <li>Email correspondence</li>
-        <li>Forms on securefunder.org</li>
-        <li>The Secure Funder™ verification portal</li>
-      </ul>
-
-      <h2>16. How We Use Information</h2>
-      <p>Information collected is used solely for the purpose of administering the Secure Funder™ certification program — including verification, certification status management, program communications, and billing. Information is not used for marketing, advertising, or any purpose unrelated to the program.</p>
-
-      <h2>17. Information Sharing</h2>
-      <p>Secure Funder™ does not sell, share, or disclose personal or organizational information to third parties. Information is accessible only to individuals directly involved in program administration and verification, and only on a need-to-know basis. Disclosure may occur only if required by law.</p>
-
-      <h2>18. Data Retention</h2>
-      <p>Information is retained only for as long as reasonably necessary to support verification records and program administration. When information is no longer needed, it is securely deleted or destroyed.</p>
-
-      <h2>19. Your Rights</h2>
-      <p>Participants may request deletion of their personal information at any time by contacting Secure Funder™ using the information below. Requests will be processed promptly. Deletion of verification materials may affect certification status.</p>
-      <p>Under the California Consumer Privacy Act (CCPA), California residents have the right to know what personal information is collected, request its deletion, and opt out of any sale of personal information. Secure Funder™ does not sell personal information.</p>
-
-      <h2>20. Children's Privacy</h2>
-      <p>Secure Funder™ does not knowingly collect information from individuals under the age of 18. The program is designed for business organizations in the alternative finance industry.</p>
-
-      <h2>21. Cookies</h2>
-      <p>The Secure Funder™ website may use essential cookies necessary for site functionality. No tracking cookies, advertising cookies, or third-party analytics cookies are used.</p>
-
-      <h2>22. Questions</h2>
-      <p>Questions regarding these terms, privacy practices, verification, or the handling of submitted materials may be directed to:</p>
-      <div class="contact-block">
-        Secure Funder™<br>
-        <a href="mailto:info@aquamark.io">info@aquamark.io</a><br>
-        (415) 500-1117
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-inner">
+        <div class="hero-content">
+          <div class="hero-label">Est. 2026</div>
+          <h1>Independent Certification for Alternative Finance Organizations</h1>
+          <p>A recognized group of funders you can trust.</p>
+          <div class="hero-actions">
+            <a href="https://securefunder.org/contact/" class="btn-primary" target="_blank" rel="noopener noreferrer">Apply for Membership</a>
+<a href="#membership" class="btn-ghost">View Requirements →</a>
+          </div>
+        </div>
+        <!-- STOCK PHOTO: 800×700px min. Professional/business setting. Portrait or square. -->
+        <div class="hero-image">
+          <img src="thumbs-up.png" />
+        </div>
       </div>
+    </div>
+  </section>
 
+<!-- Mission -->
+<div class="mission-banner">
+  <div class="container-narrow reveal">
+    <p><span style="font-size: 1.25rem; font-weight: 700; color: var(--white); text-transform: uppercase; letter-spacing: 0.06em;">Our mission</span> is to address a longstanding gap in alternative finance: the absence of standards around how sensitive information is handled. The program exists to encourage practical safeguards, strengthen trust across partnerships, and better protect small businesses as they move through the funding process.</p>
+
+    <a
+      href="https://www.linkedin.com/company/secure-funder"
+      class="mission-linkedin-card"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Follow Secure Funder on LinkedIn"
+    >
+      <img src="linkedin.png" alt="LinkedIn" class="mission-linkedin-icon">
+      <div class="mission-linkedin-text">
+        <span>Follow Secure Funder</span>
+        <small>for program updates and announcements</small>
+      </div>
+    </a>
+  </div>
+</div>
+
+  <!-- Member Benefits -->
+  <section class="benefits-section">
+    <div class="container">
+      <div class="section-header" style="text-align: center;">
+        <h2 class="section-title">Membership Benefits</h2>
+      </div>
+      <div class="benefits-grid reveal">
+        <div class="benefit-card">
+          <div class="benefit-stat">200+</div>
+          <h4>Broker Visibility</h4>
+          <p>Visible to a growing network of 200+ brokers using <a href="https://www.aquamark.io/" target="_blank" style="color: var(--blue-accent); text-decoration: none; font-weight: 500;">Aquamark</a> — the kind of partners already taking data protection seriously.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-stat">$100M</div>
+          <h4>Access to Capital</h4>
+          <p>Private investment banks and capital providers support the program, invite our members to inquire.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-stat">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--blue-accent)" stroke="none"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11.5 14.5 16 9.5" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h4>Public Differentiation</h4>
+          <p>A public and independent certification status that helps the market identify trusted organizations.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-stat">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--blue-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M9 14l2 2 4-4"/></svg>
+          </div>
+          <h4>Compliance Readiness</h4>
+          <p>Designed to evolve alongside emerging regulation and compliance expectations so members can stay ahead of change.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Eligibility -->
+  <section class="vision-section">
+    <div class="container">
+      <div class="eligibility-content">
+        <div class="section-label">Eligibility</div>
+        <h2 class="section-title">Are You Eligible?</h2>
+        <p class="eligibility-subtitle">Any organization that funds directly into one or more of these products.</p>
+        <div class="eligibility-tags reveal">
+          <span class="eligibility-tag">Working Capital</span>
+          <span class="eligibility-tag">Merchant Cash Advance</span>
+          <span class="eligibility-tag">Term Loan</span>
+          <span class="eligibility-tag">Equipment Financing</span>
+          <span class="eligibility-tag">Line of Credit</span>
+          <span class="eligibility-tag">Invoice Factoring</span>
+          <span class="eligibility-tag">E-Commerce</span>
+          <span class="eligibility-tag">Asset-Based Lending</span>
+          <span class="eligibility-tag">SBA</span>
+          <span class="eligibility-tag">Credit Card Split</span>
+        </div>
+        <div style="margin-top: 90px;">
+         <div class="wwlf-grid" style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 56px; align-items: center;">
+  <div class="wwlf-copy">
+    <h2 class="section-title">Who Should Join?</h2>
+    <p style="font-size: 1rem; line-height: 1.85; color: var(--text-secondary); margin: 0 0 16px 0;">
+      Some applicants already have safeguards in place and are ready to stand behind them publicly. Others use the framework to work toward certified status. The program supports both.
+    </p>
+    <a href="https://securefunder.org/directory/" target="_blank" class="btn-primary" style="margin-top: 8px; display: inline-block;">View Directory</a>
+    <a href="#membership" class="btn-primary" style="margin-top: 8px; display: inline-block; margin-left: 10px; background: transparent; border: 1.5px solid var(--blue-accent); color: var(--blue-accent);">Requirements</a>
+  </div>
+  <div class="directory-sidebar">
+              <div class="section-label">Focus Areas</div>
+              <p>We review the systems that house merchant data to understand what information can be extracted and what safeguards are in place to limit misuse.</p>
+              <div class="area-item"><div class="area-dot"></div> Document intake and storage</div>
+              <div class="area-item"><div class="area-dot"></div> System access and permissions</div>
+              <div class="area-item"><div class="area-dot"></div> Personnel policies</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Verification Banner -->
+  <section class="verification-banner">
+    <div class="container-narrow">
+      <div class="vb-eyebrow">Standard of Trust</div>
+      <h2>Trusted by Those Who Matter</h2>
+      <p style="margin-top: 14px;">The industry runs on trust. Certification gives you a visible signal that sets you apart.</p>
+      <div class="stats-row reveal">
+        <div class="stat-highlight">
+          <div class="stat-number">83%</div>
+          <div class="stat-label">of brokers vet funders before signing up</div>
+        </div>
+        <div class="stats-divider"></div>
+        <div class="stat-highlight">
+          <div class="stat-number">7 in 10</div>
+          <div class="stat-label">business owners research funders before signing</div>
+        </div>
+      </div>
+      <p style="font-size: 0.72rem; color: var(--text-muted); margin-top: 28px; letter-spacing: 0.02em;">Based on industry survey data and broker feedback</p>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="about-section">
+    <div class="container">
+      <div class="about-grid reveal">
+        <div class="about-text">
+          <div class="section-label">About</div>
+          <h2 class="section-title">Why Secure Funder Exists</h2>
+          <p>Alternative finance has grown rapidly, but unlike traditional banking, there is no regulatory body overseeing how organizations handle sensitive information. As a result, misuse of data has become a serious and persistent problem in the industry.</p>
+          <p>Secure Funder™ certifies organizations that operate responsibly, giving participants a clear way to demonstrate leadership and distinguish themselves in the market.</p>      </div>
+        <div class="about-sidebar">
+          <h3>Guiding Principles</h3>
+          <div class="principle-item">
+            <div class="principle-icon">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </div>
+            <div>
+              <h4>Transparency</h4>
+              <p>Requirements are public. Verification is independent.</p>
+            </div>
+          </div>
+          <div class="principle-item">
+            <div class="principle-icon">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <div>
+              <h4>Leadership</h4>
+              <p>Progress depends on organizations willing to step forward.</p>
+            </div>
+          </div>
+          <div class="principle-item">
+            <div class="principle-icon">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div>
+              <h4>Protect Merchants and Partners</h4>
+              <p>Because your business is built on their trust.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Photo Break -->
+  <!-- STOCK PHOTO: 1400×500px min. Office/collaboration. Landscape. Dark overlay applied. -->
+  <div class="photo-break">
+    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1400&h=500&fit=crop&crop=center" alt="Professional collaboration" />
+    <div class="photo-break-overlay">
+      <div class="photo-break-text">
+        <h2>The industry is growing.<br>Its standards should grow with it.</h2>
+      </div>
     </div>
   </div>
+
+
+  <!-- Leadership -->
+  <section id="leadership" class="leadership-section">
+    <div class="container">
+      <div class="section-label">Leadership</div>
+      <h2 class="section-title" style="margin-bottom: 36px;">Program Director</h2>
+      <div class="leadership-content reveal">
+        <div class="leadership-photo">
+          <img src="headshot.png" alt="Christina Duncan — Program Director, Secure Funder" />
+        </div>
+        <div class="leadership-info">
+          <h3>Christina Duncan</h3>
+          <div class="role">Program Director</div>
+          <p>With nearly 20 years in alternative finance, Christina brings deep operational experience to the Secure Funder program — from ISO operations and funder relationships to the day-to-day realities of how merchant data moves through the industry. She founded Aquamark to address the data security challenges she witnessed firsthand, and created Secure Funder to give the industry a practical framework for self-governance.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Membership -->
+  <section id="membership" class="membership-section">
+    <div class="container">
+      <div class="membership-grid reveal">
+        <div>
+          <div class="section-label">Membership</div>
+          <h2 class="section-title">How to Join</h2>
+          <p class="section-subtitle" style="margin-bottom: 36px;">A straightforward process without adding operational burden.</p>
+          <div class="step-item">
+            <div class="step-num">1</div>
+            <div>
+              <h4>Apply</h4>
+              <p><a href="https://securefunder.org/contact/" target="_blank" style="color: var(--blue-accent); text-decoration: underline;">Complete the form</a> in seconds.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">2</div>
+            <div>
+              <h4>Get Listed Immediately</h4>
+              <p>Listed as "Applied" — signaling your commitment.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">3</div>
+            <div>
+              <h4>Prepare &amp; Verify</h4>
+              <p>Complete verification within 90 days.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">4</div>
+            <div>
+              <h4>Certified</h4>
+              <p>Directory status updated and program announcement.</p>
+            </div>
+          </div>
+        </div>
+        <div class="membership-card">
+          <h3>Annual Membership</h3>
+          <div class="price">$2,499</div>
+          <div style="font-size: 0.7rem; color: var(--blue-accent); margin-bottom: 32px; line-height: 1.5; text-align: center; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600;">Monthly installments available</div>
+          <div class="includes">
+            <div class="includes-label">Membership Includes</div>
+            <div class="includes-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Independent verification</span>
+            </div>
+            <div class="includes-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Listing inside Aquamark portal (200+ brokers)</span>
+            </div>
+            <div class="includes-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>General public directory listing</span>
+            </div>
+           <div class="includes-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Evolving requirements as regulations develop</span>
+            </div>
+            <div class="includes-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Logo placement at industry events</span>
+            </div>
+           
+             <div class="includes-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Digital certification badge</span>
+            </div>
+          
+
+          </div>
+          <a href="https://securefunder.org/contact/" class="btn-enroll">Apply for Membership</a>
+          <a href="/certification" class="btn-primary" style="width: 100%; justify-content: center; margin-top: 12px;">Requirements →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Press -->
+  <section id="press" class="press-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Press &amp; Media</div>
+        <h2 class="section-title">In the News</h2>
+      </div>
+      <div class="press-grid reveal">
+        <a href="https://www.einpresswire.com/article/901910945/secure-funder-launches-charter-members-join-to-establish-data-protection-standards-in-alternative-finance" class="press-card" target="_blank">
+          <img src="ein.png" alt="EIN Presswire" class="press-logo">
+          <h3>Secure Funder Launches, Charter Members Join To Establish Data Protection Standards in Alternative Finance</h3>
+          <div class="press-date">April 2026</div>
+        </a>
+        <a href="https://www.einpresswire.com/article/884909199/aquamark-finalizes-secure-funder-requirements-to-combat-backdooring-directory-reservations-now-open" class="press-card" target="_blank">
+          <img src="ein.png" alt="EIN Presswire" class="press-logo">
+          <h3>Aquamark Finalizes Secure Funder Requirements; Directory Reservations Now Open</h3>
+          <div class="press-date">January 2026</div>
+        </a>
+        <a href="https://www.einpresswire.com/article/871677725/certification-coming-to-alternative-finance" class="press-card" target="_blank">
+          <img src="ein.png" alt="EIN Presswire" class="press-logo">
+          <h3>Certification Coming to Alternative Finance</h3>
+          <div class="press-date">December 2025</div>
+        </a>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <!-- STOCK PHOTO: 1400×600px min. Professional/atmospheric. Heavy overlay. Landscape. -->
+  <section class="cta-section">
+    <div class="cta-bg">
+      <div class="cta-bg-image">
+        <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1400&h=600&fit=crop&crop=center" alt="Professional environment" />
+      </div>
+      <div class="container-narrow">
+        <h2 class="section-title">Membership is open now.</h2>
+        <p class="section-subtitle">Join the growing group of organizations establishing data-handling standards in alternative finance.</p>
+        <div class="cta-actions">
+          <a href="https://securefunder.org/contact/" class="btn-primary">Apply for Membership</a>
+          <a href="/certification" class="btn-ghost-white">View Requirements</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer>
@@ -396,23 +1583,25 @@
         </div>
         <div class="footer-col">
           <h4>Program</h4>
-          <a href="https://securefunder.org/#about">About</a>
-          <a href="https://securefunder.org/certification">Requirements</a>
-          <a href="https://securefunder.org/#membership">Membership</a>
+          <a href="#about">About</a>
+          <a href="/certification">Requirements</a>
+          <a href="#membership">Membership</a>
         </div>
         <div class="footer-col">
           <h4>Resources</h4>
-          <a href="https://securefunder.org/directory">Member Directory</a>
-          <a href="https://securefunder.org/#press">Press & Media</a>
-          <a href="https://securefunder.org/contact/">Ask a Question</a>
+          <a href="/directory">Member Directory</a>
+          <a href="#press">Press & Media</a>
+          <a href="/cdn-cgi/l/email-protection#20494e464f60415155414d41524b0e494f">Ask a Question</a>
         </div>
         <div class="footer-col">
           <h4>Contact</h4>
-          <a href="https://securefunder.org/contact/">Send a Message</a>
+          <a href="https://securefunder.org/contact/" target="_blank">Send a Message</a>
+          <a href="https://securefunder.org/terms-privacy/" target="_blank">Terms & Privacy</a>
+
         </div>
       </div>
       <div class="footer-bottom">
-        <span>&copy; 2026 Secure Funder™ Certification Program. All rights reserved.</span>
+        <span>© 2026 Secure Funder™ Certification Program. All rights reserved.</span>
         <span>Independently administered by <a href="https://aquamark.io" target="_blank">Aquamark</a></span>
       </div>
     </div>
@@ -421,17 +1610,17 @@
   <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobileMenu">
     <div class="mobile-menu-header">
-      <a href="https://securefunder.org/" class="logo">
-        <img src="../../blue-ring.png" alt="Secure Funder" style="width:30px;height:30px;">
+      <a href="/" class="logo" aria-label="Secure Funder Home">
+        <img class="logo-badge" src="blue-ring.png" alt="Secure Funder" style="width:30px;height:30px;">
         <div class="logo-text">Secure Funder<span class="logo-tm">™</span></div>
       </a>
       <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">✕</button>
     </div>
-    <a href="https://securefunder.org/#about" onclick="closeMobileMenu()">About</a>
-    <a href="https://securefunder.org/directory" onclick="closeMobileMenu()">Directory</a>
-    <a href="https://securefunder.org/#leadership" onclick="closeMobileMenu()">Leadership</a>
-    <a href="https://securefunder.org/#press" onclick="closeMobileMenu()">Press</a>
-    <a href="https://securefunder.org/#membership" onclick="closeMobileMenu()">Membership</a>
+    <a href="#about" onclick="closeMobileMenu()">About</a>
+    <a href="/directory" onclick="closeMobileMenu()">Directory</a>
+    <a href="#leadership" onclick="closeMobileMenu()">Leadership</a>
+    <a href="#press" onclick="closeMobileMenu()">Press</a>
+    <a href="#membership" onclick="closeMobileMenu()">Membership</a>
     <a href="https://securefunder.org/contact/" class="btn-member-mobile">Apply Now</a>
   </div>
 
@@ -442,6 +1631,18 @@
     function closeMobileMenu() { menu.classList.remove('active'); document.body.style.overflow = ''; }
     toggle.addEventListener('click', () => { menu.classList.add('active'); document.body.style.overflow = 'hidden'; });
     closeBtn.addEventListener('click', closeMobileMenu);
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   </script>
 
 </body>
