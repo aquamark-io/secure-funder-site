@@ -1,783 +1,962 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Secure Funder™ Directory</title>
-  <meta name="description" content="Public directory of organizations participating in Secure Funder™. Listings publish at launch (April 1, 2026)." />
-
-  <!-- Social preview -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Secure Funder™ Directory" />
-  <meta property="og:description" content="Public directory of organizations participating in Secure Funder™. Listings publish at launch (April 1, 2026)." />
-  <meta property="og:url" content="https://securefunder.org/" />
-  <meta property="og:image" content="https://securefunder.org/hero.png" />
-  <meta name="twitter:card" content="summary_large_image" />
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Requirements & Verification — Secure Funder™</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="../../blue-ring.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../blue-ring.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../blue-ring.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --bg: #F6F7F8;
-      --paper: #FFFFFF;
-      --ink: #111827;
-      --muted: #4B5563;
-      --line: #D1D5DB;
-      --line2:#E5E7EB;
-      --accent:#1F2937;
-      --accent2:#6B7280;
-      --gold:#B0892E;
-      --ok:#0F766E;
-      --warn:#B45309;
-      --radius: 10px;
-      --shadow: 0 6px 18px rgba(17,24,39,.06);
-      --max: 1120px;
+    :root {
+      --utility-height: 42px;
+      --utility-height-mobile: 56px;
+      --nav-height: 68px;
+      --navy: #0F2137;
+      --navy-mid: #1A3455;
+      --slate: #3D5A80;
+      --steel: #6B8BAD;
+      --sky: #93B5D0;
+      --ice: #C5D9E8;
+      --pearl: #EFF4F8;
+      --cloud: #F6F9FC;
+      --white: #FFFFFF;
+      --blue-accent: #4FA3D1;
+      --blue-accent-soft: #7BBCE1;
+      --blue-accent-pale: #E7F2FA;
+      --text-primary: #0F2137;
+      --text-secondary: #4A6480;
+      --text-muted: #7A96AE;
+      --border: #DAE3EC;
+      --border-light: #EAF0F5;
+      --shadow-soft: 0 18px 50px rgba(15, 33, 55, 0.08);
+      --shadow-card: 0 10px 30px rgba(15, 33, 55, 0.06);
+      --font-display: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-body: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      background:var(--bg);
-      color:var(--ink);
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      line-height:1.45;
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      color: var(--text-primary);
+      background:
+        radial-gradient(circle at top left, rgba(79,163,209,0.08), transparent 28%),
+        linear-gradient(180deg, #F9FBFD 0%, #FFFFFF 28%, #FFFFFF 100%);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      padding-top: calc(var(--utility-height) + var(--nav-height));
     }
-    a{color:inherit; text-underline-offset: 3px}
-    a:hover{color:#0B1220}
 
-    /* Top notice (non-SaaS, "registry" vibe) */
-    .notice{
-      background:#111827;
-      color:#fff;
-      padding:10px 16px;
-      font-size:14px;
-      letter-spacing:.2px;
+    .utility-bar {
+      background: linear-gradient(90deg, #0D1B2D 0%, #13263D 52%, #17304C 100%);
+      color: var(--white);
+      font-size: 0.82rem;
+      font-weight: 600;
+      height: var(--utility-height);
+      letter-spacing: 0.04em;
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 200;
+      display: flex; align-items: center; justify-content: center;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
-    .notice-inner{
-      max-width:var(--max);
-      margin:0 auto;
-      display:flex;
-      gap:12px;
-      align-items:center;
-      justify-content:space-between;
+    .utility-text { width: 100%; text-align: center; }
+    .utility-banner-link {
+      width: 100%; min-height: 100%;
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 0 18px; text-decoration: none; color: var(--white);
     }
-    .notice b{font-weight:700}
-    .notice a{
-      color:#fff;
-      opacity:.9;
-    }
-    .notice a:hover{opacity:1}
+    .utility-banner-link:hover { background: rgba(255,255,255,0.04); }
+    .utility-copy { display: inline-flex; align-items: baseline; gap: 8px; flex-wrap: wrap; justify-content: center; }
+    .utility-eyebrow { color: var(--blue-accent-soft); text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.68rem; font-weight: 700; }
+    .utility-message { color: rgba(255,255,255,0.95); }
 
-    /* Header */
-    header{
-      max-width:var(--max);
-      margin:22px auto 0;
-      padding:0 16px;
+    .main-nav {
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(218,227,236,0.85);
+      position: fixed; top: var(--utility-height); left: 0; right: 0;
+      z-index: 190;
+      box-shadow: 0 1px 6px rgba(15,33,55,0.04);
     }
-    .masthead{
-      background:var(--paper);
-      border:1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding:22px 22px 18px;
+    .main-nav .container { display: flex; justify-content: space-between; align-items: center; height: 68px; }
+    .logo { display: flex; align-items: center; text-decoration: none; color: var(--navy); gap: 12px; }
+    .logo-text { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; letter-spacing: -0.01em; }
+    .logo-tm { font-size: 0.55em; vertical-align: super; font-weight: 400; margin-left: 1px; }
+    .logo-badge-lg { width: 44px; height: 44px; }
+    .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; }
+    .nav-links a {
+      text-decoration: none; color: var(--text-primary);
+      font-size: 0.88rem; font-weight: 500; padding: 8px 14px;
+      border-radius: 999px; transition: all 0.2s;
     }
-    .mast-top{
-      display:flex;
-      gap:18px;
-      align-items:flex-start;
-      justify-content:space-between;
-      flex-wrap:wrap;
+    .nav-links a:hover { background: var(--pearl); }
+    .nav-links .btn-member { background: var(--navy); color: var(--white); font-weight: 600; margin-left: 6px; }
+    .nav-links .btn-member:hover { background: var(--navy-mid); }
+    .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+    .mobile-toggle span { display: block; width: 22px; height: 2px; background: var(--navy); margin: 5px 0; }
+
+    .container { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
+    .container-narrow { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      background: var(--navy); color: var(--white);
+      font-size: 0.92rem; font-weight: 600;
+      padding: 14px 24px; border-radius: 999px;
+      text-decoration: none; transition: all 0.25s; border: none; cursor: pointer;
+      box-shadow: 0 10px 24px rgba(15,33,55,0.12);
     }
-    .brand{
-      display:flex;
-      gap:14px;
-      align-items:flex-start;
-      min-width: 260px;
+    .btn-primary:hover { transform: translateY(-1px); background: var(--navy-mid); }
+    .btn-ghost {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      background: rgba(255,255,255,0.72); color: var(--navy);
+      font-size: 0.92rem; font-weight: 600;
+      padding: 14px 24px; border-radius: 999px;
+      text-decoration: none; border: 1px solid var(--border); transition: all 0.25s;
     }
-    .seal{
-      width:52px;
-      height:52px;
-      border:1.5px solid var(--line);
-      border-radius: 999px;
-      display:grid;
-      place-items:center;
-      background:#FAFAFA;
-      position:relative;
-      flex:0 0 auto;
+    .btn-ghost:hover { border-color: var(--navy); background: var(--white); }
+
+    .page-header {
+      position: relative;
+      overflow: hidden;
+      padding: 82px 0 38px;
     }
-    .seal:before{
-      content:"";
-      width:38px;height:38px;
-      border:1.5px dashed var(--gold);
-      border-radius:999px;
-      position:absolute;
-      inset:6px;
-      opacity:.9;
+    .page-header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 18% 20%, rgba(79,163,209,0.13), transparent 25%),
+        radial-gradient(circle at 85% 12%, rgba(15,33,55,0.07), transparent 22%);
+      pointer-events: none;
     }
-    .seal span{
-      font-weight:800;
-      font-size:14px;
-      letter-spacing:.8px;
-      color:var(--gold);
-      position:relative;
+    .hero-shell {
+      position: relative;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 42px;
+      border: 1px solid rgba(218,227,236,0.85);
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.94), rgba(246,249,252,0.92));
+      box-shadow: var(--shadow-soft);
     }
-    h1{
-      margin:0;
-      font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
-      font-size:28px;
-      letter-spacing:.2px;
-      line-height:1.15;
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.82fr);
+      gap: 34px;
+      align-items: stretch;
     }
-    .tm{font-size:.7em; vertical-align:super}
-    .subtitle{
-      margin:8px 0 0;
-      color:var(--muted);
+    .hero-copy { text-align: left; }
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--blue-accent);
+      margin-bottom: 16px;
+    }
+    .section-label::before {
+      content: "";
+      width: 28px;
+      height: 1px;
+      background: currentColor;
+      opacity: 0.5;
+    }
+    .hero-copy h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      font-weight: 800;
+      line-height: 1.02;
+      letter-spacing: -0.045em;
+      color: var(--navy);
+      margin-bottom: 16px;
+      max-width: 11ch;
+    }
+    .hero-copy p {
+      font-size: 1.02rem;
+      color: var(--text-secondary);
+      line-height: 1.75;
+      max-width: 60ch;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+    .hero-meta {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 28px;
       max-width: 720px;
-      font-size:15.5px;
+    }
+    .meta-card {
+      border: 1px solid var(--border-light);
+      border-radius: 18px;
+      background: rgba(255,255,255,0.72);
+      padding: 18px;
+    }
+    .meta-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+    .meta-value {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.35;
     }
 
-    .header-actions{
-      display:flex;
-      gap:12px;
-      align-items:center;
-      flex-wrap:wrap;
+    .hero-panel {
+      background: linear-gradient(180deg, #122844 0%, #0F2137 100%);
+      color: var(--white);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 18px 40px rgba(15,33,55,0.18);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
     }
-    .btn{
-      border:1px solid var(--line);
-      background:#fff;
-      padding:10px 12px;
-      border-radius:8px;
-      font-size:14px;
-      text-decoration:none;
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      white-space:nowrap;
+    .hero-panel::after {
+      content: "";
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(79,163,209,0.22), transparent 65%);
+      top: -80px;
+      right: -80px;
+      pointer-events: none;
     }
-    .btn:hover{border-color:#9CA3AF}
-    .btn.primary{
-      background:#111827;
-      color:#fff;
-      border-color:#111827;
+    .hero-panel-top { position: relative; z-index: 1; }
+    .hero-panel-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: rgba(197,217,232,0.88);
+      margin-bottom: 12px;
     }
-    .btn.primary:hover{background:#0B1220}
-
-    /* Filter bar (directory-style, not "app") */
-    .filters{
-      margin-top:16px;
-      padding-top:16px;
-      border-top:1px solid var(--line2);
-      display:flex;
-      gap:10px;
-      align-items:flex-end;
-      flex-wrap:wrap;
+    .hero-panel h2 {
+      font-size: 1.28rem;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 10px;
     }
-    .field{
-      display:flex;
-      flex-direction:column;
-      gap:6px;
-      min-width: 240px;
-      flex: 1 1 260px;
+    .hero-panel p {
+      color: rgba(255,255,255,0.78);
+      font-size: 0.92rem;
+      line-height: 1.72;
     }
-    .field label{
-      font-size:12px;
-      color:var(--accent2);
-      letter-spacing:.3px;
-      text-transform:uppercase;
+    .hero-panel-list {
+      list-style: none;
+      margin-top: 22px;
+      display: grid;
+      gap: 12px;
     }
-    input[type="search"], select{
-      width:100%;
-      border:1px solid var(--line);
-      border-radius:8px;
-      padding:10px 12px;
-      font-size:14.5px;
-      background:#fff;
-      outline:none;
+    .hero-panel-list li {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 12px;
+      align-items: start;
+      color: rgba(255,255,255,0.92);
+      font-size: 0.9rem;
+      line-height: 1.6;
     }
-    input[type="search"]:focus, select:focus{
-      border-color:#9CA3AF;
-      box-shadow:0 0 0 3px rgba(17,24,39,.08);
-    }
-    .tiny{
-      font-size:12.5px;
-      color:var(--muted);
-      margin:8px 0 0;
-    }
-
-    main{
-      max-width:var(--max);
-      margin:18px auto 48px;
-      padding:0 16px;
-      display:flex;
-      flex-direction:column;
-      gap:16px;
+    .hero-panel-list span {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,0.08);
+      color: var(--blue-accent-soft);
+      font-weight: 700;
     }
 
-    /* Sections */
-    .section{
-      background:var(--paper);
-      border:1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      overflow:hidden;
-    }
-    .section-head{
-      padding:18px 20px 14px;
-      border-bottom:1px solid var(--line2);
-      display:flex;
-      gap:12px;
-      align-items:flex-start;
-      justify-content:space-between;
-      flex-wrap:wrap;
-    }
-    .section-title{
-      margin:0;
-      font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
-      font-size:18px;
-      letter-spacing:.2px;
-    }
-    .section-desc{
-      margin:6px 0 0;
-      color:var(--muted);
-      font-size:14px;
-      max-width: 760px;
-    }
-    .pill{
-      border:1px solid var(--line);
-      padding:6px 10px;
-      border-radius:999px;
-      font-size:12px;
-      color:var(--muted);
-      background:#FAFAFA;
-      white-space:nowrap;
-      display:inline-flex;
-      gap:8px;
-      align-items:center;
-    }
-    .dot{
-      width:8px;height:8px;border-radius:999px;background:var(--accent2);
-      display:inline-block;
-    }
-    .dot.ok{background:var(--ok)}
-    .dot.warn{background:var(--warn)}
-    .dot.gold{background:var(--gold)}
+    .content-section { padding: 40px 0 82px; }
 
-    .grid{
-      padding:18px 20px 22px;
-      display:grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap:12px;
+    .section-intro {
+      max-width: 960px;
+      margin: 0 auto 24px;
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: end;
+    }
+    .section-intro-copy { max-width: 620px; }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 1.85rem;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+    .section-subtitle {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      line-height: 1.72;
     }
 
-    /* Listing tile: flatter, registry-like */
-    .card{
-      border:1px solid var(--line2);
-      border-radius:10px;
-      padding:12px;
-      background:#fff;
-      display:flex;
-      gap:12px;
-      align-items:center;
-      min-height:78px;
-    }
-    .logo{
-      width:54px;height:54px;
-      border-radius:10px;
-      border:1px solid var(--line2);
-      background:#F9FAFB;
-      display:grid;
-      place-items:center;
-      color:#6B7280;
-      font-size:12px;
-      letter-spacing:.3px;
-      flex:0 0 auto;
-      overflow:hidden;
-    }
-    .logo img{width:100%; height:100%; object-fit:contain; background:#fff}
-    .meta{
-      display:flex;
-      flex-direction:column;
-      gap:4px;
-      min-width:0;
-    }
-    .name{
-      font-weight:650;
-      font-size:14.5px;
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
-      max-width: 100%;
-    }
-    .line{
-      font-size:12.5px;
-      color:var(--muted);
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
-      max-width: 100%;
-    }
-    .tags{
-      display:flex;
-      gap:6px;
-      flex-wrap:wrap;
-      margin-top:2px;
-    }
-    .tag{
-      font-size:11.5px;
-      padding:3px 8px;
-      border:1px solid var(--line2);
-      border-radius:999px;
-      color:#374151;
-      background:#FAFAFA;
+    .verification-layout {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 300px;
+      gap: 26px;
+      align-items: start;
     }
 
-    /* Empty state */
-    .empty{
-      padding:18px 20px 22px;
-      color:var(--muted);
-      font-size:14px;
-      display:flex;
-      gap:12px;
-      align-items:flex-start;
-    }
-    .empty .icon{
-      width:36px;height:36px;border-radius:10px;
-      border:1px dashed var(--line);
-      display:grid;place-items:center;
-      color:var(--accent2);
-      flex:0 0 auto;
-      margin-top:2px;
-      background:#FAFAFA;
+    .paths-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
     }
 
-    /* About / footnotes */
-    .about{
-      padding:18px 20px 22px;
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap:18px;
+    .path-card {
+      position: relative;
+      border-radius: 24px;
+      padding: 28px;
+      background: linear-gradient(180deg, #FFFFFF 0%, #F9FBFD 100%);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-card);
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
     }
-    .about h3{
-      margin:0 0 8px;
-      font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
-      font-size:16px;
+    .path-card.featured {
+      border: 1px solid rgba(79,163,209,0.5);
+      background: linear-gradient(180deg, #FFFFFF 0%, #F4FAFD 100%);
     }
-    .about p{
-      margin:0;
-      color:var(--muted);
-      font-size:14px;
-    }
-    .facts{
-      border:1px solid var(--line2);
-      border-radius:10px;
-      padding:12px;
-      background:#FAFAFA;
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-      height:fit-content;
-    }
-    .fact{
-      font-size:13.5px;
-      color:#374151;
-      display:flex;
-      gap:10px;
-      align-items:flex-start;
-    }
-    .fact b{color:var(--ink)}
-    .fact .k{
-      width:12px;height:12px;border-radius:3px;background:#E5E7EB;margin-top:3px;flex:0 0 auto
+    .path-card.featured::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(180deg, rgba(79,163,209,0.38), rgba(79,163,209,0.08));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
     }
 
-    footer{
-      max-width:var(--max);
-      margin:0 auto 34px;
-      padding:0 16px;
-      color:var(--muted);
-      font-size:12.5px;
+    .method-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      width: fit-content;
     }
-    footer .foot{
-      display:flex;
-      justify-content:space-between;
-      gap:12px;
-      flex-wrap:wrap;
-      padding-top:12px;
-      border-top:1px solid var(--line);
+    .method-badge.coming {
+      color: #8A6500;
+      background: #FFF4CE;
     }
-
-    /* Responsive */
-    @media (max-width: 980px){
-      .grid{grid-template-columns: repeat(2, minmax(0, 1fr));}
-      .about{grid-template-columns: 1fr; }
-    }
-    @media (max-width: 560px){
-      h1{font-size:24px}
-      .grid{grid-template-columns: 1fr;}
-      .masthead{padding:18px}
-      .section-head{padding:16px}
-      .grid,.empty,.about{padding:16px}
+    .method-badge.available {
+      color: #1A7A42;
+      background: #E6F7ED;
     }
 
-    /* Print-friendly (directory vibe) */
-    @media print{
-      .notice, .header-actions, .filters{display:none !important;}
-      body{background:#fff}
-      .masthead,.section{box-shadow:none}
-      a{text-decoration:none}
+    .path-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+    .path-head h3 {
+      font-size: 1.24rem;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+    .path-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--blue-accent-pale);
+      color: var(--blue-accent);
+      flex-shrink: 0;
+    }
+    .path-card p {
+      font-size: 0.94rem;
+      color: var(--text-secondary);
+      line-height: 1.75;
+      margin-bottom: 18px;
+    }
+    .path-points {
+      display: grid;
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+    .path-points div {
+      display: flex;
+      align-items: start;
+      gap: 10px;
+      font-size: 0.9rem;
+      color: var(--text-primary);
+      line-height: 1.55;
+    }
+    .path-points span {
+      color: var(--blue-accent);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-top: 1px;
+    }
+    .path-footer {
+      margin-top: auto;
+      padding-top: 18px;
+      border-top: 1px solid var(--border-light);
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: center;
+      font-size: 0.84rem;
+      color: var(--text-muted);
+    }
+    .path-footer strong {
+      display: block;
+      color: var(--navy);
+      font-size: 0.9rem;
+      margin-bottom: 2px;
+    }
+
+    .sidebar-stack {
+      display: grid;
+      gap: 18px;
+    }
+    .sidebar-card {
+      border-radius: 22px;
+      padding: 24px;
+      background: linear-gradient(180deg, #FFFFFF 0%, #F8FBFD 100%);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-card);
+    }
+    .sidebar-card.dark {
+      background: linear-gradient(180deg, #10243B 0%, #0F2137 100%);
+      border-color: rgba(255,255,255,0.04);
+      color: var(--white);
+    }
+    .sidebar-card.dark p,
+    .sidebar-card.dark .sidebar-kicker,
+    .sidebar-card.dark .sidebar-list li { color: rgba(255,255,255,0.8); }
+    .sidebar-card.dark .sidebar-title { color: var(--white); }
+    .sidebar-kicker {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+    .sidebar-title {
+      font-size: 1.08rem;
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1.25;
+      margin-bottom: 10px;
+    }
+    .sidebar-card p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.72;
+    }
+    .ninety-display {
+      display: flex;
+      align-items: end;
+      gap: 10px;
+      margin: 6px 0 14px;
+    }
+    .ninety-number {
+      font-size: 4.3rem;
+      font-weight: 800;
+      letter-spacing: -0.06em;
+      line-height: 0.9;
+      color: var(--navy);
+    }
+    .sidebar-card.dark .ninety-number { color: var(--white); }
+    .ninety-word {
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--blue-accent);
+      padding-bottom: 10px;
+    }
+    .sidebar-list {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      margin-top: 16px;
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+    }
+    .sidebar-list li {
+      display: flex;
+      gap: 10px;
+      line-height: 1.55;
+    }
+    .sidebar-list span {
+      color: var(--blue-accent);
+      font-weight: 700;
+    }
+
+    .resource-strip {
+      max-width: 1120px;
+      margin: 22px auto 0;
+      display: grid;
+      grid-template-columns: 1.2fr auto;
+      gap: 18px;
+      align-items: center;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 20px 24px;
+      background: rgba(255,255,255,0.84);
+      box-shadow: 0 10px 26px rgba(15,33,55,0.05);
+    }
+    .resource-copy strong {
+      display: block;
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+    .resource-copy span {
+      display: block;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+    .resource-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .cta-section {
+      background: linear-gradient(180deg, #10243B 0%, #0F2137 100%);
+      color: var(--white);
+      text-align: center;
+      padding: 78px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at top left, rgba(79,163,209,0.18), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(255,255,255,0.06), transparent 22%);
+      pointer-events: none;
+    }
+    .cta-section .container-narrow { position: relative; z-index: 1; }
+    .cta-section h2 {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 12px;
+      letter-spacing: -0.03em;
+    }
+    .cta-section p {
+      font-size: 0.98rem;
+      color: var(--ice);
+      margin-bottom: 28px;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.75;
+    }
+    .cta-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn-ghost-white {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      background: rgba(255,255,255,0.06); color: var(--white);
+      font-size: 0.92rem; font-weight: 600;
+      padding: 14px 24px; border-radius: 999px;
+      text-decoration: none; border: 1px solid rgba(255,255,255,0.2); transition: all 0.25s;
+    }
+    .btn-ghost-white:hover { border-color: rgba(255,255,255,0.45); background: rgba(255,255,255,0.1); }
+
+    footer { background: var(--navy); color: var(--ice); padding: 56px 0 0; }
+    .footer-grid {
+      display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 44px; padding-bottom: 44px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .footer-brand p { font-size: 0.86rem; color: var(--steel); line-height: 1.7; margin-top: 14px; max-width: 280px; }
+    .footer-col h4 {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 14px;
+    }
+    .footer-col a { display: block; font-size: 0.86rem; color: var(--steel); text-decoration: none; margin-bottom: 10px; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--white); }
+    .footer-bottom {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 0; font-size: 0.78rem; color: var(--slate);
+    }
+    .footer-bottom a { color: var(--steel); text-decoration: none; }
+    .footer-bottom a:hover { color: var(--white); }
+
+    .mobile-menu {
+      display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: var(--white); z-index: 1000; flex-direction: column; padding: 24px;
+    }
+    .mobile-menu.active { display: flex; }
+    .mobile-menu-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; }
+    .mobile-menu-close { background: none; border: none; cursor: pointer; font-size: 1.5rem; color: var(--navy); padding: 8px; }
+    .mobile-menu a {
+      display: block; padding: 14px 0; font-size: 1.05rem; font-weight: 500;
+      color: var(--navy); text-decoration: none; border-bottom: 1px solid var(--border-light);
+    }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu .btn-member-mobile {
+      display: block; margin-top: 24px; padding: 14px;
+      background: var(--navy); color: var(--white);
+      text-align: center; border-radius: 12px; font-weight: 600;
+      text-decoration: none; font-size: 0.95rem;
+    }
+
+    @media (max-width: 1040px) {
+      .hero-grid,
+      .verification-layout,
+      .resource-strip {
+        grid-template-columns: 1fr;
+      }
+      .resource-actions { justify-content: flex-start; }
+    }
+
+    @media (max-width: 900px) {
+      body { padding-top: calc(var(--utility-height) + var(--nav-height)); }
+      .nav-links { display: none; }
+      .mobile-toggle { display: block; }
+      .hero-shell { padding: 28px; }
+      .paths-grid,
+      .hero-meta {
+        grid-template-columns: 1fr;
+      }
+      .section-intro {
+        display: block;
+        margin-bottom: 22px;
+      }
+      .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+      .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+    }
+
+    @media (max-width: 640px) {
+      body { padding-top: calc(var(--utility-height-mobile) + var(--nav-height)); }
+      .utility-bar { height: var(--utility-height-mobile); }
+      .utility-copy { display: flex; flex-direction: column; align-items: center; gap: 2px; text-align: center; }
+      .utility-eyebrow { font-size: 0.58rem; letter-spacing: 0.16em; line-height: 1; }
+      .utility-message { display: block; font-size: 0.80rem; line-height: 1.22; }
+      .main-nav { top: var(--utility-height-mobile); }
+      .main-nav .container { height: 56px; }
+      .logo-badge-lg { width: 32px; height: 32px; }
+      .logo-text { font-size: 1.15rem; }
+      .page-header { padding: 50px 0 24px; }
+      .hero-shell { padding: 22px; border-radius: 22px; }
+      .hero-copy h1 { max-width: none; }
+      .hero-actions,
+      .cta-actions,
+      .resource-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .btn-primary, .btn-ghost, .btn-ghost-white { width: 100%; }
+      .content-section { padding: 24px 0 60px; }
+      .path-card, .sidebar-card { padding: 22px; border-radius: 20px; }
+      .section-title { font-size: 1.5rem; }
+      .cta-section { padding: 62px 0; }
+      .cta-section h2 { font-size: 1.6rem; }
+      .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+      .container, .container-narrow { padding: 0 18px; }
+    }
+
+    @media (max-width: 380px) {
+      .hero-copy h1 { font-size: 2rem; }
+      .ninety-number { font-size: 3.5rem; }
     }
   </style>
 </head>
-
 <body>
-  <div class="notice" role="status" aria-live="polite">
-    <div class="notice-inner">
-      <div>
-        <b>Public Directory Launch:</b> April 1, 2026
-        <span style="opacity:.75;">•</span>
-        Listings publish at launch. Logos and entries will appear in each section once live.
-      </div>
-      <div>
-        <a href="#about">About</a>
-        <span style="opacity:.55;">&nbsp;•&nbsp;</span>
-        <a href="mailto:info@aquamark.io">Contact</a>
+
+  <div class="utility-bar">
+    <a href="https://securefunder.org/contact/" class="utility-text utility-banner-link">
+      <span class="utility-copy">
+        <span class="utility-eyebrow">Apply</span>
+        <span class="utility-message">Now accepting applications</span>
+      </span>
+    </a>
+  </div>
+
+  <nav class="main-nav">
+    <div class="container">
+      <a href="https://securefunder.org/" class="logo">
+        <img class="logo-badge-lg" src="../../blue-ring.png" alt="Secure Funder">
+        <div class="logo-text">Secure Funder<span class="logo-tm">™</span></div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="https://securefunder.org/#about">About</a></li>
+        <li><a href="https://securefunder.org/directory">Directory</a></li>
+        <li><a href="https://securefunder.org/#leadership">Leadership</a></li>
+        <li><a href="https://securefunder.org/#press">Press</a></li>
+        <li><a href="https://securefunder.org/#membership">Membership</a></li>
+        <li><a href="https://securefunder.org/contact/" class="btn-member">Apply Now</a></li>
+      </ul>
+      <button class="mobile-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <div class="container">
+      <div class="hero-shell">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <div class="section-label">Certification</div>
+            <h1>Get listed now. Verify on your timeline.</h1>
+            <p>Review the two verification paths, apply when ready, and take advantage of the 90-day window to complete the process. The page now leads with structure and hierarchy instead of stacking everything into one center-aligned block.</p>
+            <div class="hero-actions">
+              <a href="https://securefunder.org/contact/" class="btn-primary">Apply Now</a>
+              <a href="https://securefunder.org/certification-requirements.pdf" class="btn-ghost" target="_blank">Download Requirements PDF</a>
+            </div>
+            <div class="hero-meta">
+              <div class="meta-card">
+                <div class="meta-label">Window</div>
+                <div class="meta-value">90 days to prepare and complete verification</div>
+              </div>
+              <div class="meta-card">
+                <div class="meta-label">Live option</div>
+                <div class="meta-value">Guided screen share with real-time Q&amp;A</div>
+              </div>
+              <div class="meta-card">
+                <div class="meta-label">Online option</div>
+                <div class="meta-value">Self-paced workflow through the portal</div>
+              </div>
+            </div>
+          </div>
+
+          <aside class="hero-panel">
+            <div class="hero-panel-top">
+              <div class="hero-panel-eyebrow">How it works</div>
+              <h2>Apply first. Verification can follow.</h2>
+              <p>This is a better spot for the reassurance message, because it reads like context instead of a separate section fighting for attention.</p>
+              <ul class="hero-panel-list">
+                <li><span>1</span><div>Apply and get listed in the directory right away.</div></li>
+                <li><span>2</span><div>Use the 90-day period to prepare, schedule, and complete verification.</div></li>
+                <li><span>3</span><div>Choose live verification now, or online verification when available.</div></li>
+              </ul>
+            </div>
+          </aside>
+        </div>
       </div>
     </div>
   </div>
 
-  <header>
-    <div class="masthead">
-      <div class="mast-top">
-        <div class="brand" aria-label="Secure Funder Directory">
-          <div class="seal" aria-hidden="true"><span>SF</span></div>
-          <div>
-            <h1>Secure Funder<span class="tm">™</span> Directory</h1>
-            <p class="subtitle">
-              A public registry of organizations participating in the Secure Funder<span class="tm">™</span> program.
-              This directory focuses specifically on practical safeguards that protect broker submissions and the documents associated with them.
-            </p>
+  <div class="content-section">
+    <div class="container">
+      <div class="section-intro">
+        <div class="section-intro-copy">
+          <div class="section-label">Verification Paths</div>
+          <h2 class="section-title">Choose the option that fits your team</h2>
+          <p class="section-subtitle">Instead of a centered headline floating above two cards, this layout gives the cards a proper section, with a right-side support column for the 90-day explanation and the requirements reminder.</p>
+        </div>
+      </div>
+
+      <div class="verification-layout">
+        <div class="paths-grid">
+          <div class="path-card featured">
+            <div class="method-badge available">Available Now</div>
+            <div class="path-head">
+              <h3>Live Verification</h3>
+              <div class="path-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="5" width="14" height="14" rx="2"></rect>
+                  <path d="M17 10l4-3v10l-4-3"></path>
+                </svg>
+              </div>
+            </div>
+            <p>Walk through your systems in a brief guided screen share. This version feels more premium and more intentional than the old card styling.</p>
+            <div class="path-points">
+              <div><span>✓</span><div>Guided directly by our team</div></div>
+              <div><span>✓</span><div>Real-time questions and clarifications</div></div>
+              <div><span>✓</span><div>Typically completed in 30–60 minutes</div></div>
+            </div>
+            <div class="path-footer">
+              <div>
+                <strong>Best for</strong>
+                Teams that want a collaborative walkthrough
+              </div>
+              <div>Recommended</div>
+            </div>
+          </div>
+
+          <div class="path-card">
+            <div class="method-badge coming">Coming Soon</div>
+            <div class="path-head">
+              <h3>Online Verification</h3>
+              <div class="path-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M8 3h8"></path>
+                  <rect x="5" y="2" width="14" height="20" rx="3"></rect>
+                  <path d="M9 17h6"></path>
+                </svg>
+              </div>
+            </div>
+            <p>Complete the process on your own schedule through the portal by answering questions, uploading documents, and submitting recordings for review.</p>
+            <div class="path-points">
+              <div><span>✓</span><div>Self-paced workflow</div></div>
+              <div><span>✓</span><div>No scheduling required</div></div>
+              <div><span>✓</span><div>Complete anytime once available</div></div>
+            </div>
+            <div class="path-footer">
+              <div>
+                <strong>Best for</strong>
+                Teams that prefer an asynchronous process
+              </div>
+              <div>Portal-based</div>
+            </div>
           </div>
         </div>
 
-        <div class="header-actions">
-          <a class="btn primary" href="https://securefunder.org/" target="_blank" rel="noopener noreferrer">
-            Program Overview
-          </a>
-          <a class="btn" href="mailto:info@aquamark.io">
-            Email: info@aquamark.io
-          </a>
+        <div class="sidebar-stack">
+          <div class="sidebar-card">
+            <div class="sidebar-kicker">Preparation Window</div>
+            <div class="ninety-display">
+              <div class="ninety-number">90</div>
+              <div class="ninety-word">Days</div>
+            </div>
+            <div class="sidebar-title">You do not need everything in place on day one</div>
+            <p>Applicants can come forward before every safeguard is finalized. Some are ready immediately. Others use the window to close gaps before verification.</p>
+          </div>
+
+          <div class="sidebar-card dark">
+            <div class="sidebar-kicker">What to review</div>
+            <div class="sidebar-title">Requirements overview</div>
+            <p>Keep the PDF accessible, but give it a stronger visual container so it feels like part of the experience instead of an afterthought.</p>
+            <ul class="sidebar-list">
+              <li><span>•</span><div>Read the full requirements before scheduling</div></li>
+              <li><span>•</span><div>Use them as a prep guide during the 90-day period</div></li>
+            </ul>
+          </div>
         </div>
       </div>
 
-      <div class="filters" aria-label="Directory filters">
-        <div class="field">
-          <label for="q">Search directory</label>
-          <input id="q" type="search" placeholder="Search organizations…" autocomplete="off" />
-          <div class="tiny">Tip: search by organization name, location, or notes (e.g., “UK”, “ISO”, “Certified”).</div>
+      <div class="resource-strip">
+        <div class="resource-copy">
+          <strong>Review the full requirements before you schedule.</strong>
+          <span>This compact strip replaces the loose buttons under the cards and gives the section a cleaner close.</span>
         </div>
-        <div class="field" style="flex:0 0 260px; min-width:220px;">
-          <label for="status">Section</label>
-          <select id="status">
-            <option value="all">All sections</option>
-            <option value="charter">Certified Charter Members</option>
-            <option value="certified">Certified Members</option>
-            <option value="progress">Certification In Progress</option>
-          </select>
+        <div class="resource-actions">
+          <a href="https://securefunder.org/certification-requirements.pdf" class="btn-ghost" target="_blank">Download Requirements PDF</a>
+          <a href="https://securefunder.org/contact/" class="btn-primary">Apply Now</a>
         </div>
       </div>
     </div>
-  </header>
+  </div>
 
-  <main>
-    <!-- SECTION: CHARTER -->
-    <section class="section" id="charter">
-      <div class="section-head">
-        <div>
-          <h2 class="section-title">Certified Charter Members</h2>
-          <p class="section-desc">
-            Organizations recognized as early participants at launch. Certified status indicates verification has been completed.
-          </p>
-        </div>
-        <div class="pill" aria-label="Section status">
-          <span class="dot gold" aria-hidden="true"></span>
-          Publishing begins April 1, 2026
-        </div>
+  <section class="cta-section">
+    <div class="container-narrow">
+      <h2>Ready to get started?</h2>
+      <p>Apply in one minute. No payment is required until verification is scheduled.</p>
+      <div class="cta-actions">
+        <a href="https://securefunder.org/contact/" class="btn-primary">Apply for Membership</a>
+        <a href="https://securefunder.org/directory" class="btn-ghost-white">View Directory</a>
       </div>
-
-      <div class="grid" data-section="charter" id="grid-charter" aria-label="Charter listings">
-        <!-- JS will render listings here -->
-      </div>
-      <div class="empty" id="empty-charter" hidden>
-        <div class="icon" aria-hidden="true">⟡</div>
-        <div>
-          <div style="font-weight:650;color:var(--ink);margin-bottom:3px;">Listings will appear at launch.</div>
-          Charter member logos and names will publish on April 1, 2026.
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION: CERTIFIED -->
-    <section class="section" id="certified">
-      <div class="section-head">
-        <div>
-          <h2 class="section-title">Certified Members</h2>
-          <p class="section-desc">
-            Verified organizations that have completed the Secure Funder<span class="tm">™</span> safeguards review.
-          </p>
-        </div>
-        <div class="pill" aria-label="Section status">
-          <span class="dot ok" aria-hidden="true"></span>
-          Publishing begins April 1, 2026
-        </div>
-      </div>
-
-      <div class="grid" data-section="certified" id="grid-certified" aria-label="Certified listings">
-        <!-- JS will render listings here -->
-      </div>
-      <div class="empty" id="empty-certified" hidden>
-        <div class="icon" aria-hidden="true">⟡</div>
-        <div>
-          <div style="font-weight:650;color:var(--ink);margin-bottom:3px;">Listings will appear at launch.</div>
-          Certified member logos and names will publish on April 1, 2026.
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION: IN PROGRESS -->
-    <section class="section" id="progress">
-      <div class="section-head">
-        <div>
-          <h2 class="section-title">Certification In Progress</h2>
-          <p class="section-desc">
-            Organizations that have enrolled and are actively scheduling or completing verification. Status will update once verification is complete.
-          </p>
-        </div>
-        <div class="pill" aria-label="Section status">
-          <span class="dot warn" aria-hidden="true"></span>
-          Publishing begins April 1, 2026
-        </div>
-      </div>
-
-      <div class="grid" data-section="progress" id="grid-progress" aria-label="In progress listings">
-        <!-- JS will render listings here -->
-      </div>
-      <div class="empty" id="empty-progress" hidden>
-        <div class="icon" aria-hidden="true">⟡</div>
-        <div>
-          <div style="font-weight:650;color:var(--ink);margin-bottom:3px;">Listings will appear at launch.</div>
-          “In Progress” logos and names will publish on April 1, 2026.
-        </div>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section class="section" id="about">
-      <div class="section-head">
-        <div>
-          <h2 class="section-title">About This Directory</h2>
-          <p class="section-desc">
-            Secure Funder<span class="tm">™</span> is intentionally narrow in scope: it focuses on safeguards that reduce unauthorized access to submissions and the documents associated with them.
-            It is not positioned as a comprehensive security audit.
-          </p>
-        </div>
-        <div class="pill">
-          <span class="dot" aria-hidden="true"></span>
-          Public resource
-        </div>
-      </div>
-
-      <div class="about">
-        <div>
-          <h3>What the public should know</h3>
-          <p>
-            Directory placement reflects the organization’s participation and status in the program at the time of publication.
-            Verification is performed through practical review of safeguards. No program can prevent all misuse; the objective is to materially reduce exposure and deter common misuse through verifiable controls.
-          </p>
-          <div style="height:10px"></div>
-          <p>
-            Questions or corrections can be directed to <a href="mailto:info@aquamark.io">info@aquamark.io</a>.
-          </p>
-        </div>
-
-        <aside class="facts" aria-label="Key facts">
-          <div class="fact"><span class="k"></span><div><b>Launch date:</b> April 1, 2026</div></div>
-          <div class="fact"><span class="k"></span><div><b>Status labels:</b> Charter, Certified, In Progress</div></div>
-          <div class="fact"><span class="k"></span><div><b>Scope:</b> Document + submission safeguards</div></div>
-          <div class="fact"><span class="k"></span><div><b>Contact:</b> <a href="mailto:info@aquamark.io">info@aquamark.io</a></div></div>
-        </aside>
-      </div>
-    </section>
-  </main>
+    </div>
+  </section>
 
   <footer>
-    <div class="foot">
-      <div>© <span id="y"></span> Secure Funder™. All rights reserved.</div>
-      <div>
-        <a href="#charter">Charter</a> ·
-        <a href="#certified">Certified</a> ·
-        <a href="#progress">In Progress</a> ·
-        <a href="#about">About</a>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo" style="color: white;">
+            <div class="logo-text" style="color: white;">Secure Funder<span class="logo-tm">™</span></div>
+          </div>
+          <p>An independent certification program establishing baseline data-handling standards in alternative finance. Administered by Aquamark.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Program</h4>
+          <a href="https://securefunder.org/#about">About</a>
+          <a href="https://securefunder.org/certification">Requirements</a>
+          <a href="https://securefunder.org/#membership">Membership</a>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <a href="https://securefunder.org/directory">Member Directory</a>
+          <a href="https://securefunder.org/#press">Press &amp; Media</a>
+          <a href="https://securefunder.org/contact/">Ask a Question</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="https://securefunder.org/contact/">Send a Message</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Secure Funder™ Certification Program. All rights reserved.</span>
+        <span>Independently administered by <a href="https://aquamark.io" target="_blank">Aquamark</a></span>
       </div>
     </div>
   </footer>
 
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-header">
+      <a href="https://securefunder.org/" class="logo">
+        <img src="../../blue-ring.png" alt="Secure Funder" style="width:30px;height:30px;">
+        <div class="logo-text">Secure Funder<span class="logo-tm">™</span></div>
+      </a>
+      <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">✕</button>
+    </div>
+    <a href="https://securefunder.org/#about" onclick="closeMobileMenu()">About</a>
+    <a href="https://securefunder.org/directory" onclick="closeMobileMenu()">Directory</a>
+    <a href="https://securefunder.org/#leadership" onclick="closeMobileMenu()">Leadership</a>
+    <a href="https://securefunder.org/#press" onclick="closeMobileMenu()">Press</a>
+    <a href="https://securefunder.org/#membership" onclick="closeMobileMenu()">Membership</a>
+    <a href="https://securefunder.org/contact/" class="btn-member-mobile">Apply Now</a>
+  </div>
+
   <script>
-    // ==============================
-    // DIRECTORY DATA (edit this later)
-    // ==============================
-    // Add logos by setting `logoUrl` (e.g., "logos/acme.png" or full URL).
-    // Pre-launch: leave arrays empty (defaults to empty-state).
-    const DIRECTORY = {
-      charter: [
-        // Example:
-        // { name: "Example Capital", location: "New York, NY", notes: "Charter member", logoUrl: "logos/example.png", tags: ["Charter", "Certified"] }
-      ],
-      certified: [
-        // { name: "Example Funding", location: "Chicago, IL", notes: "Certified", logoUrl: "", tags: ["Certified"] }
-      ],
-      progress: [
-        // { name: "Example Finance", location: "Austin, TX", notes: "Scheduling verification", logoUrl: "", tags: ["In Progress"] }
-      ]
-    };
+    const toggle = document.querySelector('.mobile-toggle');
+    const menu = document.getElementById('mobileMenu');
+    const closeBtn = document.getElementById('mobileMenuClose');
 
-    const els = {
-      q: document.getElementById("q"),
-      status: document.getElementById("status"),
-      grids: {
-        charter: document.getElementById("grid-charter"),
-        certified: document.getElementById("grid-certified"),
-        progress: document.getElementById("grid-progress")
-      },
-      empties: {
-        charter: document.getElementById("empty-charter"),
-        certified: document.getElementById("empty-certified"),
-        progress: document.getElementById("empty-progress")
-      }
-    };
-
-    document.getElementById("y").textContent = new Date().getFullYear();
-
-    function normalize(s){
-      return (s || "").toString().toLowerCase().trim();
+    function closeMobileMenu() {
+      menu.classList.remove('active');
+      document.body.style.overflow = '';
     }
 
-    function matchesQuery(item, query){
-      if(!query) return true;
-      const hay = [
-        item.name, item.location, item.notes, (item.tags || []).join(" ")
-      ].map(normalize).join(" • ");
-      return hay.includes(query);
-    }
+    toggle.addEventListener('click', () => {
+      menu.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
 
-    function buildCard(item){
-      const card = document.createElement("div");
-      card.className = "card";
-      card.setAttribute("role","listitem");
-
-      const logo = document.createElement("div");
-      logo.className = "logo";
-      if(item.logoUrl){
-        const img = document.createElement("img");
-        img.src = item.logoUrl;
-        img.alt = item.name + " logo";
-        logo.textContent = "";
-        logo.appendChild(img);
-      } else {
-        logo.textContent = "LOGO";
-        logo.setAttribute("aria-label","Logo placeholder");
-      }
-
-      const meta = document.createElement("div");
-      meta.className = "meta";
-
-      const name = document.createElement("div");
-      name.className = "name";
-      name.textContent = item.name || "Organization Name";
-
-      const line1 = document.createElement("div");
-      line1.className = "line";
-      line1.textContent = item.location ? item.location : "Location (optional)";
-
-      const line2 = document.createElement("div");
-      line2.className = "line";
-      line2.textContent = item.notes ? item.notes : "";
-
-      meta.appendChild(name);
-      meta.appendChild(line1);
-      if(item.notes) meta.appendChild(line2);
-
-      if(item.tags && item.tags.length){
-        const tags = document.createElement("div");
-        tags.className = "tags";
-        item.tags.slice(0,4).forEach(t=>{
-          const span = document.createElement("span");
-          span.className = "tag";
-          span.textContent = t;
-          tags.appendChild(span);
-        });
-        meta.appendChild(tags);
-      }
-
-      card.appendChild(logo);
-      card.appendChild(meta);
-      return card;
-    }
-
-    function render(){
-      const q = normalize(els.q.value);
-      const sectionFilter = els.status.value; // all | charter | certified | progress
-
-      const sections = ["charter","certified","progress"];
-      sections.forEach(sec=>{
-        // show/hide entire section based on filter (via section element)
-        const sectionEl = document.getElementById(sec);
-        if(sectionFilter !== "all" && sectionFilter !== sec){
-          sectionEl.style.display = "none";
-          return;
-        } else {
-          sectionEl.style.display = "";
-        }
-
-        const data = (DIRECTORY[sec] || []).filter(item => matchesQuery(item, q));
-        const grid = els.grids[sec];
-        const empty = els.empties[sec];
-
-        grid.innerHTML = "";
-        grid.setAttribute("role","list");
-
-        if(data.length === 0){
-          // If there are NO items at all (pre-launch), show empty-state.
-          // If there are items but search filtered them all out, show a search-based empty message.
-          const total = (DIRECTORY[sec] || []).length;
-
-          if(total === 0){
-            empty.hidden = false;
-            grid.style.display = "none";
-          } else {
-            empty.hidden = true;
-            grid.style.display = "grid";
-            const msg = document.createElement("div");
-            msg.className = "empty";
-            msg.innerHTML = `
-              <div class="icon" aria-hidden="true">⟡</div>
-              <div>
-                <div style="font-weight:650;color:var(--ink);margin-bottom:3px;">No matches in this section.</div>
-                Try a different search term or choose “All sections”.
-              </div>
-            `;
-            grid.style.display = "block";
-            grid.appendChild(msg);
-          }
-          return;
-        }
-
-        empty.hidden = true;
-        grid.style.display = "grid";
-        data.forEach(item => grid.appendChild(buildCard(item)));
-      });
-    }
-
-    els.q.addEventListener("input", render);
-    els.status.addEventListener("change", render);
-    render();
+    closeBtn.addEventListener('click', closeMobileMenu);
   </script>
 </body>
 </html>
