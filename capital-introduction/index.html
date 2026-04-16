@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Access to Capital — Secure Funder™</title>
+  <meta name="description" content="Overview of the Secure Funder capital markets partnership, including credit facilities, forward flow agreements, and introductions to institutional capital providers.">
+  <link rel="icon" type="image/png" sizes="32x32" href="blue-ring.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="blue-ring.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="blue-ring.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --utility-height: 42px;
+      --utility-height-mobile: 56px;
+      --nav-height: 68px;
+      --navy: #0F2137;
+      --navy-mid: #1A3455;
+      --slate: #3D5A80;
+      --steel: #6B8BAD;
+      --sky: #93B5D0;
+      --ice: #C5D9E8;
+      --pearl: #EFF4F8;
+      --cloud: #F6F9FC;
+      --white: #FFFFFF;
+      --blue-accent: #4FA3D1;
+      --blue-accent-soft: #7BBCE1;
+      --blue-accent-pale: #E7F2FA;
+
+      --text-primary: #0F2137;
+      --text-secondary: #4A6480;
+      --text-muted: #7A96AE;
+      --border: #DAE3EC;
+      --border-light: #EAF0F5;
+      --font-display: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-body: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      color: var(--text-primary);
+      background: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      padding-top: calc(var(--utility-height) + var(--nav-height));
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    /* Utility Bar */
+    .utility-bar {
+      background: linear-gradient(90deg, #0D1B2D 0%, #13263D 52%, #17304C 100%);
+      color: var(--white);
+      font-size: 0.82rem;
+      font-weight: 600;
+      height: var(--utility-height);
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      display: flex; align-items: center; justify-content: center;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .utility-bar a { color: var(--white); text-decoration: none; }
+    .utility-banner-link {
+      width: 100%; min-height: 100%;
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 0 18px;
+    }
+    .utility-copy {
+      display: inline-flex; align-items: baseline; gap: 8px;
+      flex-wrap: wrap; justify-content: center;
+    }
+    .utility-eyebrow {
+      color: var(--blue-accent-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.68rem;
+      font-weight: 700;
+    }
+    .utility-message { color: rgba(255,255,255,0.95); }
+    @media (max-width: 640px) {
+      body { padding-top: calc(var(--utility-height-mobile) + var(--nav-height)); }
+      .utility-bar { height: var(--utility-height-mobile); }
+      .utility-banner-link { padding: 8px 14px; }
+      .utility-copy { flex-direction: column; gap: 2px; }
+      .utility-eyebrow { font-size: 0.58rem; letter-spacing: 0.16em; }
+      .utility-message { font-size: 0.80rem; line-height: 1.22; }
+    }
+
+    /* Nav */
+    .main-nav {
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      position: fixed; top: var(--utility-height); left: 0; right: 0; z-index: 190;
+      box-shadow: 0 1px 4px rgba(15,33,55,0.04);
+    }
+    .main-nav .container {
+      display: flex; justify-content: space-between; align-items: center; height: 68px;
+    }
+    .logo {
+      display: flex; align-items: center; text-decoration: none; color: var(--navy); gap: 12px;
+    }
+    .logo-badge { width: 32px; height: 32px; }
+    .logo-text {
+      font-family: var(--font-display);
+      font-size: 1.3rem; font-weight: 700; letter-spacing: -0.01em;
+    }
+    .logo-tm { font-size: 0.55em; vertical-align: super; font-weight: 400; margin-left: 1px; }
+    .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; }
+    .nav-links a {
+      text-decoration: none; color: var(--text-primary);
+      font-size: 0.88rem; font-weight: 500; padding: 8px 14px;
+      border-radius: 6px; transition: all 0.2s;
+    }
+    .nav-links a:hover { background: var(--pearl); }
+    .nav-links .btn-member {
+      background: var(--navy); color: var(--white); font-weight: 600; margin-left: 6px;
+    }
+    .nav-links .btn-member:hover { background: var(--navy-mid); }
+    .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+    .mobile-toggle span { display: block; width: 22px; height: 2px; background: var(--navy); margin: 5px 0; }
+    @media (max-width: 860px) {
+      .nav-links { display: none; }
+      .mobile-toggle { display: block; }
+    }
+
+    /* Document Layout */
+    .doc-wrapper {
+      background: var(--cloud);
+      border-bottom: 1px solid var(--border-light);
+      padding: 64px 0 80px;
+    }
+    .doc-header {
+      max-width: 780px;
+      margin: 0 auto 40px;
+      padding: 0 24px;
+    }
+    .doc-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--blue-accent);
+      margin-bottom: 14px;
+    }
+    .doc-title {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: -0.015em;
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+    .doc-meta {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .doc-body {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 48px 48px 56px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+
+    @media (max-width: 640px) {
+      .doc-wrapper { padding: 40px 0 60px; }
+      .doc-body { padding: 36px 24px 40px; margin: 0 16px; }
+      .doc-header { padding: 0 16px; }
+      .doc-title { font-size: 1.6rem; }
+    }
+
+    .doc-body h2 {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      margin-top: 40px;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .doc-body h2:first-child {
+      margin-top: 0;
+    }
+
+    .doc-body h3 {
+      font-family: var(--font-display);
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-top: 22px;
+      margin-bottom: 8px;
+    }
+
+    .doc-body p {
+      font-size: 0.95rem;
+      line-height: 1.75;
+      color: var(--text-primary);
+      margin-bottom: 14px;
+    }
+
+    .doc-body p.lead {
+      font-size: 1rem;
+      color: var(--text-primary);
+      margin-bottom: 18px;
+    }
+
+    .doc-body strong {
+      color: var(--navy);
+      font-weight: 600;
+    }
+
+    .doc-body ul {
+      margin: 8px 0 16px 22px;
+      padding: 0;
+    }
+    .doc-body ul li {
+      font-size: 0.94rem;
+      line-height: 1.75;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+      padding-left: 4px;
+    }
+    .doc-body ul li::marker {
+      color: var(--blue-accent);
+    }
+
+    .doc-body .section-num {
+      display: inline-block;
+      color: var(--text-muted);
+      font-weight: 500;
+      margin-right: 8px;
+      letter-spacing: 0.04em;
+    }
+
+    .doc-body .callout {
+      background: var(--cloud);
+      border-left: 3px solid var(--blue-accent);
+      padding: 18px 22px;
+      margin: 20px 0;
+      border-radius: 0 6px 6px 0;
+    }
+    .doc-body .callout p {
+      font-size: 0.9rem;
+      margin-bottom: 0;
+      color: var(--text-secondary);
+    }
+
+    .doc-body a.inquiry-link {
+      color: var(--blue-accent);
+      font-weight: 500;
+      text-decoration: none;
+    }
+    .doc-body a.inquiry-link:hover {
+      text-decoration: underline;
+    }
+
+    .doc-footer-meta {
+      max-width: 780px;
+      margin: 24px auto 0;
+      padding: 0 48px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    @media (max-width: 640px) {
+      .doc-footer-meta { padding: 0 24px; margin: 20px 16px 0; }
+    }
+
+    /* Footer */
+    footer {
+      background: var(--navy);
+      color: var(--ice);
+      padding: 50px 0 30px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    .footer-brand p {
+      font-size: 0.86rem;
+      line-height: 1.7;
+      color: var(--sky);
+      max-width: 340px;
+      margin-top: 14px;
+    }
+    .footer-col h4 {
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 18px;
+    }
+    .footer-col a {
+      display: block;
+      font-size: 0.88rem;
+      color: var(--sky);
+      text-decoration: none;
+      padding: 5px 0;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: var(--white); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: var(--steel);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-bottom a { color: var(--sky); text-decoration: none; }
+    @media (max-width: 820px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
+      .footer-brand { grid-column: 1 / -1; }
+    }
+    @media (max-width: 500px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; }
+    }
+
+    /* Mobile menu */
+    .mobile-menu {
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: var(--white);
+      z-index: 300;
+      padding: 24px;
+      transform: translateX(100%);
+      transition: transform 0.3s;
+      overflow-y: auto;
+    }
+    .mobile-menu.active { transform: translateX(0); }
+    .mobile-menu-header {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 32px;
+    }
+    .mobile-menu-close {
+      background: none; border: none; font-size: 1.5rem;
+      cursor: pointer; padding: 8px; color: var(--navy);
+    }
+    .mobile-menu a {
+      display: block;
+      padding: 16px 0;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--navy);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .mobile-menu .btn-member-mobile {
+      margin-top: 20px;
+      background: var(--navy);
+      color: var(--white);
+      padding: 14px 20px;
+      border-radius: 8px;
+      text-align: center;
+      border: none;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="utility-bar">
+    <a href="/" class="utility-banner-link">
+      <span class="utility-copy">
+        <span class="utility-eyebrow">Member Benefit</span>
+        <span class="utility-message">Access to institutional capital partners</span>
+      </span>
+    </a>
+  </div>
+
+  <nav class="main-nav">
+    <div class="container">
+      <a href="/" class="logo">
+        <img class="logo-badge" src="blue-ring.png" alt="Secure Funder">
+        <div class="logo-text">Secure Funder<span class="logo-tm">™</span></div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/#about">About</a></li>
+        <li><a href="/directory">Directory</a></li>
+        <li><a href="/certification">Requirements</a></li>
+        <li><a href="/#membership">Membership</a></li>
+        <li><a href="https://portal.securefunder.org/login" class="btn-member">Member Sign In</a></li>
+      </ul>
+      <button class="mobile-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <section class="doc-wrapper">
+    <div class="doc-header">
+      <div class="doc-eyebrow">Member Benefit Overview</div>
+      <h1 class="doc-title">Access to Capital</h1>
+      <div class="doc-meta">Summary of the Secure Funder™ capital markets partnership</div>
+    </div>
+
+    <article class="doc-body">
+
+      <h2><span class="section-num">1.</span>Overview</h2>
+      <p class="lead">Secure Funder™ has established a working relationship with a specialized investment banking firm that delivers institutional-grade capital solutions across the specialty finance industry. This document summarizes the scope of that relationship and the capabilities available to members upon request.</p>
+      <p>The partner firm's platform is built around structuring, sourcing, and executing complex financial transactions — including credit facilities, forward flow agreements, and debt and equity placements. While their capabilities extend across a range of capital markets activities, their primary focus is supporting specialty finance companies with scalable, efficient funding solutions that enable growth, liquidity, and long-term stability.</p>
+      <p>The partner works directly with institutional capital providers, credit funds, family offices, and private lenders — offering streamlined execution, customized structuring, and direct access to decision-makers.</p>
+
+      <h2><span class="section-num">2.</span>Credit Facilities</h2>
+      <p>A credit facility is a structured financing arrangement in which an institutional capital provider extends a committed line of capital to a lender or specialty finance company. The facility is typically secured by the company's underlying loan portfolio or receivables and is designed to fund originations on a revolving or term basis.</p>
+
+      <h3>Core components</h3>
+      <ul>
+        <li><strong>Borrowing base</strong> — the pool of eligible assets that determines available capital</li>
+        <li><strong>Advance rates</strong> — typically 70%–90% of eligible collateral</li>
+        <li><strong>Cost of capital</strong> — SOFR plus spread, or a fixed rate depending on structure</li>
+        <li><strong>Eligibility criteria</strong> — asset-level standards for inclusion in the borrowing base</li>
+        <li><strong>Covenants &amp; performance triggers</strong> — portfolio-level metrics monitored over the life of the facility</li>
+        <li><strong>Facility structure</strong> — revolving, term, or senior-mezzanine configurations</li>
+      </ul>
+
+      <h3>Strategic benefits</h3>
+      <ul>
+        <li>Scalable origination volume without proportional equity dilution</li>
+        <li>Improved return on equity through institutional leverage</li>
+        <li>Consistent liquidity across market cycles</li>
+        <li>Greater balance sheet efficiency</li>
+      </ul>
+
+      <h2><span class="section-num">3.</span>Forward Flow Agreements</h2>
+      <p>A forward flow agreement is a contractual arrangement in which a capital provider commits to purchase newly originated assets on an ongoing basis at predefined terms. Forward flow arrangements provide a predictable exit for originated deals and are often used in combination with a credit facility.</p>
+
+      <h3>Core components</h3>
+      <ul>
+        <li><strong>Purchase commitment</strong> — the volume of assets the buyer agrees to acquire over a defined period</li>
+        <li><strong>Pricing structure</strong> — purchase price methodology established in advance</li>
+        <li><strong>Eligibility criteria</strong> — asset-level requirements for qualifying deals</li>
+        <li><strong>Settlement timing</strong> — typically 0–5 days from closing</li>
+        <li><strong>Servicing structure</strong> — defines whether the originator retains servicing post-sale</li>
+        <li><strong>True sale structure</strong> — assets transfer cleanly off the originator's balance sheet</li>
+      </ul>
+
+      <h3>Strategic benefits</h3>
+      <ul>
+        <li>Immediate liquidity on originated deals</li>
+        <li>Risk transfer to the purchasing counterparty</li>
+        <li>A predictable, contractual exit strategy</li>
+        <li>Scalable growth without accumulating portfolio risk</li>
+      </ul>
+
+      <h2><span class="section-num">4.</span>Integrated Capital Strategy</h2>
+      <p>Credit facilities and forward flow agreements are often used together to create a complete originate-and-exit cycle. A credit facility provides the capital to fund new originations. A forward flow agreement provides a committed buyer for those originations. Proceeds from the sale pay down the facility, freeing capacity to originate again.</p>
+      <p>The cycle — originate, fund, sell, recycle, scale — is designed to compound origination capacity over time without requiring a proportional increase in equity.</p>
+
+      <h2><span class="section-num">5.</span>Additional Capital Markets Services</h2>
+      <p>Beyond credit facilities and forward flow, the partner firm also supports members with:</p>
+      <ul>
+        <li>Debt and equity capital raises</li>
+        <li>Customized capital stack design for each stage of growth</li>
+        <li>Structuring advice on complex or non-standard transactions</li>
+        <li>Direct introductions to institutional capital relationships</li>
+      </ul>
+
+      <h2><span class="section-num">6.</span>Member Eligibility &amp; Process</h2>
+      <p>Access to this benefit is available to all Secure Funder™ members and applicants in good standing, at no additional cost. The introduction process is informal: members submit an inquiry, and Secure Funder connects them directly with the partner firm. From that point forward, all diligence, structuring, and terms are handled between the member and the partner.</p>
+
+      <div class="callout">
+        <p><strong>Scope of the partnership.</strong> Secure Funder™ facilitates introductions only. We do not provide capital, broker transactions, participate in negotiations, or receive compensation based on any funding outcome. All terms, fees, and engagement structures are established directly between the member and the partner firm.</p>
+      </div>
+
+      <h2><span class="section-num">7.</span>Requesting an Introduction</h2>
+      <p>Members interested in learning more may submit a request through our standard contact channel. Please reference "Access to Capital" in your message and include a brief description of the type of financing or capital markets activity you would like to explore.</p>
+      <p>Submit a request at <a class="inquiry-link" href="https://securefunder.org/contact/">securefunder.org/contact</a>.</p>
+
+    </article>
+
+
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo" style="color: white;">
+            <div class="logo-text" style="color: white;">Secure Funder<span class="logo-tm">™</span></div>
+          </div>
+          <p>An independent certification program establishing baseline data-handling standards in alternative finance. Administered by Aquamark.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Program</h4>
+          <a href="/#about">About</a>
+          <a href="/certification">Requirements</a>
+          <a href="/#membership">Membership</a>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <a href="/directory">Member Directory</a>
+          <a href="/#press">Press &amp; Media</a>
+          <a href="/capital">Access to Capital</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="https://securefunder.org/contact/" target="_blank">Send a Message</a>
+          <a href="https://securefunder.org/terms-privacy/" target="_blank">Terms &amp; Privacy</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Secure Funder™ Certification Program. All rights reserved.</span>
+        <span>Independently administered by <a href="https://aquamark.io" target="_blank">Aquamark</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-header">
+      <a href="/" class="logo" aria-label="Secure Funder Home">
+        <img class="logo-badge" src="blue-ring.png" alt="Secure Funder" style="width:30px;height:30px;">
+        <div class="logo-text">Secure Funder<span class="logo-tm">™</span></div>
+      </a>
+      <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">✕</button>
+    </div>
+    <a href="/#about" onclick="closeMobileMenu()">About</a>
+    <a href="/directory" onclick="closeMobileMenu()">Directory</a>
+    <a href="/certification" onclick="closeMobileMenu()">Requirements</a>
+    <a href="/#membership" onclick="closeMobileMenu()">Membership</a>
+    <a href="https://portal.securefunder.org/login" class="btn-member-mobile">Member Sign In</a>
+  </div>
+
+  <script>
+    const toggle = document.querySelector('.mobile-toggle');
+    const menu = document.getElementById('mobileMenu');
+    const closeBtn = document.getElementById('mobileMenuClose');
+    function closeMobileMenu() { menu.classList.remove('active'); document.body.style.overflow = ''; }
+    toggle.addEventListener('click', () => { menu.classList.add('active'); document.body.style.overflow = 'hidden'; });
+    closeBtn.addEventListener('click', closeMobileMenu);
+  </script>
+
+</body>
+</html>
