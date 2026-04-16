@@ -899,20 +899,40 @@
         grid-template-columns: 1fr; gap: 32px;
       }
       .hero h1 { font-size: 1.95rem; }
-      .hero-actions { flex-direction: column; align-items: flex-start; }
+      .hero-actions { flex-direction: column; align-items: center; }
+      .hero-content { text-align: center; align-items: center; }
+      .hero-label { justify-content: center; }
+      .hero-label::before { display: none; }
+      .hero p { margin-left: auto; margin-right: auto; }
       .press-grid { grid-template-columns: 1fr; }
       .nav-links { display: none; }
       .mobile-toggle { display: block; }
       .photo-break { height: auto; }
       .photo-break-overlay { padding: 24px; justify-content: center; }
       .photo-break-text h2 { font-size: 1.2rem; }
+      .section-header { text-align: center; }
+      .section-header .section-subtitle { margin-left: auto; margin-right: auto; }
       .section-title { font-size: 1.6rem; }
+      .section-subtitle { margin-left: auto; margin-right: auto; }
+      .about-grid { text-align: center; }
+      .about-text p { text-align: center; }
+      .about-sidebar { text-align: left; }
+      .directory-text { text-align: center; }
+      .directory-text .section-subtitle { margin-left: auto; margin-right: auto; }
       .leadership-photo { width: 160px; height: 160px; margin: 0 auto; }
       .leadership-content { text-align: center; }
-      .leadership-info p { max-width: 100%; }
+      .leadership-info p { max-width: 100%; margin-left: auto; margin-right: auto; }
+      .membership-grid > div:first-child { text-align: center; }
+      .membership-grid > div:first-child .section-subtitle { margin-left: auto; margin-right: auto; }
+      .step-item { text-align: left; }
       .membership-card { max-width: 100%; }
+      .mission-banner .container-narrow { text-align: center; }
+      .mission-banner p { margin-left: auto; margin-right: auto; }
+      .mission-linkedin-card { margin-left: auto; margin-right: auto; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
-      .footer-brand { grid-column: 1 / -1; }
+      .footer-brand { grid-column: 1 / -1; text-align: center; }
+      .footer-brand p { margin-left: auto; margin-right: auto; }
+      .footer-col { text-align: center; }
       .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
     }
 
@@ -962,8 +982,9 @@
       .cta-actions .btn-primary, .cta-actions .btn-ghost-white { width: 100%; }
       footer { padding: 40px 0 0; }
       .footer-grid { grid-template-columns: 1fr; gap: 28px; }
-      .footer-brand { grid-column: auto; }
-      .footer-brand p { max-width: 100%; }
+      .footer-brand { grid-column: auto; text-align: center; }
+      .footer-brand p { max-width: 100%; margin-left: auto; margin-right: auto; }
+      .footer-col { text-align: center; }
       .btn-enroll { padding: 14px; font-size: 0.9rem; }
     }
 
@@ -1120,8 +1141,6 @@
   }
 }
 
-This version gives you tha
-
     @media (max-width: 900px) {
       .no-changes-grid { grid-template-columns: 1fr; gap: 24px; max-width: 360px; }
       .no-changes-card { padding: 0; }
@@ -1260,7 +1279,7 @@ This version gives you tha
         <div class="hero-content">
           <div class="hero-label">Est. 2026</div>
           <h1>Independent Certification for Alternative Finance</h1>
-          <p>Join the funders committed to greater transparency and integrity.</p>
+          <p>Join the list of funders committed to greater transparency and integrity.</p>
           <div class="hero-actions">
             <a href="https://securefunder.org/contact/" class="btn-primary" target="_blank" rel="noopener noreferrer">Apply for Membership</a>
 <a href="#membership" class="btn-ghost">View Requirements →</a>
