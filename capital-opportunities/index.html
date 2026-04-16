@@ -265,6 +265,25 @@
       text-decoration: underline;
     }
 
+    .intro-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 10px;
+      padding: 12px 18px;
+      border-radius: 8px;
+      background: var(--navy);
+      color: var(--white);
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 600;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+    .intro-button:hover {
+      background: var(--navy-mid);
+      transform: translateY(-1px);
+    }
+
     .doc-footer-meta {
       max-width: 780px;
       margin: 24px auto 0;
@@ -479,7 +498,8 @@
     <article class="doc-body">
 
       <div class="intro-note">
-        <p><strong>Available to Secure Funder™ members and applicants in good standing.</strong> Membership or application status does <strong>not</strong> guarantee eligibility, approval, or access to any capital relationship. Secure Funder facilitates introductions only, and all opportunities remain subject to the partner firm's independent review, diligence, underwriting criteria, and sole discretion. To inquire, submit a request at <a class="inquiry-link" href="https://securefunder.org/contact/">securefunder.org/contact</a>.</p>
+        <p>Membership does not guarantee eligibility, approval, or access to capital. Secure Funder facilitates introductions only, and all opportunities remain subject to the partner firm's independent review, diligence, underwriting criteria, and sole discretion.</p>
+        <a class="intro-button" href="https://securefunder.org/contact/" target="_blank" rel="noopener">Request More Info</a>
       </div>
 
       <div class="accordion-group">
