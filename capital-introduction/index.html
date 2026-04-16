@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Access to Capital — Secure Funder™</title>
+  <title>Capital Opportunities for Members — Secure Funder™</title>
   <meta name="description" content="Overview of the Secure Funder capital markets partnership, including credit facilities, forward flow agreements, and introductions to institutional capital providers.">
   <link rel="icon" type="image/png" sizes="32x32" href="blue-ring.png">
   <link rel="icon" type="image/png" sizes="16x16" href="blue-ring.png">
@@ -46,7 +46,7 @@
       background: var(--white);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
-      padding-top: calc(var(--utility-height) + var(--nav-height));
+      padding-top: 0;
     }
 
     .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
@@ -81,7 +81,7 @@
     }
     .utility-message { color: rgba(255,255,255,0.95); }
     @media (max-width: 640px) {
-      body { padding-top: calc(var(--utility-height-mobile) + var(--nav-height)); }
+      body { padding-top: 0; }
       .utility-bar { height: var(--utility-height-mobile); }
       .utility-banner-link { padding: 8px 14px; }
       .utility-copy { flex-direction: column; gap: 2px; }
@@ -277,6 +277,98 @@
       .doc-footer-meta { padding: 0 24px; margin: 20px 16px 0; }
     }
 
+    .intro-note {
+      background: linear-gradient(180deg, #F8FBFE 0%, #F2F7FB 100%);
+      border: 1px solid var(--border-light);
+      border-radius: 10px;
+      padding: 18px 20px;
+      margin-bottom: 28px;
+    }
+    .intro-note p {
+      margin-bottom: 0;
+      color: var(--text-secondary);
+      font-size: 0.93rem;
+    }
+
+    .accordion-group {
+      display: grid;
+      gap: 14px;
+      margin-top: 10px;
+    }
+    .accordion-card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: linear-gradient(180deg, #FFFFFF 0%, #FBFDFF 100%);
+      box-shadow: 0 8px 24px rgba(15,33,55,0.04);
+      overflow: hidden;
+    }
+    .accordion-toggle {
+      width: 100%;
+      border: none;
+      background: transparent;
+      padding: 20px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      text-align: left;
+      cursor: pointer;
+      color: var(--navy);
+    }
+    .accordion-toggle:hover {
+      background: rgba(79,163,209,0.04);
+    }
+    .accordion-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+    .accordion-title {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.35;
+    }
+    .accordion-icon {
+      flex: 0 0 auto;
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-secondary);
+      transition: transform 0.2s ease;
+      font-size: 1rem;
+    }
+    .accordion-card.open .accordion-icon {
+      transform: rotate(45deg);
+    }
+    .accordion-content {
+      display: none;
+      padding: 0 22px 22px;
+      border-top: 1px solid var(--border-light);
+    }
+    .accordion-card.open .accordion-content {
+      display: block;
+    }
+    .accordion-content .content-inner {
+      padding-top: 18px;
+    }
+    .accordion-content h3:first-child,
+    .accordion-content p:first-child,
+    .accordion-content ul:first-child {
+      margin-top: 0;
+    }
+    .accordion-content p:last-child,
+    .accordion-content ul:last-child,
+    .accordion-content .callout:last-child {
+      margin-bottom: 0;
+    }
+
     /* Footer */
     footer {
       background: var(--navy);
@@ -376,109 +468,117 @@
 </head>
 <body>
 
-  <div class="utility-bar">
-    <a href="/" class="utility-banner-link">
-      <span class="utility-copy">
-        <span class="utility-eyebrow">Member Benefit</span>
-        <span class="utility-message">Access to institutional capital partners</span>
-      </span>
-    </a>
-  </div>
-
-  <nav class="main-nav">
-    <div class="container">
-      <a href="/" class="logo">
-        <img class="logo-badge" src="blue-ring.png" alt="Secure Funder">
-        <div class="logo-text">Secure Funder<span class="logo-tm">™</span></div>
-      </a>
-      <ul class="nav-links">
-        <li><a href="/#about">About</a></li>
-        <li><a href="/directory">Directory</a></li>
-        <li><a href="/certification">Requirements</a></li>
-        <li><a href="/#membership">Membership</a></li>
-        <li><a href="https://portal.securefunder.org/login" class="btn-member">Member Sign In</a></li>
-      </ul>
-      <button class="mobile-toggle" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
 
   <section class="doc-wrapper">
     <div class="doc-header">
       <div class="doc-eyebrow">Member Benefit Overview</div>
-      <h1 class="doc-title">Access to Capital</h1>
-      <div class="doc-meta">Summary of the Secure Funder™ capital markets partnership</div>
+      <h1 class="doc-title">Capital Opportunities for Members</h1>
+      <div class="doc-meta">Overview of financing pathways available through the Secure Funder™ capital markets partnership</div>
     </div>
 
     <article class="doc-body">
 
-   
-      <h2><span class="section-num">1.</span>Credit Facilities</h2>
-      <p>A credit facility is a structured financing arrangement in which an institutional capital provider extends a committed line of capital to a lender or specialty finance company. The facility is typically secured by the company's underlying loan portfolio or receivables and is designed to fund originations on a revolving or term basis.</p>
-
-      <h3>Core components</h3>
-      <ul>
-        <li><strong>Borrowing base</strong> — the pool of eligible assets that determines available capital</li>
-        <li><strong>Advance rates</strong> — typically 70%–90% of eligible collateral</li>
-        <li><strong>Cost of capital</strong> — SOFR plus spread, or a fixed rate depending on structure</li>
-        <li><strong>Eligibility criteria</strong> — asset-level standards for inclusion in the borrowing base</li>
-        <li><strong>Covenants &amp; performance triggers</strong> — portfolio-level metrics monitored over the life of the facility</li>
-        <li><strong>Facility structure</strong> — revolving, term, or senior-mezzanine configurations</li>
-      </ul>
-
-      <h3>Strategic benefits</h3>
-      <ul>
-        <li>Scalable origination volume without proportional equity dilution</li>
-        <li>Improved return on equity through institutional leverage</li>
-        <li>Consistent liquidity across market cycles</li>
-        <li>Greater balance sheet efficiency</li>
-      </ul>
-
-      <h2><span class="section-num">2.</span>Forward Flow Agreements</h2>
-      <p>A forward flow agreement is a contractual arrangement in which a capital provider commits to purchase newly originated assets on an ongoing basis at predefined terms. Forward flow arrangements provide a predictable exit for originated deals and are often used in combination with a credit facility.</p>
-
-      <h3>Core components</h3>
-      <ul>
-        <li><strong>Purchase commitment</strong> — the volume of assets the buyer agrees to acquire over a defined period</li>
-        <li><strong>Pricing structure</strong> — purchase price methodology established in advance</li>
-        <li><strong>Eligibility criteria</strong> — asset-level requirements for qualifying deals</li>
-        <li><strong>Settlement timing</strong> — typically 0–5 days from closing</li>
-        <li><strong>Servicing structure</strong> — defines whether the originator retains servicing post-sale</li>
-        <li><strong>True sale structure</strong> — assets transfer cleanly off the originator's balance sheet</li>
-      </ul>
-
-      <h3>Strategic benefits</h3>
-      <ul>
-        <li>Immediate liquidity on originated deals</li>
-        <li>Risk transfer to the purchasing counterparty</li>
-        <li>A predictable, contractual exit strategy</li>
-        <li>Scalable growth without accumulating portfolio risk</li>
-      </ul>
-
-      <h2><span class="section-num">3.</span>Integrated Capital Strategy</h2>
-      <p>Credit facilities and forward flow agreements are often used together to create a complete originate-and-exit cycle. A credit facility provides the capital to fund new originations. A forward flow agreement provides a committed buyer for those originations. Proceeds from the sale pay down the facility, freeing capacity to originate again.</p>
-      <p>The cycle — originate, fund, sell, recycle, scale — is designed to compound origination capacity over time without requiring a proportional increase in equity.</p>
-
-      <h2><span class="section-num">4.</span>Additional Capital Markets Services</h2>
-      <p>Beyond credit facilities and forward flow, the partner firm also supports members with:</p>
-      <ul>
-        <li>Debt and equity capital raises</li>
-        <li>Customized capital stack design for each stage of growth</li>
-        <li>Structuring advice on complex or non-standard transactions</li>
-        <li>Direct introductions to institutional capital relationships</li>
-      </ul>
-
-      <h2><span class="section-num">5.</span>Member Eligibility &amp; Process</h2>
-      <p>Access to this benefit is available to all Secure Funder™ members and applicants in good standing, at no additional cost. The introduction process is informal: members submit an inquiry, and Secure Funder connects them directly with the partner firm. From that point forward, all diligence, structuring, and terms are handled between the member and the partner.</p>
-
-      <div class="callout">
-        <p><strong>Scope of the partnership.</strong> Secure Funder™ facilitates introductions only. We do not provide capital, broker transactions, participate in negotiations, or receive compensation based on any funding outcome. All terms, fees, and engagement structures are established directly between the member and the partner firm.</p>
+      <div class="intro-note">
+        <p><strong>Available to Secure Funder™ members and applicants in good standing.</strong> Membership or application status does <strong>not</strong> guarantee eligibility, approval, or access to any capital relationship. Secure Funder facilitates introductions only, and all opportunities remain subject to the partner firm's independent review, diligence, underwriting criteria, and sole discretion. To inquire, submit a request at <a class="inquiry-link" href="https://securefunder.org/contact/">securefunder.org/contact</a>.</p>
       </div>
 
-      <h2><span class="section-num">6.</span>Requesting an Introduction</h2>
-      <p>Members interested in learning more may submit a request through our standard contact channel. Please reference "Access to Capital" in your message and include a brief description of the type of financing or capital markets activity you would like to explore.</p>
-      <p>Submit a request at <a class="inquiry-link" href="https://securefunder.org/contact/">securefunder.org/contact</a>.</p>
+      <div class="accordion-group">
+        <div class="accordion-card">
+          <button class="accordion-toggle" type="button" aria-expanded="false">
+            <span class="accordion-label"><span class="accordion-title">Credit Facilities</span>
+            </span>
+            <span class="accordion-icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <div class="content-inner">
+              <p>A credit facility is a structured financing arrangement in which an institutional capital provider extends a committed line of capital to a lender or specialty finance company. The facility is typically secured by the company's underlying loan portfolio or receivables and is designed to fund originations on a revolving or term basis.</p>
+
+              <h3>Core components</h3>
+              <ul>
+                <li><strong>Borrowing base</strong> — the pool of eligible assets that determines available capital</li>
+                <li><strong>Advance rates</strong> — typically 70%–90% of eligible collateral</li>
+                <li><strong>Cost of capital</strong> — SOFR plus spread, or a fixed rate depending on structure</li>
+                <li><strong>Eligibility criteria</strong> — asset-level standards for inclusion in the borrowing base</li>
+                <li><strong>Covenants &amp; performance triggers</strong> — portfolio-level metrics monitored over the life of the facility</li>
+                <li><strong>Facility structure</strong> — revolving, term, or senior-mezzanine configurations</li>
+              </ul>
+
+              <h3>Strategic benefits</h3>
+              <ul>
+                <li>Scalable origination volume without proportional equity dilution</li>
+                <li>Improved return on equity through institutional leverage</li>
+                <li>Consistent liquidity across market cycles</li>
+                <li>Greater balance sheet efficiency</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-card">
+          <button class="accordion-toggle" type="button" aria-expanded="false">
+            <span class="accordion-label"><span class="accordion-title">Forward Flow Agreements</span>
+            </span>
+            <span class="accordion-icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <div class="content-inner">
+              <p>A forward flow agreement is a contractual arrangement in which a capital provider commits to purchase newly originated assets on an ongoing basis at predefined terms. Forward flow arrangements provide a predictable exit for originated deals and are often used in combination with a credit facility.</p>
+
+              <h3>Core components</h3>
+              <ul>
+                <li><strong>Purchase commitment</strong> — the volume of assets the buyer agrees to acquire over a defined period</li>
+                <li><strong>Pricing structure</strong> — purchase price methodology established in advance</li>
+                <li><strong>Eligibility criteria</strong> — asset-level requirements for qualifying deals</li>
+                <li><strong>Settlement timing</strong> — typically 0–5 days from closing</li>
+                <li><strong>Servicing structure</strong> — defines whether the originator retains servicing post-sale</li>
+                <li><strong>True sale structure</strong> — assets transfer cleanly off the originator's balance sheet</li>
+              </ul>
+
+              <h3>Strategic benefits</h3>
+              <ul>
+                <li>Immediate liquidity on originated deals</li>
+                <li>Risk transfer to the purchasing counterparty</li>
+                <li>A predictable, contractual exit strategy</li>
+                <li>Scalable growth without accumulating portfolio risk</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-card">
+          <button class="accordion-toggle" type="button" aria-expanded="false">
+            <span class="accordion-label"><span class="accordion-title">Integrated Capital Strategy</span>
+            </span>
+            <span class="accordion-icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <div class="content-inner">
+              <p>Credit facilities and forward flow agreements are often used together to create a complete originate-and-exit cycle. A credit facility provides the capital to fund new originations. A forward flow agreement provides a committed buyer for those originations. Proceeds from the sale pay down the facility, freeing capacity to originate again.</p>
+              <p>The cycle — originate, fund, sell, recycle, scale — is designed to compound origination capacity over time without requiring a proportional increase in equity.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-card">
+          <button class="accordion-toggle" type="button" aria-expanded="false">
+            <span class="accordion-label"><span class="accordion-title">Additional Capital Markets Services</span>
+            </span>
+            <span class="accordion-icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <div class="content-inner">
+              <p>Beyond credit facilities and forward flow, the partner firm also supports members with:</p>
+              <ul>
+                <li>Debt and equity capital raises</li>
+                <li>Customized capital stack design for each stage of growth</li>
+                <li>Structuring advice on complex or non-standard transactions</li>
+                <li>Direct introductions to institutional capital relationships</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
 
     </article>
 
@@ -505,7 +605,7 @@
           <h4>Resources</h4>
           <a href="/directory">Member Directory</a>
           <a href="/#press">Press &amp; Media</a>
-          <a href="/capital">Access to Capital</a>
+          <a href="/capital">Capital Opportunities</a>
         </div>
         <div class="footer-col">
           <h4>Contact</h4>
@@ -520,28 +620,15 @@
     </div>
   </footer>
 
-  <div class="mobile-menu" id="mobileMenu">
-    <div class="mobile-menu-header">
-      <a href="/" class="logo" aria-label="Secure Funder Home">
-        <img class="logo-badge" src="blue-ring.png" alt="Secure Funder" style="width:30px;height:30px;">
-        <div class="logo-text">Secure Funder<span class="logo-tm">™</span></div>
-      </a>
-      <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">✕</button>
-    </div>
-    <a href="/#about" onclick="closeMobileMenu()">About</a>
-    <a href="/directory" onclick="closeMobileMenu()">Directory</a>
-    <a href="/certification" onclick="closeMobileMenu()">Requirements</a>
-    <a href="/#membership" onclick="closeMobileMenu()">Membership</a>
-    <a href="https://portal.securefunder.org/login" class="btn-member-mobile">Member Sign In</a>
-  </div>
-
   <script>
-    const toggle = document.querySelector('.mobile-toggle');
-    const menu = document.getElementById('mobileMenu');
-    const closeBtn = document.getElementById('mobileMenuClose');
-    function closeMobileMenu() { menu.classList.remove('active'); document.body.style.overflow = ''; }
-    toggle.addEventListener('click', () => { menu.classList.add('active'); document.body.style.overflow = 'hidden'; });
-    closeBtn.addEventListener('click', closeMobileMenu);
+    document.querySelectorAll('.accordion-toggle').forEach((button) => {
+      button.addEventListener('click', () => {
+        const card = button.closest('.accordion-card');
+        const isOpen = card.classList.contains('open');
+        card.classList.toggle('open', !isOpen);
+        button.setAttribute('aria-expanded', String(!isOpen));
+      });
+    });
   </script>
 
 </body>
