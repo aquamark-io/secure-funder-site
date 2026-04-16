@@ -901,8 +901,8 @@
       .hero h1 { font-size: 1.95rem; }
       .hero-actions { flex-direction: column; align-items: center; }
       .hero-content { text-align: center; align-items: center; }
-      .hero-label { justify-content: center; }
-      .hero-label::before { display: none; }
+      .hero-label { justify-content: flex-start; }
+      .hero-label::before { display: inline-block; }
       .hero h1, .hero p { text-align: left; }
       .press-grid { grid-template-columns: 1fr; }
       .nav-links { display: none; }
@@ -919,6 +919,8 @@
       .directory-text .section-label,
       .directory-text .section-title { text-align: center; }
       .leadership-photo { width: 160px; height: 160px; margin: 0 auto; }
+      .leadership-section > .container > .section-label,
+      .leadership-section > .container > .section-title { text-align: center; }
       .leadership-content { text-align: center; }
       .leadership-info p { max-width: 100%; text-align: left; }
       .membership-grid > div:first-child .section-label,
