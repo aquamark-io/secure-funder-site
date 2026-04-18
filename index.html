@@ -275,6 +275,14 @@
       margin-bottom: 34px; max-width: 520px;
     }
     .hero-actions { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+    .hero-btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      font-family: var(--font-body); font-size: 0.9rem; font-weight: 600;
+      padding: 13px 0; border-radius: 6px; min-width: 150px;
+      text-decoration: none; transition: all 0.25s; border: none; cursor: pointer;
+      text-align: center;
+    }
+    .hero-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 14px rgba(15,33,55,0.12); }
     .hero-image {
       position: relative;
       overflow: hidden;
@@ -706,6 +714,116 @@
       .benefits-grid-3 { grid-template-columns: 1fr; }
     }
 
+    /* ===== CHARTER MEMBERS ===== */
+    .charter-section {
+      background: var(--white);
+      border-bottom: 1px solid var(--border-light);
+    }
+    .charter-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .charter-card {
+      background: var(--cloud);
+      border: 1px solid var(--border-light);
+      border-radius: 12px;
+      padding: 28px 28px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: box-shadow 0.3s ease;
+    }
+    .charter-card:hover {
+      box-shadow: 0 6px 22px rgba(15,33,55,0.06);
+    }
+    .charter-quote-mark {
+      font-family: Georgia, serif;
+      font-size: 2.5rem;
+      line-height: 1;
+      color: var(--blue-accent);
+      opacity: 0.35;
+      margin-bottom: 2px;
+    }
+    .charter-card blockquote {
+      font-size: 0.95rem;
+      line-height: 1.65;
+      color: var(--navy);
+      font-style: italic;
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+    .charter-footer {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-light);
+    }
+    .charter-logo {
+      height: 28px;
+      width: auto;
+      max-width: 110px;
+      object-fit: contain;
+    }
+    .charter-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: var(--blue-accent);
+      background: var(--blue-accent-pale);
+      padding: 3px 10px;
+      border-radius: 20px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    @media (max-width: 900px) {
+      .charter-grid { grid-template-columns: repeat(2, 1fr) !important; }
+    }
+    @media (max-width: 600px) {
+      .charter-grid { grid-template-columns: 1fr !important; }
+    }
+
+    /* ===== MEMBERSHIP LAYOUT RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .membership-layout {
+        grid-template-columns: 1fr !important;
+        gap: 32px !important;
+      }
+    }
+    @media (max-width: 600px) {
+      .membership-includes-grid {
+        grid-template-columns: 1fr !important;
+      }
+      .membership-includes-grid > div {
+        border-right: none !important;
+      }
+      .membership-btn-row {
+        flex-direction: column !important;
+      }
+      .membership-btn-row a {
+        width: 100%;
+      }
+    }
+
+    /* ===== ROI CALLOUT RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .roi-callout {
+        flex-direction: column !important;
+        padding: 28px 24px !important;
+        text-align: center;
+        gap: 20px !important;
+      }
+      .roi-callout > div:nth-child(2) {
+        width: 100% !important;
+        height: 1px !important;
+      }
+    }
+
     /* ===== LEADERSHIP ===== */
     .leadership-section {
       background: var(--white);
@@ -953,8 +1071,8 @@
       .hero-label { font-size: 0.7rem; }
       .hero-image { border-radius: 10px; }
       .hero-image img { border-radius: 10px; }
-      .btn-primary, .btn-ghost, .btn-ghost-white { 
-        padding: 12px 22px; font-size: 0.86rem; width: 100%; justify-content: center; 
+      .btn-primary, .btn-ghost, .btn-ghost-white, .hero-btn { 
+        padding: 12px 22px; font-size: 0.86rem; width: 100%; justify-content: center; min-width: unset;
       }
       .hero-actions { width: 100%; }
       .mission-banner p { font-size: 0.98rem; }
@@ -1276,9 +1394,10 @@
           <div class="hero-label">Est. 2026</div>
           <h1>Independent Certification for Alternative Finance</h1>
           <p>Join the list of funders committed to greater transparency and integrity — backed by independent verification.</p>
-          <div class="hero-actions">
-            <a href="https://securefunder.org/contact/" class="btn-primary" target="_blank" rel="noopener noreferrer">Apply for Membership</a>
-<a href="#membership" class="btn-ghost">View Requirements →</a>
+          <div class="hero-actions" style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+            <a href="https://securefunder.org/contact/" class="hero-btn" style="background: var(--navy); color: var(--white);" target="_blank" rel="noopener noreferrer">Apply</a>
+            <a href="#membership" class="hero-btn" style="background: var(--blue-accent); color: var(--white);">Requirements</a>
+            <a href="https://securefunder.org/directory/" class="hero-btn" style="background: rgba(79,163,209,0.15); color: var(--blue-accent);" target="_blank" rel="noopener noreferrer">Directory</a>
           </div>
         </div>
         <!-- STOCK PHOTO: 800×700px min. Professional/business setting. Portrait or square. -->
@@ -1310,7 +1429,52 @@
   </div>
 </div>
 
-  <!-- Member Benefits -->
+  <!-- Charter Members -->
+  <section class="charter-section" style="padding: 56px 0;">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 28px;">
+        <div class="section-label">Charter Members</div>
+      </div>
+      <div class="charter-grid reveal" style="grid-template-columns: repeat(4, 1fr); max-width: 1100px; margin: 0 auto;">
+        <div class="charter-card">
+          <div>
+            <div class="charter-quote-mark">&ldquo;</div>
+            <blockquote>Excited to be a part of this!</blockquote>
+          </div>
+          <div class="charter-footer">
+            <img src="kalamata.png" alt="Kalamata Capital" class="charter-logo">
+          </div>
+        </div>
+        <div class="charter-card">
+          <div>
+            <div class="charter-quote-mark">&ldquo;</div>
+            <blockquote>This is an important step forward toward tightening things up in this industry.</blockquote>
+          </div>
+          <div class="charter-footer">
+            <img src="britecap.png" alt="BriteCap" class="charter-logo">
+          </div>
+        </div>
+        <div class="charter-card">
+          <div>
+            <div class="charter-quote-mark">&ldquo;</div>
+            <blockquote>The data security of our referral partners and borrowers is a top priority for us.</blockquote>
+          </div>
+          <div class="charter-footer">
+            <img src="breakout.png" alt="Breakout Capital" class="charter-logo">
+          </div>
+        </div>
+        <div class="charter-card">
+          <div>
+            <div class="charter-quote-mark">&ldquo;</div>
+            <blockquote>We are excited to be part of your program and look forward to what's ahead.</blockquote>
+          </div>
+          <div class="charter-footer">
+            <img src="vox-funding.png" alt="Vox Funding" class="charter-logo">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
   <section class="benefits-section">
     <div class="container">
       <div class="section-header" style="text-align: center;">
@@ -1319,39 +1483,40 @@
       <div class="benefits-grid benefits-grid-3 reveal">
         <div class="benefit-card">
           <div class="benefit-stat">200+</div>
-          <h4>Broker Visibility</h4>
-          <p>Visible to a growing network of 200+ brokers using <a href="https://www.aquamark.io/" target="_blank" style="color: var(--blue-accent); text-decoration: none; font-weight: 500;"><strong>Aquamark</strong></a>, with Secure Broker™ coming soon.</p>
+          <h4>Broker Deal Flow</h4>
+          <p>Listed inside the <a href="https://www.aquamark.io/" target="_blank" style="color: var(--blue-accent); text-decoration: none; font-weight: 500;"><strong>Aquamark</strong></a> portal where 200+ brokers decide who gets their deals. Certification makes you the first call.</p>
         </div>
         <div class="benefit-card">
           <div class="benefit-stat">$100M</div>
           <h4>Capital Opportunities</h4>
-          <p>Private investment banks and capital providers support the program, <a href="https://securefunder.org/capital-opportunities/" target="_blank" style="color: var(--blue-accent); text-decoration: none; font-weight: 500;"><strong>invite our members</strong></a> to inquire.</p>
+          <p>Private investment banks and capital providers support the program. <a href="https://securefunder.org/capital-opportunities/" target="_blank" style="color: var(--blue-accent); text-decoration: none; font-weight: 500;"><strong>Members are invited</strong></a> to inquire.</p>
         </div>
         <div class="benefit-card">
           <div class="benefit-stat">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--blue-accent)" stroke="none"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11.5 14.5 16 9.5" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--blue-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 16 9.5" fill="none" stroke="var(--blue-accent)" stroke-width="2"/></svg>
           </div>
-          <h4>Public Differentiation</h4>
-          <p>A public and independent certification status that helps the market identify trusted organizations.</p>
+          <h4>Verified Trust</h4>
+          <p>Independent verification that tells brokers, merchants, and partners you've been vetted — by process, not just reputation.</p>
         </div>
         <div class="benefit-card">
           <div class="benefit-stat">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--blue-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M9 14l2 2 4-4"/></svg>
           </div>
           <h4>Compliance Readiness</h4>
-          <p>Designed to evolve alongside emerging regulation and compliance so members can stay ahead of change.</p>
+          <p>Standards evolve alongside emerging regulation. Get ahead of what's coming instead of scrambling to catch up.</p>
         </div>
         <div class="benefit-card benefit-card-accent">
           <div class="benefit-stat" style="color: var(--white);">Day 1</div>
           <h4>Join Today, Get Listed Today</h4>
-          <p>Signal your intention to the industry.</p>
+          <p>Signal your commitment to the industry immediately.</p>
         </div>
         <div class="benefit-card benefit-card-accent">
           <div class="benefit-stat" style="color: var(--white);">Day 90</div>
           <h4>Verify on Your Schedule</h4>
-          <p>90-day grace period to meet requirements.</p>
+          <p>90-day grace period to complete verification.</p>
         </div>
       </div>
+
     </div>
   </section>
 
@@ -1496,86 +1661,56 @@
   </section>
 
   <!-- Membership -->
-  <section id="membership" class="membership-section">
+  <section id="membership" class="membership-section" style="background: var(--navy); border: none;">
     <div class="container">
-      <div class="membership-grid reveal">
-        <div>
-          <div class="section-label">Membership</div>
-          <h2 class="section-title">How to Join</h2>
-          <p class="section-subtitle" style="margin-bottom: 36px;">For funders of all sizes.</p>
-          <div class="step-item">
-            <div class="step-num">1</div>
-            <div>
-              <h4>Apply</h4>
-              <p>Complete the form in seconds.</p>
-            </div>
+      <div style="max-width: 740px; margin: 0 auto; text-align: center;" class="reveal">
+
+        <!-- Header -->
+        <div class="section-label" style="color: var(--blue-accent-soft);">Membership</div>
+        <h2 class="section-title" style="color: var(--white); margin-bottom: 6px;">Become a Member Today</h2>
+        <p style="font-size: 0.95rem; color: var(--ice); margin-bottom: 44px;">One new broker relationship covers your membership for years. Monthly installments available.</p>
+
+        <!-- Price -->
+        <div style="margin-bottom: 40px;">
+          <div style="font-family: var(--font-display); font-size: 3.5rem; font-weight: 700; color: var(--white); line-height: 1;">$2,499</div>
+          <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--steel); margin-top: 8px;">per year</div>
+        </div>
+
+        <!-- Includes grid -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; text-align: left; max-width: 620px; margin: 0 auto 44px; border-top: 1px solid rgba(255,255,255,0.08); border-bottom: 1px solid rgba(255,255,255,0.08);" class="membership-includes-grid">
+          <div style="display: flex; align-items: center; gap: 10px; padding: 15px 20px; border-bottom: 1px solid rgba(255,255,255,0.06); border-right: 1px solid rgba(255,255,255,0.06);">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--blue-accent-soft)" stroke-width="2.5" style="flex-shrink: 0;"><polyline points="20 6 9 17 4 12"/></svg>
+            <span style="font-size: 0.84rem; color: rgba(255,255,255,0.85);">Independent verification</span>
           </div>
-          <div class="step-item">
-            <div class="step-num">2</div>
-            <div>
-              <h4>Get Listed Immediately</h4>
-              <p>Listed as "Applied" — signaling your commitment.</p>
-            </div>
+          <div style="display: flex; align-items: center; gap: 10px; padding: 15px 20px; border-bottom: 1px solid rgba(255,255,255,0.06);">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--blue-accent-soft)" stroke-width="2.5" style="flex-shrink: 0;"><polyline points="20 6 9 17 4 12"/></svg>
+            <span style="font-size: 0.84rem; color: rgba(255,255,255,0.85);">Aquamark portal listing (200+ brokers)</span>
           </div>
-          <div class="step-item">
-            <div class="step-num">3</div>
-            <div>
-              <h4>Prepare &amp; Verify</h4>
-              <p>Complete verification within 90 days.</p>
-            </div>
+          <div style="display: flex; align-items: center; gap: 10px; padding: 15px 20px; border-bottom: 1px solid rgba(255,255,255,0.06); border-right: 1px solid rgba(255,255,255,0.06);">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--blue-accent-soft)" stroke-width="2.5" style="flex-shrink: 0;"><polyline points="20 6 9 17 4 12"/></svg>
+            <span style="font-size: 0.84rem; color: rgba(255,255,255,0.85);">Public directory listing</span>
           </div>
-          <div class="step-item">
-            <div class="step-num">4</div>
-            <div>
-              <h4>Certified</h4>
-              <p>Directory status updated and program announcement.</p>
-            </div>
+          <div style="display: flex; align-items: center; gap: 10px; padding: 15px 20px; border-bottom: 1px solid rgba(255,255,255,0.06);">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--blue-accent-soft)" stroke-width="2.5" style="flex-shrink: 0;"><polyline points="20 6 9 17 4 12"/></svg>
+            <span style="font-size: 0.84rem; color: rgba(255,255,255,0.85);">Secure Broker™ network <span style="font-size: 0.72rem; color: var(--blue-accent-soft); font-weight: 600;">(coming soon)</span></span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px; padding: 15px 20px; border-right: 1px solid rgba(255,255,255,0.06);">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--blue-accent-soft)" stroke-width="2.5" style="flex-shrink: 0;"><polyline points="20 6 9 17 4 12"/></svg>
+            <span style="font-size: 0.84rem; color: rgba(255,255,255,0.85);">Logo placement at industry events</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px; padding: 15px 20px;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--blue-accent-soft)" stroke-width="2.5" style="flex-shrink: 0;"><polyline points="20 6 9 17 4 12"/></svg>
+            <span style="font-size: 0.84rem; color: rgba(255,255,255,0.85);">Digital certification badge</span>
           </div>
         </div>
-        <div class="membership-card">
-          <h3>Annual Membership</h3>
-          <div class="price">$2,499</div>
-          <div style="font-size: 0.7rem; color: var(--blue-accent); margin-bottom: 32px; line-height: 1.5; text-align: center; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600;">Monthly installments available</div>
-          <div class="includes">
-            <div class="includes-label">Membership Includes</div>
-            <div class="includes-item">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Independent verification</span>
-            </div>
-            <div class="includes-item">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Listing inside Aquamark portal (200+ brokers)</span>
-            </div>
-            <div class="includes-item">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>General public directory listing</span>
-            </div>
-           <div class="includes-item">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Evolving requirements as regulations develop</span>
-            </div>
-            <div class="includes-item">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Logo placement at industry events</span>
-            </div>
-           
-             <div class="includes-item">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Digital certification badge</span>
-            </div>
-          
 
-          </div>
-          <a href="https://securefunder.org/contact/" class="btn-enroll">Apply for Membership</a>
-<a
-  href="https://securefunder.org/verification-guide.pdf"
-  target="_blank"
-  rel="noopener noreferrer"
-  class="btn-primary"
-  style="width: 100%; justify-content: center; margin-top: 12px;"
->
-  Requirements →
-</a>        </div>
+        <!-- Buttons -->
+        <div style="display: flex; gap: 12px; justify-content: center; max-width: 520px; margin: 0 auto;" class="membership-btn-row">
+          <a href="https://securefunder.org/contact/" target="_blank" rel="noopener noreferrer" style="flex: 1; display: inline-flex; align-items: center; justify-content: center; padding: 14px 0; border-radius: 6px; font-family: var(--font-body); font-size: 0.9rem; font-weight: 600; text-decoration: none; transition: all 0.25s; background: var(--white); color: var(--navy);">Apply</a>
+          <a href="https://securefunder.org/verification-guide.pdf" target="_blank" rel="noopener noreferrer" style="flex: 1; display: inline-flex; align-items: center; justify-content: center; padding: 14px 0; border-radius: 6px; font-family: var(--font-body); font-size: 0.9rem; font-weight: 600; text-decoration: none; transition: all 0.25s; background: var(--blue-accent); color: var(--white);">Requirements</a>
+          <a href="https://securefunder.org/directory/" target="_blank" rel="noopener noreferrer" style="flex: 1; display: inline-flex; align-items: center; justify-content: center; padding: 14px 0; border-radius: 6px; font-family: var(--font-body); font-size: 0.9rem; font-weight: 600; text-decoration: none; transition: all 0.25s; background: rgba(255,255,255,0.1); color: var(--white); border: 1px solid rgba(255,255,255,0.18);">Directory</a>
+        </div>
+
       </div>
     </div>
   </section>
