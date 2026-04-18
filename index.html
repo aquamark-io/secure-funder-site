@@ -1040,7 +1040,7 @@
       .leadership-section > .container > .section-label,
       .leadership-section > .container > .section-title { text-align: center; }
       .leadership-content { text-align: center; }
-      .leadership-info p { max-width: 100%; text-align: left; }
+      .leadership-info p { max-width: 100%; text-align: center; }
       .membership-grid > div:first-child .section-label,
       .membership-grid > div:first-child .section-title { text-align: center; }
       .membership-grid > div:first-child .section-subtitle { text-align: center; }
@@ -1049,6 +1049,7 @@
       .footer-grid { grid-template-columns: 1fr 1fr; }
       .footer-brand { grid-column: 1 / -1; }
       .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+      .hide-mobile { display: none !important; }
     }
 
     /* Mobile */
@@ -1546,7 +1547,7 @@
     <p style="font-size: 1rem; line-height: 1.85; color: var(--text-secondary); margin: 0 0 16px 0;">
       Some applicants already have safeguards in place. Others use the framework to work toward certified status. The program supports both.
     </p>
-    <a href="https://securefunder.org/directory/" target="_blank" class="btn-primary" style="margin-top: 8px; display: inline-block;">View Directory</a>
+    <a href="https://securefunder.org/directory/" target="_blank" class="btn-primary hide-mobile" style="margin-top: 8px; display: inline-block;">View Directory</a>
   </div>
   <div class="directory-sidebar">
               <div class="section-label">Focus Areas</div>
