@@ -1189,6 +1189,8 @@
       .photo-break { height: auto; }
       .photo-break-overlay { padding: 20px; }
       .photo-break-text h2 { font-size: 1.05rem; }
+      .ecosystem-risk-grid { grid-template-columns: 1fr !important; gap: 28px !important; }
+      .ecosystem-risk-grid > div[style*="→"] { display: none; }
       .leadership-content { grid-template-columns: 1fr; text-align: center; }
       .leadership-photo { width: 140px; height: 140px; margin: 0 auto; }
       .leadership-info p { max-width: 100%; }
@@ -1713,61 +1715,31 @@
   </section>
 
   <!-- About -->
-  <section id="about" class="about-section">
+  <!-- Ecosystem Risk -->
+  <section id="about" style="background: var(--white); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light); padding: 88px 0;">
     <div class="container">
-      <div class="about-grid reveal">
-        <div class="about-text">
-          <div class="section-label">About</div>
-          <h2 class="section-title">Why Secure Funder Exists</h2>
-          <p>Alternative finance has grown rapidly, but unlike traditional banking, there is no regulatory body overseeing how organizations handle sensitive information. As a result, misuse of data has become a serious and persistent problem in the industry.</p>
+      <div style="max-width: 960px; margin: 0 auto; text-align: center;">
+        <div class="section-label">The Bigger Picture</div>
+        <h2 class="section-title" style="margin-bottom: 48px;">The Cost of No Standards</h2>
+        <div class="ecosystem-risk-grid" style="display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 0; align-items: start; text-align: center;">
+          <div style="padding: 0 24px;">
+            <div style="display: inline-block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); background: var(--blue-accent); padding: 5px 16px; border-radius: 20px; margin-bottom: 14px;">The Leak</div>
+            <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.75; margin: 0;">Other funders mishandle a deal — your broker's merchant gets backdoored.</p>
           </div>
-        <div class="about-sidebar">
-          <h3>Guiding Principles</h3>
-          <div class="principle-item">
-            <div class="principle-icon">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-            </div>
-            <div>
-              <h4>Transparency</h4>
-              <p>Requirements are public. Verification is independent.</p>
-            </div>
+          <div style="color: var(--blue-accent); font-size: 1.4rem; padding-top: 4px; opacity: 0.4;">→</div>
+          <div style="padding: 0 24px;">
+            <div style="display: inline-block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); background: var(--blue-accent); padding: 5px 16px; border-radius: 20px; margin-bottom: 14px;">The Stack</div>
+            <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.75; margin: 0;">Stolen deals lead to excessive stacking and increased PTI.</p>
           </div>
-          <div class="principle-item">
-            <div class="principle-icon">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            </div>
-            <div>
-              <h4>Leadership</h4>
-              <p>Progress depends on organizations willing to step forward.</p>
-            </div>
+          <div style="color: var(--blue-accent); font-size: 1.4rem; padding-top: 4px; opacity: 0.4;">→</div>
+          <div style="padding: 0 24px;">
+            <div style="display: inline-block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); background: var(--blue-accent); padding: 5px 16px; border-radius: 20px; margin-bottom: 14px;">The Impact</div>
+            <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.75; margin: 0;">When merchants are overextended, every funder in the stack takes the hit.</p>
           </div>
-          <div class="principle-item">
-            <div class="principle-icon">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            </div>
-            <div>
-              <h4>Protect Merchants and Partners</h4>
-              <p>Because your business is built on their trust.</p>
-            </div>
-          </div>
-
         </div>
       </div>
     </div>
   </section>
-
-
-
-  <!-- Photo Break -->
-  <!-- STOCK PHOTO: 1400×500px min. Office/collaboration. Landscape. Dark overlay applied. -->
-  <div class="photo-break">
-    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1400&h=500&fit=crop&crop=center" alt="Professional collaboration" />
-    <div class="photo-break-overlay">
-      <div class="photo-break-text">
-        <h2>The industry is growing.<br>Its standards should grow with it.</h2>
-      </div>
-    </div>
-  </div>
 
 
   <!-- Leadership -->
