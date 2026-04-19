@@ -714,6 +714,80 @@
       .benefits-grid-3 { grid-template-columns: 1fr; }
     }
 
+    /* ===== ECOSYSTEM CARD ===== */
+    .benefit-ecosystem {
+      grid-column: 1 / -1;
+      background: linear-gradient(135deg, var(--white) 0%, var(--pearl) 100%);
+      border: 1px solid var(--border);
+      text-align: center;
+      padding: 40px 36px 32px;
+    }
+    .ecosystem-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+    }
+    .ecosystem-side {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 10px;
+      min-width: 140px;
+      text-decoration: none;
+      color: inherit;
+    }
+    .ecosystem-badge {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      object-fit: contain;
+    }
+    .ecosystem-label {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+    .ecosystem-center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      padding: 0 12px;
+    }
+    .ecosystem-connector {
+      display: flex;
+      align-items: center;
+      gap: 0;
+    }
+    .ecosystem-line {
+      width: 48px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--border) 0%, var(--blue-accent) 50%, var(--border) 100%);
+      opacity: 0.6;
+    }
+    .ecosystem-shield {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--blue-accent-pale);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 10px rgba(79,163,209,0.18);
+    }
+    @media (max-width: 600px) {
+      .ecosystem-inner { flex-direction: column; gap: 16px; }
+      .ecosystem-side { min-width: auto; gap: 10px; }
+      .ecosystem-badge { width: 46px; height: 46px; }
+      .ecosystem-label { font-size: 1.15rem; }
+      .ecosystem-center { padding: 0; }
+      .ecosystem-connector { flex-direction: column; }
+      .ecosystem-line { width: 2px; height: 20px; }
+      .benefit-ecosystem { padding: 28px 18px 24px; }
+    }
+
     /* ===== CHARTER MEMBERS ===== */
     .charter-section {
       background: var(--white);
@@ -1482,6 +1556,28 @@
         <h2 class="section-title">Membership Benefits</h2>
       </div>
       <div class="benefits-grid benefits-grid-3 reveal">
+        <!-- Ecosystem Card — full width -->
+        <div class="benefit-card benefit-ecosystem">
+          <div class="ecosystem-inner">
+            <div class="ecosystem-side">
+              <img src="blue-ring.png" alt="Secure Funder" class="ecosystem-badge">
+              <div class="ecosystem-label">Secure Funder<span style="font-size: 0.6em; vertical-align: super; font-weight: 400;">™</span></div>
+            </div>
+            <div class="ecosystem-center">
+              <div class="ecosystem-connector">
+                <div class="ecosystem-line"></div>
+                <div class="ecosystem-shield">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 16 9.5" fill="none"/></svg>
+                </div>
+                <div class="ecosystem-line"></div>
+              </div>
+            </div>
+            <a href="https://securebroker.org/" target="_blank" rel="noopener noreferrer" class="ecosystem-side">
+              <img src="green-rings.png" alt="Secure Broker" class="ecosystem-badge">
+              <div class="ecosystem-label">Secure Broker<span style="font-size: 0.6em; vertical-align: super; font-weight: 400;">™</span></div>
+            </a>
+          </div>
+        </div>
         <div class="benefit-card">
           <div class="benefit-stat">200+</div>
           <h4>Access to Brokers</h4>
