@@ -756,6 +756,21 @@
       gap: 8px;
       padding: 0 12px;
     }
+    .ecosystem-copy {
+      margin: 0 auto 18px;
+      text-align: center;
+      max-width: 640px;
+    }
+    .ecosystem-subtitle {
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin: 0;
+    }
+    .ecosystem-subtitle strong {
+      color: var(--navy);
+      font-weight: 600;
+    }
     .ecosystem-connector {
       display: flex;
       align-items: center;
@@ -786,6 +801,8 @@
       .ecosystem-connector { flex-direction: column; }
       .ecosystem-line { width: 2px; height: 20px; }
       .benefit-ecosystem { padding: 28px 18px 24px; }
+      .ecosystem-copy { margin: 0 auto 14px; }
+      .ecosystem-subtitle { font-size: 0.88rem; }
     }
 
     /* ===== CHARTER MEMBERS ===== */
@@ -1558,6 +1575,9 @@
       <div class="benefits-grid benefits-grid-3 reveal">
         <!-- Ecosystem Card — full width -->
         <div class="benefit-card benefit-ecosystem">
+          <div class="ecosystem-copy">
+            <p class="ecosystem-subtitle">A secure ecosystem. When members come together, the entire data chain is protected.</p>
+          </div>
           <div class="ecosystem-inner">
             <div class="ecosystem-side">
               <img src="blue-ring.png" alt="Secure Funder" class="ecosystem-badge">
