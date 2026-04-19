@@ -825,6 +825,8 @@
       .ecosystem-shield { width: 32px; height: 32px; }
       .ecosystem-shield svg { width: 16px; height: 16px; }
       .benefit-ecosystem { padding: 24px 12px 20px; }
+      .ecosystem-standalone { padding: 24px 0 32px !important; }
+      .ecosystem-standalone > div { padding: 24px 16px !important; }
       .ecosystem-copy { margin: 0 auto 14px; }
       .ecosystem-subtitle { font-size: 0.88rem; }
     }
@@ -1603,7 +1605,7 @@
       </div>
       <!-- Ecosystem Visual — standalone -->
       <div class="ecosystem-standalone reveal" style="display: flex; justify-content: center; padding: 32px 0 40px;">
-        <div style="background: var(--white); border-radius: 12px; padding: 32px 48px; box-shadow: 0 2px 12px rgba(0,0,0,0.06);">
+        <div style="background: var(--white); border-radius: 12px; padding: 32px clamp(16px, 4vw, 48px); box-shadow: 0 2px 12px rgba(0,0,0,0.06); max-width: 100%; overflow: hidden;">
           <div class="ecosystem-inner">
           <div class="ecosystem-side">
             <img src="blue-ring.png" alt="Secure Funder" class="ecosystem-badge">
