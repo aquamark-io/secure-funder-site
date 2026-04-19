@@ -906,17 +906,19 @@
     /* ===== MEMBERSHIP LAYOUT RESPONSIVE ===== */
     @media (max-width: 900px) {
       .membership-layout {
-        grid-template-columns: 1fr !important;
+        flex-direction: column !important;
+        text-align: center !important;
         gap: 32px !important;
+      }
+      .membership-layout .section-title,
+      .membership-layout .section-label {
+        text-align: center !important;
+      }
+      .membership-btn-row {
+        justify-content: center !important;
       }
     }
     @media (max-width: 600px) {
-      .membership-includes-grid {
-        grid-template-columns: 1fr !important;
-      }
-      .membership-includes-grid > div {
-        border-right: none !important;
-      }
       .membership-btn-row {
         flex-direction: column !important;
       }
@@ -1766,27 +1768,25 @@
   <!-- Membership -->
   <section id="membership" class="membership-section" style="background: var(--navy); border: none;">
     <div class="container">
-      <div style="max-width: 740px; margin: 0 auto; text-align: center;" class="reveal">
+      <div style="max-width: 820px; margin: 0 auto; display: flex; align-items: center; gap: 56px;" class="reveal membership-layout">
 
         <!-- Certification Badge -->
-        <div style="margin-bottom: 28px;">
-          <img src="secure-funder-badge-2026.png" alt="Secure Funder™ Certified 2026" style="width: 168px; height: 168px; border: 2px solid rgba(255,255,255,0.25); border-radius: 50%;">
+        <div style="flex-shrink: 0;">
+          <img src="secure-funder-badge-2026.png" alt="Secure Funder™ Certified 2026" style="width: 180px; height: 180px; border: 2px solid rgba(255,255,255,0.25); border-radius: 50%;">
         </div>
 
-        <!-- Header -->
-        <div class="section-label" style="color: var(--blue-accent-soft);">Membership</div>
-        <h2 class="section-title" style="color: var(--white); margin-bottom: 16px;">Become a Member</h2>
+        <!-- Content -->
+        <div style="text-align: left;">
+          <div class="section-label" style="color: var(--blue-accent-soft);">Membership</div>
+          <h2 class="section-title" style="color: var(--white); margin-bottom: 12px; text-align: left;">Become a Member</h2>
+          <div style="font-size: 1rem; color: var(--sky); letter-spacing: 0.01em; margin-bottom: 4px;">Annual membership — <span style="font-weight: 600; color: var(--white);">$2,499</span>/year</div>
+          <div style="font-size: 0.8rem; color: var(--steel); margin-bottom: 28px;">Flexible payment options available</div>
 
-        <!-- Price — understated -->
-        <div style="margin-bottom: 40px;">
-          <div style="font-size: 1rem; color: var(--sky); letter-spacing: 0.01em;">Annual membership — <span style="font-weight: 600; color: var(--white);">$2,499</span>/year</div>
-          <div style="font-size: 0.8rem; color: var(--steel); margin-top: 8px;">Flexible payment options available</div>
-        </div>
-
-        <!-- Buttons -->
-        <div style="display: flex; gap: 12px; justify-content: center; max-width: 400px; margin: 0 auto;" class="membership-btn-row">
-          <a href="https://securefunder.org/contact/" target="_blank" rel="noopener noreferrer" style="flex: 1; display: inline-flex; align-items: center; justify-content: center; padding: 14px 0; border-radius: 6px; font-family: var(--font-body); font-size: 0.9rem; font-weight: 600; text-decoration: none; transition: all 0.25s; background: var(--white); color: var(--navy);">Apply for Membership</a>
-          <a href="https://securefunder.org/securefunder-requirements.pdf" target="_blank" rel="noopener noreferrer" style="flex: 1; display: inline-flex; align-items: center; justify-content: center; padding: 14px 0; border-radius: 6px; font-family: var(--font-body); font-size: 0.9rem; font-weight: 600; text-decoration: none; transition: all 0.25s; background: rgba(255,255,255,0.1); color: var(--white); border: 1px solid rgba(255,255,255,0.18);">View Requirements</a>
+          <!-- Buttons -->
+          <div style="display: flex; gap: 12px;" class="membership-btn-row">
+            <a href="https://securefunder.org/contact/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; justify-content: center; padding: 12px 28px; border-radius: 6px; font-family: var(--font-body); font-size: 0.9rem; font-weight: 600; text-decoration: none; transition: all 0.25s; background: var(--white); color: var(--navy);">Apply for Membership</a>
+            <a href="https://securefunder.org/securefunder-requirements.pdf" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; justify-content: center; padding: 12px 28px; border-radius: 6px; font-family: var(--font-body); font-size: 0.9rem; font-weight: 600; text-decoration: none; transition: all 0.25s; background: rgba(255,255,255,0.1); color: var(--white); border: 1px solid rgba(255,255,255,0.18);">View Requirements</a>
+          </div>
         </div>
 
       </div>
