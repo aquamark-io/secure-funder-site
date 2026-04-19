@@ -793,14 +793,25 @@
       box-shadow: 0 2px 10px rgba(79,163,209,0.18);
     }
     @media (max-width: 600px) {
-      .ecosystem-inner { flex-direction: column; gap: 16px; }
-      .ecosystem-side { min-width: auto; gap: 10px; }
-      .ecosystem-badge { width: 46px; height: 46px; }
-      .ecosystem-label { font-size: 1.15rem; }
-      .ecosystem-center { padding: 0; }
-      .ecosystem-connector { flex-direction: column; }
-      .ecosystem-line { width: 2px; height: 20px; }
-      .benefit-ecosystem { padding: 28px 18px 24px; }
+      .ecosystem-inner {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 0;
+        flex-wrap: nowrap;
+      }
+      .ecosystem-side { min-width: 0; gap: 8px; }
+      .ecosystem-badge { width: 36px; height: 36px; }
+      .ecosystem-label { font-size: 0.95rem; }
+      .ecosystem-center { padding: 0 8px; }
+      .ecosystem-connector {
+        flex-direction: row;
+        align-items: center;
+      }
+      .ecosystem-line { width: 28px; height: 2px; }
+      .ecosystem-shield { width: 34px; height: 34px; }
+      .ecosystem-shield svg { width: 18px; height: 18px; }
+      .benefit-ecosystem { padding: 24px 14px 20px; }
       .ecosystem-copy { margin: 0 auto 14px; }
       .ecosystem-subtitle { font-size: 0.88rem; }
     }
