@@ -377,6 +377,14 @@
     }
     .section-header { margin-bottom: 52px; }
 
+     .mobile-break { display: none; }
+    @media (max-width: 600px) { .mobile-break { display: block; } }
+    section { padding: 88px 0; }
+    .section-label {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--green-accent); margin-bottom: 12px;
+    }
+
     /* ===== ABOUT ===== */
     .about-section { background: var(--white); }
     .about-grid {
@@ -1660,7 +1668,7 @@
       <div class="eligibility-content">
         <div class="section-label">Eligibility</div>
         <h2 class="section-title">Are You Eligible?</h2>
-        <p class="eligibility-subtitle">A program for non-banking funders and lenders.</p>
+        <p class="eligibility-subtitle">A program for funders and brokers,<br class="mobile-break"> in alternative finance.</p>
         <div class="eligibility-tags reveal">
           <span class="eligibility-tag">Working Capital</span>
           <span class="eligibility-tag">Merchant Cash Advance</span>
