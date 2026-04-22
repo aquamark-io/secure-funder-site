@@ -307,6 +307,51 @@
     }
 
 
+
+    .hero-admin {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 18px;
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: rgba(255,255,255,0.72);
+      text-decoration: none;
+      color: var(--navy);
+      transition: background 0.22s ease, border-color 0.22s ease, transform 0.22s ease;
+      width: fit-content;
+      max-width: 100%;
+    }
+    .hero-admin:hover {
+      background: var(--white);
+      border-color: var(--sky);
+      transform: translateY(-1px);
+    }
+    .hero-admin-logo {
+      width: 34px;
+      height: 34px;
+      display: block;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+    .hero-admin-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+      text-align: left;
+    }
+    .hero-admin-text span {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--navy);
+    }
+    .hero-admin-text small {
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+      letter-spacing: 0.01em;
+    }
+
     /* ===== MISSION BANNER ===== */
     .mission-banner {
       background: var(--navy); border-bottom: none; padding: 52px 0;
@@ -1367,6 +1412,11 @@
     width: 100%;
     max-width: 100%;
   }
+  .hero-admin {
+    margin-top: 16px;
+    width: 100%;
+    padding: 12px 14px;
+  }
 
   .mission-linkedin-icon {
     width: 30px;
@@ -1526,6 +1576,20 @@
             <a href="/requirements-for-secure-funder.pdf" class="hero-btn" style="background: var(--blue-accent); color: var(--white);" target="_blank" rel="noopener noreferrer">Requirements</a>
             <a href="https://securefunder.org/directory/" class="hero-btn" style="background: rgba(79,163,209,0.15); color: var(--blue-accent); border: 1px solid rgba(79,163,209,0.3);" target="_blank" rel="noopener noreferrer">Directory</a>
           </div>
+
+          <a
+            href="https://www.aquamark.io/"
+            class="hero-admin"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Secure Funder is administered by Aquamark"
+          >
+            <img src="icon.jpg" alt="Aquamark" class="hero-admin-logo">
+            <div class="hero-admin-text">
+              <span>Secure Funder is administered by Aquamark</span>
+              <small>Built and overseen by the Aquamark team</small>
+            </div>
+          </a>
         </div>
         <!-- STOCK PHOTO: 800×700px min. Professional/business setting. Portrait or square. -->
         <div class="hero-image">
