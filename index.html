@@ -280,6 +280,54 @@
       margin-bottom: 34px; max-width: 520px;
     }
     .hero-actions { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+    .hero-admin-note {
+      margin-top: 18px;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.72);
+      border: 1px solid var(--border);
+      color: var(--navy);
+      text-decoration: none;
+      box-shadow: 0 4px 18px rgba(15,33,55,0.05);
+      transition: all 0.22s ease;
+      width: fit-content;
+      max-width: 100%;
+    }
+    .hero-admin-note:hover {
+      background: var(--white);
+      border-color: var(--ice);
+      transform: translateY(-1px);
+    }
+    .hero-admin-logo {
+      width: 34px;
+      height: 34px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+    .hero-admin-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+      text-align: left;
+    }
+    .hero-admin-eyebrow {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blue-accent);
+      margin-bottom: 3px;
+      text-align: left;
+    }
+    .hero-admin-title {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--navy);
+      text-align: left;
+    }
     .hero-btn {
       display: inline-flex; align-items: center; justify-content: center;
       font-family: var(--font-body); font-size: 0.9rem; font-weight: 600;
@@ -306,51 +354,6 @@
       border-radius: 16px;
     }
 
-
-
-    .hero-admin {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      margin-top: 18px;
-      padding: 10px 14px;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      background: rgba(255,255,255,0.72);
-      text-decoration: none;
-      color: var(--navy);
-      transition: background 0.22s ease, border-color 0.22s ease, transform 0.22s ease;
-      width: fit-content;
-      max-width: 100%;
-    }
-    .hero-admin:hover {
-      background: var(--white);
-      border-color: var(--sky);
-      transform: translateY(-1px);
-    }
-    .hero-admin-logo {
-      width: 34px;
-      height: 34px;
-      display: block;
-      object-fit: contain;
-      flex-shrink: 0;
-    }
-    .hero-admin-text {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.2;
-      text-align: left;
-    }
-    .hero-admin-text span {
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--navy);
-    }
-    .hero-admin-text small {
-      font-size: 0.78rem;
-      color: var(--text-secondary);
-      letter-spacing: 0.01em;
-    }
 
     /* ===== MISSION BANNER ===== */
     .mission-banner {
@@ -1244,6 +1247,10 @@
         padding: 12px 22px; font-size: 0.86rem; width: 100%; justify-content: center; min-width: unset;
       }
       .hero-actions { width: 100%; }
+      .hero-admin-note { width: 100%; justify-content: flex-start; }
+      .hero-admin-text,
+      .hero-admin-eyebrow,
+      .hero-admin-title { text-align: left; }
       .mission-banner p { font-size: 0.98rem; }
       .section-title { font-size: 1.4rem; }
       .section-subtitle { font-size: 0.92rem; }
@@ -1412,11 +1419,6 @@
     width: 100%;
     max-width: 100%;
   }
-  .hero-admin {
-    margin-top: 16px;
-    width: 100%;
-    padding: 12px 14px;
-  }
 
   .mission-linkedin-icon {
     width: 30px;
@@ -1576,19 +1578,12 @@
             <a href="/requirements-for-secure-funder.pdf" class="hero-btn" style="background: var(--blue-accent); color: var(--white);" target="_blank" rel="noopener noreferrer">Requirements</a>
             <a href="https://securefunder.org/directory/" class="hero-btn" style="background: rgba(79,163,209,0.15); color: var(--blue-accent); border: 1px solid rgba(79,163,209,0.3);" target="_blank" rel="noopener noreferrer">Directory</a>
           </div>
-
-          <a
-            href="https://www.aquamark.io/"
-            class="hero-admin"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Secure Funder is administered by Aquamark"
-          >
-            <img src="icon.jpg" alt="Aquamark" class="hero-admin-logo">
-            <div class="hero-admin-text">
-              <span>Secure Funder is administered by Aquamark</span>
-              <small>Built and overseen by the Aquamark team</small>
-            </div>
+          <a href="https://aquamark.io" class="hero-admin-note" target="_blank" rel="noopener noreferrer" aria-label="Secure Funder is administered by Aquamark">
+            <img src="aquamark.png" alt="Aquamark" class="hero-admin-logo">
+            <span class="hero-admin-text">
+              <span class="hero-admin-eyebrow">Program Administration</span>
+              <span class="hero-admin-title">Secure Funder is administered by Aquamark</span>
+            </span>
           </a>
         </div>
         <!-- STOCK PHOTO: 800×700px min. Professional/business setting. Portrait or square. -->
