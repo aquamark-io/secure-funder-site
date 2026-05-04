@@ -631,22 +631,13 @@
       color: #CF222E;
       font-weight: 600;
     }
-    .charter-star {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      font-size: 0.68rem;
+    .charter-badge {
+      font-size: 0.65rem;
       font-weight: 600;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--text-secondary);
-      background: transparent;
-      border: 1px solid var(--border);
-      padding: 3px 8px;
-      border-radius: 4px;
-    }
-    .charter-star svg {
-      color: var(--steel);
+      color: var(--text-muted);
+      margin-top: -6px;
     }
     .member-card-name a {
       text-decoration: none;
@@ -1232,6 +1223,14 @@
       logoWrap.appendChild(linkEl);
       card.appendChild(logoWrap);
 
+      // Charter badge (small text under logo)
+      if (member.charter) {
+        const badge = document.createElement('div');
+        badge.className = 'charter-badge';
+        badge.textContent = 'Charter Member';
+        card.appendChild(badge);
+      }
+
       // Status line: pill + text
       const statusLine = document.createElement('div');
       statusLine.className = 'member-card-status-line';
@@ -1250,14 +1249,6 @@
       statusLine.appendChild(statusText);
 
       card.appendChild(statusLine);
-
-      // Charter star (below status)
-      if (member.charter) {
-        const star = document.createElement('div');
-        star.className = 'charter-star';
-        star.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> Charter Applicant';
-        card.appendChild(star);
-      }
 
       return card;
     }
