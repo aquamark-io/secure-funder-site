@@ -636,7 +636,12 @@
       font-weight: 600;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--text-muted);
+      color: #B8860B;
+      margin-top: -6px;
+      min-height: 1em;
+    }
+    .charter-spacer {
+      min-height: 1em;
       margin-top: -6px;
     }
     .member-card-name a {
@@ -1144,7 +1149,7 @@
       { name: "DLP Funding", status: "applied", charter: true, products: ["merchant-cash-advance"], logo: "/dlp.png", url: "https://dlpfunding.com/" },
       { name: "Fintap", status: "applied", charter: true, products: ["merchant-cash-advance"], logo: "/fintap.png", url: "https://www.fintap.com/" },
       { name: "Kalamata Capital", status: "Certified", charter: true, products: ["merchant-cash-advance", "working-capital"], logo: "/kalamata.png", url: "https://www.kalamatacapitalgroup.com/" },
-          { name: "Lynks Capital", status: "applied", charter: false, products: ["merchant-cash-advance", "working-capital"], logo: "/lynks.png", url: "https://www.lynkscapital.com/", logoScale: 1.4 },
+          { name: "Lynks Capital", status: "applied", charter: false, products: ["merchant-cash-advance", "working-capital"], logo: "/lynks.png", url: "https://www.lynkscapital.com/", logoScale: 1.75 },
 
       { name: "RTMI Capital", status: "applied", charter: true, products: ["line-of-credit", "factoring", "term-loan"], logo: "/rtmi.png", url: "https://www.rtmicapital.com/", logoScale: 1.2 },
       { name: "VOX Funding", status: "applied", charter: true, products: ["merchant-cash-advance", "working-capital", "factoring"], logo: "/vox-funding.png", url: "https://www.voxfunding.com/business-funding/", logoScale: 1.25 }
@@ -1229,6 +1234,10 @@
         badge.className = 'charter-badge';
         badge.textContent = 'Charter Member';
         card.appendChild(badge);
+      } else {
+        const spacer = document.createElement('div');
+        spacer.className = 'charter-spacer';
+        card.appendChild(spacer);
       }
 
       // Status line: pill + text
