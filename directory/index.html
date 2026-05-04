@@ -607,13 +607,15 @@
     .status-pill {
       display: inline-flex;
       align-items: center;
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       font-weight: 600;
-      letter-spacing: 0.02em;
-      padding: 3px 9px;
-      border-radius: 999px;
-      background: rgba(79,163,209,0.12);
-      color: #2D7FAA;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
       white-space: nowrap;
     }
     .status-detail {
@@ -633,16 +635,18 @@
       display: inline-flex;
       align-items: center;
       gap: 5px;
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       font-weight: 600;
-      letter-spacing: 0.02em;
-      color: #D4A017;
-      background: rgba(255, 210, 0, 0.12);
-      padding: 4px 10px;
-      border-radius: 999px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      background: transparent;
+      border: 1px solid var(--border);
+      padding: 3px 8px;
+      border-radius: 4px;
     }
     .charter-star svg {
-      color: #FFD000;
+      color: var(--steel);
     }
     .member-card-name a {
       text-decoration: none;
@@ -1149,7 +1153,7 @@
       { name: "DLP Funding", status: "applied", charter: true, products: ["merchant-cash-advance"], logo: "/dlp.png", url: "https://dlpfunding.com/" },
       { name: "Fintap", status: "applied", charter: true, products: ["merchant-cash-advance"], logo: "/fintap.png", url: "https://www.fintap.com/" },
       { name: "Kalamata Capital", status: "Certified", charter: true, products: ["merchant-cash-advance", "working-capital"], logo: "/kalamata.png", url: "https://www.kalamatacapitalgroup.com/" },
-          { name: "Lynks Capital", status: "applied", charter: false, products: ["merchant-cash-advance", "working-capital"], logo: "/lynks.png", url: "https://www.lynkscapital.com/" },
+          { name: "Lynks Capital", status: "applied", charter: false, products: ["merchant-cash-advance", "working-capital"], logo: "/lynks.png", url: "https://www.lynkscapital.com/", logoScale: 1.4 },
 
       { name: "RTMI Capital", status: "applied", charter: true, products: ["line-of-credit", "factoring", "term-loan"], logo: "/rtmi.png", url: "https://www.rtmicapital.com/", logoScale: 1.2 },
       { name: "VOX Funding", status: "applied", charter: true, products: ["merchant-cash-advance", "working-capital", "factoring"], logo: "/vox-funding.png", url: "https://www.voxfunding.com/business-funding/", logoScale: 1.25 }
