@@ -976,27 +976,16 @@
   <!-- Search & Filter Toolbar -->
   <div class="directory-toolbar">
     <div class="container">
-      <div class="toolbar-inner">
+      <div class="toolbar-inner" style="grid-template-columns: 1fr auto;">
         <!-- Name Search -->
         <div class="filter-field">
           <label class="filter-label" for="searchInput">Search by company name</label>
           <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-          <input id="searchInput" class="filter-input" type="search" placeholder="e.g. 'Funder'" autocomplete="off" />
-        </div>
-
-        <!-- Product Type Multi-Select -->
-        <div class="filter-field" style="position:relative;">
-          <label class="filter-label">Product type</label>
-          <button type="button" class="filter-select" id="productDropdownBtn">
-            <span id="productDropdownLabel" style="color:#A8BFCF;">All products</span>
-          </button>
-          <div class="product-dropdown" id="productDropdown">
-            <div class="product-dropdown-list" id="productDropdownList"></div>
-          </div>
+          <input id="searchInput" class="filter-input" type="search" placeholder="e.g. 'Kalamata'" autocomplete="off" />
         </div>
 
         <!-- Clear All -->
-        <button class="btn-clear-all" type="button" id="clearAllBtn">Clear all</button>
+        <button class="btn-clear-all" type="button" id="clearAllBtn">Clear</button>
       </div>
 
       <div class="results-bar" aria-live="polite">
@@ -1008,20 +997,62 @@
 
   <main>
 
-    <!-- Members -->
-    <section>
+    <!-- Certified Members -->
+    <section id="sectionCertified">
       <div class="container">
         <div class="section-header reveal">
-          <div class="section-label">Members</div>
-          <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.7; max-width: 860px; margin-top: 4px;">Each member is listed with their current status: <strong style="color: var(--text-primary);">Applied</strong>, <strong style="color: var(--text-primary);">Verification</strong>, or <strong style="color: var(--text-primary);">Certified</strong>. Certification is not guaranteed. Organizations that withdraw or do not pass verification are removed from the directory.</p>
-
+          <div class="section-label">Certified Members</div>
+          <h2 class="section-title" style="display:flex;align-items:center;gap:10px;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1A7F37" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            Certified
+          </h2>
+          <p class="section-subtitle">These organizations have completed the full Secure Funder™ verification process and met all certification requirements.</p>
         </div>
-
         <div class="registry-card">
           <div class="empty-state" data-empty="true">
-            <p>No organizations listed yet.</p>
+            <p>No certified members yet.</p>
           </div>
-          <div class="logo-grid" id="gridAll" aria-label="Member directory grid"></div>
+          <div class="logo-grid" id="gridCertified" aria-label="Certified members grid"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Verification -->
+    <section class="section-alt" id="sectionVerification">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-label">In Progress</div>
+          <h2 class="section-title" style="display:flex;align-items:center;gap:10px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--blue-accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Verification In Progress
+          </h2>
+          <p class="section-subtitle">These organizations are actively completing the verification process. Status will update as each stage is completed.</p>
+        </div>
+        <div class="registry-card">
+          <div class="empty-state" data-empty="true">
+            <p>No organizations in verification yet.</p>
+          </div>
+          <div class="logo-grid" id="gridVerification" aria-label="Verification in progress grid"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Applicants -->
+    <section id="sectionApplicants">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-label">Applicants</div>
+          <h2 class="section-title" style="display:flex;align-items:center;gap:10px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--steel)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+            Applicants
+          </h2>
+          <p class="section-subtitle">These organizations have applied for Secure Funder™ certification and are awaiting the start of the verification process.</p>
+        </div>
+        <div class="registry-card">
+          <div class="empty-state" data-empty="true">
+            <p>No applicants listed yet.</p>
+          </div>
+          <div class="logo-grid" id="gridApplicants" aria-label="Applicants grid"></div>
         </div>
       </div>
     </section>
@@ -1122,84 +1153,46 @@
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
     /* ===== Directory Data =====
-       PRODUCTS: the picklist options for filtering.
        MEMBERS: add organizations here when populating the directory.
-       Each member needs: name, status ('charter'|'certified'|'in_progress'),
-       products (array of product keys), and optionally logo (URL) and url (website).
+       Each member needs: name, status ('applied'|'Verification'|'Certified'),
+       charter (bool), and optionally logo (URL), url (website), logoScale.
     */
-    const PRODUCTS = [
-      { key: "working-capital",       label: "Working Capital" },
-      { key: "merchant-cash-advance", label: "Merchant Cash Advance" },
-      { key: "term-loan",             label: "Term Loan" },
-      { key: "equipment-financing",   label: "Equipment Financing" },
-      { key: "line-of-credit",        label: "Line of Credit" },
-      { key: "factoring",             label: "Invoice Factoring" },
-      { key: "ecommerce",             label: "E-Commerce" },
-      { key: "asset-based-lending",   label: "Asset-Based Lending" },
-      { key: "SBA",   label: "SBA" },
-      { key: "credit-card-split",     label: "Credit Card Split" }
-    ];
 
-    // ── Charter Members ──
     const MEMBERS = [
-      { name: "Breakout Finance", status: "applied", charter: true, products: ["term-loan", "factoring", "asset-based-lending"], logo: "/breakout.png", url: "https://www.breakoutfinance.com/" },
-      { name: "BriteCap Financial", status: "applied", charter: true, products: ["merchant-cash-advance", "working-capital", "term-loan", "line-of-credit"], logo: "/britecap.png", url: "https://www.britecap.com/", logoScale: 1.59 },
-    { name: "Capitawize", status: "applied", charter: false, products: ["merchant-cash-advance"], logo: "/capitawize.png", url: "https://www.capitawize.com/", logoScale: 1.2 },
-      { name: "Diesel Funding", status: "applied", charter: true, products: ["merchant-cash-advance"], logo: "/diesel.png", url: "https://www.dieselfunding.com/" },
-      { name: "DLP Funding", status: "applied", charter: true, products: ["merchant-cash-advance"], logo: "/dlp.png", url: "https://dlpfunding.com/" },
-      { name: "Fintap", status: "Verification", charter: true, products: ["merchant-cash-advance"], logo: "/fintap.png", url: "https://www.fintap.com/" },
-      { name: "Kalamata Capital", status: "Certified", charter: true, products: ["merchant-cash-advance", "working-capital"], logo: "/kalamata.png", url: "https://www.kalamatacapitalgroup.com/" },
-          { name: "Lynks Capital", status: "applied", charter: false, products: ["merchant-cash-advance", "working-capital"], logo: "/lynks.png", url: "https://www.lynkscapital.com/", logoScale: 1.75 },
-
-      { name: "RTMI Capital", status: "applied", charter: true, products: ["line-of-credit", "factoring", "term-loan"], logo: "/rtmi.png", url: "https://www.rtmicapital.com/", logoScale: 1.2 },
-      { name: "VOX Funding", status: "applied", charter: true, products: ["merchant-cash-advance", "working-capital", "factoring"], logo: "/vox-funding.png", url: "https://www.voxfunding.com/business-funding/", logoScale: 1.25 }
+      { name: "Breakout Finance", status: "applied", charter: true, logo: "/breakout.png", url: "https://www.breakoutfinance.com/" },
+      { name: "BriteCap Financial", status: "applied", charter: true, logo: "/britecap.png", url: "https://www.britecap.com/", logoScale: 1.59 },
+      { name: "Capitawize", status: "applied", charter: false, logo: "/capitawize.png", url: "https://www.capitawize.com/", logoScale: 1.2 },
+      { name: "Diesel Funding", status: "applied", charter: true, logo: "/diesel.png", url: "https://www.dieselfunding.com/" },
+      { name: "DLP Funding", status: "applied", charter: true, logo: "/dlp.png", url: "https://dlpfunding.com/" },
+      { name: "Fintap", status: "Verification", charter: true, logo: "/fintap.png", url: "https://www.fintap.com/" },
+      { name: "Kalamata Capital", status: "Certified", charter: true, logo: "/kalamata.png", url: "https://www.kalamatacapitalgroup.com/" },
+      { name: "Lynks Capital", status: "applied", charter: false, logo: "/lynks.png", url: "https://www.lynkscapital.com/", logoScale: 1.75 },
+      { name: "RTMI Capital", status: "applied", charter: true, logo: "/rtmi.png", url: "https://www.rtmicapital.com/", logoScale: 1.2 },
+      { name: "VOX Funding", status: "applied", charter: true, logo: "/vox-funding.png", url: "https://www.voxfunding.com/business-funding/", logoScale: 1.25 }
     ];
 
     /* ===== DOM refs ===== */
     const els = {
-      search:           document.getElementById('searchInput'),
-      productBtn:       document.getElementById('productDropdownBtn'),
-      productLabel:     document.getElementById('productDropdownLabel'),
-      productDropdown:  document.getElementById('productDropdown'),
-      productList:      document.getElementById('productDropdownList'),
-      clearAllBtn:      document.getElementById('clearAllBtn'),
-      resultsCount:     document.getElementById('resultsCount'),
-      resultsHint:      document.getElementById('resultsHint'),
-      gridAll:          document.getElementById('gridAll')
+      search:         document.getElementById('searchInput'),
+      clearAllBtn:    document.getElementById('clearAllBtn'),
+      resultsCount:   document.getElementById('resultsCount'),
+      resultsHint:    document.getElementById('resultsHint'),
+      gridCertified:  document.getElementById('gridCertified'),
+      gridVerification: document.getElementById('gridVerification'),
+      gridApplicants: document.getElementById('gridApplicants'),
+      sectionCertified: document.getElementById('sectionCertified'),
+      sectionVerification: document.getElementById('sectionVerification'),
+      sectionApplicants: document.getElementById('sectionApplicants')
     };
 
-    const state = { query: "", selectedProducts: new Set() };
+    let searchQuery = "";
 
     function normalize(s) { return (s || "").toLowerCase().trim(); }
 
-    // Product filter uses OR logic: show funder if they offer ANY of the selected products
-    function matchesProducts(member) {
-      if (state.selectedProducts.size === 0) return true;
-      return (member.products || []).some(p => state.selectedProducts.has(p));
-    }
-
     function matchesQuery(member) {
-      if (!state.query) return true;
-      return normalize(member.name).includes(state.query);
+      if (!searchQuery) return true;
+      return normalize(member.name).includes(searchQuery);
     }
-
-    function filterMembers() {
-      return MEMBERS.filter(m => matchesQuery(m) && matchesProducts(m));
-    }
-
-    function byStatus(list, status) {
-      return list.filter(m => m.status === status);
-    }
-
-    const STATUS_LABELS = {
-      applied: "Applied",
-      review: "Verification",
-      passed: "Verified — Pass",
-      failed: "Verified — Fail"
-    };
-
-    const PRODUCT_MAP = {};
-    PRODUCTS.forEach(p => { PRODUCT_MAP[p.key] = p.label; });
 
     function buildTile(member) {
       const card = document.createElement('div');
@@ -1228,157 +1221,70 @@
       logoWrap.appendChild(linkEl);
       card.appendChild(logoWrap);
 
-      // Charter badge (small text under logo)
+      // Charter badge
       if (member.charter) {
         const badge = document.createElement('div');
         badge.className = 'charter-badge';
         badge.textContent = 'Charter Member';
         card.appendChild(badge);
-      } else {
-        const spacer = document.createElement('div');
-        spacer.className = 'charter-spacer';
-        card.appendChild(spacer);
       }
-
-      // Status line: pill + text
-      const statusLine = document.createElement('div');
-      statusLine.className = 'member-card-status-line';
-
-      const pill = document.createElement('span');
-      pill.className = 'status-pill';
-      pill.textContent = 'Certification Status:';
-      statusLine.appendChild(pill);
-
-      const statusText = document.createElement('span');
-      statusText.className = 'status-detail';
-      const statusLabels = { applied: 'Applied', review: 'Verification', passed: 'Pass', failed: 'Fail' };
-      statusText.textContent = statusLabels[member.status] || member.status;
-      if (member.status === 'passed') statusText.classList.add('status-pass');
-      if (member.status === 'failed') statusText.classList.add('status-fail');
-      statusLine.appendChild(statusText);
-
-      card.appendChild(statusLine);
 
       return card;
     }
 
-    function setSectionVisibility(sectionEl, count, directoryClosed) {
+    function renderSection(gridEl, sectionEl, members) {
+      gridEl.innerHTML = "";
       const card = sectionEl.querySelector('.registry-card');
-      if (!card) return;
       const empty = card.querySelector('[data-empty="true"]');
-      const grid = card.querySelector('.logo-grid');
 
-      if (count > 0) {
+      if (members.length > 0) {
         empty.style.display = 'none';
-        grid.style.display = 'grid';
+        gridEl.style.display = 'grid';
+        members.forEach(m => gridEl.appendChild(buildTile(m)));
+        sectionEl.style.display = '';
       } else {
-        empty.style.display = 'flex';
-        grid.style.display = 'none';
-        if (!directoryClosed) {
-          empty.innerHTML = '<p>No matches for the current filters.</p>';
+        if (searchQuery) {
+          // Hide the whole section if searching with no matches
+          sectionEl.style.display = 'none';
+        } else {
+          sectionEl.style.display = '';
+          empty.style.display = 'flex';
+          gridEl.style.display = 'none';
         }
       }
     }
 
     function renderDirectory() {
-      const filtered = filterMembers();
+      const filtered = MEMBERS.filter(matchesQuery);
 
-      els.gridAll.innerHTML = "";
+      const certified = filtered.filter(m => m.status === 'Certified');
+      const verification = filtered.filter(m => m.status === 'Verification');
+      const applicants = filtered.filter(m => m.status === 'applied');
 
-      const section = document.querySelector('main > section:not(.mini-cta)');
-      const card = section.querySelector('.registry-card');
-      const empty = card.querySelector('[data-empty="true"]');
-
-      if (filtered.length > 0) {
-        empty.style.display = 'none';
-        els.gridAll.style.display = 'grid';
-        filtered.forEach(m => els.gridAll.appendChild(buildTile(m)));
-      } else {
-        els.gridAll.style.display = 'none';
-        empty.style.display = 'flex';
-        if (MEMBERS.length > 0) {
-          empty.innerHTML = '<p>No matches for the current filters.</p>';
-        }
-      }
+      renderSection(els.gridCertified, els.sectionCertified, certified);
+      renderSection(els.gridVerification, els.sectionVerification, verification);
+      renderSection(els.gridApplicants, els.sectionApplicants, applicants);
 
       const total = filtered.length;
       els.resultsCount.textContent = `Showing ${total} organization${total === 1 ? '' : 's'}`;
-      if (MEMBERS.length === 0) {
-        els.resultsHint.textContent = "Filters will apply as listings are added.";
-      } else if (total === 0) {
+      if (total === 0 && searchQuery) {
         els.resultsHint.textContent = "No matches — try adjusting your search.";
       } else {
         els.resultsHint.textContent = "Results update as you type.";
       }
     }
 
-    /* ===== Product Multi-Select Dropdown ===== */
-    function updateProductLabel() {
-      if (state.selectedProducts.size === 0) {
-        els.productLabel.textContent = 'All products';
-        els.productLabel.style.color = '#A8BFCF';
-      } else if (state.selectedProducts.size === 1) {
-        const key = [...state.selectedProducts][0];
-        els.productLabel.textContent = PRODUCT_MAP[key] || key;
-        els.productLabel.style.color = 'var(--text-primary)';
-      } else {
-        els.productLabel.textContent = state.selectedProducts.size + ' selected';
-        els.productLabel.style.color = 'var(--text-primary)';
-      }
-    }
-
-    function buildProductDropdown() {
-      PRODUCTS.forEach(p => {
-        const item = document.createElement('label');
-        item.className = 'product-dropdown-item';
-
-        const cb = document.createElement('input');
-        cb.type = 'checkbox';
-        cb.value = p.key;
-        cb.addEventListener('change', () => {
-          if (cb.checked) state.selectedProducts.add(p.key);
-          else state.selectedProducts.delete(p.key);
-          updateProductLabel();
-          renderDirectory();
-        });
-
-        const label = document.createElement('span');
-        label.textContent = p.label;
-
-        item.appendChild(cb);
-        item.appendChild(label);
-        els.productList.appendChild(item);
-      });
-    }
-
-    // Toggle dropdown open/close
-    els.productBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      els.productDropdown.classList.toggle('open');
-    });
-
-    // Close dropdown when clicking outside
-    document.addEventListener('click', (e) => {
-      if (!els.productDropdown.contains(e.target) && e.target !== els.productBtn) {
-        els.productDropdown.classList.remove('open');
-      }
-    });
-
     /* ===== Wire up ===== */
-    buildProductDropdown();
     renderDirectory();
 
     els.search.addEventListener('input', (e) => {
-      state.query = normalize(e.target.value);
+      searchQuery = normalize(e.target.value);
       renderDirectory();
     });
 
     els.clearAllBtn.addEventListener('click', () => {
       els.search.value = "";
-      state.query = "";
-      state.selectedProducts.clear();
-      els.productList.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
-      updateProductLabel();
+      searchQuery = "";
       renderDirectory();
     });
   </script>
