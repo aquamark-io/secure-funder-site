@@ -983,13 +983,6 @@
 
     /* ===== ROI CALLOUT RESPONSIVE ===== */
     @media (max-width: 768px) {
-      .cost-grid {
-        grid-template-columns: 1fr !important;
-        gap: 36px !important;
-      }
-      .cost-grid svg, .cost-grid + div svg {
-        display: none;
-      }
       .roi-callout {
         flex-direction: column !important;
         padding: 28px 24px !important;
@@ -1787,64 +1780,23 @@
   <!-- Ecosystem Risk -->
   <section id="about" style="background: var(--white); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light); padding: 88px 0;">
     <div class="container">
-      <div style="max-width: 900px; margin: 0 auto; text-align: center;">
+      <div style="max-width: 1020px; margin: 0 auto; text-align: center;">
         <div class="section-label">The Bigger Picture</div>
-        <h2 class="section-title" style="margin-bottom: 52px;">The Cost of No Standards</h2>
-
-        <!-- Connecting arc SVG behind the cards -->
-        <div style="position: relative;">
-          <svg viewBox="0 0 900 24" style="position: absolute; top: 44px; left: 0; width: 100%; height: 24px; overflow: visible;" preserveAspectRatio="none">
-            <defs>
-              <marker id="chevron" markerWidth="8" markerHeight="8" refX="5" refY="4" orient="auto">
-                <path d="M1 1 L5 4 L1 7" fill="none" stroke="var(--blue-accent)" stroke-width="1.5" stroke-linecap="round"/>
-              </marker>
-            </defs>
-            <line x1="210" y1="12" x2="340" y2="12" stroke="var(--blue-accent)" stroke-width="1" stroke-opacity="0.35" marker-end="url(#chevron)"/>
-            <line x1="560" y1="12" x2="690" y2="12" stroke="var(--blue-accent)" stroke-width="1" stroke-opacity="0.35" marker-end="url(#chevron)"/>
-          </svg>
-
-          <div class="cost-grid" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 48px; align-items: start; text-align: center; position: relative;">
-
-            <div>
-              <div style="display: inline-flex; align-items: center; justify-content: center; width: 88px; height: 88px; border-radius: 50%; background: rgba(79,163,209,0.07); margin-bottom: 20px;">
-                <span style="font-size: 0.95rem; font-weight: 700; color: var(--blue-accent); letter-spacing: -0.02em;">01</span>
-              </div>
-              <div style="font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--navy); margin-bottom: 10px;">The Leak</div>
-              <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.7; margin: 0;">Other funders or brokers mishandle a deal — merchant gets backdoored.</p>
-            </div>
-
-            <div>
-              <div style="display: inline-flex; align-items: center; justify-content: center; width: 88px; height: 88px; border-radius: 50%; background: rgba(79,163,209,0.07); margin-bottom: 20px;">
-                <span style="font-size: 0.95rem; font-weight: 700; color: var(--blue-accent); letter-spacing: -0.02em;">02</span>
-              </div>
-              <div style="font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--navy); margin-bottom: 10px;">The Stack</div>
-              <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.7; margin: 0;">Stolen deals lead to excessive stacking and increased PTI.</p>
-            </div>
-
-            <div>
-              <div style="display: inline-flex; align-items: center; justify-content: center; width: 88px; height: 88px; border-radius: 50%; background: rgba(79,163,209,0.07); margin-bottom: 20px;">
-                <span style="font-size: 0.95rem; font-weight: 700; color: var(--blue-accent); letter-spacing: -0.02em;">03</span>
-              </div>
-              <div style="font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--navy); margin-bottom: 10px;">The Impact</div>
-              <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.7; margin: 0;">When merchants are overextended, every funder in the stack is impacted.</p>
-            </div>
-
+        <h2 class="section-title" style="margin-bottom: 48px;">The Cost of No Standards</h2>
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; align-items: start; text-align: center;">
+          <div style="padding: 28px 24px; border: 1px solid var(--blue-accent); border-radius: 12px;">
+            <div style="display: inline-block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); background: var(--blue-accent); padding: 5px 16px; border-radius: 20px; margin-bottom: 14px;">The Leak</div>
+            <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.75; margin: 0;">Other funders or brokers mishandle a deal — merchant gets backdoored.</p>
           </div>
-
-          <!-- Return arrow beneath -->
-          <div style="margin-top: 36px;">
-            <svg viewBox="0 0 900 40" style="width: 100%; height: 40px; overflow: visible;">
-              <defs>
-                <marker id="chevronBack" markerWidth="8" markerHeight="8" refX="5" refY="4" orient="auto">
-                  <path d="M1 1 L5 4 L1 7" fill="none" stroke="var(--blue-accent)" stroke-width="1.5" stroke-linecap="round"/>
-                </marker>
-              </defs>
-              <path d="M700,8 C700,32 200,32 200,8" fill="none" stroke="var(--blue-accent)" stroke-width="1" stroke-opacity="0.25" stroke-dasharray="6,4" marker-end="url(#chevronBack)"/>
-            </svg>
-            <div style="font-size: 0.72rem; color: var(--text-muted); letter-spacing: 0.04em; margin-top: 4px;">The cycle repeats</div>
+          <div style="padding: 28px 24px; border: 1px solid var(--blue-accent); border-radius: 12px;">
+            <div style="display: inline-block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); background: var(--blue-accent); padding: 5px 16px; border-radius: 20px; margin-bottom: 14px;">The Stack</div>
+            <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.75; margin: 0;">Stolen deals lead to excessive stacking and increased PTI.</p>
+          </div>
+          <div style="padding: 28px 24px; border: 1px solid var(--blue-accent); border-radius: 12px;">
+            <div style="display: inline-block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); background: var(--blue-accent); padding: 5px 16px; border-radius: 20px; margin-bottom: 14px;">The Impact</div>
+            <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.75; margin: 0;">When merchants are overextended, every funder in the stack is impacted.</p>
           </div>
         </div>
-
       </div>
     </div>
   </section>
