@@ -17,7 +17,7 @@
 
   <style>
     :root {
-      --utility-height: 34px;
+      --utility-height: 42px;
       --navy: #0F2137;
       --navy-mid: #1A3455;
       --slate: #3D5A80;
@@ -51,13 +51,13 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* ===== UTILITY BAR ===== */
+    /* ===== ANNOUNCEMENT BANNER ===== */
     .utility-bar {
-      background: var(--navy);
-      color: var(--ice);
-      font-size: 0.8rem;
+      background: var(--slate);
+      color: var(--white);
+      font-size: 0.88rem;
       height: var(--utility-height);
-      letter-spacing: 0.06em;
+      letter-spacing: 0.04em;
       position: sticky;
       top: 0;
       z-index: 200;
@@ -66,7 +66,27 @@
       justify-content: center;
       text-align: center;
     }
-    .utility-text { width: 100%; text-align: center; pointer-events: none; }
+    .utility-text {
+      width: 100%;
+      text-align: center;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-weight: 500;
+    }
+    .utility-text .banner-cta {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+      border-bottom: 1px solid rgba(255,255,255,0.45);
+      padding-bottom: 1px;
+      margin-left: 4px;
+      transition: border-color 0.2s;
+    }
+    .utility-text .banner-cta:hover {
+      border-color: var(--white);
+    }
 
     /* ===== NAV ===== */
     .main-nav {
@@ -845,8 +865,8 @@
     @media (max-width: 600px) {
       .container { padding: 0 16px; }
       .container-narrow { padding: 0 16px; }
-      .utility-bar { font-size: 0.72rem; height: 30px; }
-      :root { --utility-height: 30px; }
+      .utility-bar { font-size: 0.74rem; height: auto; min-height: 36px; padding: 8px 16px; }
+      :root { --utility-height: 36px; }
       .main-nav .container { height: 56px; }
       .logo-badge { width: 32px; height: 32px; }
       .logo-text { font-size: 1.15rem; }
@@ -936,7 +956,7 @@
 <body>
   <!-- Banner -->
   <div class="utility-bar">
-    <span class="utility-text">Program Grand Opening — April 2026</span>
+    <span class="utility-text">Program Grand Opening — April 2026 · Membership is now open <a class="banner-cta" href="/#membership">Apply today →</a></span>
   </div>
 
   <!-- Navigation -->
