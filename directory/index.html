@@ -1148,6 +1148,16 @@
   </div>
 
   <script>
+    /* ===== Sync utility-bar height for sticky nav ===== */
+    function syncUtilityHeight() {
+      const bar = document.querySelector('.utility-bar');
+      if (bar) {
+        document.documentElement.style.setProperty('--utility-height', bar.offsetHeight + 'px');
+      }
+    }
+    syncUtilityHeight();
+    window.addEventListener('resize', syncUtilityHeight);
+
     /* ===== Mobile Menu ===== */
     const toggle = document.querySelector('.mobile-toggle');
     const menu = document.getElementById('mobileMenu');
