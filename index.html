@@ -1530,6 +1530,83 @@
 
 
 
+    /* ===== PARTICIPANT CAROUSEL ===== */
+    .carousel-section {
+      background: var(--white);
+      border-bottom: 1px solid var(--border-light);
+      padding: 52px 0 56px;
+      overflow: hidden;
+    }
+    .carousel-track-wrapper {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+    }
+    .carousel-fade {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 120px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .carousel-fade-left {
+      left: 0;
+      background: linear-gradient(90deg, var(--white) 0%, transparent 100%);
+    }
+    .carousel-fade-right {
+      right: 0;
+      background: linear-gradient(270deg, var(--white) 0%, transparent 100%);
+    }
+    .carousel-track {
+      display: flex;
+      align-items: center;
+      gap: 64px;
+      width: max-content;
+      animation: carousel-scroll 80s linear infinite;
+    }
+    .carousel-track:hover {
+      animation-play-state: paused;
+    }
+    .carousel-slide {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 52px;
+      opacity: 0.7;
+      transition: opacity 0.4s ease;
+    }
+    .carousel-slide:hover {
+      opacity: 1;
+    }
+    .carousel-slide img {
+      max-height: 52px;
+      max-width: 150px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      display: block;
+    }
+    @keyframes carousel-scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    @media (max-width: 900px) {
+      .carousel-track { gap: 48px; animation-duration: 60s; }
+      .carousel-slide { height: 44px; }
+      .carousel-slide img { max-height: 44px; max-width: 120px; }
+      .carousel-fade { width: 60px; }
+    }
+    @media (max-width: 600px) {
+      .carousel-section { padding: 40px 0 44px; }
+      .carousel-track { gap: 36px; animation-duration: 50s; }
+      .carousel-slide { height: 36px; }
+      .carousel-slide img { max-height: 36px; max-width: 100px; }
+      .carousel-fade { width: 36px; }
+    }
+
+
   </style>
 </head>
 <body>
@@ -1608,68 +1685,54 @@
   </div>
 </div>
 
-  <!-- Charter Members -->
-  <section class="charter-section" style="padding: 56px 0;">
-    <div class="container-wide">
-      <div style="text-align: center; margin-bottom: 28px;">
-        <div class="section-label">Trusted by Funders and Brokers</div>
-      </div>
-      <div class="charter-grid reveal" style="grid-template-columns: repeat(6, 1fr); max-width: 1840px; margin: 0 auto;">
-        <div class="charter-card">
-          
-          <div>
-            <div class="charter-quote-mark">&ldquo;</div>
-            <blockquote>Excited to be a part of this!</blockquote>
-          </div>
-          <div class="charter-footer">
-            <img src="kalamata.png" alt="Kalamata Capital" class="charter-logo">
-          </div>
-        </div>
-        <div class="charter-card">
-          <div>
-            <div class="charter-quote-mark">&ldquo;</div>
-            <blockquote>Absolutely we want to be included. Our business is built on doing things the right way, so if we can contribute to more of that across the space, we're in.</blockquote>
-          </div>
-          <div class="charter-footer">
-            <img src="big.png" alt="BIG" class="charter-logo">
-          </div>
-        </div>
-        <div class="charter-card">
-          <div>
-            <div class="charter-quote-mark">&ldquo;</div>
-            <blockquote>This is an important step forward toward tightening things up in this industry.</blockquote>
-          </div>
-          <div class="charter-footer">
-            <img src="brite.png" alt="BriteCap" class="charter-logo">
-          </div>
-        </div>
-        <div class="charter-card">
-          <div>
-            <div class="charter-quote-mark">&ldquo;</div>
-            <blockquote>1,000% count us in. The industry has needed this for a long time and sets the path for pairing Secure Brokers with members of Secure Funder.</blockquote>
-          </div>
-          <div class="charter-footer">
-            <img src="united.png" alt="United Capital Source" class="charter-logo">
-          </div>
-        </div>
-        <div class="charter-card">
-          <div>
-            <div class="charter-quote-mark">&ldquo;</div>
-            <blockquote>The data security of our referral partners and borrowers is a top priority for us.</blockquote>
-          </div>
-          <div class="charter-footer">
-            <img src="breakout.png" alt="Breakout Capital" class="charter-logo" style="height: 50px;">
-          </div>
-        </div>
-        <div class="charter-card">
-          <div>
-            <div class="charter-quote-mark">&ldquo;</div>
-            <blockquote>We are excited to be part of your program and look forward to what's ahead.</blockquote>
-          </div>
-          <div class="charter-footer">
-            <img src="vox-funding.png" alt="Vox Funding" class="charter-logo">
-          </div>
-        </div>
+  <!-- Participant Carousel -->
+  <section class="carousel-section">
+    <div style="text-align: center; margin-bottom: 32px;">
+      <div class="section-label">Trusted by Funders and Brokers</div>
+    </div>
+    <div class="carousel-track-wrapper">
+      <div class="carousel-fade carousel-fade-left"></div>
+      <div class="carousel-fade carousel-fade-right"></div>
+      <div class="carousel-track">
+        <div class="carousel-slide"><img src="kalamata.png" alt="Kalamata Capital"></div>
+        <div class="carousel-slide"><img src="big.png" alt="BIG"></div>
+        <div class="carousel-slide"><img src="qualifi.png" alt="Qualifi"></div>
+        <div class="carousel-slide"><img src="united.png" alt="United Capital Source"></div>
+        <div class="carousel-slide"><img src="green.png" alt="Green"></div>
+        <div class="carousel-slide"><img src="breakout.png" alt="Breakout Capital"></div>
+        <div class="carousel-slide"><img src="lynks.png" alt="Lynks"></div>
+        <div class="carousel-slide"><img src="vox-funding.png" alt="Vox Funding"></div>
+        <div class="carousel-slide"><img src="britecap.png" alt="BriteCap"></div>
+        <div class="carousel-slide"><img src="shore.png" alt="Shore"></div>
+        <div class="carousel-slide"><img src="fintap.png" alt="Fintap"></div>
+        <div class="carousel-slide"><img src="rtmi.png" alt="RTMI"></div>
+        <div class="carousel-slide"><img src="capitawize.png" alt="Capitawize"></div>
+        <div class="carousel-slide"><img src="diesel.png" alt="Diesel"></div>
+        <div class="carousel-slide"><img src="dlp.png" alt="DLP"></div>
+        <div class="carousel-slide"><img src="pg-new.png" alt="PG"></div>
+        <div class="carousel-slide"><img src="tag-new.png" alt="TAG"></div>
+        <div class="carousel-slide"><img src="vip-new.png" alt="VIP"></div>
+        <div class="carousel-slide"><img src="5-core-cap.png" alt="5 Core Capital"></div>
+        <!-- Duplicate set for seamless loop -->
+        <div class="carousel-slide"><img src="kalamata.png" alt="Kalamata Capital"></div>
+        <div class="carousel-slide"><img src="big.png" alt="BIG"></div>
+        <div class="carousel-slide"><img src="qualifi.png" alt="Qualifi"></div>
+        <div class="carousel-slide"><img src="united.png" alt="United Capital Source"></div>
+        <div class="carousel-slide"><img src="green.png" alt="Green"></div>
+        <div class="carousel-slide"><img src="breakout.png" alt="Breakout Capital"></div>
+        <div class="carousel-slide"><img src="lynks.png" alt="Lynks"></div>
+        <div class="carousel-slide"><img src="vox-funding.png" alt="Vox Funding"></div>
+        <div class="carousel-slide"><img src="britecap.png" alt="BriteCap"></div>
+        <div class="carousel-slide"><img src="shore.png" alt="Shore"></div>
+        <div class="carousel-slide"><img src="fintap.png" alt="Fintap"></div>
+        <div class="carousel-slide"><img src="rtmi.png" alt="RTMI"></div>
+        <div class="carousel-slide"><img src="capitawize.png" alt="Capitawize"></div>
+        <div class="carousel-slide"><img src="diesel.png" alt="Diesel"></div>
+        <div class="carousel-slide"><img src="dlp.png" alt="DLP"></div>
+        <div class="carousel-slide"><img src="pg-new.png" alt="PG"></div>
+        <div class="carousel-slide"><img src="tag-new.png" alt="TAG"></div>
+        <div class="carousel-slide"><img src="vip-new.png" alt="VIP"></div>
+        <div class="carousel-slide"><img src="5-core-cap.png" alt="5 Core Capital"></div>
       </div>
     </div>
   </section>
