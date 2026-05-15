@@ -2040,18 +2040,19 @@
 
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    // Start carousel only when visible
+    // Start carousel only when visible — observe the wrapper, not the track
+    const carouselWrapper = document.querySelector('.carousel-track-wrapper');
     const carouselTrack = document.querySelector('.carousel-track');
-    if (carouselTrack) {
+    if (carouselWrapper && carouselTrack) {
       const carouselObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
+            carouselTrack.classList.add('is-visible');
             carouselObserver.unobserve(entry.target);
           }
         });
       }, { threshold: 0.1 });
-      carouselObserver.observe(carouselTrack);
+      carouselObserver.observe(carouselWrapper);
     }
   </script>
 
