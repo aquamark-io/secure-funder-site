@@ -268,6 +268,25 @@
       to { opacity: 1; transform: translateY(0); }
     }
     .page-header { animation: fadeUp 0.5s ease-out; }
+    .btn-schedule {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 28px;
+      background: var(--blue-accent);
+      color: var(--white);
+      font-family: var(--font-display);
+      font-size: 0.92rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background 0.2s, box-shadow 0.2s;
+      letter-spacing: 0.01em;
+    }
+    .btn-schedule:hover {
+      background: #3B8FBD;
+      box-shadow: 0 4px 12px rgba(79,163,209,0.3);
+    }
+
     .contact-layout { animation: fadeUp 0.6s ease-out 0.1s both; }
 
     /* ===== RESPONSIVE ===== */
@@ -387,6 +406,7 @@
       <div class="section-label">Contact</div>
       <h1>Apply or Send a Message</h1>
       <p>Ready to apply or have a question? We look forward to hearing from you.</p>
+      <a href="https://calendly.com/christina-aquamark" target="_blank" rel="noopener noreferrer" class="btn-schedule">Schedule a Call</a>
     </div>
   </div>
 
