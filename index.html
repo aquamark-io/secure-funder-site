@@ -370,11 +370,15 @@
       font-style: normal; line-height: 1.85; max-width: 1100px; margin: 0;
     }
 
+.mission-links-row {
+  display: inline-flex; gap: 16px; align-items: center; margin-top: 30px; flex-wrap: wrap;
+}
+
 .mission-linkedin-card {
   display: inline-flex;
   align-items: center;
   gap: 14px;
-  margin-top: 30px;
+  margin-top: 0;
   padding: 14px 16px;
   border: 1px solid rgba(255,255,255,0.14);
   border-radius: 12px;
@@ -382,6 +386,36 @@
   text-decoration: none;
   color: var(--white);
   transition: background 0.22s ease, border-color 0.22s ease, transform 0.22s ease;
+}
+
+.mission-crossover-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 12px;
+  background: rgba(255,255,255,0.04);
+  text-decoration: none;
+  color: var(--white);
+  transition: background 0.22s ease, border-color 0.22s ease, transform 0.22s ease;
+}
+.mission-crossover-card:hover {
+  background: rgba(255,255,255,0.07);
+  border-color: rgba(255,255,255,0.22);
+  transform: translateY(-1px);
+}
+.mission-crossover-icon {
+  width: 34px; height: 34px; display: block; object-fit: contain; flex-shrink: 0;
+}
+.mission-crossover-text {
+  display: flex; flex-direction: column; line-height: 1.25;
+}
+.mission-crossover-text span {
+  font-size: 0.95rem; font-weight: 600; color: var(--white);
+}
+.mission-crossover-text small {
+  font-size: 0.82rem; color: rgba(255,255,255,0.78); letter-spacing: 0.01em;
 }
 
 .mission-linkedin-card:hover {
@@ -1754,19 +1788,34 @@
 <!-- Mission -->
 <div class="mission-banner">
   <div class="container-narrow reveal">
-<p><span style="font-size: 1.25rem; font-weight: 700; color: var(--forest); text-transform: uppercase; letter-spacing: 0.06em;">Our mission</span> is to help establish a standard for how merchant data is protected in alternative finance. The program gives the industry a way to identify responsible operators through evidence-based, independent verification. The goal is simple: help brokers and funders make better partnership decisions and reduce the data misuse that harms small business owners and the companies that serve them.</p>    <a
-      href="https://www.linkedin.com/company/secure-funder"
-      class="mission-linkedin-card"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Follow Us on LinkedIn"
-    >
-      <img src="linkedin.png" alt="LinkedIn" class="mission-linkedin-icon">
-      <div class="mission-linkedin-text">
-        <span>Follow Us</span>
-        <small>for program updates and announcements</small>
-      </div>
-    </a>
+<p><span style="font-size: 1.25rem; font-weight: 700; color: var(--forest); text-transform: uppercase; letter-spacing: 0.06em;">Our mission</span> is to help establish a standard for how merchant data is protected in alternative finance. The program gives the industry a way to identify responsible operators through evidence-based, independent verification. The goal is simple: help brokers and funders make better partnership decisions and reduce the data misuse that harms small business owners and the companies that serve them.</p>
+    <div class="mission-links-row">
+      <a
+        href="https://www.linkedin.com/company/secure-funder"
+        class="mission-linkedin-card"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Follow Us on LinkedIn"
+      >
+        <img src="linkedin.png" alt="LinkedIn" class="mission-linkedin-icon">
+        <div class="mission-linkedin-text">
+          <span>Follow Us</span>
+          <small>for program updates and announcements</small>
+        </div>
+      </a>
+      <a
+        href="https://securebroker.org"
+        class="mission-crossover-card"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img src="green-rings.png" alt="Secure Broker" class="mission-crossover-icon">
+        <div class="mission-crossover-text">
+          <span>Not a funder?</span>
+          <small>Learn about Secure Broker™</small>
+        </div>
+      </a>
+    </div>
   </div>
 </div>
 
