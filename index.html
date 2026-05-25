@@ -625,6 +625,59 @@
       .eligibility-tags { grid-template-columns: repeat(2, 1fr); }
     }
 
+    /* ===== FOUNDER QUOTE CALLOUT ===== */
+    .founder-quote-section {
+      padding: 64px 0;
+      background: var(--pearl);
+    }
+    .founder-quote-card {
+      display: flex; align-items: center; gap: 40px;
+      max-width: 820px; margin: 0 auto;
+      padding: 40px 48px;
+      background: var(--white);
+      border-radius: 16px;
+      box-shadow: 0 4px 24px rgba(15,33,55,0.06);
+      border: 1px solid var(--border-light);
+    }
+    .founder-quote-mark {
+      font-family: Georgia, serif;
+      font-size: 4.5rem; line-height: 1; color: var(--blue-accent);
+      opacity: 0.3; user-select: none; flex-shrink: 0; align-self: flex-start;
+      margin-top: -8px;
+    }
+    .founder-quote-body {
+      flex: 1; position: relative;
+    }
+    .founder-quote-close {
+      font-family: Georgia, serif;
+      font-size: 4.5rem; line-height: 1; color: var(--blue-accent);
+      opacity: 0.3; user-select: none;
+      position: absolute; bottom: -10px; right: 0;
+    }
+    .founder-quote-body blockquote {
+      font-size: 1.08rem; line-height: 1.8; color: var(--text-secondary);
+      font-style: italic; margin: 0 0 20px;
+    }
+    .founder-quote-attribution {
+      display: flex; align-items: center; gap: 14px;
+    }
+    .founder-quote-attribution img {
+      width: 48px; height: 48px; border-radius: 50%; object-fit: cover; object-position: center top;
+      border: 2px solid var(--blue-accent-pale);
+    }
+    .founder-quote-attribution .fq-name {
+      font-family: var(--font-display);
+      font-size: 0.92rem; font-weight: 700; color: var(--navy);
+    }
+    .founder-quote-attribution .fq-role {
+      font-size: 0.78rem; color: var(--text-light); margin-top: 1px;
+    }
+    @media (max-width: 600px) {
+      .founder-quote-card { flex-direction: column; gap: 0; padding: 28px 24px; text-align: left; }
+      .founder-quote-mark { font-size: 3rem; align-self: flex-start; margin-bottom: -8px; }
+      .founder-quote-attribution { justify-content: flex-start; }
+    }
+
     /* ===== VERIFICATION BANNER ===== */
     .verification-banner {
       background: var(--cloud);
@@ -1701,7 +1754,7 @@
 <!-- Mission -->
 <div class="mission-banner">
   <div class="container-narrow reveal">
-<p><span style="font-size: 1.25rem; font-weight: 700; color: var(--forest); text-transform: uppercase; letter-spacing: 0.06em;">Our mission</span> is to help establish a standard for how merchant data is handled in alternative finance. Secure Broker™ and Secure Funder™ give the industry a way to identify responsible operators through independent, evidence-based verification — not questionnaires, self-attestation, or paid placement. The goal is simple: help brokers and funders make better partnership decisions and reduce the data misuse that harms small business owners and the companies that serve them.</p>    <a
+<p><span style="font-size: 1.25rem; font-weight: 700; color: var(--forest); text-transform: uppercase; letter-spacing: 0.06em;">Our mission</span> is to help establish a standard for how merchant data is protected in alternative finance. The program gives the industry a way to identify responsible operators through evidence-based, independent verification. The goal is simple: help brokers and funders make better partnership decisions and reduce the data misuse that harms small business owners and the companies that serve them.</p>    <a
       href="https://www.linkedin.com/company/secure-funder"
       class="mission-linkedin-card"
       target="_blank"
@@ -1854,6 +1907,26 @@
     </div>
   </section>
 
+
+  <!-- Founder Quote Callout -->
+  <section class="founder-quote-section">
+    <div class="container">
+      <div class="founder-quote-card reveal">
+        <div class="founder-quote-mark">&ldquo;</div>
+        <div class="founder-quote-body">
+          <blockquote>Most funders don't meet every requirement on day one — and that's okay. This program is designed to give you the framework to get there. If you care about doing things the right way, we want to hear from you.</blockquote>
+          <div class="founder-quote-close">&rdquo;</div>
+          <div class="founder-quote-attribution">
+            <img src="headshot.png" alt="Christina Duncan" />
+            <div>
+              <div class="fq-name">Christina Duncan</div>
+              <div class="fq-role">Program Director</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
 
   <!-- Verification Banner -->
