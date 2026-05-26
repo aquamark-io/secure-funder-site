@@ -1650,6 +1650,90 @@
 
 
 
+    /* ===== HOW VERIFICATION WORKS ===== */
+    .how-it-works-section {
+      background: var(--white);
+      padding: 88px 0;
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+    }
+    .hiw-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 56px;
+      align-items: center;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .hiw-left {
+      text-align: left;
+    }
+    .hiw-left .section-title {
+      margin-bottom: 28px;
+    }
+    .hiw-badge {
+      width: 160px;
+      height: 160px;
+      border: 2px solid var(--border-light);
+      border-radius: 50%;
+    }
+    .hiw-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    .hiw-item {
+      padding: 24px;
+      background: var(--cloud);
+      border: 1px solid var(--border-light);
+      border-radius: 12px;
+    }
+    .hiw-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+      font-family: var(--font-display);
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: var(--blue-accent);
+    }
+    .hiw-item h4 {
+      font-family: var(--font-display);
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+    .hiw-item p {
+      font-size: 0.84rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    @media (max-width: 768px) {
+      .hiw-layout {
+        grid-template-columns: 1fr;
+        gap: 36px;
+        text-align: center;
+      }
+      .hiw-left {
+        text-align: center;
+      }
+      .hiw-badge {
+        margin: 0 auto;
+      }
+    }
+    @media (max-width: 480px) {
+      .hiw-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
     /* ===== PARTICIPANT CAROUSEL ===== */
     .carousel-section {
       background: var(--white);
@@ -1973,6 +2057,40 @@
               <div class="fq-name">Christina Duncan</div>
               <div class="fq-role">Program Director</div>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How Verification Works -->
+  <section class="how-it-works-section">
+    <div class="container">
+      <div class="hiw-layout reveal">
+        <div class="hiw-left">
+          <h2 class="section-title">The Verification Process</h2>
+          <img src="secure-funder-badge-2026.png" alt="Secure Funder™ Certified 2026" class="hiw-badge">
+        </div>
+        <div class="hiw-grid">
+          <div class="hiw-item">
+            <div class="hiw-num">1</div>
+            <h4>Secure Portal</h4>
+            <p>Hosted on SOC 2 infrastructure.</p>
+          </div>
+          <div class="hiw-item">
+            <div class="hiw-num">2</div>
+            <h4>Upload Evidence</h4>
+            <p>Screen recordings, screenshots, documents.</p>
+          </div>
+          <div class="hiw-item">
+            <div class="hiw-num">3</div>
+            <h4>On Your Schedule</h4>
+            <p>90-day grace period, extensions available.</p>
+          </div>
+          <div class="hiw-item">
+            <div class="hiw-num">4</div>
+            <h4>Collaborate</h4>
+            <p>Message program team and other members.</p>
           </div>
         </div>
       </div>
