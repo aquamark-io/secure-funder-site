@@ -604,14 +604,15 @@
     }
     .eligibility-tag {
       padding: 10px 20px;
-      border: 1px solid var(--border);
+      border: 1px solid rgba(79,163,209,0.18);
       border-radius: 20px;
       font-size: 0.85rem;
       white-space: nowrap;
-      color: var(--text-primary);
+      color: var(--navy);
+      font-weight: 600;
       letter-spacing: 0.01em;
       text-align: center;
-      background: var(--cloud);
+      background: var(--blue-accent-pale);
     }
     .eligibility-differentiator {
       font-size: 0.82rem;
@@ -661,7 +662,7 @@
 
     /* ===== FOUNDER QUOTE CALLOUT ===== */
     .founder-quote-section {
-      padding: 64px 0;
+      padding: 64px 0 36px;
       background: var(--pearl);
     }
     .founder-quote-card {
@@ -1653,7 +1654,7 @@
     /* ===== HOW VERIFICATION WORKS ===== */
     .how-it-works-section {
       background: var(--white);
-      padding: 88px 0;
+      padding: 56px 0 88px;
       border-top: 1px solid var(--border-light);
       border-bottom: 1px solid var(--border-light);
     }
@@ -1674,8 +1675,9 @@
     .hiw-badge {
       width: 160px;
       height: 160px;
-      border: 2px solid var(--border-light);
-      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .hiw-grid {
       display: grid;
@@ -1684,16 +1686,16 @@
     }
     .hiw-item {
       padding: 24px;
-      background: var(--cloud);
-      border: 1px solid var(--border-light);
+      background: var(--navy);
+      border: 1px solid rgba(255,255,255,0.08);
       border-radius: 12px;
     }
     .hiw-num {
       width: 28px;
       height: 28px;
       border-radius: 50%;
-      background: var(--white);
-      border: 1.5px solid var(--border);
+      background: rgba(255,255,255,0.12);
+      border: 1.5px solid rgba(255,255,255,0.2);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1701,18 +1703,18 @@
       font-family: var(--font-display);
       font-size: 0.74rem;
       font-weight: 700;
-      color: var(--blue-accent);
+      color: var(--blue-accent-soft);
     }
     .hiw-item h4 {
       font-family: var(--font-display);
       font-size: 0.92rem;
       font-weight: 700;
-      color: var(--navy);
+      color: var(--white);
       margin-bottom: 6px;
     }
     .hiw-item p {
       font-size: 0.84rem;
-      color: var(--text-secondary);
+      color: rgba(255,255,255,0.7);
       line-height: 1.6;
     }
     @media (max-width: 768px) {
@@ -1731,6 +1733,11 @@
     @media (max-width: 480px) {
       .hiw-grid {
         grid-template-columns: 1fr;
+        padding: 0 12px;
+      }
+      .hiw-badge {
+        width: 190px;
+        height: 190px;
       }
     }
 
@@ -2099,26 +2106,38 @@
     </div>
   </section>
 
+  <!-- Mid-page CTA -->
+  <div style="background: var(--pearl); padding: 44px 0; border-bottom: 1px solid var(--border-light);">
+    <div class="container" style="text-align: center;">
+      <p style="font-size: 1.05rem; color: var(--navy); font-weight: 600; margin-bottom: 6px;">Ready to get started?</p>
+      <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 22px;">Membership is open — join the organizations helping strengthen trust in alternative finance.</p>
+      <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+        <a href="#membership" class="btn-primary">Apply for Membership</a>
+        <a href="https://securefunder.org/get-certified-funder.pdf" target="_blank" rel="noopener noreferrer" class="btn-ghost">View Requirements</a>
+      </div>
+    </div>
+  </div>
 
   <!-- About -->
   <!-- Ecosystem Risk -->
-  <section id="about" style="background: var(--cloud); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light); padding: 88px 0;">
+  <section id="about" style="background: var(--navy); border-top: 1px solid rgba(255,255,255,0.08); border-bottom: 1px solid rgba(255,255,255,0.08); padding: 88px 0;">
     <div class="container">
       <div style="max-width: 1020px; margin: 0 auto; text-align: center;">
-        <div class="section-label">The Bigger Picture</div>
-        <h2 class="section-title" style="margin-bottom: 48px;">The Cost of No Standards</h2>
-        <div class="ecosystem-risk-grid" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; align-items: start; text-align: center;">
-          <div style="padding: 28px 24px; border: 1px solid var(--blue-accent); border-radius: 12px;">
-            <div style="display: inline-block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); background: var(--blue-accent); padding: 5px 16px; border-radius: 20px; margin-bottom: 14px;">Data Exposure</div>
-            <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.75; margin: 0;">Weak controls create opportunities for bad actors with access.</p>
+        <div class="section-label" style="color: var(--blue-accent-soft);">The Bigger Picture</div>
+        <h2 class="section-title" style="margin-bottom: 16px; color: var(--white);">The Cost of No Standards</h2>
+        <p style="font-size: 1rem; color: rgba(255,255,255,0.6); margin-bottom: 48px; max-width: 580px; margin-left: auto; margin-right: auto; line-height: 1.7;">Without shared standards, everyone in the chain is exposed.</p>
+        <div class="ecosystem-risk-grid" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; align-items: start; text-align: left;">
+          <div style="padding: 32px 28px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px;">
+            <h4 style="font-family: var(--font-display); font-size: 1.02rem; font-weight: 700; color: var(--white); margin-bottom: 10px;">Data Exposure</h4>
+            <p style="font-size: 0.88rem; color: rgba(255,255,255,0.65); line-height: 1.7; margin: 0;">Weak controls create opportunities for bad actors with access.</p>
           </div>
-          <div style="padding: 28px 24px; border: 1px solid var(--blue-accent); border-radius: 12px;">
-            <div style="display: inline-block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); background: var(--blue-accent); padding: 5px 16px; border-radius: 20px; margin-bottom: 14px;">Deal Misuse</div>
-            <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.75; margin: 0;">Stolen submissions leads to unauthorized solicitation and excessive stacking.</p>
+          <div style="padding: 32px 28px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px;">
+            <h4 style="font-family: var(--font-display); font-size: 1.02rem; font-weight: 700; color: var(--white); margin-bottom: 10px;">Deal Misuse</h4>
+            <p style="font-size: 0.88rem; color: rgba(255,255,255,0.65); line-height: 1.7; margin: 0;">Stolen submissions lead to unauthorized solicitation and excessive stacking.</p>
           </div>
-          <div style="padding: 28px 24px; border: 1px solid var(--blue-accent); border-radius: 12px;">
-            <div style="display: inline-block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); background: var(--blue-accent); padding: 5px 16px; border-radius: 20px; margin-bottom: 14px;">Market Impact</div>
-            <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.75; margin: 0;">Overextended merchants struggle to repay and don't renew.</p>
+          <div style="padding: 32px 28px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px;">
+            <h4 style="font-family: var(--font-display); font-size: 1.02rem; font-weight: 700; color: var(--white); margin-bottom: 10px;">Market Impact</h4>
+            <p style="font-size: 0.88rem; color: rgba(255,255,255,0.65); line-height: 1.7; margin: 0;">Overextended merchants struggle to repay and don't renew.</p>
           </div>
         </div>
       </div>
