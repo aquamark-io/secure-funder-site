@@ -593,26 +593,27 @@
       color: var(--text-secondary);
       margin-bottom: 28px;
     }
-    .eligibility-tags {
+    .eligibility-list {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       gap: 10px;
-      margin-bottom: 32px;
       max-width: 100%;
-      margin-left: auto;
-      margin-right: auto;
+      margin: 26px auto 32px;
     }
-    .eligibility-tag {
-      padding: 10px 20px;
-      border: 1px solid rgba(79,163,209,0.18);
-      border-radius: 20px;
+    .eligibility-list-item {
       font-size: 0.85rem;
-      white-space: nowrap;
       color: var(--navy);
-      font-weight: 600;
-      letter-spacing: 0.01em;
+      font-weight: 500;
+      padding: 14px 12px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
       text-align: center;
-      background: var(--blue-accent-pale);
+    }
+    @media (max-width: 700px) {
+      .eligibility-list { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .eligibility-list { grid-template-columns: repeat(2, 1fr); }
     }
     .eligibility-differentiator {
       font-size: 0.82rem;
@@ -643,10 +644,6 @@
       text-align: left;
     }
 @media (max-width: 900px) {
-  .eligibility-tags { 
-    grid-template-columns: repeat(3, 1fr); 
-  }
-
   .wwlf-grid { 
     grid-template-columns: 1fr !important; 
     gap: 32px !important; 
@@ -657,7 +654,6 @@
   }
 }
     @media (max-width: 600px) {
-      .eligibility-tags { grid-template-columns: repeat(2, 1fr); }
     }
 
     /* ===== FOUNDER QUOTE CALLOUT ===== */
@@ -2039,17 +2035,17 @@
       <div class="eligibility-content">
         <div class="section-label">Eligibility</div>
         <h2 class="section-title">Are You Eligible?</h2>
-        <div class="eligibility-tags reveal">
-          <span class="eligibility-tag">Working Capital</span>
-          <span class="eligibility-tag">Merchant Cash Advance</span>
-          <span class="eligibility-tag">Term Loan</span>
-          <span class="eligibility-tag">Equipment Financing</span>
-          <span class="eligibility-tag">Line of Credit</span>
-          <span class="eligibility-tag">Invoice Factoring</span>
-          <span class="eligibility-tag">E-Commerce</span>
-          <span class="eligibility-tag">Asset-Based Lending</span>
-          <span class="eligibility-tag">SBA</span>
-          <span class="eligibility-tag">Credit Card Split</span>
+        <div class="eligibility-list reveal">
+          <div class="eligibility-list-item">MCA</div>
+          <div class="eligibility-list-item">Working Capital</div>
+          <div class="eligibility-list-item">Term Loan</div>
+          <div class="eligibility-list-item">Line of Credit</div>
+          <div class="eligibility-list-item">Equipment Financing</div>
+          <div class="eligibility-list-item">Invoice Factoring</div>
+          <div class="eligibility-list-item">Asset-Based Lending</div>
+          <div class="eligibility-list-item">SBA</div>
+          <div class="eligibility-list-item">E-Commerce</div>
+          <div class="eligibility-list-item">Credit Card Split</div>
         </div>
 
         <div class="wwlf-grid reveal" style="display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: stretch; margin-top: 48px; text-align: left;">
