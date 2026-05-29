@@ -1561,6 +1561,26 @@
       .no-changes-card:not(:last-child)::after { display: none; }
     }
 
+    /* ===== FUNDER SCALE BANNER ===== */
+    .funder-scale-banner {
+      background: var(--navy);
+      padding: 52px 0;
+      text-align: center;
+    }
+    .funder-scale-banner p {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.9);
+      line-height: 1.75;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    @media (max-width: 600px) {
+      .funder-scale-banner { padding: 40px 0; }
+      .funder-scale-banner p { font-size: 1.02rem; }
+    }
+
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(16px); }
       to { opacity: 1; transform: translateY(0); }
@@ -2058,6 +2078,13 @@
 
     </div>
   </section>
+
+  <!-- Funder Scale Banner -->
+  <div class="funder-scale-banner">
+    <div class="container-narrow">
+      <p>Practical enough for companies of all sizes. Credible enough to mean something.</p>
+    </div>
+  </div>
 
 
   <!-- Founder Quote Callout -->
