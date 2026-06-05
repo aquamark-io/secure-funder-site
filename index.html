@@ -380,11 +380,11 @@
   gap: 14px;
   margin-top: 0;
   padding: 14px 16px;
-  border: 1px solid rgba(255,255,255,0.14);
+  border: none;
   border-radius: 12px;
-  background: rgba(255,255,255,0.04);
+  background: var(--blue-accent-pale);
   text-decoration: none;
-  color: var(--white);
+  color: var(--navy);
   transition: background 0.22s ease, border-color 0.22s ease, transform 0.22s ease;
 }
 
@@ -393,16 +393,16 @@
   align-items: center;
   gap: 14px;
   padding: 14px 16px;
-  border: 1px solid rgba(255,255,255,0.14);
+  border: none;
   border-radius: 12px;
-  background: rgba(255,255,255,0.04);
+  background: var(--blue-accent-pale);
   text-decoration: none;
-  color: var(--white);
+  color: var(--navy);
   transition: background 0.22s ease, border-color 0.22s ease, transform 0.22s ease;
 }
 .mission-crossover-card:hover {
-  background: rgba(255,255,255,0.07);
-  border-color: rgba(255,255,255,0.22);
+  background: #d4e9f5;
+  border-color: var(--blue-accent);
   transform: translateY(-1px);
 }
 .mission-crossover-icon {
@@ -412,15 +412,15 @@
   display: flex; flex-direction: column; line-height: 1.25;
 }
 .mission-crossover-text span {
-  font-size: 0.95rem; font-weight: 600; color: var(--white);
+  font-size: 0.95rem; font-weight: 600; color: var(--navy);
 }
 .mission-crossover-text small {
-  font-size: 0.82rem; color: rgba(255,255,255,0.78); letter-spacing: 0.01em;
+  font-size: 0.82rem; color: var(--text-secondary); letter-spacing: 0.01em;
 }
 
 .mission-linkedin-card:hover {
-  background: rgba(255,255,255,0.07);
-  border-color: rgba(255,255,255,0.22);
+  background: #d4e9f5;
+  border-color: var(--blue-accent);
   transform: translateY(-1px);
 }
 
@@ -441,12 +441,12 @@
 .mission-linkedin-text span {
   font-size: 0.95rem;
   font-weight: 600;
-  color: var(--white);
+  color: var(--navy);
 }
 
 .mission-linkedin-text small {
   font-size: 0.82rem;
-  color: rgba(255,255,255,0.78);
+  color: var(--text-secondary);
   letter-spacing: 0.01em;
 }
     
@@ -2042,12 +2042,12 @@
           <p>Get listed in the <a href="https://www.aquamark.io/" target="_blank" style="color: var(--blue-accent); text-decoration: none; font-weight: 500;"><strong>Aquamark</strong></a> portal, where 200+ brokers protect documents, and invite <a href="https://securebroker.org/" target="_blank" style="color: var(--blue-accent); text-decoration: none; font-weight: 500;"><strong>Secure Broker™</strong></a> members to partner through the member portal.</p>
         </div>
         <div class="benefit-card">
-          <h4>Merchant Confidence</h4>
-          <p>Merchants are increasingly aware of backdooring. Display your digital badge on your website or email signature as a visible trust signal.</p>
-        </div>
-        <div class="benefit-card">
           <h4>Capital Opportunities</h4>
           <p>Private investment banks and capital providers support the program. <a href="https://securefunder.org/capital-opportunities/" target="_blank" style="color: var(--blue-accent); text-decoration: none; font-weight: 500;"><strong>Members are invited</strong></a> to inquire.</p>
+        </div>
+        <div class="benefit-card">
+          <h4>Merchant Confidence</h4>
+          <p>Merchants are increasingly aware of backdooring. Display your digital badge on your website or email signature as a visible trust signal.</p>
         </div>
         <div class="benefit-card">
           <h4>Regulatory Readiness</h4>
