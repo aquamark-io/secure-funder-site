@@ -823,6 +823,23 @@
       box-shadow: 0 8px 28px rgba(15,33,55,0.06);
       transform: translateY(-2px);
     }
+    .benefit-card-featured {
+      border-top: 3px solid var(--blue-accent);
+      position: relative;
+    }
+    .benefit-tag {
+      display: inline-block;
+      font-family: var(--font-display);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #92700A;
+      background: #FDF6E3;
+      padding: 0.25rem 0.65rem;
+      border-radius: 4px;
+      margin-bottom: 12px;
+    }
     .benefit-card h4 {
       font-family: var(--font-display);
       font-size: 1.05rem; font-weight: 600; color: var(--navy);
@@ -893,6 +910,108 @@
     }
     @media (max-width: 600px) {
       .benefits-grid-3 { grid-template-columns: 1fr; }
+    }
+
+    /* ===== CAPITAL OPPORTUNITIES ===== */
+    .capital-section {
+      background: var(--navy);
+      padding: 5.5rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .capital-section::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      right: -200px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(79,163,209,0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .capital-layout {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 4rem;
+      align-items: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .capital-eyebrow {
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blue-accent-soft);
+      margin-bottom: 1rem;
+    }
+    .capital-title {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+    .capital-desc {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.75;
+      margin-bottom: 2rem;
+    }
+    .capital-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 28px;
+      border-radius: 6px;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      background: var(--white);
+      color: var(--navy);
+      transition: all 0.25s;
+    }
+    .capital-cta:hover {
+      box-shadow: 0 4px 16px rgba(255,255,255,0.15);
+      transform: translateY(-1px);
+    }
+    .capital-features {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .capital-feature {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .capital-feature:first-child {
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .capital-feature-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--blue-accent);
+      flex-shrink: 0;
+    }
+    .capital-feature-name {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+    @media (max-width: 768px) {
+      .capital-layout { grid-template-columns: 1fr; gap: 2.5rem; text-align: center; }
+      .capital-cta { margin: 0 auto; }
+      .capital-features { max-width: 300px; margin: 0 auto; }
+      .capital-feature { justify-content: flex-start; }
     }
 
     /* ===== ECOSYSTEM CARD ===== */
@@ -2037,13 +2156,15 @@
         <h2 class="section-title">Membership Benefits</h2>
       </div>
       <div class="benefits-grid benefits-grid-3 reveal">
-        <div class="benefit-card">
+        <div class="benefit-card benefit-card-featured">
+          <div class="benefit-tag">Exclusive</div>
           <h4>Access to Brokers</h4>
           <p>Get listed in the <a href="https://www.aquamark.io/" target="_blank" style="color: var(--blue-accent); text-decoration: none; font-weight: 500;"><strong>Aquamark</strong></a> portal, where 200+ brokers protect documents, and invite <a href="https://securebroker.org/" target="_blank" style="color: var(--blue-accent); text-decoration: none; font-weight: 500;"><strong>Secure Broker™</strong></a> members to partner through the member portal.</p>
         </div>
-        <div class="benefit-card">
+        <div class="benefit-card benefit-card-featured">
+          <div class="benefit-tag">Exclusive</div>
           <h4>Capital Opportunities</h4>
-          <p>Private investment banks and capital providers support the program. <a href="https://securefunder.org/capital-opportunities/" target="_blank" style="color: var(--blue-accent); text-decoration: none; font-weight: 500;"><strong>Members are invited</strong></a> to inquire.</p>
+          <p>We facilitate introductions to private investment banks and capital providers for credit facilities and forward flow agreements. <a href="https://securefunder.org/capital-opportunities/" target="_blank" style="color: var(--blue-accent); text-decoration: none; font-weight: 500;"><strong>Members are invited</strong></a> to inquire.</p>
         </div>
         <div class="benefit-card">
           <h4>Merchant Confidence</h4>
