@@ -824,21 +824,11 @@
       transform: translateY(-2px);
     }
     .benefit-card-featured {
-      border-top: 3px solid var(--blue-accent);
-      position: relative;
+      border-left: 3px solid var(--blue-accent);
+      border-top: 1px solid var(--border-light);
     }
-    .benefit-tag {
-      display: inline-block;
-      font-family: var(--font-display);
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: #92700A;
-      background: #FDF6E3;
-      padding: 0.25rem 0.65rem;
-      border-radius: 4px;
-      margin-bottom: 12px;
+    .benefit-card-featured h4 {
+      color: var(--blue-accent);
     }
     .benefit-card h4 {
       font-family: var(--font-display);
@@ -1265,11 +1255,7 @@
       text-align: left;
     }
     .membership-detail {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 1.5rem;
-      padding: 0.9rem 0;
+      padding: 1rem 0;
       border-bottom: 1px solid rgba(255,255,255,0.1);
     }
     .membership-detail:first-child {
@@ -1277,17 +1263,16 @@
     }
     .membership-detail-label {
       font-family: var(--font-display);
-      font-size: 0.82rem;
+      font-size: 0.72rem;
       font-weight: 700;
       color: var(--blue-accent-soft);
       text-transform: uppercase;
       letter-spacing: 0.06em;
-      flex-shrink: 0;
+      margin-bottom: 4px;
     }
     .membership-detail-value {
-      font-size: 0.9rem;
-      color: rgba(255,255,255,0.8);
-      text-align: left;
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.85);
     }
     .membership-grid {
       display: grid; grid-template-columns: 1fr 480px; gap: 56px; align-items: start;
@@ -1456,7 +1441,7 @@
       .hero-content { text-align: center; align-items: center; }
       .hero-label { justify-content: flex-start; align-self: flex-start; }
       .hero-label::before { display: inline-block; }
-      .hero h1, .hero p { text-align: left; }
+      .hero h1, .hero p { text-align: left !important; }
       .press-grid { grid-template-columns: 1fr; }
       .nav-links { display: none; }
       .mobile-toggle { display: block; }
@@ -1737,7 +1722,7 @@
       padding: 0 24px;
       display: flex;
       gap: 32px;
-      align-items: baseline;
+      align-items: center;
     }
     .stand-apart-title {
       font-family: var(--font-display);
@@ -1762,7 +1747,7 @@
         gap: 16px;
       }
       .stand-apart-title { font-size: 1.8rem; }
-      .stand-apart-msg { border-left: none; padding-left: 0; border-top: 2px solid rgba(255,255,255,0.2); padding-top: 16px; }
+      .stand-apart-msg { border-left: none; border-right: none; padding-left: 0; padding-right: 0; border-top: 2px solid rgba(255,255,255,0.2); padding-top: 16px; }
     }
 
     @keyframes fadeUp {
@@ -1890,16 +1875,16 @@
     }
     .hiw-item {
       padding: 28px;
-      background: var(--navy);
-      border: 1px solid rgba(255,255,255,0.08);
+      background: var(--blue-accent-pale);
+      border: 1px solid var(--border-light);
       border-radius: 12px;
     }
     .hiw-num {
       width: 32px;
       height: 32px;
       border-radius: 50%;
-      background: rgba(255,255,255,0.12);
-      border: 1.5px solid rgba(255,255,255,0.2);
+      background: var(--white);
+      border: 1.5px solid var(--border);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1907,18 +1892,18 @@
       font-family: var(--font-display);
       font-size: 0.78rem;
       font-weight: 700;
-      color: var(--blue-accent-soft);
+      color: var(--blue-accent);
     }
     .hiw-item h4 {
       font-family: var(--font-display);
       font-size: 1.05rem;
       font-weight: 700;
-      color: var(--white);
+      color: var(--navy);
       margin-bottom: 6px;
     }
     .hiw-item p {
       font-size: 0.92rem;
-      color: rgba(255,255,255,0.7);
+      color: var(--text-secondary);
       line-height: 1.6;
     }
     @media (max-width: 768px) {
@@ -2160,12 +2145,10 @@
       </div>
       <div class="benefits-grid benefits-grid-3 reveal">
         <div class="benefit-card benefit-card-featured">
-          <div class="benefit-tag">Exclusive</div>
           <h4>Access to Brokers</h4>
           <p>Get listed in the <a href="https://www.aquamark.io/" target="_blank" style="color: var(--blue-accent); text-decoration: none; font-weight: 500;"><strong>Aquamark</strong></a> portal, where 200+ brokers protect documents, and invite <a href="https://securebroker.org/" target="_blank" style="color: var(--blue-accent); text-decoration: none; font-weight: 500;"><strong>Secure Broker™</strong></a> members to partner through the member portal.</p>
         </div>
         <div class="benefit-card benefit-card-featured">
-          <div class="benefit-tag">Exclusive</div>
           <h4>Capital Opportunities</h4>
           <p>We facilitate introductions to private investment banks and capital providers for credit facilities and forward flow agreements. <a href="https://securefunder.org/capital-opportunities/" target="_blank" style="color: var(--blue-accent); text-decoration: none; font-weight: 500;"><strong>Members are invited</strong></a> to inquire.</p>
         </div>
@@ -2286,22 +2269,18 @@
         </div>
         <div class="hiw-grid">
           <div class="hiw-item">
-            <div class="hiw-num">1</div>
             <h4>Secure Portal</h4>
             <p>Hosted on SOC 2 infrastructure.</p>
           </div>
           <div class="hiw-item">
-            <div class="hiw-num">2</div>
             <h4>Upload Evidence</h4>
             <p>Screen recordings, screenshots, documents.</p>
           </div>
           <div class="hiw-item">
-            <div class="hiw-num">3</div>
             <h4>On Your Schedule</h4>
             <p>90-day grace period, extensions available.</p>
           </div>
           <div class="hiw-item">
-            <div class="hiw-num">4</div>
             <h4>Collaborative</h4>
             <p>Message program team and other members.</p>
           </div>
@@ -2311,26 +2290,11 @@
   </section>
 
   <!-- About -->
-  <!-- Ecosystem Risk -->
-  <section id="about" style="background: var(--navy); border-top: 1px solid rgba(255,255,255,0.08); border-bottom: 1px solid rgba(255,255,255,0.08); padding: 88px 0;">
-    <div class="container">
-      <div style="max-width: 1020px; margin: 0 auto; text-align: center;">
-        <h2 class="section-title" style="margin-bottom: 48px; color: var(--white);">The Cost of No Standards</h2>
-        <div class="ecosystem-risk-grid" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; align-items: start; text-align: left;">
-          <div style="padding: 32px 28px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px;">
-            <h4 style="font-family: var(--font-display); font-size: 1.02rem; font-weight: 700; color: var(--white); margin-bottom: 10px;">Data Exposure</h4>
-            <p style="font-size: 0.88rem; color: rgba(255,255,255,0.65); line-height: 1.7; margin: 0;">Weak controls create opportunities for bad actors with access.</p>
-          </div>
-          <div style="padding: 32px 28px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px;">
-            <h4 style="font-family: var(--font-display); font-size: 1.02rem; font-weight: 700; color: var(--white); margin-bottom: 10px;">Deal Misuse</h4>
-            <p style="font-size: 0.88rem; color: rgba(255,255,255,0.65); line-height: 1.7; margin: 0;">Stolen submissions lead to unauthorized solicitation and excessive stacking.</p>
-          </div>
-          <div style="padding: 32px 28px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px;">
-            <h4 style="font-family: var(--font-display); font-size: 1.02rem; font-weight: 700; color: var(--white); margin-bottom: 10px;">Market Impact</h4>
-            <p style="font-size: 0.88rem; color: rgba(255,255,255,0.65); line-height: 1.7; margin: 0;">Overextended merchants struggle to repay and don't renew.</p>
-          </div>
-        </div>
-      </div>
+  <!-- Cost of No Standards -->
+  <section id="about" class="stand-apart" style="border-top: 1px solid rgba(255,255,255,0.08); border-bottom: 1px solid rgba(255,255,255,0.08);">
+    <div class="stand-apart-inner" style="max-width: 780px; flex-direction: row-reverse;">
+      <div class="stand-apart-title">Cost of No Standards.</div>
+      <p class="stand-apart-msg" style="border-left: none; padding-left: 0; border-right: 2px solid rgba(255,255,255,0.2); padding-right: 24px;">Stolen submissions lead to stacking, leaving merchants overleveraged and less likely to renew.</p>
     </div>
   </section>
 
@@ -2370,7 +2334,7 @@
 
         <!-- Price -->
         <div style="font-size: 2.5rem; font-weight: 800; color: var(--white); font-family: var(--font-display); letter-spacing: -0.03em; margin-bottom: 0.25rem;">$2,499<span style="font-size: 1rem; font-weight: 500; color: var(--sky);">/year</span></div>
-        <div style="font-size: 0.92rem; color: var(--steel); margin-bottom: 2.5rem;">Monthly payments available</div>
+        <div style="font-size: 0.75rem; color: var(--white); margin-bottom: 2.5rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600;">Monthly Available</div>
 
         <!-- Details -->
         <div class="membership-details">
