@@ -35,19 +35,18 @@
 
   /* header */
   .header{
-    background:var(--navy);
-    border-bottom:3px solid var(--blue);
-    padding:34px 64px 30px;
+    border-bottom:1px solid var(--line);
+    padding:36px 64px 26px;
   }
-  .wordmark{color:var(--white);font-size:19px;font-weight:800;letter-spacing:-.01em;}
-  .wordmark sup{font-size:8px;font-weight:400;margin-left:2px;}
-  .tagline{color:var(--light-blue);font-size:10.5px;margin-top:5px;font-weight:500;}
+  .wordmark{color:var(--navy);font-size:19px;font-weight:800;letter-spacing:-.01em;}
+  .wordmark sup{font-size:8px;font-weight:400;margin-left:2px;color:var(--gray);}
+  .tagline{color:var(--mute);font-size:10.5px;margin-top:5px;font-weight:500;}
 
   .body{padding:46px 64px 0;flex:1;display:flex;flex-direction:column;}
 
   /* headline + why */
   h1{color:var(--navy);font-size:27px;font-weight:800;line-height:1.22;letter-spacing:-.02em;max-width:7in;}
-  .why{color:var(--gray);font-size:11.5px;line-height:1.65;margin-top:14px;max-width:6.4in;}
+  .why{color:var(--gray);font-size:12.5px;line-height:1.65;margin-top:14px;max-width:6.4in;}
   .why strong{color:var(--navy);font-weight:600;}
 
   /* badge pairing */
@@ -93,14 +92,15 @@
   /* timeline strip */
   .strip{
     margin-top:30px;
-    background:var(--navy);
+    background:var(--bg);
+    border:1px solid var(--line);
     border-radius:8px;
     display:flex;
   }
   .strip .cell{flex:1;padding:18px 26px;}
-  .strip .cell + .cell{border-left:1px solid #3D5A80;}
-  .strip .big{color:var(--white);font-size:13.5px;font-weight:800;letter-spacing:.04em;}
-  .strip .small{color:var(--light-blue);font-size:9.5px;margin-top:4px;}
+  .strip .cell + .cell{border-left:1px solid var(--line);}
+  .strip .big{color:var(--navy);font-size:13.5px;font-weight:800;letter-spacing:.04em;}
+  .strip .small{color:var(--gray);font-size:9.5px;margin-top:4px;}
 
   /* footer */
   .footer{
@@ -116,7 +116,7 @@
   @media print{
     html,body{background:var(--white);}
     .page{margin:0;box-shadow:none;width:auto;min-height:auto;}
-    .header,.strip{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+    .strip,.pairing{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
     a{color:inherit;}
   }
   @page{size:letter;margin:0;}
@@ -132,8 +132,8 @@
 
   <div class="body">
 
-    <h1>The industry standard for protecting&nbsp;merchant&nbsp;data.</h1>
-    <p class="why">Alternative finance has never had clear rules — allowing backdooring and data misuse to persist. <strong>Secure Funder™</strong> is an independent certification that holds the line, and gives brokers and merchants a clear reason to choose you.</p>
+    <h1>Funder certification for<br>Eagle Business Credit.</h1>
+    <p class="why">Alternative finance has lacked clear expectations for protecting merchant data — allowing backdooring to persist. <strong>Secure Funder™</strong> is an independent standard that gives the market a way to identify responsible funders.</p>
 
     <div class="pairing">
       <img class="badge" src="https://securefunder.org/secure-funder-badge-2026.png" alt="Secure Funder 2026 badge">
