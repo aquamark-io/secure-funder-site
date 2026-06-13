@@ -185,12 +185,30 @@
       display: flex; justify-content: space-between; align-items: center; height: 68px;
     }
     .logo {
-      display: flex; align-items: center; text-decoration: none; color: var(--navy); gap: 12px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .logo-badge-link, .logo-text-link {
+      display: flex; align-items: center; text-decoration: none; color: var(--navy);
+    }
+    .logo-stack {
+      display: flex; flex-direction: column; line-height: 1.1;
     }
     .logo-text {
       font-family: var(--font-display);
       font-size: 1.3rem; font-weight: 700; letter-spacing: -0.01em;
     }
+    .logo-admin {
+      font-size: 0.62rem;
+      color: var(--text-secondary);
+      letter-spacing: 0.03em;
+      margin-top: 3px;
+    }
+    .logo-admin a {
+      color: inherit;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .logo-admin a:hover { color: var(--navy); }
     .logo-tm { font-size: 0.55em; vertical-align: super; font-weight: 400; margin-left: 1px; }
     .nav-links {
       display: flex; align-items: center; gap: 4px; list-style: none;
@@ -2035,10 +2053,17 @@
   <!-- Navigation -->
   <nav class="main-nav">
     <div class="container">
-      <a href="/" class="logo" aria-label="Secure Funder Home">
+      <div class="logo">
+        <a href="/" class="logo-badge-link" aria-label="Secure Funder Home">
           <img class="logo-badge logo-badge-lg" src="blue-ring.png" alt="Secure Funder">
-          <div class="logo-text">Secure Funder<span class="logo-tm">™</span></div>
-      </a>
+        </a>
+        <div class="logo-stack">
+          <a href="/" class="logo-text-link" aria-label="Secure Funder Home">
+            <div class="logo-text">Secure Funder<span class="logo-tm">™</span></div>
+          </a>
+          <div class="logo-admin">Administered by <a href="https://aquamark.io" target="_blank" rel="noopener noreferrer">Aquamark</a></div>
+        </div>
+      </div>
       <ul class="nav-links">
         <li><a href="https://securefunder.org/contact/">Contact</a></li>
         <li><a href="/directory" target="_blank" rel="noopener noreferrer">Directory</a></li>
