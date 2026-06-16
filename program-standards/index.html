@@ -3,42 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Secure Funder™ certification requirements and evidence expectations for alternative finance funders.">
-  <title>Funder Certification Requirements — Secure Funder™</title>
-  <link rel="icon" type="image/png" sizes="32x32" href="/blue-ring.png">
+  <meta name="description" content="Secure Broker™ certification requirements and evidence expectations for alternative finance brokerages.">
+  <title>Broker Certification Requirements — Secure Broker™</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="/green-rings.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root{
-      --forest:#0F2137;
-      --forest-mid:#1A3455;
-      --sage:#3D5A80;
-      --fern:#6B8BAD;
-      --mint:#93B5D0;
-      --frost:#C5D9E8;
-      --meadow:#F6F9FC;
+      --forest:#11352A;
+      --forest-mid:#1A4A34;
+      --sage:#2D5A3D;
+      --fern:#4A8B60;
+      --mint:#A3D4B0;
+      --frost:#D8EDE0;
+      --meadow:#EFF7F2;
       --white:#FFFFFF;
-      --green-accent:#4FA3D1;
-      --green-accent-soft:#7BBCE1;
-      --green-accent-pale:#E7F2FA;
-      --text-primary:#0F2137;
-      --text-secondary:#4A6480;
-      --text-muted:#7A96AE;
-      --border:#DAE3EC;
-      --border-light:#EAF0F5;
+      --green-accent:#3DA366;
+      --green-accent-soft:#5FBF80;
+      --green-accent-pale:#E2F4E9;
+      --text-primary:#0B2918;
+      --text-secondary:#3D6B4E;
+      --text-muted:#6A9B7C;
+      --border:#C5DFD0;
+      --border-light:#DEF0E5;
       --font-display:'Inter',system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
       --font-body:'Inter',system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
     }
 
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth;overflow-x:hidden}
-    body{font-family:var(--font-body);color:var(--text-primary);background:var(--white);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    body{font-family:var(--font-body);color:var(--text-primary);background:var(--white);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;padding-top:68px}
     a{color:inherit}
     .inline-link{color:#2563EB;font-weight:700;text-decoration:none}
     .inline-link:hover{text-decoration:underline}
 
-    .main-nav{background:rgba(255,255,255,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:20;box-shadow:0 1px 4px rgba(15,33,55,.04)}
+    .main-nav{background:rgba(255,255,255,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border);position:fixed;top:0;left:0;right:0;z-index:50;box-shadow:0 1px 4px rgba(11,41,24,.04)}
     .nav-inner{max-width:1120px;margin:0 auto;padding:0 24px;height:68px;display:flex;align-items:center;justify-content:space-between;gap:20px}
     .logo{display:flex;align-items:center;text-decoration:none;color:var(--forest);gap:12px}
     .logo-badge{width:30px;height:30px;display:block}
@@ -54,14 +54,14 @@
     .container-narrow{max-width:900px;margin:0 auto;padding:0 24px}
 
     .hero{background:var(--meadow);border-bottom:1px solid var(--border-light);position:relative;overflow:hidden}
-    .hero::before{content:"";position:absolute;top:-220px;right:-160px;width:620px;height:620px;background:radial-gradient(circle,rgba(79,163,209,.13) 0%,transparent 70%);pointer-events:none}
+    .hero::before{content:"";position:absolute;top:-220px;right:-160px;width:620px;height:620px;background:radial-gradient(circle,rgba(61,163,102,.13) 0%,transparent 70%);pointer-events:none}
     .hero-inner{position:relative;z-index:1;padding:82px 0 72px;display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:56px;align-items:center;max-width:980px}
     .hero h1{font-family:var(--font-display);font-size:clamp(2.35rem,5vw,3.65rem);font-weight:700;line-height:1.08;letter-spacing:-.035em;color:var(--forest);max-width:720px;margin-bottom:22px}
     .hero p{font-size:1.06rem;line-height:1.78;color:var(--text-secondary);max-width:650px;margin-bottom:0}
     .hero-badge{width:220px;height:220px;display:flex;align-items:center;justify-content:center;justify-self:end}
-    .hero-badge img{width:100%;height:100%;object-fit:contain;display:block;filter:drop-shadow(0 12px 24px rgba(15,33,55,.08))}
+    .hero-badge img{width:100%;height:100%;object-fit:contain;display:block;filter:drop-shadow(0 12px 24px rgba(11,41,24,.08))}
     .btn-primary{display:inline-flex;align-items:center;justify-content:center;background:var(--green-accent);color:var(--white);font-family:var(--font-body);font-size:.9rem;font-weight:600;padding:13px 26px;border-radius:6px;text-decoration:none;transition:all .25s}
-    .btn-primary:hover{background:var(--green-accent-soft);transform:translateY(-1px);box-shadow:0 4px 14px rgba(79,163,209,.3)}
+    .btn-primary:hover{background:var(--green-accent-soft);transform:translateY(-1px);box-shadow:0 4px 14px rgba(61,163,102,.3)}
     .btn-ghost{display:inline-flex;align-items:center;justify-content:center;background:transparent;color:var(--forest);font-family:var(--font-body);font-size:.9rem;font-weight:600;padding:13px 26px;border-radius:6px;text-decoration:none;border:2px solid var(--border);transition:all .25s}
     .btn-ghost:hover{border-color:var(--forest);background:rgba(255,255,255,.45)}
 
@@ -82,8 +82,8 @@
 
     .process-section{background:var(--frost)}
     .process-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
-    .process-card{background:rgba(255,255,255,.62);border:1px solid rgba(15,33,55,.1);border-radius:14px;padding:28px 26px;box-shadow:0 8px 28px rgba(15,33,55,.04)}
-    .process-num{width:42px;height:42px;border-radius:50%;background:var(--green-accent);color:var(--white);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.95rem;margin-bottom:20px;box-shadow:0 4px 12px rgba(79,163,209,.25)}
+    .process-card{background:rgba(255,255,255,.62);border:1px solid rgba(11,41,24,.1);border-radius:14px;padding:28px 26px;box-shadow:0 8px 28px rgba(11,41,24,.04)}
+    .process-num{width:42px;height:42px;border-radius:50%;background:var(--green-accent);color:var(--white);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.95rem;margin-bottom:20px;box-shadow:0 4px 12px rgba(61,163,102,.25)}
     .process-card h3{font-family:var(--font-display);font-size:1.05rem;font-weight:700;color:var(--forest);margin-bottom:10px}
     .process-card p{font-size:.9rem;color:var(--text-secondary);line-height:1.68}
 
@@ -94,7 +94,7 @@
     .sidebar a{display:block;text-decoration:none;color:var(--text-secondary);font-size:.9rem;font-weight:500;padding:11px 0;border-top:1px solid var(--border-light)}
     .sidebar a:hover{color:var(--green-accent)}
     .req-list{display:grid;gap:22px}
-    .req-card{border:1px solid var(--border-light);border-radius:16px;background:var(--white);overflow:hidden;box-shadow:0 8px 28px rgba(15,33,55,.04)}
+    .req-card{border:1px solid var(--border-light);border-radius:16px;background:var(--white);overflow:hidden;box-shadow:0 8px 28px rgba(11,41,24,.04)}
     .req-card>summary.req-top{list-style:none;cursor:pointer;position:relative;padding:28px 64px 22px 30px;background:linear-gradient(180deg,var(--white),var(--meadow));border-bottom:1px solid transparent;transition:border-color .2s}
     .req-card>summary.req-top::-webkit-details-marker{display:none}
     .req-card>summary.req-top::after{content:"";position:absolute;right:30px;top:38px;width:10px;height:10px;border-right:2px solid var(--text-secondary);border-bottom:2px solid var(--text-secondary);transform:rotate(45deg);transition:transform .2s,top .2s}
@@ -113,7 +113,7 @@
     .example-list{list-style:none;display:grid;gap:8px;margin:0}
     .example-list li{position:relative;padding-left:18px;font-size:.88rem;color:var(--text-secondary);line-height:1.58}
     .example-list li::before{content:"";position:absolute;left:0;top:.62em;width:6px;height:6px;border-radius:50%;background:var(--green-accent)}
-    .note{margin-top:12px;padding:14px 16px;background:var(--green-accent-pale);border:1px solid rgba(79,163,209,.18);border-radius:10px;font-size:.88rem;color:var(--text-secondary);line-height:1.62}
+    .note{margin-top:12px;padding:14px 16px;background:var(--green-accent-pale);border:1px solid rgba(61,163,102,.18);border-radius:10px;font-size:.88rem;color:var(--text-secondary);line-height:1.62}
     .recommended{margin-top:12px;padding:14px 16px;background:#fbfbef;border:1px solid #ece8be;border-radius:10px;font-size:.88rem;color:var(--text-secondary);line-height:1.62}
 
     .notice-section{background:var(--forest);color:rgba(255,255,255,.72);padding:32px 0;border-bottom:none;text-align:center}
@@ -138,6 +138,7 @@
       .overview-item:last-child{border-bottom:none}
     }
     @media(max-width:640px){
+      body{padding-top:64px}
       .nav-inner{height:64px;padding:0 18px}
       .nav-links a:not(.btn-member){display:none}
       .container,.container-narrow{padding:0 20px}
@@ -153,12 +154,12 @@
 <body>
   <nav class="main-nav" aria-label="Main navigation">
     <div class="nav-inner">
-      <a href="/" class="logo" aria-label="Secure Funder home">
-        <img class="logo-badge" src="/blue-ring.png" alt="Secure Funder">
-        <div class="logo-text">Secure Funder<span class="logo-tm">™</span></div>
+      <a href="/" class="logo" aria-label="Secure Broker home">
+        <img class="logo-badge" src="/green-rings.png" alt="Secure Broker">
+        <div class="logo-text">Secure Broker<span class="logo-tm">™</span></div>
       </a>
       <div class="nav-links">
-        <a href="https://securefunder.org/contact/" class="btn-member">Apply</a>
+        <a href="https://securebroker.org/contact/" class="btn-member">Apply</a>
       </div>
     </div>
   </nav>
@@ -167,11 +168,11 @@
     <div class="container">
       <div class="hero-inner">
         <div class="hero-copy">
-          <h1>Funder certification requirements</h1>
+          <h1>Broker certification requirements</h1>
           <p>Practical enough for companies of all sizes. Credible enough to mean something.</p>
         </div>
-        <div class="hero-badge" aria-label="Secure Funder certified digital badge">
-          <img src="../secure-funder-badge-2026.png" alt="Secure Funder™ Certified 2026">
+        <div class="hero-badge" aria-label="Secure Broker certified digital badge">
+          <img src="../secure-broker-badge-2026.png" alt="Secure Broker™ Certified 2026">
         </div>
       </div>
     </div>
@@ -186,7 +187,7 @@
           <p class="section-subtitle">Complete verification through a self-guided portal with support available as needed.</p>
         </div>
 
-        <div class="overview-grid" aria-label="Secure Funder program overview">
+        <div class="overview-grid" aria-label="Secure Broker program overview">
           <div class="overview-item">
             <h3>Flexible approach</h3>
             <p>Example pathways are provided. Equivalent controls are accepted.</p>
@@ -291,7 +292,7 @@
               <div class="req-body">
                 <div class="evidence-block">
                   <h4>Multi-Factor Authentication</h4>
-                  <p>MFA must be enabled on email accounts used to receive or handle submissions.</p>
+                  <p>MFA must be enabled on your email system.</p>
                   <div class="example-label">Example pathways</div>
                   <ul class="example-list">
                     <li>Screenshot of MFA setting enabled in your email admin panel.</li>
@@ -299,11 +300,10 @@
                   </ul>
                 </div>
                 <div class="evidence-block">
-                  <h4>Submissions Email Inbox</h4>
-                  <p>If submissions are accepted via email, at least one safeguard is required to reduce opportunities for unauthorized external sharing.</p>
+                  <h4>Email Inbox Access</h4>
+                  <p>If merchant documents ever arrive in or get routed to an email inbox, at least one email safeguard is required.</p>
                   <div class="example-label">Example pathways</div>
                   <ul class="example-list">
-                    <li>If email submissions are not accepted, provide documented ISO guidelines confirming email is not an accepted intake method.</li>
                     <li>Submissions route directly to CRM through an automated workflow.</li>
                     <li>Inbound email watermarking tool, <a class="inline-link" href="https://www.aquamark.io/email-watermarking" target="_blank" rel="noopener">Aquamark</a> or equivalent.</li>
                     <li>Forwarding restrictions, downloading disabled, or other DLP policies.</li>
@@ -321,7 +321,7 @@
               <div class="req-body">
                 <div class="evidence-block">
                   <h4>Multi-Factor Authentication</h4>
-                  <p>MFA must be enabled on CRM, portal, or equivalent system accounts.</p>
+                  <p>MFA must be enabled on your CRM, portal, or equivalent system.</p>
                   <div class="example-label">Example pathways</div>
                   <ul class="example-list">
                     <li>Screenshot of MFA setting enabled in your CRM admin panel.</li>
@@ -394,14 +394,16 @@
     <section class="notice-section">
       <div class="container-narrow">
         <span class="disclaimer-label">Program disclosures</span>
-        <p>Participants who do not meet all requirements will be removed from the directory, but they may reapply when ready.</p>
-        <p>Final review includes evidence assessment, business registration verification, and public records checks for lawsuits related to the misuse of customer data.</p>
-        <p>Members receive access to the verification portal and support as they gather evidence, review technical controls, and prepare for final review. Companies may also contact us for guidance on how the requirements apply to their current setup.</p>
+<p>Continued listing requires timely resolution of any open items identified during review.</p>
+
+
+<p>Final review includes an evidence assessment, business registration verification, and limited public records checks focused specifically on lawsuits involving the misuse, unauthorized sharing, or fraudulent use of customer data.</p>
+
+
+<p>Members receive access to the verification portal and support throughout the process, including guidance as they gather evidence, review technical controls, and prepare for final review. Members may continue working toward certification with full program support included.</p>
       </div>
     </section>
   </main>
-
-  <p class="footer-note">Secure Funder™ | Certification Requirements</p>
 
   <script>
     (function(){
