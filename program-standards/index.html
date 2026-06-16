@@ -95,6 +95,11 @@
     .sidebar a:hover{color:var(--green-accent)}
     .req-list{display:grid;gap:22px}
     .req-card{border:1px solid var(--border-light);border-radius:16px;background:var(--white);overflow:hidden;box-shadow:0 8px 28px rgba(15,33,55,.04)}
+    .req-card>summary.req-top{list-style:none;cursor:pointer;position:relative;padding:28px 64px 22px 30px;background:linear-gradient(180deg,var(--white),var(--meadow));border-bottom:1px solid transparent;transition:border-color .2s}
+    .req-card>summary.req-top::-webkit-details-marker{display:none}
+    .req-card>summary.req-top::after{content:"";position:absolute;right:30px;top:38px;width:10px;height:10px;border-right:2px solid var(--text-secondary);border-bottom:2px solid var(--text-secondary);transform:rotate(45deg);transition:transform .2s,top .2s}
+    .req-card[open]>summary.req-top{border-bottom-color:var(--border-light)}
+    .req-card[open]>summary.req-top::after{transform:rotate(-135deg);top:42px}
     .req-top{padding:28px 30px 22px;background:linear-gradient(180deg,var(--white),var(--meadow));border-bottom:1px solid var(--border-light)}
     .req-kicker{font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--green-accent);margin-bottom:10px}
     .req-top h3{font-family:var(--font-display);font-size:1.35rem;font-weight:700;color:var(--forest);letter-spacing:-.01em;margin-bottom:8px}
@@ -111,12 +116,11 @@
     .note{margin-top:12px;padding:14px 16px;background:var(--green-accent-pale);border:1px solid rgba(79,163,209,.18);border-radius:10px;font-size:.88rem;color:var(--text-secondary);line-height:1.62}
     .recommended{margin-top:12px;padding:14px 16px;background:#fbfbef;border:1px solid #ece8be;border-radius:10px;font-size:.88rem;color:var(--text-secondary);line-height:1.62}
 
-    .notice-section{background:var(--forest);color:var(--white);text-align:center;position:relative;overflow:hidden}
-    .notice-section::before{content:"";position:absolute;top:-160px;left:50%;transform:translateX(-50%);width:620px;height:620px;background:radial-gradient(circle,rgba(79,163,209,.16) 0%,transparent 70%);pointer-events:none}
-    .notice-section .container-narrow{position:relative;z-index:1}
-    .notice-section .section-label{color:var(--green-accent-soft)}
-    .notice-section .section-title{color:var(--white);font-size:clamp(1.55rem,3vw,2rem)}
-    .notice-section p{font-size:.98rem;line-height:1.8;color:rgba(255,255,255,.78);max-width:720px;margin:0 auto}
+    .notice-section{background:var(--forest);color:rgba(255,255,255,.72);padding:32px 0;border-bottom:none}
+    .notice-section .container-narrow{max-width:900px}
+    .notice-section .disclaimer-label{font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--green-accent-soft);margin-bottom:10px;display:block}
+    .notice-section p{font-size:.82rem;line-height:1.7;color:rgba(255,255,255,.7);margin:0 0 8px}
+    .notice-section p:last-child{margin-bottom:0}
 
     .cta-section{background:var(--white);text-align:center;padding:82px 0}
     .cta-card{background:var(--meadow);border:1px solid var(--border-light);border-radius:18px;padding:46px 30px;max-width:760px;margin:0 auto}
@@ -224,12 +228,12 @@
           </aside>
 
           <div class="req-list">
-            <article id="personnel" class="req-card">
-              <div class="req-top">
+            <details id="personnel" class="req-card">
+              <summary class="req-top">
                 <div class="req-kicker">Requirement 01</div>
                 <h3>Personnel Controls</h3>
                 <p>Organizational policies to limit risk at the human layer.</p>
-              </div>
+              </summary>
               <div class="req-body">
                 <div class="evidence-block">
                   <h4>Background Checks</h4>
@@ -276,14 +280,14 @@
                   </ul>
                 </div>
               </div>
-            </article>
+            </details>
 
-            <article id="email" class="req-card">
-              <div class="req-top">
+            <details id="email" class="req-card">
+              <summary class="req-top">
                 <div class="req-kicker">Requirement 02</div>
                 <h3>Email Security</h3>
                 <p>If staff have access to emails containing merchant documents, safeguards must be in place to reduce opportunities of misuse.</p>
-              </div>
+              </summary>
               <div class="req-body">
                 <div class="evidence-block">
                   <h4>Multi-Factor Authentication</h4>
@@ -306,14 +310,14 @@
                   </ul>
                 </div>
               </div>
-            </article>
+            </details>
 
-            <article id="crm" class="req-card">
-              <div class="req-top">
+            <details id="crm" class="req-card">
+              <summary class="req-top">
                 <div class="req-kicker">Requirement 03</div>
                 <h3>CRMs or Equivalent Systems</h3>
                 <p>System-level controls to limit the ability to extract data and documents.</p>
-              </div>
+              </summary>
               <div class="req-body">
                 <div class="evidence-block">
                   <h4>Multi-Factor Authentication</h4>
@@ -343,14 +347,14 @@
                   </ul>
                 </div>
               </div>
-            </article>
+            </details>
 
-            <article id="storage" class="req-card">
-              <div class="req-top">
+            <details id="storage" class="req-card">
+              <summary class="req-top">
                 <div class="req-kicker">Requirement 04</div>
                 <h3>Document Storage</h3>
                 <p>Controls on secondary storage locations outside your main systems.</p>
-              </div>
+              </summary>
               <div class="req-body">
                 <div class="evidence-block">
                   <h4>Storage Safeguards</h4>
@@ -362,14 +366,14 @@
                   </ul>
                 </div>
               </div>
-            </article>
+            </details>
 
-            <article id="outsourcing" class="req-card">
-              <div class="req-top">
+            <details id="outsourcing" class="req-card">
+              <summary class="req-top">
                 <div class="req-kicker">Requirement 05</div>
                 <h3>Outsourcing</h3>
                 <p>Safeguards for third-party access to merchant documents.</p>
-              </div>
+              </summary>
               <div class="req-body">
                 <div class="evidence-block">
                   <h4>BPO Safeguards</h4>
@@ -381,16 +385,9 @@
                   </ul>
                 </div>
               </div>
-            </article>
+            </details>
           </div>
         </div>
-      </div>
-    </section>
-
-    <section class="notice-section">
-      <div class="container-narrow">
-        <h2 class="section-title">Program credibility</h2>
-        <p>Participants who do not meet all requirements will be removed from the directory, but may reapply if eligible. Final review includes evidence assessment, business registration verification, and a public records check for lawsuits related to the misuse of customer data.</p>
       </div>
     </section>
 
@@ -403,8 +400,31 @@
         </div>
       </div>
     </section>
+    <section class="notice-section">
+      <div class="container-narrow">
+        <span class="disclaimer-label">Program disclosures</span>
+        <p>Participants who do not meet all requirements will be removed from the directory, but they may reapply when ready.</p>
+        <p>Final review includes evidence assessment, business registration verification, and public records checks for lawsuits related to the misuse of customer data.</p>
+        <p>Members receive access to the verification portal and support as they gather evidence, review technical controls, and prepare for final review. Companies may also contact us for guidance on how the requirements apply to their current setup.</p>
+      </div>
+    </section>
   </main>
 
   <p class="footer-note">Secure Funder™ | Certification Requirements</p>
+
+  <script>
+    (function(){
+      var openTarget = function(hash){
+        if(!hash) return;
+        var el = document.querySelector(hash);
+        if(el && el.tagName === 'DETAILS') el.open = true;
+      };
+      document.querySelectorAll('.sidebar a[href^="#"]').forEach(function(link){
+        link.addEventListener('click', function(){ openTarget(link.getAttribute('href')); });
+      });
+      if(location.hash) openTarget(location.hash);
+      window.addEventListener('hashchange', function(){ openTarget(location.hash); });
+    })();
+  </script>
 </body>
 </html>
