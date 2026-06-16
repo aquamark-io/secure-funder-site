@@ -2044,6 +2044,17 @@
   </style>
 
   <!-- Outseta Chat Widget -->
+  <style>
+    /* Force Outseta chat widget to use brand font */
+    [class*="outseta"],
+    [class*="outseta"] *,
+    [id*="outseta"],
+    [id*="outseta"] *,
+    o-chat,
+    o-chat * {
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif !important;
+    }
+  </style>
   <script>
     var o_options = {
       domain: 'aquamark.outseta.com',
