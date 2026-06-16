@@ -147,10 +147,9 @@
       background: var(--white);
     }
     .contact-layout {
-      display: grid;
-      grid-template-columns: 1fr 320px;
-      gap: 56px;
-      align-items: start;
+      display: block;
+      max-width: 800px;
+      margin: 0 auto;
     }
 
     /* Form embed wrapper */
@@ -291,10 +290,6 @@
 
     /* ===== RESPONSIVE ===== */
     @media (max-width: 900px) {
-      .contact-layout {
-        grid-template-columns: 1fr;
-        gap: 32px;
-      }
       .footer-grid {
         grid-template-columns: 1fr 1fr;
         gap: 28px;
@@ -418,40 +413,6 @@
         <div class="form-wrapper">
           <div style="width:100%;height:500px;" data-fillout-id="f4xre3GBxfus" data-fillout-embed-type="standard" data-fillout-inherit-parameters data-fillout-dynamic-resize></div>
           <script src="https://server.fillout.com/embed/v1/"></script>
-        </div>
-
-        <!-- Sidebar -->
-        <div class="contact-sidebar">
-          <div class="sidebar-card">
-            <h3>Membership Inquiries</h3>
-            <p>Interested in certification or have questions about the application process? Fill out the form and we'll follow up within one business day.</p>
-          </div>
-
-          <div class="sidebar-card">
-            <h3>Quick Links</h3>
-            <div class="contact-detail">
-              <div class="contact-detail-icon">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-              </div>
-              <div>
-                <h4>Requirements</h4>
-                <p>          <a href="/program-standards" class="btn-ghost-white" target="_blank" rel="noopener noreferrer">View Requirements</a>
-</p>
-              </div>
-            </div>
-            <div class="contact-detail">
-              <div class="contact-detail-icon">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-              </div>
-              <div>
-                <h4>Directory</h4>
-                <p><a href="/directory">View the member directory</a></p>
-              </div>
-            </div>
-            </div>
-          </div>
-
-        
         </div>
 
       </div>
