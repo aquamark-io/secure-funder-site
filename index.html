@@ -10,7 +10,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;500;600;700;800&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --utility-height: 0px;
@@ -2045,6 +2044,13 @@
   </style>
 
   <!-- Outseta Chat Widget -->
+  <style>
+    /* Force Outseta chat widget to use brand font (fixes iOS Safari serif fallback) */
+    .o--App,
+    .o--App * {
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif !important;
+    }
+  </style>
   <script>
     var o_options = {
       domain: 'aquamark.outseta.com',
