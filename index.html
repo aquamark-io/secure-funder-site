@@ -2273,7 +2273,7 @@
             <p style="font-size: 0.94rem; line-height: 1.75; color: var(--text-secondary); margin: 0 0 22px;">
               For companies that want to be recognized for doing things the right way.
             </p>
-            <a href="#membership" class="criteria-btn" onclick="event.preventDefault(); slowScrollTo('membership', 3800);">Requirements</a>
+            <a href="#membership" class="criteria-btn">Requirements</a>
           </div>
 
           <div class="directory-sidebar" style="height: 100%;">
@@ -2412,24 +2412,6 @@
     </div>
   </section>
 
-  <!-- CTA -->
-  <!-- STOCK PHOTO: 1400×600px min. Professional/atmospheric. Heavy overlay. Landscape. -->
-  <section class="cta-section">
-    <div class="cta-bg">
-      <div class="cta-bg-image">
-        <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1400&h=600&fit=crop&crop=center" alt="Professional environment" />
-      </div>
-      <div class="container-narrow">
-        <h2 class="section-title">Membership is open now.</h2>
-        <p class="section-subtitle">Join the organizations helping strengthen trust in alternative finance.</p>
-        <div class="cta-actions">
-          <a href="https://securefunder.org/contact/" class="btn-primary">Apply for Membership</a>
-          <a href="/program-standards" class="btn-ghost-white" target="_blank" rel="noopener noreferrer">View Requirements</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Footer -->
   <footer>
     <div class="container">
@@ -2485,42 +2467,6 @@
   </div>
 
   <script>
-    // Custom slow scroll — bypasses CSS smooth-scroll for a deliberate, cancellable glide
-    function slowScrollTo(targetId, duration) {
-      const target = document.getElementById(targetId);
-      if (!target) return;
-      const navOffset = 90;
-      const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navOffset;
-      const startPosition = window.pageYOffset;
-      const distance = targetPosition - startPosition;
-      if (Math.abs(distance) < 4) return;
-      let startTime = null;
-      let cancelled = false;
-      const cancel = () => { cancelled = true; cleanup(); };
-      const cleanup = () => {
-        window.removeEventListener('wheel', cancel);
-        window.removeEventListener('touchstart', cancel);
-        window.removeEventListener('keydown', cancel);
-      };
-      window.addEventListener('wheel', cancel, { passive: true });
-      window.addEventListener('touchstart', cancel, { passive: true });
-      window.addEventListener('keydown', cancel, { passive: true });
-      const easeInOutCubic = (t) => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-      function step(currentTime) {
-        if (cancelled) return;
-        if (!startTime) startTime = currentTime;
-        const elapsed = currentTime - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        window.scrollTo(0, startPosition + distance * easeInOutCubic(progress));
-        if (elapsed < duration) {
-          requestAnimationFrame(step);
-        } else {
-          cleanup();
-        }
-      }
-      requestAnimationFrame(step);
-    }
-
     const toggle = document.querySelector('.mobile-toggle');
     const menu = document.getElementById('mobileMenu');
     const closeBtn = document.getElementById('mobileMenuClose');
