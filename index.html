@@ -679,6 +679,32 @@
     @media (max-width: 600px) {
     }
 
+    /* ===== CRITERIA BUTTON (Who Should Join card) ===== */
+    .criteria-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 26px;
+      border: 1.5px solid var(--blue-accent);
+      border-radius: 6px;
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      text-decoration: none;
+      background: var(--blue-accent);
+      transition: background 0.22s ease, border-color 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease;
+      cursor: pointer;
+      margin-top: 4px;
+    }
+    .criteria-btn:hover {
+      background: var(--blue-accent-soft);
+      border-color: var(--blue-accent-soft);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(79,163,209,0.3);
+    }
+
     /* ===== FOUNDER QUOTE CALLOUT ===== */
     .founder-quote-section {
       padding: 64px 0 36px;
@@ -2244,10 +2270,10 @@
         <div class="wwlf-grid reveal" style="display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: stretch; margin-top: 48px; text-align: left;">
           <div style="background: var(--cloud); border: 1px solid var(--border-light); border-radius: 14px; padding: 34px;">
             <div class="section-label" style="text-align: left;">Who Should Join?</div>
-            <h3 style="font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; color: var(--navy); margin-bottom: 12px;">Funders and Lenders</h3>
-            <p style="font-size: 0.94rem; line-height: 1.75; color: var(--text-secondary); margin: 0;">
-              For funders with safeguards already in place, or those who use the framework as a path to improve.
+            <p style="font-size: 0.94rem; line-height: 1.75; color: var(--text-secondary); margin: 0 0 22px;">
+              For companies that want to be recognized for doing things the right way.
             </p>
+            <a href="#membership" class="criteria-btn" onclick="event.preventDefault(); slowScrollTo('membership', 3800);">Requirements</a>
           </div>
 
           <div class="directory-sidebar" style="height: 100%;">
@@ -2459,6 +2485,42 @@
   </div>
 
   <script>
+    // Custom slow scroll — bypasses CSS smooth-scroll for a deliberate, cancellable glide
+    function slowScrollTo(targetId, duration) {
+      const target = document.getElementById(targetId);
+      if (!target) return;
+      const navOffset = 90;
+      const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navOffset;
+      const startPosition = window.pageYOffset;
+      const distance = targetPosition - startPosition;
+      if (Math.abs(distance) < 4) return;
+      let startTime = null;
+      let cancelled = false;
+      const cancel = () => { cancelled = true; cleanup(); };
+      const cleanup = () => {
+        window.removeEventListener('wheel', cancel);
+        window.removeEventListener('touchstart', cancel);
+        window.removeEventListener('keydown', cancel);
+      };
+      window.addEventListener('wheel', cancel, { passive: true });
+      window.addEventListener('touchstart', cancel, { passive: true });
+      window.addEventListener('keydown', cancel, { passive: true });
+      const easeInOutCubic = (t) => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+      function step(currentTime) {
+        if (cancelled) return;
+        if (!startTime) startTime = currentTime;
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        window.scrollTo(0, startPosition + distance * easeInOutCubic(progress));
+        if (elapsed < duration) {
+          requestAnimationFrame(step);
+        } else {
+          cleanup();
+        }
+      }
+      requestAnimationFrame(step);
+    }
+
     const toggle = document.querySelector('.mobile-toggle');
     const menu = document.getElementById('mobileMenu');
     const closeBtn = document.getElementById('mobileMenuClose');
