@@ -1303,10 +1303,13 @@
       background: var(--white);
     }
     .leadership-content {
-      display: grid; grid-template-columns: 200px 1fr; gap: 48px; align-items: center;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center;
+    }
+    .leadership-bio {
+      display: grid; grid-template-columns: 180px 1fr; gap: 32px; align-items: center;
     }
     .leadership-photo {
-      width: 200px; height: 200px; border-radius: 12px; overflow: hidden;
+      width: 180px; height: 180px; border-radius: 12px; overflow: hidden;
       border: 3px solid var(--white);
       box-shadow: 0 4px 20px rgba(15,33,55,0.08);
     }
@@ -1319,7 +1322,32 @@
       font-size: 0.88rem; font-weight: 600; color: var(--blue-accent); margin-bottom: 16px;
     }
     .leadership-info p {
-      font-size: 0.95rem; line-height: 1.75; color: var(--text-secondary); max-width: 560px;
+      font-size: 0.95rem; line-height: 1.75; color: var(--text-secondary);
+    }
+    .leadership-quote {
+      position: relative;
+      background: var(--blue-accent-pale);
+      border-radius: 14px;
+      padding: 44px 56px;
+    }
+    .leadership-quote-mark {
+      position: absolute;
+      width: 38px; height: 38px;
+      color: var(--blue-accent);
+    }
+    .leadership-quote-mark.open {
+      top: 22px; left: 22px;
+    }
+    .leadership-quote-mark.close {
+      bottom: 22px; right: 22px;
+    }
+    .leadership-quote blockquote {
+      font-family: var(--font-display);
+      font-size: 0.98rem;
+      line-height: 1.7;
+      color: var(--text-primary);
+      font-style: italic;
+      letter-spacing: -0.005em;
     }
 
     /* ===== MEMBERSHIP ===== */
@@ -1502,6 +1530,10 @@
       .directory-content { gap: 36px; }
       .membership-grid { grid-template-columns: 1fr 440px; gap: 36px; }
       .footer-grid { grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 28px; }
+      .leadership-content { gap: 36px; }
+      .leadership-bio { grid-template-columns: 140px 1fr; gap: 22px; align-items: start; }
+      .leadership-photo { width: 140px; height: 140px; }
+      .leadership-quote { padding: 38px 44px; }
     }
 
     /* Small tablet / large phone */
@@ -1542,7 +1574,9 @@
       .leadership-section > .container > .section-label,
       .leadership-section > .container > .section-title { text-align: center; }
       .leadership-content { text-align: center; }
+      .leadership-bio { grid-template-columns: 1fr; gap: 20px; }
       .leadership-info p { max-width: 100%; text-align: center; }
+      .leadership-quote { text-align: left; padding: 40px 44px; max-width: 560px; margin: 0 auto; }
       .membership-grid > div:first-child .section-label,
       .membership-grid > div:first-child .section-title { text-align: center; }
       .membership-grid > div:first-child .section-subtitle { text-align: center; }
@@ -2347,13 +2381,27 @@
       <div class="section-label">Leadership</div>
       <h2 class="section-title" style="margin-bottom: 36px;">Program Director</h2>
       <div class="leadership-content reveal">
-        <div class="leadership-photo">
-          <img src="headshot.png" alt="Christina Duncan — Program Director, Secure Funder" />
+        <div class="leadership-bio">
+          <div class="leadership-photo">
+            <img src="headshot.png" alt="Christina Duncan — Program Director, Secure Funder" />
+          </div>
+          <div class="leadership-info">
+            <h3>Christina Duncan</h3>
+            <div class="role">San Francisco, CA</div>
+<p>Christina has nearly 20 years of experience in alternative finance, with deep knowledge of ISO operations, funder relationships, and merchant data workflows. She founded <a href="https://aquamark.io" target="_blank" rel="noopener noreferrer" style="color: var(--blue-accent); font-weight: 600; text-decoration: none;">Aquamark</a> and created Secure Funder™ and <a href="https://securebroker.org" target="_blank" rel="noopener noreferrer" style="color: var(--blue-accent); font-weight: 600; text-decoration: none;">Secure Broker™</a> to advance practical standards for data protection and industry self-governance.</p>          </div>
         </div>
-        <div class="leadership-info">
-          <h3>Christina Duncan</h3>
-          <div class="role">San Francisco, CA</div>
-<p>Christina has nearly 20 years of experience in alternative finance, with deep knowledge of ISO operations, funder relationships, and merchant data workflows. She founded <a href="https://aquamark.io" target="_blank" rel="noopener noreferrer" style="color: var(--blue-accent); font-weight: 600; text-decoration: none;">Aquamark</a> and created Secure Funder™ and <a href="https://securebroker.org" target="_blank" rel="noopener noreferrer" style="color: var(--blue-accent); font-weight: 600; text-decoration: none;">Secure Broker™</a> to advance practical standards for data protection and industry self-governance.</p>        </div>
+
+        <figure class="leadership-quote">
+          <svg class="leadership-quote-mark open" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
+            <path d="M9.4 8C5.3 8 2 11.3 2 15.4v8.6h8.6V15.4H6.3c0-1.7 1.4-3.1 3.1-3.1V8zm13.2 0c-4.1 0-7.4 3.3-7.4 7.4v8.6h8.6V15.4h-4.3c0-1.7 1.4-3.1 3.1-3.1V8z"/>
+          </svg>
+          <blockquote>
+            Every industry reaches a point where trust has to be demonstrated. SOC 2 gave the SaaS world that. Alternative finance needs one too — something industry-focused, lighter, and more practical for this community. The goal is not to make this hard. It's to make responsible companies easier to find in an industry that could really use it.
+          </blockquote>
+          <svg class="leadership-quote-mark close" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true" style="transform: rotate(180deg);">
+            <path d="M9.4 8C5.3 8 2 11.3 2 15.4v8.6h8.6V15.4H6.3c0-1.7 1.4-3.1 3.1-3.1V8zm13.2 0c-4.1 0-7.4 3.3-7.4 7.4v8.6h8.6V15.4h-4.3c0-1.7 1.4-3.1 3.1-3.1V8z"/>
+          </svg>
+        </figure>
       </div>
 
       
