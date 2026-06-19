@@ -67,20 +67,22 @@
     section{padding:76px 0;border-bottom:1px solid var(--border-light)}
     section:last-of-type{border-bottom:none}
     .section-header{max-width:700px;margin-bottom:42px}
-    .section-label{font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--green-accent);margin-bottom:12px}
+    .section-label{font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--text-muted);margin-bottom:12px}
     .section-title{font-family:var(--font-display);font-size:clamp(1.75rem,3vw,2.25rem);font-weight:700;line-height:1.2;letter-spacing:-.015em;color:var(--forest);margin-bottom:14px}
     .section-subtitle{font-size:1rem;color:var(--text-secondary);line-height:1.75;max-width:650px}
 
     .overview-section{background:var(--white)}
-    .overview-card{background:var(--meadow);border:1px solid var(--border-light);border-radius:18px;padding:34px;max-width:860px;box-shadow:0 8px 28px rgba(15,33,55,.04)}
-    .overview-alert{display:flex;align-items:center;gap:14px;background:var(--white);border:1px solid rgba(185,28,28,.22);border-left:5px solid #B91C1C;border-radius:12px;padding:18px 20px;margin-bottom:22px;color:#7C2D2D;font-size:1.03rem;font-weight:700;line-height:1.45}
-    .overview-alert span{display:inline-flex;align-items:center;justify-content:center;background:#FEF2F2;color:#991B1B;border-radius:999px;padding:5px 11px;font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
-    .overview-lede{font-size:1.06rem;line-height:1.72;color:var(--text-secondary);max-width:720px;margin:0 0 28px}
-    .overview-lede strong{color:var(--forest);font-weight:800}
-    .overview-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-    .overview-item{background:var(--white);border:1px solid var(--border-light);border-radius:14px;padding:22px 20px}
-    .overview-item h3{font-family:var(--font-display);font-size:.98rem;font-weight:700;color:var(--forest);margin-bottom:7px}
-    .overview-item p{font-size:.9rem;color:var(--text-secondary);line-height:1.62}
+    .overview-card{background:var(--meadow);border:1px solid var(--border-light);border-radius:10px;padding:34px 38px;max-width:860px}
+    .overview-notice{background:var(--white);border:1px solid var(--border);border-left:3px solid #B91C1C;border-radius:4px;padding:16px 20px;margin-bottom:24px;color:var(--text-primary);font-size:.98rem;line-height:1.6}
+    .overview-notice strong{display:block;font-weight:700;color:#B91C1C;margin-bottom:2px}
+    .overview-lede{font-size:1.02rem;line-height:1.72;color:var(--text-secondary);max-width:720px;margin:0 0 28px}
+    .overview-lede strong{color:var(--forest);font-weight:700}
+    .overview-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:1px solid var(--border-light);padding-top:24px}
+    .overview-item{padding:0 24px;border-right:1px solid var(--border-light)}
+    .overview-item:first-child{padding-left:0}
+    .overview-item:last-child{border-right:none;padding-right:0}
+    .overview-item h3{font-family:var(--font-display);font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px}
+    .overview-item p{font-size:.88rem;color:var(--text-secondary);line-height:1.6}
 
     .process-section{background:var(--frost)}
     .process-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
@@ -91,27 +93,27 @@
 
     .requirements-section{background:var(--white)}
     .requirements-layout{display:grid;grid-template-columns:260px minmax(0,1fr);gap:48px;align-items:start}
-    .sidebar{position:sticky;top:92px;background:var(--meadow);border:1px solid var(--border-light);border-radius:14px;padding:24px}
+    .sidebar{position:sticky;top:92px;background:var(--meadow);border:1px solid var(--border-light);border-radius:8px;padding:24px}
     .sidebar h3{font-family:var(--font-display);font-size:1rem;color:var(--forest);margin-bottom:14px}
     .sidebar a{display:block;text-decoration:none;color:var(--text-secondary);font-size:.9rem;font-weight:500;padding:11px 0;border-top:1px solid var(--border-light)}
     .sidebar a:hover{color:var(--green-accent)}
-    .req-list{display:grid;gap:22px}
-    .req-card{border:1px solid var(--border-light);border-radius:16px;background:var(--white);overflow:hidden;box-shadow:0 8px 28px rgba(15,33,55,.04)}
-    .req-card>summary.req-top{list-style:none;cursor:pointer;position:relative;padding:28px 64px 22px 30px;background:linear-gradient(180deg,var(--white),var(--meadow));border-bottom:1px solid transparent;transition:border-color .2s}
+    .req-list{display:grid;gap:18px}
+    .req-card{border:1px solid var(--border);border-radius:8px;background:var(--white);overflow:hidden}
+    .req-card>summary.req-top{list-style:none;cursor:pointer;position:relative;padding:24px 64px 22px 28px;background:var(--white);border-bottom:1px solid transparent;transition:border-color .2s}
     .req-card>summary.req-top::-webkit-details-marker{display:none}
-    .req-card>summary.req-top::after{content:"";position:absolute;right:30px;top:38px;width:10px;height:10px;border-right:2px solid var(--text-secondary);border-bottom:2px solid var(--text-secondary);transform:rotate(45deg);transition:transform .2s,top .2s}
-    .req-card[open]>summary.req-top{border-bottom-color:var(--border-light)}
-    .req-card[open]>summary.req-top::after{transform:rotate(-135deg);top:42px}
-    .req-top{padding:28px 30px 22px;background:linear-gradient(180deg,var(--white),var(--meadow));border-bottom:1px solid var(--border-light)}
-    .req-kicker{font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--green-accent);margin-bottom:10px}
-    .req-top h3{font-family:var(--font-display);font-size:1.35rem;font-weight:700;color:var(--forest);letter-spacing:-.01em;margin-bottom:8px}
+    .req-card>summary.req-top::after{content:"";position:absolute;right:28px;top:34px;width:9px;height:9px;border-right:2px solid var(--text-muted);border-bottom:2px solid var(--text-muted);transform:rotate(45deg);transition:transform .2s,top .2s}
+    .req-card[open]>summary.req-top{border-bottom-color:var(--border-light);background:var(--meadow)}
+    .req-card[open]>summary.req-top::after{transform:rotate(-135deg);top:38px}
+    .req-top{padding:24px 28px 22px;background:var(--white);border-bottom:1px solid var(--border-light)}
+    .req-kicker{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:10px}
+    .req-top h3{font-family:var(--font-display);font-size:1.25rem;font-weight:700;color:var(--forest);letter-spacing:-.01em;margin-bottom:8px}
     .req-top p{font-size:.95rem;color:var(--text-secondary);line-height:1.7;max-width:680px}
-    .req-body{padding:24px 30px 28px}
+    .req-body{padding:24px 28px 28px}
     .evidence-block{padding:18px 0;border-top:1px solid var(--border-light)}
     .evidence-block:first-child{border-top:none;padding-top:0}
     .evidence-block h4{font-family:var(--font-display);font-size:.98rem;font-weight:700;color:var(--forest);margin-bottom:8px}
     .evidence-block p{font-size:.9rem;color:var(--text-secondary);line-height:1.68;margin-bottom:10px}
-    .example-label{font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--green-accent);margin:14px 0 8px}
+    .example-label{font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);margin:14px 0 8px}
     .example-list{list-style:none;display:grid;gap:8px;margin:0}
     .example-list li{position:relative;padding-left:18px;font-size:.88rem;color:var(--text-secondary);line-height:1.58}
     .example-list li::before{content:"";position:absolute;left:0;top:.62em;width:6px;height:6px;border-radius:50%;background:var(--green-accent)}
@@ -134,7 +136,10 @@
       .requirements-layout{grid-template-columns:1fr;gap:30px}
       .sidebar{position:relative;top:auto}
       .process-list{grid-template-columns:1fr}
-      .overview-grid{grid-template-columns:1fr}
+      .overview-grid{grid-template-columns:1fr;padding-top:16px}
+      .overview-item{padding:14px 0;border-right:none;border-bottom:1px solid var(--border-light)}
+      .overview-item:first-child{padding-top:8px}
+      .overview-item:last-child{border-bottom:none;padding-bottom:0}
     }
     @media(max-width:640px){
       body{padding-top:64px}
@@ -144,7 +149,10 @@
       .hero-inner{padding:62px 0 54px;display:block}
       section{padding:58px 0}
       .btn-primary,.btn-ghost{width:100%}
-      .overview-card{padding:24px 20px}.overview-alert{align-items:flex-start;flex-direction:column;gap:10px}.overview-item,.req-top,.req-body{padding-left:22px;padding-right:22px}
+      .overview-card{padding:24px 22px}
+      .overview-notice{padding:14px 16px}
+      .req-top,.req-body{padding-left:22px;padding-right:22px}
+      .req-card>summary.req-top{padding-right:54px}
       .sidebar{display:none}
     }
   </style>
@@ -198,7 +206,7 @@
       <div class="hero-inner">
         <div class="hero-copy">
           <h1>Funder certification requirements</h1>
-          <p>Achievable for companies of all sizes.</p>
+          <p>Achievable for funders of all sizes. Requirements do not need to be met before joining, and most members earn certification in under a week.</p>
         </div>
 
       </div>
@@ -209,25 +217,25 @@
     <section id="overview" class="overview-section">
       <div class="container">
         <div class="overview-card" aria-label="Secure Funder program overview">
-          <div class="overview-alert">
-            <span>Important</span>
-            Requirements do not need to be met before joining.
+          <div class="overview-notice">
+            <strong>Requirements do not need to be met before joining.</strong>
+            Members complete verification after enrollment, with the program's full support.
           </div>
 
-          <p class="overview-lede">Applicants have up to 90 days to complete verification, with extensions available. The program is designed to support companies as they gather evidence, review controls, and prepare for final review.</p>
+          <p class="overview-lede">Members can earn certification in just a few days. Applicants have up to 90 days from joining to submit evidence, with extensions available. The program is designed to support members as they gather evidence, review controls, and prepare for final review.</p>
 
           <div class="overview-grid">
             <div class="overview-item">
-              <h3>Flexible</h3>
+              <h3>Pathways</h3>
               <p>Example pathways provided. Equivalent controls accepted.</p>
             </div>
             <div class="overview-item">
-              <h3>Portal</h3>
-              <p>Upload screenshots, screen recordings, or documents.</p>
+              <h3>Online Portal</h3>
+              <p>Upload screenshots, recordings, or documents through the portal.</p>
             </div>
             <div class="overview-item">
-              <h3>Final review</h3>
-              <p>Review Summary is provided after assessment.</p>
+              <h3>Outcome</h3>
+              <p>Review Summary provided after assessment.</p>
             </div>
           </div>
         </div>
@@ -239,7 +247,7 @@
         <div class="section-header">
           <div class="section-label">Verification Requirements</div>
           <h2 class="section-title">Five areas of review.</h2>
-          <p class="section-subtitle">Designed as a lightweight baseline to deter external data sharing.</p>
+          <p class="section-subtitle">A lightweight baseline to deter external data sharing. Most evidence is already in place at modern operations and only needs to be documented.</p>
         </div>
 
         <div class="requirements-layout">
