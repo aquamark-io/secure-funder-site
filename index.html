@@ -714,39 +714,55 @@
       display: inline-flex;
       align-items: center;
       gap: 14px;
-      margin-top: 22px;
-      padding-top: 22px;
-      border-top: 1px dashed var(--border);
+      margin-top: 24px;
+      padding: 12px 18px 12px 16px;
+      background: var(--white);
+      border: 1px solid var(--border-light);
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(15, 33, 55, 0.06);
       text-decoration: none;
       color: inherit;
-      transition: transform 0.22s ease;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
     }
     .article-attachment:hover {
-      transform: translateX(3px);
-    }
-    .article-attachment:hover .attachment-icon,
-    .article-attachment:hover .attachment-title {
-      color: var(--blue-accent);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(15, 33, 55, 0.10);
+      border-color: var(--blue-accent);
     }
     .attachment-icon {
-      width: 28px;
-      height: 38px;
+      width: 26px;
+      height: 36px;
       flex-shrink: 0;
-      color: var(--text-secondary);
-      transition: color 0.22s ease;
+      color: var(--blue-accent);
+    }
+    .attachment-clip {
+      transform-box: fill-box;
+      transform-origin: 50% 40%;
+    }
+    .reveal.visible .attachment-clip {
+      animation: attachment-clip-nod 0.9s cubic-bezier(0.5, 1.6, 0.5, 1) 0.7s 1 both;
+    }
+    @keyframes attachment-clip-nod {
+      0% { transform: rotate(0deg); }
+      32% { transform: rotate(-16deg); }
+      62% { transform: rotate(7deg); }
+      82% { transform: rotate(-3deg); }
+      100% { transform: rotate(0deg); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal.visible .attachment-clip { animation: none; }
     }
     .attachment-title {
       font-size: 0.94rem;
       font-weight: 600;
       color: var(--text-primary);
       line-height: 1.4;
-      transition: color 0.22s ease;
     }
     .attachment-arrow {
-      color: var(--text-muted);
-      font-weight: 400;
+      color: var(--blue-accent);
+      font-weight: 700;
       margin-left: 4px;
-      font-size: 0.88em;
+      font-size: 0.9em;
     }
 
 
@@ -2373,9 +2389,9 @@
             <svg class="attachment-icon" viewBox="0 0 32 44" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">
               <path d="M 6 10 L 20 10 L 26 16 L 26 40 L 6 40 Z"/>
               <path d="M 20 10 L 20 16 L 26 16"/>
-              <path d="M 13 4 v 14 a 3 3 0 0 0 6 0 v -10 a 2 2 0 0 0 -4 0 v 9"/>
+              <path class="attachment-clip" d="M 13 4 v 14 a 3 3 0 0 0 6 0 v -10 a 2 2 0 0 0 -4 0 v 9"/>
             </svg>
-            <span class="attachment-title">A message to stakeholders <span class="attachment-arrow" aria-hidden="true">&#8599;</span></span>
+            <span class="attachment-title">A message to stakeholders</span>
           </a>
           </div>
         </div>
