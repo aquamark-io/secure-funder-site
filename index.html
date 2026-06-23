@@ -223,18 +223,13 @@
       background: var(--navy); color: var(--white); font-weight: 600; margin-left: 6px;
     }
     .nav-links .btn-member:hover { background: var(--navy-mid); }
-    .cross-program-link {
-      display: inline-block;
-      margin-top: 18px;
-      padding-top: 14px;
-      border-top: 1px solid var(--border-light);
-      font-size: 0.86rem;
-      font-weight: 700;
+    .brand-link {
       color: #3DA366;
+      font-weight: 600;
       text-decoration: none;
       transition: color 0.2s;
     }
-    .cross-program-link:hover { color: #11352A; }
+    .brand-link:hover { color: #11352A; text-decoration: underline; }
     .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
     .mobile-toggle span { display: block; width: 22px; height: 2px; background: var(--navy); margin: 5px 0; }
 
@@ -2386,8 +2381,7 @@
           <div style="background: var(--cloud); border: 1px solid var(--border-light); border-left: 3px solid var(--blue-accent); border-radius: 14px; padding: 34px;">
             <div class="section-label" style="text-align: left;">Who Should Join?</div>
             <p style="font-size: 0.94rem; line-height: 1.75; color: var(--text-secondary); margin: 0;">
-              For companies providing alternative business funding loans and advances.</p>
-            <a href="https://securebroker.org" target="_blank" rel="noopener noreferrer" class="cross-program-link">Brokers can join here</a>
+              For companies providing alternative business funding loans and advances. Not a funder? Join <a href="https://securebroker.org" target="_blank" rel="noopener noreferrer" class="brand-link">Secure Broker&trade;</a>.</p>
           </div>
           <div class="why-join-callout" style="margin: 0; height: 100%;">
             <div class="section-label">Why Join?</div>
@@ -2586,6 +2580,7 @@
       <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">✕</button>
     </div>
 
+    <a href="https://securebroker.org" target="_blank" rel="noopener noreferrer" onclick="closeMobileMenu()">For Brokers</a>
     <a href="#leadership" onclick="closeMobileMenu()">Leadership</a>
     <a href="#press" onclick="closeMobileMenu()">Press</a>
     <a href="#membership" onclick="closeMobileMenu()">Membership</a>
