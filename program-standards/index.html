@@ -58,6 +58,8 @@
     .hero-inner{position:relative;z-index:1;padding:78px 0 68px;display:block;max-width:860px}
     .hero h1{font-family:var(--font-display);font-size:clamp(2.35rem,5vw,3.65rem);font-weight:700;line-height:1.08;letter-spacing:-.035em;color:var(--forest);max-width:720px;margin-bottom:22px}
     .hero p{font-size:1.06rem;line-height:1.78;color:var(--text-secondary);max-width:650px;margin-bottom:0}
+    .hero-notice{margin-top:28px;max-width:650px;background:var(--white);border:1px solid var(--border);border-left:3px solid #B91C1C;border-radius:4px;padding:16px 20px;font-size:.95rem;line-height:1.65;color:var(--text-primary)}
+    .hero-notice strong{display:block;font-weight:700;color:#B91C1C;margin-bottom:2px}
     .hero-badge{display:none}
     .btn-primary{display:inline-flex;align-items:center;justify-content:center;background:var(--green-accent);color:var(--white);font-family:var(--font-body);font-size:.9rem;font-weight:600;padding:13px 26px;border-radius:6px;text-decoration:none;transition:all .25s}
     .btn-primary:hover{background:var(--green-accent-soft);transform:translateY(-1px);box-shadow:0 4px 14px rgba(79,163,209,.3)}
@@ -71,20 +73,6 @@
     .section-title{font-family:var(--font-display);font-size:clamp(1.75rem,3vw,2.25rem);font-weight:700;line-height:1.2;letter-spacing:-.015em;color:var(--forest);margin-bottom:14px}
     .section-subtitle{font-size:1rem;color:var(--text-secondary);line-height:1.75;max-width:650px}
 
-    .overview-section{background:var(--white)}
-    .overview-card{background:var(--meadow);border:1px solid var(--border-light);border-radius:10px;padding:34px 38px;max-width:860px}
-    .overview-notice{background:var(--white);border:1px solid var(--border);border-left:3px solid #B91C1C;border-radius:4px;padding:16px 20px;margin-bottom:24px;color:var(--text-primary);font-size:.98rem;line-height:1.6}
-    .overview-notice strong{display:block;font-weight:700;color:#B91C1C;margin-bottom:2px}
-    .overview-lede{font-size:1.02rem;line-height:1.72;color:var(--text-secondary);max-width:720px;margin:0 0 28px}
-    .overview-lede strong{color:var(--forest);font-weight:700}
-    .overview-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:1px solid var(--border-light);padding-top:24px}
-    .overview-item{padding:0 24px;border-right:1px solid var(--border-light)}
-    .overview-item:first-child{padding-left:0}
-    .overview-item:last-child{border-right:none;padding-right:0}
-    .overview-item h3{font-family:var(--font-display);font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px}
-    .overview-item p{font-size:.88rem;color:var(--text-secondary);line-height:1.6}
-
-    .process-section{background:var(--frost)}
     .process-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
     .process-card{background:rgba(255,255,255,.62);border:1px solid rgba(15,33,55,.1);border-radius:14px;padding:28px 26px;box-shadow:0 8px 28px rgba(15,33,55,.04)}
     .process-num{width:42px;height:42px;border-radius:50%;background:var(--green-accent);color:var(--white);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.95rem;margin-bottom:20px;box-shadow:0 4px 12px rgba(79,163,209,.25)}
@@ -117,6 +105,9 @@
     .example-list{list-style:none;display:grid;gap:8px;margin:0}
     .example-list li{position:relative;padding-left:18px;font-size:.88rem;color:var(--text-secondary);line-height:1.58}
     .example-list li::before{content:"";position:absolute;left:0;top:.62em;width:6px;height:6px;border-radius:50%;background:var(--green-accent)}
+    .process-checklist{list-style:none;display:grid;gap:14px;margin:0;padding:0}
+    .process-checklist li{position:relative;padding-left:30px;font-size:.93rem;color:var(--text-secondary);line-height:1.65}
+    .process-checklist li::before{content:"";position:absolute;left:0;top:5px;width:18px;height:18px;background-image:url("data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234FA3D1' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>");background-repeat:no-repeat;background-size:contain}
     .note{margin-top:12px;padding:14px 16px;background:var(--green-accent-pale);border:1px solid rgba(79,163,209,.18);border-radius:10px;font-size:.88rem;color:var(--text-secondary);line-height:1.62}
     .recommended{margin-top:12px;padding:14px 16px;background:#fbfbef;border:1px solid #ece8be;border-radius:10px;font-size:.88rem;color:var(--text-secondary);line-height:1.62}
 
@@ -136,10 +127,6 @@
       .requirements-layout{grid-template-columns:1fr;gap:30px}
       .sidebar{position:relative;top:auto}
       .process-list{grid-template-columns:1fr}
-      .overview-grid{grid-template-columns:1fr;padding-top:16px}
-      .overview-item{padding:14px 0;border-right:none;border-bottom:1px solid var(--border-light)}
-      .overview-item:first-child{padding-top:8px}
-      .overview-item:last-child{border-bottom:none;padding-bottom:0}
     }
     @media(max-width:640px){
       body{padding-top:64px}
@@ -149,8 +136,7 @@
       .hero-inner{padding:62px 0 54px;display:block}
       section{padding:58px 0}
       .btn-primary,.btn-ghost{width:100%}
-      .overview-card{padding:24px 22px}
-      .overview-notice{padding:14px 16px}
+      .hero-notice{padding:14px 16px}
       .req-top,.req-body{padding-left:22px;padding-right:22px}
       .req-card>summary.req-top{padding-right:54px}
       .sidebar{display:none}
@@ -207,6 +193,9 @@
         <div class="hero-copy">
           <h1>Funder certification requirements</h1>
           <p>Achievable for funders of all sizes. Lightweight and practical.</p>
+          <div class="hero-notice">
+            <strong>Requirements do not need to be met before joining.</strong>
+          </div>
         </div>
 
       </div>
@@ -214,45 +203,19 @@
   </header>
 
   <main>
-    <section id="overview" class="overview-section">
-      <div class="container">
-        <div class="overview-card" aria-label="Secure Funder program overview">
-          <div class="overview-notice">
-            <strong>Requirements do not need to be met before joining.</strong>
-            Members complete verification after enrollment, with the program's full support.
-          </div>
-
-          <p class="overview-lede">Members can earn certification in just a few days. Applicants have up to 90 days from joining to submit evidence, with extensions available.</p>
-
-          <div class="overview-grid">
-            <div class="overview-item">
-              <h3>Pathways</h3>
-              <p>Example pathways provided. Equivalent controls accepted.</p>
-            </div>
-            <div class="overview-item">
-              <h3>Online Portal</h3>
-              <p>Upload screenshots, recordings, or documents through the portal.</p>
-            </div>
-            <div class="overview-item">
-              <h3>Outcome</h3>
-              <p>Review Summary provided after assessment.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <section id="requirements" class="requirements-section">
       <div class="container">
         <div class="section-header">
           <div class="section-label">Verification Requirements</div>
           <h2 class="section-title">Five areas of review.</h2>
-          <p class="section-subtitle">A lightweight baseline to deter external data sharing. Most evidence is already in place at modern operations and only needs to be documented.</p>
+          <p class="section-subtitle">A lightweight framework to deter external data sharing.</p>
         </div>
 
         <div class="requirements-layout">
           <aside class="sidebar" aria-label="Requirement navigation">
             <h3>Jump to section</h3>
+            <a href="#purpose">Purpose</a>
+            <a href="#how-it-works">How It Works</a>
             <a href="#personnel">1. Personnel Controls</a>
             <a href="#email">2. Email Security</a>
             <a href="#crm">3. CRMs or Equivalent Systems</a>
@@ -262,6 +225,36 @@
           </aside>
 
           <div class="req-list">
+            <details id="purpose" class="req-card">
+              <summary class="req-top">
+                <div class="req-kicker">Program Overview</div>
+                <h3>Purpose</h3>
+              </summary>
+              <div class="req-body">
+                <div class="evidence-block">
+                  <p>To confirm baseline safeguards are in place to mitigate unauthorized external sharing of merchant data.</p>
+                </div>
+              </div>
+            </details>
+
+            <details id="how-it-works" class="req-card">
+              <summary class="req-top">
+                <div class="req-kicker">Program Overview</div>
+                <h3>How It Works</h3>
+              </summary>
+              <div class="req-body">
+                <ul class="process-checklist">
+                  <li><a class="inline-link" href="https://securefunder.org/contact/">Submit your application</a>.</li>
+                  <li>You're added to the directory as an applicant.</li>
+                  <li>You receive credentials to the verification portal.</li>
+                  <li>Submit evidence within 90 days &mdash; screenshots, recordings, or documents. Extensions available.</li>
+                  <li>We perform a final review and share a Review Summary.</li>
+                  <li>If all requirements are met: your directory status is updated, your digital badge is issued, and we share a public announcement.</li>
+                  <li>If evidence falls short: we provide feedback and time to address it. The process is collaborative.</li>
+                </ul>
+              </div>
+            </details>
+
             <details id="personnel" class="req-card">
               <summary class="req-top">
                 <div class="req-kicker">Requirement 01</div>
