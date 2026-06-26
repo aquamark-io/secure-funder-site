@@ -17,236 +17,628 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --navy: #0F2137;
+      --navy-mid: #1A3455;
+      --slate: #3D5A80;
+      --steel: #6B8BAD;
+      --sky: #93B5D0;
+      --ice: #C5D9E8;
+      --pearl: #EFF4F8;
+      --cloud: #F6F9FC;
+      --white: #FFFFFF;
+      --blue-accent: #4FA3D1;
+      --blue-accent-soft: #7BBCE1;
+      --blue-accent-pale: #E7F2FA;
+      --text-primary: #0F2137;
+      --text-secondary: #4A6480;
+      --text-muted: #7A96AE;
+      --border: #DAE3EC;
+      --border-light: #EAF0F5;
+      --font-body: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
     *, *::before, *::after { box-sizing: border-box; }
     html, body { margin: 0; padding: 0; }
-    html { -webkit-text-size-adjust: 100%; }
+    html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
 
     body {
-      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-family: var(--font-body);
       font-size: 17px;
-      line-height: 1.7;
-      color: #1a1a1a;
-      background: #ffffff;
+      line-height: 1.75;
+      color: var(--text-primary);
+      background: var(--white);
+      padding-top: 68px;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       font-feature-settings: "kern" 1, "liga" 1;
     }
 
+    /* ===== NAV (matches homepage) ===== */
+    .main-nav {
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 190;
+      box-shadow: 0 1px 4px rgba(15,33,55,0.04);
+    }
+    .main-nav .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 68px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-badge-link, .logo-text-link {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: var(--navy);
+    }
+    .logo-badge {
+      width: 36px;
+      height: 36px;
+      object-fit: contain;
+    }
+    .logo-badge-lg { width: 36px; height: 36px; }
+    .logo-stack {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+    .logo-text {
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--navy);
+    }
+    .logo-tm {
+      font-size: 0.55em;
+      vertical-align: super;
+      font-weight: 400;
+      margin-left: 1px;
+    }
+    .logo-admin {
+      font-size: 0.62rem;
+      color: #5E7E96;
+      letter-spacing: 0.03em;
+      margin-top: 3px;
+    }
+    .logo-admin a {
+      color: inherit;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .logo-admin a:hover { color: var(--navy); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-primary);
+      font-size: 0.88rem;
+      font-weight: 500;
+      padding: 8px 14px;
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+    .nav-links a:hover { background: var(--cloud); }
+    .nav-links .btn-member {
+      background: var(--navy);
+      color: var(--white);
+      font-weight: 600;
+      margin-left: 6px;
+    }
+    .nav-links .btn-member:hover { background: var(--navy-mid); }
+
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+    .mobile-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--navy);
+      margin: 5px 0;
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: var(--white);
+      z-index: 1000;
+      flex-direction: column;
+      padding: 24px;
+    }
+    .mobile-menu.active { display: flex; }
+    .mobile-menu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 32px;
+    }
+    .mobile-menu-close {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1.5rem;
+      color: var(--navy);
+      padding: 8px;
+    }
+    .mobile-menu a {
+      display: block;
+      padding: 14px 0;
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--navy);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu .btn-member-mobile {
+      display: block;
+      margin-top: 24px;
+      padding: 14px;
+      background: var(--navy);
+      color: var(--white);
+      text-align: center;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    /* ===== ARTICLE ===== */
     .article {
       max-width: 760px;
       margin: 0 auto;
       padding: 72px 32px 96px;
     }
 
-    .hero {
-      margin: 0 0 48px;
+    .article-header {
+      margin-bottom: 48px;
     }
 
-    .hero img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    .hero figcaption {
-      text-align: center;
-      font-size: 14px;
-      color: #6b7280;
-      margin-top: 14px;
-      font-style: italic;
-    }
-
-    .meta {
-      margin: 0 0 28px;
-    }
-
-    .meta-date {
-      font-size: 12px;
-      text-transform: uppercase;
+    .article-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 700;
       letter-spacing: 0.14em;
-      color: #6b7280;
-      font-weight: 600;
-      margin-bottom: 10px;
+      text-transform: uppercase;
+      color: var(--blue-accent);
+      margin-bottom: 22px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
-
-    .meta-dek {
-      font-size: 18px;
-      font-style: italic;
-      color: #4a4a4a;
-      line-height: 1.5;
+    .article-eyebrow::before {
+      content: '';
+      width: 22px;
+      height: 1.5px;
+      background: var(--blue-accent);
     }
 
     h1 {
-      font-size: 38px;
-      line-height: 1.2;
+      font-size: 2.4rem;
+      line-height: 1.18;
       font-weight: 700;
       letter-spacing: -0.025em;
-      margin: 0 0 36px;
-      color: #0a0a0a;
+      margin: 0 0 20px;
+      color: var(--navy);
     }
 
-    h2 {
-      font-size: 23px;
+    .article-dek {
+      font-size: 1.18rem;
+      line-height: 1.55;
+      color: var(--text-secondary);
+      font-weight: 400;
+      margin: 0 0 36px;
+      max-width: 620px;
+    }
+
+    /* ===== AUTHOR ROW ===== */
+    .author-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 20px 0 0;
+      border-top: 1px solid var(--border-light);
+    }
+    .author-photo {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      border: 2px solid var(--blue-accent-pale);
+      flex-shrink: 0;
+    }
+    .author-meta {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.3;
+      flex: 1;
+    }
+    .author-name {
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+    .author-role {
+      font-size: 0.84rem;
+      color: var(--text-secondary);
+      margin-top: 1px;
+    }
+    .author-linkedin {
+      display: inline-flex;
+      align-items: center;
+      color: #0A66C2;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .author-linkedin:hover { opacity: 0.75; }
+
+    /* ===== BODY ===== */
+    .article-body h2 {
+      font-size: 1.5rem;
       line-height: 1.3;
       font-weight: 700;
       margin: 0 0 18px;
       letter-spacing: -0.015em;
-      color: #0a0a0a;
+      color: var(--navy);
     }
 
-    p {
-      margin: 0 0 20px;
+    .article-body p {
+      margin: 0 0 22px;
+      color: var(--text-primary);
     }
 
-    ul {
-      margin: 0 0 20px;
-      padding-left: 22px;
+    .article-body ul {
+      margin: 0 0 22px;
+      padding-left: 24px;
     }
-
-    li {
+    .article-body li {
       margin-bottom: 8px;
     }
-
-    li::marker {
-      color: #6b7280;
+    .article-body li::marker {
+      color: var(--blue-accent);
     }
 
-    strong {
+    .article-body strong {
       font-weight: 700;
-      color: #0a0a0a;
+      color: var(--navy);
     }
 
-    a {
-      color: #1a1a1a;
+    .article-body a {
+      color: var(--blue-accent);
       text-decoration: underline;
       text-decoration-thickness: 1px;
       text-underline-offset: 3px;
+      font-weight: 500;
       transition: color 0.15s ease;
     }
-
-    a:hover {
-      color: #555;
+    .article-body a:hover {
+      color: var(--navy);
     }
 
-    hr {
+    .article-body hr {
       border: none;
-      border-top: 1px solid #e5e7eb;
+      border-top: 1px solid var(--border-light);
       margin: 44px 0 36px;
     }
 
-    .byline {
-      margin-top: 8px;
-      font-size: 14px;
-      color: #6b7280;
+    /* ===== SIGNOFF ===== */
+    .article-signoff {
+      margin-top: 56px;
+      padding: 32px 0 0;
+      border-top: 2px solid var(--border);
     }
+    .signoff-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--blue-accent);
+      margin-bottom: 14px;
+    }
+    .signoff-name {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin: 0 0 4px;
+    }
+    .signoff-role {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin: 0 0 14px;
+    }
+    .signoff-contact {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+    .signoff-contact a {
+      color: var(--blue-accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .signoff-contact a:hover { text-decoration: underline; }
 
-    .byline a {
-      color: #6b7280;
+    /* ===== FOOTER (matches homepage) ===== */
+    footer {
+      background: var(--navy);
+      color: var(--ice);
+      padding: 48px 0 28px;
+      margin-top: 48px;
+    }
+    .footer-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .footer-brand .logo-text {
+      color: var(--white);
+      font-size: 1.15rem;
+    }
+    .footer-desc {
+      font-size: 0.86rem;
+      color: var(--steel);
+      line-height: 1.7;
+      max-width: 540px;
+      margin: 0 0 28px;
+    }
+    .footer-desc a {
+      color: var(--steel);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-desc a:hover { color: var(--blue-accent-soft); }
+    .footer-bottom {
+      padding-top: 22px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 0.76rem;
+      color: var(--steel);
+    }
+    .footer-bottom a {
+      color: var(--steel);
+      text-decoration: none;
+    }
+    .footer-bottom a:hover { color: var(--blue-accent-soft); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .mobile-toggle { display: block; }
     }
 
     @media (max-width: 640px) {
-      body { font-size: 16px; }
-      .article { padding: 36px 20px 64px; }
-      .hero { margin-bottom: 36px; }
-      h1 { font-size: 27px; margin-bottom: 24px; letter-spacing: -0.02em; }
-      .meta-dek { font-size: 16px; }
-      h2 { font-size: 20px; }
-      hr { margin: 32px 0 24px; }
+      body { font-size: 16px; padding-top: 56px; }
+      .main-nav .container { height: 56px; padding: 0 18px; }
+      .logo-badge, .logo-badge-lg { width: 30px; height: 30px; }
+      .logo-text { font-size: 1.1rem; }
+      .article { padding: 40px 20px 64px; }
+      .article-header { margin-bottom: 36px; }
+      h1 { font-size: 1.75rem; letter-spacing: -0.02em; margin-bottom: 16px; }
+      .article-dek { font-size: 1.05rem; margin-bottom: 28px; }
+      .author-photo { width: 48px; height: 48px; }
+      .author-name { font-size: 0.94rem; }
+      .author-role { font-size: 0.8rem; }
+      .article-body h2 { font-size: 1.25rem; }
+      .article-body hr { margin: 32px 0 24px; }
+      .article-signoff { margin-top: 40px; }
+      footer { padding: 36px 0 22px; margin-top: 32px; }
+      .footer-inner { padding: 0 20px; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
     }
 
     @media (prefers-reduced-motion: reduce) {
       a { transition: none; }
+      html { scroll-behavior: auto; }
     }
   </style>
 </head>
 <body>
+
+  <!-- Navigation -->
+  <nav class="main-nav">
+    <div class="container">
+      <div class="logo">
+        <a href="https://securefunder.org/" class="logo-badge-link" aria-label="Secure Funder Home">
+          <img class="logo-badge logo-badge-lg" src="/blue-ring.png" alt="Secure Funder">
+        </a>
+        <div class="logo-stack">
+          <a href="https://securefunder.org/" class="logo-text-link" aria-label="Secure Funder Home">
+            <div class="logo-text">Secure Funder<span class="logo-tm">&trade;</span></div>
+          </a>
+          <div class="logo-admin">Administered by <a href="https://aquamark.io" target="_blank" rel="noopener noreferrer">Aquamark</a></div>
+        </div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="https://securebroker.org" target="_blank" rel="noopener noreferrer">For Brokers</a></li>
+        <li><a href="https://securefunder.org/program-standards/" target="_blank" rel="noopener noreferrer">Guidelines</a></li>
+        <li><a href="https://securefunder.org/#press">Press</a></li>
+        <li><a href="https://securefunder.org/#membership">Membership</a></li>
+        <li><a href="https://portal.securefunder.org/login" class="btn-member">Sign In</a></li>
+      </ul>
+      <button class="mobile-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Article -->
   <main class="article">
-    <figure class="hero">
-      <img src="/sfbridge.png" alt="Christina Duncan, San Francisco" loading="eager">
-      <figcaption>Christina Duncan, San Francisco, CA.</figcaption>
-    </figure>
 
-    <div class="meta">
-      <div class="meta-date">Published June 2026</div>
-      <div class="meta-dek">A message to stakeholders in alternative finance</div>
+    <header class="article-header">
+      <h1>What Is &ldquo;Backdooring&rdquo; in Alternative Finance &mdash; and Why Should the Industry Care?</h1>
+
+      <p class="article-dek">A message to stakeholders in alternative finance.</p>
+
+      <div class="author-row">
+        <img class="author-photo" src="/headshot.png" alt="Christina Duncan">
+        <div class="author-meta">
+          <div class="author-name">Christina Duncan</div>
+          <div class="author-role">Program Director, Secure Funder&trade;</div>
+        </div>
+        <a href="https://www.linkedin.com/in/christina-duncan-account/" target="_blank" rel="noopener noreferrer" aria-label="Christina Duncan on LinkedIn" class="author-linkedin">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+          </svg>
+        </a>
+      </div>
+    </header>
+
+    <div class="article-body">
+
+      <p>In alternative business finance, &ldquo;<strong>backdooring</strong>&rdquo; refers to the theft and resale of merchant documents and data.</p>
+
+      <p>There are two types: <strong>internal</strong> and <strong>external</strong> backdooring. Neither requires a complex scheme, and that is part of the problem. At its core, it comes down to <strong>technical vulnerability</strong>: data is extracted from company systems and forwarded externally with little to no oversight or safeguards. As much as people like to believe strong relationships with merchants and partners are enough, they are not.</p>
+
+      <p>Backdooring usually shows up in two ways:</p>
+
+      <ul>
+        <li><strong>Bulk data</strong> is exported as CSV or Excel files.</li>
+        <li><strong>Submission packages</strong> are extracted, forwarded, and resold. This is the <strong>most common</strong>.</li>
+      </ul>
+
+      <p>A <strong>submission package</strong>, often called a loan package or &ldquo;<strong>pack</strong>,&rdquo; includes a credit application and business bank statements. Its purpose is to evaluate a legitimate business funding request. On any given day, hundreds of these packages can be found for sale, often by individuals or data providers flipping packages for a profit.</p>
+
+      <hr>
+
+      <h2>Who Is Buying?</h2>
+      <ul>
+        <li>Brokers</li>
+        <li>Funders</li>
+        <li>Lead resellers</li>
+        <li>Data providers</li>
+      </ul>
+
+      <hr>
+
+      <h2>Internal Backdooring</h2>
+      <p>As a standard practice, brokers originate submission packages. The problem starts when <strong>someone inside the company</strong> takes that information from company systems and sends it to <strong>someone outside the company</strong> for financial gain.</p>
+
+      <p>Typically, packages are downloaded or forwarded from a company email, CRM, or equivalent. Once extracted, they log into a personal email account and send files to themselves, or directly to their buyers. Unless you are monitoring, deterring, and auditing, this often goes <strong>undetected</strong>.</p>
+
+      <hr>
+
+      <h2>External Backdooring</h2>
+      <p>Brokers will send the same deal to multiple funders, another normal practice. Once a funder receives a submission, external individuals and systems gain access and brokers lose control.</p>
+
+      <p>In most instances, the backdooring is done by a <strong>rogue individual without the knowledge of the funding company</strong>. In less common but more serious cases, a funding company may systematically use broker-submitted files for its own benefit. This typically takes two forms: <strong>bypassing the original broker</strong> to fund the deal in-house without paying a commission, or <strong>secretly brokering the deal out</strong> to competing funders.</p>
+
+      <hr>
+
+      <h2>Why Do People Do It?</h2>
+      <p>Financial gain, survival, incompetence.</p>
+
+      <p>Alternative finance has <strong>limited barriers to enter</strong>, and for most products, brokers <strong>do not need</strong> a <strong>license</strong> or specialized <strong>credentials</strong> to operate. A number of states are starting to require different forms of registration, though not fast enough and not in a way that enforces meaningful non-compliance <strong>consequences</strong>.</p>
+
+      <p>At the same time, one transaction can generate thousands in commission in a single day. Combined, it has created a <strong>crowded market</strong> where everyone is competing for the same <strong>finite deal flow</strong>.</p>
+
+      <p>Lead origination is <strong>harder</strong>, more <strong>expensive</strong>, and more <strong>competitive</strong>. That does not excuse backdooring, but it helps explain why the &ldquo;<strong>pack market</strong>&rdquo; exists. Buying backdoored files is cheaper than generating leads, faster than building relationships, and easier than doing the work.</p>
+
+      <hr>
+
+      <h2>Why It Matters</h2>
+      <p>It <strong>harms business owners</strong>. Their data leaks, then the <strong>calls start</strong>. Suddenly they are being pressured and misled by multiple companies, leading to excessive stacking and in extreme cases, putting businesses out of business.</p>
+
+      <p>If your company is doing things the right way, <strong>backdooring still affects you</strong>. Because of its scale, it weakens broker-funder trust, hurts portfolio performance and industry perception, and makes responsible companies harder to distinguish from everyone else.</p>
+
+      <hr>
+
+      <h2>How Do You Stop It?</h2>
+      <p>You can&rsquo;t prevent it all, but you can make it harder. Limit who can access systems, control downloads, <a href="https://www.aquamark.io/" target="_blank" rel="noopener noreferrer">watermark documents</a>, maintain audit logs, monitor personal email forwarding, block browser access to personal email accounts. <strong>These are standard DLP controls</strong>. Once the industry starts expecting them as a condition of doing business, bad actors have <strong>fewer places to hide</strong>.</p>
+
+      <hr>
+
+      <h2>My Final Thoughts</h2>
+      <p>If you go back a decade, <a href="https://debanked.com/2015/10/did-your-deal-slip-out-the-back-door/" target="_blank" rel="noopener noreferrer">you&rsquo;ll find backdooring</a>. It has only gotten worse and largely accepted as part of doing business. The industry does not need to solve everything overnight, but it does need to start somewhere. <a href="https://securebroker.org" target="_blank" rel="noopener noreferrer">Secure Broker</a> and <a href="https://securefunder.org" target="_blank" rel="noopener noreferrer">Secure Funder</a> give companies an independent way to take that first step. And over time, the companies doing things the right way will be the easiest to find.</p>
+
     </div>
 
-    <h1>What Is &ldquo;Backdooring&rdquo; in Alternative Finance &mdash; and Why Should the Industry Care?</h1>
-
-    <div class="program-ctas" style="display: flex; flex-wrap: wrap; align-items: center; gap: 18px; margin: 0 0 40px; font-size: 15px;">
-      <a href="https://securebroker.org/" target="_blank" rel="noopener noreferrer" style="color: #3DA366; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; font-weight: 600;">Secure Broker</a>
-      <span style="color: #d1d5db;" aria-hidden="true">/</span>
-      <a href="https://securefunder.org/" target="_blank" rel="noopener noreferrer" style="color: #1E88E5; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; font-weight: 600;">Secure Funder</a>
+    <!-- Signoff -->
+    <div class="article-signoff">
+      <div class="signoff-label">Signed</div>
+      <p class="signoff-name">Christina Duncan</p>
+      <p class="signoff-role">Program Director &middot; Secure Broker&trade;, Secure Funder&trade; &middot; Founder, Aquamark</p>
+      <p class="signoff-contact"><a href="mailto:christina@aquamark.io">christina@aquamark.io</a></p>
     </div>
 
-    <p>In alternative business finance, &ldquo;<strong>backdooring</strong>&rdquo; refers to the theft and resale of merchant documents and data.</p>
-
-    <p>There are two types: <strong>internal</strong> and <strong>external</strong> backdooring. Neither requires a complex scheme, and that is part of the problem. At its core, it comes down to <strong>technical vulnerability</strong>: data is extracted from company systems and forwarded externally with little to no oversight or safeguards. As much as people like to believe strong relationships with merchants and partners are enough, they are not.</p>
-
-    <p>Backdooring usually shows up in two ways:</p>
-
-    <ul>
-      <li><strong>Bulk data</strong> is exported as CSV or Excel files.</li>
-      <li><strong>Submission packages</strong> are extracted, forwarded, and resold. This is the <strong>most common</strong>.</li>
-    </ul>
-
-    <p>A <strong>submission package</strong>, often called a loan package or &ldquo;<strong>pack</strong>,&rdquo; includes a credit application and business bank statements. Its purpose is to evaluate a legitimate business funding request. On any given day, hundreds of these packages can be found for sale, often by individuals or data providers flipping packages for a profit.</p>
-
-    <hr>
-
-    <h2>Who Is Buying?</h2>
-    <ul>
-      <li>Brokers</li>
-      <li>Funders</li>
-      <li>Lead resellers</li>
-      <li>Data providers</li>
-    </ul>
-
-    <hr>
-
-    <h2>Internal Backdooring</h2>
-    <p>As a standard practice, brokers originate submission packages. The problem starts when <strong>someone inside the company</strong> takes that information from company systems and sends it to <strong>someone outside the company</strong> for financial gain.</p>
-
-    <p>Typically, packages are downloaded or forwarded from a company email, CRM, or equivalent. Once extracted, they log into a personal email account and send files to themselves, or directly to their buyers. Unless you are monitoring, deterring, and auditing, this often goes <strong>undetected</strong>.</p>
-
-    <hr>
-
-    <h2>External Backdooring</h2>
-    <p>Brokers will send the same deal to multiple funders, another normal practice. Once a funder receives a submission, external individuals and systems gain access and brokers lose control.</p>
-
-    <p>In most instances, the backdooring is done by a <strong>rogue individual without the knowledge of the funding company</strong>. In less common but more serious cases, a funding company may systematically use broker-submitted files for its own benefit. This typically takes two forms: <strong>bypassing the original broker</strong> to fund the deal in-house without paying a commission, or <strong>secretly brokering the deal out</strong> to competing funders.</p>
-
-    <hr>
-
-    <h2>Why Do People Do It?</h2>
-    <p>Financial gain, survival, incompetence.</p>
-
-    <p>Alternative finance has <strong>limited barriers to enter</strong>, and for most products, brokers <strong>do not need</strong> a <strong>license</strong> or specialized <strong>credentials</strong> to operate. A number of states are starting to require different forms of registration, though not fast enough and not in a way that enforces meaningful non-compliance <strong>consequences</strong>.</p>
-
-    <p>At the same time, one transaction can generate thousands in commission in a single day. Combined, it has created a <strong>crowded market</strong> where everyone is competing for the same <strong>finite deal flow</strong>.</p>
-
-    <p>Lead origination is <strong>harder</strong>, more <strong>expensive</strong>, and more <strong>competitive</strong>. That does not excuse backdooring, but it helps explain why the &ldquo;<strong>pack market</strong>&rdquo; exists. Buying backdoored files is cheaper than generating leads, faster than building relationships, and easier than doing the work.</p>
-
-    <hr>
-
-    <h2>Why It Matters</h2>
-    <p>It <strong>harms business owners</strong>. Their data leaks, then the <strong>calls start</strong>. Suddenly they are being pressured and misled by multiple companies, leading to excessive stacking and in extreme cases, putting businesses out of business.</p>
-
-    <p>If your company is doing things the right way, <strong>backdooring still affects you</strong>. Because of its scale, it weakens broker-funder trust, hurts portfolio performance and industry perception, and makes responsible companies harder to distinguish from everyone else.</p>
-
-    <hr>
-
-    <h2>How Do You Stop It?</h2>
-    <p>You can&rsquo;t prevent it all, but you can make it harder. Limit who can access systems, control downloads, <a href="https://www.aquamark.io/" target="_blank" rel="noopener noreferrer">watermark documents</a>, maintain audit logs, monitor personal email forwarding, block browser access to personal email accounts. <strong>These are standard DLP controls</strong>. Once the industry starts expecting them as a condition of doing business, bad actors have <strong>fewer places to hide</strong>.</p>
-
-    <hr>
-
-    <h2>My Final Thoughts</h2>
-    <p>If you go back a decade, <a href="https://debanked.com/2015/10/did-your-deal-slip-out-the-back-door/">you&rsquo;ll find backdooring</a>. It has only gotten worse and largely accepted as part of doing business. The industry does not need to solve everything overnight, but it does need to start somewhere. <a href="https://securebroker.org" style="color: #3DA366; font-weight: 600;">Secure Broker</a> and <a href="https://securefunder.org" style="color: #1E88E5; font-weight: 600;">Secure Funder</a> give companies an independent way to take that first step. And over time, the companies doing things the right way will be the easiest to find.</p>
-
-    <hr>
-
-    <p class="byline">Christina Duncan &nbsp;|&nbsp; <a href="mailto:christina@aquamark.io">christina@aquamark.io</a> &nbsp;|&nbsp; Founder, Secure Broker, Secure Funder, Aquamark</p>
   </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img class="logo-badge" src="/blue-ring.png" alt="Secure Funder">
+        <span class="logo-text">Secure Funder<span class="tm">&trade;</span></span>
+      </div>
+      <p class="footer-desc">An independent certification program for brokers establishing baseline data-handling standards in alternative finance. Administered by <a href="https://aquamark.io" target="_blank" rel="noopener noreferrer">Aquamark</a>.</p>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Secure Funder&trade; Certification Program. All rights reserved.</span>
+        <span>Independently administered by <a href="https://aquamark.io" target="_blank" rel="noopener noreferrer">Aquamark</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-header">
+      <a href="https://securefunder.org/" class="logo" aria-label="Secure Funder Home">
+        <img class="logo-badge" src="/blue-ring.png" alt="Secure Funder" style="width:30px;height:30px;">
+        <div class="logo-text">Secure Funder<span class="logo-tm">&trade;</span></div>
+      </a>
+      <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">&#10005;</button>
+    </div>
+
+    <a href="https://securebroker.org" target="_blank" rel="noopener noreferrer" onclick="closeMobileMenu()">For Brokers</a>
+    <a href="https://securefunder.org/program-standards/" target="_blank" rel="noopener noreferrer" onclick="closeMobileMenu()">Guidelines</a>
+    <a href="https://securefunder.org/#press" onclick="closeMobileMenu()">Press</a>
+    <a href="https://securefunder.org/#membership" onclick="closeMobileMenu()">Membership</a>
+    <a href="https://portal.securefunder.org/login" class="btn-member-mobile">Sign In</a>
+  </div>
+
+  <script>
+    const toggle = document.querySelector('.mobile-toggle');
+    const menu = document.getElementById('mobileMenu');
+    const closeBtn = document.getElementById('mobileMenuClose');
+    function closeMobileMenu() { menu.classList.remove('active'); document.body.style.overflow = ''; }
+    toggle.addEventListener('click', () => { menu.classList.add('active'); document.body.style.overflow = 'hidden'; });
+    closeBtn.addEventListener('click', closeMobileMenu);
+  </script>
+
 </body>
 </html>
