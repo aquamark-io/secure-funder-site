@@ -46,8 +46,12 @@
       background: var(--white);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
-      padding-top: 0;
+      padding-top: 68px;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
+    .doc-wrapper { flex: 1; }
 
     .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
@@ -81,12 +85,7 @@
     }
     .utility-message { color: rgba(255,255,255,0.95); }
     @media (max-width: 640px) {
-      body { padding-top: 0; }
-      .utility-bar { height: var(--utility-height-mobile); }
-      .utility-banner-link { padding: 8px 14px; }
-      .utility-copy { flex-direction: column; gap: 2px; }
-      .utility-eyebrow { font-size: 0.58rem; letter-spacing: 0.16em; }
-      .utility-message { font-size: 0.80rem; line-height: 1.22; }
+      body { padding-top: 56px; }
     }
 
     /* Nav */
@@ -95,7 +94,7 @@
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
-      position: fixed; top: var(--utility-height); left: 0; right: 0; z-index: 190;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 190;
       box-shadow: 0 1px 4px rgba(15,33,55,0.04);
     }
     .main-nav .container {
@@ -311,8 +310,13 @@
 
     .accordion-group {
       display: grid;
-      gap: 14px;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
       margin-top: 10px;
+      align-items: start;
+    }
+    @media (max-width: 700px) {
+      .accordion-group { grid-template-columns: 1fr; }
     }
     .accordion-card {
       border: 1px solid var(--border);
@@ -487,26 +491,36 @@
 </head>
 <body>
 
+  <!-- Navigation -->
+  <nav class="main-nav">
+    <div class="container">
+      <a href="https://securefunder.org/" class="logo" aria-label="Secure Funder Home">
+        <img class="logo-badge" src="../blue-ring.png" alt="Secure Funder">
+        <div class="logo-text">Secure Funder<span class="logo-tm">&trade;</span></div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="https://securefunder.org/contact/" target="_blank" rel="noopener noreferrer">Request Capital Introduction</a></li>
+        <li><a href="https://portal.securefunder.org/login" class="btn-member">Sign In</a></li>
+      </ul>
+      <button class="mobile-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
 
   <section class="doc-wrapper">
     <div class="doc-header">
-      <div class="doc-eyebrow">Member Benefit Overview</div>
-      <h1 class="doc-title">Capital Opportunities for Members</h1>
-      <div class="doc-meta">Overview of financing pathways available through the Secure Funder™ capital markets partnership</div>
+      <div class="doc-eyebrow">Member Program</div>
+      <h1 class="doc-title">Capital Opportunities</h1>
+      <div class="doc-meta">Members may request an introduction to capital partners that support the Secure Funder&trade; program initiative &mdash; including credit facilities and forward flow agreements.</div>
     </div>
 
     <article class="doc-body">
 
-      <div class="intro-note">
-        <p>Eligible members may request an introduction to an investment bank supportive of the Secure Funder program to explore whether there may be a fit.</p>
-        <a class="intro-button" href="https://securefunder.org/contact/" target="_blank" rel="noopener">Request More Info</a>
-      </div>
-
       <div class="accordion-group">
-        <div class="accordion-card">
-          <button class="accordion-toggle" type="button" aria-expanded="false">
-            <span class="accordion-label"><span class="accordion-title">Credit Facilities</span>
-            </span>
+        <div class="accordion-card open">
+          <button class="accordion-toggle" type="button" aria-expanded="true">
+            <span class="accordion-label"><span class="accordion-title">Credit Facilities</span></span>
             <span class="accordion-icon">+</span>
           </button>
           <div class="accordion-content">
@@ -515,12 +529,12 @@
 
               <h3>Core components</h3>
               <ul>
-                <li><strong>Facility structure</strong> — revolving, term, or senior-mezzanine configurations</li>
-                <li><strong>Borrowing base</strong> — the pool of eligible assets that determines available capital</li>
-                <li><strong>Advance rates</strong> — typically 70%–90% of eligible collateral</li>
-                <li><strong>Cost of capital</strong> — SOFR plus spread, or a fixed rate depending on structure</li>
-                <li><strong>Eligibility criteria</strong> — asset-level standards for inclusion in the borrowing base</li>
-                <li><strong>Covenants &amp; performance triggers</strong> — portfolio-level metrics monitored over the life of the facility</li>
+                <li><strong>Facility structure</strong> &mdash; revolving, term, or senior-mezzanine configurations</li>
+                <li><strong>Borrowing base</strong> &mdash; the pool of eligible assets that determines available capital</li>
+                <li><strong>Advance rates</strong> &mdash; typically 70%&ndash;90% of eligible collateral</li>
+                <li><strong>Cost of capital</strong> &mdash; SOFR plus spread, or a fixed rate depending on structure</li>
+                <li><strong>Eligibility criteria</strong> &mdash; asset-level standards for inclusion in the borrowing base</li>
+                <li><strong>Covenants &amp; performance triggers</strong> &mdash; portfolio-level metrics monitored over the life of the facility</li>
               </ul>
 
               <h3>Strategic benefits</h3>
@@ -534,10 +548,9 @@
           </div>
         </div>
 
-        <div class="accordion-card">
-          <button class="accordion-toggle" type="button" aria-expanded="false">
-            <span class="accordion-label"><span class="accordion-title">Forward Flow Agreements</span>
-            </span>
+        <div class="accordion-card open">
+          <button class="accordion-toggle" type="button" aria-expanded="true">
+            <span class="accordion-label"><span class="accordion-title">Forward Flow Agreements</span></span>
             <span class="accordion-icon">+</span>
           </button>
           <div class="accordion-content">
@@ -546,12 +559,12 @@
 
               <h3>Core components</h3>
               <ul>
-                <li><strong>Purchase commitment</strong> — the volume of assets the buyer agrees to acquire over a defined period</li>
-                <li><strong>Pricing structure</strong> — purchase price methodology established in advance</li>
-                <li><strong>Eligibility criteria</strong> — asset-level requirements for qualifying deals</li>
-                <li><strong>Settlement timing</strong> — typically 0–5 days from closing</li>
-                <li><strong>Servicing structure</strong> — defines whether the originator retains servicing post-sale</li>
-                <li><strong>True sale structure</strong> — assets transfer cleanly off the originator's balance sheet</li>
+                <li><strong>Purchase commitment</strong> &mdash; the volume of assets the buyer agrees to acquire over a defined period</li>
+                <li><strong>Pricing structure</strong> &mdash; purchase price methodology established in advance</li>
+                <li><strong>Eligibility criteria</strong> &mdash; asset-level requirements for qualifying deals</li>
+                <li><strong>Settlement timing</strong> &mdash; typically 0&ndash;5 days from closing</li>
+                <li><strong>Servicing structure</strong> &mdash; defines whether the originator retains servicing post-sale</li>
+                <li><strong>True sale structure</strong> &mdash; assets transfer cleanly off the originator's balance sheet</li>
               </ul>
 
               <h3>Strategic benefits</h3>
@@ -564,7 +577,6 @@
             </div>
           </div>
         </div>
-
       </div>
 
     </article>
@@ -572,7 +584,61 @@
 
   </section>
 
- 
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="https://securefunder.org/" class="logo" style="color: var(--white);">
+            <img class="logo-badge" src="../blue-ring.png" alt="Secure Funder">
+            <div class="logo-text" style="color: var(--white);">Secure Funder<span class="logo-tm">&trade;</span></div>
+          </a>
+          <p>An independent certification program for funders establishing baseline data-handling standards in alternative finance. Administered by <a href="https://aquamark.io" target="_blank" rel="noopener noreferrer">Aquamark</a>.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Program</h4>
+          <a href="https://securefunder.org/program-standards/" target="_blank" rel="noopener noreferrer">Guidelines</a>
+          <a href="https://securefunder.org/capital-opportunities/">Capital Opportunities</a>
+          <a href="https://securefunder.org/#membership">Membership</a>
+        </div>
+        <div class="footer-col">
+          <h4>Network</h4>
+          <a href="https://securebroker.org" target="_blank" rel="noopener noreferrer">Secure Broker&trade;</a>
+          <a href="https://securefunder.org/#press">Press</a>
+          <a href="https://securefunder.org/contact/" target="_blank">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Member</h4>
+          <a href="https://portal.securefunder.org/login">Sign In</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Secure Funder&trade; Certification Program. All rights reserved.</span>
+        <span>Independently administered by <a href="https://aquamark.io" target="_blank" rel="noopener noreferrer">Aquamark</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-header">
+      <a href="https://securefunder.org/" class="logo" aria-label="Secure Funder Home">
+        <img class="logo-badge" src="../blue-ring.png" alt="Secure Funder">
+        <div class="logo-text">Secure Funder<span class="logo-tm">&trade;</span></div>
+      </a>
+      <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">&#10005;</button>
+    </div>
+    <a href="https://securefunder.org/contact/" target="_blank" rel="noopener noreferrer" onclick="closeMobileMenu()">Request Capital Introduction</a>
+    <a href="https://portal.securefunder.org/login" class="btn-member-mobile">Sign In</a>
+  </div>
+
+  <script>
+    const toggle = document.querySelector('.mobile-toggle');
+    const menu = document.getElementById('mobileMenu');
+    const closeBtn = document.getElementById('mobileMenuClose');
+    function closeMobileMenu() { menu.classList.remove('active'); document.body.style.overflow = ''; }
+    if (toggle) toggle.addEventListener('click', () => { menu.classList.add('active'); document.body.style.overflow = 'hidden'; });
+    if (closeBtn) closeBtn.addEventListener('click', closeMobileMenu);
   <script>
     document.querySelectorAll('.accordion-toggle').forEach((button) => {
       button.addEventListener('click', () => {
