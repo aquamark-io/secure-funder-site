@@ -33,7 +33,7 @@
 
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth;overflow-x:hidden}
-    body{font-family:var(--font-body);color:var(--text-primary);background:var(--white);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;padding-top:68px}
+    body{font-family:var(--font-body);color:var(--text-primary);background:var(--white);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
     a{color:inherit}
     .inline-link{color:#2563EB;font-weight:700;text-decoration:none}
     .inline-link:hover{text-decoration:underline}
@@ -63,6 +63,8 @@
     .hero-badge{display:none}
     .btn-primary{display:inline-flex;align-items:center;justify-content:center;background:var(--green-accent);color:var(--white);font-family:var(--font-body);font-size:.9rem;font-weight:600;padding:13px 26px;border-radius:6px;text-decoration:none;transition:all .25s}
     .btn-primary:hover{background:var(--green-accent-soft);transform:translateY(-1px);box-shadow:0 4px 14px rgba(79,163,209,.3)}
+    .btn-join{display:inline-flex;align-items:center;gap:10px;background:var(--forest);color:var(--white);font-family:var(--font-body);font-size:.92rem;font-weight:600;letter-spacing:.01em;padding:15px 30px;border-radius:3px;text-decoration:none;transition:background .2s}
+    .btn-join:hover{background:var(--forest-mid)}
     .btn-ghost{display:inline-flex;align-items:center;justify-content:center;background:transparent;color:var(--forest);font-family:var(--font-body);font-size:.9rem;font-weight:600;padding:13px 26px;border-radius:6px;text-decoration:none;border:2px solid var(--border);transition:all .25s}
     .btn-ghost:hover{border-color:var(--forest);background:rgba(255,255,255,.45)}
 
@@ -129,9 +131,6 @@
       .process-list{grid-template-columns:1fr}
     }
     @media(max-width:640px){
-      body{padding-top:64px}
-      .nav-inner{height:64px;padding:0 18px}
-      .nav-links a:not(.btn-member){display:none}
       .container,.container-narrow{padding:0 20px}
       .hero-inner{padding:62px 0 54px;display:block}
       section{padding:58px 0}
@@ -175,26 +174,17 @@
 
 </head>
 <body>
-  <nav class="main-nav" aria-label="Main navigation">
-    <div class="nav-inner">
-      <a href="/" class="logo" aria-label="Secure Funder home">
-        <img class="logo-badge" src="/blue-ring.png" alt="Secure Funder">
-        <div class="logo-text">Secure Funder<span class="logo-tm">™</span></div>
-      </a>
-      <div class="nav-links">
-        <a href="https://securefunder.org/contact/" class="btn-member">Get Started</a>
-      </div>
-    </div>
-  </nav>
-
   <header class="hero">
     <div class="container">
       <div class="hero-inner">
         <div class="hero-copy">
           <h1>Funder certification guidelines</h1>
-          <p>Practical for companies of all sizes.</p>
+          <p>Practical, lightweight, effective.</p>
           <div class="hero-notice">
             <strong>Guidelines do not need to be met before joining.</strong>
+          </div>
+          <div style="margin-top:28px;">
+            <a href="https://securefunder.org/contact/" class="btn-join">Join Program</a>
           </div>
         </div>
 
@@ -241,12 +231,12 @@
               <div class="req-body">
                 <ul class="process-checklist">
                   <li><a class="inline-link" href="https://securefunder.org/contact/" target="_blank" rel="noopener">Submit request to join</a>.</li>
-                  <li>You’re added to the Secure Funder directory as an applicant.</li>
-                  <li>You receive access to the verification portal.</li>
-                  <li>Submit evidence within 90 days — extensions are available.</li>
-                  <li>Examples are provided, but practical alternatives are accepted.</li>
-                  <li>If approved, your status is updated and your digital badge is issued.</li>
-                  <li>We share a public announcement for certified companies.</li>
+                  <li>You're added to the public directory as an Applicant.</li>
+                  <li>You receive access to the member portal.</li>
+                  <li>Submit evidence within 3 months &mdash; extensions available.</li>
+                  <li>Examples of evidence provided, alternatives accepted.</li>
+                  <li>If approved, your member status is updated and digital badge issued.</li>
+                  <li>We share a public announcement.</li>
                   <li>If evidence falls short, we provide feedback and time to address it.</li>
                 </ul>
               </div>
@@ -409,7 +399,10 @@
               </summary>
               <div class="req-body">
                 <div class="evidence-block">
-                  <p>Continued listing requires resolution of any open items identified during review. Final review includes an evidence assessment, business registration verification, and limited public records checks focused specifically on lawsuits involving the misuse, unauthorized sharing, or fraudulent use of customer data. Members receive access to the verification portal and support throughout the process, including guidance as they gather evidence, review technical controls, and prepare for final review. Members may continue working toward certification with full program support included.</p>
+                  <p>Please allow 2&ndash;5 business days for final review. This includes an assessment of your uploaded evidence, business registration verification, and limited public records checks. Members may contact our support team at any time for guidance or questions while working through verification.</p>
+                  <div style="margin-top:22px;">
+                    <a href="https://securefunder.org/contact/" class="btn-join">Join Program</a>
+                  </div>
                 </div>
               </div>
             </details>
