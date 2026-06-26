@@ -846,6 +846,90 @@
       .founder-quote-attribution { justify-content: flex-start; }
     }
 
+    /* ===== CERTIFICATION BADGE BAND ===== */
+    .badge-band {
+      background: var(--white);
+      border-bottom: 1px solid var(--border-light);
+      padding: 64px 0;
+    }
+    .badge-band-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+      text-align: center;
+    }
+    .badge-band-image {
+      width: 320px;
+      height: 320px;
+      object-fit: contain;
+    }
+    .badge-band-text {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      max-width: 560px;
+      line-height: 1.7;
+      margin: 0;
+    }
+    .badge-band-text a {
+      color: var(--blue-accent);
+      font-weight: 600;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: color 0.2s;
+    }
+    .badge-band-text a:hover {
+      color: var(--navy);
+    }
+    @media (max-width: 600px) {
+      .badge-band { padding: 48px 0; }
+      .badge-band-image { width: 260px; height: 260px; }
+      .badge-band-text { font-size: 0.94rem; }
+    }
+
+    /* ===== LEADERSHIP LETTER LINK ===== */
+    .leadership-letter-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 28px;
+      padding: 12px 22px;
+      background: var(--blue-accent);
+      color: var(--white);
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      border-radius: 6px;
+      transition: background 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease;
+    }
+    .leadership-letter-link:hover {
+      background: var(--blue-accent-soft);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(79,163,209,0.3);
+    }
+
+    /* ===== LEADERSHIP NAME ROW ===== */
+    .leadership-name-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .leadership-name-row h3 {
+      margin-bottom: 0;
+    }
+    .leadership-linkedin {
+      display: inline-flex;
+      align-items: center;
+      color: #0A66C2;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .leadership-linkedin:hover { opacity: 0.75; }
+    @media (max-width: 900px) {
+      .leadership-name-row { justify-content: center; }
+    }
+
     /* ===== VERIFICATION BANNER ===== */
     .verification-banner {
       background: var(--cloud);
@@ -2387,58 +2471,17 @@
           <div class="eligibility-list-item">E-Commerce</div>
           <div class="eligibility-list-item">Credit Card Split</div>
         </div>
-
-        <div class="wwlf-grid reveal" style="display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: stretch; margin-top: 48px; text-align: left;">
-          <div style="background: var(--cloud); border: 1px solid var(--border-light); border-left: 3px solid var(--blue-accent); border-radius: 14px; padding: 34px;">
-            <div class="section-label" style="text-align: left;">Who Should Join?</div>
-            <p style="font-size: 0.94rem; line-height: 1.75; color: var(--text-secondary); margin: 0;">
-              For companies providing alternative business funding loans and advances. Not a funder? Join <a href="https://securebroker.org" target="_blank" rel="noopener noreferrer" class="brand-link">Secure Broker&trade;</a>.</p>
-          </div>
-          <div class="why-join-callout" style="margin: 0; height: 100%;">
-            <div class="section-label">Why Join?</div>
-<p>Strengthen relationships in a competitive market, protect small business owners and contribute to change.</p>
-          <a href="/backdooring/" target="_blank" rel="noopener noreferrer" class="article-attachment" aria-label="Read article: A message to stakeholders">
-            <span class="attachment-icon-wrap" aria-hidden="true">
-              <svg class="attachment-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21.44 11.05 12.25 20.24a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/>
-              </svg>
-            </span>
-            <span class="attachment-title">A message to stakeholders</span>
-          </a>
-          </div>
-        </div>
       </div>
 
     </div>
   </section>
 
-  <!-- How Verification Works -->
-  <section class="how-it-works-section">
+  <!-- Certification Badge Band -->
+  <section class="badge-band">
     <div class="container">
-      <div class="hiw-layout reveal">
-        <div class="hiw-left">
-          <h2 class="section-title">Certification Process</h2>
-          <a href="https://securefunder.org/program-standards/" target="_blank" rel="noopener noreferrer" class="hiw-guidelines-link">See Guidelines</a>
-          <img src="secure-funder-badge-2026.png" alt="Secure Funder™ Certified 2026" class="hiw-badge">
-        </div>
-        <div class="hiw-grid">
-          <div class="hiw-item">
-            <h4>Member Portal</h4>
-            <p>Self-guided and secure.</p>
-          </div>
-          <div class="hiw-item">
-            <h4>Upload Evidence</h4>
-            <p>Recordings, screenshots, documents.</p>
-          </div>
-          <div class="hiw-item">
-            <h4>On Your Schedule</h4>
-            <p>90-day grace period, extensions available.</p>
-          </div>
-          <div class="hiw-item">
-            <h4>Collaborative</h4>
-            <p>Message us for support.</p>
-          </div>
-        </div>
+      <div class="badge-band-inner reveal">
+        <img src="secure-funder-badge-2026.png" alt="Secure Funder™ Certified 2026" class="badge-band-image">
+        <p class="badge-band-text">Certification is self-guided through the member portal. <a href="https://securefunder.org/program-standards/" target="_blank" rel="noopener noreferrer">See guidelines &rarr;</a></p>
       </div>
     </div>
   </section>
@@ -2463,14 +2506,13 @@
             <img src="headshot.png" alt="Christina Duncan — Program Director, Secure Funder" />
           </div>
           <div class="leadership-info">
-            <h3>Christina Duncan</h3>
-            <div class="role" style="display: flex; align-items: center; gap: 10px;">
-              <a href="https://www.linkedin.com/in/christina-duncan-account/" target="_blank" rel="noopener noreferrer" aria-label="Christina Duncan on LinkedIn" style="display: inline-flex; align-items: center; color: #0A66C2; text-decoration: none;">
+            <div class="leadership-name-row">
+              <a href="https://www.linkedin.com/in/christina-duncan-account/" target="_blank" rel="noopener noreferrer" aria-label="Christina Duncan on LinkedIn" class="leadership-linkedin">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                   <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                 </svg>
               </a>
-              <span>San Francisco, CA</span>
+              <h3>Christina Duncan</h3>
             </div>
         </div>
         </div>
@@ -2482,6 +2524,7 @@
   <blockquote>
    Every industry reaches a point where trust around data has to be demonstrated. SOC 2 gave that to the SaaS world. <strong>Alternative finance</strong> needs one too — something industry-specific and more practical for this community. The goal is not to make this hard. It’s to make responsible companies easier to find in an industry that could really use it.
   </blockquote>
+  <a href="/backdooring/" target="_blank" rel="noopener noreferrer" class="leadership-letter-link">Read the full letter &rarr;</a>
   <svg class="leadership-quote-mark close" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true" style="transform: rotate(180deg);">
     <path d="M9.4 8C5.3 8 2 11.3 2 15.4v8.6h8.6V15.4H6.3c0-1.7 1.4-3.1 3.1-3.1V8zm13.2 0c-4.1 0-7.4 3.3-7.4 7.4v8.6h8.6V15.4h-4.3c0-1.7 1.4-3.1 3.1-3.1V8z"/>
   </svg>
