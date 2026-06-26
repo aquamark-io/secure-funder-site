@@ -3,34 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact — Secure Funder™</title>
-  <link rel="icon" type="image/png" sizes="32x32" href="../blue-ring.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../blue-ring.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="../blue-ring.png">
+  <title>Contact — Secure Broker™</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="../green-rings.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../green-rings.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../green-rings.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
       --utility-height: 34px;
-      --navy: #0F2137;
-      --navy-mid: #1A3455;
-      --slate: #3D5A80;
-      --steel: #6B8BAD;
-      --sky: #93B5D0;
-      --ice: #C5D9E8;
-      --pearl: #EFF4F8;
-      --cloud: #F6F9FC;
+      --forest: #11352A;
+      --forest-mid: #1A4A34;
+      --sage: #2D5A3D;
+      --fern: #4A8B60;
+      --moss: #6BAF7E;
+      --mint: #A3D4B0;
+      --frost: #D8EDE0;
+      --meadow: #EFF7F2;
       --white: #FFFFFF;
-      --blue-accent: #4FA3D1;
-      --blue-accent-soft: #7BBCE1;
-      --blue-accent-pale: #E7F2FA;
+      --green-accent: #3DA366;
+      --green-accent-soft: #5FBF80;
+      --green-accent-pale: #E2F4E9;
 
-      --text-primary: #0F2137;
-      --text-secondary: #4A6480;
-      --text-muted: #7A96AE;
-      --border: #DAE3EC;
-      --border-light: #EAF0F5;
+      --text-primary: #0B2918;
+      --text-secondary: #3D6B4E;
+      --text-muted: #6A9B7C;
+      --border: #C5DFD0;
+      --border-light: #DEF0E5;
       --font-display: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
       --font-body: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
     }
@@ -47,8 +47,8 @@
 
     /* ===== UTILITY BAR ===== */
     .utility-bar {
-      background: var(--navy);
-      color: var(--ice);
+      background: linear-gradient(90deg, #0D2A1C 0%, #123820 52%, #174528 100%);
+      color: var(--mint);
       font-size: 0.8rem;
       height: var(--utility-height);
       letter-spacing: 0.06em;
@@ -71,13 +71,13 @@
       background: var(--white);
       border-bottom: 1px solid var(--border);
       position: sticky; top: var(--utility-height); z-index: 150;
-      box-shadow: 0 1px 4px rgba(15,33,55,0.04);
+      box-shadow: 0 1px 4px rgba(11,41,24,0.04);
     }
     .main-nav .container {
       display: flex; justify-content: space-between; align-items: center; height: 68px;
     }
     .logo {
-      display: flex; align-items: center; text-decoration: none; color: var(--navy);
+      display: flex; align-items: center; text-decoration: none; color: var(--forest);
     }
     .logo-text {
       font-family: var(--font-display);
@@ -102,13 +102,13 @@
       font-size: 0.88rem; font-weight: 500; padding: 8px 14px;
       border-radius: 6px; transition: all 0.2s;
     }
-    .nav-links a:hover { background: var(--pearl); }
+    .nav-links a:hover { background: var(--meadow); }
     .nav-links .btn-member {
-      background: var(--navy); color: var(--white); font-weight: 600; margin-left: 6px;
+      background: var(--forest); color: var(--white); font-weight: 600; margin-left: 6px;
     }
-    .nav-links .btn-member:hover { background: var(--navy-mid); }
+    .nav-links .btn-member:hover { background: var(--forest-mid); }
     .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
-    .mobile-toggle span { display: block; width: 22px; height: 2px; background: var(--navy); margin: 5px 0; }
+    .mobile-toggle span { display: block; width: 22px; height: 2px; background: var(--forest); margin: 5px 0; }
 
     /* ===== CONTAINERS ===== */
     .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
@@ -116,7 +116,7 @@
 
     /* ===== PAGE HEADER ===== */
     .page-header {
-      background: var(--cloud);
+      background: var(--meadow);
       border-bottom: 1px solid var(--border-light);
       padding: 56px 0 48px;
       position: relative;
@@ -125,17 +125,17 @@
     .page-header::before {
       content: ''; position: absolute; top: -200px; right: -100px;
       width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(79,163,209,0.08) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(61,163,102,0.08) 0%, transparent 70%);
       pointer-events: none;
     }
     .page-header .section-label {
       font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em;
-      text-transform: uppercase; color: var(--blue-accent); margin-bottom: 12px;
+      text-transform: uppercase; color: var(--green-accent); margin-bottom: 12px;
     }
     .page-header h1 {
       font-family: var(--font-display);
       font-size: 2.1rem; font-weight: 700; line-height: 1.2;
-      letter-spacing: -0.02em; color: var(--navy); margin-bottom: 14px;
+      letter-spacing: -0.02em; color: var(--forest); margin-bottom: 14px;
     }
     .page-header p {
       font-size: 1rem; color: var(--text-secondary); line-height: 1.7; max-width: 540px;
@@ -147,14 +147,13 @@
       background: var(--white);
     }
     .contact-layout {
-      display: block;
       max-width: 800px;
       margin: 0 auto;
     }
 
     /* Form embed wrapper */
     .form-wrapper {
-      background: var(--cloud);
+      background: var(--meadow);
       border: 1px solid var(--border-light);
       border-radius: 12px;
       padding: 36px;
@@ -168,16 +167,16 @@
       gap: 28px;
     }
     .sidebar-card {
-      background: var(--cloud);
+      background: var(--meadow);
       border-radius: 10px;
       padding: 28px;
-      border-left: 3px solid var(--blue-accent);
+      border-left: 3px solid var(--green-accent);
     }
     .sidebar-card h3 {
       font-family: var(--font-display);
       font-size: 0.95rem;
       font-weight: 600;
-      color: var(--navy);
+      color: var(--forest);
       margin-bottom: 10px;
     }
     .sidebar-card p {
@@ -186,13 +185,13 @@
       line-height: 1.65;
     }
     .sidebar-card a {
-      color: var(--blue-accent);
+      color: var(--green-accent);
       text-decoration: none;
       font-weight: 500;
       transition: color 0.2s;
     }
     .sidebar-card a:hover {
-      color: var(--navy);
+      color: var(--forest);
     }
 
     .contact-detail {
@@ -210,7 +209,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--blue-accent);
+      color: var(--green-accent);
       border: 1px solid var(--border-light);
       margin-top: 1px;
     }
@@ -220,13 +219,13 @@
     .contact-detail h4 {
       font-size: 0.84rem;
       font-weight: 600;
-      color: var(--navy);
+      color: var(--forest);
       margin-bottom: 2px;
     }
 
     /* ===== FOOTER ===== */
     footer {
-      background: var(--navy); color: var(--ice); padding: 56px 0 0;
+      background: var(--forest); color: var(--mint); padding: 56px 0 0;
     }
     .footer-grid {
       display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr;
@@ -234,7 +233,7 @@
       border-bottom: 1px solid rgba(255,255,255,0.06);
     }
     .footer-brand p {
-      font-size: 0.86rem; color: var(--steel); line-height: 1.7;
+      font-size: 0.86rem; color: var(--moss); line-height: 1.7;
       margin-top: 14px; max-width: 280px;
     }
     .footer-badge {
@@ -250,16 +249,16 @@
       text-transform: uppercase; color: var(--white); margin-bottom: 16px;
     }
     .footer-col a {
-      display: block; color: var(--steel); text-decoration: none;
+      display: block; color: var(--moss); text-decoration: none;
       font-size: 0.86rem; margin-bottom: 9px; transition: color 0.2s;
     }
-    .footer-col a:hover { color: var(--blue-accent-soft); }
+    .footer-col a:hover { color: var(--green-accent-soft); }
     .footer-bottom {
       display: flex; justify-content: space-between; align-items: center;
-      padding: 22px 0; font-size: 0.76rem; color: var(--steel);
+      padding: 22px 0; font-size: 0.76rem; color: var(--moss);
     }
-    .footer-bottom a { color: var(--steel); text-decoration: none; }
-    .footer-bottom a:hover { color: var(--blue-accent-soft); }
+    .footer-bottom a { color: var(--moss); text-decoration: none; }
+    .footer-bottom a:hover { color: var(--green-accent-soft); }
 
     /* ===== ANIMATIONS ===== */
     @keyframes fadeUp {
@@ -271,7 +270,7 @@
       display: inline-block;
       margin-top: 20px;
       padding: 12px 28px;
-      background: var(--blue-accent);
+      background: var(--green-accent);
       color: var(--white);
       font-family: var(--font-display);
       font-size: 0.92rem;
@@ -282,8 +281,8 @@
       letter-spacing: 0.01em;
     }
     .btn-schedule:hover {
-      background: #3B8FBD;
-      box-shadow: 0 4px 12px rgba(79,163,209,0.3);
+      background: #2E8B52;
+      box-shadow: 0 4px 12px rgba(61,163,102,0.3);
     }
     .btn-requirements {
       display: inline-block;
@@ -291,26 +290,30 @@
       margin-left: 10px;
       padding: 12px 28px;
       background: transparent;
-      color: var(--blue-accent);
+      color: var(--green-accent);
       font-family: var(--font-display);
       font-size: 0.92rem;
       font-weight: 600;
       text-decoration: none;
-      border: 1.5px solid var(--blue-accent);
+      border: 1.5px solid var(--green-accent);
       border-radius: 8px;
       transition: background 0.2s, color 0.2s, box-shadow 0.2s;
       letter-spacing: 0.01em;
     }
     .btn-requirements:hover {
-      background: var(--blue-accent);
+      background: var(--green-accent);
       color: var(--white);
-      box-shadow: 0 4px 12px rgba(79,163,209,0.3);
+      box-shadow: 0 4px 12px rgba(61,163,102,0.3);
     }
 
     .contact-layout { animation: fadeUp 0.6s ease-out 0.1s both; }
 
     /* ===== RESPONSIVE ===== */
     @media (max-width: 900px) {
+      .contact-layout {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
       .footer-grid {
         grid-template-columns: 1fr 1fr;
         gap: 28px;
@@ -372,21 +375,22 @@
     }
     .mobile-menu-close {
       background: none; border: none; cursor: pointer;
-      font-size: 1.5rem; color: var(--navy); padding: 8px;
+      font-size: 1.5rem; color: var(--forest); padding: 8px;
     }
     .mobile-menu a {
       display: block; padding: 14px 0;
-      font-size: 1.05rem; font-weight: 500; color: var(--navy);
+      font-size: 1.05rem; font-weight: 500; color: var(--forest);
       text-decoration: none; border-bottom: 1px solid var(--border-light);
     }
     .mobile-menu a:last-child { border-bottom: none; }
     .mobile-menu .btn-member-mobile {
       display: block; margin-top: 24px; padding: 14px;
-      background: var(--navy); color: var(--white);
+      background: var(--forest); color: var(--white);
       text-align: center; border-radius: 8px; font-weight: 600;
       text-decoration: none; font-size: 0.95rem;
     }
   </style>
+
   <!-- Outseta Chat Widget -->
   <style>
     /*
@@ -421,22 +425,17 @@
 </head>
 <body>
 
-  <!-- Utility Bar -->
-  <div class="utility-bar">
-    <span class="utility-text">Join the list of trusted funders</span>
-  </div>
-
   <!-- Navigation -->
   <nav class="main-nav">
     <div class="container">
-      <a href="/" class="logo" aria-label="Secure Funder Home" style="gap: 12px;">
-          <img class="logo-badge-lg" src="../blue-ring.png" alt="Secure Funder">
-          <div class="logo-text">Secure Funder<span class="logo-tm">™</span></div>
+      <a href="/" class="logo" aria-label="Secure Broker Home" style="gap: 12px;">
+          <img class="logo-badge-lg" src="../green-rings.png" alt="Secure Broker">
+          <div class="logo-text">Secure Broker<span class="logo-tm">™</span></div>
       </a>
 
       <ul class="nav-links">
         <li><a href="https://calendly.com/christina-aquamark" target="_blank" rel="noopener noreferrer">Schedule a Call</a></li>
-        <li><a href="https://securefunder.org/program-standards/" target="_blank" rel="noopener noreferrer">Program Guidelines</a></li>
+        <li><a href="https://securebroker.org/program-standards/" target="_blank" rel="noopener noreferrer">Program Guidelines</a></li>
       </ul>
 
       <button class="mobile-toggle" aria-label="Menu">
@@ -445,6 +444,7 @@
     </div>
   </nav>
 
+
   <!-- Contact Content -->
   <section class="contact-section">
     <div class="container">
@@ -452,8 +452,12 @@
 
         <!-- Fillout Embed -->
         <div class="form-wrapper">
-          <div style="width:100%;height:500px;" data-fillout-id="f4xre3GBxfus" data-fillout-embed-type="standard" data-fillout-inherit-parameters data-fillout-dynamic-resize></div>
+          <div style="width:100%;height:500px;" data-fillout-id="66FvcF5qUzus" data-fillout-embed-type="standard" data-fillout-inherit-parameters data-fillout-dynamic-resize></div>
           <script src="https://server.fillout.com/embed/v1/"></script>
+        </div>
+
+
+        
         </div>
 
       </div>
@@ -466,9 +470,9 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <div class="logo" style="color: white;">
-            <div class="logo-text" style="color: white;">Secure Funder<span class="logo-tm">™</span></div>
+            <div class="logo-text" style="color: white;">Secure Broker<span class="logo-tm">™</span></div>
           </div>
-          <p>An independent certification program establishing baseline data-handling standards in alternative finance. Administered by Aquamark.</p>
+          <p>An independent certification program establishing baseline data-handling standards for brokers in alternative finance. Administered by Aquamark.</p>
         </div>
         <div class="footer-col">
           <h4>Program</h4>
@@ -478,17 +482,17 @@
         </div>
         <div class="footer-col">
           <h4>Resources</h4>
-          <a href="/directory">Member Directory</a>
+          <a href="/coming-soon">Member Directory</a>
           <a href="/#press">Press & Media</a>
           <a href="/contact">Ask a Question</a>
         </div>
         <div class="footer-col">
           <h4>Contact</h4>
-          <a href="https://securefunder.org/contact/" target="_blank">Send a Message</a>
+          <a href="https://securebroker.org/contact/" target="_blank">Send a Message</a>
         </div>
       </div>
       <div class="footer-bottom">
-        <span>© 2026 Secure Funder™ Certification Program. All rights reserved.</span>
+        <span>&copy; 2026 Secure Broker&trade; Certification Program. All rights reserved.</span>
         <span>Independently administered by <a href="https://aquamark.io" target="_blank">Aquamark</a></span>
       </div>
     </div>
@@ -497,15 +501,15 @@
   <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobileMenu">
     <div class="mobile-menu-header">
-      <a href="/" class="logo" aria-label="Secure Funder Home" style="gap: 12px;">
-        <img src="../blue-ring.png" alt="Secure Funder" style="width:30px;height:30px;">
-        <div class="logo-text">Secure Funder<span class="logo-tm">™</span></div>
+      <a href="/" class="logo" aria-label="Secure Broker Home" style="gap: 12px;">
+        <img src="../green-rings.png" alt="Secure Broker" style="width:30px;height:30px;">
+        <div class="logo-text">Secure Broker<span class="logo-tm">™</span></div>
       </a>
-      <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">✕</button>
+      <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">&#10005;</button>
     </div>
 
     <a href="https://calendly.com/christina-aquamark" target="_blank" rel="noopener noreferrer" onclick="closeMobileMenu()">Schedule a Call</a>
-    <a href="https://securefunder.org/program-standards/" target="_blank" rel="noopener noreferrer" onclick="closeMobileMenu()">Program Guidelines</a>
+    <a href="https://securebroker.org/program-standards/" target="_blank" rel="noopener noreferrer" onclick="closeMobileMenu()">Program Guidelines</a>
 
   </div>
 
