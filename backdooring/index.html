@@ -349,6 +349,52 @@
       margin: 44px 0 36px;
     }
 
+    /* ===== ARTICLE CTAs ===== */
+    .article-ctas {
+      display: flex;
+      gap: 14px;
+      margin: 36px 0 8px;
+      flex-wrap: wrap;
+    }
+    .article-body a.article-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 18px;
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: all 0.2s ease;
+      border: 1.5px solid transparent;
+    }
+    .article-body a.article-cta:hover { text-decoration: none; }
+    .article-body a.article-cta-funder {
+      background: var(--navy);
+      color: var(--white);
+      border-color: var(--navy);
+    }
+    .article-body a.article-cta-funder:hover {
+      background: var(--navy-mid);
+      border-color: var(--navy-mid);
+      color: var(--white);
+    }
+    .article-body a.article-cta-broker {
+      background: #FFFFFF;
+      color: #11352A;
+      border-color: #11352A;
+    }
+    .article-body a.article-cta-broker:hover {
+      background: #11352A;
+      color: var(--white);
+    }
+    @media (max-width: 600px) {
+      .article-ctas { flex-direction: column; gap: 10px; }
+      .article-body a.article-cta { width: 100%; }
+    }
+
     /* ===== SIGNOFF ===== */
     .article-signoff {
       margin-top: 56px;
@@ -583,12 +629,17 @@
       <hr>
 
       <h2>How Do You Stop It?</h2>
-      <p>You can&rsquo;t prevent it all, but you can make it harder. Limit who can access systems, control downloads, <a href="https://www.aquamark.io/" target="_blank" rel="noopener noreferrer">watermark documents</a>, maintain audit logs, monitor personal email forwarding, block browser access to personal email accounts. <strong>These are standard DLP controls</strong>. Once the industry starts expecting them as a condition of doing business, bad actors have <strong>fewer places to hide</strong>.</p>
+      <p>You can&rsquo;t prevent it all, but you can make it harder. Limit who can access systems, control downloads, watermark documents, maintain audit logs, monitor personal email forwarding, block browser access to personal email accounts. <strong>These are standard DLP controls</strong>. Once the industry starts expecting them as a condition of doing business, bad actors have <strong>fewer places to hide</strong>.</p>
 
       <hr>
 
       <h2>My Final Thoughts</h2>
       <p>If you go back a decade, <a href="https://debanked.com/2015/10/did-your-deal-slip-out-the-back-door/" target="_blank" rel="noopener noreferrer">you&rsquo;ll find backdooring</a>. It has only gotten worse and largely accepted as part of doing business. The industry does not need to solve everything overnight, but it does need to start somewhere. <a href="https://securebroker.org" target="_blank" rel="noopener noreferrer">Secure Broker</a> and <a href="https://securefunder.org" target="_blank" rel="noopener noreferrer">Secure Funder</a> give companies an independent way to take that first step. And over time, the companies doing things the right way will be the easiest to find.</p>
+
+      <div class="article-ctas">
+        <a href="https://securefunder.org/contact/" class="article-cta article-cta-funder" target="_blank" rel="noopener noreferrer">For Funders</a>
+        <a href="https://securebroker.org/contact/" class="article-cta article-cta-broker" target="_blank" rel="noopener noreferrer">For Brokers</a>
+      </div>
 
     </div>
 
