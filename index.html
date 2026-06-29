@@ -914,12 +914,28 @@
       text-align: left;
     }
     .leadership-quote-cta-heading {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
       font-family: var(--font-display, var(--font-body));
-      font-size: 1.25rem;
+      color: var(--navy);
+      margin: 0 0 18px;
+    }
+    .cta-question-prefix {
+      font-size: 0.75rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--navy);
+      opacity: 0.55;
+    }
+    .cta-term {
+      font-size: 1.3rem;
       font-weight: 700;
       color: var(--navy);
-      margin: 0 0 14px;
-      letter-spacing: -0.005em;
+      letter-spacing: -0.01em;
+      line-height: 1.1;
     }
     .leadership-quote-cta .leadership-letter-link {
       margin-top: 0;
@@ -2542,7 +2558,10 @@
    Every industry reaches a point where trust around data has to be demonstrated. SOC 2 gave that to the SaaS world. <strong>Alternative finance</strong> needs one too — something industry-specific and more practical for this community. The goal is not to make this hard. It’s to make responsible companies easier to find in an industry that could really use it.
   </blockquote>
   <div class="leadership-quote-cta">
-    <p class="leadership-quote-cta-heading">What is &ldquo;Backdooring&rdquo;?</p>
+    <p class="leadership-quote-cta-heading">
+      <span class="cta-question-prefix">What is</span>
+      <span class="cta-term">&ldquo;Backdooring&rdquo;?</span>
+    </p>
   <a href="/backdooring/" target="_blank" rel="noopener noreferrer" class="leadership-letter-link">Read the article</a>
   </div>
   <svg class="leadership-quote-mark close" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true" style="transform: rotate(180deg);">
