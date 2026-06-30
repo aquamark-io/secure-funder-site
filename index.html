@@ -389,18 +389,54 @@
     }
 
 
-    /* ===== MISSION BANNER ===== */
-    .mission-banner {
-      background: #E7F2FA; border-bottom: none; padding: 52px 0;
+    /* ===== MISSION SECTION ===== */
+    .mission-section {
+      background: var(--blue-accent-pale);
+      border-bottom: none;
+      padding: 88px 0;
+      text-align: center;
     }
-    .mission-banner .container-narrow { text-align: left; }
-    .mission-banner p {
+    .mission-inner {
+      max-width: 905px;
+      margin: 0 auto;
+    }
+    .mission-eyebrow {
       font-family: var(--font-display);
-      font-size: 1.15rem; font-weight: 400; color: black;
-      font-style: normal; line-height: 2.0; max-width: 1100px; margin: 0;
-      border-left: 3px solid #4FA3D1;
-      border-right: 3px solid #4FA3D1;
-      padding: 4px 28px;
+      font-size: 1.95rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--navy);
+    }
+    .mission-eyebrow-rule {
+      width: 32px;
+      height: 2px;
+      background: var(--blue-accent);
+      margin: 18px auto 40px;
+    }
+    .mission-body p {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: var(--text-primary);
+      line-height: 1.85;
+      margin: 0;
+    }
+    .mission-body p .mission-brand {
+      font-weight: 400;
+      color: inherit;
+    }
+    .mission-body p .mission-closer {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      color: var(--navy);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+    @media (max-width: 600px) {
+      .mission-section { padding: 56px 0; }
+      .mission-eyebrow { font-size: 1.25rem; }
+      .mission-body p { font-size: 0.96rem; }
     }
 
 .mission-links-row {
@@ -1758,7 +1794,6 @@
       .membership-grid > div:first-child .section-title { text-align: center; }
       .membership-grid > div:first-child .section-subtitle { text-align: center; }
       .membership-card { max-width: 100%; }
-      .mission-banner .container-narrow { text-align: left; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
       .footer-brand { grid-column: 1 / -1; }
       .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
@@ -1793,7 +1828,6 @@
       .hero-admin-text,
       .hero-admin-eyebrow,
       .hero-admin-title { text-align: left; }
-      .mission-banner p { font-size: 0.95rem; padding: 4px 16px; border-left-width: 2px; border-right-width: 2px; }
       .section-title { font-size: 1.4rem; }
       .section-subtitle { font-size: 0.92rem; }
       .about-sidebar { padding: 24px; }
@@ -2443,12 +2477,18 @@
     </div>
   </section>
 
-<!-- Mission -->
-<div class="mission-banner">
-  <div class="container-narrow reveal">
-<p><span style="font-size: 1.40rem; font-weight: 750; color: #4FA3D1; text-transform: uppercase; letter-spacing: 0.06em;">Secure Funder™</span> is a new industry initiative helping lead alternative finance toward stronger standards around trust and accountability. In a market with limited barriers and inconsistent oversight, data misuse continues to harm business owners and undermine funders who choose to operate with care. Paired with <a href="https://securebroker.org" target="_blank" rel="noopener noreferrer" class="brand-link">Secure Broker™</a>, the programs independently verify companies taking practical steps to protect merchant data and move the industry forward.</p>
+<!-- Mission Section — centered institutional layout -->
+<section class="mission-section">
+  <div class="container">
+    <div class="mission-inner reveal">
+      <div class="mission-eyebrow">Our Mission</div>
+      <div class="mission-eyebrow-rule"></div>
+      <div class="mission-body">
+        <p><span class="mission-brand">Secure Funder™</span> is a new industry initiative helping lead alternative finance toward stronger standards around trust and accountability. In a market with limited barriers and inconsistent oversight, data misuse continues to harm business owners and undermine funders who choose to operate with care. Paired with <a href="https://securebroker.org" target="_blank" rel="noopener noreferrer" class="brand-link">Secure Broker™</a>, the programs independently verify companies taking practical steps to protect merchant data and move the industry forward.<br><br><span class="mission-closer">Need controls? We&rsquo;ll help. Have controls? We&rsquo;ll make them visible.</span></p>
+      </div>
+    </div>
   </div>
-</div>
+</section>
 
   <section class="benefits-section">
     <div class="container">
