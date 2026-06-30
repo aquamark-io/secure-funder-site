@@ -110,6 +110,7 @@
     .example-list li::before{content:"";position:absolute;left:0;top:.62em;width:6px;height:6px;border-radius:50%;background:var(--green-accent)}
     .process-checklist{list-style:none;display:grid;gap:14px;margin:0;padding:0}
     .process-checklist li{position:relative;padding-left:30px;font-size:.93rem;color:var(--text-secondary);line-height:1.65}
+    .process-checklist li.important-note{color:#B91C1C;font-weight:600}
     .process-checklist li::before{content:"";position:absolute;left:0;top:5px;width:18px;height:18px;background-image:url("data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234FA3D1' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>");background-repeat:no-repeat;background-size:contain}
     .note{margin-top:12px;padding:14px 16px;background:var(--green-accent-pale);border:1px solid rgba(79,163,209,.18);border-radius:10px;font-size:.88rem;color:var(--text-secondary);line-height:1.62}
     .recommended{margin-top:12px;padding:14px 16px;background:#fbfbef;border:1px solid #ece8be;border-radius:10px;font-size:.88rem;color:var(--text-secondary);line-height:1.62}
@@ -181,10 +182,7 @@
         <div class="hero-copy">
           <h1>Funder certification guidelines</h1>
           <p>No controls yet? We’ll help you get there.<br>Already have controls? We’ll help make them visible.</p>
-          <div class="hero-notice">
-            <strong>Guidelines do not need to be fully in place to join.</strong>
-          </div>
-          <div style="margin-top:18px;">
+<div style="margin-top:18px;">
             <a href="https://securefunder.org/contact/" class="btn-join">Join Program</a>
           </div>
         </div>
@@ -234,6 +232,7 @@
                   <li><a class="inline-link" href="https://securefunder.org/contact/" target="_blank" rel="noopener">Submit request to join</a> and signal your intent.</li>
                   <li>You're added to the public directory as an Applicant.</li>
                   <li>You receive access to the member portal.</li>
+                  <li class="important-note">Guidelines do not need to be fully in place to join.</li>
                   <li>Submit evidence within 3 months &mdash; extensions available.</li>
                   <li>Examples of evidence provided, alternatives accepted.</li>
                   <li>If approved, your member status is updated and digital badge issued.</li>
