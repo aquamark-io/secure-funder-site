@@ -53,7 +53,7 @@
     .container{max-width:1120px;margin:0 auto;padding:0 24px}
     .container-narrow{max-width:900px;margin:0 auto;padding:0 24px}
 
-    .hero{background:var(--white);position:relative;overflow:hidden}
+    .hero{background:var(--white);position:sticky;top:0;z-index:40;overflow:hidden;border-bottom:1px solid var(--border-light)}
     .hero::before{content:"";position:absolute;top:-220px;right:-160px;width:620px;height:620px;background:radial-gradient(circle,rgba(79,163,209,.13) 0%,transparent 70%);pointer-events:none}
     .hero::after{content:"";position:absolute;bottom:-150px;left:-80px;width:550px;height:550px;background:radial-gradient(circle,rgba(79,163,209,.09) 0%,transparent 70%);pointer-events:none}
     .hero-inner{position:relative;z-index:1;padding:64px 0 46px;display:block;max-width:640px}
@@ -176,6 +176,7 @@
 
 </head>
 <body>
+  <!-- HERO LOCKED — do not modify without explicit request -->
   <header class="hero">
     <div class="container">
       <div class="hero-inner">
@@ -190,6 +191,7 @@
       </div>
     </div>
   </header>
+  <!-- END HERO LOCKED -->
 
   <main>
     <section id="requirements" class="requirements-section">
