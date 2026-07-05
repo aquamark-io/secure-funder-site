@@ -56,10 +56,10 @@
     .hero{background:var(--white);position:sticky;top:0;z-index:40;overflow:hidden;border-bottom:1px solid var(--border-light)}
     .hero::before{content:"";position:absolute;top:-220px;right:-160px;width:620px;height:620px;background:radial-gradient(circle,rgba(79,163,209,.13) 0%,transparent 70%);pointer-events:none}
     .hero::after{content:"";position:absolute;bottom:-150px;left:-80px;width:550px;height:550px;background:radial-gradient(circle,rgba(79,163,209,.09) 0%,transparent 70%);pointer-events:none}
-    .hero-inner{position:relative;z-index:1;padding:64px 0 46px;display:block;max-width:640px}
+    .hero-inner{position:relative;z-index:1;padding:64px 0 46px;display:block;max-width:760px}
     .hero h1{font-family:var(--font-display);font-size:clamp(2.2rem,4.5vw,3.25rem);font-weight:700;line-height:1.06;letter-spacing:-.035em;color:var(--forest);max-width:620px;margin-bottom:14px}
     .hero p{font-size:1rem;line-height:1.75;color:var(--text-secondary);max-width:600px;margin-bottom:0;text-wrap:pretty}
-    .hero-notice{margin-top:18px;max-width:590px;background:var(--white);border:1px solid var(--border);border-left:3px solid #B91C1C;border-radius:4px;padding:12px 16px;font-size:.88rem;line-height:1.45;color:var(--text-primary)}
+    .hero-notice{margin-top:18px;max-width:720px;background:var(--white);border:1px solid var(--border);border-left:3px solid #B91C1C;border-radius:4px;padding:12px 16px;font-size:.88rem;line-height:1.45;color:var(--text-primary)}
     .hero-notice strong{display:inline;font-weight:700;color:#B91C1C;margin-bottom:0}
     .hero-badge{display:none}
     .btn-primary{display:inline-flex;align-items:center;justify-content:center;background:var(--green-accent);color:var(--white);font-family:var(--font-body);font-size:.9rem;font-weight:600;padding:13px 26px;border-radius:6px;text-decoration:none;transition:all .25s}
@@ -182,7 +182,10 @@
       <div class="hero-inner">
         <div class="hero-copy">
           <h1>Funder certification guidelines</h1>
-          <p style="margin-top:10px;">Join the funders setting the standard &mdash; not catching up to it.</p>
+          <div class="hero-notice">
+            <strong>Not all guidelines need to be in place to join.</strong>
+            <p style="color:#6B7280;margin-top:6px;">The certification process is designed to be collaborative. The program does not require any specific software or tools to qualify.</p>
+          </div>
 <div style="margin-top:18px;">
             <a href="https://securefunder.org/contact/" class="btn-join">Join Program</a>
           </div>
