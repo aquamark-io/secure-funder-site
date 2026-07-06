@@ -396,12 +396,12 @@
       padding: 88px 0;
     }
     .mission-inner {
-      max-width: 1200px;
+      max-width: 1120px;
       margin: 0 auto;
       padding: 0 12px;
       display: grid;
-      grid-template-columns: 300px 1fr 260px;
-      gap: 48px;
+      grid-template-columns: 300px 1fr;
+      gap: 56px;
       align-items: center;
     }
     .mission-eyebrow {
@@ -434,9 +434,9 @@
       color: inherit;
     }
     .scope-aside {
-      align-self: start;
-      border-left: 2px solid var(--border-light);
-      padding-left: 22px;
+      margin-top: 28px;
+      padding-top: 22px;
+      border-top: 1px solid var(--border-light);
     }
     .scope-aside-label {
       display: block;
@@ -453,17 +453,7 @@
       color: var(--text-secondary);
       line-height: 1.65;
       margin: 0;
-    }
-    @media (max-width: 960px) {
-      .mission-inner { grid-template-columns: 300px 1fr; }
-      .scope-aside {
-        grid-column: 1 / -1;
-        border-left: none;
-        border-top: 1px solid var(--border-light);
-        padding-left: 0;
-        padding-top: 22px;
-        margin-top: 8px;
-      }
+      max-width: 560px;
     }
     @media (max-width: 720px) {
       .mission-inner { grid-template-columns: 1fr; gap: 20px; text-align: center; }
@@ -471,6 +461,7 @@
       .mission-eyebrow-rule { margin: 14px auto 0; }
       .mission-body p { text-align: center; margin: 0 auto; }
       .scope-aside { text-align: center; }
+      .scope-aside p { margin: 0 auto; }
     }
     @media (max-width: 600px) {
       .mission-section { padding: 56px 0; }
@@ -2514,12 +2505,14 @@
         <div class="mission-eyebrow">Our Mission</div>
         <div class="mission-eyebrow-rule"></div>
       </div>
-      <div class="mission-body">
-        <p><span class="mission-brand">Secure Funder™</span> is a new industry initiative helping lead alternative finance toward stronger standards around trust and accountability. In a market with limited barriers and inconsistent oversight, data misuse continues to harm business owners and undermine funders who choose to operate with care. Paired with <a href="https://securebroker.org" target="_blank" rel="noopener noreferrer" class="brand-link">Secure Broker™</a>, the programs independently verify companies taking practical steps to protect merchant data and operate responsibly.</p>
-      </div>
-      <div class="scope-aside">
-        <span class="scope-aside-label">Program Scope</span>
-        <p>The program certifies responsible data handling. It is not an evaluation of underwriting philosophy or overall business operations. Standards will continue to evolve through a transparent, collaborative review process as new industry priorities emerge.</p>
+      <div class="mission-content-col">
+        <div class="mission-body">
+          <p><span class="mission-brand">Secure Funder™</span> is a new industry initiative helping lead alternative finance toward stronger standards around trust and accountability. In a market with limited barriers and inconsistent oversight, data misuse continues to harm business owners and undermine funders who choose to operate with care. Paired with <a href="https://securebroker.org" target="_blank" rel="noopener noreferrer" class="brand-link">Secure Broker™</a>, the programs independently verify companies taking practical steps to protect merchant data and operate responsibly.</p>
+        </div>
+        <div class="scope-aside">
+          <span class="scope-aside-label">Program Scope</span>
+          <p>The program certifies responsible data handling. It is not an evaluation of underwriting philosophy or overall business operations. Standards will continue to evolve through a transparent, collaborative review process as new industry priorities emerge.</p>
+        </div>
       </div>
     </div>
   </div>
