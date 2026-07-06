@@ -982,13 +982,24 @@
 
     /* ===== BACKDOORING CALLOUT ===== */
     .backdooring-callout {
-      margin-top: 20px;
+      margin-top: 24px;
+    }
+    .backdooring-callout-heading {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin: 0 0 6px;
+    }
+    .backdooring-callout-heading a {
+      color: var(--navy);
+      text-decoration: none;
+    }
+    .backdooring-callout-heading a:hover {
+      color: var(--blue-accent);
     }
     .backdooring-callout-text {
-      font-size: 1.05rem; line-height: 1.7; color: var(--text-secondary); max-width: 520px;
-    }
-    .backdooring-callout-text strong {
-      color: var(--navy); font-weight: 600;
+      font-size: 0.98rem; line-height: 1.7; color: var(--text-secondary); max-width: 520px; margin: 0;
     }
     .backdooring-callout-text a {
       color: var(--navy); font-weight: 600; text-decoration: underline;
@@ -996,10 +1007,6 @@
       transition: color 0.2s ease;
     }
     .backdooring-callout-text a:hover { color: var(--blue-accent); }
-    .backdooring-callout-text a.backdooring-callout-term {
-      color: #2563EB; font-weight: 700; text-decoration: none;
-    }
-    .backdooring-callout-text a.backdooring-callout-term:hover { color: var(--navy); }
 
     /* ===== LEADERSHIP NAME ROW ===== */
     .leadership-name-row {
@@ -2633,7 +2640,8 @@
         </figure>
 
         <div class="backdooring-callout">
-          <p class="backdooring-callout-text"><strong>What is &ldquo;<a href="/backdooring/" target="_blank" rel="noopener noreferrer" class="backdooring-callout-term">backdooring</a>&rdquo;?</strong><br>A practice that spans years. <a href="/backdooring/" target="_blank" rel="noopener noreferrer">Learn more &rarr;</a></p>
+          <p class="backdooring-callout-heading">What is &ldquo;<a href="/backdooring/" target="_blank" rel="noopener noreferrer">Backdooring</a>&rdquo;?</p>
+          <p class="backdooring-callout-text">A long-standing practice that continues to undermine trust in alternative finance. <a href="/backdooring/" target="_blank" rel="noopener noreferrer">Read the article &rarr;</a></p>
         </div>
         </div>
 
