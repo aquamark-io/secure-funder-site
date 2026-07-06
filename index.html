@@ -432,8 +432,10 @@
       color: inherit;
     }
     @media (max-width: 720px) {
-      .mission-inner { grid-template-columns: 1fr; gap: 20px; }
-      .mission-eyebrow-rule { margin: 14px 0 0; }
+      .mission-inner { grid-template-columns: 1fr; gap: 20px; text-align: center; }
+      .mission-eyebrow { text-align: center; }
+      .mission-eyebrow-rule { margin: 14px auto 0; }
+      .mission-body p { text-align: center; margin: 0 auto; }
     }
     @media (max-width: 600px) {
       .mission-section { padding: 56px 0; }
@@ -476,12 +478,14 @@
       line-height: 1.90;
       margin: 0;
       text-align: left;
-      max-width: 560px;
+      max-width: 640px;
     }
     @media (max-width: 720px) {
-      .scope-inner { grid-template-columns: 1fr; gap: 20px; }
-      .scope-eyebrow { text-align: left; order: -1; }
-      .scope-eyebrow-rule { margin: 14px auto 0 0; order: -1; }
+      .scope-inner { grid-template-columns: 1fr; gap: 20px; text-align: center; }
+      .scope-heading-col { order: -1; }
+      .scope-eyebrow { text-align: center; }
+      .scope-eyebrow-rule { margin: 14px auto 0; }
+      .scope-body p { text-align: center; margin: 0 auto; max-width: none; }
     }
     @media (max-width: 600px) {
       .scope-section { padding: 56px 0; }
