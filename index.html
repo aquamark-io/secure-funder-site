@@ -396,12 +396,12 @@
       padding: 88px 0;
     }
     .mission-inner {
-      max-width: 1120px;
+      max-width: 1200px;
       margin: 0 auto;
       padding: 0 12px;
       display: grid;
-      grid-template-columns: 320px 1fr;
-      gap: 56px;
+      grid-template-columns: 300px 1fr 260px;
+      gap: 48px;
       align-items: center;
     }
     .mission-eyebrow {
@@ -433,68 +433,49 @@
       font-weight: 400;
       color: inherit;
     }
+    .scope-aside {
+      align-self: start;
+      border-left: 2px solid var(--border-light);
+      padding-left: 22px;
+    }
+    .scope-aside-label {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+    .scope-aside p {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      margin: 0;
+    }
+    @media (max-width: 960px) {
+      .mission-inner { grid-template-columns: 300px 1fr; }
+      .scope-aside {
+        grid-column: 1 / -1;
+        border-left: none;
+        border-top: 1px solid var(--border-light);
+        padding-left: 0;
+        padding-top: 22px;
+        margin-top: 8px;
+      }
+    }
     @media (max-width: 720px) {
       .mission-inner { grid-template-columns: 1fr; gap: 20px; text-align: center; }
       .mission-eyebrow { text-align: center; }
       .mission-eyebrow-rule { margin: 14px auto 0; }
       .mission-body p { text-align: center; margin: 0 auto; }
+      .scope-aside { text-align: center; }
     }
     @media (max-width: 600px) {
       .mission-section { padding: 56px 0; }
       .mission-eyebrow { font-size: 1.25rem; }
       .mission-body p { font-size: 1.08rem; }
-    }
-    .scope-section {
-      background: var(--navy);
-      border-bottom: none;
-      padding: 88px 0;
-    }
-    .scope-inner {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 0 12px;
-      display: grid;
-      grid-template-columns: 1fr 320px;
-      gap: 56px;
-      align-items: center;
-    }
-    .scope-eyebrow {
-      font-family: var(--font-display);
-      font-size: 1.95rem;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: #fff;
-      text-align: right;
-    }
-    .scope-eyebrow-rule {
-      width: 32px;
-      height: 2px;
-      background: var(--blue-accent);
-      margin: 18px 0 0 auto;
-    }
-    .scope-body p {
-      font-family: var(--font-display);
-      font-size: 1.15rem;
-      font-weight: 400;
-      color: rgba(255,255,255,0.85);
-      line-height: 1.90;
-      margin: 0;
-      text-align: left;
-      max-width: 640px;
-      text-wrap: balance;
-    }
-    @media (max-width: 720px) {
-      .scope-inner { grid-template-columns: 1fr; gap: 20px; text-align: center; }
-      .scope-heading-col { order: -1; }
-      .scope-eyebrow { text-align: center; }
-      .scope-eyebrow-rule { margin: 14px auto 0; }
-      .scope-body p { text-align: center; margin: 0 auto; max-width: none; }
-    }
-    @media (max-width: 600px) {
-      .scope-section { padding: 56px 0; }
-      .scope-eyebrow { font-size: 1.25rem; }
-      .scope-body p { font-size: 1.08rem; }
     }
 
 .mission-links-row {
@@ -2536,19 +2517,9 @@
       <div class="mission-body">
         <p><span class="mission-brand">Secure Funder™</span> is a new industry initiative helping lead alternative finance toward stronger standards around trust and accountability. In a market with limited barriers and inconsistent oversight, data misuse continues to harm business owners and undermine funders who choose to operate with care. Paired with <a href="https://securebroker.org" target="_blank" rel="noopener noreferrer" class="brand-link">Secure Broker™</a>, the programs independently verify companies taking practical steps to protect merchant data and operate responsibly.</p>
       </div>
-    </div>
-  </div>
-</section>
-
-<section class="scope-section">
-  <div class="container">
-    <div class="scope-inner">
-      <div class="scope-body">
-        <p>Certification is a first step, narrowly focused on the handling and protection of merchant data. It does not constitute an evaluation of underwriting guidelines or funding practices, or broader business conduct. As the program matures, we will work alongside our members to evolve its standards in the best interest of the industry and the small business owners it serves.</p>
-      </div>
-      <div class="scope-heading-col">
-        <div class="scope-eyebrow">Program Scope</div>
-        <div class="scope-eyebrow-rule"></div>
+      <div class="scope-aside">
+        <span class="scope-aside-label">Program Scope</span>
+        <p>The program certifies responsible data handling. It is not an evaluation of underwriting philosophy or overall business operations. As the program evolves, members will have opportunities to help shape future standards.</p>
       </div>
     </div>
   </div>
