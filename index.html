@@ -443,24 +443,30 @@
     .scope-section {
       background: var(--navy);
       border-bottom: none;
-      padding: 64px 0;
+      padding: 88px 0;
     }
     .scope-inner {
       max-width: 1120px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 1fr 280px;
+      grid-template-columns: 1fr 320px;
       gap: 56px;
       align-items: center;
     }
     .scope-eyebrow {
       font-family: var(--font-display);
-      font-size: 1.5rem;
+      font-size: 1.95rem;
       font-weight: 700;
       letter-spacing: 0.04em;
       text-transform: uppercase;
       color: #fff;
       text-align: right;
+    }
+    .scope-eyebrow-rule {
+      width: 32px;
+      height: 2px;
+      background: var(--blue-accent);
+      margin: 18px 0 0 auto;
     }
     .scope-body p {
       font-family: var(--font-display);
@@ -472,11 +478,14 @@
       text-align: left;
     }
     @media (max-width: 720px) {
-      .scope-inner { grid-template-columns: 1fr; gap: 16px; }
+      .scope-inner { grid-template-columns: 1fr; gap: 20px; }
       .scope-eyebrow { text-align: left; order: -1; }
+      .scope-eyebrow-rule { margin: 14px auto 0 0; order: -1; }
     }
     @media (max-width: 600px) {
-      .scope-section { padding: 40px 0; }
+      .scope-section { padding: 56px 0; }
+      .scope-eyebrow { font-size: 1.25rem; }
+      .scope-body p { font-size: 1.02rem; }
     }
 
 .mission-links-row {
@@ -2528,7 +2537,10 @@
       <div class="scope-body">
         <p>Certification is a first step, narrowly focused on the handling and protection of merchant data. It does not constitute an evaluation of underwriting guidelines or funding practices, or broader business conduct. As the program matures, we will work alongside our members to evolve its standards in the best interest of business owners and the industry.</p>
       </div>
-      <div class="scope-eyebrow">Program Scope</div>
+      <div class="scope-heading-col">
+        <div class="scope-eyebrow">Program Scope</div>
+        <div class="scope-eyebrow-rule"></div>
+      </div>
     </div>
   </div>
 </section>
