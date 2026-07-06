@@ -433,6 +433,35 @@
       .mission-body { text-align: left; padding: 0 8px; }
       .mission-body p { font-size: 1.02rem; }
     }
+    .scope-section {
+      background: var(--white);
+      border-bottom: 1px solid var(--border-light);
+      padding: 40px 0;
+    }
+    .scope-inner {
+      max-width: 820px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .scope-eyebrow {
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+    .scope-body p {
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      line-height: 1.75;
+      margin: 0;
+    }
+    @media (max-width: 600px) {
+      .scope-section { padding: 32px 0; }
+      .scope-inner { text-align: left; padding: 0 4px; }
+    }
 
 .mission-links-row {
   display: inline-flex; gap: 16px; align-items: center; margin-top: 30px; flex-wrap: wrap;
@@ -2470,6 +2499,17 @@
       <div class="mission-eyebrow-rule"></div>
       <div class="mission-body">
         <p><span class="mission-brand">Secure Funder™</span> is a new industry initiative helping lead alternative finance toward stronger standards around trust and accountability. In a market with limited barriers and inconsistent oversight, data misuse continues to harm business owners and undermine funders who choose to operate with care. Paired with <a href="https://securebroker.org" target="_blank" rel="noopener noreferrer" class="brand-link">Secure Broker™</a>, the programs independently verify companies taking practical steps to protect merchant data and operate responsibly.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="scope-section">
+  <div class="container">
+    <div class="scope-inner">
+      <div class="scope-eyebrow">Program Scope</div>
+      <div class="scope-body">
+        <p>Certification is a first step, narrowly focused on the handling and protection of merchant data. It does not constitute an evaluation of underwriting guidelines or funding practices, or broader business conduct. As the program matures, we will work alongside our members to evolve its standards in the best interest of business owners and the industry.</p>
       </div>
     </div>
   </div>
