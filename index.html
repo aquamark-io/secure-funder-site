@@ -1292,28 +1292,17 @@
       .comparison-label {
         border-right: none;
         border-bottom: 1px solid var(--border-light);
+        background: var(--pearl);
       }
       .comparison-cell {
         border-right: none;
         border-bottom: 1px solid var(--border-light);
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 4px;
       }
       .comparison-row:last-child .comparison-cell-yes {
         border-bottom: none;
       }
-      .comparison-cell-not::before {
-        content: "\2715 NOT CERTIFIED";
-        font-size: 0.7rem;
-        font-weight: 800;
-        letter-spacing: 0.06em;
-      }
-      .comparison-cell-yes::before {
-        content: "\2713 CERTIFIED";
-        font-size: 0.7rem;
-        font-weight: 800;
-        letter-spacing: 0.06em;
+      .comparison-cell::before {
+        margin-top: 2px;
       }
     }
     .benefits-disclaimer-card {
