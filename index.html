@@ -1283,26 +1283,50 @@
       content: none;
     }
     @media (max-width: 700px) {
+      .comparison-table {
+        border: none;
+        border-radius: 0;
+        max-width: 480px;
+      }
       .comparison-row {
         grid-template-columns: 1fr;
       }
       .comparison-row-header {
         display: none;
       }
+      .comparison-row + .comparison-row {
+        border-top: 1px solid var(--border-light);
+        margin-top: 6px;
+        padding-top: 6px;
+      }
       .comparison-label {
         border-right: none;
-        border-bottom: 1px solid var(--border);
-        background: var(--pearl);
+        padding: 22px 4px 10px;
+        font-family: var(--font-display);
+        font-size: 0.72rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--text-muted);
       }
       .comparison-cell {
+        padding: 9px 4px 9px 16px;
         border-right: none;
-        border-bottom: 1px solid var(--border);
       }
-      .comparison-row:last-child .comparison-cell-yes {
-        border-bottom: none;
+      .comparison-cell-not {
+        border-left: 3px solid var(--border);
+        color: var(--text-secondary);
       }
-      .comparison-cell::before {
-        margin-top: 2px;
+      .comparison-cell-not::before {
+        content: none;
+      }
+      .comparison-cell-yes {
+        border-left: 3px solid var(--blue-accent);
+        color: var(--navy);
+        font-weight: 600;
+      }
+      .comparison-cell-yes::before {
+        content: none;
       }
     }
     .benefits-disclaimer-card {
