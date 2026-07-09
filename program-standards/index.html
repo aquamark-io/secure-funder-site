@@ -142,36 +142,6 @@
       .sidebar{display:none}
     }
   </style>
-  <!-- Outseta Chat Widget -->
-  <style>
-    /*
-      Outseta chat font fix
-      Keep Inter on chat text, but do not force Inter onto icon elements.
-      Forcing font-family on every child can break Outseta's send/attachment icons.
-    */
-    .o--Trigger--trigger,
-    .o--App,
-    .o--App--chatWidget,
-    .o--Reset--scope .o--Widget--widget,
-    .o--Widget--popup {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
-    }
-
-    .o--App--chatWidget :where(input, textarea, select, p, label, h1, h2, h3, h4, h5, h6, div, span):not([class*="Icon"]):not([class*="icon"]),
-    .o--Reset--scope .o--Widget--widget :where(input, textarea, select, p, label, h1, h2, h3, h4, h5, h6, div, span):not([class*="Icon"]):not([class*="icon"]),
-    .o--Widget--popup :where(input, textarea, select, p, label, h1, h2, h3, h4, h5, h6, div, span):not([class*="Icon"]):not([class*="icon"]) {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
-    }
-  </style>
-  <script>
-    var o_options = {
-      domain: 'aquamark.outseta.com',
-      load: 'chat'
-    };
-  </script>
-  <script src="https://cdn.outseta.com/outseta.min.js"
-          data-options="o_options">
-  </script>
 
 </head>
 <body>
