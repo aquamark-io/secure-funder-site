@@ -1201,6 +1201,96 @@
     .benefit-card-accent:hover {
       box-shadow: 0 8px 28px rgba(79,163,209,0.25);
     }
+
+    /* ===== COMPARISON ===== */
+    .comparison-section {
+      background: var(--white);
+    }
+    .comparison-table {
+      max-width: 900px;
+      margin: 0 auto;
+      border: 1px solid var(--border-light);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    .comparison-row {
+      display: grid;
+      grid-template-columns: 200px 1fr 1fr;
+    }
+    .comparison-row + .comparison-row {
+      border-top: 1px solid var(--border-light);
+    }
+    .comparison-label {
+      padding: 22px 24px;
+      font-family: var(--font-display);
+      font-weight: 600;
+      color: var(--navy);
+      font-size: 0.92rem;
+      line-height: 1.4;
+      display: flex;
+      align-items: center;
+      background: var(--pearl);
+    }
+    .comparison-cell {
+      padding: 22px 24px;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      display: flex;
+      align-items: center;
+    }
+    .comparison-cell-not {
+      color: var(--text-secondary);
+      background: var(--white);
+    }
+    .comparison-cell-yes {
+      color: var(--navy);
+      background: var(--blue-accent-pale);
+      font-weight: 500;
+    }
+    .comparison-row-header .comparison-label {
+      background: var(--navy);
+    }
+    .comparison-row-header .comparison-cell {
+      font-family: var(--font-display);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.74rem;
+      letter-spacing: 0.09em;
+      padding: 18px 24px;
+    }
+    .comparison-row-header .comparison-cell-not {
+      color: var(--text-secondary);
+      background: var(--pearl);
+    }
+    .comparison-row-header .comparison-cell-yes {
+      color: var(--navy);
+      background: var(--blue-accent-pale);
+    }
+    @media (max-width: 700px) {
+      .comparison-row {
+        grid-template-columns: 1fr;
+      }
+      .comparison-row-header {
+        display: none;
+      }
+      .comparison-label {
+        border-bottom: 1px solid var(--border-light);
+      }
+      .comparison-cell::before {
+        content: attr(data-col);
+        display: block;
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 4px;
+        color: var(--text-muted);
+      }
+      .comparison-cell {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
     .benefits-disclaimer-card {
       max-width: 900px;
       margin: 28px auto 0;
@@ -2543,6 +2633,38 @@
     <div class="stand-apart-inner">
       <div class="stand-apart-title">Stand apart.</div>
       <p class="stand-apart-msg">Give partners and merchants a clear reason to <strong><em style="color: #FFFFFF;">choose you</em></strong>.</p>
+    </div>
+  </section>
+
+  <!-- Certified vs. Not Certified -->
+  <section class="comparison-section">
+    <div class="container">
+      <div class="section-header" style="text-align: center; max-width: 640px; margin-left: auto; margin-right: auto;">
+        <div class="section-label" style="text-align: center;">The Difference</div>
+        <h2 class="section-title">Certified vs. Not Certified</h2>
+      </div>
+      <div class="comparison-table reveal">
+        <div class="comparison-row comparison-row-header">
+          <div class="comparison-label"></div>
+          <div class="comparison-cell comparison-cell-not">Not Certified</div>
+          <div class="comparison-cell comparison-cell-yes">Certified</div>
+        </div>
+        <div class="comparison-row">
+          <div class="comparison-label">Basis of Trust</div>
+          <div class="comparison-cell comparison-cell-not" data-col="Not Certified">Based on self-reported claims</div>
+          <div class="comparison-cell comparison-cell-yes" data-col="Certified">Independently verified against published standards</div>
+        </div>
+        <div class="comparison-row">
+          <div class="comparison-label">Market Signal</div>
+          <div class="comparison-cell comparison-cell-not" data-col="Not Certified">Indistinguishable from any other company</div>
+          <div class="comparison-cell comparison-cell-yes" data-col="Certified">Publicly listed and badge-verified</div>
+        </div>
+        <div class="comparison-row">
+          <div class="comparison-label">Liability Posture</div>
+          <div class="comparison-cell comparison-cell-not" data-col="Not Certified">Company bears full risk if a breach or resale incident occurs</div>
+          <div class="comparison-cell comparison-cell-yes" data-col="Certified">Demonstrated due diligence on record</div>
+        </div>
+      </div>
     </div>
   </section>
 
