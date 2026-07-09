@@ -1205,7 +1205,7 @@
     /* ===== COMPARISON ===== */
     .comparison-section {
       background: var(--white);
-      border-bottom: 1px solid var(--border-light);
+      border-bottom: 2px solid var(--border);
     }
     .comparison-table {
       max-width: 900px;
@@ -1248,7 +1248,8 @@
     .comparison-cell-not::before {
       content: "\2715";
       color: #C0392B;
-      font-size: 0.85rem;
+      font-size: 1.1rem;
+      font-weight: 900;
       flex-shrink: 0;
     }
     .comparison-cell-yes {
@@ -1258,8 +1259,8 @@
     .comparison-cell-yes::before {
       content: "\2713";
       color: var(--blue-accent);
-      font-size: 0.9rem;
-      font-weight: 700;
+      font-size: 1.1rem;
+      font-weight: 900;
       flex-shrink: 0;
     }
     .comparison-row-header {
@@ -1295,12 +1296,24 @@
       .comparison-cell {
         border-right: none;
         border-bottom: 1px solid var(--border-light);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
       }
       .comparison-row:last-child .comparison-cell-yes {
         border-bottom: none;
       }
-      .comparison-cell::before {
-        margin-top: 2px;
+      .comparison-cell-not::before {
+        content: "\2715 NOT CERTIFIED";
+        font-size: 0.7rem;
+        font-weight: 800;
+        letter-spacing: 0.06em;
+      }
+      .comparison-cell-yes::before {
+        content: "\2713 CERTIFIED";
+        font-size: 0.7rem;
+        font-weight: 800;
+        letter-spacing: 0.06em;
       }
     }
     .benefits-disclaimer-card {
@@ -2710,12 +2723,12 @@
         </div>
         <div class="comparison-row">
           <div class="comparison-label">Market Signal</div>
-          <div class="comparison-cell comparison-cell-not">Indistinguishable from any other company</div>
+          <div class="comparison-cell comparison-cell-not">Indistinguishable from other companies</div>
           <div class="comparison-cell comparison-cell-yes">Publicly listed and badge-verified</div>
         </div>
         <div class="comparison-row">
           <div class="comparison-label">Liability Posture</div>
-          <div class="comparison-cell comparison-cell-not">Company bears full risk if incident occurs</div>
+          <div class="comparison-cell comparison-cell-not">Higher risk of incidents</div>
           <div class="comparison-cell comparison-cell-yes">Risk mitigated</div>
         </div>
       </div>
