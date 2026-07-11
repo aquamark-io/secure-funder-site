@@ -260,8 +260,27 @@
       line-height: 1.55;
       color: var(--blue-accent);
       font-weight: 300;
-      margin: 0 0 56px;
+      margin: 0 0 40px;
       max-width: 560px;
+    }
+    .pub-join-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 160px;
+      padding: 13px 30px;
+      border-radius: 6px;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.25s;
+      background: var(--blue-accent);
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+    .pub-join-btn:hover {
+      background: var(--blue-accent-soft);
     }
     .pub-list {
       display: flex;
@@ -677,6 +696,7 @@
     <header class="pub-header">
       <h1>Program Publications</h1>
       <p class="pub-dek">Insight worth your time.</p>
+      <a href="https://securefunder.org/contact/" target="_blank" rel="noopener noreferrer" class="pub-join-btn">Join</a>
     </header>
 
     <div class="pub-list">
