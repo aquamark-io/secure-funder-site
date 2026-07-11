@@ -54,7 +54,9 @@
       background: var(--navy);
       color: var(--ice);
       font-size: 0.8rem;
-      height: var(--utility-height);
+      min-height: var(--utility-height);
+      height: auto;
+      padding: 8px 16px;
       letter-spacing: 0.06em;
       position: sticky;
       top: 0;
@@ -359,8 +361,8 @@
     @media (max-width: 600px) {
       .container { padding: 0 16px; }
       .container-narrow { padding: 0 16px; }
-      .utility-bar { font-size: 0.72rem; height: 30px; }
-      :root { --utility-height: 30px; }
+      .utility-bar { font-size: 0.72rem; min-height: 30px; height: auto; padding: 8px 14px; }
+      .utility-copy { row-gap: 2px; }
       .main-nav .container { height: 56px; }
       .logo-badge-lg { width: 32px; height: 32px; }
       .logo-text { font-size: 1.15rem; }
