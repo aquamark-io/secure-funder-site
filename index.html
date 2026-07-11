@@ -563,20 +563,52 @@
     .section-header { margin-bottom: 52px; }
 
     /* ===== NEWSLETTER ===== */
-    .newsletter-section { background: var(--white); border-bottom: 2px solid var(--border); }
-    .newsletter-inner { max-width: 680px; margin: 0 auto; text-align: center; padding: 0 16px; box-sizing: border-box; }
+    .newsletter-section { background: var(--white); border-bottom: 2px solid var(--border); padding: 88px 0; }
+    .newsletter-grid {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 16px;
+      box-sizing: border-box;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .newsletter-left { text-align: left; }
+    .newsletter-rule {
+      width: 32px;
+      height: 2px;
+      background: var(--blue-accent);
+      margin-bottom: 18px;
+    }
+    .newsletter-left h2 {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--navy);
+      margin-bottom: 14px;
+    }
+    .newsletter-left .section-subtitle {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      max-width: 420px;
+      margin: 0;
+      text-align: left;
+    }
     .newsletter-form-wrap {
-      margin-top: 32px;
-      max-width: 480px;
-      margin-left: auto;
-      margin-right: auto;
       background: var(--white);
       border: 1px solid var(--border-light);
       border-radius: 12px;
       padding: 8px;
       box-shadow: 0 4px 24px rgba(15,33,55,0.06);
     }
-    .newsletter-inner .section-subtitle { font-size: 0.9rem; max-width: 680px; margin: 0 auto; }
+    @media (max-width: 800px) {
+      .newsletter-grid { grid-template-columns: 1fr; gap: 28px; }
+      .newsletter-left, .newsletter-left .section-subtitle { text-align: center; margin-left: auto; margin-right: auto; }
+      .newsletter-rule { margin-left: auto; margin-right: auto; }
+    }
 
     /* ===== ABOUT ===== */
     .about-section { background: var(--white); }
@@ -2782,13 +2814,14 @@
 
   <!-- Newsletter -->
   <section id="newsletter" class="newsletter-section">
-    <div class="container">
-      <div class="newsletter-inner reveal">
-        <h2 class="section-title">Stay <span style="color: var(--blue-accent);">Informed</span></h2>
-        <p class="section-subtitle" style="margin: 0 auto;">Program updates, certification news, security<br class="mobile-break"> tips, educational content.</p>
-        <div class="newsletter-form-wrap">
-          <div style="width:100%;height:500px;" data-fillout-id="7UF94HDPLLus" data-fillout-embed-type="standard" data-fillout-inherit-parameters data-fillout-dynamic-resize></div>
-        </div>
+    <div class="newsletter-grid reveal">
+      <div class="newsletter-left">
+        <div class="newsletter-rule"></div>
+        <h2>Stay Informed</h2>
+        <p class="section-subtitle">Program updates, certification news, security tips, educational content.</p>
+      </div>
+      <div class="newsletter-form-wrap">
+        <div style="width:100%;height:500px;" data-fillout-id="7UF94HDPLLus" data-fillout-embed-type="standard" data-fillout-inherit-parameters data-fillout-dynamic-resize></div>
       </div>
     </div>
   </section>
