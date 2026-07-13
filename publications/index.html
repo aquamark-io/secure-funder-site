@@ -287,6 +287,10 @@
     }
     .pub-upcoming-section {
       margin-bottom: 56px;
+      padding: 24px 26px;
+      background: #F8FBFD;
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
     }
     .pub-upcoming-label {
       font-size: 0.72rem;
@@ -294,23 +298,35 @@
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--blue-accent);
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
     .pub-upcoming-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
+      display: flex;
+      flex-direction: column;
     }
     .pub-upcoming-card {
-      padding: 22px 24px;
-      background: var(--pearl);
-      border: 1px solid var(--border-light);
-      border-radius: 10px;
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      align-items: baseline;
+      gap: 14px;
+      padding: 13px 0;
+      border-bottom: 1px solid var(--border-light);
     }
-    .pub-upcoming-card-title {
-      font-size: 1.05rem;
-      line-height: 1.4;
+    .pub-upcoming-card:last-child {
+      border-bottom: none;
+    }
+    .pub-upcoming-card::before {
+      font-size: 0.7rem;
       font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+    }
+    .pub-upcoming-card:nth-child(1)::before { content: '01'; }
+    .pub-upcoming-card:nth-child(2)::before { content: '02'; }
+    .pub-upcoming-card-title {
+      font-size: 1.02rem;
+      line-height: 1.45;
+      font-weight: 600;
       color: var(--navy);
     }
     .pub-list {
@@ -356,7 +372,8 @@
     @media (max-width: 600px) {
       .pub-main { padding: 40px 20px 48px; }
       .pub-header h1 { font-size: 1.9rem; }
-      .pub-upcoming-grid { grid-template-columns: 1fr; gap: 14px; }
+      .pub-upcoming-section { padding: 20px; }
+      .pub-upcoming-card { grid-template-columns: 30px 1fr; gap: 12px; }
       .pub-item-title { font-size: 1.15rem; }
     }
 
