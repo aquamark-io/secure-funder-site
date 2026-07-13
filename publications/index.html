@@ -287,24 +287,28 @@
       margin-bottom: 32px;
     }
     .pub-upcoming {
-      display: block;
-      padding: 22px 24px;
-      background: var(--pearl);
-      border-radius: 10px;
+      display: grid;
+      grid-template-columns: 112px 1fr;
+      align-items: baseline;
+      gap: 20px;
+      padding: 18px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
       margin-bottom: 32px;
     }
     .pub-upcoming-label {
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       font-weight: 700;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--blue-accent);
-      margin-bottom: 8px;
+      color: var(--text-muted);
+      margin: 0;
     }
     .pub-upcoming-title {
-      font-size: 1.1rem;
+      font-size: 1rem;
+      line-height: 1.45;
       font-weight: 600;
-      color: var(--text-secondary);
+      color: var(--navy);
     }
     .pub-list {
       display: flex;
@@ -349,6 +353,7 @@
     @media (max-width: 600px) {
       .pub-main { padding: 40px 20px 64px; }
       .pub-header h1 { font-size: 1.9rem; }
+      .pub-upcoming { grid-template-columns: 1fr; gap: 5px; }
       .pub-item-title { font-size: 1.15rem; }
     }
 
