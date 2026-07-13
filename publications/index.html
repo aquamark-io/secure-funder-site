@@ -287,18 +287,32 @@
     }
     .pub-upcoming-section {
       margin-bottom: 56px;
-      padding: 24px 26px;
-      background: #EBF4FC;
-      border-top: 1px solid var(--border-light);
-      border-bottom: 1px solid var(--border-light);
+      padding: 0;
+      background: transparent;
+      border-top: none;
     }
-    .pub-upcoming-label {
-      font-size: 0.72rem;
+    .pub-section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 24px;
+      padding: 18px 0 12px;
+    }
+    .pub-upcoming-label,
+    .pub-published-label {
+      font-size: 0.74rem;
       font-weight: 700;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.11em;
       text-transform: uppercase;
       color: var(--blue-accent);
-      margin-bottom: 14px;
+      margin: 0;
+    }
+    .pub-section-note {
+      margin: 0;
+      font-size: 0.88rem;
+      line-height: 1.5;
+      color: var(--text-secondary);
+      text-align: right;
     }
     .pub-upcoming-grid {
       display: flex;
@@ -306,46 +320,62 @@
     }
     .pub-upcoming-card {
       display: grid;
-      grid-template-columns: 34px 1fr;
-      align-items: baseline;
-      gap: 14px;
-      padding: 13px 0;
-      border-bottom: 1px solid var(--border-light);
+      grid-template-columns: minmax(0, 1fr);
+      align-items: center;
+      gap: 20px;
+      padding: 10px 0;
     }
-    .pub-upcoming-card:last-child {
-      border-bottom: none;
-    }
-    .pub-upcoming-card::before {
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      color: var(--text-muted);
-    }
-    .pub-upcoming-card:nth-child(1)::before { content: '01'; }
-    .pub-upcoming-card:nth-child(2)::before { content: '02'; }
     .pub-upcoming-card-title {
       font-size: 1.02rem;
       line-height: 1.45;
       font-weight: 600;
       color: var(--navy);
     }
+    .pub-upcoming-status {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+    .pub-published-header {
+      padding-bottom: 8px;
+    }
     .pub-list {
       display: flex;
       flex-direction: column;
     }
     .pub-item {
-      display: block;
-      padding: 34px 0;
-      border-bottom: 1px solid rgba(218, 227, 236, 0.58);
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 24px;
+      gap: 24px;
+      align-items: center;
+      padding: 30px 0;
       text-decoration: none;
       color: inherit;
-      transition: opacity 0.2s;
+      transition: background-color 0.2s ease, padding 0.2s ease;
+    }
+    .pub-item::after {
+      content: '→';
+      font-size: 1.1rem;
+      color: var(--steel);
+      transition: transform 0.2s ease, color 0.2s ease;
     }
     .pub-list a.pub-item:first-child {
-      padding-top: 0;
+      padding-top: 12px;
+    }
+    .pub-item + .pub-item {
+      border-top: 1px solid var(--border);
     }
     .pub-item:hover {
-      opacity: 0.75;
+      background: var(--cloud);
+      padding-left: 14px;
+      padding-right: 14px;
+    }
+    .pub-item:hover::after {
+      transform: translateX(3px);
+      color: var(--navy);
     }
     .pub-item-meta {
       font-size: 0.76rem;
@@ -368,12 +398,19 @@
       line-height: 1.6;
       color: #3F5D79;
       max-width: 620px;
+      margin: 0;
     }
+    .pub-item-content { min-width: 0; }
     @media (max-width: 600px) {
       .pub-main { padding: 40px 20px 48px; }
       .pub-header h1 { font-size: 1.9rem; }
-      .pub-upcoming-section { padding: 20px; }
-      .pub-upcoming-card { grid-template-columns: 30px 1fr; gap: 12px; }
+      .pub-upcoming-section { margin-bottom: 42px; }
+      .pub-section-heading { display: block; padding: 16px 0 14px; }
+      .pub-section-note { margin-top: 6px; text-align: left; font-size: 0.84rem; }
+      .pub-upcoming-card { grid-template-columns: 1fr; gap: 5px; padding: 16px 0; }
+      .pub-upcoming-status { font-size: 0.66rem; }
+      .pub-item { grid-template-columns: minmax(0, 1fr) 18px; gap: 14px; padding: 24px 0; }
+      .pub-item:hover { padding-left: 0; padding-right: 0; background: transparent; }
       .pub-item-title { font-size: 1.15rem; }
     }
 
@@ -709,8 +746,10 @@
     </header>
 
 
-    <div class="pub-upcoming-section">
-      <div class="pub-upcoming-label">Coming Next</div>
+    <section class="pub-upcoming-section" aria-labelledby="upcoming-publications">
+      <div class="pub-section-heading">
+        <h2 class="pub-upcoming-label" id="upcoming-publications">Upcoming Publications</h2>
+      </div>
       <div class="pub-upcoming-grid">
         <div class="pub-upcoming-card">
           <div class="pub-upcoming-card-title">Stacking &mdash; Inside the Debate</div>
@@ -719,20 +758,28 @@
           <div class="pub-upcoming-card-title">ISO Reps &mdash; Brokers Raise Concerns</div>
         </div>
       </div>
+    </section>
+
+    <div class="pub-published-header">
+      <div class="pub-published-label">Latest Publications</div>
     </div>
 
     <div class="pub-list">
 
       <a href="https://securefunder.org/email-submissions/" class="pub-item">
-        <div class="pub-item-meta">3 min read</div>
-        <h2 class="pub-item-title">Email Submissions &mdash; Stacking, Competing Offers, Liability</h2>
-        <p class="pub-item-dek">Problem in Plain Sight.</p>
+        <div class="pub-item-content">
+          <div class="pub-item-meta">3 min read</div>
+          <h2 class="pub-item-title">Email Submissions &mdash; Stacking, Competing Offers, Liability</h2>
+          <p class="pub-item-dek">Problem in Plain Sight.</p>
+        </div>
       </a>
 
       <a href="https://securefunder.org/backdooring/" class="pub-item">
-        <div class="pub-item-meta">3 min read</div>
-        <h2 class="pub-item-title">What Is &ldquo;Backdooring&rdquo; &mdash; and Why Should the Industry Care?</h2>
-        <p class="pub-item-dek">A message to stakeholders.</p>
+        <div class="pub-item-content">
+          <div class="pub-item-meta">3 min read</div>
+          <h2 class="pub-item-title">What Is &ldquo;Backdooring&rdquo; &mdash; and Why Should the Industry Care?</h2>
+          <p class="pub-item-dek">A message to stakeholders.</p>
+        </div>
       </a>
 
     </div>
