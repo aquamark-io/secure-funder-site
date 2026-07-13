@@ -281,27 +281,23 @@
     .pub-join-btn:hover {
       background: var(--blue-accent-soft);
     }
-    .pub-divider {
-      height: 1px;
-      background: var(--border-light);
-      margin-bottom: 32px;
-    }
     .pub-upcoming {
       display: grid;
       grid-template-columns: 112px 1fr;
       align-items: baseline;
       gap: 20px;
-      padding: 18px 0;
+      padding: 18px 0 18px 18px;
+      border-left: 3px solid var(--blue-accent);
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
       margin-bottom: 32px;
     }
     .pub-upcoming-label {
-      font-size: 0.68rem;
+      font-size: 0.72rem;
       font-weight: 700;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--text-muted);
+      color: var(--blue-accent);
       margin: 0;
     }
     .pub-upcoming-title {
@@ -690,7 +686,6 @@
       <a href="https://securefunder.org/contact/" target="_blank" rel="noopener noreferrer" class="pub-join-btn">Join</a>
     </header>
 
-    <div class="pub-divider"></div>
 
     <div class="pub-upcoming">
       <div class="pub-upcoming-label">Coming Next</div>
