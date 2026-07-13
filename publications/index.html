@@ -285,16 +285,8 @@
     .pub-join-btn:hover {
       background: var(--blue-accent-soft);
     }
-    .pub-upcoming {
-      display: grid;
-      grid-template-columns: 112px 1fr;
-      align-items: baseline;
-      gap: 20px;
-      padding: 18px 0 18px 18px;
-      border-left: 3px solid var(--blue-accent);
-      border-top: 1px solid rgba(218, 227, 236, 0.68);
-      border-bottom: 1px solid rgba(218, 227, 236, 0.68);
-      margin-bottom: 84px;
+    .pub-upcoming-section {
+      margin-bottom: 56px;
     }
     .pub-upcoming-label {
       font-size: 0.72rem;
@@ -302,13 +294,29 @@
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--blue-accent);
-      margin: 0;
+      margin-bottom: 16px;
     }
-    .pub-upcoming-title {
-      font-size: 1rem;
-      line-height: 1.45;
-      font-weight: 600;
+    .pub-upcoming-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .pub-upcoming-card {
+      padding: 22px 24px;
+      border: 1px solid var(--border-light);
+      border-radius: 10px;
+    }
+    .pub-upcoming-card-title {
+      font-size: 1.05rem;
+      line-height: 1.4;
+      font-weight: 700;
       color: var(--navy);
+      margin-bottom: 8px;
+    }
+    .pub-upcoming-card-teaser {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: var(--text-secondary);
     }
     .pub-list {
       display: flex;
@@ -353,7 +361,7 @@
     @media (max-width: 600px) {
       .pub-main { padding: 40px 20px 48px; }
       .pub-header h1 { font-size: 1.9rem; }
-      .pub-upcoming { grid-template-columns: 1fr; gap: 5px; }
+      .pub-upcoming-grid { grid-template-columns: 1fr; gap: 14px; }
       .pub-item-title { font-size: 1.15rem; }
     }
 
@@ -689,9 +697,18 @@
     </header>
 
 
-    <div class="pub-upcoming">
-      <div class="pub-upcoming-label">Coming Next</div>
-      <div class="pub-upcoming-title">Stacking &mdash; Inside the Debate</div>
+    <div class="pub-upcoming-section">
+      <div class="pub-upcoming-label">Coming Soon</div>
+      <div class="pub-upcoming-grid">
+        <div class="pub-upcoming-card">
+          <div class="pub-upcoming-card-title">Stacking &mdash; Inside the Debate</div>
+          <p class="pub-upcoming-card-teaser">Some in the industry defend it. Others call it the root of the problem. We break down both sides.</p>
+        </div>
+        <div class="pub-upcoming-card">
+          <div class="pub-upcoming-card-title">ISO Reps &mdash; Brokers Raise Concerns</div>
+          <p class="pub-upcoming-card-teaser">What brokers are saying about how ISO relationships are handled, and why funders should be paying attention.</p>
+        </div>
+      </div>
     </div>
 
     <div class="pub-list">
