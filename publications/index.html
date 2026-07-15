@@ -354,6 +354,25 @@
     .pub-item-upcoming {
       cursor: default;
       pointer-events: none;
+      border-top-style: dashed;
+    }
+    .pub-item-upcoming .pub-item-title {
+      color: var(--text-muted);
+      font-style: italic;
+    }
+    .pub-item-upcoming::after {
+      content: '';
+    }
+    .pub-group-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--forest);
+      padding: 36px 0 4px;
+    }
+    .pub-group-label:first-child {
+      padding-top: 0;
     }
     @media (max-width: 600px) {
       .pub-main { padding: 40px 20px 48px; }
@@ -701,6 +720,8 @@
 
     <div class="pub-list" id="pubList">
 
+      <div class="pub-group-label">Published</div>
+
       <a href="https://securefunder.org/email-submissions/" class="pub-item">
         <div>
           <div class="pub-item-meta">3 min read</div>
@@ -714,6 +735,8 @@
           <h2 class="pub-item-title">What Is &ldquo;Backdooring&rdquo; &mdash; and Why Should the Industry Care?</h2>
         </div>
       </a>
+
+      <div class="pub-group-label">Forthcoming</div>
 
       <div class="pub-item pub-item-upcoming">
         <div>
@@ -773,11 +796,21 @@
 
     const pubSearch = document.getElementById('pubSearch');
     const pubItems = document.querySelectorAll('#pubList .pub-item');
+    const pubGroups = document.querySelectorAll('#pubList .pub-group-label');
     pubSearch.addEventListener('input', () => {
       const q = pubSearch.value.trim().toLowerCase();
       pubItems.forEach(item => {
         const title = item.querySelector('.pub-item-title').textContent.toLowerCase();
         item.style.display = title.includes(q) ? '' : 'none';
+      });
+      pubGroups.forEach(label => {
+        let next = label.nextElementSibling;
+        let hasVisible = false;
+        while (next && !next.classList.contains('pub-group-label')) {
+          if (next.style.display !== 'none') hasVisible = true;
+          next = next.nextElementSibling;
+        }
+        label.style.display = hasVisible ? '' : 'none';
       });
     });
   </script>
