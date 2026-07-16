@@ -310,30 +310,14 @@
       flex-direction: column;
     }
     .pub-item {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) 20px;
-      gap: 20px;
-      align-items: center;
-      padding: 24px 0;
+      display: block;
+      padding: 20px 0;
       text-decoration: none;
       color: inherit;
-      border-top: 1px solid var(--border);
       transition: opacity 0.2s ease;
-    }
-    .pub-list .pub-item:last-child {
-      border-bottom: 1px solid var(--border);
-    }
-    .pub-item::after {
-      content: '→';
-      font-size: 1.05rem;
-      color: var(--steel);
-      transition: transform 0.2s ease, color 0.2s ease;
     }
     .pub-item:hover {
       opacity: 0.72;
-    }
-    .pub-item:hover::after {
-      transform: translateX(3px);
     }
     .pub-item-meta {
       font-size: 0.72rem;
@@ -354,10 +338,6 @@
     .pub-item-upcoming {
       cursor: default;
       pointer-events: none;
-      border-top-style: dashed;
-    }
-    .pub-item-upcoming::after {
-      content: '';
     }
     .pub-group-label {
       font-size: 0.92rem;
@@ -366,7 +346,7 @@
       text-transform: uppercase;
       color: var(--forest);
       padding: 36px 0 8px;
-      border-bottom: 2px solid var(--forest);
+      border-bottom: 1px solid var(--border);
     }
     .pub-group-label:first-child {
       padding-top: 0;
@@ -376,7 +356,7 @@
       .pub-header h1 { font-size: 1.9rem; }
       .pub-search-row { margin-bottom: 22px; }
       .pub-search-input { width: 100%; }
-      .pub-item { grid-template-columns: minmax(0, 1fr) 16px; gap: 12px; padding: 20px 0; }
+      .pub-item { padding: 18px 0; }
       .pub-item-title { font-size: 1.15rem; }
     }
 
