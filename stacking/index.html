@@ -325,6 +325,21 @@
       color: var(--blue-accent);
     }
 
+    .article-body table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0 0 22px;
+    }
+    .article-body td {
+      padding: 12px 16px;
+      border: 1px solid var(--border);
+      vertical-align: top;
+    }
+    .article-body td:first-child {
+      white-space: nowrap;
+      width: 1%;
+    }
+
     .article-body strong {
       font-weight: 700;
       color: var(--navy);
@@ -565,14 +580,28 @@
 
     <div class="article-body">
 
-      <p>Stacking is one of the most <strong>divisive topics</strong> in merchant cash advance (MCA). It occurs when a business obtains more than one MCA at the same time. A second advance becomes a &ldquo;<strong>second position</strong>,&rdquo; and views generally become more critical as positions increase:</p>
+      <p><strong>Stacking</strong> is one of the most <strong>divisive topics</strong> in merchant cash advance (MCA). It occurs when a business obtains more than one MCA at the same time. A second advance becomes a &ldquo;<strong>second position</strong>,&rdquo; and views generally become more critical as positions increase:</p>
 
-      <ul>
-        <li><strong>2nd positions</strong> generally accepted by much of the industry.</li>
-        <li><strong>3rd&ndash;5th positions</strong> more debated; potentially harmful; may make sense in select cases.</li>
-        <li><strong>Above 5</strong> increasingly difficult to justify.</li>
-        <li><strong>Above 10</strong> often viewed as reckless.</li>
-      </ul>
+      <table>
+        <tbody>
+          <tr>
+            <td><strong>2nd positions</strong></td>
+            <td>generally accepted by much of the industry.</td>
+          </tr>
+          <tr>
+            <td><strong>3rd&ndash;5th positions</strong></td>
+            <td>more debated; potentially harmful; may make sense in select cases.</td>
+          </tr>
+          <tr>
+            <td><strong>Above 5</strong></td>
+            <td>increasingly difficult to justify.</td>
+          </tr>
+          <tr>
+            <td><strong>Above 10</strong></td>
+            <td>often viewed as reckless.</td>
+          </tr>
+        </tbody>
+      </table>
 
       <hr>
 
