@@ -338,6 +338,28 @@
     .pub-item-upcoming {
       cursor: default;
       pointer-events: none;
+      background: var(--blue-accent-pale);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 22px 26px;
+      margin-top: 6px;
+    }
+    .pub-item-upcoming .pub-item-title {
+      color: var(--slate);
+    }
+    .pub-item-upcoming::before {
+      content: 'Coming Soon';
+      display: block;
+      width: fit-content;
+      font-size: 0.66rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--blue-accent);
+      padding: 4px 10px;
+      border-radius: 20px;
+      margin-bottom: 12px;
     }
     .pub-group-label {
       font-size: 0.92rem;
@@ -357,6 +379,7 @@
       .pub-search-row { margin-bottom: 44px; }
       .pub-search-input { width: 100%; }
       .pub-item { padding: 18px 0; }
+      .pub-item-upcoming { padding: 18px 20px; }
       .pub-item-title { font-size: 1.15rem; }
     }
 
@@ -699,6 +722,12 @@
 
       <div class="pub-group-label">Published</div>
 
+      <a href="https://securefunder.org/stacking/" class="pub-item">
+        <div>
+          <h2 class="pub-item-title">MCA Stacking: Helpful or Harmful?</h2>
+        </div>
+      </a>
+
       <a href="https://securefunder.org/email-submissions/" class="pub-item">
         <div>
           <h2 class="pub-item-title">Email Submissions in Alternative Finance</h2>
@@ -708,12 +737,6 @@
       <a href="https://securefunder.org/backdooring/" class="pub-item">
         <div>
           <h2 class="pub-item-title">What Is &ldquo;Backdooring&rdquo; &mdash; and Why Should the Industry Care?</h2>
-        </div>
-      </a>
-
-      <a href="https://securefunder.org/stacking/" class="pub-item">
-        <div>
-          <h2 class="pub-item-title">MCA Stacking: Helpful or Harmful?</h2>
         </div>
       </a>
 
