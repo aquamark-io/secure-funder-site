@@ -9,7 +9,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="blue-ring.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Source+Serif+4:ital,opsz,wght@1,8..60,400;1,8..60,600&display=swap" rel="stylesheet">
   <style>
     :root {
       --utility-height: 44px;
@@ -35,6 +35,7 @@
       --border-light: #EAF0F5;
       --font-display: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
       --font-body: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-editorial: 'Source Serif 4', Georgia, serif;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -273,7 +274,7 @@
       position: relative; overflow: hidden;
     }
     .hero-inner {
-      display: grid; grid-template-columns: 1fr 1.2fr; min-height: 480px; align-items: center; gap: 48px;
+      display: grid; grid-template-columns: 1fr 1.2fr; align-items: center; gap: 48px;
       border: 2px solid var(--blue-accent);
       border-radius: 0;
       padding: 48px;
@@ -891,7 +892,8 @@
       position: absolute; bottom: -10px; right: 0;
     }
     .founder-quote-body blockquote {
-      font-size: 1.08rem; line-height: 1.8; color: var(--text-secondary);
+      font-family: var(--font-editorial);
+      font-size: 1.15rem; line-height: 1.7; color: var(--text-secondary);
       font-style: italic; margin: 0 0 20px;
     }
     .founder-quote-attribution {
@@ -1841,25 +1843,25 @@
       border-bottom: 1px solid rgba(255,255,255,0.06);
     }
     .footer-brand p {
-      font-size: 0.86rem; color: var(--steel); line-height: 1.7;
+      font-size: 0.86rem; color: var(--ice); line-height: 1.7;
       margin-top: 14px; max-width: 280px;
     }
-    .footer-brand p a { color: var(--steel); text-decoration: none; transition: color 0.2s; }
+    .footer-brand p a { color: var(--ice); text-decoration: none; transition: color 0.2s; }
     .footer-brand p a:hover { color: var(--blue-accent-soft); }
     .footer-col h4 {
       font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
       text-transform: uppercase; color: var(--white); margin-bottom: 16px;
     }
     .footer-col a {
-      display: block; color: var(--steel); text-decoration: none;
+      display: block; color: var(--ice); text-decoration: none;
       font-size: 0.86rem; margin-bottom: 9px; transition: color 0.2s;
     }
     .footer-col a:hover { color: var(--blue-accent-soft); }
     .footer-bottom {
       display: flex; justify-content: space-between; align-items: center;
-      padding: 22px 0; font-size: 0.76rem; color: var(--steel);
+      padding: 22px 0; font-size: 0.76rem; color: var(--ice);
     }
-    .footer-bottom a { color: var(--steel); text-decoration: none; }
+    .footer-bottom a { color: var(--ice); text-decoration: none; }
     .footer-bottom a:hover { color: var(--blue-accent-soft); }
 
     /* ===== RESPONSIVE ===== */
@@ -2217,8 +2219,8 @@
     /* ===== SCROLL REVEAL ===== */
     .reveal {
       opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+      transform: translateY(10px);
+      transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1), transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
     }
     .reveal.visible {
       opacity: 1;
@@ -2447,22 +2449,29 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 52px;
+      height: 46px;
     }
     .carousel-slide img {
-      max-height: 52px;
-      max-width: 150px;
+      max-height: 46px;
+      max-width: 168px;
       width: auto;
       height: auto;
       object-fit: contain;
       display: block;
+      filter: grayscale(1);
+      opacity: 0.55;
+      transition: opacity 0.25s ease, filter 0.25s ease;
+    }
+    .carousel-slide img:hover {
+      filter: grayscale(0);
+      opacity: 1;
     }
     .carousel-slide-lg {
-      height: 65px;
+      height: 46px;
     }
     .carousel-slide-lg img {
-      max-height: 65px;
-      max-width: 188px;
+      max-height: 46px;
+      max-width: 168px;
     }
     @keyframes carousel-scroll {
       0% { transform: translateX(0); }
