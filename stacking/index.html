@@ -64,7 +64,7 @@
       left: 0;
       right: 0;
       z-index: 190;
-      box-shadow: 0 1px 4px rgba(15,33,55,0.04);
+      
     }
     .main-nav .container {
       max-width: 1240px;
@@ -136,7 +136,7 @@
       font-size: 0.88rem;
       font-weight: 500;
       padding: 8px 14px;
-      border-radius: 6px;
+      border-radius:0;
       transition: all 0.2s;
     }
     .nav-links a:hover { background: var(--cloud); }
@@ -204,7 +204,7 @@
       background: var(--navy);
       color: var(--white);
       text-align: center;
-      border-radius: 8px;
+      border-radius:0;
       font-weight: 600;
       text-decoration: none;
       font-size: 0.95rem;
@@ -381,7 +381,7 @@
       font-weight: 600;
       letter-spacing: 0.02em;
       text-decoration: none;
-      border-radius: 4px;
+      border-radius:0;
       transition: all 0.2s ease;
       border: 1.5px solid transparent;
     }
@@ -550,6 +550,7 @@
       <ul class="nav-links">
         <li><a href="https://securefunder.org">For Funders</a></li>
         <li><a href="https://securebroker.org" target="_blank" rel="noopener noreferrer">For Brokers</a></li>
+        <li><a href="https://securefunder.org/publications/">Publications</a></li>
         <li><a href="https://portal.securefunder.org/login" class="btn-member">Sign In</a></li>
       </ul>
       <button class="mobile-toggle" aria-label="Menu">
@@ -672,6 +673,7 @@
 
     <a href="https://securefunder.org" onclick="closeMobileMenu()">For Funders</a>
     <a href="https://securebroker.org" target="_blank" rel="noopener noreferrer" onclick="closeMobileMenu()">For Brokers</a>
+    <a href="https://securefunder.org/publications/" onclick="closeMobileMenu()">Publications</a>
     <a href="https://portal.securefunder.org/login" class="btn-member-mobile">Sign In</a>
   </div>
 
