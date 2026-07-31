@@ -361,6 +361,10 @@
       border-radius:0;
       margin-bottom: 12px;
     }
+    .pub-item-upcoming.no-badge::before {
+      content: none;
+      display: none;
+    }
     .pub-group-label {
       font-size: 0.92rem;
       font-weight: 700;
@@ -755,7 +759,7 @@
 
       <div class="pub-group-label">Coming Next</div>
 
-      <div class="pub-item">
+      <div class="pub-item pub-item-upcoming no-badge">
         <div>
           <h2 class="pub-item-title">Broker Due Diligence: Checklist for Funders</h2>
         </div>
