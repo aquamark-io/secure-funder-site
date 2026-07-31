@@ -2174,11 +2174,11 @@
       background: var(--navy);
     }
     .stand-apart-inner {
-      max-width: 640px;
+      max-width: 1080px;
       margin: 0 auto;
       padding: 0 24px;
       display: flex;
-      gap: 32px;
+      gap: 48px;
       align-items: center;
     }
     .stand-apart-title {
@@ -2189,11 +2189,14 @@
       letter-spacing: -0.03em;
       white-space: nowrap;
       line-height: 1.2;
+      flex-shrink: 0;
     }
     .stand-apart-msg {
       font-size: 1.05rem;
       color: rgba(255,255,255,0.7);
       line-height: 1.8;
+      flex: 1;
+      max-width: 460px;
       border-left: 2px solid rgba(255,255,255,0.2);
       padding-left: 24px;
     }
