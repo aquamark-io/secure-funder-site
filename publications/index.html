@@ -335,36 +335,6 @@
       color: var(--text-primary);
       margin: 0;
     }
-    .pub-item-upcoming {
-      cursor: default;
-      pointer-events: none;
-      background: var(--blue-accent-pale);
-      border: 1px solid var(--border);
-      border-radius:0;
-      padding: 22px 26px;
-      margin-top: 6px;
-    }
-    .pub-item-upcoming .pub-item-title {
-      color: var(--slate);
-    }
-    .pub-item-upcoming::before {
-      content: 'Coming Soon';
-      display: block;
-      width: fit-content;
-      font-size: 0.66rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--white);
-      background: var(--blue-accent);
-      padding: 4px 10px;
-      border-radius:0;
-      margin-bottom: 12px;
-    }
-    .pub-item-upcoming.no-badge::before {
-      content: none;
-      display: none;
-    }
     .pub-group-label {
       font-size: 0.92rem;
       font-weight: 700;
@@ -377,13 +347,18 @@
     .pub-group-label:first-child {
       padding-top: 0;
     }
+    #pubList .pub-group-label-highlight {
+      background: var(--blue-accent);
+      color: var(--white);
+      padding: 12px 18px;
+      border-bottom: none;
+    }
     @media (max-width: 600px) {
       .pub-main { padding: 40px 20px 72px; }
       .pub-header h1 { font-size: 1.9rem; }
       .pub-search-row { margin-bottom: 44px; }
       .pub-search-input { width: 100%; }
       .pub-item { padding: 18px 0; }
-      .pub-item-upcoming { padding: 18px 20px; }
       .pub-item-title { font-size: 1.15rem; }
     }
 
@@ -757,9 +732,9 @@
 
     <div class="pub-list" id="pubList">
 
-      <div class="pub-group-label">Coming Next</div>
+      <div class="pub-group-label pub-group-label-highlight">Coming Next</div>
 
-      <div class="pub-item pub-item-upcoming no-badge">
+      <div class="pub-item">
         <div>
           <h2 class="pub-item-title">Broker Due Diligence: Checklist for Funders</h2>
         </div>
