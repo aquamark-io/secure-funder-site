@@ -920,22 +920,34 @@
     .badge-band {
       background: var(--white);
       border-bottom: 1px solid var(--border-light);
-      padding: 64px 0;
+      padding: 72px 0;
     }
     .badge-band-inner {
       display: flex;
-      flex-direction: column;
       align-items: center;
-      gap: 24px;
-      text-align: center;
+      gap: 56px;
+      text-align: left;
     }
     .badge-band-image {
-      width: 224px;
-      height: 224px;
+      width: 200px;
+      height: 200px;
       object-fit: contain;
+      flex-shrink: 0;
+    }
+    .badge-band-content {
+      flex: 1;
+    }
+    .badge-band-statement {
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1.4;
+      letter-spacing: -0.01em;
+      margin: 0 0 16px;
+      max-width: 640px;
     }
     .badge-band-text {
-      font-size: 1.14rem;
+      font-size: 1.05rem;
       color: var(--text-secondary);
       max-width: 600px;
       line-height: 1.7;
@@ -951,10 +963,12 @@
     .badge-band-text a:hover {
       color: var(--navy);
     }
-    @media (max-width: 600px) {
+    @media (max-width: 700px) {
       .badge-band { padding: 48px 0; }
+      .badge-band-inner { flex-direction: column; text-align: center; gap: 28px; }
       .badge-band-image { width: 182px; height: 182px; }
-      .badge-band-text { font-size: 1rem; }
+      .badge-band-statement { font-size: 1.32rem; max-width: 100%; }
+      .badge-band-text { font-size: 1rem; max-width: 100%; }
     }
 
     /* ===== LEADERSHIP LETTER LINK ===== */
@@ -2699,7 +2713,10 @@
     <div class="container">
       <div class="badge-band-inner reveal">
         <img src="secure-funder-badge-2026.png" alt="Secure Funder™ Certified 2026" class="badge-band-image">
-        <p class="badge-band-text">Complete certification through the member portal. <a href="#membership">See guidelines &rarr;</a></p>
+        <div class="badge-band-content">
+          <p class="badge-band-statement">Certification is how the industry tells good actors apart from the rest. Joining puts you on the record as one of them.</p>
+          <p class="badge-band-text">Complete certification through the member portal. <a href="#membership">See guidelines &rarr;</a></p>
+        </div>
       </div>
     </div>
   </section>
