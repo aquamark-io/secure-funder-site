@@ -9,7 +9,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="blue-ring.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Source+Serif+4:ital,opsz,wght@1,8..60,400;1,8..60,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;500;600;700;800;900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Source+Serif+4:ital,opsz,wght@1,8..60,400;1,8..60,600&display=swap" rel="stylesheet">
   <style>
     :root {
       --utility-height: 44px;
@@ -386,22 +386,35 @@
       display: grid;
       grid-template-columns: 300px 1fr;
       gap: 56px;
-      align-items: center;
+      align-items: start;
     }
     .mission-eyebrow {
       font-family: var(--font-display);
-      font-size: 1.95rem;
-      font-weight: 700;
-      letter-spacing: 0.04em;
+      font-weight: 800;
+      letter-spacing: -0.01em;
       text-transform: uppercase;
       color: var(--navy);
       text-align: left;
+      line-height: 0.92;
+      display: flex;
+      flex-direction: column;
+      margin-top: 6px;
+    }
+    .mission-eyebrow-line1 {
+      font-size: 3.1rem;
+      font-weight: 900;
+    }
+    .mission-eyebrow-line2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--blue-accent);
+      margin-top: 4px;
     }
     .mission-eyebrow-rule {
       width: 32px;
       height: 2px;
       background: var(--blue-accent);
-      margin: 18px 0 0;
+      margin: 20px 0 0;
     }
     .mission-statement-card {
       padding: 20px 22px;
@@ -411,10 +424,10 @@
     }
     .mission-body p {
       font-family: var(--font-display);
-      font-size: 1.1rem;
+      font-size: 1.03rem;
       font-weight: 400;
       color: var(--text-primary);
-      line-height: 1.90;
+      line-height: 1.72;
       margin: 0;
       text-align: left;
     }
@@ -436,7 +449,7 @@
     }
     @media (max-width: 720px) {
       .mission-inner { grid-template-columns: 1fr; gap: 20px; text-align: center; }
-      .mission-eyebrow { text-align: center; }
+      .mission-eyebrow { text-align: center; align-items: center; }
       .mission-eyebrow-rule { margin: 14px auto 0; }
       .mission-body p { text-align: left; margin: 0; }
       .scope-aside { text-align: left; padding: 14px 18px; }
@@ -444,8 +457,9 @@
     }
     @media (max-width: 600px) {
       .mission-section { padding: 56px 0; }
-      .mission-eyebrow { font-size: 1.25rem; }
-      .mission-body p { font-size: 1.08rem; }
+      .mission-eyebrow-line1 { font-size: 2.2rem; }
+      .mission-eyebrow-line2 { font-size: 1.15rem; }
+      .mission-body p { font-size: 1.02rem; }
       .scope-aside { padding: 12px 16px; margin-left: 0; margin-right: 0; }
     }
 
@@ -2619,7 +2633,10 @@
   <div class="container">
     <div class="mission-inner reveal">
       <div class="mission-heading-col">
-        <div class="mission-eyebrow">Our Mission</div>
+        <div class="mission-eyebrow">
+          <span class="mission-eyebrow-line2">Our</span>
+          <span class="mission-eyebrow-line1">Mission</span>
+        </div>
         <div class="mission-eyebrow-rule"></div>
       </div>
       <div class="mission-content-col">
