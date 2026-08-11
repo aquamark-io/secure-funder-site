@@ -209,28 +209,19 @@
         <div class="requirements-layout">
           <aside class="sidebar" aria-label="Requirement navigation">
             <h3>Jump to section</h3>
-            <a href="#purpose">Purpose</a>
+            <a href="#scope">Who This Applies To</a>
             <a href="#how-it-works">How It Works</a>
             <a href="#how-to-read">Path to Certification</a>
             <a href="#personnel">1. Personnel Controls</a>
-            <a href="#email">2. Email Security</a>
-            <a href="#crm">3. CRMs or Equivalent Systems</a>
-            <a href="#storage">4. Document Storage</a>
-            <a href="#outsourcing">5. Outsourcing</a>
+            <a href="#system-access">2. System Access</a>
+            <a href="#document-protection">3. Document &amp; Data Protection</a>
             <a href="#final-review">Final Review</a>
           </aside>
 
           <div class="req-list">
-            <details id="purpose" class="req-card req-card-intro">
-              <summary class="req-top">
-                <h3>Purpose</h3>
-              </summary>
-              <div class="req-body">
-                <div class="evidence-block">
-                  <p style="font-size:1rem;">To confirm that reasonable safeguards are in place to reduce the risk of unauthorized access, use, or sharing of merchant data.</p>
-                </div>
-              </div>
-            </details>
+            <div id="scope" class="req-card req-card-intro" style="padding:26px 28px;">
+              <p style="font-family:var(--font-display);font-size:1.4rem;font-weight:700;color:var(--navy);line-height:1.35;margin:0;letter-spacing:-.01em;">Program only applies to personnel who process deals &mdash; sales, processing, underwriting.</p>
+            </div>
 
             <details id="how-it-works" class="req-card req-card-intro">
               <summary class="req-top">
@@ -254,7 +245,7 @@
               </summary>
               <div class="req-body">
                 <div class="evidence-block">
-                  <p style="font-size:1rem;">Guidelines are not required to be met at the time of joining. Work toward certification with our support. <span style="color:#B3261E;">Each section includes examples, but alternative approaches are welcome if they meet the intent of the requirement.</span> The process is collaborative and focused on helping you meet the standard rather than finding reasons for disqualification. Requirements that do not apply to your operations will be skipped.</p>
+                  <p style="font-size:1rem;">Join, then work toward certification with our support. Each section includes examples, but alternative approaches are welcome if they meet the intent of the requirement. The process is collaborative and focused on helping you meet the standard rather than finding reasons for disqualification.</p>
                 </div>
               </div>
             </details>
@@ -268,7 +259,7 @@
               <div class="req-body">
                 <div class="evidence-block">
                   <h4>Background Checks</h4>
-                  <p>Documentation showing that background checks are part of the hiring process for personnel who handle sensitive data.</p>
+                  <p>Documentation showing that background checks are part of the hiring process.</p>
                   <div class="example-label">Ways to demonstrate this</div>
                   <ul class="example-list">
                     <li>Blank copy of your background check authorization form.</li>
@@ -277,7 +268,7 @@
                 </div>
                 <div class="evidence-block">
                   <h4>Password Policy</h4>
-                  <p>A documented password policy or system setting that requires strong passwords.</p>
+                  <p>A password policy or system setting that requires strong passwords.</p>
                   <div class="example-label">Ways to demonstrate this</div>
                   <ul class="example-list">
                     <li>Copy of password policy or screenshot of admin panel showing enforcement settings.</li>
@@ -303,51 +294,19 @@
               </div>
             </details>
 
-            <details id="email" class="req-card">
+            <details id="system-access" class="req-card">
               <summary class="req-top">
                 <div class="req-kicker">Requirement 02</div>
-                <h3>Email Security</h3>
-                <p>Applies if documents received by email.</p>
+                <h3>System Access</h3>
+                <p>MFA on systems where deal documents are accessible.</p>
               </summary>
               <div class="req-body">
                 <div class="evidence-block">
                   <h4>Multi-Factor Authentication</h4>
-                  <p>MFA must be enabled on email accounts used to receive sensitive documents.</p>
+                  <p>MFA must be enabled on email, CRM, portal, or equivalent systems used by personnel who access merchant documents.</p>
                   <div class="example-label">Ways to demonstrate this</div>
                   <ul class="example-list">
-                    <li>Screenshot of MFA setting enabled in your email admin panel.</li>
-                    <li>Screen recording of a login showing MFA prompt triggering and being completed.</li>
-                  </ul>
-                </div>
-                <div class="evidence-block">
-                  <h4>Email-Based Document Intake</h4>
-                  <p>If sensitive documents are received by email &mdash; from brokers or merchants &mdash; show how attachments are routed, restricted, monitored, or protected. Choose whichever pathway best reflects your process.</p>
-                  <div class="example-label">Ways to demonstrate this</div>
-                  <ul class="example-list">
-                    <li>N/A &mdash; submissions are received through secure links, API, portal, upload form, or equivalent.</li>
-                    <li>Attachments route automatically to a CRM or equivalent system, limiting human access.</li>
-                    <li>Attachments are watermarked before staff access them, using Aquamark's <a class="inline-link" href="https://www.aquamark.io/email-watermarking" target="_blank" rel="noopener">inbound email tool</a> or equivalent.</li>
-                    <li>Attachment downloads are restricted.</li>
-                    <li>Controls on company-managed devices that restrict external sharing, such as blocking access to personal email and cloud storage accounts and preventing files from being copied to USB drives.</li>
-                    <li>Email monitoring or DLP that logs outbound messages containing attachments.</li>
-                  </ul>
-                </div>
-              </div>
-            </details>
-
-            <details id="crm" class="req-card">
-              <summary class="req-top">
-                <div class="req-kicker">Requirement 03</div>
-                <h3>CRMs or Equivalent Systems</h3>
-                <p>Baseline system safeguards.</p>
-              </summary>
-              <div class="req-body">
-                <div class="evidence-block">
-                  <h4>Multi-Factor Authentication</h4>
-                  <p>MFA must be enabled on CRM, portal, or equivalent system accounts.</p>
-                  <div class="example-label">Ways to demonstrate this</div>
-                  <ul class="example-list">
-                    <li>Screenshot of MFA setting enabled in your CRM admin panel.</li>
+                    <li>Screenshot of MFA setting enabled in the relevant admin panel(s).</li>
                     <li>Screen recording of a login showing MFA prompt triggering and being completed.</li>
                   </ul>
                 </div>
@@ -360,54 +319,38 @@
                     <li>Screen recording comparing two roles in the CRM.</li>
                   </ul>
                 </div>
-                <div class="evidence-block">
-                  <h4>Document Access Controls</h4>
-                  <p>If documents are accessible within your CRM, portal, or equivalent system, at least one document safeguard is required.</p>
-                  <div class="example-label">Ways to demonstrate this</div>
-                  <ul class="example-list">
-                    <li>View-only access, where documents cannot be downloaded.</li>
-                    <li>Document watermarking to deter sharing.</li>
-                    <li>Controls on company-managed devices that restrict external sharing, such as blocking access to personal email and cloud storage accounts and preventing files from being copied to USB drives.</li>
-                  </ul>
-                </div>
               </div>
             </details>
 
-            <details id="storage" class="req-card">
+            <details id="document-protection" class="req-card">
               <summary class="req-top">
-                <div class="req-kicker">Requirement 04</div>
-                <h3>Document Storage</h3>
-                <p>Only if applicable.</p>
+                <div class="req-kicker">Requirement 03</div>
+                <h3>Document &amp; Data Protection</h3>
+                <p>Applies to personnel who process deals.</p>
               </summary>
               <div class="req-body">
                 <div class="evidence-block">
-                  <h4>Storage Safeguards</h4>
-                  <p>Applies when documents are stored in shared drives, cloud storage platforms such as Google Drive, Dropbox, or OneDrive, or other locations outside your primary system.</p>
-                  <div class="example-label">Ways to demonstrate this</div>
+                  <div class="note"><strong>Scope:</strong> Covers documents (PDF, DOC, JPG), screenshots, and data exports (CSV, Excel).</div>
+                </div>
+                <div class="evidence-block">
+                  <h4>Safeguard</h4>
+                  <p>One or more of the following must be in place, together covering the document and data types accessible to this population. A single safeguard is sufficient if it covers everything in scope &mdash; otherwise, use a combination.</p>
+                  <div class="example-label">Accepted safeguards</div>
                   <ul class="example-list">
-                    <li>View-only or download-restricted access.</li>
-                    <li>Document watermarking to deter unauthorized sharing.</li>
-                    <li>Controls on company-managed devices that restrict external sharing, such as blocking access to personal email and cloud storage accounts and preventing files from being copied to USB drives.</li>
+                    <li>View-only or download-restricted access, wherever documents are stored.</li>
+                    <li>Secure delivery &mdash; documents are only shared through secure forms, links, or API, rather than raw file transfer.</li>
+                    <li>Controls on company-managed devices that restrict external sharing &mdash; blocking personal email, personal cloud storage, and USB drives.</li>
+                    <li>Outbound monitoring or DLP that logs messages with attachments sent to external domains.</li>
+                    <li>Document watermarking (PDF only), using Aquamark's <a class="inline-link" href="https://www.aquamark.io" target="_blank" rel="noopener">watermarking tools</a> or equivalent.</li>
+                    <li>Attachments route automatically to a CRM or equivalent system, limiting manual access.</li>
                   </ul>
                 </div>
-              </div>
-            </details>
-
-            <details id="outsourcing" class="req-card">
-              <summary class="req-top">
-                <div class="req-kicker">Requirement 05</div>
-                <h3>Outsourcing</h3>
-                <p>Only if applicable.</p>
-              </summary>
-              <div class="req-body">
                 <div class="evidence-block">
-                  <h4>Third-Party Safeguards</h4>
-                  <p>If third parties have access to submission packages, show how documents are protected from misuse.</p>
+                  <h4>Third Parties</h4>
+                  <p>If BPOs or other third parties have access to this data, the same standard above applies to them.</p>
                   <div class="example-label">Ways to demonstrate this</div>
                   <ul class="example-list">
-                    <li>View-only access, where third-party personnel cannot download files.</li>
-                    <li>Document watermarking to deter sharing.</li>
-                    <li>Controls on company-managed devices that restrict external sharing, such as blocking access to personal email and cloud storage accounts and preventing files from being copied to USB drives.</li>
+                    <li>Whichever safeguard above applies, evidenced for the third party's access.</li>
                   </ul>
                 </div>
               </div>
