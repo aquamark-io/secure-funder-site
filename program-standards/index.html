@@ -97,7 +97,7 @@
     .process-card p{font-size:.9rem;color:var(--text-secondary);line-height:1.68}
 
     .requirements-section{background:var(--white);padding-top:72px}
-    .requirements-layout{display:grid;grid-template-columns:260px minmax(0,1fr);gap:48px;align-items:start}
+    .requirements-layout{display:grid;grid-template-columns:minmax(0,1fr);gap:22px;align-items:start;max-width:800px;margin:0 auto}
     .sidebar{position:sticky;top:92px;background:var(--meadow);border:1px solid var(--border-light);border-radius:0;padding:24px}
     .sidebar h3{font-family:var(--font-display);font-size:1rem;color:var(--navy);margin-bottom:14px}
     .sidebar a{display:block;text-decoration:none;color:var(--text-secondary);font-size:.9rem;font-weight:500;padding:11px 0;border-top:1px solid var(--border-light)}
@@ -207,20 +207,16 @@
 
 
         <div class="requirements-layout">
-          <aside class="sidebar" aria-label="Requirement navigation">
-            <h3>Jump to section</h3>
-            <a href="#scope">Who This Applies To</a>
-            <a href="#how-it-works">How It Works</a>
-            <a href="#how-to-read">Path to Certification</a>
-            <a href="#personnel">1. Personnel Controls</a>
-            <a href="#system-access">2. System Access</a>
-            <a href="#document-protection">3. Document &amp; Data Protection</a>
-            <a href="#final-review">Final Review</a>
-          </aside>
-
           <div class="req-list">
             <div id="scope" class="req-card req-card-intro" style="padding:26px 28px;">
-              <p style="font-family:var(--font-display);font-size:1.4rem;font-weight:700;color:var(--navy);line-height:1.35;margin:0;letter-spacing:-.01em;">Program only applies to personnel who process deals &mdash; sales, processing, underwriting, BPO teams.</p>
+              <p style="font-family:var(--font-display);font-size:1.4rem;font-weight:700;color:var(--navy);line-height:1.35;margin:0 0 18px;letter-spacing:-.01em;">Program only applies to personnel who process deals &mdash; sales, processing, underwriting, BPO teams.</p>
+              <div style="border-top:1px solid rgba(79,163,209,.25);padding-top:16px;">
+                <div style="font-family:var(--font-display);font-weight:700;font-size:1rem;color:var(--navy);margin-bottom:8px;">Average Time to Complete</div>
+                <div style="font-family:var(--font-display);font-size:.95rem;color:var(--navy);line-height:1.7;">
+                  Guidelines already met: 1&ndash;2 hours<br>
+                  Guidelines not yet met: 1&ndash;2 days
+                </div>
+              </div>
             </div>
 
             <details id="how-it-works" class="req-card req-card-intro">
@@ -232,6 +228,7 @@
                   <li><a class="inline-link" href="https://securefunder.org/contact/" target="_blank" rel="noopener">Submit a request to join the program</a>.</li>
                   <li>Your company is added to the directory as an Applicant and featured in a program announcement.</li>
                   <li>Receive access to the member portal.</li>
+                  <li>The portal asks a few questions about your process, then shows exactly what's needed for your situation.</li>
                   <li>Upload evidence within 3 months &mdash; screenshots, screen recordings, documents. Redacted PII acceptable.</li>
                   <li>Extensions and full support available.</li>
                   <li>Certification &mdash; your directory status is updated, you receive a digital badge, and your certification is formally announced through the programs newsletter and social media.</li>
@@ -330,19 +327,19 @@
               </summary>
               <div class="req-body">
                 <div class="evidence-block">
-                  <div class="note"><strong>Scope:</strong> Covers documents (PDF, DOC, JPG), screenshots, and data exports (CSV, Excel).</div>
+                  <div class="note"><strong>Scope:</strong> Covers documents and screenshots (e.g. PDF, DOC, JPG), and data exports (CSV, Excel) &mdash; wherever they mainly flow and are stored once a deal is submitted.</div>
                 </div>
                 <div class="evidence-block">
                   <h4>Safeguard</h4>
-                  <p>One or more of the following must be in place, together covering the document and data types accessible to this population. A single safeguard is sufficient if it covers everything in scope &mdash; otherwise, use a combination.</p>
-                  <div class="example-label">Accepted safeguards</div>
+                  <p>Depending on your process, a single safeguard, or combination, is sufficient.</p>
+                  <div class="example-label">Example safeguards</div>
                   <ul class="example-list">
-                    <li>View-only or download-restricted access, wherever documents are stored.</li>
-                    <li>Secure delivery &mdash; documents are only shared through secure forms, links, or API, rather than raw file transfer.</li>
-                    <li>Controls on company-managed devices that restrict external sharing &mdash; blocking personal email, personal cloud storage, and USB drives.</li>
-                    <li>Outbound monitoring or DLP that logs messages with attachments sent to external domains.</li>
-                    <li>Document watermarking (PDF only), using Aquamark's <a class="inline-link" href="https://www.aquamark.io" target="_blank" rel="noopener">watermarking tools</a> or equivalent.</li>
-                    <li>Attachments route automatically to a CRM or equivalent system, limiting manual access.</li>
+                    <li>View-only access, no download option.</li>
+                    <li>Secure delivery &mdash; documents are only shared through webforms, links, or API.</li>
+                    <li>Controls on company-managed devices that deter external sharing &mdash; blocking personal email, personal cloud storage, or USB drives.</li>
+                    <li>Outbound email settings that quarantine messages with attachments sent to external and personal domains.</li>
+                    <li>Document watermarking (PDF only), using Aquamark's <a class="inline-link" href="https://www.aquamark.io/" target="_blank" rel="noopener">watermarking tools</a> or equivalent.</li>
+                    <li>Attachments route automatically to a CRM or equivalent, limiting manual access.</li>
                   </ul>
                 </div>
               </div>
