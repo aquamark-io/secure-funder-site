@@ -511,10 +511,6 @@
                         </div>
                         </div>
                       </div>
-
-                      <div class="conditional-panel" data-result="direct-route-any">
-                        <div class="note" style="margin-top:16px;">You&rsquo;ll also be asked to describe how you keep your broker and direct sales pipelines separate (for example, role-based access), along with supporting evidence.</div>
-                      </div>
                     </div>
                   </div>
                   </div>
@@ -665,7 +661,6 @@
         var directRoutes = Array.from(root.querySelectorAll('input[name="direct-route"]:checked')).map(function(el){return el.value;});
         show(root.querySelector('[data-result="direct-sor"]'), directRoutes.indexOf('sor') !== -1);
         show(root.querySelector('[data-result="direct-email"]'), directRoutes.indexOf('email') !== -1);
-        show(root.querySelector('[data-result="direct-route-any"]'), directRoutes.length > 0);
 
         var directOnlineAccess = root.querySelector('[data-branch-select="direct-online-access"]');
         var directOnlineWatermark = root.querySelector('[data-branch-select="direct-online-watermark"]');
