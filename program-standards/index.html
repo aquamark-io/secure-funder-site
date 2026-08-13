@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Secure Funder™ certification requirements and evidence expectations for alternative finance funders.">
-  <title>Funder Certification Guidelines — Secure Funder™</title>
+  <title>Let's Get You Certified! — Secure Funder™</title>
   <link rel="icon" type="image/png" sizes="32x32" href="/blue-ring.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,6 +27,7 @@
       --text-muted:#7A96AE;
       --border:#DAE3EC;
       --border-light:#EAF0F5;
+      --amber:#B8860B;
       --font-display:'Inter',system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
       --font-body:'Inter',system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
     }
@@ -70,16 +71,21 @@
     .hero{background:var(--white);border-bottom:2px solid var(--border)}
     .hero-join-btn{display:inline-flex;align-items:center;justify-content:center;min-width:160px;padding:13px 30px;border-radius:0;font-family:var(--font-body);font-size:1rem;font-weight:600;text-decoration:none;transition:all .25s;background:var(--green-accent);color:var(--white);margin-top:22px}
     .hero-join-btn:hover{background:var(--green-accent-soft)}
+    .hero-contact-btn{display:inline-flex;align-items:center;justify-content:center;min-width:160px;padding:11px 28px;border-radius:0;font-family:var(--font-body);font-size:1rem;font-weight:600;text-decoration:none;transition:all .25s;background:var(--white);color:var(--green-accent);border:2px solid var(--green-accent);margin-top:22px}
+    .hero-contact-btn:hover{background:var(--green-accent-pale)}
+    .final-review-actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:6px}
+    .final-review-actions .hero-join-btn,.final-review-actions .hero-contact-btn{margin-top:0}
+
     .hero::before{content:none}
     .hero::after{content:none}
     .hero-inner{position:relative;z-index:1;padding:40px 0 32px;display:block;max-width:760px}
     .hero h1{font-family:var(--font-display);font-size:clamp(2.1rem,3.4vw,2.6rem);font-weight:700;line-height:1.15;letter-spacing:-.02em;color:var(--navy);max-width:620px;margin-bottom:16px}
-    .hero-notice{margin-top:10px;max-width:720px;font-size:1rem;line-height:1.5;color:var(--text-primary)}
-    .hero-badge{display:none}
+    .hero-notice{margin-top:10px;max-width:720px;font-size:1.15rem;line-height:1.6;color:var(--text-primary)}
     .btn-primary{display:inline-flex;align-items:center;justify-content:center;background:var(--green-accent);color:var(--white);font-family:var(--font-body);font-size:.9rem;font-weight:600;padding:13px 26px;border-radius:0;text-decoration:none;transition:all .25s}
     .btn-primary:hover{background:var(--green-accent-soft);}
     .btn-join{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:var(--white);font-family:var(--font-body);font-size:.85rem;font-weight:600;letter-spacing:.01em;padding:11px 20px;border-radius:0;text-decoration:none;transition:background .2s}
     .btn-join:hover{background:var(--navy-mid)}
+    .btn-join .arrow{font-size:1rem;line-height:1}
     .btn-ghost{display:inline-flex;align-items:center;justify-content:center;background:transparent;color:var(--navy);font-family:var(--font-body);font-size:.9rem;font-weight:600;padding:13px 26px;border-radius:0;text-decoration:none;border:2px solid var(--border);transition:all .25s}
     .btn-ghost:hover{border-color:var(--navy);background:rgba(255,255,255,.45)}
 
@@ -90,6 +96,7 @@
     .section-title{font-family:var(--font-display);font-size:clamp(1.75rem,3vw,2.25rem);font-weight:700;line-height:1.2;letter-spacing:-.015em;color:var(--navy);margin-bottom:14px}
     .section-subtitle{font-size:1rem;color:var(--text-secondary);line-height:1.75;max-width:650px}
 
+    .process-section{background:var(--frost)}
     .process-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
     .process-card{background:rgba(255,255,255,.62);border:1px solid rgba(15,33,55,.1);border-radius:0;padding:28px 26px;}
     .process-num{width:42px;height:42px;border-radius:50%;background:var(--green-accent);color:var(--white);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.95rem;margin-bottom:20px;}
@@ -118,12 +125,12 @@
     .req-top{padding:24px 28px 22px;background:var(--white);border-bottom:1px solid var(--border-light)}
     .req-kicker{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:10px}
     .req-top h3{font-family:var(--font-display);font-size:1.25rem;font-weight:700;color:var(--navy);letter-spacing:-.01em;margin-bottom:8px}
-    .req-top p{font-size:.95rem;color:var(--text-secondary);line-height:1.7;max-width:680px}
+    .req-top p{font-size:1.05rem;color:var(--text-secondary);line-height:1.7;max-width:680px}
     .req-body{padding:24px 28px 28px}
     .evidence-block{padding:18px 0;border-top:1px solid var(--border-light)}
     .evidence-block:first-child{border-top:none;padding-top:0}
-    .evidence-block h4{font-family:var(--font-display);font-size:.98rem;font-weight:700;color:var(--navy);margin-bottom:8px}
-    .evidence-block p{font-size:.9rem;color:var(--text-secondary);line-height:1.68;margin-bottom:10px}
+    .evidence-block h4{font-family:var(--font-display);font-size:1.1rem;font-weight:700;color:var(--navy);margin-bottom:8px}
+    .evidence-block p{font-size:1.02rem;color:var(--text-secondary);line-height:1.7;margin-bottom:10px}
     .example-label{font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);margin:14px 0 8px}
     .example-list{list-style:none;display:grid;gap:8px;margin:0}
     .example-list li{position:relative;padding-left:18px;font-size:.88rem;color:var(--text-secondary);line-height:1.58}
@@ -135,6 +142,37 @@
     .note{margin-top:12px;padding:14px 16px;background:var(--green-accent-pale);border:1px solid rgba(79,163,209,.18);border-radius:0;font-size:.88rem;color:var(--text-secondary);line-height:1.62}
     .recommended{margin-top:12px;padding:14px 16px;background:#fbfbef;border:1px solid #ece8be;border-radius:0;font-size:.88rem;color:var(--text-secondary);line-height:1.62}
 
+    /* Requirement 03 — conditional questionnaire */
+    .protection-intro{padding:18px 20px;background:var(--green-accent);border:1px solid var(--green-accent);font-size:.92rem;color:var(--white);line-height:1.65;margin-bottom:22px}
+    .questionnaire{display:grid;gap:18px}
+    .question-block{padding:20px;border:1px solid var(--border-light);background:var(--white)}
+    .question-label{font-family:var(--font-display);font-size:.96rem;font-weight:700;color:var(--navy);line-height:1.45;margin-bottom:5px}
+    .question-hint{font-size:.8rem;color:var(--text-muted);margin-bottom:12px}
+    .choice-grid{display:grid;gap:8px}
+    .choice-grid label{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;border:1px solid var(--border-light);background:#fff;cursor:pointer;font-size:.88rem;color:var(--text-secondary);line-height:1.45}
+    .choice-grid input{margin-top:3px;accent-color:var(--green-accent);flex:0 0 auto}
+    .question-select{width:100%;padding:11px 12px;border:1px solid var(--border);background:#fff;color:var(--text-primary);font:inherit;font-size:.9rem;border-radius:0}
+    .conditional-panel{display:none;margin-top:12px}
+    .conditional-panel.visible{display:block}
+    .branch-card{padding:18px;border:1px solid var(--border-light);background:#fbfdfb}
+    .branch-title{font-family:var(--font-display);font-size:.85rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--text-muted);margin-bottom:12px}
+    .result-callout{margin-top:12px;padding:14px 16px;background:var(--green-accent-pale);border:1px solid rgba(79,163,209,.22);font-size:.87rem;color:var(--text-secondary);line-height:1.62}
+    .result-callout strong{color:var(--navy)}
+    .result-callout.attention{background:var(--white);border-color:var(--border)}
+    .result-callout.attention strong{color:#B3261E}
+
+    .success-banner{display:flex;align-items:flex-start;gap:12px;margin-top:12px;padding:16px 18px;background:var(--green-accent-pale);border:1px solid var(--green-accent)}
+    .success-check{flex-shrink:0;width:26px;height:26px;border-radius:50%;background:var(--green-accent);color:var(--white);display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700}
+    .success-title{font-weight:700;color:var(--navy);font-size:.87rem;margin-bottom:4px}
+    .success-text{font-size:.87rem;color:var(--text-secondary);line-height:1.62}
+
+    .warning-banner{margin-top:12px;padding:16px 18px;background:var(--white);border:1px solid var(--border)}
+    .warning-title{font-weight:700;color:#B3261E;font-size:.87rem;margin-bottom:6px}
+    .warning-text{font-size:.87rem;color:var(--text-secondary);line-height:1.62}
+    .warning-text a{color:#2563EB;font-weight:700;text-decoration:underline}
+    .examples-toggle-public{margin-left:6px;color:#2563EB;font:inherit;font-size:.84rem;font-weight:700;text-decoration:underline}
+    .questionnaire-reset{margin-top:4px;background:transparent;border:0;padding:0;color:var(--text-muted);font:inherit;font-size:.8rem;font-weight:600;cursor:pointer;text-decoration:underline}
+
     @media(max-width:900px){
       .requirements-layout{grid-template-columns:1fr;gap:30px}
       .sidebar{position:relative;top:auto}
@@ -142,12 +180,27 @@
     }
     @media(max-width:640px){
       .container,.container-narrow{padding:0 20px}
-      .hero-inner{padding:48px 0 38px;display:block}
+      .hero-inner{padding:62px 0 54px;display:block}
       section{padding:58px 0}
       .btn-primary,.btn-ghost{width:100%}
+      .final-review-actions{flex-direction:column;align-items:stretch}
+      .final-review-actions .hero-join-btn,.final-review-actions .hero-contact-btn{width:100%}
       .req-top,.req-body{padding-left:22px;padding-right:22px}
       .req-card>summary.req-top{padding-right:54px}
       .sidebar{display:none}
+
+      .evidence-block p{font-size:1.05rem}
+      .evidence-block h4{font-size:1.12rem}
+      .req-top p{font-size:1.08rem}
+      .process-checklist li{font-size:1rem}
+      .question-label{font-size:1.03rem}
+      .question-hint{font-size:.88rem}
+      .choice-grid label{font-size:.96rem}
+      .branch-title{font-size:.9rem}
+      .result-callout{font-size:.95rem}
+      .success-title,.warning-title{font-size:.95rem}
+      .success-text,.warning-text{font-size:.95rem;line-height:1.7}
+      #program-scope div,#scope div{font-size:1.05rem !important}
     }
   </style>
 
@@ -189,13 +242,11 @@
     <div class="container">
       <div class="hero-inner">
         <div class="hero-copy">
-          <h1>Funder certification guidelines</h1>
+          <h1>Let's Get You Certified!</h1>
           <div class="hero-notice">
-            <p>No specific software or tools required. Guidelines public for transparency.</span></p>
+            <p>Take quiz below. Standards apply only to deal-processing roles. Evidence-based verification. No specific software required. Guidelines public for transparency.</p>
           </div>
-          <a href="https://securefunder.org/contact/" class="hero-join-btn">Join Program</a>
         </div>
-
       </div>
     </div>
   </header>
@@ -208,12 +259,22 @@
 
         <div class="requirements-layout">
           <div class="req-list">
-            <div id="scope" style="padding:4px 4px 30px;">
-              <p style="font-family:var(--font-display);font-size:1.4rem;font-weight:700;color:var(--navy);line-height:1.35;margin:0 0 18px;letter-spacing:-.01em;">Program applies only to deal-processing roles.</p>
-              <div style="font-family:var(--font-display);font-weight:700;font-size:1rem;color:var(--navy);margin-bottom:6px;">Average Time to Complete</div>
-              <div style="font-size:.95rem;color:var(--text-secondary);line-height:1.7;">
-                Guidelines already met: 1&ndash;2 hours<br>
-                Guidelines not yet met: 1&ndash;2 days
+            <div id="program-scope" style="border:1px solid var(--border);margin-bottom:26px;overflow:hidden;">
+              <div style="background:var(--green-accent);color:var(--white);font-family:var(--font-display);font-weight:700;font-size:1.05rem;padding:14px 20px;">Program Scope</div>
+              <div style="padding:14px 20px;font-size:1.02rem;color:var(--text-secondary);line-height:1.7;">
+                The program is strictly focused on reducing the misuse of <strong style="color:var(--navy);">broker deal submissions</strong> by encouraging stronger protection at the <strong style="color:var(--navy);">highest-concentration point of risk</strong>: the initial deal package.
+              </div>
+            </div>
+
+            <div id="scope" style="border:1px solid var(--border);margin-bottom:26px;overflow:hidden;">
+              <div style="background:var(--green-accent);color:var(--white);font-family:var(--font-display);font-weight:700;font-size:1.05rem;padding:14px 20px;">Average Time to Complete</div>
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 20px;border-top:1px solid var(--border-light);font-size:1.02rem;color:var(--text-secondary);">
+                <span>Guidelines already met</span>
+                <strong style="color:var(--navy);font-weight:700;">1&ndash;2 hours</strong>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 20px;border-top:1px solid var(--border-light);font-size:1.02rem;color:var(--text-secondary);">
+                <span>Guidelines not yet met</span>
+                <strong style="color:var(--navy);font-weight:700;">1&ndash;2 days</strong>
               </div>
             </div>
 
@@ -226,9 +287,7 @@
                   <li><a class="inline-link" href="https://securefunder.org/contact/" target="_blank" rel="noopener">Submit request to join</a></li>
                   <li>Added to directory as Applicant + announcement</li>
                   <li>Receive member portal access</li>
-                  <li>Answer a few process questions &rarr; see your requirements</li>
-                  <li>Upload evidence within 90 days</li>
-                  <li>Extensions + support available</li>
+                  <li>Upload evidence within 90 days &mdash; extensions + support available</li>
                   <li>Certified: directory updated, digital badge issued + certification announced</li>
                 </ul>
               </div>
@@ -240,14 +299,135 @@
               </summary>
               <div class="req-body">
                 <div class="evidence-block">
-                  <p style="font-size:1rem;">Join, then work toward certification with our support or self-service. Each section includes examples, but alternative approaches are welcome if they meet the intent. The process is collaborative and focused on helping you meet the standard rather than finding reasons for disqualification.</p>
+                  <p style="font-size:1rem;">Join, then work toward certification with our support or self-service. The process is collaborative and focused on helping you meet the standard rather than finding reasons for disqualification.</p>
+                </div>
+              </div>
+            </details>
+
+            <details id="document-protection" class="req-card">
+              <summary class="req-top">
+                <h3>Document &amp; Data Protection</h3>
+                <p>Deterring misuse.</p>
+              </summary>
+              <div class="req-body">
+                <div class="protection-intro">
+                  Answer the questions below to see how the guideline applies to your specific process.
+                </div>
+
+                <div class="questionnaire" id="protectionQuestionnaire">
+                  <div class="question-block">
+                    <div class="question-label">How do brokers submit new deals to you?</div>
+                    <div class="question-hint">Select all that apply.</div>
+                    <div class="choice-grid">
+                      <label><input type="checkbox" name="route" value="email"> <span>Email</span></label>
+                      <label><input type="checkbox" name="route" value="portal"> <span>Portal</span></label>
+                      <label><input type="checkbox" name="route" value="api"> <span>API <span style="font-weight:400;color:var(--text-muted);">(assumes the API delivers submissions directly into your system of record)</span></span></label>
+                    </div>
+                  </div>
+
+                  <div class="conditional-panel" data-route-panel="portal-api">
+                    <div class="branch-card">
+                      <div class="branch-title">Portal / API</div>
+                      <div class="question-label">Are attachments view-only, or downloadable?</div>
+                      <select class="question-select" data-branch-select="sor-access">
+                        <option value="">Select one</option>
+                        <option value="view">View-only</option>
+                        <option value="download">Downloadable</option>
+                      </select>
+
+                      <div class="conditional-panel" data-result="sor-view">
+                        <div class="success-banner">
+                          <div class="success-check">&#10003;</div>
+                          <div>
+                            <div class="success-title">Requirement Satisfied</div>
+                            <div class="success-text">Restricting downloads is a direct control. The initial deal package and associated documents remain within the system and cannot be extracted by individual users. This addresses the highest-concentration point of risk and satisfies the requirement. The standard does not extend to routine supplemental documents exchanged later in the funding process.</div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="conditional-panel" data-result="sor-download">
+                        <div style="margin-top:16px;">
+                          <div class="question-label">Are downloaded attachments watermarked?</div>
+                          <select class="question-select" data-branch-select="sor-watermark">
+                            <option value="">Select one</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <div class="conditional-panel" data-result="sor-watermark-yes">
+                        <div class="success-banner">
+                          <div class="success-check">&#10003;</div>
+                          <div>
+                            <div class="success-title">Requirement Satisfied</div>
+                            <div class="success-text">Watermarking points a downloaded document back to your office, reasonably deterring most misuse.</div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="conditional-panel" data-result="sor-watermark-no">
+                        <div class="warning-banner">
+                          <div class="warning-title">Safeguards are needed</div>
+                          <div class="warning-text">Because your system of record allows downloads of unwatermarked or otherwise unprotected documents, safeguards are needed to either deter misuse or reduce the technical opportunity for unauthorized sharing. <a href="/common-approaches/" target="_blank" rel="noopener noreferrer">See common approaches</a></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="conditional-panel" data-route-panel="email">
+                    <div class="branch-card">
+                      <div class="branch-title">Email</div>
+                      <div class="question-label">When a submission first reaches the inbox &mdash;</div>
+                      <select class="question-select" data-branch-select="email-routing">
+                        <option value="">Select one</option>
+                        <option value="auto">Routes automatically to the system of record &mdash; no human handling</option>
+                        <option value="person">Reviewed and processed by a person</option>
+                      </select>
+
+                      <div class="conditional-panel" data-result="email-auto">
+                        <div class="success-banner">
+                          <div class="success-check">&#10003;</div>
+                          <div>
+                            <div class="success-title">Requirement Satisfied</div>
+                            <div class="success-text">No manual handling means no opportunities for misuse.</div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="conditional-panel" data-result="email-person">
+                        <div class="warning-banner">
+                          <div class="warning-title">Safeguards are needed</div>
+                          <div class="warning-text">Because deal submissions flow through a human processing workflow rather than a controlled system of record, safeguards are needed to either deter misuse or reduce the technical opportunity for unauthorized sharing. <a href="/common-approaches/" target="_blank" rel="noopener noreferrer">See common approaches</a></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <button type="button" class="questionnaire-reset" id="protectionReset">Reset answers</button>
+                </div>
+              </div>
+            </details>
+
+            <details id="system-access" class="req-card">
+              <summary class="req-top">
+                <h3>System Access</h3>
+                <p>MFA on systems where data is accessible.</p>
+              </summary>
+              <div class="req-body">
+                <div class="evidence-block">
+                  <h4>Multi-Factor Authentication</h4>
+                  <p>MFA enabled on email and CRM (or equivalent systems).</p>
+                </div>
+                <div class="evidence-block">
+                  <h4>Role-Based Access</h4>
+                  <p>Program recommendation (not required). Create and limit roles to only the accounts and information required for their job function.</p>
                 </div>
               </div>
             </details>
 
             <details id="personnel" class="req-card">
               <summary class="req-top">
-                <div class="req-kicker">Requirement 01</div>
                 <h3>Personnel Controls</h3>
                 <p>Basic personnel practices.</p>
               </summary>
@@ -262,8 +442,7 @@
                 </div>
                 <div class="evidence-block">
                   <h4>Workstation &amp; Screen Security</h4>
-                  <p>A policy or setting requiring screens to lock when unattended.</p>
-                  <div class="recommended"><strong>Recommended:</strong> Prohibit use of cell phone cameras at workstations.</div>
+                  <p>A policy or setting requiring screens to lock when unattended. Not required but recommended &mdash; prohibit use of cell phone cameras at workstations.</p>
                 </div>
                 <div class="evidence-block">
                   <h4>Off-Boarding Process</h4>
@@ -272,52 +451,8 @@
               </div>
             </details>
 
-            <details id="system-access" class="req-card">
+            <details id="final-review" class="req-card req-card-intro">
               <summary class="req-top">
-                <div class="req-kicker">Requirement 02</div>
-                <h3>System Access</h3>
-                <p>MFA on systems where data is accessible.</p>
-              </summary>
-              <div class="req-body">
-                <div class="evidence-block">
-                  <h4>Multi-Factor Authentication</h4>
-                  <p>MFA enabled on email and CRM (or equivalent systems).</p>
-                </div>
-                <div class="evidence-block">
-                  <h4>Role-Based Access</h4>
-                  <div class="recommended"><strong>Strongly Recommended:</strong> Limit each role to only the accounts and information required for their work. This reduces unnecessary exposure and helps maintain separation of duties so no single user has full control over critical data.</div>
-                </div>
-              </div>
-            </details>
-
-            <details id="document-protection" class="req-card">
-              <summary class="req-top">
-                <div class="req-kicker">Requirement 03</div>
-                <h3>Document &amp; Data Protection</h3>
-                <p>Mitigating misuse.</p>
-              </summary>
-              <div class="req-body">
-                <div class="evidence-block">
-                  <div class="note"><strong>Scope:</strong> Covers documents and data wherever they're received or held &mdash; your system of record, email inbox, cloud storage, or other equivalent.</div>
-                </div>
-                <div class="evidence-block">
-                  <h4>Example Safeguards</h4>
-                  <p>Depending on your process, one safeguard may be sufficient, or additional safeguards may be needed.</p>
-                  <ul class="example-list">
-                    <li>View-only access, no download option.</li>
-                    <li>Secure delivery &mdash; documents are only shared through webforms, links, or API.</li>
-                    <li>Special device or system controls.</li>
-                    <li>Outbound email settings that quarantine or flag messages meeting special criteria.</li>
-                    <li>Document watermarking using Aquamark's <a class="inline-link" href="https://www.aquamark.io/" target="_blank" rel="noopener">watermarking tools</a> or equivalent.</li>
-                    <li>Attachments route automatically to a CRM or equivalent, limiting human access.</li>
-                  </ul>
-                </div>
-              </div>
-            </details>
-
-            <details id="final-review" class="req-card">
-              <summary class="req-top">
-                <div class="req-kicker">Program Notice</div>
                 <h3>Final Review</h3>
                 <p>A collaborative path to certification.</p>
               </summary>
@@ -328,8 +463,9 @@
                 <div class="evidence-block">
                   <h4>Membership</h4>
                   <p>No cost to join. Annual membership fee due only if you submit for final review. $2,499/year. Monthly option available. Membership supports program administration, independent evidence review, member support, ongoing program development, and maintenance of the public directory.</p>
-                  <div style="margin-top:6px;">
+                  <div class="final-review-actions">
                     <a href="https://securefunder.org/contact/" class="hero-join-btn">Join Program</a>
+                    <a href="https://securefunder.org/contact/" class="hero-contact-btn" target="_blank" rel="noopener noreferrer">Contact Us</a>
                   </div>
                 </div>
               </div>
@@ -352,6 +488,49 @@
       });
       if(location.hash) openTarget(location.hash);
       window.addEventListener('hashchange', function(){ openTarget(location.hash); });
+    })();
+
+    // Requirement 03 conditional questionnaire
+    (function(){
+      var root = document.getElementById('protectionQuestionnaire');
+      if (!root) return;
+
+      function show(el, yes){ if (el) el.classList.toggle('visible', !!yes); }
+
+      function evaluate(){
+        var routes = Array.from(root.querySelectorAll('input[name="route"]:checked')).map(function(el){return el.value;});
+        root.querySelectorAll('[data-route-panel]').forEach(function(panel){
+          var key = panel.getAttribute('data-route-panel');
+          if (key === 'portal-api') {
+            show(panel, routes.indexOf('portal') !== -1 || routes.indexOf('api') !== -1);
+          } else {
+            show(panel, routes.indexOf(key) !== -1);
+          }
+        });
+
+        var sorAccess = root.querySelector('[data-branch-select="sor-access"]');
+        var sorWatermark = root.querySelector('[data-branch-select="sor-watermark"]');
+        show(root.querySelector('[data-result="sor-view"]'), sorAccess && sorAccess.value === 'view');
+        show(root.querySelector('[data-result="sor-download"]'), sorAccess && sorAccess.value === 'download');
+        show(root.querySelector('[data-result="sor-watermark-yes"]'), sorAccess && sorAccess.value === 'download' && sorWatermark && sorWatermark.value === 'yes');
+        show(root.querySelector('[data-result="sor-watermark-no"]'), sorAccess && sorAccess.value === 'download' && sorWatermark && sorWatermark.value === 'no');
+
+        var emailRouting = root.querySelector('[data-branch-select="email-routing"]');
+        show(root.querySelector('[data-result="email-auto"]'), emailRouting && emailRouting.value === 'auto');
+        show(root.querySelector('[data-result="email-person"]'), emailRouting && emailRouting.value === 'person');
+
+      }
+
+      root.addEventListener('change', evaluate);
+
+      var reset = document.getElementById('protectionReset');
+      if (reset) reset.addEventListener('click', function(){
+        root.querySelectorAll('input[type="checkbox"], input[type="radio"]').forEach(function(el){ el.checked = false; });
+        root.querySelectorAll('select').forEach(function(el){ el.value = ''; });
+        evaluate();
+      });
+
+      evaluate();
     })();
 
     var mobileMenu = document.getElementById('mobileMenu');
