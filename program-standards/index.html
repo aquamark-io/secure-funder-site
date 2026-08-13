@@ -404,6 +404,108 @@
                     </div>
                   </div>
 
+                  <div class="question-block" style="margin-top:6px;">
+                    <div class="question-label">Do you have a direct sales team?</div>
+                    <div class="question-hint">A team that sources and submits deals directly, separate from your broker channel.</div>
+                    <div class="choice-grid">
+                      <label><input type="radio" name="direct-sales" value="yes"> <span>Yes</span></label>
+                      <label><input type="radio" name="direct-sales" value="no"> <span>No</span></label>
+                    </div>
+                  </div>
+
+                  <div class="conditional-panel" data-direct-panel="yes">
+                    <div class="branch-card">
+                      <div class="branch-title">Direct Sales Team</div>
+                      <div class="question-label">How do merchants submit deals to your direct sales team?</div>
+                      <select class="question-select" data-branch-select="direct-intake">
+                        <option value="">Select one</option>
+                        <option value="online">Online</option>
+                        <option value="email">Email</option>
+                      </select>
+
+                      <div class="conditional-panel" data-result="direct-online">
+                        <div style="margin-top:16px;">
+                          <div class="question-label">Online: are attachments view-only, or downloadable?</div>
+                          <select class="question-select" data-branch-select="direct-online-access">
+                            <option value="">Select one</option>
+                            <option value="view">View-only</option>
+                            <option value="download">Downloadable</option>
+                          </select>
+                        </div>
+
+                        <div class="conditional-panel" data-result="direct-online-view">
+                          <div class="success-banner">
+                            <div class="success-check">&#10003;</div>
+                            <div>
+                              <div class="success-title">Requirement Satisfied</div>
+                              <div class="success-text">Restricting downloads is a direct control. The initial application and associated documents remain within the system and cannot be extracted by individual users. This addresses the highest-concentration point of risk and satisfies the requirement. The standard does not extend to routine supplemental documents exchanged later in the funding process.</div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="conditional-panel" data-result="direct-online-download">
+                          <div style="margin-top:16px;">
+                            <div class="question-label">Are downloaded attachments watermarked?</div>
+                            <select class="question-select" data-branch-select="direct-online-watermark">
+                              <option value="">Select one</option>
+                              <option value="yes">Yes</option>
+                              <option value="no">No</option>
+                            </select>
+                          </div>
+                        </div>
+
+                        <div class="conditional-panel" data-result="direct-online-watermark-yes">
+                          <div class="success-banner">
+                            <div class="success-check">&#10003;</div>
+                            <div>
+                              <div class="success-title">Requirement Satisfied</div>
+                              <div class="success-text">Watermarking points a downloaded document back to your office, reasonably deterring most misuse.</div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="conditional-panel" data-result="direct-online-watermark-no">
+                          <div class="warning-banner">
+                            <div class="warning-title">Safeguards are needed</div>
+                            <div class="warning-text">Because your system of record allows downloads of unwatermarked or otherwise unprotected documents, safeguards are needed to either deter misuse or reduce the technical opportunity for unauthorized sharing. <a href="/common-approaches/" target="_blank" rel="noopener noreferrer">See common approaches</a></div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="conditional-panel" data-result="direct-email">
+                        <div style="margin-top:16px;">
+                          <div class="question-label">Email: when a submission first reaches the inbox &mdash;</div>
+                          <select class="question-select" data-branch-select="direct-email-routing">
+                            <option value="">Select one</option>
+                            <option value="auto">Routes automatically to the system of record &mdash; no human handling</option>
+                            <option value="person">Reviewed and processed by a person</option>
+                          </select>
+                        </div>
+
+                        <div class="conditional-panel" data-result="direct-email-auto">
+                          <div class="success-banner">
+                            <div class="success-check">&#10003;</div>
+                            <div>
+                              <div class="success-title">Requirement Satisfied</div>
+                              <div class="success-text">No manual handling means no opportunities for misuse.</div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="conditional-panel" data-result="direct-email-person">
+                          <div class="warning-banner">
+                            <div class="warning-title">Safeguards are needed</div>
+                            <div class="warning-text">Because business funding applications flow through a human processing workflow rather than a controlled system of record, safeguards are needed to either deter misuse or reduce the technical opportunity for unauthorized sharing. <a href="/common-approaches/" target="_blank" rel="noopener noreferrer">See common approaches</a></div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="conditional-panel" data-result="direct-intake-any">
+                        <div class="note" style="margin-top:16px;">You&rsquo;ll also be asked to describe how you keep your broker and direct sales pipelines separate (for example, role-based access), along with supporting evidence.</div>
+                      </div>
+                    </div>
+                  </div>
+
                   <button type="button" class="questionnaire-reset" id="protectionReset">Reset answers</button>
                 </div>
               </div>
@@ -518,6 +620,28 @@
         var emailRouting = root.querySelector('[data-branch-select="email-routing"]');
         show(root.querySelector('[data-result="email-auto"]'), emailRouting && emailRouting.value === 'auto');
         show(root.querySelector('[data-result="email-person"]'), emailRouting && emailRouting.value === 'person');
+
+        // Direct sales team branch
+        var directSales = root.querySelector('input[name="direct-sales"]:checked');
+        root.querySelectorAll('[data-direct-panel]').forEach(function(panel){
+          show(panel, directSales && directSales.value === panel.getAttribute('data-direct-panel'));
+        });
+
+        var directIntake = root.querySelector('[data-branch-select="direct-intake"]');
+        show(root.querySelector('[data-result="direct-online"]'), directIntake && directIntake.value === 'online');
+        show(root.querySelector('[data-result="direct-email"]'), directIntake && directIntake.value === 'email');
+        show(root.querySelector('[data-result="direct-intake-any"]'), directIntake && !!directIntake.value);
+
+        var directOnlineAccess = root.querySelector('[data-branch-select="direct-online-access"]');
+        var directOnlineWatermark = root.querySelector('[data-branch-select="direct-online-watermark"]');
+        show(root.querySelector('[data-result="direct-online-view"]'), directOnlineAccess && directOnlineAccess.value === 'view');
+        show(root.querySelector('[data-result="direct-online-download"]'), directOnlineAccess && directOnlineAccess.value === 'download');
+        show(root.querySelector('[data-result="direct-online-watermark-yes"]'), directOnlineAccess && directOnlineAccess.value === 'download' && directOnlineWatermark && directOnlineWatermark.value === 'yes');
+        show(root.querySelector('[data-result="direct-online-watermark-no"]'), directOnlineAccess && directOnlineAccess.value === 'download' && directOnlineWatermark && directOnlineWatermark.value === 'no');
+
+        var directEmailRouting = root.querySelector('[data-branch-select="direct-email-routing"]');
+        show(root.querySelector('[data-result="direct-email-auto"]'), directEmailRouting && directEmailRouting.value === 'auto');
+        show(root.querySelector('[data-result="direct-email-person"]'), directEmailRouting && directEmailRouting.value === 'person');
 
       }
 
