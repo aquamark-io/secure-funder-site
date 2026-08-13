@@ -404,17 +404,18 @@
                     </div>
                   </div>
 
-                  <div class="question-block" style="margin-top:6px;">
-                    <div class="question-label">Do you have a direct sales team?</div>
-                    <div class="question-hint">A team that sources and submits deals directly, separate from your broker channel.</div>
-                    <div class="choice-grid">
-                      <label><input type="radio" name="direct-sales" value="yes"> <span>Yes</span></label>
-                      <label><input type="radio" name="direct-sales" value="no"> <span>No</span></label>
+                  <div class="conditional-panel" id="directSalesSection" style="margin-top:6px;">
+                    <div class="question-block">
+                      <div class="question-label">Do you have a direct sales team?</div>
+                      <div class="question-hint">A team that sources and submits deals directly, separate from your broker channel.</div>
+                      <div class="choice-grid">
+                        <label><input type="radio" name="direct-sales" value="yes"> <span>Yes</span></label>
+                        <label><input type="radio" name="direct-sales" value="no"> <span>No</span></label>
+                      </div>
                     </div>
-                  </div>
 
-                  <div class="conditional-panel" data-direct-panel="yes">
-                    <div class="branch-card">
+                    <div class="conditional-panel" data-direct-panel="yes">
+                      <div class="branch-card">
                       <div class="branch-title">Direct Sales Team</div>
                       <div class="question-label">How do merchants submit deals to your direct sales team?</div>
                       <select class="question-select" data-branch-select="direct-intake">
@@ -504,6 +505,7 @@
                         <div class="note" style="margin-top:16px;">You&rsquo;ll also be asked to describe how you keep your broker and direct sales pipelines separate (for example, role-based access), along with supporting evidence.</div>
                       </div>
                     </div>
+                  </div>
                   </div>
 
                   <button type="button" class="questionnaire-reset" id="protectionReset">Reset answers</button>
@@ -620,6 +622,25 @@
         var emailRouting = root.querySelector('[data-branch-select="email-routing"]');
         show(root.querySelector('[data-result="email-auto"]'), emailRouting && emailRouting.value === 'auto');
         show(root.querySelector('[data-result="email-person"]'), emailRouting && emailRouting.value === 'person');
+
+        // Only reveal the direct sales team question once the broker
+        // application sequence above has been fully answered for
+        // whichever channel(s) were selected.
+        var needsPortalApi = routes.indexOf('portal') !== -1 || routes.indexOf('api') !== -1;
+        var portalApiDone = !needsPortalApi || (sorAccess && sorAccess.value === 'view') ||
+          (sorAccess && sorAccess.value === 'download' && sorWatermark && !!sorWatermark.value);
+        var needsEmail = routes.indexOf('email') !== -1;
+        var emailDone = !needsEmail || (emailRouting && !!emailRouting.value);
+        var brokerFlowComplete = routes.length > 0 && portalApiDone && emailDone;
+
+        var directSalesSection = document.getElementById('directSalesSection');
+        show(directSalesSection, brokerFlowComplete);
+        if (!brokerFlowComplete && directSalesSection) {
+          // Reset any in-progress direct-sales answers if the broker
+          // answers above change back to incomplete.
+          directSalesSection.querySelectorAll('input[type="radio"]').forEach(function(el){ el.checked = false; });
+          directSalesSection.querySelectorAll('select').forEach(function(el){ el.value = ''; });
+        }
 
         // Direct sales team branch
         var directSales = root.querySelector('input[name="direct-sales"]:checked');
