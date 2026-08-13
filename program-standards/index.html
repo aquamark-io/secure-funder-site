@@ -424,15 +424,24 @@
                         <option value="email">Email</option>
                       </select>
 
-                      <div class="conditional-panel" data-result="direct-online">
-                        <div style="margin-top:16px;">
-                          <div class="question-label">Online: are attachments view-only, or downloadable?</div>
-                          <select class="question-select" data-branch-select="direct-online-access">
-                            <option value="">Select one</option>
-                            <option value="view">View-only</option>
-                            <option value="download">Downloadable</option>
-                          </select>
+                      <div style="margin-top:16px;">
+                        <div class="question-label">Where do the application and any associated documents <u>FIRST ROUTE</u>?</div>
+                        <div class="question-hint">Select all that apply.</div>
+                        <div class="choice-grid">
+                          <label><input type="checkbox" name="direct-route" value="sor"> <span>System of record (CRM or equivalent)</span></label>
+                          <label><input type="checkbox" name="direct-route" value="email"> <span>Email inbox</span></label>
                         </div>
+                      </div>
+
+                      <div class="conditional-panel" data-result="direct-sor">
+                        <div class="branch-card" style="margin-top:16px;">
+                        <div class="branch-title">System of Record</div>
+                        <div class="question-label">Are attachments view-only, or downloadable?</div>
+                        <select class="question-select" data-branch-select="direct-online-access">
+                          <option value="">Select one</option>
+                          <option value="view">View-only</option>
+                          <option value="download">Downloadable</option>
+                        </select>
 
                         <div class="conditional-panel" data-result="direct-online-view">
                           <div class="success-banner">
@@ -471,17 +480,18 @@
                             <div class="warning-text">Because your system of record allows downloads of unwatermarked or otherwise unprotected documents, safeguards are needed to either deter misuse or reduce the technical opportunity for unauthorized sharing. <a href="/common-approaches/" target="_blank" rel="noopener noreferrer">See common approaches</a></div>
                           </div>
                         </div>
+                        </div>
                       </div>
 
                       <div class="conditional-panel" data-result="direct-email">
-                        <div style="margin-top:16px;">
-                          <div class="question-label">Email: when a submission first reaches the inbox &mdash;</div>
-                          <select class="question-select" data-branch-select="direct-email-routing">
-                            <option value="">Select one</option>
-                            <option value="auto">Routes automatically to the system of record &mdash; no human handling</option>
-                            <option value="person">Reviewed and processed by a person</option>
-                          </select>
-                        </div>
+                        <div class="branch-card" style="margin-top:16px;">
+                        <div class="branch-title">Email Inbox</div>
+                        <div class="question-label">When a submission first reaches the inbox &mdash;</div>
+                        <select class="question-select" data-branch-select="direct-email-routing">
+                          <option value="">Select one</option>
+                          <option value="auto">Routes automatically to the system of record &mdash; no human handling</option>
+                          <option value="person">Reviewed and processed by a person</option>
+                        </select>
 
                         <div class="conditional-panel" data-result="direct-email-auto">
                           <div class="success-banner">
@@ -499,9 +509,10 @@
                             <div class="warning-text">Because business funding applications flow through a human processing workflow rather than a controlled system of record, safeguards are needed to either deter misuse or reduce the technical opportunity for unauthorized sharing. <a href="/common-approaches/" target="_blank" rel="noopener noreferrer">See common approaches</a></div>
                           </div>
                         </div>
+                        </div>
                       </div>
 
-                      <div class="conditional-panel" data-result="direct-intake-any">
+                      <div class="conditional-panel" data-result="direct-route-any">
                         <div class="note" style="margin-top:16px;">You&rsquo;ll also be asked to describe how you keep your broker and direct sales pipelines separate (for example, role-based access), along with supporting evidence.</div>
                       </div>
                     </div>
@@ -639,6 +650,7 @@
           // Reset any in-progress direct-sales answers if the broker
           // answers above change back to incomplete.
           directSalesSection.querySelectorAll('input[type="radio"]').forEach(function(el){ el.checked = false; });
+          directSalesSection.querySelectorAll('input[type="checkbox"]').forEach(function(el){ el.checked = false; });
           directSalesSection.querySelectorAll('select').forEach(function(el){ el.value = ''; });
         }
 
@@ -649,9 +661,11 @@
         });
 
         var directIntake = root.querySelector('[data-branch-select="direct-intake"]');
-        show(root.querySelector('[data-result="direct-online"]'), directIntake && directIntake.value === 'online');
-        show(root.querySelector('[data-result="direct-email"]'), directIntake && directIntake.value === 'email');
-        show(root.querySelector('[data-result="direct-intake-any"]'), directIntake && !!directIntake.value);
+
+        var directRoutes = Array.from(root.querySelectorAll('input[name="direct-route"]:checked')).map(function(el){return el.value;});
+        show(root.querySelector('[data-result="direct-sor"]'), directRoutes.indexOf('sor') !== -1);
+        show(root.querySelector('[data-result="direct-email"]'), directRoutes.indexOf('email') !== -1);
+        show(root.querySelector('[data-result="direct-route-any"]'), directRoutes.length > 0);
 
         var directOnlineAccess = root.querySelector('[data-branch-select="direct-online-access"]');
         var directOnlineWatermark = root.querySelector('[data-branch-select="direct-online-watermark"]');
