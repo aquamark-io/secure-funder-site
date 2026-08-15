@@ -191,6 +191,45 @@
       min-height: 500px;
     }
 
+    /* Schedule-a-call option block */
+    .contact-call-option {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding: 22px 28px;
+      margin-bottom: 20px;
+      background: var(--cloud);
+      border: 1px solid var(--border-light);
+    }
+    .contact-call-option .call-option-text .eyebrow {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      display: block;
+      margin-bottom: 4px;
+    }
+    .contact-call-option .call-option-text p {
+      font-size: 0.98rem;
+      color: var(--text-secondary);
+      margin: 0;
+    }
+    .contact-call-option .hero-btn {
+      flex-shrink: 0;
+      display: inline-flex; align-items: center; justify-content: center;
+      font-family: var(--font-body); font-size: 1.05rem; font-weight: 650;
+      padding: 13px 28px; border-radius: 0;
+      text-decoration: none; transition: all 0.25s; border: none; cursor: pointer;
+      text-align: center; background:#DFF029; color:#000000;
+    }
+    .contact-call-option .hero-btn:hover { filter: brightness(0.94); }
+    @media (max-width: 560px) {
+      .contact-call-option { flex-direction: column; align-items: flex-start; text-align: left; }
+    }
+
     /* Sidebar */
     .contact-sidebar {
       display: flex;
@@ -447,6 +486,15 @@
   <section class="contact-section">
     <div class="container">
       <div class="contact-layout">
+
+        <!-- Schedule a Call option -->
+        <div class="contact-call-option">
+          <div class="call-option-text">
+            <span class="eyebrow">Prefer to talk?</span>
+            <p>Skip the form and schedule a 15-minute call with our team instead.</p>
+          </div>
+          <a href="https://calendly.com/christina-aquamark/" target="_blank" rel="noopener noreferrer" class="hero-btn">Schedule a Call</a>
+        </div>
 
         <!-- Fillout Embed -->
         <div class="form-wrapper">
