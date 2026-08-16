@@ -483,7 +483,7 @@
       .mission-section { padding: 56px 0; }
       .mission-eyebrow-line1 { font-size: 2.2rem; }
       .mission-eyebrow-line2 { font-size: 1.15rem; }
-      .mission-body p { font-size: 1.16rem; }
+      .mission-body p { font-size: 1.2rem; line-height: 1.55; }
       .scope-aside { padding: 12px 16px; margin-left: 0; margin-right: 0; }
     }
 
@@ -2671,8 +2671,8 @@
       <div class="mission-content-col">
         <div class="mission-statement-card">
           <div class="mission-body">
-<p><span class="mission-brand">Secure Funder™</span> is a <strong>new industry initiative</strong> working to reduce the misuse of <strong>business funding applications</strong> in alternative finance. In a space with inconsistent oversight and limited barriers to entry, the program<span class="mission-ellipsis">…</span><span class="mission-more"> independently certifies funders taking steps to protect sensitive information at the <strong>highest-concentration point of risk</strong>: the initial application package. The goal is to make responsible companies easier to identify, strengthen accountability, and <strong>reduce the opportunity</strong> for stolen data to move through the industry.</span></p>
-<button type="button" class="mission-toggle" aria-expanded="false">Read more</button>
+<p><span class="mission-brand">Secure Funder™</span> is a <strong>new industry initiative</strong> working to reduce the misuse of <strong>business funding applications</strong> in alternative finance. In a space with inconsistent oversight and limited barriers to entry, the program independently certifies funders taking steps to protect sensitive information at the <strong>highest-concentration point of risk</strong><span class="mission-ellipsis">…</span><span class="mission-more">: the initial application package. The goal is to make responsible companies easier to identify, strengthen accountability, and <strong>reduce the opportunity</strong> for stolen data to move through the industry.</span></p>
+<button type="button" class="mission-toggle" aria-expanded="false">See more</button>
           </div>
         </div>
       </div>
@@ -2976,7 +2976,7 @@
       btn.addEventListener('click', () => {
         const body = btn.closest('.mission-body');
         const expanded = body.classList.toggle('expanded');
-        btn.textContent = expanded ? 'Show less' : 'Read more';
+        btn.textContent = expanded ? 'See less' : 'See more';
         btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
       });
     });
