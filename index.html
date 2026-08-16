@@ -461,7 +461,9 @@
       .mission-more { display: none; }
       .mission-ellipsis { display: inline; }
       .mission-toggle {
-        display: inline-block;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
         margin-top: 14px;
         background: none;
         border: none;
@@ -472,8 +474,16 @@
         text-decoration: none;
         text-transform: uppercase;
         letter-spacing: 0.06em;
-        color: #8B94A0;
+        color: #9AA2AC;
         cursor: pointer;
+      }
+      .mission-toggle-icon {
+        display: inline-block;
+        font-size: 0.8em;
+        transition: transform 0.2s ease;
+      }
+      .mission-body.expanded .mission-toggle-icon {
+        transform: rotate(180deg);
       }
       .mission-body.expanded .mission-more { display: inline; }
       .mission-body.expanded .mission-ellipsis { display: none; }
@@ -2676,7 +2686,7 @@
         <div class="mission-statement-card">
           <div class="mission-body">
 <p><span class="mission-brand">Secure Funder™</span> is a <strong>new industry initiative</strong> working to reduce the misuse of <strong>business funding applications</strong> in alternative finance. In a space with inconsistent oversight and limited barriers to entry, the program independently certifies funders taking steps to protect sensitive information at the <strong>highest-concentration point of</strong><span class="mission-ellipsis">…</span><span class="mission-more"> <strong>risk</strong>: the initial application package. The goal is to make responsible companies easier to identify, strengthen accountability, and <strong>reduce the opportunity</strong> for stolen data to move through the industry.</span></p>
-<button type="button" class="mission-toggle" aria-expanded="false">See more</button>
+<button type="button" class="mission-toggle" aria-expanded="false"><span class="mission-toggle-label">See more</span><span class="mission-toggle-icon">▾</span></button>
           </div>
         </div>
       </div>
@@ -2977,10 +2987,11 @@
 
     // Mission statement read more/less toggle (mobile only)
     document.querySelectorAll('.mission-toggle').forEach(btn => {
+      const label = btn.querySelector('.mission-toggle-label');
       btn.addEventListener('click', () => {
         const body = btn.closest('.mission-body');
         const expanded = body.classList.toggle('expanded');
-        btn.textContent = expanded ? 'See less' : 'See more';
+        if (label) label.textContent = expanded ? 'See less' : 'See more';
         btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
       });
     });
