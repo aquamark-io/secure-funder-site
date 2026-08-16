@@ -435,6 +435,12 @@
       font-weight: 400;
       color: inherit;
     }
+    .mission-toggle {
+      display: none;
+    }
+    .mission-ellipsis {
+      display: none;
+    }
     .scope-aside {
       margin-top: 20px;
       padding: 14px 18px;
@@ -452,6 +458,24 @@
       .mission-eyebrow { text-align: center; align-items: center; }
       .mission-eyebrow-rule { margin: 14px auto 0; }
       .mission-body p { text-align: left; margin: 0; }
+      .mission-more { display: none; }
+      .mission-ellipsis { display: inline; }
+      .mission-toggle {
+        display: inline-block;
+        margin-top: 14px;
+        background: none;
+        border: none;
+        padding: 0;
+        font-family: var(--font-display);
+        font-size: 0.95rem;
+        font-weight: 600;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        color: var(--blue-accent);
+        cursor: pointer;
+      }
+      .mission-body.expanded .mission-more { display: inline; }
+      .mission-body.expanded .mission-ellipsis { display: none; }
       .scope-aside { text-align: left; padding: 14px 18px; }
       .scope-aside p { margin: 0; font-size: 0.85rem; max-width: none; }
     }
@@ -459,7 +483,7 @@
       .mission-section { padding: 56px 0; }
       .mission-eyebrow-line1 { font-size: 2.2rem; }
       .mission-eyebrow-line2 { font-size: 1.15rem; }
-      .mission-body p { font-size: 1.1rem; }
+      .mission-body p { font-size: 1.16rem; }
       .scope-aside { padding: 12px 16px; margin-left: 0; margin-right: 0; }
     }
 
@@ -2647,7 +2671,9 @@
       <div class="mission-content-col">
         <div class="mission-statement-card">
           <div class="mission-body">
-<p><span class="mission-brand">Secure Funder™</span> is a <strong>new industry initiative</strong> working to reduce the misuse of <strong>business funding applications</strong> in alternative finance. In a space with inconsistent oversight and limited barriers to entry, the program independently certifies funders taking steps to protect sensitive information at the <strong>highest-concentration point of risk</strong>: the initial application package. The goal is to make responsible companies easier to identify, strengthen accountability, and <strong>reduce the opportunity</strong> for stolen data to move through the industry.</p>          </div>
+<p><span class="mission-brand">Secure Funder™</span> is a <strong>new industry initiative</strong> working to reduce the misuse of <strong>business funding applications</strong> in alternative finance. In a space with inconsistent oversight and limited barriers to entry, the program<span class="mission-ellipsis">…</span><span class="mission-more"> independently certifies funders taking steps to protect sensitive information at the <strong>highest-concentration point of risk</strong>: the initial application package. The goal is to make responsible companies easier to identify, strengthen accountability, and <strong>reduce the opportunity</strong> for stolen data to move through the industry.</span></p>
+<button type="button" class="mission-toggle" aria-expanded="false">Read more</button>
+          </div>
         </div>
       </div>
     </div>
@@ -2944,6 +2970,16 @@
       }, { threshold: 0.1 });
       carouselObserver.observe(carouselWrapper);
     }
+
+    // Mission statement read more/less toggle (mobile only)
+    document.querySelectorAll('.mission-toggle').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const body = btn.closest('.mission-body');
+        const expanded = body.classList.toggle('expanded');
+        btn.textContent = expanded ? 'Show less' : 'Read more';
+        btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+      });
+    });
   </script>
 
 </body>
