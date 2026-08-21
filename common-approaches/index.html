@@ -223,29 +223,61 @@
 
           <h1 style="font-family:var(--font-display); font-size:2rem; font-weight:800; color:var(--navy); letter-spacing:-.02em; margin-bottom:16px; line-height:1.2;">Common Approaches</h1>
 
-          <p style="font-size:1.05rem; color:var(--text-secondary); line-height:1.7; margin-bottom:24px;">These are just some examples to help you think through options based on your process &mdash; not a required list. <a href="/contact/" class="inline-link" target="_blank" rel="noopener noreferrer">Send us a message</a> if you&rsquo;re unclear &mdash; we&rsquo;re glad to help!</p>
+          <p style="font-size:1.05rem; color:var(--text-secondary); line-height:1.7; margin-bottom:24px;">These are examples, not a required checklist. No specific technology is required, and different safeguards may satisfy the standard when they accomplish the same objective. <a href="/contact/" class="inline-link" target="_blank" rel="noopener noreferrer">Send us a message</a> if you&rsquo;re unclear &mdash; we&rsquo;re glad to help!</p>
 
           <div style="background:rgba(223,240,41,0.22); padding:16px 18px; margin-bottom:36px; font-size:.92rem; font-weight:600; color:var(--navy); line-height:1.6;">
             Program standards apply to deal-processing roles only.
           </div>
 
-          <div class="req-card" style="padding:32px;">
-            <ul class="example-list">
-              <li>View-only document access in system of record.</li>
-              <li>Email attachments route automatically to system of record, limiting human access.</li>
-              <li>Document watermarking &mdash; <a class="inline-link" href="https://www.aquamark.io/" target="_blank" rel="noopener noreferrer">Aquamark</a> or equivalent.</li>
-              <li>Secure document delivery &mdash; forms, links, API.</li>
-              <li>Company-managed devices &mdash; restricting access to unauthorized cloud storage, USB drives, and other removable or external transfer methods.</li>
-              <li>Email account / tenant restrictions &mdash; allow access to approved company email accounts while blocking personal or unauthorized email accounts on company-managed devices.</li>
-              <li>Outbound email quarantine on specific messages (e.g. outbound + attachments + sent to external or personal domain).</li>
-              <li>CASB (Cloud Access Security Broker) (e.g. <a class="inline-link" href="https://www.netskope.com/" target="_blank" rel="noopener noreferrer">Netskope</a>) &mdash; applies access and data controls across cloud applications, such as restricting personal accounts, downloads, uploads, syncing, or use from unmanaged devices. Netskope describes CASB as a policy-enforcement layer for managed and unmanaged cloud applications.</li>
-              <li>Enterprise browser or browser isolation tools (e.g. <a class="inline-link" href="https://www.island.io/" target="_blank" rel="noopener noreferrer">Island</a>) &mdash; can restrict downloads, copy/paste, screenshots, uploads, or other data movement within specific apps.</li>
-              <li>Web/DNS filtering &mdash; rules enforced through a firewall, secure web gateway, DNS filtering service, or managed device that block access to selected domains such as personal email or cloud-storage sites.</li>
-              <li>Browser management policies &mdash; settings configured through browser management platforms such as <a class="inline-link" href="https://chromeenterprise.google/" target="_blank" rel="noopener noreferrer">Chrome Enterprise</a>/Google Admin or Microsoft Intune, Group Policy, and <a class="inline-link" href="https://explore.microsoft.com/en-us/edge/business?form=MA13FJ" target="_blank" rel="noopener noreferrer">Edge for Business</a> to restrict browser sign-in to approved company accounts, block specific websites, or enforce other browser-level controls. Microsoft Edge specifically supports policies restricting which accounts may sign in.</li>
-              <li>MDM / endpoint management (e.g. <a class="inline-link" href="https://www.microsoft.com/en-us/security/business/microsoft-intune" target="_blank" rel="noopener noreferrer">Intune</a>, <a class="inline-link" href="https://www.jamf.com/" target="_blank" rel="noopener noreferrer">Jamf</a>) &mdash; centrally applies and enforces device-level security policies, such as app restrictions, browser controls, USB restrictions, and access requirements, regardless of the network being used.</li>
-              <li>DLP (Data Loss Prevention) software (e.g. Microsoft Purview DLP) &mdash; detects sensitive information and applies rules to prevent or restrict unauthorized sharing through email, uploads, cloud apps, or other transfer methods. Microsoft Purview DLP supports policies that can block external email sharing based on configured conditions.</li>
-            </ul>
+          <div class="req-card" style="padding:32px; margin-bottom:24px;">
+            <div class="evidence-block" style="padding-top:0; border-top:none;">
+              <h4>View-only document access</h4>
+              <p>Initial submission documents can be viewed in the system of record but cannot normally be downloaded.</p>
+            </div>
+            <div class="evidence-block">
+              <h4>Automated routing</h4>
+              <p>Initial submissions route directly into the system of record without manual handling during intake.</p>
+            </div>
+            <div class="evidence-block">
+              <h4>Company-branded watermarking</h4>
+              <p>Downloaded submission documents contain the company name, logo, or another identifying company mark &mdash; <a class="inline-link" href="https://www.aquamark.io/" target="_blank" rel="noopener noreferrer">Aquamark</a> or equivalent.</p>
+            </div>
+            <div class="evidence-block">
+              <h4>User activity monitoring and accountability</h4>
+              <p>Downloads or relevant document activity are logged by user, those logs or reports are actually reviewed, and personnel acknowledge that their activity is monitored. Passive logs that nobody reviews are not sufficient on their own.</p>
+            </div>
+            <div class="evidence-block">
+              <h4>Restricting personal email and cloud storage</h4>
+              <p>On company-managed devices, personnel are prevented or restricted from accessing personal email accounts, personal cloud-storage accounts, or similar unauthorized transfer channels.</p>
+            </div>
+            <div class="evidence-block">
+              <h4>Outbound email controls</h4>
+              <p>Email rules restrict, quarantine, flag, or require review of messages with attachments being sent outside approved company channels.</p>
+            </div>
+            <div class="evidence-block">
+              <h4>Removable-media restrictions</h4>
+              <p>Company-managed devices restrict copying sensitive submission documents to USB drives or other removable storage.</p>
+            </div>
+            <div class="evidence-block">
+              <h4>Other safeguards</h4>
+              <p>Every company operates differently. If you use another approach, <a class="inline-link" href="/contact/" target="_blank" rel="noopener noreferrer">contact us</a> or describe the safeguard in the applicant portal for review.</p>
+            </div>
           </div>
+
+          <details class="req-card" style="background:var(--meadow);">
+            <summary style="cursor:pointer; list-style:none; padding:20px 28px; font-family:var(--font-display); font-weight:700; color:var(--navy); font-size:1.02rem;">Additional Enterprise Controls</summary>
+            <div style="padding:0 28px 28px;">
+              <p style="font-size:.92rem; color:var(--text-secondary); line-height:1.65; margin-bottom:16px;">Larger organizations, companies with multiple locations, or teams with more complex environments may already use broader enterprise security controls. These are additional options, not certification requirements.</p>
+              <ul class="example-list">
+                <li>CASB / Security Service Edge controls (e.g. <a class="inline-link" href="https://www.netskope.com/" target="_blank" rel="noopener noreferrer">Netskope</a>) &mdash; applies access and data controls across cloud applications, such as restricting personal accounts, downloads, uploads, syncing, or use from unmanaged devices.</li>
+                <li>Enterprise browser or browser isolation platforms (e.g. <a class="inline-link" href="https://www.island.io/" target="_blank" rel="noopener noreferrer">Island</a>) &mdash; can restrict downloads, copy/paste, screenshots, uploads, or other data movement within specific apps.</li>
+                <li>Data Loss Prevention (DLP) platforms (e.g. Microsoft Purview DLP) &mdash; detects sensitive information and applies rules to prevent or restrict unauthorized sharing through email, uploads, cloud apps, or other transfer methods.</li>
+                <li>MDM / endpoint management platforms (e.g. <a class="inline-link" href="https://www.microsoft.com/en-us/security/business/microsoft-intune" target="_blank" rel="noopener noreferrer">Intune</a>, <a class="inline-link" href="https://www.jamf.com/" target="_blank" rel="noopener noreferrer">Jamf</a>) &mdash; centrally applies and enforces device-level security policies regardless of the network being used.</li>
+                <li>Centrally managed browser policies (e.g. <a class="inline-link" href="https://chromeenterprise.google/" target="_blank" rel="noopener noreferrer">Chrome Enterprise</a>/Google Admin, Microsoft Intune, Group Policy, <a class="inline-link" href="https://explore.microsoft.com/en-us/edge/business?form=MA13FJ" target="_blank" rel="noopener noreferrer">Edge for Business</a>) &mdash; restrict browser sign-in to approved company accounts, block specific websites, or enforce other browser-level controls.</li>
+                <li>Secure web gateways / DNS filtering &mdash; rules enforced through a firewall, secure web gateway, DNS filtering service, or managed device that block access to selected domains such as personal email or cloud-storage sites.</li>
+              </ul>
+            </div>
+          </details>
         </div>
       </div>
     </section>
