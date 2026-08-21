@@ -349,12 +349,22 @@
                       <div class="conditional-panel" data-result="sor-download">
                         <div style="margin-top:16px;">
                           <div class="question-label">Which safeguards are in place for downloadable submission documents?</div>
-                          <div class="question-hint">Select all that apply.</div>
+                          <div class="question-hint">These are common examples of safeguards that deter misuse &mdash; select any that apply, or choose Other to describe your approach.</div>
                           <div class="choice-grid">
+                            <label><input type="checkbox" name="sor-safeguard" value="role" data-safeguard-group="sor"> <span><strong>Role-based access</strong> &mdash; a written policy limits each user&rsquo;s access to only their own files, reducing the volume of documents any single person could misuse.</span></label>
                             <label><input type="checkbox" name="sor-safeguard" value="watermark" data-safeguard-group="sor"> <span><strong>Company-branded watermarking</strong> &mdash; downloaded documents contain the company name, logo, or another identifying mark. Awareness that documents can be traced back to the company creates a reasonable deterrent to misuse.</span></label>
                             <label><input type="checkbox" name="sor-safeguard" value="monitoring" data-safeguard-group="sor"> <span><strong>Activity monitoring</strong> &mdash; activity is logged when documents are downloaded, logs get audited, and personnel sign an acknowledgement that their activity is monitored. Awareness of monitoring is known to influence behavior and creates a reasonable deterrent to misuse.</span></label>
                             <label><input type="checkbox" name="sor-safeguard" value="transfer" data-safeguard-group="sor"> <span><strong>Transfer methods are restricted</strong> &mdash; e.g. company-managed devices block access to personal email, common cloud storage sites, and USB drives.</span></label>
                             <label><input type="checkbox" name="sor-safeguard" value="other" data-safeguard-group="sor"> <span><strong>Other</strong> &mdash; tell us and we&rsquo;ll provide feedback.</span></label>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="conditional-panel" data-result="sor-role">
+                        <div class="success-banner">
+                          <div class="success-check">&#10003;</div>
+                          <div>
+                            <div class="success-title">Acceptable safeguard</div>
                           </div>
                         </div>
                       </div>
@@ -476,12 +486,22 @@
                         <div class="conditional-panel" data-result="direct-online-download">
                           <div style="margin-top:16px;">
                             <div class="question-label">Which safeguards are in place for downloadable submission documents?</div>
-                            <div class="question-hint">Select all that apply.</div>
+                            <div class="question-hint">These are common examples of safeguards that deter misuse &mdash; select any that apply, or choose Other to describe your approach.</div>
                             <div class="choice-grid">
+                              <label><input type="checkbox" name="direct-safeguard" value="role" data-safeguard-group="direct"> <span><strong>Role-based access</strong> &mdash; a written policy limits each user&rsquo;s access to only their own files, reducing the volume of documents any single person could misuse.</span></label>
                               <label><input type="checkbox" name="direct-safeguard" value="watermark" data-safeguard-group="direct"> <span><strong>Company-branded watermarking</strong> &mdash; downloaded documents contain the company name, logo, or another identifying mark. Awareness that documents can be traced back to the company creates a reasonable deterrent to misuse.</span></label>
                               <label><input type="checkbox" name="direct-safeguard" value="monitoring" data-safeguard-group="direct"> <span><strong>Activity monitoring</strong> &mdash; activity is logged when documents are downloaded, logs get audited, and personnel sign an acknowledgement that their activity is monitored. Awareness of monitoring is known to influence behavior and creates a reasonable deterrent to misuse.</span></label>
                               <label><input type="checkbox" name="direct-safeguard" value="transfer" data-safeguard-group="direct"> <span><strong>Transfer methods are restricted</strong> &mdash; e.g. company-managed devices block access to personal email, common cloud storage sites, and USB drives.</span></label>
                               <label><input type="checkbox" name="direct-safeguard" value="other" data-safeguard-group="direct"> <span><strong>Other</strong> &mdash; tell us and we&rsquo;ll provide feedback.</span></label>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="conditional-panel" data-result="direct-online-role">
+                          <div class="success-banner">
+                            <div class="success-check">&#10003;</div>
+                            <div>
+                              <div class="success-title">Acceptable safeguard</div>
                             </div>
                           </div>
                         </div>
@@ -667,6 +687,7 @@
 
         var sorSafeguardBoxes = Array.from(root.querySelectorAll('input[data-safeguard-group="sor"]'));
         var sorChecked = sorSafeguardBoxes.filter(function(cb){ return cb.checked; }).map(function(cb){ return cb.value; });
+        show(root.querySelector('[data-result="sor-role"]'), sorAccess && sorAccess.value === 'download' && sorChecked.indexOf('role') !== -1);
         show(root.querySelector('[data-result="sor-watermark"]'), sorAccess && sorAccess.value === 'download' && sorChecked.indexOf('watermark') !== -1);
         show(root.querySelector('[data-result="sor-monitoring"]'), sorAccess && sorAccess.value === 'download' && sorChecked.indexOf('monitoring') !== -1);
         show(root.querySelector('[data-result="sor-transfer"]'), sorAccess && sorAccess.value === 'download' && sorChecked.indexOf('transfer') !== -1);
@@ -714,6 +735,7 @@
 
         var directSafeguardBoxes = Array.from(root.querySelectorAll('input[data-safeguard-group="direct"]'));
         var directChecked = directSafeguardBoxes.filter(function(cb){ return cb.checked; }).map(function(cb){ return cb.value; });
+        show(root.querySelector('[data-result="direct-online-role"]'), directOnlineAccess && directOnlineAccess.value === 'download' && directChecked.indexOf('role') !== -1);
         show(root.querySelector('[data-result="direct-online-watermark"]'), directOnlineAccess && directOnlineAccess.value === 'download' && directChecked.indexOf('watermark') !== -1);
         show(root.querySelector('[data-result="direct-online-monitoring"]'), directOnlineAccess && directOnlineAccess.value === 'download' && directChecked.indexOf('monitoring') !== -1);
         show(root.querySelector('[data-result="direct-online-transfer"]'), directOnlineAccess && directOnlineAccess.value === 'download' && directChecked.indexOf('transfer') !== -1);
