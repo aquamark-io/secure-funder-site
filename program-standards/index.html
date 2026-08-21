@@ -672,10 +672,32 @@
 <script>
   function openSamplePolicyModal(e){ if(e){ e.preventDefault(); e.stopPropagation(); } document.getElementById('samplePolicyOverlay').classList.add('open'); }
   function toggleSafeguardDetail(btn){
+    var option = btn.closest('.safeguard-option');
+    var checkbox = option.querySelector('input[type="checkbox"]');
     var body = btn.nextElementSibling;
     var expanded = body.classList.toggle('expanded');
     btn.textContent = expanded ? 'Hide details' : 'Show details';
+    if (checkbox.checked !== expanded) {
+      checkbox.checked = expanded;
+      checkbox.dispatchEvent(new Event('change', { bubbles: true }));
+    }
   }
+  document.addEventListener('DOMContentLoaded', function(){
+    document.querySelectorAll('.safeguard-option-row input[type="checkbox"]').forEach(function(cb){
+      cb.addEventListener('change', function(){
+        var option = cb.closest('.safeguard-option');
+        var toggle = option.querySelector('.safeguard-detail-toggle');
+        var body = option.querySelector('.safeguard-option-body');
+        if (cb.checked) {
+          body.classList.add('expanded');
+          toggle.textContent = 'Hide details';
+        } else {
+          body.classList.remove('expanded');
+          toggle.textContent = 'Show details';
+        }
+      });
+    });
+  });
   function closeSamplePolicyModal(){ document.getElementById('samplePolicyOverlay').classList.remove('open'); }
 </script>
 
