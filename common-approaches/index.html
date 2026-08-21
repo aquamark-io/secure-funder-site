@@ -229,20 +229,8 @@
             Program standards apply to deal-processing roles only.
           </div>
 
-          <div class="req-card" style="padding:32px; margin-bottom:20px;">
-            <div class="section-label" style="margin-bottom:16px;">If documents aren&rsquo;t downloadable</div>
-            <div class="evidence-block" style="padding-top:0; border-top:none;">
-              <h4>View-only document access</h4>
-              <p>Initial submission documents can be viewed in the system of record but cannot normally be downloaded.</p>
-            </div>
-            <div class="evidence-block">
-              <h4>Automated routing</h4>
-              <p>Initial submissions route directly into the system of record without manual handling during intake.</p>
-            </div>
-          </div>
-
           <div class="req-card" style="padding:32px; margin-bottom:24px;">
-            <div class="section-label" style="margin-bottom:16px;">If documents are downloadable &mdash; choose one or more</div>
+            <div class="section-label" style="margin-bottom:16px;">Safeguards for downloadable documents &mdash; choose one or more</div>
             <div class="evidence-block" style="padding-top:0; border-top:none;">
               <h4>Company-branded watermarking</h4>
               <p>Downloaded documents contain the company name, logo, or another identifying mark &mdash; <a class="inline-link" href="https://www.aquamark.io/" target="_blank" rel="noopener noreferrer">Aquamark</a> or equivalent. Awareness that documents can be traced back to the company creates a reasonable deterrent to misuse.</p>
@@ -253,7 +241,13 @@
             </div>
             <div class="evidence-block">
               <h4>Transfer methods are restricted</h4>
-              <p>Company-managed devices block common unauthorized transfer paths &mdash; for example, personal email and cloud-storage accounts, removable storage, or outbound attachments sent to unapproved domains.</p>
+              <p>Company-managed devices block common unauthorized transfer paths. Examples include:</p>
+              <ul class="example-list" style="margin-top:10px;">
+                <li>Restricting access to personal email accounts on company-managed devices.</li>
+                <li>Restricting access to personal cloud-storage accounts (Google Drive, Dropbox, etc.).</li>
+                <li>Outbound email quarantine on messages with attachments sent to unapproved or personal domains.</li>
+                <li>Removable-media restrictions &mdash; blocking copying to USB drives or other external storage.</li>
+              </ul>
             </div>
             <div class="evidence-block">
               <h4>Other safeguards</h4>
@@ -261,9 +255,9 @@
             </div>
           </div>
 
-          <details class="req-card" style="background:var(--meadow);">
-            <summary style="cursor:pointer; list-style:none; padding:20px 28px; font-family:var(--font-display); font-weight:700; color:var(--navy); font-size:1.02rem;">Additional Enterprise Controls</summary>
-            <div style="padding:0 28px 28px;">
+          <details class="req-card" style="border-color:#2B3440;">
+            <summary style="cursor:pointer; list-style:none; padding:20px 28px; font-family:var(--font-display); font-weight:700; color:var(--white); font-size:1.02rem; background:#2B3440;">Additional Enterprise Controls</summary>
+            <div style="padding:20px 28px 28px;">
               <p style="font-size:.92rem; color:var(--text-secondary); line-height:1.65; margin-bottom:16px;">Larger organizations, companies with multiple locations, or teams with more complex environments may already use broader enterprise security controls. These are additional options, not certification requirements.</p>
               <ul class="example-list">
                 <li>CASB / Security Service Edge controls (e.g. <a class="inline-link" href="https://www.netskope.com/" target="_blank" rel="noopener noreferrer">Netskope</a>) &mdash; applies access and data controls across cloud applications, such as restricting personal accounts, downloads, uploads, syncing, or use from unmanaged devices.</li>
