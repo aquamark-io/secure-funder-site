@@ -453,11 +453,109 @@
                       </select>
 
                       <div class="conditional-panel" data-result="email-auto">
-                        <div class="success-banner">
-                          <div class="success-check">&#10003;</div>
-                          <div>
-                            <div class="success-title">Requirement Satisfied</div>
-                            <div class="success-text">The initial submission package routes into the system without human handling at this stage, materially reducing the opportunity for misuse during intake.</div>
+                        <div style="margin-top:16px;">
+                          <div class="question-label">Once in the system of record, are attachments view-only or downloadable?</div>
+                          <select class="question-select" data-branch-select="email-sor-access">
+                            <option value="">Select one</option>
+                            <option value="view">View-only</option>
+                            <option value="download">Downloadable</option>
+                          </select>
+
+                          <div class="conditional-panel" data-result="email-sor-view">
+                            <div class="success-banner">
+                              <div class="success-check">&#10003;</div>
+                              <div>
+                                <div class="success-title">Requirement Satisfied</div>
+                                <div class="success-text">The initial submission package routes into the system without human handling at this stage, and view-only access limits a user's ability to remove the original submission documents, satisfying the requirement.</div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="conditional-panel" data-result="email-sor-download">
+                            <div style="margin-top:16px;">
+                              <div class="question-label">Which safeguards are in place for downloadable submission documents?</div>
+                              <div class="question-hint">These are common examples of safeguards that deter misuse &mdash; select any that apply, or choose Other to describe your approach.</div>
+                              <div class="safeguard-list">
+                                <div class="safeguard-option">
+                                  <label class="safeguard-option-row">
+                                    <input type="checkbox" name="email-sor-safeguard" value="transfer" data-safeguard-group="email-sor">
+                                    <span class="safeguard-option-title">Transfer methods</span>
+                                  </label>
+                                  <button type="button" class="safeguard-detail-toggle" onclick="toggleSafeguardDetail(this)">Show details</button>
+                                  <div class="safeguard-option-body">
+                                    <p>Company-managed devices restrict common ways documents could be moved outside the company. Examples include:</p>
+                                    <ul class="example-list" style="margin-top:8px;">
+                                      <li>Restricting access to personal email accounts on company-managed devices.</li>
+                                      <li>Restricting access to personal cloud-storage accounts (Google Drive, Dropbox, etc.).</li>
+                                      <li>Outbound email quarantine on messages with attachments sent to external and personal domains.</li>
+                                      <li>Removable-media restrictions &mdash; blocking copying to USB drives or other external storage.</li>
+                                    </ul>
+                                  </div>
+                                </div>
+                                <div class="safeguard-option">
+                                  <label class="safeguard-option-row">
+                                    <input type="checkbox" name="email-sor-safeguard" value="watermark" data-safeguard-group="email-sor">
+                                    <span class="safeguard-option-title">Watermarking</span>
+                                  </label>
+                                  <button type="button" class="safeguard-detail-toggle" onclick="toggleSafeguardDetail(this)">Show details</button>
+                                  <div class="safeguard-option-body">
+                                    <p>Downloaded documents contain the company name, logo, or another identifying mark &mdash; <a class="inline-link" href="https://www.aquamark.io/" target="_blank" rel="noopener noreferrer">Aquamark</a> or equivalent. Awareness that documents can be traced back to the company creates a reasonable deterrent to misuse.</p>
+                                  </div>
+                                </div>
+                                <div class="safeguard-option">
+                                  <label class="safeguard-option-row">
+                                    <input type="checkbox" name="email-sor-safeguard" value="monitoring" data-safeguard-group="email-sor">
+                                    <span class="safeguard-option-title">Activity monitoring + policy</span>
+                                  </label>
+                                  <button type="button" class="safeguard-detail-toggle" onclick="toggleSafeguardDetail(this)">Show details</button>
+                                  <div class="safeguard-option-body">
+                                    <p>User activity, including document downloads, is logged and subject to review, alerts, or other oversight. Personnel also sign a policy acknowledging that their activity is monitored. Knowing actions are attributable and may be reviewed creates accountability and helps deter misuse. <a href="#" class="policy-trigger-link" onclick="openSamplePolicyModal(event)">Sample policy</a> &nbsp;|&nbsp; <a href="https://nij.ojp.gov/topics/articles/five-things-about-deterrence" target="_blank" rel="noopener noreferrer" class="policy-trigger-link">Research</a></p>
+                                  </div>
+                                </div>
+                                <div class="safeguard-option">
+                                  <label class="safeguard-option-row">
+                                    <input type="checkbox" name="email-sor-safeguard" value="other" data-safeguard-group="email-sor">
+                                    <span class="safeguard-option-title">Other</span>
+                                  </label>
+                                  <button type="button" class="safeguard-detail-toggle" onclick="toggleSafeguardDetail(this)">Show details</button>
+                                  <div class="safeguard-option-body">
+                                    <p>Every company operates differently. If you use another approach, tell us and we&rsquo;ll provide feedback.</p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="conditional-panel" data-result="email-sor-watermark">
+                            <div class="success-banner">
+                              <div class="success-check">&#10003;</div>
+                              <div>
+                                <div class="success-title">Requirement Satisfied</div>
+                                <div class="success-text">A company-branded watermark reasonably deters misuse by tying a downloaded copy back to your office.</div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="conditional-panel" data-result="email-sor-monitoring">
+                            <div class="success-banner">
+                              <div class="success-check">&#10003;</div>
+                              <div>
+                                <div class="success-title">Acceptable safeguard</div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="conditional-panel" data-result="email-sor-transfer">
+                            <div class="success-banner">
+                              <div class="success-check">&#10003;</div>
+                              <div>
+                                <div class="success-title">Acceptable safeguard</div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="conditional-panel" data-result="email-sor-other">
+                            <div style="width:100%;height:500px;" data-fillout-id="mCJM1tjrHUus" data-fillout-embed-type="standard" data-fillout-inherit-parameters data-fillout-dynamic-resize></div>
                           </div>
                         </div>
                       </div>
@@ -595,6 +693,17 @@
         var emailRouting = root.querySelector('[data-branch-select="email-routing"]');
         show(root.querySelector('[data-result="email-auto"]'), emailRouting && emailRouting.value === 'auto');
         show(root.querySelector('[data-result="email-person"]'), emailRouting && emailRouting.value === 'person');
+
+        var emailSorAccess = root.querySelector('[data-branch-select="email-sor-access"]');
+        show(root.querySelector('[data-result="email-sor-view"]'), emailSorAccess && emailSorAccess.value === 'view');
+        show(root.querySelector('[data-result="email-sor-download"]'), emailSorAccess && emailSorAccess.value === 'download');
+
+        var emailSorSafeguardBoxes = Array.from(root.querySelectorAll('input[data-safeguard-group="email-sor"]'));
+        var emailSorChecked = emailSorSafeguardBoxes.filter(function(cb){ return cb.checked; }).map(function(cb){ return cb.value; });
+        show(root.querySelector('[data-result="email-sor-watermark"]'), emailSorAccess && emailSorAccess.value === 'download' && emailSorChecked.indexOf('watermark') !== -1);
+        show(root.querySelector('[data-result="email-sor-monitoring"]'), emailSorAccess && emailSorAccess.value === 'download' && emailSorChecked.indexOf('monitoring') !== -1);
+        show(root.querySelector('[data-result="email-sor-transfer"]'), emailSorAccess && emailSorAccess.value === 'download' && emailSorChecked.indexOf('transfer') !== -1);
+        show(root.querySelector('[data-result="email-sor-other"]'), emailSorAccess && emailSorAccess.value === 'download' && emailSorChecked.indexOf('other') !== -1);
 
       }
 
