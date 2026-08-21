@@ -130,6 +130,15 @@
     .evidence-block:first-child{border-top:none;padding-top:0}
     .evidence-block h4{font-family:var(--font-display);font-size:.98rem;font-weight:700;color:var(--navy);margin-bottom:8px}
     .evidence-block p{font-size:.9rem;color:var(--text-secondary);line-height:1.68;margin-bottom:10px}
+    .approach-item{border-top:1px solid var(--border-light)}
+    .approach-item:first-child{border-top:none}
+    .approach-summary{cursor:pointer;list-style:none;padding:16px 0;font-family:var(--font-display);font-size:.98rem;font-weight:700;color:var(--navy);display:flex;justify-content:space-between;align-items:center}
+    .approach-summary::-webkit-details-marker{display:none}
+    .approach-summary::after{content:'+';font-size:1.15rem;font-weight:400;color:var(--text-muted);margin-left:12px}
+    .approach-item[open] .approach-summary::after{content:'\2212'}
+    .approach-body{padding:0 0 18px}
+    .approach-body p{font-size:.9rem;color:var(--text-secondary);line-height:1.68;margin:0 0 10px}
+    .approach-body p:last-child{margin-bottom:0}
     .example-label{font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);margin:14px 0 8px}
     .example-list{list-style:none;display:grid;gap:8px;margin:0}
     .example-list li{position:relative;padding-left:18px;font-size:1rem;color:var(--text-secondary);line-height:1.65}
@@ -229,34 +238,44 @@
             Program standards apply to deal-processing roles only.
           </div>
 
-          <div class="req-card" style="padding:32px; margin-bottom:24px;">
-            <div class="section-label" style="margin-bottom:16px;">Safeguards for downloadable documents &mdash; choose one or more</div>
-            <div class="evidence-block" style="padding-top:0; border-top:none;">
-              <h4>Role-based access</h4>
-              <p>A system setting limits each user&rsquo;s visibility to only the files they&rsquo;re responsible for &mdash; for example, an underwriter&rsquo;s assigned deals or a sales rep&rsquo;s own accounts, reducing the amount of information they can access &mdash; paired with a signed policy notifying personnel that activity is monitored. Research supports monitoring and perceived accountability as deterrents to misconduct. <a href="#" class="policy-trigger-link" onclick="openSamplePolicyModal(event)">View sample policy</a> &nbsp;|&nbsp; <a href="https://nij.ojp.gov/topics/articles/five-things-about-deterrence" target="_blank" rel="noopener noreferrer" class="policy-trigger-link">View research</a></p>
-            </div>
-            <div class="evidence-block">
-              <h4>Company-branded watermarking</h4>
-              <p>Downloaded documents contain the company name, logo, or another identifying mark &mdash; <a class="inline-link" href="https://www.aquamark.io/" target="_blank" rel="noopener noreferrer">Aquamark</a> or equivalent. Awareness that documents can be traced back to the company creates a reasonable deterrent to misuse.</p>
-            </div>
-            <div class="evidence-block">
-              <h4>Activity monitoring</h4>
-              <p>User activity, including document downloads, is logged and reviewed, and personnel sign a policy acknowledging that their activity is monitored. Research supports monitoring and perceived accountability as deterrents to misconduct. <a href="#" class="policy-trigger-link" onclick="openSamplePolicyModal(event)">View sample policy</a> &nbsp;|&nbsp; <a href="https://nij.ojp.gov/topics/articles/five-things-about-deterrence" target="_blank" rel="noopener noreferrer" class="policy-trigger-link">View research</a></p>
-            </div>
-            <div class="evidence-block">
-              <h4>Transfer methods are restricted</h4>
-              <p>Company-managed devices restrict common ways documents could be moved outside the company. Examples include:</p>
-              <ul class="example-list" style="margin-top:10px;">
-                <li>Restricting access to personal email accounts on company-managed devices.</li>
-                <li>Restricting access to personal cloud-storage accounts (Google Drive, Dropbox, etc.).</li>
-                <li>Outbound email quarantine on messages with attachments sent to external and personal domains.</li>
-                <li>Removable-media restrictions &mdash; blocking copying to USB drives or other external storage.</li>
-              </ul>
-            </div>
-            <div class="evidence-block">
-              <h4>Other safeguards</h4>
-              <p>Every company operates differently. If you use another approach, <a class="inline-link" href="/contact/" target="_blank" rel="noopener noreferrer">contact us</a> or describe the safeguard in the applicant portal for review.</p>
-            </div>
+          <div class="req-card" style="padding:8px 32px; margin-bottom:24px;">
+            <div class="section-label" style="margin-top:24px; margin-bottom:4px;">Safeguards for downloadable documents &mdash; choose one or more</div>
+            <details class="approach-item">
+              <summary class="approach-summary">Role-based access</summary>
+              <div class="approach-body">
+                <p>A system setting limits each user&rsquo;s visibility to only the files they&rsquo;re responsible for &mdash; for example, an underwriter&rsquo;s assigned deals or a sales rep&rsquo;s own accounts, reducing the amount of information they can access &mdash; paired with a signed policy notifying personnel that activity is monitored. Research supports monitoring and perceived accountability as deterrents to misconduct. <a href="#" class="policy-trigger-link" onclick="openSamplePolicyModal(event)">View sample policy</a> &nbsp;|&nbsp; <a href="https://nij.ojp.gov/topics/articles/five-things-about-deterrence" target="_blank" rel="noopener noreferrer" class="policy-trigger-link">View research</a></p>
+              </div>
+            </details>
+            <details class="approach-item">
+              <summary class="approach-summary">Company-branded watermarking</summary>
+              <div class="approach-body">
+                <p>Downloaded documents contain the company name, logo, or another identifying mark &mdash; <a class="inline-link" href="https://www.aquamark.io/" target="_blank" rel="noopener noreferrer">Aquamark</a> or equivalent. Awareness that documents can be traced back to the company creates a reasonable deterrent to misuse.</p>
+              </div>
+            </details>
+            <details class="approach-item">
+              <summary class="approach-summary">Activity monitoring</summary>
+              <div class="approach-body">
+                <p>User activity, including document downloads, is logged and reviewed, and personnel sign a policy acknowledging that their activity is monitored. Research supports monitoring and perceived accountability as deterrents to misconduct. <a href="#" class="policy-trigger-link" onclick="openSamplePolicyModal(event)">View sample policy</a> &nbsp;|&nbsp; <a href="https://nij.ojp.gov/topics/articles/five-things-about-deterrence" target="_blank" rel="noopener noreferrer" class="policy-trigger-link">View research</a></p>
+              </div>
+            </details>
+            <details class="approach-item">
+              <summary class="approach-summary">Transfer methods are restricted</summary>
+              <div class="approach-body">
+                <p>Company-managed devices restrict common ways documents could be moved outside the company. Examples include:</p>
+                <ul class="example-list" style="margin-top:10px;">
+                  <li>Restricting access to personal email accounts on company-managed devices.</li>
+                  <li>Restricting access to personal cloud-storage accounts (Google Drive, Dropbox, etc.).</li>
+                  <li>Outbound email quarantine on messages with attachments sent to external and personal domains.</li>
+                  <li>Removable-media restrictions &mdash; blocking copying to USB drives or other external storage.</li>
+                </ul>
+              </div>
+            </details>
+            <details class="approach-item">
+              <summary class="approach-summary">Other safeguards</summary>
+              <div class="approach-body">
+                <p>Every company operates differently. If you use another approach, <a class="inline-link" href="/contact/" target="_blank" rel="noopener noreferrer">contact us</a> or describe the safeguard in the applicant portal for review.</p>
+              </div>
+            </details>
           </div>
 
           <details class="req-card" style="border-color:#2B3440;">
