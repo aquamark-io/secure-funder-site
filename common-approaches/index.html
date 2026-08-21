@@ -261,7 +261,7 @@
             <details class="approach-item">
               <summary class="approach-summary">Activity monitoring + policy</summary>
               <div class="approach-body">
-                <p>User activity, including document downloads, is logged and subject to review, alerts, or other oversight. Personnel also sign a policy acknowledging that their activity is monitored. Knowing actions are attributable and may be reviewed creates accountability and helps deter misuse. <a href="#" class="policy-trigger-link" onclick="openSamplePolicyModal(event)">Sample policy</a> &nbsp;|&nbsp; <a href="https://nij.ojp.gov/topics/articles/five-things-about-deterrence" target="_blank" rel="noopener noreferrer" class="policy-trigger-link">Research</a></p>
+                <p>User activity, including document downloads, is logged and subject to review, alerts, or other oversight. Personnel also sign a policy acknowledging that their activity is monitored. The principle is similar to visible security cameras: knowing your actions are being observed and can be traced back to you helps deter misconduct. <a href="#" class="policy-trigger-link" onclick="openSamplePolicyModal(event)">Sample policy</a></p>
               </div>
             </details>
             <details class="approach-item">
@@ -325,7 +325,7 @@
     .policy-modal-overlay.open { display:flex; }
     .policy-modal { background:#fff; max-width:560px; width:100%; max-height:85vh; overflow-y:auto; border:1px solid var(--border); padding:32px; position:relative; }
     .policy-modal-close { position:absolute; top:14px; right:14px; background:none; border:none; font-size:22px; line-height:1; cursor:pointer; color:var(--text-muted); }
-    .policy-trigger-link { color:var(--green-accent); text-decoration:underline; font-weight:500; }
+    .policy-trigger-link { color:#2563EB; text-decoration:underline; font-weight:500; }
   </style>
   <script>
     function openSamplePolicyModal(e){ if(e){ e.preventDefault(); e.stopPropagation(); } document.getElementById('samplePolicyOverlay').classList.add('open'); }
