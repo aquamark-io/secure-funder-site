@@ -386,22 +386,12 @@
                             </div>
                             <div class="safeguard-option">
                               <label class="safeguard-option-row">
-                                <input type="checkbox" name="sor-safeguard" value="role" data-safeguard-group="sor">
-                                <span class="safeguard-option-title">Role based</span>
-                              </label>
-                              <button type="button" class="safeguard-detail-toggle" onclick="toggleSafeguardDetail(this)">Show details</button>
-                              <div class="safeguard-option-body">
-                                <p>A system setting limits each user&rsquo;s visibility to only the files they&rsquo;re responsible for &mdash; for example, an underwriter&rsquo;s assigned deals or a sales rep&rsquo;s own accounts, reducing the amount of information they can access &mdash; paired with a signed policy notifying personnel that activity is monitored. Research supports monitoring and perceived accountability as deterrents to misconduct. <a href="#" class="policy-trigger-link" onclick="openSamplePolicyModal(event)">View sample policy</a> &nbsp;|&nbsp; <a href="https://nij.ojp.gov/topics/articles/five-things-about-deterrence" target="_blank" rel="noopener noreferrer" class="policy-trigger-link">View research</a></p>
-                              </div>
-                            </div>
-                            <div class="safeguard-option">
-                              <label class="safeguard-option-row">
                                 <input type="checkbox" name="sor-safeguard" value="monitoring" data-safeguard-group="sor">
-                                <span class="safeguard-option-title">Activity monitoring</span>
+                                <span class="safeguard-option-title">Activity monitoring + policy</span>
                               </label>
                               <button type="button" class="safeguard-detail-toggle" onclick="toggleSafeguardDetail(this)">Show details</button>
                               <div class="safeguard-option-body">
-                                <p>User activity, including document downloads, is logged and reviewed, and personnel sign a policy acknowledging that their activity is monitored. Research supports monitoring and perceived accountability as deterrents to misconduct. <a href="#" class="policy-trigger-link" onclick="openSamplePolicyModal(event)">View sample policy</a> &nbsp;|&nbsp; <a href="https://nij.ojp.gov/topics/articles/five-things-about-deterrence" target="_blank" rel="noopener noreferrer" class="policy-trigger-link">View research</a></p>
+                                <p>User activity, including document downloads, is logged and subject to review, alerts, or other oversight. Personnel also sign a policy acknowledging that their activity is monitored. Knowing actions are attributable and may be reviewed creates accountability and helps deter misuse. <a href="#" class="policy-trigger-link" onclick="openSamplePolicyModal(event)">Sample policy</a> &nbsp;|&nbsp; <a href="https://nij.ojp.gov/topics/articles/five-things-about-deterrence" target="_blank" rel="noopener noreferrer" class="policy-trigger-link">Research</a></p>
                               </div>
                             </div>
                             <div class="safeguard-option">
@@ -414,15 +404,6 @@
                                 <p>Every company operates differently. If you use another approach, tell us and we&rsquo;ll provide feedback.</p>
                               </div>
                             </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="conditional-panel" data-result="sor-role">
-                        <div class="success-banner">
-                          <div class="success-check">&#10003;</div>
-                          <div>
-                            <div class="success-title">Acceptable safeguard</div>
                           </div>
                         </div>
                       </div>
@@ -606,7 +587,6 @@
 
         var sorSafeguardBoxes = Array.from(root.querySelectorAll('input[data-safeguard-group="sor"]'));
         var sorChecked = sorSafeguardBoxes.filter(function(cb){ return cb.checked; }).map(function(cb){ return cb.value; });
-        show(root.querySelector('[data-result="sor-role"]'), sorAccess && sorAccess.value === 'download' && sorChecked.indexOf('role') !== -1);
         show(root.querySelector('[data-result="sor-watermark"]'), sorAccess && sorAccess.value === 'download' && sorChecked.indexOf('watermark') !== -1);
         show(root.querySelector('[data-result="sor-monitoring"]'), sorAccess && sorAccess.value === 'download' && sorChecked.indexOf('monitoring') !== -1);
         show(root.querySelector('[data-result="sor-transfer"]'), sorAccess && sorAccess.value === 'download' && sorChecked.indexOf('transfer') !== -1);
