@@ -395,16 +395,7 @@
                           <div class="warning-title">Review Needed</div>
                           <div class="warning-text">Every company operates differently. Tell us how your process protects downloadable submission documents, and we&rsquo;ll review whether it meets the objective of this requirement.</div>
                         </div>
-                        <div class="inquiry-form" style="margin-top:14px; padding:16px 18px; background:#fbfdfb; border:1px solid var(--border-light);">
-                          <div class="question-label" style="margin-bottom:10px;">Tell us about your safeguard</div>
-                          <div style="display:grid; gap:10px;">
-                            <input type="text" class="question-select" id="sorOtherName" placeholder="Name">
-                            <input type="text" class="question-select" id="sorOtherCompany" placeholder="Company">
-                            <input type="email" class="question-select" id="sorOtherEmail" placeholder="Email">
-                            <textarea class="question-select" id="sorOtherDescription" rows="3" placeholder="Brief description of safeguard" style="resize:vertical; font:inherit;"></textarea>
-                            <button type="button" class="hero-join-btn" id="sorOtherSubmit" style="margin-top:0; min-width:0; width:fit-content;">Submit for review</button>
-                          </div>
-                        </div>
+                        <div class="hero-join-btn" style="margin-top:14px; cursor:pointer;" data-fillout-id="mCJM1tjrHUus" data-fillout-embed-type="popup" data-fillout-dynamic-resize data-fillout-inherit-parameters data-fillout-popup-size="medium">Tell us about your safeguard</div>
                       </div>
 
                       <div class="conditional-panel" data-result="sor-none">
@@ -545,16 +536,7 @@
                             <div class="warning-title">Review Needed</div>
                             <div class="warning-text">Every company operates differently. Tell us how your process protects downloadable submission documents, and we&rsquo;ll review whether it meets the objective of this requirement.</div>
                           </div>
-                          <div class="inquiry-form" style="margin-top:14px; padding:16px 18px; background:#fbfdfb; border:1px solid var(--border-light);">
-                            <div class="question-label" style="margin-bottom:10px;">Tell us about your safeguard</div>
-                            <div style="display:grid; gap:10px;">
-                              <input type="text" class="question-select" id="directOtherName" placeholder="Name">
-                              <input type="text" class="question-select" id="directOtherCompany" placeholder="Company">
-                              <input type="email" class="question-select" id="directOtherEmail" placeholder="Email">
-                              <textarea class="question-select" id="directOtherDescription" rows="3" placeholder="Brief description of safeguard" style="resize:vertical; font:inherit;"></textarea>
-                              <button type="button" class="hero-join-btn" id="directOtherSubmit" style="margin-top:0; min-width:0; width:fit-content;">Submit for review</button>
-                            </div>
-                          </div>
+                          <div class="hero-join-btn" style="margin-top:14px; cursor:pointer;" data-fillout-id="mCJM1tjrHUus" data-fillout-embed-type="popup" data-fillout-dynamic-resize data-fillout-inherit-parameters data-fillout-popup-size="medium">Tell us about your safeguard</div>
                         </div>
 
                         <div class="conditional-panel" data-result="direct-online-none">
@@ -810,23 +792,6 @@
         });
       });
 
-      // "Other safeguard" inline inquiries — open a pre-filled email to the program team
-      function wireOtherSubmit(prefix, programLabel){
-        var btn = document.getElementById(prefix + 'Submit');
-        if (!btn) return;
-        btn.addEventListener('click', function(){
-          var name = (document.getElementById(prefix + 'Name').value || '').trim();
-          var company = (document.getElementById(prefix + 'Company').value || '').trim();
-          var email = (document.getElementById(prefix + 'Email').value || '').trim();
-          var description = (document.getElementById(prefix + 'Description').value || '').trim();
-          var body = 'Name: ' + name + '\nCompany: ' + company + '\nEmail: ' + email + '\n\nSafeguard description:\n' + description;
-          var mailto = 'mailto:info@aquamark.io?subject=' + encodeURIComponent('Submission Protection — safeguard review (' + programLabel + ')') + '&body=' + encodeURIComponent(body);
-          window.location.href = mailto;
-        });
-      }
-      wireOtherSubmit('sorOther', 'Secure Funder');
-      wireOtherSubmit('directOther', 'Secure Funder — Direct Sales');
-
       var reset = document.getElementById('protectionReset');
       if (reset) reset.addEventListener('click', function(){
         root.querySelectorAll('input[type="checkbox"], input[type="radio"]').forEach(function(el){ el.checked = false; });
@@ -844,5 +809,6 @@
     if (mobileToggle) mobileToggle.addEventListener('click', function(){ mobileMenu.classList.add('active'); });
     if (mobileClose) mobileClose.addEventListener('click', closeMobileMenu);
   </script>
+  <script src="https://server.fillout.com/embed/v1/"></script>
 </body>
 </html>
