@@ -233,7 +233,7 @@
             <div class="section-label" style="margin-bottom:16px;">Safeguards for downloadable documents &mdash; choose one or more</div>
             <div class="evidence-block" style="padding-top:0; border-top:none;">
               <h4>Role-based access</h4>
-              <p>A system setting limits each user&rsquo;s visibility to only the files they&rsquo;re responsible for &mdash; for example, an underwriter&rsquo;s assigned deals or a sales rep&rsquo;s own accounts &mdash; paired with a policy notifying personnel that their activity is monitored.</p>
+              <p>A system setting limits each user&rsquo;s visibility to only the files they&rsquo;re responsible for &mdash; for example, an underwriter&rsquo;s assigned deals or a sales rep&rsquo;s own accounts &mdash; paired with a policy notifying personnel that their activity is monitored. <a href="#" class="policy-trigger-link" onclick="openSamplePolicyModal(event)">View sample policy</a></p>
             </div>
             <div class="evidence-block">
               <h4>Company-branded watermarking</h4>
@@ -241,7 +241,7 @@
             </div>
             <div class="evidence-block">
               <h4>Activity monitoring</h4>
-              <p>A system setting logs and audits user activity, paired with a policy notifying personnel that their activity is monitored. Awareness of monitoring is known to influence behavior and creates a reasonable deterrent to misuse.</p>
+              <p>A system setting logs and audits user activity, paired with a policy notifying personnel that their activity is monitored. Awareness of monitoring is known to influence behavior and creates a reasonable deterrent to misuse. <a href="#" class="policy-trigger-link" onclick="openSamplePolicyModal(event)">View sample policy</a></p>
             </div>
             <div class="evidence-block">
               <h4>Transfer methods are restricted</h4>
@@ -285,6 +285,38 @@
     function closeMobileMenu(){ mobileMenu.classList.remove('active'); }
     if (mobileToggle) mobileToggle.addEventListener('click', function(){ mobileMenu.classList.add('active'); });
     if (mobileClose) mobileClose.addEventListener('click', closeMobileMenu);
+  </script>
+
+  <div class="policy-modal-overlay" id="samplePolicyOverlay" onclick="if(event.target===this) closeSamplePolicyModal()">
+    <div class="policy-modal">
+      <button class="policy-modal-close" onclick="closeSamplePolicyModal()" aria-label="Close">&times;</button>
+      <div style="font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--text-muted); margin-bottom:10px;">Sample &mdash; for reference only</div>
+      <h3 style="font-size:18px; font-weight:700; color:var(--navy); margin:0 0 16px;">Employee Notice: System Activity Monitoring</h3>
+      <p style="font-size:14px; color:var(--text-secondary); line-height:1.7; margin:0 0 14px;">As part of our commitment to protecting the confidentiality of applicant, customer, and financial information, [Company Name] monitors employee activity within our systems of record, including document access, downloads, and related actions.</p>
+      <p style="font-size:14px; color:var(--text-secondary); line-height:1.7; margin:0 0 14px;">This monitoring supports our obligations to safeguard sensitive information and helps us detect and prevent unauthorized access, use, or disclosure of confidential records.</p>
+      <p style="font-size:14px; color:var(--text-secondary); line-height:1.7; margin:0 0 8px;">By accessing these systems, you acknowledge that:</p>
+      <ul style="font-size:14px; color:var(--text-secondary); line-height:1.7; margin:0 0 14px; padding-left:20px;">
+        <li>Your activity &mdash; including which documents you view, download, or otherwise interact with &mdash; may be logged and reviewed.</li>
+        <li>This monitoring is conducted for legitimate business and compliance purposes, not for evaluating unrelated job performance.</li>
+        <li>You are expected to access only the files and records necessary to perform your assigned role.</li>
+      </ul>
+      <p style="font-size:14px; color:var(--text-secondary); line-height:1.7; margin:0;">Questions about this notice may be directed to [designated contact].</p>
+      <div style="border-top:1px solid var(--border-light); margin-top:20px; padding-top:16px; font-size:13px; color:var(--text-muted); line-height:2;">
+        Employee acknowledgment:<br>
+        Name: _______________________ &nbsp; Signature: _______________________ &nbsp; Date: ___________
+      </div>
+    </div>
+  </div>
+  <style>
+    .policy-modal-overlay { display:none; position:fixed; inset:0; background:rgba(15,33,55,0.55); z-index:9999; align-items:center; justify-content:center; padding:20px; }
+    .policy-modal-overlay.open { display:flex; }
+    .policy-modal { background:#fff; max-width:560px; width:100%; max-height:85vh; overflow-y:auto; border:1px solid var(--border); padding:32px; position:relative; }
+    .policy-modal-close { position:absolute; top:14px; right:14px; background:none; border:none; font-size:22px; line-height:1; cursor:pointer; color:var(--text-muted); }
+    .policy-trigger-link { color:var(--green-accent); text-decoration:underline; font-weight:500; }
+  </style>
+  <script>
+    function openSamplePolicyModal(e){ if(e){ e.preventDefault(); e.stopPropagation(); } document.getElementById('samplePolicyOverlay').classList.add('open'); }
+    function closeSamplePolicyModal(){ document.getElementById('samplePolicyOverlay').classList.remove('open'); }
   </script>
 </body>
 </html>
