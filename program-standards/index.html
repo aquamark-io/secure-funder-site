@@ -153,15 +153,18 @@
     .choice-grid label{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;border:1px solid var(--border-light);background:#fff;cursor:pointer;font-size:.88rem;color:var(--text-secondary);line-height:1.45}
     .choice-grid input{margin-top:3px;accent-color:var(--green-accent);flex:0 0 auto}
     .safeguard-list{display:grid;gap:0;border:1px solid var(--border-light)}
-    .safeguard-option{border-top:1px solid var(--border-light);padding:12px 14px}
+    .safeguard-option{border-top:1px solid var(--border-light)}
     .safeguard-option:first-child{border-top:none}
-    .safeguard-option-row{display:flex;align-items:center;gap:10px;cursor:pointer}
-    .safeguard-option-row input{accent-color:var(--green-accent);flex:0 0 auto}
-    .safeguard-option-title{font-weight:700;font-size:.92rem;color:var(--text-primary)}
-    .safeguard-detail-toggle{background:none;border:none;padding:6px 0 0 26px;margin:0;font-size:.8rem;color:var(--green-accent);text-decoration:underline;cursor:pointer;font-family:inherit}
-    .safeguard-option-body{display:none;margin-top:8px;padding-left:26px}
+    .safeguard-option-row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 16px}
+    .safeguard-option-main{display:flex;align-items:center;gap:12px;cursor:pointer;min-width:0}
+    .safeguard-option-main input{width:16px;height:16px;accent-color:var(--green-accent);flex:0 0 auto}
+    .safeguard-option-title{font-weight:700;font-size:.96rem;color:var(--text-primary);line-height:1.4}
+    .safeguard-detail-toggle{flex:0 0 auto;background:transparent;border:1px solid var(--border);color:var(--text-primary);font-family:inherit;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:8px 14px;cursor:pointer;transition:background .15s,color .15s,border-color .15s}
+    .safeguard-detail-toggle:hover{border-color:var(--green-accent);color:var(--green-accent)}
+    .safeguard-detail-toggle.expanded{background:var(--green-accent);border-color:var(--green-accent);color:var(--white)}
+    .safeguard-option-body{display:none;padding:0 16px 18px}
     .safeguard-option-body.expanded{display:block}
-    .safeguard-option-body p{font-size:.88rem;color:var(--text-secondary);line-height:1.6;margin:0 0 8px}
+    .safeguard-option-body p{font-size:.9rem;color:var(--text-secondary);line-height:1.65;margin:0 0 8px}
     .safeguard-option-body p:last-child{margin-bottom:0}
     .question-select{width:100%;padding:11px 12px;border:1px solid var(--border);background:#fff;color:var(--text-primary);font:inherit;font-size:.9rem;border-radius:0}
     .conditional-panel{display:none;margin-top:12px}
@@ -208,6 +211,10 @@
       .question-label{font-size:1.03rem}
       .question-hint{font-size:.88rem}
       .choice-grid label{font-size:.96rem}
+      .safeguard-option-title{font-size:1rem}
+      .safeguard-option-body p{font-size:.95rem}
+      .safeguard-detail-toggle{font-size:.7rem;padding:9px 12px}
+      .safeguard-option-row{padding:14px}
       .branch-title{font-size:.9rem}
       .result-callout{font-size:.95rem}
       .success-title{font-size:.95rem}
@@ -273,7 +280,7 @@
             <div id="program-scope" style="border:1px solid var(--border);margin-bottom:26px;overflow:hidden;">
               <div style="background:var(--green-accent);color:var(--white);font-family:var(--font-display);font-weight:700;font-size:1.05rem;padding:14px 20px;">Program Scope</div>
               <div style="padding:14px 20px;font-size:1.02rem;color:var(--text-secondary);line-height:1.7;">
-                The program focuses on protecting the <strong style="color:var(--navy);">initial submission package</strong> at the <strong style="color:var(--navy);">highest-concentration point of risk</strong>. The goal is to verify meaningful safeguards that reduce opportunity or create accountability, not eliminate every possible path to misuse.
+                The program focuses on protecting the <strong style="color:var(--navy);">initial submission package</strong> at the <strong style="color:var(--navy);">highest-concentration point of risk</strong>. The goal is to verify reasonable safeguards that reduce opportunity or create accountability, not eliminate every possible path to misuse.
               </div>
             </div>
 
@@ -356,14 +363,16 @@
                       <div class="conditional-panel" data-result="sor-download">
                         <div style="margin-top:16px;">
                           <div class="question-label">Which safeguards are in place for downloadable submission documents?</div>
-                          <div class="question-hint">These are common examples of safeguards that deter misuse &mdash; select any that apply, or choose Other to describe your approach.</div>
+                          <div class="question-hint">These are common examples of safeguards that deter misuse &mdash; select any that apply, or choose Other.</div>
                           <div class="safeguard-list">
                             <div class="safeguard-option">
-                              <label class="safeguard-option-row">
-                                <input type="checkbox" name="sor-safeguard" value="transfer" data-safeguard-group="sor">
-                                <span class="safeguard-option-title">Transfer methods</span>
-                              </label>
-                              <button type="button" class="safeguard-detail-toggle" onclick="toggleSafeguardDetail(this)">Show details</button>
+                              <div class="safeguard-option-row">
+                                <label class="safeguard-option-main">
+                                  <input type="checkbox" name="sor-safeguard" value="transfer" data-safeguard-group="sor">
+                                  <span class="safeguard-option-title">Transfer methods</span>
+                                </label>
+                                <button type="button" class="safeguard-detail-toggle" onclick="toggleSafeguardDetail(this)">Show details</button>
+                              </div>
                               <div class="safeguard-option-body">
                                 <p>Company-managed devices restrict common ways documents could be moved outside the company. Examples include:</p>
                                 <ul class="example-list" style="margin-top:8px;">
@@ -375,31 +384,37 @@
                               </div>
                             </div>
                             <div class="safeguard-option">
-                              <label class="safeguard-option-row">
-                                <input type="checkbox" name="sor-safeguard" value="watermark" data-safeguard-group="sor">
-                                <span class="safeguard-option-title">Watermarking</span>
-                              </label>
-                              <button type="button" class="safeguard-detail-toggle" onclick="toggleSafeguardDetail(this)">Show details</button>
+                              <div class="safeguard-option-row">
+                                <label class="safeguard-option-main">
+                                  <input type="checkbox" name="sor-safeguard" value="watermark" data-safeguard-group="sor">
+                                  <span class="safeguard-option-title">Watermarking</span>
+                                </label>
+                                <button type="button" class="safeguard-detail-toggle" onclick="toggleSafeguardDetail(this)">Show details</button>
+                              </div>
                               <div class="safeguard-option-body">
                                 <p>Downloaded documents contain the company name, logo, or another identifying mark &mdash; <a class="inline-link" href="https://www.aquamark.io/" target="_blank" rel="noopener noreferrer">Aquamark</a> or equivalent. Awareness that documents can be traced back to the company creates a reasonable deterrent to misuse.</p>
                               </div>
                             </div>
                             <div class="safeguard-option">
-                              <label class="safeguard-option-row">
-                                <input type="checkbox" name="sor-safeguard" value="monitoring" data-safeguard-group="sor">
-                                <span class="safeguard-option-title">Activity monitoring + policy</span>
-                              </label>
-                              <button type="button" class="safeguard-detail-toggle" onclick="toggleSafeguardDetail(this)">Show details</button>
+                              <div class="safeguard-option-row">
+                                <label class="safeguard-option-main">
+                                  <input type="checkbox" name="sor-safeguard" value="monitoring" data-safeguard-group="sor">
+                                  <span class="safeguard-option-title">Activity monitoring + policy</span>
+                                </label>
+                                <button type="button" class="safeguard-detail-toggle" onclick="toggleSafeguardDetail(this)">Show details</button>
+                              </div>
                               <div class="safeguard-option-body">
                                 <p>User activity, including document downloads, is logged and subject to review, alerts, or other oversight. Personnel also sign a policy acknowledging that their activity is monitored. Knowing actions are attributable and may be reviewed creates accountability and helps deter misuse. <a href="#" class="policy-trigger-link" onclick="openSamplePolicyModal(event)">Sample policy</a> &nbsp;|&nbsp; <a href="https://nij.ojp.gov/topics/articles/five-things-about-deterrence" target="_blank" rel="noopener noreferrer" class="policy-trigger-link">Research</a></p>
                               </div>
                             </div>
                             <div class="safeguard-option">
-                              <label class="safeguard-option-row">
-                                <input type="checkbox" name="sor-safeguard" value="other" data-safeguard-group="sor">
-                                <span class="safeguard-option-title">Other</span>
-                              </label>
-                              <button type="button" class="safeguard-detail-toggle" onclick="toggleSafeguardDetail(this)">Show details</button>
+                              <div class="safeguard-option-row">
+                                <label class="safeguard-option-main">
+                                  <input type="checkbox" name="sor-safeguard" value="other" data-safeguard-group="sor">
+                                  <span class="safeguard-option-title">Other</span>
+                                </label>
+                                <button type="button" class="safeguard-detail-toggle" onclick="toggleSafeguardDetail(this)">Show details</button>
+                              </div>
                               <div class="safeguard-option-body">
                                 <p>Every company operates differently. If you use another approach, tell us and we&rsquo;ll provide feedback.</p>
                               </div>
@@ -474,14 +489,16 @@
                           <div class="conditional-panel" data-result="email-sor-download">
                             <div style="margin-top:16px;">
                               <div class="question-label">Which safeguards are in place for downloadable submission documents?</div>
-                              <div class="question-hint">These are common examples of safeguards that deter misuse &mdash; select any that apply, or choose Other to describe your approach.</div>
+                              <div class="question-hint">These are common examples of safeguards that deter misuse &mdash; select any that apply, or choose Other.</div>
                               <div class="safeguard-list">
                                 <div class="safeguard-option">
-                                  <label class="safeguard-option-row">
-                                    <input type="checkbox" name="email-sor-safeguard" value="transfer" data-safeguard-group="email-sor">
-                                    <span class="safeguard-option-title">Transfer methods</span>
-                                  </label>
-                                  <button type="button" class="safeguard-detail-toggle" onclick="toggleSafeguardDetail(this)">Show details</button>
+                                  <div class="safeguard-option-row">
+                                    <label class="safeguard-option-main">
+                                      <input type="checkbox" name="email-sor-safeguard" value="transfer" data-safeguard-group="email-sor">
+                                      <span class="safeguard-option-title">Transfer methods</span>
+                                    </label>
+                                    <button type="button" class="safeguard-detail-toggle" onclick="toggleSafeguardDetail(this)">Show details</button>
+                                  </div>
                                   <div class="safeguard-option-body">
                                     <p>Company-managed devices restrict common ways documents could be moved outside the company. Examples include:</p>
                                     <ul class="example-list" style="margin-top:8px;">
@@ -493,31 +510,37 @@
                                   </div>
                                 </div>
                                 <div class="safeguard-option">
-                                  <label class="safeguard-option-row">
-                                    <input type="checkbox" name="email-sor-safeguard" value="watermark" data-safeguard-group="email-sor">
-                                    <span class="safeguard-option-title">Watermarking</span>
-                                  </label>
-                                  <button type="button" class="safeguard-detail-toggle" onclick="toggleSafeguardDetail(this)">Show details</button>
+                                  <div class="safeguard-option-row">
+                                    <label class="safeguard-option-main">
+                                      <input type="checkbox" name="email-sor-safeguard" value="watermark" data-safeguard-group="email-sor">
+                                      <span class="safeguard-option-title">Watermarking</span>
+                                    </label>
+                                    <button type="button" class="safeguard-detail-toggle" onclick="toggleSafeguardDetail(this)">Show details</button>
+                                  </div>
                                   <div class="safeguard-option-body">
                                     <p>Downloaded documents contain the company name, logo, or another identifying mark &mdash; <a class="inline-link" href="https://www.aquamark.io/" target="_blank" rel="noopener noreferrer">Aquamark</a> or equivalent. Awareness that documents can be traced back to the company creates a reasonable deterrent to misuse.</p>
                                   </div>
                                 </div>
                                 <div class="safeguard-option">
-                                  <label class="safeguard-option-row">
-                                    <input type="checkbox" name="email-sor-safeguard" value="monitoring" data-safeguard-group="email-sor">
-                                    <span class="safeguard-option-title">Activity monitoring + policy</span>
-                                  </label>
-                                  <button type="button" class="safeguard-detail-toggle" onclick="toggleSafeguardDetail(this)">Show details</button>
+                                  <div class="safeguard-option-row">
+                                    <label class="safeguard-option-main">
+                                      <input type="checkbox" name="email-sor-safeguard" value="monitoring" data-safeguard-group="email-sor">
+                                      <span class="safeguard-option-title">Activity monitoring + policy</span>
+                                    </label>
+                                    <button type="button" class="safeguard-detail-toggle" onclick="toggleSafeguardDetail(this)">Show details</button>
+                                  </div>
                                   <div class="safeguard-option-body">
                                     <p>User activity, including document downloads, is logged and subject to review, alerts, or other oversight. Personnel also sign a policy acknowledging that their activity is monitored. Knowing actions are attributable and may be reviewed creates accountability and helps deter misuse. <a href="#" class="policy-trigger-link" onclick="openSamplePolicyModal(event)">Sample policy</a> &nbsp;|&nbsp; <a href="https://nij.ojp.gov/topics/articles/five-things-about-deterrence" target="_blank" rel="noopener noreferrer" class="policy-trigger-link">Research</a></p>
                                   </div>
                                 </div>
                                 <div class="safeguard-option">
-                                  <label class="safeguard-option-row">
-                                    <input type="checkbox" name="email-sor-safeguard" value="other" data-safeguard-group="email-sor">
-                                    <span class="safeguard-option-title">Other</span>
-                                  </label>
-                                  <button type="button" class="safeguard-detail-toggle" onclick="toggleSafeguardDetail(this)">Show details</button>
+                                  <div class="safeguard-option-row">
+                                    <label class="safeguard-option-main">
+                                      <input type="checkbox" name="email-sor-safeguard" value="other" data-safeguard-group="email-sor">
+                                      <span class="safeguard-option-title">Other</span>
+                                    </label>
+                                    <button type="button" class="safeguard-detail-toggle" onclick="toggleSafeguardDetail(this)">Show details</button>
+                                  </div>
                                   <div class="safeguard-option-body">
                                     <p>Every company operates differently. If you use another approach, tell us and we&rsquo;ll provide feedback.</p>
                                   </div>
@@ -759,8 +782,9 @@
   function toggleSafeguardDetail(btn){
     var option = btn.closest('.safeguard-option');
     var checkbox = option.querySelector('input[type="checkbox"]');
-    var body = btn.nextElementSibling;
+    var body = option.querySelector('.safeguard-option-body');
     var expanded = body.classList.toggle('expanded');
+    btn.classList.toggle('expanded', expanded);
     btn.textContent = expanded ? 'Hide details' : 'Show details';
     if (checkbox.checked !== expanded) {
       checkbox.checked = expanded;
@@ -768,16 +792,18 @@
     }
   }
   document.addEventListener('DOMContentLoaded', function(){
-    document.querySelectorAll('.safeguard-option-row input[type="checkbox"]').forEach(function(cb){
+    document.querySelectorAll('.safeguard-option input[type="checkbox"]').forEach(function(cb){
       cb.addEventListener('change', function(){
         var option = cb.closest('.safeguard-option');
         var toggle = option.querySelector('.safeguard-detail-toggle');
         var body = option.querySelector('.safeguard-option-body');
         if (cb.checked) {
           body.classList.add('expanded');
+          toggle.classList.add('expanded');
           toggle.textContent = 'Hide details';
         } else {
           body.classList.remove('expanded');
+          toggle.classList.remove('expanded');
           toggle.textContent = 'Show details';
         }
       });
