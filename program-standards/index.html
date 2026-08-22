@@ -126,8 +126,8 @@
     .req-kicker{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:10px}
     .req-top h3{font-family:var(--font-display);font-size:1.25rem;font-weight:700;color:var(--navy);letter-spacing:-.01em;margin-bottom:8px}
     .req-quiz-badge{display:inline-flex;align-items:center;justify-content:center;background:#DFF029;color:#000000;font-family:var(--font-body);font-size:1.05rem;font-weight:700;letter-spacing:.03em;padding:12px 24px;border-radius:0;margin-top:12px}
-    .req-quiz-new-badge{display:inline-flex;align-items:center;gap:5px;vertical-align:middle;color:#DC2626;font-family:var(--font-body);font-size:.8rem;font-weight:800;letter-spacing:.01em;margin-left:10px;position:relative;top:-2px}
-    .req-quiz-new-badge svg{flex-shrink:0}
+    .req-quiz-new-badge{display:inline-flex;align-items:center;gap:6px;vertical-align:middle;background:#FDECEC;border:1px solid #DC2626;color:#B91C1C;font-family:var(--font-body);font-size:.78rem;font-weight:800;letter-spacing:.01em;padding:4px 10px 4px 4px;margin-left:10px;position:relative;top:-2px}
+    .req-quiz-new-badge-icon{flex-shrink:0;width:18px;height:18px;border-radius:50%;background:#DC2626;color:var(--white);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800}
     .req-quiz-arrow{display:none;align-items:center;justify-content:center;margin:12px 0 0 14px;width:34px;height:34px;color:var(--green-accent)}
     .req-card[open] .req-quiz-arrow{display:inline-flex;animation:reqQuizArrowBounce 1.1s ease-in-out infinite}
     @keyframes reqQuizArrowBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(7px)}}
@@ -333,7 +333,7 @@
 
             <details id="document-protection" class="req-card">
               <summary class="req-top">
-                <h3>1. Submission Protection <span class="req-quiz-new-badge"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M10.29 3.86L1.82 18a1.5 1.5 0 0 0 1.29 2.25h17.78A1.5 1.5 0 0 0 22.18 18L13.71 3.86a1.5 1.5 0 0 0-2.42 0z" fill="#DC2626" stroke="#DC2626" stroke-width="1.5" stroke-linejoin="round"></path><line x1="12" y1="9" x2="12" y2="13.5" stroke="#FDF3E3" stroke-width="2" stroke-linecap="round"></line><circle cx="12" cy="17" r="1" fill="#FDF3E3"></circle></svg>New: Vulnerability Detection</span></h3>
+                <h3>1. Submission Protection <span class="req-quiz-new-badge"><span class="req-quiz-new-badge-icon">!</span>New: Vulnerability Detection</span></h3>
                 <p>Reasonable safeguards for the initial submission package.</p>
                 <span class="req-quiz-badge">Start Quiz</span><span class="req-quiz-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 9 12 16 19 9"></polyline></svg></span>
               </summary>
@@ -609,10 +609,98 @@
                           <div class="warning-check">!</div>
                           <div>
                             <div class="warning-title">Vulnerability Detected:</div>
-                            <div class="warning-text">Because submissions are routed through a person rather than a controlled system of record, a safeguard is needed.</div>
-                            <a href="/common-approaches/" target="_blank" rel="noopener noreferrer" class="warning-btn">See examples</a>
+                            <div class="warning-text" style="margin-bottom:0;">Because submissions are routed through a person rather than a controlled system of record, a safeguard is needed.</div>
                           </div>
                         </div>
+                        <div class="question-label" style="margin-top:16px;">Which safeguards are in place?</div>
+                        <div class="question-hint">Select any that apply, or choose Other to describe your approach.</div>
+                        <div class="safeguard-list">
+                          <div class="safeguard-option">
+                            <div class="safeguard-option-row">
+                              <label class="safeguard-option-main">
+                                <input type="checkbox" name="person-safeguard" value="transfer" data-safeguard-group="person">
+                                <span class="safeguard-option-title">Transfer methods</span>
+                              </label>
+                              <button type="button" class="safeguard-detail-toggle" onclick="toggleSafeguardDetail(this)">Show details</button>
+                            </div>
+                            <div class="safeguard-option-body">
+                              <p>Company-managed devices restrict common ways documents could be moved outside the company. Examples include:</p>
+                              <ul class="example-list" style="margin-top:8px;">
+                                <li>Restricting access to logging into personal email accounts</li>
+                                <li>Restricting access to personal cloud-storage accounts (Google Drive, Dropbox, etc.).</li>
+                                <li>Outbound email quarantine on messages with attachments sent to external and personal domains.</li>
+                                <li>Removable-media restrictions &mdash; blocking copying to USB drives or other external storage.</li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div class="safeguard-option">
+                            <div class="safeguard-option-row">
+                              <label class="safeguard-option-main">
+                                <input type="checkbox" name="person-safeguard" value="watermark" data-safeguard-group="person">
+                                <span class="safeguard-option-title">Watermarking</span>
+                              </label>
+                              <button type="button" class="safeguard-detail-toggle" onclick="toggleSafeguardDetail(this)">Show details</button>
+                            </div>
+                            <div class="safeguard-option-body">
+                              <p>Downloaded documents contain the company name, logo, or another identifying mark &mdash; <a class="inline-link" href="https://www.aquamark.io/" target="_blank" rel="noopener noreferrer">Aquamark</a> or equivalent. Awareness that documents can be traced back to the company creates a reasonable deterrent to misuse.</p>
+                            </div>
+                          </div>
+                          <div class="safeguard-option">
+                            <div class="safeguard-option-row">
+                              <label class="safeguard-option-main">
+                                <input type="checkbox" name="person-safeguard" value="monitoring" data-safeguard-group="person">
+                                <span class="safeguard-option-title">Activity monitoring + policy</span>
+                              </label>
+                              <button type="button" class="safeguard-detail-toggle" onclick="toggleSafeguardDetail(this)">Show details</button>
+                            </div>
+                            <div class="safeguard-option-body">
+                              <p>User activity, including document downloads, is logged and subject to review, alerts, or other oversight. Personnel also sign a policy acknowledging that their activity is monitored. The principle is similar to visible security cameras: knowing your actions are being observed and can be traced back to you helps deter misconduct. <a href="#" class="policy-trigger-link" onclick="openSamplePolicyModal(event)">Sample policy</a></p>
+                            </div>
+                          </div>
+                          <div class="safeguard-option">
+                            <div class="safeguard-option-row">
+                              <label class="safeguard-option-main">
+                                <input type="checkbox" name="person-safeguard" value="other" data-safeguard-group="person">
+                                <span class="safeguard-option-title">Other</span>
+                              </label>
+                              <button type="button" class="safeguard-detail-toggle" onclick="toggleSafeguardDetail(this)">Show details</button>
+                            </div>
+                            <div class="safeguard-option-body">
+                              <p>Every company operates differently. If you use another approach, tell us and we&rsquo;ll provide feedback.</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="conditional-panel" data-result="person-watermark">
+                        <div class="success-banner">
+                          <div class="success-check">&#10003;</div>
+                          <div>
+                            <div class="success-title">Acceptable safeguard</div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="conditional-panel" data-result="person-monitoring">
+                        <div class="success-banner">
+                          <div class="success-check">&#10003;</div>
+                          <div>
+                            <div class="success-title">Acceptable safeguard</div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="conditional-panel" data-result="person-transfer">
+                        <div class="success-banner">
+                          <div class="success-check">&#10003;</div>
+                          <div>
+                            <div class="success-title">Acceptable safeguard</div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="conditional-panel" data-result="person-other">
+                        <div style="width:100%;height:500px;" data-fillout-id="mCJM1tjrHUus" data-fillout-embed-type="standard" data-fillout-inherit-parameters data-fillout-dynamic-resize></div>
                       </div>
                     </div>
                   </div>
@@ -739,6 +827,13 @@
         var emailRouting = root.querySelector('[data-branch-select="email-routing"]');
         show(root.querySelector('[data-result="email-auto"]'), emailRouting && emailRouting.value === 'auto');
         show(root.querySelector('[data-result="email-person"]'), emailRouting && emailRouting.value === 'person');
+
+        var personSafeguardBoxes = Array.from(root.querySelectorAll('input[data-safeguard-group="person"]'));
+        var personChecked = personSafeguardBoxes.filter(function(cb){ return cb.checked; }).map(function(cb){ return cb.value; });
+        show(root.querySelector('[data-result="person-watermark"]'), emailRouting && emailRouting.value === 'person' && personChecked.indexOf('watermark') !== -1);
+        show(root.querySelector('[data-result="person-monitoring"]'), emailRouting && emailRouting.value === 'person' && personChecked.indexOf('monitoring') !== -1);
+        show(root.querySelector('[data-result="person-transfer"]'), emailRouting && emailRouting.value === 'person' && personChecked.indexOf('transfer') !== -1);
+        show(root.querySelector('[data-result="person-other"]'), emailRouting && emailRouting.value === 'person' && personChecked.indexOf('other') !== -1);
 
         var emailSorAccess = root.querySelector('[data-branch-select="email-sor-access"]');
         show(root.querySelector('[data-result="email-sor-view"]'), emailSorAccess && emailSorAccess.value === 'view');
