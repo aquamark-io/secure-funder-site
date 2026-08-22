@@ -784,16 +784,27 @@
 
   <script>
     (function(){
-      var openTarget = function(hash){
+      var NAV_OFFSET = 92;
+      var openTarget = function(hash, forceScroll){
         if(!hash) return;
         var el = document.querySelector(hash);
-        if(el && el.tagName === 'DETAILS') el.open = true;
+        if(!el || el.tagName !== 'DETAILS') return;
+        el.open = true;
+        if (forceScroll) {
+          requestAnimationFrame(function(){
+            requestAnimationFrame(function(){
+              var rect = el.getBoundingClientRect();
+              var targetY = window.pageYOffset + rect.top - NAV_OFFSET;
+              window.scrollTo({ top: targetY, behavior: 'auto' });
+            });
+          });
+        }
       };
       document.querySelectorAll('.sidebar a[href^="#"]').forEach(function(link){
-        link.addEventListener('click', function(){ openTarget(link.getAttribute('href')); });
+        link.addEventListener('click', function(){ openTarget(link.getAttribute('href'), true); });
       });
-      if(location.hash) openTarget(location.hash);
-      window.addEventListener('hashchange', function(){ openTarget(location.hash); });
+      if(location.hash) openTarget(location.hash, true);
+      window.addEventListener('hashchange', function(){ openTarget(location.hash, true); });
     })();
 
     // Requirement 03 conditional questionnaire
