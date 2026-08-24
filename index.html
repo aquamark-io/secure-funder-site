@@ -1162,19 +1162,30 @@
     }
     .benefits-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 28px;
-      margin-top: 0;
-      max-width: 960px;
-      margin-left: auto;
-      margin-right: auto;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-areas:
+        "protect protect trust"
+        "lead connect trust"
+        "stay stay stay";
+      grid-auto-rows: minmax(120px, auto);
+      gap: 20px;
+      max-width: 900px;
+      margin: 0 auto;
     }
+    .benefit-protect { grid-area: protect; }
+    .benefit-trust { grid-area: trust; }
+    .benefit-lead { grid-area: lead; }
+    .benefit-connect { grid-area: connect; }
+    .benefit-stay { grid-area: stay; }
     .benefit-card {
       background: var(--white);
       border: 1px solid var(--border-light);
       border-radius: 0;
-      padding: 44px 38px 40px;
+      padding: 32px 30px;
       text-align: left;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
     }
     .benefit-card:hover {
@@ -1189,11 +1200,11 @@
     }
     .benefit-card h4 {
       font-family: var(--font-display);
-      font-size: 1.18rem; font-weight: 600; color: var(--navy);
-      margin-bottom: 10px; line-height: 1.3;
+      font-size: 1.14rem; font-weight: 600; color: var(--navy);
+      margin-bottom: 8px; line-height: 1.3;
     }
     .benefit-card p {
-      font-size: 1.08rem; color: var(--text-secondary); line-height: 1.7;
+      font-size: 1rem; color: var(--text-secondary); line-height: 1.6;
     }
     .benefit-stat {
       font-family: var(--font-display);
@@ -1204,11 +1215,8 @@
       margin-bottom: 16px;
     }
     @media (max-width: 600px) {
-      .benefits-grid { grid-template-columns: 1fr; gap: 20px; }
-      .benefit-card { padding: 32px 24px 28px; }
-    }
-    .benefits-grid-3 {
-      grid-template-columns: repeat(2, 1fr);
+      .benefits-grid { grid-template-columns: 1fr; grid-template-areas: "protect" "trust" "lead" "connect" "stay"; gap: 20px; max-width: 380px; }
+      .benefit-card { padding: 28px 24px; }
     }
     .benefit-card-accent {
       background: var(--blue-accent);
@@ -1362,9 +1370,6 @@
       color: var(--white);
       margin-bottom: 16px;
       line-height: 1;
-    }
-    @media (max-width: 600px) {
-      .benefits-grid-3 { grid-template-columns: 1fr; }
     }
 
     /* ===== CAPITAL OPPORTUNITIES ===== */
@@ -2675,22 +2680,26 @@
       <div class="section-header" style="text-align: center;">
         <h2 class="section-title">Member Benefits</h2>
       </div>
-      <div class="benefits-grid benefits-grid-3 reveal">
-        <div class="benefit-card">
-          <h4>Connect with Brokers</h4>
-          <p>Partner with participating brokers in the member portal and build new relationships.</p>
+      <div class="benefits-grid reveal">
+        <div class="benefit-card benefit-protect">
+          <h4>Protect Your Business</h4>
+          <p>Use the program framework to identify vulnerabilities&mdash; and what to do about it.</p>
         </div>
-        <div class="benefit-card">
-          <h4>Competitive Advantage</h4>
-          <p>Earn a digital badge that makes trust visible and independently verifiable.</p>
+        <div class="benefit-card benefit-trust">
+          <h4>Trust Signal</h4>
+          <p>Independent proof that your company handles data responsibly. Receive directory listing and digital badge.</p>
         </div>
-        <div class="benefit-card">
+        <div class="benefit-card benefit-lead">
           <h4>Lead Change</h4>
           <p>Be part of a standard that makes unethical practices harder to hide.</p>
         </div>
-        <div class="benefit-card">
-          <h4>Regulatory Readiness</h4>
-          <p>Security standards are evolving alongside emerging regulation. Get ahead of what's coming.</p>
+        <div class="benefit-card benefit-connect">
+          <h4>Connect with Brokers</h4>
+          <p>Build new relationships with participating brokers.</p>
+        </div>
+        <div class="benefit-card benefit-stay">
+          <h4>Stay Ahead</h4>
+          <p>Data security expectations are evolving. Get ahead of what&rsquo;s coming.</p>
         </div>
       </div>
 
