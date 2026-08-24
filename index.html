@@ -1167,6 +1167,20 @@
       max-width: 900px;
       margin: 0 auto;
     }
+    .benefits-grid-secondary {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      max-width: 900px;
+      margin: 20px auto 0;
+    }
+    .benefits-grid-secondary .benefit-card {
+      flex: 0 1 280px;
+    }
+    .benefits-title {
+      font-size: 2.4rem;
+    }
     .benefit-card {
       background: var(--white);
       border: 1px solid var(--border-light);
@@ -1207,6 +1221,11 @@
     }
     @media (max-width: 600px) {
       .benefits-grid { grid-template-columns: 1fr; gap: 20px; max-width: 380px; }
+      .benefits-grid-secondary { flex-direction: column; align-items: center; max-width: 380px; }
+      .benefits-grid-secondary .benefit-card { flex: 0 1 auto; width: 100%; }
+      .benefits-title { font-size: 1.9rem; }
+      .benefit-card h4 { font-size: 1.28rem; }
+      .benefit-card p { font-size: 1.12rem; }
       .benefit-card { padding: 28px 24px; }
     }
     .benefit-card-accent {
@@ -2669,12 +2688,12 @@
   <section class="benefits-section">
     <div class="container">
       <div class="section-header" style="text-align: center;">
-        <h2 class="section-title">Member Benefits</h2>
+        <h2 class="section-title benefits-title">Membership Benefits</h2>
       </div>
       <div class="benefits-grid reveal">
         <div class="benefit-card">
           <h4>Protect Your Business</h4>
-          <p>Use the program framework to identify vulnerabilities&mdash; and what to do about it.</p>
+          <p>Use the program framework to identify vulnerabilities&mdash; and how to fix them.</p>
         </div>
         <div class="benefit-card">
           <h4>Trust Signal</h4>
@@ -2684,6 +2703,8 @@
           <h4>Lead Change</h4>
           <p>Be part of a standard that makes unethical practices harder to hide.</p>
         </div>
+      </div>
+      <div class="benefits-grid-secondary reveal">
         <div class="benefit-card">
           <h4>Connect with Brokers</h4>
           <p>Build new relationships with participating brokers.</p>
