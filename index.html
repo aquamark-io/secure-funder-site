@@ -1163,25 +1163,16 @@
     .benefits-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      grid-template-areas:
-        "protect protect trust"
-        "lead connect trust"
-        "stay stay stay";
-      grid-auto-rows: minmax(120px, auto);
       gap: 20px;
       max-width: 900px;
       margin: 0 auto;
     }
-    .benefit-protect { grid-area: protect; }
-    .benefit-trust { grid-area: trust; }
-    .benefit-lead { grid-area: lead; }
-    .benefit-connect { grid-area: connect; }
-    .benefit-stay { grid-area: stay; }
     .benefit-card {
       background: var(--white);
       border: 1px solid var(--border-light);
       border-radius: 0;
       padding: 32px 30px;
+      min-height: 190px;
       text-align: left;
       display: flex;
       flex-direction: column;
@@ -1215,7 +1206,7 @@
       margin-bottom: 16px;
     }
     @media (max-width: 600px) {
-      .benefits-grid { grid-template-columns: 1fr; grid-template-areas: "protect" "trust" "lead" "connect" "stay"; gap: 20px; max-width: 380px; }
+      .benefits-grid { grid-template-columns: 1fr; gap: 20px; max-width: 380px; }
       .benefit-card { padding: 28px 24px; }
     }
     .benefit-card-accent {
@@ -2681,23 +2672,23 @@
         <h2 class="section-title">Member Benefits</h2>
       </div>
       <div class="benefits-grid reveal">
-        <div class="benefit-card benefit-protect">
+        <div class="benefit-card">
           <h4>Protect Your Business</h4>
           <p>Use the program framework to identify vulnerabilities&mdash; and what to do about it.</p>
         </div>
-        <div class="benefit-card benefit-trust">
+        <div class="benefit-card">
           <h4>Trust Signal</h4>
           <p>Independent proof that your company handles data responsibly. Receive directory listing and digital badge.</p>
         </div>
-        <div class="benefit-card benefit-lead">
+        <div class="benefit-card">
           <h4>Lead Change</h4>
           <p>Be part of a standard that makes unethical practices harder to hide.</p>
         </div>
-        <div class="benefit-card benefit-connect">
+        <div class="benefit-card">
           <h4>Connect with Brokers</h4>
           <p>Build new relationships with participating brokers.</p>
         </div>
-        <div class="benefit-card benefit-stay">
+        <div class="benefit-card">
           <h4>Stay Ahead</h4>
           <p>Data security expectations are evolving. Get ahead of what&rsquo;s coming.</p>
         </div>
