@@ -325,6 +325,35 @@
       color: var(--blue-accent);
     }
 
+    .article-body ul.checklist {
+      list-style: none;
+      margin: 0 0 28px;
+      padding: 0;
+      border-top: 1px solid var(--border-light);
+    }
+    .article-body ul.checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin: 0;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .article-body .check-icon {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--blue-accent-pale);
+      color: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.72rem;
+      font-weight: 800;
+      margin-top: 3px;
+    }
+
     .article-body strong {
       font-weight: 700;
       color: var(--navy);
@@ -569,26 +598,18 @@
       <hr>
 
       <h2>The Baseline</h2>
-      <ul>
-        <li><strong>Business registration.</strong> Confirm the company has an active filing with the appropriate Secretary of State.</li>
-        <li><strong>Ownership.</strong> Identify the company&rsquo;s owners or principals and confirm the information is consistent with available records.</li>
-        <li><strong>Industry references.</strong> One or two contacts familiar with the company or its principals.</li>
-        <li><strong>Live verification.</strong> A short video call to verify identity.</li>
-        <li><strong>Online presence.</strong> Company website, business email domain, social media, directory listings.</li>
-        <li><strong>Online search.</strong> Look for complaints, enforcement actions, lawsuits, or other relevant public information.</li>
-        <li><strong>Credentials, where applicable.</strong> Verify applicable licenses, registrations, or certifications.</li>
-        <li><strong>Data security.</strong> Ask how sensitive business and merchant information is handled.</li>
-        <li><strong>Documentation.</strong> Review partner agreements before signing.</li>
+      <ul class="checklist">
+        <li><span class="check-icon">&#10003;</span><span><strong>Business registration.</strong> Confirm the company has an active filing with the appropriate Secretary of State.</span></li>
+        <li><span class="check-icon">&#10003;</span><span><strong>Ownership.</strong> Identify the company&rsquo;s owners or principals and confirm the information is consistent with available records.</span></li>
+        <li><span class="check-icon">&#10003;</span><span><strong>Industry references.</strong> One or two contacts familiar with the company or its principals.</span></li>
+        <li><span class="check-icon">&#10003;</span><span><strong>Live verification.</strong> A short video call to verify identity.</span></li>
+        <li><span class="check-icon">&#10003;</span><span><strong>Online presence.</strong> Company website, business email domain, social media, directory listings.</span></li>
+        <li><span class="check-icon">&#10003;</span><span><strong>Online search.</strong> Look for complaints, enforcement actions, lawsuits, or other relevant public information.</span></li>
+        <li><span class="check-icon">&#10003;</span><span><strong>Credentials, where applicable.</strong> Verify applicable licenses, registrations, or certifications.</span></li>
+        <li><span class="check-icon">&#10003;</span><span><strong>Data security.</strong> Ask how sensitive business and merchant information is handled.</span></li>
+        <li><span class="check-icon">&#10003;</span><span><strong>Documentation.</strong> Review partner agreements before signing.</span></li>
       </ul>
 
-      <hr>
-
-      <h2>My Final Thoughts</h2>
-      <p>No checklist replaces judgment, and none of this catches everything. But a consistent baseline gives every new relationship the same starting point.</p>
-
-      <p>Anything else you would add? Email <a href="mailto:info@aquamark.io">info@aquamark.io</a>.</p>
-
-    
 
     </div>
 
