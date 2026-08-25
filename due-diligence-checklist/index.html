@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>New Partner Due Diligence: A Baseline Checklist | Secure Funder&trade;</title>
+  <title>Partner Due Diligence: A Baseline Checklist | Secure Funder&trade;</title>
   <meta name="description" content="A baseline checklist for vetting a new broker, funder, or industry partner before onboarding — business registration, ownership, references, credentials, and more.">
   <link rel="icon" type="image/png" sizes="32x32" href="/blue-ring.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/blue-ring.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/blue-ring.png">
-  <meta property="og:title" content="New Partner Due Diligence: A Baseline Checklist">
+  <meta property="og:title" content="Partner Due Diligence: A Baseline Checklist">
   <meta property="og:description" content="A baseline checklist for vetting a new broker, funder, or industry partner before onboarding — business registration, ownership, references, credentials, and more.">
   <meta property="og:type" content="article">
   <meta name="twitter:card" content="summary_large_image">
@@ -332,26 +332,31 @@
       border-top: 1px solid var(--border-light);
     }
     .article-body ul.checklist li {
+      margin: 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .article-body .checklist-item {
       display: flex;
       align-items: flex-start;
       gap: 14px;
-      margin: 0;
-      padding: 16px 0;
-      border-bottom: 1px solid var(--border-light);
+      padding: 16px 4px;
+      cursor: pointer;
     }
-    .article-body .check-icon {
+    .article-body .checklist-item input[type="checkbox"] {
       flex-shrink: 0;
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      background: var(--blue-accent-pale);
-      color: var(--navy);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.72rem;
-      font-weight: 800;
-      margin-top: 3px;
+      width: 20px;
+      height: 20px;
+      margin: 2px 0 0;
+      accent-color: var(--blue-accent);
+      cursor: pointer;
+    }
+    .article-body .checklist-item:has(input:checked) span {
+      color: var(--text-muted);
+      text-decoration: line-through;
+      text-decoration-color: var(--border);
+    }
+    .article-body .checklist-item:has(input:checked) strong {
+      color: var(--text-muted);
     }
 
     .article-body strong {
@@ -574,7 +579,7 @@
   <main class="article">
 
     <header class="article-header">
-      <h1>New Partner Due Diligence: A Baseline Checklist</h1>
+      <h1>Partner Due Diligence: A Baseline Checklist</h1>
 
       <p class="article-dek">Nine checks before onboarding a broker, funder, or other partner.</p>
 
@@ -599,15 +604,15 @@
 
       <h2>The Baseline</h2>
       <ul class="checklist">
-        <li><span class="check-icon">&#10003;</span><span><strong>Business registration.</strong> Confirm the company has an active filing with the appropriate Secretary of State.</span></li>
-        <li><span class="check-icon">&#10003;</span><span><strong>Ownership.</strong> Identify the company&rsquo;s owners or principals and confirm the information is consistent with available records.</span></li>
-        <li><span class="check-icon">&#10003;</span><span><strong>Industry references.</strong> One or two contacts familiar with the company or its principals.</span></li>
-        <li><span class="check-icon">&#10003;</span><span><strong>Live verification.</strong> A short video call to verify identity.</span></li>
-        <li><span class="check-icon">&#10003;</span><span><strong>Online presence.</strong> Company website, business email domain, social media, directory listings.</span></li>
-        <li><span class="check-icon">&#10003;</span><span><strong>Online search.</strong> Look for complaints, enforcement actions, lawsuits, or other relevant public information.</span></li>
-        <li><span class="check-icon">&#10003;</span><span><strong>Credentials, where applicable.</strong> Verify applicable licenses, registrations, or certifications.</span></li>
-        <li><span class="check-icon">&#10003;</span><span><strong>Data security.</strong> Ask how sensitive business and merchant information is handled.</span></li>
-        <li><span class="check-icon">&#10003;</span><span><strong>Documentation.</strong> Review partner agreements before signing.</span></li>
+        <li><label class="checklist-item"><input type="checkbox"><span><strong>Business registration.</strong> Confirm the company has an active filing with the appropriate Secretary of State.</span></label></li>
+        <li><label class="checklist-item"><input type="checkbox"><span><strong>Ownership.</strong> Identify the company&rsquo;s owners or principals and confirm the information is consistent with available records.</span></label></li>
+        <li><label class="checklist-item"><input type="checkbox"><span><strong>Industry references.</strong> One or two contacts familiar with the company or its principals.</span></label></li>
+        <li><label class="checklist-item"><input type="checkbox"><span><strong>Live verification.</strong> A short video call to verify identity.</span></label></li>
+        <li><label class="checklist-item"><input type="checkbox"><span><strong>Online presence.</strong> Company website, business email domain, social media, directory listings.</span></label></li>
+        <li><label class="checklist-item"><input type="checkbox"><span><strong>Online search.</strong> Look for complaints, enforcement actions, lawsuits, or other relevant public information.</span></label></li>
+        <li><label class="checklist-item"><input type="checkbox"><span><strong>Credentials, where applicable.</strong> Verify applicable licenses, registrations, or certifications.</span></label></li>
+        <li><label class="checklist-item"><input type="checkbox"><span><strong>Data security.</strong> Ask how sensitive business and merchant information is handled.</span></label></li>
+        <li><label class="checklist-item"><input type="checkbox"><span><strong>Documentation.</strong> Review partner agreements before signing.</span></label></li>
       </ul>
 
 
