@@ -604,15 +604,15 @@
 
       <h2>The Baseline</h2>
       <ul class="checklist">
-        <li><label class="checklist-item"><input type="checkbox"><span><strong>Business registration.</strong> Confirm the company has an active filing with the appropriate Secretary of State.</span></label></li>
-        <li><label class="checklist-item"><input type="checkbox"><span><strong>Ownership.</strong> Identify the company&rsquo;s owners or principals and confirm the information is consistent with available records.</span></label></li>
-        <li><label class="checklist-item"><input type="checkbox"><span><strong>Industry references.</strong> One or two contacts familiar with the company or its principals.</span></label></li>
-        <li><label class="checklist-item"><input type="checkbox"><span><strong>Live verification.</strong> A short video call to verify identity.</span></label></li>
-        <li><label class="checklist-item"><input type="checkbox"><span><strong>Online presence.</strong> Company website, business email domain, social media, directory listings.</span></label></li>
-        <li><label class="checklist-item"><input type="checkbox"><span><strong>Online search.</strong> Look for complaints, enforcement actions, lawsuits, or other relevant public information.</span></label></li>
-        <li><label class="checklist-item"><input type="checkbox"><span><strong>Credentials, where applicable.</strong> Verify applicable licenses, registrations, or certifications.</span></label></li>
-        <li><label class="checklist-item"><input type="checkbox"><span><strong>Data security.</strong> Ask how sensitive business and merchant information is handled.</span></label></li>
-        <li><label class="checklist-item"><input type="checkbox"><span><strong>Documentation.</strong> Review partner agreements before signing.</span></label></li>
+        <li><label class="checklist-item"><input type="checkbox" id="dd-check-1"><span><strong>Business registration.</strong> Confirm the company has an active filing with the appropriate Secretary of State.</span></label></li>
+        <li><label class="checklist-item"><input type="checkbox" id="dd-check-2"><span><strong>Ownership.</strong> Identify the company&rsquo;s owners or principals and confirm the information is consistent with available records.</span></label></li>
+        <li><label class="checklist-item"><input type="checkbox" id="dd-check-3"><span><strong>Industry references.</strong> One or two contacts familiar with the company or its principals.</span></label></li>
+        <li><label class="checklist-item"><input type="checkbox" id="dd-check-4"><span><strong>Live verification.</strong> A short video call to verify identity.</span></label></li>
+        <li><label class="checklist-item"><input type="checkbox" id="dd-check-5"><span><strong>Online presence.</strong> Company website, business email domain, social media, directory listings.</span></label></li>
+        <li><label class="checklist-item"><input type="checkbox" id="dd-check-6"><span><strong>Online search.</strong> Look for complaints, enforcement actions, lawsuits, or other relevant public information.</span></label></li>
+        <li><label class="checklist-item"><input type="checkbox" id="dd-check-7"><span><strong>Credentials, where applicable.</strong> Verify applicable licenses, registrations, or certifications.</span></label></li>
+        <li><label class="checklist-item"><input type="checkbox" id="dd-check-8"><span><strong>Data security.</strong> Ask how sensitive business and merchant information is handled.</span></label></li>
+        <li><label class="checklist-item"><input type="checkbox" id="dd-check-9"><span><strong>Documentation.</strong> Review partner agreements before signing.</span></label></li>
       </ul>
 
 
@@ -657,6 +657,28 @@
     <a href="https://securebroker.org" target="_blank" rel="noopener noreferrer" onclick="closeMobileMenu()">For Brokers</a>
     <a href="https://portal.securefunder.org/login" class="btn-member-mobile">Sign In</a>
   </div>
+
+  <script>
+    (function() {
+      const STORAGE_KEY = 'aquamark-due-diligence-checklist';
+      const boxes = document.querySelectorAll('.checklist-item input[type="checkbox"]');
+      let saved = {};
+      try {
+        saved = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+      } catch (e) {
+        saved = {};
+      }
+      boxes.forEach(box => {
+        if (saved[box.id]) box.checked = true;
+        box.addEventListener('change', () => {
+          saved[box.id] = box.checked;
+          try {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(saved));
+          } catch (e) {}
+        });
+      });
+    })();
+  </script>
 
   <script>
     const toggle = document.querySelector('.mobile-toggle');
