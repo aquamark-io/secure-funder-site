@@ -123,6 +123,10 @@
     .req-card.req-card-solid>summary.req-top::after{border-color:var(--white)}
     .req-card.req-card-solid[open]>summary.req-top{background:var(--green-accent);border-bottom-color:rgba(255,255,255,.3)}
     .req-card.req-card-solid .req-body{padding:0}
+    #final-review>summary.req-top{background:var(--navy);}
+    #final-review>summary.req-top h3{color:var(--white);}
+    #final-review>summary.req-top::after{border-color:var(--white);}
+    #final-review[open]>summary.req-top{background:var(--navy);border-bottom-color:rgba(255,255,255,.2);}
     .req-card>summary.req-top{list-style:none;cursor:pointer;position:relative;padding:16px 56px 14px 20px;background:var(--white);border-bottom:1px solid transparent;transition:border-color .2s}
     .req-card>summary.req-top::-webkit-details-marker{display:none}
     .req-card>summary.req-top::after{content:"";position:absolute;right:28px;top:31px;width:13px;height:13px;border-right:4px solid var(--green-accent);border-bottom:4px solid var(--green-accent);transform:rotate(45deg);transition:transform .2s,top .2s}
@@ -245,6 +249,23 @@
       .success-text,.warning-text{font-size:.95rem;line-height:1.7}
       #program-scope div,#scope div{font-size:1.05rem !important}
     }
+
+
+    /* Top information cards */
+    #program-scope.req-card-solid{border-color:var(--navy)}
+    #program-scope.req-card-solid>summary.req-top,
+    #program-scope.req-card-solid[open]>summary.req-top{background:var(--navy)}
+
+    #how-it-works.req-card-intro,
+    #how-to-read.req-card-intro{border-color:var(--green-accent)}
+    #how-it-works.req-card-intro>summary.req-top,
+    #how-it-works.req-card-intro[open]>summary.req-top,
+    #how-to-read.req-card-intro>summary.req-top,
+    #how-to-read.req-card-intro[open]>summary.req-top{background:var(--green-accent)}
+    #how-it-works.req-card-intro>summary.req-top h3,
+    #how-to-read.req-card-intro>summary.req-top h3{color:var(--white)}
+    #how-it-works.req-card-intro>summary.req-top::after,
+    #how-to-read.req-card-intro>summary.req-top::after{border-color:var(--white)}
 
     /* ===== Restyled interactive quiz — mirrors the flatter, editorial homepage language ===== */
     .req-quiz-badge{display:inline-flex;align-items:center;background:transparent;color:var(--navy);font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:0;margin-top:7px;}
