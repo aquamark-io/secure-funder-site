@@ -117,6 +117,12 @@
     .req-card.req-card-intro>summary.req-top{background:var(--green-accent-pale)}
     .req-card.req-card-intro[open]>summary.req-top{background:var(--frost)}
     .req-card.req-card-intro .req-body{background:var(--white)}
+    .req-card.req-card-solid{border-color:var(--green-accent)}
+    .req-card.req-card-solid>summary.req-top{background:var(--green-accent);padding:14px 64px 14px 20px}
+    .req-card.req-card-solid>summary.req-top h3{color:var(--white);margin-bottom:0}
+    .req-card.req-card-solid>summary.req-top::after{border-color:var(--white)}
+    .req-card.req-card-solid[open]>summary.req-top{background:var(--green-accent);border-bottom-color:rgba(255,255,255,.3)}
+    .req-card.req-card-solid .req-body{padding:0}
     .req-card>summary.req-top{list-style:none;cursor:pointer;position:relative;padding:24px 64px 22px 28px;background:var(--white);border-bottom:1px solid transparent;transition:border-color .2s}
     .req-card>summary.req-top::-webkit-details-marker{display:none}
     .req-card>summary.req-top::after{content:"";position:absolute;right:28px;top:31px;width:13px;height:13px;border-right:4px solid var(--green-accent);border-bottom:4px solid var(--green-accent);transform:rotate(45deg);transition:transform .2s,top .2s}
@@ -285,24 +291,32 @@
 
         <div class="requirements-layout">
           <div class="req-list">
-            <div id="program-scope" style="border:1px solid var(--border);margin-bottom:26px;overflow:hidden;">
-              <div style="background:var(--green-accent);color:var(--white);font-family:var(--font-display);font-weight:700;font-size:1.05rem;padding:14px 20px;">Program Scope</div>
-              <div style="padding:14px 20px;font-size:1.02rem;color:var(--text-secondary);line-height:1.7;">
-                The program focuses on protecting the <strong style="color:var(--navy);">initial submission package</strong>, the <strong style="color:var(--navy);">center of unauthorized use and sharing</strong>. The goal is to verify that reasonable safeguards are in place to reduce opportunities for misuse. <strong style="color:#000000; background:#DFF029; padding:1px 4px;">Guidelines for deal-processing roles only (e.g. underwriters, sales, etc).</strong>
+            <details id="program-scope" class="req-card req-card-solid">
+              <summary class="req-top">
+                <h3>Program Scope</h3>
+              </summary>
+              <div class="req-body">
+                <div style="padding:14px 20px;font-size:1.02rem;color:var(--text-secondary);line-height:1.7;">
+                  The program focuses on protecting the <strong style="color:var(--navy);">initial submission package</strong>, the <strong style="color:var(--navy);">center of unauthorized use and sharing</strong>. The goal is to verify that reasonable safeguards are in place to reduce opportunities for misuse. <strong style="color:#000000; background:#DFF029; padding:1px 4px;">Guidelines for deal-processing roles only (e.g. underwriters, sales, etc).</strong>
+                </div>
               </div>
-            </div>
+            </details>
 
-            <div id="scope" style="border:1px solid var(--border);margin-bottom:26px;overflow:hidden;">
-              <div style="background:var(--green-accent);color:var(--white);font-family:var(--font-display);font-weight:700;font-size:1.05rem;padding:14px 20px;">Average Time to Complete</div>
-              <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 20px;border-top:1px solid var(--border-light);font-size:1.02rem;color:var(--text-secondary);">
-                <span>Guidelines already met</span>
-                <strong style="color:var(--navy);font-weight:700;">30&ndash;90 minutes</strong>
+            <details id="scope" class="req-card req-card-solid">
+              <summary class="req-top">
+                <h3>Average Time to Complete</h3>
+              </summary>
+              <div class="req-body">
+                <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 20px;font-size:1.02rem;color:var(--text-secondary);">
+                  <span>Guidelines already met</span>
+                  <strong style="color:var(--navy);font-weight:700;">30&ndash;90 minutes</strong>
+                </div>
+                <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 20px;border-top:1px solid var(--border-light);font-size:1.02rem;color:var(--text-secondary);">
+                  <span>Guidelines not yet met</span>
+                  <strong style="color:var(--navy);font-weight:700;">1&ndash;2 days</strong>
+                </div>
               </div>
-              <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 20px;border-top:1px solid var(--border-light);font-size:1.02rem;color:var(--text-secondary);">
-                <span>Guidelines not yet met</span>
-                <strong style="color:var(--navy);font-weight:700;">1&ndash;2 days</strong>
-              </div>
-            </div>
+            </details>
 
             <details id="how-it-works" class="req-card req-card-intro">
               <summary class="req-top">
