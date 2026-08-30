@@ -174,6 +174,12 @@
     .safeguard-detail-toggle.expanded{background:transparent;border-color:var(--border);color:var(--text-primary)}
     .safeguard-detail-toggle.expanded:hover{border-color:var(--green-accent);color:var(--green-accent)}
     .safeguard-option-body{display:none;padding:0 16px 18px}
+    .details-modal-overlay{display:none;position:fixed;inset:0;background:rgba(15,33,55,0.55);z-index:9999;align-items:center;justify-content:center;padding:20px}
+    .details-modal-overlay.open{display:flex}
+    .details-modal{background:#fff;max-width:560px;width:100%;max-height:85vh;overflow-y:auto;border:2px solid var(--navy);padding:32px;position:relative}
+    .details-modal-close{position:absolute;top:14px;right:14px;background:none;border:none;font-size:22px;line-height:1;cursor:pointer;color:var(--text-muted)}
+    .details-modal p{font-size:.95rem;color:var(--text-secondary);line-height:1.65;margin:0 0 14px}
+    .details-modal p:last-child{margin-bottom:0}
     .safeguard-option-body.expanded{display:block}
     .safeguard-option-body p{font-size:.9rem;color:var(--text-secondary);line-height:1.65;margin:0 0 14px}
     .safeguard-option-body p:last-child{margin-bottom:0}
@@ -384,7 +390,7 @@
                                   <input type="checkbox" name="sor-safeguard" value="transfer" data-safeguard-group="sor">
                                   <span class="safeguard-option-title">Transfer Restrictions</span>
                                 </label>
-                                <button type="button" class="safeguard-detail-toggle" onclick="toggleSafeguardDetail(this)">Show details</button>
+                                <button type="button" class="safeguard-detail-toggle" onclick="showSafeguardDetail(this)">View details</button>
                               </div>
                               <div class="safeguard-option-body">
                                 <p>Restrictions enforced through managed devices (e.g. Group Policy (GPO), Microsoft Intune, Jamf) or enterprise browser controls (e.g. <a href="https://www.island.io/" target="_blank" rel="noopener noreferrer">Island</a>, <a href="https://www.paloaltonetworks.com/sase/prisma-browser" target="_blank" rel="noopener noreferrer">Prisma</a>) limit common ways documents could be moved outside the company. Examples include:</p>
@@ -401,7 +407,7 @@
                                   <input type="checkbox" name="sor-safeguard" value="watermark" data-safeguard-group="sor">
                                   <span class="safeguard-option-title">Watermarking</span>
                                 </label>
-                                <button type="button" class="safeguard-detail-toggle" onclick="toggleSafeguardDetail(this)">Show details</button>
+                                <button type="button" class="safeguard-detail-toggle" onclick="showSafeguardDetail(this)">View details</button>
                               </div>
                               <div class="safeguard-option-body">
                                 <p>Downloaded documents contain the company name, logo, or another identifying mark &mdash; <a class="inline-link" href="https://www.aquamark.io/" target="_blank" rel="noopener noreferrer">Aquamark</a> or equivalent. Awareness that documents can be traced back to the company creates a reasonable deterrent to misuse.</p>
@@ -413,7 +419,7 @@
                                   <input type="checkbox" name="sor-safeguard" value="other" data-safeguard-group="sor">
                                   <span class="safeguard-option-title">Other</span>
                                 </label>
-                                <button type="button" class="safeguard-detail-toggle" onclick="toggleSafeguardDetail(this)">Show details</button>
+                                <button type="button" class="safeguard-detail-toggle" onclick="showSafeguardDetail(this)">View details</button>
                               </div>
                               <div class="safeguard-option-body">
                                 <p>Every company operates differently. If you use another approach, tell us and we&rsquo;ll provide feedback.</p>
@@ -495,7 +501,7 @@
                                       <input type="checkbox" name="email-sor-safeguard" value="transfer" data-safeguard-group="email-sor">
                                       <span class="safeguard-option-title">Transfer Restrictions</span>
                                     </label>
-                                    <button type="button" class="safeguard-detail-toggle" onclick="toggleSafeguardDetail(this)">Show details</button>
+                                    <button type="button" class="safeguard-detail-toggle" onclick="showSafeguardDetail(this)">View details</button>
                                   </div>
                                   <div class="safeguard-option-body">
                                     <p>Restrictions enforced through managed devices (e.g. Group Policy (GPO), Microsoft Intune, Jamf) or enterprise browser controls (e.g. <a href="https://www.island.io/" target="_blank" rel="noopener noreferrer">Island</a>, <a href="https://www.paloaltonetworks.com/sase/prisma-browser" target="_blank" rel="noopener noreferrer">Prisma</a>) limit common ways documents could be moved outside the company. Examples include:</p>
@@ -512,7 +518,7 @@
                                       <input type="checkbox" name="email-sor-safeguard" value="watermark" data-safeguard-group="email-sor">
                                       <span class="safeguard-option-title">Watermarking</span>
                                     </label>
-                                    <button type="button" class="safeguard-detail-toggle" onclick="toggleSafeguardDetail(this)">Show details</button>
+                                    <button type="button" class="safeguard-detail-toggle" onclick="showSafeguardDetail(this)">View details</button>
                                   </div>
                                   <div class="safeguard-option-body">
                                     <p>Downloaded documents contain the company name, logo, or another identifying mark &mdash; <a class="inline-link" href="https://www.aquamark.io/" target="_blank" rel="noopener noreferrer">Aquamark</a> or equivalent. Awareness that documents can be traced back to the company creates a reasonable deterrent to misuse.</p>
@@ -524,7 +530,7 @@
                                       <input type="checkbox" name="email-sor-safeguard" value="other" data-safeguard-group="email-sor">
                                       <span class="safeguard-option-title">Other</span>
                                     </label>
-                                    <button type="button" class="safeguard-detail-toggle" onclick="toggleSafeguardDetail(this)">Show details</button>
+                                    <button type="button" class="safeguard-detail-toggle" onclick="showSafeguardDetail(this)">View details</button>
                                   </div>
                                   <div class="safeguard-option-body">
                                     <p>Every company operates differently. If you use another approach, tell us and we&rsquo;ll provide feedback.</p>
@@ -576,7 +582,7 @@
                                 <input type="checkbox" name="person-safeguard" value="transfer" data-safeguard-group="person">
                                 <span class="safeguard-option-title">Transfer Restrictions</span>
                               </label>
-                              <button type="button" class="safeguard-detail-toggle" onclick="toggleSafeguardDetail(this)">Show details</button>
+                              <button type="button" class="safeguard-detail-toggle" onclick="showSafeguardDetail(this)">View details</button>
                             </div>
                             <div class="safeguard-option-body">
                               <p>Restrictions enforced through managed devices (e.g. Group Policy (GPO), Microsoft Intune, Jamf) or enterprise browser controls (e.g. <a href="https://www.island.io/" target="_blank" rel="noopener noreferrer">Island</a>, <a href="https://www.paloaltonetworks.com/sase/prisma-browser" target="_blank" rel="noopener noreferrer">Prisma</a>) limit common ways documents could be moved outside the company. Examples include:</p>
@@ -593,7 +599,7 @@
                                 <input type="checkbox" name="person-safeguard" value="watermark" data-safeguard-group="person">
                                 <span class="safeguard-option-title">Watermarking</span>
                               </label>
-                              <button type="button" class="safeguard-detail-toggle" onclick="toggleSafeguardDetail(this)">Show details</button>
+                              <button type="button" class="safeguard-detail-toggle" onclick="showSafeguardDetail(this)">View details</button>
                             </div>
                             <div class="safeguard-option-body">
                               <p>Downloaded documents contain the company name, logo, or another identifying mark &mdash; <a class="inline-link" href="https://www.aquamark.io/" target="_blank" rel="noopener noreferrer">Aquamark</a> or equivalent. Awareness that documents can be traced back to the company creates a reasonable deterrent to misuse.</p>
@@ -605,7 +611,7 @@
                                 <input type="checkbox" name="person-safeguard" value="other" data-safeguard-group="person">
                                 <span class="safeguard-option-title">Other</span>
                               </label>
-                              <button type="button" class="safeguard-detail-toggle" onclick="toggleSafeguardDetail(this)">Show details</button>
+                              <button type="button" class="safeguard-detail-toggle" onclick="showSafeguardDetail(this)">View details</button>
                             </div>
                             <div class="safeguard-option-body">
                               <p>Every company operates differently. If you use another approach, tell us and we&rsquo;ll provide feedback.</p>
@@ -805,37 +811,22 @@
     if (mobileClose) mobileClose.addEventListener('click', closeMobileMenu);
   </script>
   <script src="https://server.fillout.com/embed/v1/"></script>
+<div class="details-modal-overlay" id="detailsModalOverlay" onclick="if(event.target===this) closeDetailsModal()">
+  <div class="details-modal">
+    <button class="details-modal-close" onclick="closeDetailsModal()" aria-label="Close">&times;</button>
+    <div id="detailsModalContent"></div>
+  </div>
+</div>
 <script>
-  function toggleSafeguardDetail(btn){
+  function showSafeguardDetail(btn){
     var option = btn.closest('.safeguard-option');
-    var checkbox = option.querySelector('input[type="checkbox"]');
     var body = option.querySelector('.safeguard-option-body');
-    var expanded = body.classList.toggle('expanded');
-    btn.classList.toggle('expanded', expanded);
-    btn.textContent = expanded ? 'Hide details' : 'Show details';
-    if (checkbox.checked !== expanded) {
-      checkbox.checked = expanded;
-      checkbox.dispatchEvent(new Event('change', { bubbles: true }));
-    }
+    document.getElementById('detailsModalContent').innerHTML = body.innerHTML;
+    document.getElementById('detailsModalOverlay').classList.add('open');
   }
-  document.addEventListener('DOMContentLoaded', function(){
-    document.querySelectorAll('.safeguard-option input[type="checkbox"]').forEach(function(cb){
-      cb.addEventListener('change', function(){
-        var option = cb.closest('.safeguard-option');
-        var toggle = option.querySelector('.safeguard-detail-toggle');
-        var body = option.querySelector('.safeguard-option-body');
-        if (cb.checked) {
-          body.classList.add('expanded');
-          toggle.classList.add('expanded');
-          toggle.textContent = 'Hide details';
-        } else {
-          body.classList.remove('expanded');
-          toggle.classList.remove('expanded');
-          toggle.textContent = 'Show details';
-        }
-      });
-    });
-  });
+  function closeDetailsModal(){
+    document.getElementById('detailsModalOverlay').classList.remove('open');
+  }
 </script>
 
 </body>
