@@ -164,15 +164,15 @@
     .question-hint{font-size:.85rem;color:var(--text-muted);margin-bottom:12px}
     .choice-grid{display:grid;gap:8px}
     .choice-grid label{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;border:1px solid var(--border-light);background:#fff;cursor:pointer;font-size:.88rem;color:var(--text-secondary);line-height:1.45}
-    .choice-grid input{margin-top:3px;accent-color:var(--navy);flex:0 0 auto}
+    .choice-grid input{-webkit-appearance:none;-moz-appearance:none;appearance:none;margin-top:3px;width:16px;height:16px;border:1.5px solid var(--border);border-radius:0;background:var(--white);position:relative;cursor:pointer;flex:0 0 auto}.choice-grid input:checked{background:var(--navy);border-color:var(--navy)}.choice-grid input:checked::after{content:'';position:absolute;left:4px;top:1px;width:4px;height:8px;border:solid var(--white);border-width:0 2px 2px 0;transform:rotate(45deg)}
     .safeguard-list{display:grid;gap:0;border:1px solid var(--border-light)}
     .safeguard-option{border-top:1px solid var(--border-light)}
     .safeguard-option:first-child{border-top:none}
     .safeguard-option-row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 16px}
     .safeguard-option-main{display:flex;align-items:center;gap:12px;cursor:pointer;min-width:0}
-    .safeguard-option-main input{width:16px;height:16px;accent-color:var(--navy);flex:0 0 auto}
+    .safeguard-option-main input{-webkit-appearance:none;-moz-appearance:none;appearance:none;width:16px;height:16px;border:1.5px solid var(--border);border-radius:0;background:var(--white);position:relative;cursor:pointer;flex:0 0 auto}.safeguard-option-main input:checked{background:var(--navy);border-color:var(--navy)}.safeguard-option-main input:checked::after{content:'';position:absolute;left:4px;top:1px;width:4px;height:8px;border:solid var(--white);border-width:0 2px 2px 0;transform:rotate(45deg)}
     .safeguard-option-title{font-weight:700;font-size:.96rem;color:var(--text-primary);line-height:1.4}
-    .safeguard-detail-toggle{flex:0 0 auto;background:var(--navy);border:1px solid var(--navy);color:var(--white);font-family:inherit;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:8px 14px;cursor:pointer;transition:background .15s,color .15s,border-color .15s}
+    .safeguard-detail-toggle{flex:0 0 auto;background:var(--navy);border:1px solid var(--navy);border-radius:0;color:var(--white);font-family:inherit;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:8px 14px;cursor:pointer;transition:background .15s,color .15s,border-color .15s}
     .safeguard-detail-toggle:hover{background:var(--navy-mid);border-color:var(--navy-mid)}
     .safeguard-detail-toggle.expanded{background:transparent;border-color:var(--border);color:var(--text-primary)}
     .safeguard-detail-toggle.expanded:hover{border-color:var(--navy);color:var(--navy)}
@@ -186,7 +186,7 @@
     .safeguard-option-body.expanded{display:block}
     .safeguard-option-body p{font-size:.9rem;color:var(--text-secondary);line-height:1.65;margin:0 0 14px}
     .safeguard-option-body p:last-child{margin-bottom:0}
-    .question-select{width:100%;padding:11px 12px;border:1px solid var(--border);background:#fff;color:var(--text-primary);font:inherit;font-size:.9rem;border-radius:0}
+    .question-select{width:100%;padding:11px 36px 11px 12px;border:1px solid var(--border);background:#fff;color:var(--text-primary);font:inherit;font-size:.9rem;border-radius:0;-webkit-appearance:none;-moz-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%230F2137' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");background-repeat:no-repeat;background-position:right 12px center;background-size:14px}
     .conditional-panel{display:none;margin-top:12px}
     .conditional-panel.visible{display:block}
     .branch-card{padding:18px;border:1px solid #E2E2E2;background:#FAFAFA}
