@@ -150,6 +150,9 @@
     .process-checklist li{position:relative;padding-left:30px;font-size:.93rem;color:var(--text-secondary);line-height:1.65}
     .process-checklist li.important-note{color:#B91C1C;font-weight:600}
     .process-checklist li::before{content:"";position:absolute;left:0;top:5px;width:18px;height:18px;background-image:url("data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234FA3D1' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>");background-repeat:no-repeat;background-size:contain}
+    #how-it-works .process-checklist{counter-reset:step}
+    #how-it-works .process-checklist li{counter-increment:step;padding-left:26px}
+    #how-it-works .process-checklist li::before{content:counter(step)".";background-image:none;width:auto;height:auto;top:0;font-weight:700;color:var(--navy);font-size:.93rem}
     .note{margin-top:12px;padding:14px 16px;background:var(--green-accent-pale);border:1px solid rgba(79,163,209,.18);border-radius:0;font-size:.88rem;color:var(--text-secondary);line-height:1.62}
     .recommended{margin-top:12px;padding:14px 16px;background:#fbfbef;border:1px solid #ece8be;border-radius:0;font-size:.88rem;color:var(--text-secondary);line-height:1.62}
 
@@ -366,7 +369,6 @@
 
                       <div class="conditional-panel" data-result="sor-view">
                         <div class="success-banner">
-                          <div class="success-check">&#10003;</div>
                           <div>
                             <div class="success-title">Requirement Satisfied</div>
                             <div class="success-text">View-only access limits a user's ability to remove submission documents. The standard does not extend to routine supplemental documents exchanged later in the funding process.</div>
@@ -432,7 +434,6 @@
 
                       <div class="conditional-panel" data-result="sor-watermark">
                         <div class="success-banner">
-                          <div class="success-check">&#10003;</div>
                           <div>
                             <div class="success-title">Acceptable safeguard</div>
                           </div>
@@ -442,7 +443,6 @@
 
                       <div class="conditional-panel" data-result="sor-transfer">
                         <div class="success-banner">
-                          <div class="success-check">&#10003;</div>
                           <div>
                             <div class="success-title">Acceptable safeguard</div>
                           </div>
@@ -476,7 +476,6 @@
 
                           <div class="conditional-panel" data-result="email-sor-view">
                             <div class="success-banner">
-                              <div class="success-check">&#10003;</div>
                               <div>
                                 <div class="success-title">Requirement Satisfied</div>
                                 <div class="success-text">View-only access limits a user's ability to remove submission documents. The standard does not extend to routine supplemental documents exchanged later in the funding process.</div>
@@ -542,7 +541,6 @@
 
                           <div class="conditional-panel" data-result="email-sor-watermark">
                             <div class="success-banner">
-                              <div class="success-check">&#10003;</div>
                               <div>
                                 <div class="success-title">Acceptable safeguard</div>
                               </div>
@@ -552,7 +550,6 @@
 
                           <div class="conditional-panel" data-result="email-sor-transfer">
                             <div class="success-banner">
-                              <div class="success-check">&#10003;</div>
                               <div>
                                 <div class="success-title">Acceptable safeguard</div>
                               </div>
@@ -621,7 +618,6 @@
 
                       <div class="conditional-panel" data-result="person-watermark">
                         <div class="success-banner">
-                          <div class="success-check">&#10003;</div>
                           <div>
                             <div class="success-title">Acceptable safeguard</div>
                           </div>
@@ -631,7 +627,6 @@
 
                       <div class="conditional-panel" data-result="person-transfer">
                         <div class="success-banner">
-                          <div class="success-check">&#10003;</div>
                           <div>
                             <div class="success-title">Acceptable safeguard</div>
                           </div>
