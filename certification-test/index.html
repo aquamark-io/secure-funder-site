@@ -245,6 +245,57 @@
       .success-text,.warning-text{font-size:.95rem;line-height:1.7}
       #program-scope div,#scope div{font-size:1.05rem !important}
     }
+
+    /* ===== Restyled interactive quiz — mirrors the flatter, editorial homepage language ===== */
+    .req-quiz-badge{display:inline-flex;align-items:center;background:transparent;color:var(--navy);font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:0;margin-top:7px;}
+    .req-quiz-badge::before{content:'';width:18px;height:1px;background:var(--navy);margin-right:8px;}
+    .req-quiz-arrow{display:none!important;}
+    #document-protection .req-body{padding:0;}
+    #document-protection .questionnaire{gap:0;}
+    #document-protection .question-block{padding:26px 24px 24px;border:0;border-bottom:1px solid var(--border-light);background:var(--white);}
+    #document-protection .conditional-panel[data-route-panel]{margin-top:0;}
+    #document-protection .branch-card{padding:26px 24px 28px;border:0;border-bottom:1px solid var(--border-light);background:var(--white);}
+    #document-protection .branch-title{font-size:.67rem;letter-spacing:.12em;color:var(--text-muted);margin-bottom:14px;}
+    #document-protection .question-label{font-size:1rem;font-weight:650;color:var(--navy);margin-bottom:7px;}
+    #document-protection .question-hint{font-size:.83rem;color:var(--text-muted);margin-bottom:14px;}
+
+    .choice-grid{gap:0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+    .choice-grid label{padding:13px 2px;border:0;border-top:1px solid var(--border-light);background:transparent;font-size:.91rem;}
+    .choice-grid label:first-child{border-top:0;}
+
+    .question-select{padding:12px 38px 12px 12px;border:1px solid #BFCBD7;font-size:.9rem;}
+    .question-select:focus{outline:2px solid rgba(15,33,55,.12);outline-offset:1px;border-color:var(--navy);}
+
+    .result-note{margin:18px 0 0;padding:0;font-size:.92rem;line-height:1.65;color:var(--text-secondary);}
+    .result-note-ok{color:#426457;}
+    .result-note-download{color:#8B4238;}
+
+    .accepted-heading{font-family:var(--font-display);font-size:1rem;font-weight:700;color:var(--navy);line-height:1.4;margin-top:20px!important;}
+    .accepted-subtext{font-size:.84rem;line-height:1.55;color:var(--text-muted);margin:5px 0 12px;}
+    .safeguard-list{border-top:1px solid var(--border);border-bottom:1px solid var(--border);border-left:0;border-right:0;}
+    .safeguard-option-row{padding:14px 2px;min-height:54px;}
+    .safeguard-option-main{display:inline-flex;align-items:center;gap:8px;flex:0 1 auto;cursor:default;}
+    .safeguard-option-title{font-size:.94rem;font-weight:650;color:var(--navy);}
+    .safeguard-detail-toggle{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;min-width:20px;padding:0;border:1px solid var(--navy);border-radius:50%;background:var(--navy);color:var(--white);font-size:.72rem;font-weight:700;letter-spacing:0;text-transform:none;line-height:1;cursor:pointer;vertical-align:middle;}
+    .safeguard-detail-toggle:hover{background:var(--navy-mid);border-color:var(--navy-mid);}
+    .safeguard-option-body{display:none!important;}
+    .safeguard-other-trigger{color:var(--navy);}
+    .safeguard-other-trigger.active{background:var(--navy-mid);border-color:var(--navy-mid);}
+
+    .details-modal-overlay{background:rgba(15,33,55,.48);}
+    .details-modal{max-width:540px;border:1px solid var(--border);padding:32px 34px;box-shadow:0 24px 70px rgba(15,33,55,.18);}
+    .details-modal p{font-size:.93rem;line-height:1.7;}
+    .details-modal .example-list{margin-top:12px!important;}
+
+    .questionnaire-reset{display:inline-block;margin:18px 24px 22px;color:var(--text-muted);font-size:.76rem;font-weight:600;text-decoration:none;border-bottom:1px solid #B7C4D0;background:transparent;border-left:0;border-right:0;border-top:0;cursor:pointer;font-family:inherit;padding:0;}
+    .questionnaire-reset:hover{color:var(--navy);border-color:var(--navy);}
+
+    @media(max-width:640px){
+      #document-protection .question-block,#document-protection .branch-card{padding-left:20px;padding-right:20px;}
+      .safeguard-option-row{padding:14px 2px;}
+      .safeguard-detail-toggle{width:22px;height:22px;min-width:22px;}
+      .questionnaire-reset{margin-left:20px;}
+    }
   </style>
 
 </head>
@@ -368,32 +419,21 @@
                       </select>
 
                       <div class="conditional-panel" data-result="sor-view">
-                        <div class="success-banner">
-                          <div>
-                            <div class="success-title">Requirement Satisfied</div>
-                            <div class="success-text">View-only access limits a user's ability to remove submission documents. The standard does not extend to routine supplemental documents exchanged later in the funding process.</div>
-                          </div>
-                        </div>
+                        <p class="result-note result-note-ok">View-only access meets this requirement. The standard applies to the initial submission package, not routine supplemental documents exchanged later in the funding process.</p>
                       </div>
 
                       <div class="conditional-panel" data-result="sor-download">
                         <div style="margin-top:16px;">
-                          <div class="warning-banner">
-                          <div>
-                              <div class="warning-title">Vulnerability Detected:</div>
-                              <div class="warning-text" style="margin-bottom:0;">Without safeguards, downloadable documents can be shared outside company systems without your knowledge.</div>
-                            </div>
-                          </div>
-                          <div class="question-label" style="margin-top:16px;">What safeguards are in place?</div>
-                          <div class="question-hint">Select any that apply, or choose Other to describe your approach.</div>
+                          <p class="result-note result-note-download">Downloadable documents need a safeguard to reduce the ability to move them outside company systems.</p>
+                          <div class="accepted-heading" style="margin-top:18px;">Acceptable safeguards</div>
+                          <div class="accepted-subtext">Any of the following will satisfy this requirement. Equivalent approaches may also qualify.</div>
                           <div class="safeguard-list">
                             <div class="safeguard-option">
                               <div class="safeguard-option-row">
-                                <label class="safeguard-option-main">
-                                  <input type="checkbox" name="sor-safeguard" value="transfer" data-safeguard-group="sor">
+                                <div class="safeguard-option-main">
                                   <span class="safeguard-option-title">Transfer Restrictions</span>
-                                </label>
-                                <button type="button" class="safeguard-detail-toggle" onclick="showSafeguardDetail(this)">View details</button>
+                                  <button type="button" class="safeguard-detail-toggle" onclick="showSafeguardDetail(this)" aria-label="More information about Transfer Restrictions" title="More information about Transfer Restrictions">?</button>
+                                </div>
                               </div>
                               <div class="safeguard-option-body">
                                 <p>Restrictions enforced through managed devices (e.g. Group Policy (GPO), Microsoft Intune, Jamf) or enterprise browser controls (e.g. <a href="https://www.island.io/" target="_blank" rel="noopener noreferrer">Island</a>, <a href="https://www.paloaltonetworks.com/sase/prisma-browser" target="_blank" rel="noopener noreferrer">Prisma</a>) limit common ways documents could be moved outside the company. Examples include:</p>
@@ -406,11 +446,10 @@
                             </div>
                             <div class="safeguard-option">
                               <div class="safeguard-option-row">
-                                <label class="safeguard-option-main">
-                                  <input type="checkbox" name="sor-safeguard" value="watermark" data-safeguard-group="sor">
+                                <div class="safeguard-option-main">
                                   <span class="safeguard-option-title">Watermarking</span>
-                                </label>
-                                <button type="button" class="safeguard-detail-toggle" onclick="showSafeguardDetail(this)">View details</button>
+                                  <button type="button" class="safeguard-detail-toggle" onclick="showSafeguardDetail(this)" aria-label="More information about Watermarking" title="More information about Watermarking">?</button>
+                                </div>
                               </div>
                               <div class="safeguard-option-body">
                                 <p>Downloaded documents contain the company name, logo, or another identifying mark &mdash; <a class="inline-link" href="https://www.aquamark.io/" target="_blank" rel="noopener noreferrer">Aquamark</a> or equivalent. Awareness that documents can be traced back to the company creates a reasonable deterrent to misuse.</p>
@@ -418,33 +457,12 @@
                             </div>
                             <div class="safeguard-option">
                               <div class="safeguard-option-row">
-                                <label class="safeguard-option-main">
-                                  <input type="checkbox" name="sor-safeguard" value="other" data-safeguard-group="sor">
+                                <div class="safeguard-option-main">
                                   <span class="safeguard-option-title">Other</span>
-                                </label>
-                                <button type="button" class="safeguard-detail-toggle" onclick="showSafeguardDetail(this)">View details</button>
-                              </div>
-                              <div class="safeguard-option-body">
-                                <p>Every company operates differently. If you use another approach, tell us and we&rsquo;ll provide feedback.</p>
+                                  <button type="button" class="safeguard-detail-toggle safeguard-other-trigger" data-safeguard-group="sor" aria-expanded="false" aria-label="Describe your own safeguard" title="Describe your own safeguard">?</button>
+                                </div>
                               </div>
                             </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="conditional-panel" data-result="sor-watermark">
-                        <div class="success-banner">
-                          <div>
-                            <div class="success-title">Acceptable safeguard</div>
-                          </div>
-                        </div>
-                      </div>
-
-
-                      <div class="conditional-panel" data-result="sor-transfer">
-                        <div class="success-banner">
-                          <div>
-                            <div class="success-title">Acceptable safeguard</div>
                           </div>
                         </div>
                       </div>
@@ -475,49 +493,37 @@
                           </select>
 
                           <div class="conditional-panel" data-result="email-sor-view">
-                            <div class="success-banner">
-                              <div>
-                                <div class="success-title">Requirement Satisfied</div>
-                                <div class="success-text">View-only access limits a user's ability to remove submission documents. The standard does not extend to routine supplemental documents exchanged later in the funding process.</div>
-                              </div>
-                            </div>
+                            <p class="result-note result-note-ok">View-only access meets this requirement. The standard applies to the initial submission package, not routine supplemental documents exchanged later in the funding process.</p>
                           </div>
 
                           <div class="conditional-panel" data-result="email-sor-download">
                             <div style="margin-top:16px;">
-                              <div class="warning-banner">
-                              <div>
-                                  <div class="warning-title">Vulnerability Detected:</div>
-                                  <div class="warning-text" style="margin-bottom:0;">Without safeguards, downloadable documents can be shared outside company systems without your knowledge.</div>
-                                </div>
-                              </div>
-                              <div class="question-label" style="margin-top:16px;">What safeguards are in place?</div>
-                              <div class="question-hint">Select any that apply, or choose Other to describe your approach.</div>
+                              <p class="result-note result-note-download">Downloadable documents need a safeguard to reduce the ability to move them outside company systems.</p>
+                              <div class="accepted-heading" style="margin-top:18px;">Acceptable safeguards</div>
+                              <div class="accepted-subtext">Any of the following will satisfy this requirement. Equivalent approaches may also qualify.</div>
                               <div class="safeguard-list">
                                 <div class="safeguard-option">
                                   <div class="safeguard-option-row">
-                                    <label class="safeguard-option-main">
-                                      <input type="checkbox" name="email-sor-safeguard" value="transfer" data-safeguard-group="email-sor">
+                                    <div class="safeguard-option-main">
                                       <span class="safeguard-option-title">Transfer Restrictions</span>
-                                    </label>
-                                    <button type="button" class="safeguard-detail-toggle" onclick="showSafeguardDetail(this)">View details</button>
+                                      <button type="button" class="safeguard-detail-toggle" onclick="showSafeguardDetail(this)" aria-label="More information about Transfer Restrictions" title="More information about Transfer Restrictions">?</button>
+                                    </div>
                                   </div>
                                   <div class="safeguard-option-body">
                                     <p>Restrictions enforced through managed devices (e.g. Group Policy (GPO), Microsoft Intune, Jamf) or enterprise browser controls (e.g. <a href="https://www.island.io/" target="_blank" rel="noopener noreferrer">Island</a>, <a href="https://www.paloaltonetworks.com/sase/prisma-browser" target="_blank" rel="noopener noreferrer">Prisma</a>) limit common ways documents could be moved outside the company. Examples include:</p>
                                     <ul class="example-list" style="margin-top:14px;">
                                       <li>Block personal email logins (Gmail, Yahoo, etc.)</li>
-                                  <li>Block personal cloud-storage logins (Box, OneDrive, etc.)</li>
-                                  <li>Block USB</li>
+                                      <li>Block personal cloud-storage logins (Box, OneDrive, etc.)</li>
+                                      <li>Block USB</li>
                                     </ul>
                                   </div>
                                 </div>
                                 <div class="safeguard-option">
                                   <div class="safeguard-option-row">
-                                    <label class="safeguard-option-main">
-                                      <input type="checkbox" name="email-sor-safeguard" value="watermark" data-safeguard-group="email-sor">
+                                    <div class="safeguard-option-main">
                                       <span class="safeguard-option-title">Watermarking</span>
-                                    </label>
-                                    <button type="button" class="safeguard-detail-toggle" onclick="showSafeguardDetail(this)">View details</button>
+                                      <button type="button" class="safeguard-detail-toggle" onclick="showSafeguardDetail(this)" aria-label="More information about Watermarking" title="More information about Watermarking">?</button>
+                                    </div>
                                   </div>
                                   <div class="safeguard-option-body">
                                     <p>Downloaded documents contain the company name, logo, or another identifying mark &mdash; <a class="inline-link" href="https://www.aquamark.io/" target="_blank" rel="noopener noreferrer">Aquamark</a> or equivalent. Awareness that documents can be traced back to the company creates a reasonable deterrent to misuse.</p>
@@ -525,33 +531,12 @@
                                 </div>
                                 <div class="safeguard-option">
                                   <div class="safeguard-option-row">
-                                    <label class="safeguard-option-main">
-                                      <input type="checkbox" name="email-sor-safeguard" value="other" data-safeguard-group="email-sor">
+                                    <div class="safeguard-option-main">
                                       <span class="safeguard-option-title">Other</span>
-                                    </label>
-                                    <button type="button" class="safeguard-detail-toggle" onclick="showSafeguardDetail(this)">View details</button>
-                                  </div>
-                                  <div class="safeguard-option-body">
-                                    <p>Every company operates differently. If you use another approach, tell us and we&rsquo;ll provide feedback.</p>
+                                      <button type="button" class="safeguard-detail-toggle safeguard-other-trigger" data-safeguard-group="email-sor" aria-expanded="false" aria-label="Describe your own safeguard" title="Describe your own safeguard">?</button>
+                                    </div>
                                   </div>
                                 </div>
-                              </div>
-                            </div>
-                          </div>
-
-                          <div class="conditional-panel" data-result="email-sor-watermark">
-                            <div class="success-banner">
-                              <div>
-                                <div class="success-title">Acceptable safeguard</div>
-                              </div>
-                            </div>
-                          </div>
-
-
-                          <div class="conditional-panel" data-result="email-sor-transfer">
-                            <div class="success-banner">
-                              <div>
-                                <div class="success-title">Acceptable safeguard</div>
                               </div>
                             </div>
                           </div>
@@ -563,39 +548,32 @@
                       </div>
 
                       <div class="conditional-panel" data-result="email-person">
-                        <div class="warning-banner">
-                        <div>
-                            <div class="warning-title">Vulnerability Detected:</div>
-                            <div class="warning-text" style="margin-bottom:0;">Without safeguards, downloadable documents can be shared outside company systems without your knowledge.</div>
-                          </div>
-                        </div>
-                        <div class="question-label" style="margin-top:16px;">Which safeguards are in place?</div>
-                        <div class="question-hint">Select any that apply, or choose Other to describe your approach.</div>
+                        <p class="result-note result-note-download">Downloadable documents need a safeguard to reduce the ability to move them outside company systems.</p>
+                        <div class="accepted-heading" style="margin-top:18px;">Acceptable safeguards</div>
+                        <div class="accepted-subtext">Any of the following will satisfy this requirement. Equivalent approaches may also qualify.</div>
                         <div class="safeguard-list">
                           <div class="safeguard-option">
                             <div class="safeguard-option-row">
-                              <label class="safeguard-option-main">
-                                <input type="checkbox" name="person-safeguard" value="transfer" data-safeguard-group="person">
+                              <div class="safeguard-option-main">
                                 <span class="safeguard-option-title">Transfer Restrictions</span>
-                              </label>
-                              <button type="button" class="safeguard-detail-toggle" onclick="showSafeguardDetail(this)">View details</button>
+                                <button type="button" class="safeguard-detail-toggle" onclick="showSafeguardDetail(this)" aria-label="More information about Transfer Restrictions" title="More information about Transfer Restrictions">?</button>
+                              </div>
                             </div>
                             <div class="safeguard-option-body">
                               <p>Restrictions enforced through managed devices (e.g. Group Policy (GPO), Microsoft Intune, Jamf) or enterprise browser controls (e.g. <a href="https://www.island.io/" target="_blank" rel="noopener noreferrer">Island</a>, <a href="https://www.paloaltonetworks.com/sase/prisma-browser" target="_blank" rel="noopener noreferrer">Prisma</a>) limit common ways documents could be moved outside the company. Examples include:</p>
                               <ul class="example-list" style="margin-top:14px;">
                                 <li>Block personal email logins (Gmail, Yahoo, etc.)</li>
-                                  <li>Block personal cloud-storage logins (Box, OneDrive, etc.)</li>
-                                  <li>Block USB</li>
+                                <li>Block personal cloud-storage logins (Box, OneDrive, etc.)</li>
+                                <li>Block USB</li>
                               </ul>
                             </div>
                           </div>
                           <div class="safeguard-option">
                             <div class="safeguard-option-row">
-                              <label class="safeguard-option-main">
-                                <input type="checkbox" name="person-safeguard" value="watermark" data-safeguard-group="person">
+                              <div class="safeguard-option-main">
                                 <span class="safeguard-option-title">Watermarking</span>
-                              </label>
-                              <button type="button" class="safeguard-detail-toggle" onclick="showSafeguardDetail(this)">View details</button>
+                                <button type="button" class="safeguard-detail-toggle" onclick="showSafeguardDetail(this)" aria-label="More information about Watermarking" title="More information about Watermarking">?</button>
+                              </div>
                             </div>
                             <div class="safeguard-option-body">
                               <p>Downloaded documents contain the company name, logo, or another identifying mark &mdash; <a class="inline-link" href="https://www.aquamark.io/" target="_blank" rel="noopener noreferrer">Aquamark</a> or equivalent. Awareness that documents can be traced back to the company creates a reasonable deterrent to misuse.</p>
@@ -603,32 +581,11 @@
                           </div>
                           <div class="safeguard-option">
                             <div class="safeguard-option-row">
-                              <label class="safeguard-option-main">
-                                <input type="checkbox" name="person-safeguard" value="other" data-safeguard-group="person">
+                              <div class="safeguard-option-main">
                                 <span class="safeguard-option-title">Other</span>
-                              </label>
-                              <button type="button" class="safeguard-detail-toggle" onclick="showSafeguardDetail(this)">View details</button>
+                                <button type="button" class="safeguard-detail-toggle safeguard-other-trigger" data-safeguard-group="person" aria-expanded="false" aria-label="Describe your own safeguard" title="Describe your own safeguard">?</button>
+                              </div>
                             </div>
-                            <div class="safeguard-option-body">
-                              <p>Every company operates differently. If you use another approach, tell us and we&rsquo;ll provide feedback.</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="conditional-panel" data-result="person-watermark">
-                        <div class="success-banner">
-                          <div>
-                            <div class="success-title">Acceptable safeguard</div>
-                          </div>
-                        </div>
-                      </div>
-
-
-                      <div class="conditional-panel" data-result="person-transfer">
-                        <div class="success-banner">
-                          <div>
-                            <div class="success-title">Acceptable safeguard</div>
                           </div>
                         </div>
                       </div>
@@ -756,34 +713,30 @@
         var sorAccess = root.querySelector('[data-branch-select="sor-access"]');
         show(root.querySelector('[data-result="sor-view"]'), sorAccess && sorAccess.value === 'view');
         show(root.querySelector('[data-result="sor-download"]'), sorAccess && sorAccess.value === 'download');
-
-        var sorSafeguardBoxes = Array.from(root.querySelectorAll('input[data-safeguard-group="sor"]'));
-        var sorChecked = sorSafeguardBoxes.filter(function(cb){ return cb.checked; }).map(function(cb){ return cb.value; });
-        show(root.querySelector('[data-result="sor-watermark"]'), sorAccess && sorAccess.value === 'download' && sorChecked.indexOf('watermark') !== -1);
-        show(root.querySelector('[data-result="sor-transfer"]'), sorAccess && sorAccess.value === 'download' && sorChecked.indexOf('transfer') !== -1);
-        show(root.querySelector('[data-result="sor-other"]'), sorAccess && sorAccess.value === 'download' && sorChecked.indexOf('other') !== -1);
+        var sorOther = root.querySelector('.safeguard-other-trigger[data-safeguard-group="sor"]');
+        show(root.querySelector('[data-result="sor-other"]'), sorAccess && sorAccess.value === 'download' && sorOther && sorOther.classList.contains('active'));
 
         var emailRouting = root.querySelector('[data-branch-select="email-routing"]');
         show(root.querySelector('[data-result="email-auto"]'), emailRouting && emailRouting.value === 'auto');
         show(root.querySelector('[data-result="email-person"]'), emailRouting && emailRouting.value === 'person');
-
-        var personSafeguardBoxes = Array.from(root.querySelectorAll('input[data-safeguard-group="person"]'));
-        var personChecked = personSafeguardBoxes.filter(function(cb){ return cb.checked; }).map(function(cb){ return cb.value; });
-        show(root.querySelector('[data-result="person-watermark"]'), emailRouting && emailRouting.value === 'person' && personChecked.indexOf('watermark') !== -1);
-        show(root.querySelector('[data-result="person-transfer"]'), emailRouting && emailRouting.value === 'person' && personChecked.indexOf('transfer') !== -1);
-        show(root.querySelector('[data-result="person-other"]'), emailRouting && emailRouting.value === 'person' && personChecked.indexOf('other') !== -1);
+        var personOther = root.querySelector('.safeguard-other-trigger[data-safeguard-group="person"]');
+        show(root.querySelector('[data-result="person-other"]'), emailRouting && emailRouting.value === 'person' && personOther && personOther.classList.contains('active'));
 
         var emailSorAccess = root.querySelector('[data-branch-select="email-sor-access"]');
         show(root.querySelector('[data-result="email-sor-view"]'), emailSorAccess && emailSorAccess.value === 'view');
         show(root.querySelector('[data-result="email-sor-download"]'), emailSorAccess && emailSorAccess.value === 'download');
-
-        var emailSorSafeguardBoxes = Array.from(root.querySelectorAll('input[data-safeguard-group="email-sor"]'));
-        var emailSorChecked = emailSorSafeguardBoxes.filter(function(cb){ return cb.checked; }).map(function(cb){ return cb.value; });
-        show(root.querySelector('[data-result="email-sor-watermark"]'), emailSorAccess && emailSorAccess.value === 'download' && emailSorChecked.indexOf('watermark') !== -1);
-        show(root.querySelector('[data-result="email-sor-transfer"]'), emailSorAccess && emailSorAccess.value === 'download' && emailSorChecked.indexOf('transfer') !== -1);
-        show(root.querySelector('[data-result="email-sor-other"]'), emailSorAccess && emailSorAccess.value === 'download' && emailSorChecked.indexOf('other') !== -1);
+        var emailSorOther = root.querySelector('.safeguard-other-trigger[data-safeguard-group="email-sor"]');
+        show(root.querySelector('[data-result="email-sor-other"]'), emailSorAccess && emailSorAccess.value === 'download' && emailSorOther && emailSorOther.classList.contains('active'));
 
       }
+
+      root.querySelectorAll('.safeguard-other-trigger').forEach(function(btn){
+        btn.addEventListener('click', function(){
+          var isActive = btn.classList.toggle('active');
+          btn.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+          evaluate();
+        });
+      });
 
       root.addEventListener('change', evaluate);
 
@@ -791,6 +744,10 @@
       if (reset) reset.addEventListener('click', function(){
         root.querySelectorAll('input[type="checkbox"], input[type="radio"]').forEach(function(el){ el.checked = false; });
         root.querySelectorAll('select').forEach(function(el){ el.value = ''; });
+        root.querySelectorAll('.safeguard-other-trigger').forEach(function(btn){
+          btn.classList.remove('active');
+          btn.setAttribute('aria-expanded','false');
+        });
         evaluate();
       });
 
