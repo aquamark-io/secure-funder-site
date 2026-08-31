@@ -313,8 +313,9 @@
 
     @media(max-width:640px){
       #document-protection .question-block,#document-protection .branch-card{padding-left:20px;padding-right:20px;}
-      .safeguard-option-row{padding:8px 16px;}
-      .safeguard-detail-toggle{padding:4px 12px;}
+      .safeguard-option-row{flex-direction:row;align-items:center;justify-content:flex-start;gap:0;padding:8px 0;}
+      .safeguard-option-main{display:inline-flex;align-items:center;gap:10px;width:auto;}
+      .safeguard-detail-toggle{width:auto;flex:0 0 auto;font-size:.68rem;padding:3px 10px;text-align:center;}
       .questionnaire-reset{margin-left:20px;}
     }
   </style>
