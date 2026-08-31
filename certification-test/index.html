@@ -142,8 +142,8 @@
     @keyframes reqQuizArrowBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(7px)}}
     .req-top p{font-size:1.05rem;color:var(--text-secondary);line-height:1.7;max-width:680px}
     .req-body{padding:16px 20px 20px}
-    .evidence-block{padding:18px 0;border-top:1px solid var(--border-light)}
-    .evidence-block:first-child{border-top:none;padding-top:0}
+    .evidence-block{padding:14px 0}
+    .evidence-block:first-child{padding-top:0}
     .evidence-block h4{font-family:var(--font-display);font-size:1.1rem;font-weight:700;color:var(--navy);margin-bottom:8px}
     .evidence-block p{font-size:1.02rem;color:var(--text-secondary);line-height:1.7;margin-bottom:10px}
     .example-label{font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);margin:14px 0 8px}
@@ -169,9 +169,8 @@
     .choice-grid{display:grid;gap:8px}
     .choice-grid label{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;border:1px solid var(--border-light);background:#fff;cursor:pointer;font-size:.88rem;color:var(--text-secondary);line-height:1.45}
     .choice-grid input{-webkit-appearance:none;-moz-appearance:none;appearance:none;margin-top:3px;width:16px;height:16px;border:1.5px solid var(--border);border-radius:0;background:var(--white);position:relative;cursor:pointer;flex:0 0 auto}.choice-grid input:checked{background:var(--navy);border-color:var(--navy)}.choice-grid input:checked::after{content:'';position:absolute;left:4px;top:1px;width:4px;height:8px;border:solid var(--white);border-width:0 2px 2px 0;transform:rotate(45deg)}
-    .safeguard-list{display:grid;gap:0;border:1px solid var(--border-light)}
-    .safeguard-option{border-top:1px solid var(--border-light)}
-    .safeguard-option:first-child{border-top:none}
+    .safeguard-list{display:grid;gap:8px}
+    .safeguard-option{border:1px solid var(--border-light)}
     .safeguard-option-row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 16px}
     .safeguard-option-main{display:flex;align-items:center;gap:12px;cursor:pointer;min-width:0}
     .safeguard-option-main input{-webkit-appearance:none;-moz-appearance:none;appearance:none;width:16px;height:16px;border:1.5px solid var(--border);border-radius:0;background:var(--white);position:relative;cursor:pointer;flex:0 0 auto}.safeguard-option-main input:checked{background:var(--navy);border-color:var(--navy)}.safeguard-option-main input:checked::after{content:'';position:absolute;left:4px;top:1px;width:4px;height:8px;border:solid var(--white);border-width:0 2px 2px 0;transform:rotate(45deg)}
@@ -296,8 +295,7 @@
 
     .accepted-heading{font-family:var(--font-display);font-size:1rem;font-weight:700;color:var(--navy);line-height:1.4;margin-top:20px!important;}
     .accepted-subtext{font-size:.84rem;line-height:1.55;color:var(--text-muted);margin:5px 0 12px;}
-    .safeguard-list{border-top:1px solid var(--border);border-bottom:1px solid var(--border);border-left:0;border-right:0;}
-    .safeguard-option-row{padding:14px 2px;min-height:54px;}
+    .safeguard-option-row{padding:14px 16px;min-height:54px;}
     .safeguard-option-main{display:inline-flex;align-items:center;gap:8px;flex:0 1 auto;cursor:default;}
     .safeguard-option-title{font-size:.94rem;font-weight:650;color:var(--navy);}
     .safeguard-detail-toggle{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;min-width:20px;padding:0;border:1px solid var(--green-accent);border-radius:50%;background:var(--green-accent);color:var(--white);font-size:.72rem;font-weight:700;letter-spacing:0;text-transform:none;line-height:1;cursor:pointer;vertical-align:middle;}
@@ -315,7 +313,7 @@
 
     @media(max-width:640px){
       #document-protection .question-block,#document-protection .branch-card{padding-left:20px;padding-right:20px;}
-      .safeguard-option-row{padding:14px 2px;}
+      .safeguard-option-row{padding:14px 16px;}
       .safeguard-detail-toggle{width:22px;height:22px;min-width:22px;}
       .questionnaire-reset{margin-left:20px;}
     }
