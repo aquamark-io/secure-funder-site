@@ -2460,90 +2460,72 @@
       }
     }
 
-    /* ===== PARTICIPANT CAROUSEL ===== */
-    .carousel-section {
+    /* ===== PARTICIPANT LOGOS ===== */
+    .participant-logos-section {
       background: var(--white);
       border-bottom: 1px solid var(--border-light);
-      padding: 52px 0 56px;
-      overflow: hidden;
+      padding: 48px 0 52px;
     }
-    .carousel-track-wrapper {
-      position: relative;
-      width: 100%;
-      overflow: hidden;
+    .participant-logos-header {
+      text-align: center;
+      margin-bottom: 30px;
     }
-    .carousel-fade {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      width: 120px;
-      z-index: 2;
-      pointer-events: none;
+    .participant-logos-header .section-label {
+      color: var(--text-muted);
+      margin-bottom: 0;
     }
-    .carousel-fade-left {
-      left: 0;
-      background: linear-gradient(90deg, var(--white) 0%, transparent 100%);
+    .participant-logos-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      max-width: 1040px;
+      margin: 0 auto;
+      border-top: 1px solid var(--border-light);
+      border-left: 1px solid var(--border-light);
     }
-    .carousel-fade-right {
-      right: 0;
-      background: linear-gradient(270deg, var(--white) 0%, transparent 100%);
-    }
-    .carousel-track {
-      display: flex;
-      align-items: center;
-      gap: 64px;
-      width: max-content;
-      animation: carousel-scroll 110s linear infinite;
-      animation-play-state: paused;
-    }
-    .carousel-track.is-visible {
-      animation-play-state: running;
-    }
-    .carousel-slide {
-      flex-shrink: 0;
+    .participant-logo {
+      min-height: 118px;
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 46px;
+      padding: 26px 24px;
+      border-right: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+      background: var(--white);
     }
-    .carousel-slide img {
-      max-height: 46px;
-      max-width: 168px;
+    .participant-logo img {
+      display: block;
+      max-height: 50px;
+      max-width: 165px;
       width: auto;
       height: auto;
       object-fit: contain;
-      display: block;
       filter: grayscale(1);
-      opacity: 0.55;
-      transition: opacity 0.25s ease, filter 0.25s ease;
+      opacity: 0.62;
     }
-    .carousel-slide img:hover {
-      filter: grayscale(0);
-      opacity: 1;
+    .participant-logo.logo-lg img {
+      max-height: 54px;
+      max-width: 175px;
     }
-    .carousel-slide-lg {
-      height: 46px;
+    @media (max-width: 800px) {
+      .participant-logos-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .participant-logo {
+        min-height: 108px;
+      }
     }
-    .carousel-slide-lg img {
-      max-height: 46px;
-      max-width: 168px;
-    }
-    @keyframes carousel-scroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-    @media (max-width: 900px) {
-      .carousel-track { gap: 48px; animation-duration: 80s; }
-      .carousel-slide { height: 44px; }
-      .carousel-slide img { max-height: 44px; max-width: 120px; }
-      .carousel-fade { width: 60px; }
-    }
-    @media (max-width: 600px) {
-      .carousel-section { padding: 40px 0 44px; }
-      .carousel-track { gap: 36px; animation-duration: 65s; }
-      .carousel-slide { height: 36px; }
-      .carousel-slide img { max-height: 36px; max-width: 100px; }
-      .carousel-fade { width: 36px; }
+    @media (max-width: 480px) {
+      .participant-logos-section { padding: 40px 0 44px; }
+      .participant-logos-header { margin-bottom: 24px; }
+      .participant-logo {
+        min-height: 94px;
+        padding: 22px 16px;
+      }
+      .participant-logo img,
+      .participant-logo.logo-lg img {
+        max-height: 42px;
+        max-width: 125px;
+      }
     }
 
 
@@ -2610,40 +2592,21 @@
     </div>
   </section>
 
-  <!-- Participant Carousel -->
-  <section class="carousel-section">
-    <div style="text-align: center; margin-bottom: 32px;">
-      <div class="section-label" style="color: var(--text-muted);">Trusted by Funders and Brokers</div>
-    </div>
-    <div class="carousel-track-wrapper">
-      <div class="carousel-fade carousel-fade-left"></div>
-      <div class="carousel-fade carousel-fade-right"></div>
-      <div class="carousel-track">
-        <div class="carousel-slide carousel-slide-lg"><img src="lynks.png" alt="Lynks"></div>
-        <div class="carousel-slide"><img src="kalamata.png" alt="Kalamata Capital"></div>
-        <div class="carousel-slide"><img src="big.png" alt="BIG"></div>
-        <div class="carousel-slide"><img src="capfront.png" alt="CapFront"></div>
-        <div class="carousel-slide"><img src="qualifi.png" alt="Qualifi"></div>
-        <div class="carousel-slide"><img src="united.png" alt="United Capital Source"></div>
-        <div class="carousel-slide"><img src="green.png" alt="Green"></div>
-                <div class="carousel-slide"><img src="clara.png" alt="Clara Capital"></div>
-
-        <div class="carousel-slide"><img src="flexibility.png" alt="Flexibility"></div>
-        <div class="carousel-slide carousel-slide-lg"><img src="britecap.png" alt="BriteCap"></div>
-        <div class="carousel-slide"><img src="shore.png" alt="Shore"></div>
-        <!-- Duplicate set for seamless loop -->
-        <div class="carousel-slide carousel-slide-lg"><img src="lynks.png" alt="Lynks"></div>
-        <div class="carousel-slide"><img src="kalamata.png" alt="Kalamata Capital"></div>
-        <div class="carousel-slide"><img src="big.png" alt="BIG"></div>
-        <div class="carousel-slide"><img src="capfront.png" alt="CapFront"></div>
-        <div class="carousel-slide"><img src="qualifi.png" alt="Qualifi"></div>
-        <div class="carousel-slide"><img src="united.png" alt="United Capital Source"></div>
-        <div class="carousel-slide"><img src="green.png" alt="Green"></div>
-                <div class="carousel-slide"><img src="clara.png" alt="Clara Capital"></div>
-
-        <div class="carousel-slide"><img src="flexibility.png" alt="Flexibility"></div>
-        <div class="carousel-slide carousel-slide-lg"><img src="britecap.png" alt="BriteCap"></div>
-        <div class="carousel-slide"><img src="shore.png" alt="Shore"></div>
+  <!-- Participant Logos -->
+  <section class="participant-logos-section">
+    <div class="container">
+      <div class="participant-logos-header">
+        <div class="section-label">Trusted by Funders and Brokers</div>
+      </div>
+      <div class="participant-logos-grid">
+        <div class="participant-logo"><img src="kalamata.png" alt="Kalamata Capital"></div>
+        <div class="participant-logo"><img src="big.png" alt="Big Think Capital"></div>
+        <div class="participant-logo"><img src="capfront.png" alt="CapFront"></div>
+        <div class="participant-logo"><img src="qualifi.png" alt="QualiFi"></div>
+        <div class="participant-logo"><img src="united.png" alt="United Capital Source"></div>
+        <div class="participant-logo logo-lg"><img src="lynks.png" alt="Lynks Capital"></div>
+        <div class="participant-logo"><img src="green.png" alt="Greenbridge"></div>
+        <div class="participant-logo"><img src="clara.png" alt="Clara Capital"></div>
       </div>
     </div>
   </section>
@@ -2955,20 +2918,7 @@
       }
     });
 
-    // Start carousel only when visible — observe the wrapper, not the track
-    const carouselWrapper = document.querySelector('.carousel-track-wrapper');
-    const carouselTrack = document.querySelector('.carousel-track');
-    if (carouselWrapper && carouselTrack) {
-      const carouselObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            carouselTrack.classList.add('is-visible');
-            carouselObserver.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.1 });
-      carouselObserver.observe(carouselWrapper);
-    }
+
 
   </script>
 
