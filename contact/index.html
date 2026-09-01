@@ -217,15 +217,15 @@
       color: var(--text-secondary);
       margin: 0;
     }
-    .contact-call-option .hero-btn {
+    .contact-call-option .btn-schedule-call {
       flex-shrink: 0;
       display: inline-flex; align-items: center; justify-content: center;
       font-family: var(--font-body); font-size: 1.05rem; font-weight: 650;
       padding: 13px 28px; border-radius: 0;
       text-decoration: none; transition: all 0.25s; border: none; cursor: pointer;
-      text-align: center; background:#DFF029; color:#000000;
+      text-align: center; background: var(--blue-accent); color: var(--white);
     }
-    .contact-call-option .hero-btn:hover { filter: brightness(0.94); }
+    .contact-call-option .btn-schedule-call:hover { background: #3B8FBD; }
     @media (max-width: 560px) {
       .contact-call-option { flex-direction: column; align-items: flex-start; text-align: left; }
     }
@@ -471,7 +471,6 @@
       </a>
 
       <ul class="nav-links">
-        <li><a href="https://calendly.com/christina-aquamark/" target="_blank" rel="noopener noreferrer">Schedule a Call</a></li>
         <li><a href="https://portal.securefunder.org/login" class="btn-member">Sign In</a></li>
       </ul>
 
@@ -485,6 +484,15 @@
   <section class="contact-section">
     <div class="container">
       <div class="contact-layout">
+
+        <!-- Schedule-a-call option -->
+        <div class="contact-call-option">
+          <div class="call-option-text">
+            <span class="eyebrow">Prefer a call?</span>
+            <p>We look forward to meeting you.</p>
+          </div>
+          <a href="https://calendly.com/christina-aquamark/" target="_blank" rel="noopener noreferrer" class="btn-schedule-call">Schedule a Call</a>
+        </div>
 
         <!-- Fillout Embed -->
         <div class="form-wrapper">
@@ -540,7 +548,6 @@
       <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">✕</button>
     </div>
 
-    <a href="https://calendly.com/christina-aquamark/" target="_blank" rel="noopener noreferrer" onclick="closeMobileMenu()">Schedule a Call</a>
     <a href="https://portal.securefunder.org/login" class="btn-member-mobile">Sign In</a>
 
   </div>
