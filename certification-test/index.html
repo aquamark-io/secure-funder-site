@@ -298,10 +298,10 @@
     .safeguard-option-row{padding:6px 0;min-height:auto;}
     .safeguard-option-main{display:inline-flex;align-items:center;gap:8px;flex:0 1 auto;cursor:default;}
     .safeguard-option-title{font-size:.94rem;font-weight:400;color:var(--navy);}
-    .safeguard-detail-toggle{display:inline-flex;align-items:center;justify-content:center;padding:3px 10px;border:1px solid #D1D5DB;border-radius:3px;background:#F5F5F5;color:#6B7280;font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;line-height:1.6;cursor:pointer;vertical-align:middle;}
-    .safeguard-detail-toggle:hover{background:#E5E7EB;color:#4B5563;border-color:#C4C9D0;}
+    .safeguard-detail-toggle{display:inline-flex;align-items:center;justify-content:center;padding:3px 10px;border:1px solid var(--green-accent);border-radius:3px;background:transparent;color:var(--green-accent);font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;line-height:1.6;cursor:pointer;vertical-align:middle;}
+    .safeguard-detail-toggle:hover{background:var(--green-accent);color:var(--white);border-color:var(--green-accent);}
     .safeguard-option-body{display:none!important;}
-    .safeguard-other-trigger.active{background:#E5E7EB;border-color:#BFC5CC;color:#4B5563;}
+    .safeguard-other-trigger.active{background:var(--navy-mid);border-color:var(--navy-mid);}
 
     .details-modal-overlay{background:rgba(15,33,55,.48);}
     .details-modal{max-width:540px;border:1px solid var(--border);padding:32px 34px;box-shadow:0 24px 70px rgba(15,33,55,.18);}
@@ -313,9 +313,8 @@
 
     @media(max-width:640px){
       #document-protection .question-block,#document-protection .branch-card{padding-left:20px;padding-right:20px;}
-      .safeguard-option-row{flex-direction:row;align-items:center;justify-content:flex-start;gap:0;padding:8px 0;}
-      .safeguard-option-main{display:inline-flex;align-items:center;gap:10px;width:auto;}
-      .safeguard-detail-toggle{width:auto;flex:0 0 auto;font-size:.68rem;padding:3px 10px;text-align:center;}
+      .safeguard-option-row{padding:8px 16px;}
+      .safeguard-detail-toggle{padding:4px 12px;}
       .questionnaire-reset{margin-left:20px;}
     }
   </style>
