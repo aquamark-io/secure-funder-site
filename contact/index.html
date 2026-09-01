@@ -220,14 +220,32 @@
     .contact-call-option .btn-schedule-call {
       flex-shrink: 0;
       display: inline-flex; align-items: center; justify-content: center;
-      font-family: var(--font-body); font-size: 1.05rem; font-weight: 650;
-      padding: 13px 28px; border-radius: 0;
+      font-family: var(--font-body); font-size: 0.92rem; font-weight: 650;
+      padding: 10px 20px; border-radius: 0;
       text-decoration: none; transition: all 0.25s; border: none; cursor: pointer;
       text-align: center; background: var(--blue-accent); color: var(--white);
     }
     .contact-call-option .btn-schedule-call:hover { background: #3B8FBD; }
+    .contact-call-option .call-option-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+    .contact-call-option .btn-guidelines {
+      display: inline-flex; align-items: center; justify-content: center;
+      font-family: var(--font-body); font-size: 0.92rem; font-weight: 650;
+      padding: 9px 20px; border-radius: 0;
+      text-decoration: none; transition: all 0.25s; cursor: pointer;
+      text-align: center; background: transparent; color: var(--blue-accent);
+      border: 1.5px solid var(--blue-accent);
+    }
+    .contact-call-option .btn-guidelines:hover { background: var(--blue-accent); color: var(--white); }
     @media (max-width: 560px) {
       .contact-call-option { flex-direction: column; align-items: flex-start; text-align: left; }
+      .contact-call-option .call-option-actions { width: 100%; }
+      .contact-call-option .btn-schedule-call,
+      .contact-call-option .btn-guidelines { width: 100%; }
     }
 
     /* Sidebar */
@@ -491,7 +509,10 @@
             <span class="eyebrow">Prefer a call?</span>
             <p>We look forward to meeting you.</p>
           </div>
-          <a href="https://calendly.com/christina-aquamark/" target="_blank" rel="noopener noreferrer" class="btn-schedule-call">Schedule a Call</a>
+          <div class="call-option-actions">
+            <a href="https://calendly.com/christina-aquamark/" target="_blank" rel="noopener noreferrer" class="btn-schedule-call">Schedule a Call</a>
+            <a href="https://securefunder.org/certification-test/" target="_blank" rel="noopener noreferrer" class="btn-guidelines">Guidelines</a>
+          </div>
         </div>
 
         <!-- Fillout Embed -->
