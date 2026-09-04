@@ -440,6 +440,24 @@
       font-weight: 400;
       color: inherit;
     }
+    .scope-trigger {
+      display: inline-flex; align-items: center; gap: 9px;
+      margin-top: 22px; background: transparent; border: none;
+      padding: 0; cursor: pointer; font-family: var(--font-body);
+      transition: opacity 0.2s;
+    }
+    .scope-trigger:hover { opacity: 0.8; }
+    .scope-trigger-label {
+      font-size: .78rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: rgba(255,255,255,0.82);
+    }
+    .scope-trigger-icon {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 20px; height: 20px; border-radius: 50%;
+      background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.4);
+      color: #ffffff; font-size: .7rem; font-weight: 700; flex-shrink: 0;
+    }
+    .bio-modal h3 { font-family: var(--font-display); }
     .scope-aside {
       margin-top: 20px;
       padding: 14px 18px;
@@ -2627,11 +2645,26 @@
 <!-- Mission Section -->
 <section class="mission-section">
   <div class="container">
-    <div class="mission-inner reveal" style="display: block; max-width: 1000px; text-align: center;">
+    <div class="mission-inner reveal" style="display: block; max-width: 1000px; text-align: left;">
       <div class="mission-statement-card" style="margin: 0 auto;">
         <div class="mission-body">
-<p style="text-align: center;"><span class="mission-brand">Secure Funder™</span> is a new industry initiative focused on addressing data theft and encouraging responsible data handling in alternative finance. The program establishes a practical framework designed to reduce opportunities for misuse, distinguish responsible operators, and help small business owners pursue alternative capital with greater confidence and better outcomes.</p>        </div>
+<p style="text-align: left;"><span class="mission-brand">Secure Funder™</span> is a new industry initiative focused on addressing data theft and encouraging responsible data handling in alternative finance. The program establishes a practical framework designed to reduce opportunities for misuse, distinguish responsible operators, and help small business owners pursue alternative capital with greater confidence and better outcomes.</p>
+          <button type="button" class="scope-trigger" aria-label="View Program Scope" onclick="document.getElementById('scopeModal').classList.add('active'); document.body.style.overflow='hidden';">
+            <span class="scope-trigger-label">Program Scope</span>
+            <span class="scope-trigger-icon" aria-hidden="true">?</span>
+          </button>
+        </div>
       </div>
+    </div>
+  </div>
+
+  <div id="scopeModal" class="bio-modal-overlay" onclick="if(event.target===this){this.classList.remove('active'); document.body.style.overflow='';}">
+    <div class="bio-modal">
+      <button type="button" class="bio-modal-close" aria-label="Close Program Scope" onclick="document.getElementById('scopeModal').classList.remove('active'); document.body.style.overflow='';">&times;</button>
+      <h3 style="margin:0 0 16px; font-size:1.3rem; color:var(--navy);">Program Scope</h3>
+      <p><strong style="color:#000000; background:#DFF029; padding:1px 4px;">Guidelines are for deal-processing roles (e.g. underwriters, sales, etc.)</strong></p>
+      <p>The program focuses on protecting the <strong style="color:var(--navy);">initial submission package</strong>, where unauthorized use most often occurs. There is no specific software to buy or system to adopt. Many companies already have safeguards that may meet the standard, and if something is missing, the goal is simply to find a practical way to close the gap.</p>
+      <p>When the initial submission package can be downloaded from an email inbox or system of record, the program looks for reasonable controls that help reduce opportunities for those files to be moved outside the company.</p>
     </div>
   </div>
 </section>
@@ -2920,14 +2953,13 @@
     toggle.addEventListener('click', () => { menu.classList.add('active'); document.body.style.overflow = 'hidden'; });
     closeBtn.addEventListener('click', closeMobileMenu);
 
-    // Bio modal — close on Escape
+    // Modals — close on Escape
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
-        const bioModal = document.getElementById('bioModal');
-        if (bioModal && bioModal.classList.contains('active')) {
-          bioModal.classList.remove('active');
+        document.querySelectorAll('.bio-modal-overlay.active').forEach((modal) => {
+          modal.classList.remove('active');
           document.body.style.overflow = '';
-        }
+        });
       }
     });
 
