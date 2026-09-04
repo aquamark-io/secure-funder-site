@@ -309,6 +309,8 @@
     .details-modal p{font-size:.93rem;line-height:1.7;}
     .details-modal .example-list{margin-top:12px!important;}
 
+    .scope-lime-note{background:#DFF029;color:#000000;font-size:.92rem;line-height:1.55;font-weight:600;padding:14px 18px;margin:0 0 22px;}
+    #quizCompleteNote.scope-lime-note{margin:20px 0 0;}
     .questionnaire-reset{display:inline-block;margin:18px 24px 22px;color:var(--text-muted);font-size:.76rem;font-weight:600;text-decoration:none;border-bottom:1px solid #B7C4D0;background:transparent;border-left:0;border-right:0;border-top:0;cursor:pointer;font-family:inherit;padding:0;}
     .questionnaire-reset:hover{color:var(--navy);border-color:var(--navy);}
 
@@ -418,10 +420,11 @@
             <details id="document-protection" class="req-card">
               <summary class="req-top">
                 <h3>1. Submission Protection</h3>
-                <span class="req-quiz-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 9 12 16 19 9"></polyline></svg></span>
+                <span class="req-quiz-badge">Quiz</span><span class="req-quiz-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 9 12 16 19 9"></polyline></svg></span>
               </summary>
               <div class="req-body">
                 <div class="questionnaire" id="protectionQuestionnaire">
+                  <div class="scope-lime-note">Tell us how submissions move through your company. We&rsquo;ll use your answers to determine whether your current process meets the safeguard and, if not, practical ways to address it.</div>
                   <div class="question-block">
                     <div class="question-label">How do brokers submit deals to you?</div>
                     <div class="question-hint">Select all that apply.</div>
@@ -643,6 +646,8 @@
                       </div>
                     </div>
                   </div>
+                  <div id="quizCompleteNote" class="conditional-panel scope-lime-note">Quiz complete. The sections below outline other practices we&rsquo;ll ask in the portal.</div>
+                  <button type="button" class="questionnaire-reset" id="protectionReset">Reset answers</button>
                 </div>
               </div>
             </details>
@@ -652,8 +657,8 @@
                 <h3>2. System Access</h3>
               </summary>
               <div class="req-body">
-                <div style="font-size:0.92rem; color:var(--text-secondary); line-height:1.6; margin:0 0 20px;">
-                  We&rsquo;ll also ask if you have these. Companies are reviewed holistically, and a &ldquo;No&rdquo; response does not automatically prevent certification.
+                <div style="font-size:1.02rem; color:var(--text-secondary); line-height:1.6; margin:0 0 20px;">
+                  Companies are reviewed holistically. &ldquo;No&rdquo; responses do not automatically prevent certification.
                 </div>
                 <div class="evidence-block">
                   <h4>Email</h4>
@@ -671,8 +676,8 @@
                 <h3>3. Personnel Controls</h3>
               </summary>
               <div class="req-body">
-                <div style="font-size:0.92rem; color:var(--text-secondary); line-height:1.6; margin:0 0 20px;">
-                  We&rsquo;ll also ask if you have these. Companies are reviewed holistically, and a &ldquo;No&rdquo; response does not automatically prevent certification.
+                <div style="font-size:1.02rem; color:var(--text-secondary); line-height:1.6; margin:0 0 20px;">
+                  Companies are reviewed holistically. &ldquo;No&rdquo; responses do not automatically prevent certification.
                 </div>
                 <div class="evidence-block">
                   <h4>Background Checks</h4>
@@ -771,6 +776,21 @@
         show(root.querySelector('[data-result="email-sor-download"]'), emailSorAccess && emailSorAccess.value === 'download');
         var emailSorOther = root.querySelector('.safeguard-other-trigger[data-safeguard-group="email-sor"]');
         show(root.querySelector('[data-result="email-sor-other"]'), emailSorAccess && emailSorAccess.value === 'download' && emailSorOther && emailSorOther.classList.contains('active'));
+
+        function routeResolved(route){
+          if (route === 'api' || route === 'portal') {
+            return !!(sorAccess && sorAccess.value);
+          }
+          if (route === 'email') {
+            if (!emailRouting || !emailRouting.value) return false;
+            if (emailRouting.value === 'person') return true;
+            if (emailRouting.value === 'auto') return !!(emailSorAccess && emailSorAccess.value);
+            return false;
+          }
+          return false;
+        }
+        var complete = routes.length > 0 && routes.every(routeResolved);
+        show(document.getElementById('quizCompleteNote'), complete);
 
       }
 
