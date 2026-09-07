@@ -75,6 +75,15 @@
     .hero-contact-btn:hover{background:var(--green-accent-pale)}
     .final-review-actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:6px}
     .final-review-actions .hero-join-btn,.final-review-actions .hero-contact-btn{margin-top:0}
+    .fee-label{white-space:nowrap;font-weight:600;color:var(--navy);}
+    .fee-icon-btn{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:var(--mint);color:var(--navy);font-size:.72rem;font-weight:800;font-style:italic;font-family:Georgia,serif;border:none;cursor:pointer;vertical-align:middle;margin-left:5px;padding:0;line-height:1;}
+    .fee-icon-btn:hover{opacity:.8;}
+    .fee-modal-overlay{display:none;position:fixed;inset:0;background:rgba(15,23,33,.55);z-index:999;align-items:center;justify-content:center;padding:20px;}
+    .fee-modal-overlay.active{display:flex;}
+    .fee-modal{background:var(--white);border-radius:14px;padding:28px 26px;max-width:440px;width:100%;position:relative;box-shadow:0 20px 60px rgba(0,0,0,.25);}
+    .fee-modal-close{position:absolute;top:10px;right:14px;background:none;border:none;font-size:1.5rem;line-height:1;cursor:pointer;color:var(--text-muted);}
+    .fee-modal h4{margin:0 0 12px;font-size:1.1rem;color:var(--navy);font-family:var(--font-display);}
+    .fee-modal p{margin:0;font-size:.96rem;line-height:1.65;color:var(--text-secondary);}
 
     .hero::before{content:none}
     .hero::after{content:none}
@@ -397,23 +406,21 @@
                 <ul class="process-checklist">
                   <li><a class="inline-link" href="https://securefunder.org/contact/" target="_blank" rel="noopener">Submit request to join</a></li>
                   <li>Receive portal access and member #</li>
-                  <li>Listed in directory as an Applicant, newsletter and social announcements</li>
+                  <li>Listed in directory as an Applicant, newsletter and social announcements to highlight your intent and leadership</li>
                   <li>Upload evidence within 90 days &mdash; extensions & support available</li>
+                  <li>Final Review &mdash; Evidence review and <span class="fee-label">Member Fee<button type="button" class="fee-icon-btn" aria-label="Member fee details" onclick="document.getElementById('memberFeeModal').classList.add('active'); document.body.style.overflow='hidden';">i</button></span></li>
                   <li>Get Certified &mdash; directory updated, digital badge issued, certification announced</li>
                 </ul>
               </div>
             </details>
 
-            <details id="how-to-read" class="req-card req-card-intro">
-              <summary class="req-top">
-                <h3>Path to Certification</h3>
-              </summary>
-              <div class="req-body">
-                <div class="evidence-block">
-                  <p style="font-size:1.02rem;">Join, then work toward certification with our support or self-service. The process is collaborative and focused on helping you meet the standard rather than finding reasons for disqualification.</p>
-                </div>
+            <div id="memberFeeModal" class="fee-modal-overlay" onclick="if(event.target===this){this.classList.remove('active'); document.body.style.overflow='';}">
+              <div class="fee-modal">
+                <button type="button" class="fee-modal-close" aria-label="Close" onclick="document.getElementById('memberFeeModal').classList.remove('active'); document.body.style.overflow='';">&times;</button>
+                <h4>Member Fee</h4>
+                <p>Membership is $2,499 per year and supports program administration, independent evidence review, member support, ongoing program development, event sponsorships, and maintenance of the public directory.</p>
               </div>
-            </details>
+            </div>
 
             <details id="document-protection" class="req-card">
               <summary class="req-top">
@@ -688,23 +695,6 @@
                 <div class="evidence-block">
                   <h4>Off-Boarding Process</h4>
                   <p>A process for promptly revoking access when personnel leave or change roles.</p>
-                </div>
-              </div>
-            </details>
-
-            <details id="final-review" class="req-card req-card-intro">
-              <summary class="req-top">
-                <h3>Final Review</h3>
-              </summary>
-              <div class="req-body">
-                <div class="evidence-block">
-                  <p>Please allow up to (5) business days for review. We&rsquo;ll assess your evidence and confirm your business registration is active. If any evidence does not meet the intent of a safeguard, we&rsquo;ll provide feedback, support, and ample time to address it.</p>
-                </div>
-                <div class="evidence-block">
-                  <div class="final-review-actions">
-                    <a href="https://securefunder.org/contact/" class="hero-join-btn">Join Program</a>
-                    <a href="https://securefunder.org/contact/" class="hero-contact-btn" target="_blank" rel="noopener noreferrer">Contact Us</a>
-                  </div>
                 </div>
               </div>
             </details>
