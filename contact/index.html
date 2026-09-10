@@ -191,70 +191,46 @@
       min-height: 500px;
     }
 
-    /* Schedule-a-call option block */
-    .contact-call-option {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      flex-wrap: wrap;
-      padding: 22px 28px;
+    /* Phone card — number, with Schedule / Text / Call underneath */
+    .contact-phone-card {
+      text-align: center;
+      padding: 28px 24px;
       margin-bottom: 20px;
       background: var(--cloud);
       border: 1px solid var(--border-light);
     }
-    .contact-call-option .call-option-text .eyebrow {
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      display: block;
-      margin-bottom: 4px;
+    .contact-phone-number {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--navy);
+      text-decoration: none;
+      margin-bottom: 18px;
+      display: inline-block;
     }
-    .contact-call-option .call-option-text p {
-      font-size: 0.98rem;
+    .contact-phone-number:hover { color: var(--blue-accent); }
+    .contact-phone-actions {
+      display: flex;
+      justify-content: center;
+      gap: 36px;
+    }
+    .contact-phone-action {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 7px;
+      text-decoration: none;
       color: var(--text-secondary);
-      margin: 0;
+      font-size: 0.76rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
     }
-    .contact-call-option .btn-schedule-call {
-      flex-shrink: 0;
-      display: inline-flex; align-items: center; justify-content: center;
-      font-family: var(--font-body); font-size: 0.92rem; font-weight: 650;
-      padding: 10px 20px; border-radius: 0;
-      text-decoration: none; transition: all 0.25s; border: none; cursor: pointer;
-      text-align: center; background: var(--blue-accent); color: var(--white);
-    }
-    .contact-call-option .btn-schedule-call:hover { background: #3B8FBD; }
-    .contact-call-option .call-option-actions {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      flex-shrink: 0;
-    }
-    .contact-call-option .phone-contact {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 3px;
-    }
-    .contact-call-option .phone-contact-link {
-      display: inline-flex; align-items: center; gap: 8px;
-      font-family: var(--font-body); font-size: 0.92rem; font-weight: 650;
-      color: var(--navy); text-decoration: none;
-    }
-    .contact-call-option .phone-contact-link svg { flex-shrink: 0; color: var(--blue-accent); }
-    .contact-call-option .phone-contact-link:hover { color: var(--blue-accent); }
-    .contact-call-option .phone-contact-text {
-      font-size: 0.78rem; color: var(--text-muted); text-decoration: underline;
-      margin-left: 24px;
-    }
-    .contact-call-option .phone-contact-text:hover { color: var(--blue-accent); }
+    .contact-phone-action svg { color: var(--blue-accent); }
+    .contact-phone-action:hover { color: var(--navy); }
+    .contact-phone-action:hover svg { color: var(--navy); }
     @media (max-width: 560px) {
-      .contact-call-option { flex-direction: column; align-items: flex-start; text-align: left; }
-      .contact-call-option .call-option-actions { width: 100%; }
-      .contact-call-option .btn-schedule-call { width: 100%; text-align: center; }
-      .contact-call-option .phone-contact { width: 100%; align-items: flex-start; }
+      .contact-phone-actions { gap: 44px; }
     }
 
     /* Sidebar */
@@ -514,21 +490,22 @@
     <div class="container">
       <div class="contact-layout">
 
-        <!-- Schedule-a-call option -->
-        <div class="contact-call-option">
-          <div class="call-option-text">
-            <span class="eyebrow">Prefer a call?</span>
-            <p>We look forward to meeting you.</p>
-          </div>
-          <div class="call-option-actions">
-            <a href="https://calendly.com/christina-aquamark/" target="_blank" rel="noopener noreferrer" class="btn-schedule-call">Schedule a Call</a>
-            <div class="phone-contact">
-              <a href="tel:+14155001117" class="phone-contact-link" aria-label="Call (415) 500-1117">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                <span>(415) 500-1117</span>
-              </a>
-              <a href="sms:+14155001117" class="phone-contact-text">or text us</a>
-            </div>
+        <!-- Phone card -->
+        <div class="contact-phone-card">
+          <a href="tel:+14155001117" class="contact-phone-number">(415) 500-1117</a>
+          <div class="contact-phone-actions">
+            <a href="https://calendly.com/christina-aquamark/" target="_blank" rel="noopener noreferrer" class="contact-phone-action" aria-label="Schedule a call">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              <span>Schedule</span>
+            </a>
+            <a href="sms:+14155001117" class="contact-phone-action" aria-label="Text us">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+              <span>Text</span>
+            </a>
+            <a href="tel:+14155001117" class="contact-phone-action" aria-label="Call us">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              <span>Call</span>
+            </a>
           </div>
         </div>
 
@@ -567,6 +544,7 @@
         <div class="footer-col">
           <h4>Contact</h4>
           <a href="https://securefunder.org/contact/" target="_blank">Send a Message</a>
+          <a href="https://securefunder.org/terms-privacy/" target="_blank">Terms</a>
         </div>
       </div>
       <div class="footer-bottom">
