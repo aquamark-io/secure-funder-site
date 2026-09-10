@@ -329,6 +329,29 @@
       .safeguard-detail-toggle{width:auto;flex:0 0 auto;font-size:.68rem;padding:3px 10px;text-align:center;}
       .questionnaire-reset{margin-left:20px;}
     }
+
+    /* ===== Visual hierarchy pass: give state and structure more presence ===== */
+
+    /* "Requirement met" notes read as a real confirmation, not a plain line of text */
+    .result-note-ok{
+      background:rgba(79,163,209,.08);
+      border-left:3px solid var(--green-accent);
+      padding:12px 16px;
+    }
+
+    /* Sidebar gets a signal accent so it reads as a navigation panel, not a gray box */
+    .sidebar{border-left:3px solid var(--navy);}
+    .sidebar a{transition:color .15s,padding-left .15s;}
+    .sidebar a:hover{padding-left:4px;}
+
+    /* Ordinary requirement cards get a thin top accent instead of a flat gray border,
+       so the accordion list has rhythm even before anything is opened */
+    .req-card:not(.req-card-solid):not(.req-card-intro):not(.req-card-dark):not(.req-card-accent){
+      border-top:3px solid var(--frost);
+    }
+    .req-card[open]:not(.req-card-solid):not(.req-card-intro):not(.req-card-dark):not(.req-card-accent){
+      border-top-color:var(--green-accent);
+    }
   </style>
 
 </head>
