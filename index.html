@@ -1176,6 +1176,84 @@
       .stats-divider { width: 48px; height: 1px; }
     }
 
+
+
+    /* ===== INDUSTRY NEWS ===== */
+    .industry-news-section {
+      background: var(--white);
+      border-bottom: 1px solid var(--border-light);
+      padding: 76px 0;
+    }
+    .industry-news-card {
+      display: grid;
+      grid-template-columns: 0.88fr 1.12fr;
+      align-items: stretch;
+      max-width: 1040px;
+      margin: 0 auto;
+      border: 1px solid var(--border-light);
+      background: #F8FAFC;
+    }
+    .industry-news-copy {
+      padding: 48px 52px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .industry-news-copy h3 {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1.18;
+      letter-spacing: -0.02em;
+      color: var(--navy);
+      margin-bottom: 18px;
+      max-width: 560px;
+    }
+    .industry-news-copy p {
+      font-size: 1rem;
+      line-height: 1.72;
+      color: var(--text-secondary);
+      max-width: 590px;
+      margin: 0;
+    }
+    .industry-news-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      width: fit-content;
+      margin-top: 24px;
+      color: var(--navy);
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-decoration: none;
+      border-bottom: 1px solid var(--navy);
+      padding-bottom: 2px;
+    }
+    .industry-news-link:hover { color: var(--blue-accent); border-bottom-color: var(--blue-accent); }
+    .industry-news-image {
+      min-height: 250px;
+      overflow: hidden;
+      background: #EAF0F5;
+    }
+    .industry-news-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    @media (max-width: 820px) {
+      .industry-news-card { grid-template-columns: 1fr; }
+      .industry-news-copy { padding: 36px 30px; }
+      .industry-news-image { min-height: 260px; }
+      .industry-news-copy h3 { font-size: 1.65rem; }
+    }
+    @media (max-width: 600px) {
+      .industry-news-section { padding: 56px 0; }
+      .industry-news-copy { padding: 30px 22px; }
+      .industry-news-image { min-height: 220px; }
+      .industry-news-copy h3 { font-size: 1.45rem; }
+    }
+
     /* ===== MEMBERSHIP BENEFITS ===== */
     .benefits-section {
       background: var(--cloud);
@@ -2655,6 +2733,23 @@
     </div>
   </div>
 </section>
+
+
+  <!-- Industry News -->
+  <section class="industry-news-section">
+    <div class="container">
+      <div class="industry-news-card reveal">
+        <div class="industry-news-image">
+          <img src="dfpi.png" alt="California Department of Financial Protection and Innovation">
+        </div>
+        <div class="industry-news-copy">
+          <h3>September 30 Deadline, California AB 2116</h3>
+          <p>We&rsquo;re following AB 2116 closely and will keep members informed as it moves forward.</p>
+          <a class="industry-news-link" href="https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260AB2116" target="_blank" rel="noopener">Read the bill</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- Newsletter -->
   <section id="newsletter" class="newsletter-section">
