@@ -1091,28 +1091,6 @@
     @media (max-width: 640px) {
       .bio-modal { padding: 28px 22px; }
     }
-    .ab2116-modal-overlay {
-      display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6);
-      z-index: 1100; align-items: center; justify-content: center; padding: 24px;
-    }
-    .ab2116-modal-overlay.active { display: flex; }
-    .ab2116-modal {
-      background: #ffffff; max-width: 440px; width: 100%; padding: 36px 34px;
-      border-radius: 4px; text-align: left; border-top: 4px solid var(--navy);
-    }
-    .ab2116-modal h3 {
-      margin: 0 0 14px; font-size: 1.25rem; font-weight: 800; color: var(--navy);
-      font-family: var(--font-display);
-    }
-    .ab2116-modal p { margin: 0 0 24px; line-height: 1.6; color: var(--text-secondary); font-size: 0.98rem; }
-    .ab2116-modal .ab2116-btn {
-      display: inline-block; background: var(--navy); color: #ffffff; padding: 12px 28px;
-      text-decoration: none; font-weight: 700; border-radius: 2px; cursor: pointer; border: none; font-size: 0.95rem;
-    }
-    .ab2116-modal .ab2116-btn:hover { background: var(--navy-mid); }
-    @media (max-width: 480px) {
-      .ab2116-modal { padding: 28px 24px; }
-    }
 
     @media (max-width: 900px) {
       .leadership-name-row { justify-content: center; }
@@ -3070,7 +3048,7 @@
     // Modals — close on Escape
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
-        document.querySelectorAll('.bio-modal-overlay.active, .ab2116-modal-overlay.active').forEach((modal) => {
+        document.querySelectorAll('.bio-modal-overlay.active').forEach((modal) => {
           modal.classList.remove('active');
           document.body.style.overflow = '';
         });
@@ -3078,25 +3056,8 @@
     });
 
 
-    // AB 2116 landing popup
-    document.addEventListener('DOMContentLoaded', function() {
-      var modal = document.getElementById('ab2116Modal');
-      if (modal) {
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      }
-    });
-
-
   </script>
 
 
-  <div id="ab2116Modal" class="ab2116-modal-overlay">
-    <div class="ab2116-modal">
-      <h3>California Legislation Notice</h3>
-      <p>AB 2116 is awaiting action by the Governor. We&rsquo;re in contact with the DFPI and will share updates as they become available.</p>
-      <button type="button" class="ab2116-btn" onclick="document.getElementById('ab2116Modal').classList.remove('active'); document.body.style.overflow='';">Continue to site</button>
-    </div>
-  </div>
 </body>
 </html>
