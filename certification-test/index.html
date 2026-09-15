@@ -112,7 +112,7 @@
     .process-card h3{font-family:var(--font-display);font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:10px}
     .process-card p{font-size:.9rem;color:var(--text-secondary);line-height:1.68}
 
-    .requirements-section{background:var(--white);padding-top:56px}
+    .requirements-section{background:var(--white);padding-top:32px}
     .requirements-layout{display:grid;grid-template-columns:minmax(0,1fr);gap:22px;align-items:start;max-width:800px}
     .sidebar{position:sticky;top:92px;background:var(--meadow);border:1px solid var(--border-light);border-radius:0;padding:24px}
     .sidebar h3{font-family:var(--font-display);font-size:1rem;color:var(--navy);margin-bottom:14px}
@@ -352,45 +352,6 @@
     .req-card[open]:not(.req-card-solid):not(.req-card-intro):not(.req-card-dark):not(.req-card-accent){
       border-top-color:var(--green-accent);
     }
-
-    /* ===== Flatten Program Scope / How It Works headers to match homepage (no solid fill) ===== */
-    #program-scope.req-card-solid>summary.req-top,
-    #program-scope.req-card-solid[open]>summary.req-top,
-    #how-it-works.req-card-intro>summary.req-top,
-    #how-it-works.req-card-intro[open]>summary.req-top,
-    #how-to-read.req-card-intro>summary.req-top,
-    #how-to-read.req-card-intro[open]>summary.req-top{
-      background:var(--white);
-      border-bottom:1px solid var(--border-light);
-      border-left:4px solid transparent;
-      transition:border-left-color .2s,background .2s;
-    }
-    #program-scope.req-card-solid>summary.req-top h3,
-    #how-it-works.req-card-intro>summary.req-top h3,
-    #how-to-read.req-card-intro>summary.req-top h3{
-      color:var(--navy);
-    }
-    #program-scope.req-card-solid>summary.req-top::after,
-    #how-it-works.req-card-intro>summary.req-top::after,
-    #how-to-read.req-card-intro>summary.req-top::after{
-      border-color:var(--green-accent);
-    }
-    #program-scope.req-card-solid[open]>summary.req-top,
-    #how-it-works.req-card-intro[open]>summary.req-top,
-    #how-to-read.req-card-intro[open]>summary.req-top{
-      border-left-color:var(--navy);
-      background:var(--meadow);
-    }
-
-    /* Numbered requirement prefixes: muted, smaller, separated from the heading text */
-    .req-top h3 .req-num{
-      display:inline-block;
-      color:var(--text-muted);
-      font-weight:600;
-      font-size:.8em;
-      margin-right:9px;
-    }
-
   </style>
 
 </head>
@@ -488,7 +449,7 @@
 
             <details id="document-protection" class="req-card">
               <summary class="req-top">
-                <h3><span class="req-num">1</span>Submission Protection</h3>
+                <h3>1. Submission Protection</h3>
                 <span class="req-quiz-badge">Quiz</span><span class="req-quiz-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 9 12 16 19 9"></polyline></svg></span>
               </summary>
               <div class="req-body">
@@ -723,7 +684,7 @@
 
             <details id="system-access" class="req-card">
               <summary class="req-top">
-                <h3><span class="req-num">2</span>System Access</h3>
+                <h3>2. System Access</h3>
               </summary>
               <div class="req-body">
                 <div style="font-size:1.02rem; color:var(--text-secondary); line-height:1.6; margin:0 0 20px;">
@@ -742,7 +703,7 @@
 
             <details id="personnel" class="req-card">
               <summary class="req-top">
-                <h3><span class="req-num">3</span>Personnel Controls</h3>
+                <h3>3. Personnel Controls</h3>
               </summary>
               <div class="req-body">
                 <div style="font-size:1.02rem; color:var(--text-secondary); line-height:1.6; margin:0 0 20px;">
