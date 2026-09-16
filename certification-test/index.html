@@ -352,6 +352,12 @@
       border-top-color:var(--green-accent);
     }
     .safeguard-detail-toggle.safeguard-methods-toggle{background:#F5F5F5;border-color:#D1D5DB;color:#6B7280;}.safeguard-detail-toggle.safeguard-methods-toggle:hover{background:#E5E7EB;color:#4B5563;border-color:#C4C9D0;}
+
+    #document-protection>summary.start-quiz-top{display:flex;align-items:center;justify-content:center;padding:18px 20px;background:var(--navy);border-bottom:none;}
+    #document-protection>summary.start-quiz-top:hover{background:var(--navy-mid);}
+    #document-protection[open]>summary.start-quiz-top{background:var(--navy);border-bottom:1px solid var(--border-light);}
+    #document-protection>summary.start-quiz-top .start-quiz-label{color:var(--white);font-family:var(--font-display);font-weight:700;font-size:1.05rem;letter-spacing:.02em;}
+    #quizCompleteNote.quiz-complete-note{font-weight:400;}
   </style>
 
 </head>
@@ -436,9 +442,8 @@
             </div>
 
             <details id="document-protection" class="req-card">
-              <summary class="req-top">
-                <h3>Submission Protection</h3>
-                <span class="req-quiz-badge">Quiz</span><span class="req-quiz-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 9 12 16 19 9"></polyline></svg></span>
+              <summary class="req-top start-quiz-top">
+                <span class="start-quiz-label">Start Quiz</span>
               </summary>
               <div class="req-body">
                 <div class="questionnaire" id="protectionQuestionnaire">
@@ -652,7 +657,7 @@
                       </div>
                     </div>
                   </div>
-                  <div id="quizCompleteNote" class="conditional-panel scope-lime-note"><p style="margin:0 0 10px;">Quiz complete. We&rsquo;ll also ask about:</p><ul style="margin:0 0 10px; padding-left:20px;"><li>System Access &mdash; MFA for email and your system of record</li><li>Personnel Controls &mdash; background checks, screen security, and off-boarding</li></ul><p style="margin:0;">Companies are reviewed holistically. &ldquo;No&rdquo; responses do not automatically prevent certification.</p></div>
+                  <div id="quizCompleteNote" class="conditional-panel scope-lime-note quiz-complete-note"><p style="margin:0 0 10px;"><strong>Quiz complete.</strong></p><p style="margin:0 0 8px;">We&rsquo;ll also ask about:</p><ul style="margin:0 0 12px; padding-left:20px;"><li>System Access &mdash; MFA enabled for email and your system of record?</li><li>Personnel Controls &mdash; background checks, screen lock enabled, and documented off-boarding process.</li></ul><p style="margin:0;">Companies are reviewed holistically. &ldquo;No&rdquo; responses do not automatically prevent certification.</p></div>
                   <button type="button" class="questionnaire-reset" id="protectionReset">Reset answers</button>
                 </div>
               </div>
