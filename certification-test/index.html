@@ -358,6 +358,8 @@
     #document-protection>summary.start-quiz-top .start-quiz-label{display:inline-flex;align-items:center;justify-content:center;background:#DFF029;color:#000000;font-family:var(--font-body);font-weight:700;font-size:.92rem;letter-spacing:.02em;padding:10px 22px;transition:filter .15s;}
     #document-protection>summary.start-quiz-top:hover .start-quiz-label{filter:brightness(.94);}
     #quizCompleteNote.quiz-complete-note{font-weight:400;}
+
+    #how-it-works[open]>summary.req-top::after{display:none;}
   </style>
 
 </head>
@@ -774,6 +776,17 @@
     var mobileMenu = document.getElementById('mobileMenu');
     var mobileToggle = document.querySelector('.mobile-toggle');
     var mobileClose = document.getElementById('mobileMenuClose');
+    // How It Works: expand-only, cannot be re-collapsed once opened
+    (function(){
+      var hiw = document.getElementById('how-it-works');
+      if (!hiw) return;
+      var summary = hiw.querySelector('summary');
+      if (!summary) return;
+      summary.addEventListener('click', function(e){
+        if (hiw.hasAttribute('open')) { e.preventDefault(); }
+      });
+    })();
+
     function closeMobileMenu(){ mobileMenu.classList.remove('active'); }
     if (mobileToggle) mobileToggle.addEventListener('click', function(){ mobileMenu.classList.add('active'); });
     if (mobileClose) mobileClose.addEventListener('click', closeMobileMenu);
