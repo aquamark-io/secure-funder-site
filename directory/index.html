@@ -993,6 +993,8 @@
     .page-hero::before, .page-hero::after { display: none; }
     .filter-input::placeholder { color: #A0A4AA; }
     main .section-alt { background: var(--white); border-top: none; border-bottom: none; }
+    .utility-bar { background: #1A3455; height: auto; min-height: 38px; padding: 8px 16px; letter-spacing: 0; font-size: 0.86rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    @media (max-width: 600px) { .utility-bar { font-size: 0.76rem; min-height: 34px; padding: 7px 14px; } }
     .page-hero { background: var(--white); border-bottom: none; }
     .page-hero-inner { padding: 64px 0 4px; }
     .page-hero h1 { margin-bottom: 10px; }
@@ -1053,6 +1055,11 @@
 </head>
 
 <body>
+  <!-- Announcement Banner -->
+  <div class="utility-bar">
+    <div class="utility-text">New in 2026: Raising standards across alternative finance.</div>
+  </div>
+
   <!-- Navigation -->
   <nav class="main-nav">
     <div class="container">
