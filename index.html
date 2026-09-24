@@ -2585,9 +2585,9 @@
     .participant-logos-grid {
       display: grid;
       grid-template-columns: repeat(6, minmax(0, 1fr));
-      column-gap: 84px;
+      column-gap: 96px;
       align-items: center;
-      max-width: 1200px;
+      max-width: 1640px;
       margin: 0 auto;
     }
     .participant-logo {
@@ -2604,13 +2604,14 @@
     }
     .participant-logo img {
       display: block;
-      max-height: 60px;
-      max-width: min(190px, 100%);
+      max-height: 72px;
+      max-width: min(215px, 100%);
       width: auto;
       height: auto;
       object-fit: contain;
       filter: grayscale(1);
       opacity: 0.62;
+      mix-blend-mode: multiply;
     }
     .participant-logo.logo-lg img {
       max-height: 72px;
@@ -2628,6 +2629,9 @@
       color: #4A4F56;
       border-color: #9CA1A8;
       background: #F4F5F6;
+    }
+    @media (max-width: 1280px) {
+      .participant-logos-grid { column-gap: 56px; }
     }
     @media (max-width: 800px) {
       .participant-logos-grid {
