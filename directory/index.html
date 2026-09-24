@@ -991,11 +991,23 @@
       --border-light: #ECEEF0;
     }
     .page-hero::before, .page-hero::after { display: none; }
-    .hero-disclaimer { background: #F6F7F8; border-left-color: #9CA1A8; }
-    .hero-disclaimer p { color: #50555C; }
-    .hero-disclaimer p strong { color: #111418; }
     .filter-input::placeholder { color: #A0A4AA; }
     main .section-alt { background: var(--white); border-top: none; border-bottom: none; }
+    .page-hero { background: var(--white); border-bottom: none; }
+    .page-hero-inner { padding: 64px 0 4px; }
+    .page-hero h1 { margin-bottom: 10px; }
+    .page-hero-inner > p { margin-bottom: 4px; }
+    .hero-disclaimer { margin-top: 0; padding: 0; background: none; border-left: none; border-radius: 0; }
+    .hero-disclaimer p { color: var(--text-muted); }
+    .hero-disclaimer p strong { color: var(--text-secondary); }
+    .directory-toolbar { padding: 18px 0 26px; }
+    @media (max-width: 900px) {
+      .page-hero-inner { padding: 48px 0 4px; }
+    }
+    @media (max-width: 600px) {
+      .page-hero-inner { padding: 34px 0 2px; }
+      .directory-toolbar { padding: 14px 0 20px; }
+    }
   </style>
 
   <style>
