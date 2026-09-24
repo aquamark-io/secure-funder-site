@@ -2623,7 +2623,10 @@
     }
     .participant-logos-section .container { max-width: 1640px; }
     .participant-logos-cta {
-      text-align: center;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
       margin-top: 40px;
     }
     .participant-logos-cta .btn-ghost {
@@ -2665,7 +2668,8 @@
         max-width: min(145px, 100%);
       }
       .participant-logos-cta { margin-top: 44px; }
-      .participant-logos-cta .btn-ghost { width: auto; }
+      .participant-logos-cta { gap: 10px; }
+      .participant-logos-cta .btn-ghost { width: auto; padding: 12px 18px; }
     }
 
 
@@ -2742,7 +2746,8 @@
         <div class="participant-logo logo-wide"><img src="oval.png" alt="Oval"></div>
       </div>
       <div class="participant-logos-cta">
-        <a href="/directory" class="btn-ghost">Member Directory</a>
+        <a href="https://securefunder.org/directory" target="_blank" rel="noopener noreferrer" class="btn-ghost">Funder Directory</a>
+        <a href="https://securebroker.org/directory" target="_blank" rel="noopener noreferrer" class="btn-ghost">Broker Directory</a>
       </div>
     </div>
   </section>
