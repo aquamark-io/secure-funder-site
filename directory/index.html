@@ -315,7 +315,7 @@
       cursor: pointer;
       appearance: none;
       -webkit-appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%237A96AE' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%237A7F86' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
       background-repeat: no-repeat;
       background-position: right 14px center;
       padding-right: 36px;
@@ -970,6 +970,31 @@
       text-align: center; border-radius:0; font-weight: 600;
       text-decoration: none; font-size: 0.95rem;
     }
+  
+    /* ===== NEUTRAL PALETTE (directory content) ===== */
+    .page-hero, .directory-toolbar, main {
+      --navy: #111418;
+      --navy-mid: #2A2E33;
+      --slate: #50555C;
+      --steel: #7A7F86;
+      --sky: #9CA1A8;
+      --ice: #D5D8DC;
+      --pearl: #F6F7F8;
+      --cloud: #FAFAFB;
+      --blue-accent: #50555C;
+      --blue-accent-soft: #7A7F86;
+      --blue-accent-pale: #EEF0F2;
+      --text-primary: #111418;
+      --text-secondary: #50555C;
+      --text-muted: #7A7F86;
+      --border: #DCDFE3;
+      --border-light: #ECEEF0;
+    }
+    .page-hero::before, .page-hero::after { display: none; }
+    .hero-disclaimer { background: #F6F7F8; border-left-color: #9CA1A8; }
+    .hero-disclaimer p { color: #50555C; }
+    .hero-disclaimer p strong { color: #111418; }
+    .filter-input::placeholder { color: #A0A4AA; }
   </style>
 
   <style>
