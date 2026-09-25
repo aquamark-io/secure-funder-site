@@ -795,6 +795,14 @@
   function closeMethodsModal(){
     document.getElementById('methodsModalOverlay').classList.remove('open');
   }
+
+  function openSafeguardsFromHash(){
+    if (location.hash !== '#download-safeguards') return;
+    var btn = document.querySelector('.safeguard-detail-toggle');
+    if (btn) showSafeguardDetail(btn);
+  }
+  openSafeguardsFromHash();
+  window.addEventListener('hashchange', openSafeguardsFromHash);
 </script>
 
 </body>
