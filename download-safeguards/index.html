@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Download Safeguards — Secure Funder™</title>
+  <meta name="description" content="Acceptable safeguards when submission documents are downloadable, with common methods for keeping files within company systems.">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../blue-ring.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../blue-ring.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../blue-ring.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --utility-height: 42px;
+      --utility-height-mobile: 56px;
+      --nav-height: 68px;
+      --navy: #0F2137;
+      --navy-mid: #1A3455;
+      --slate: #3D5A80;
+      --steel: #6B8BAD;
+      --ice: #C5D9E8;
+      --pearl: #EFF4F8;
+      --cloud: #F6F9FC;
+      --white: #FFFFFF;
+      --blue-accent: #4FA3D1;
+      --blue-accent-soft: #7BBCE1;
+      --blue-accent-pale: #E7F2FA;
+      --text-primary: #0F2137;
+      --text-secondary: #4A6480;
+      --text-muted: #7A96AE;
+      --border: #DAE3EC;
+      --border-light: #EAF0F5;
+      --font-display: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-body: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      color: var(--text-primary);
+      background: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      padding-top: calc(var(--utility-height) + var(--nav-height));
+    }
+
+    /* UTILITY BAR */
+    .utility-bar {
+      background: linear-gradient(90deg, #0D1B2D 0%, #13263D 52%, #17304C 100%);
+      color: var(--white);
+      font-size: 0.82rem; font-weight: 600;
+      height: var(--utility-height);
+      letter-spacing: 0.04em;
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 200;
+      display: flex; align-items: center; justify-content: center;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .utility-text { width: 100%; text-align: center; }
+    .utility-banner-link {
+      width: 100%; min-height: 100%;
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 0 18px; text-decoration: none; color: var(--white);
+    }
+    .utility-banner-link:hover { background: rgba(255,255,255,0.04); }
+    .utility-copy { display: inline-flex; align-items: baseline; gap: 8px; flex-wrap: wrap; justify-content: center; }
+    .utility-eyebrow { color: var(--blue-accent-soft); text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.68rem; font-weight: 700; }
+    .utility-message { color: rgba(255,255,255,0.95); }
+    @media (max-width: 640px) {
+      body { padding-top: calc(var(--utility-height-mobile) + var(--nav-height)); }
+      .utility-bar { height: var(--utility-height-mobile); }
+      .utility-copy { display: flex; flex-direction: column; align-items: center; gap: 2px; text-align: center; }
+      .utility-eyebrow { font-size: 0.58rem; letter-spacing: 0.16em; line-height: 1; }
+      .utility-message { display: block; font-size: 0.80rem; line-height: 1.22; }
+    }
+
+    /* NAV */
+    .main-nav {
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      position: fixed; top: var(--utility-height); left: 0; right: 0;
+      z-index: 190;
+      
+    }
+    .main-nav .container { display: flex; justify-content: space-between; align-items: center; height: 68px; }
+    .logo { display: flex; align-items: center; text-decoration: none; color: var(--navy); gap: 12px; }
+    .logo-text { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; letter-spacing: -0.01em; }
+    .logo-tm { font-size: 0.55em; vertical-align: super; font-weight: 400; margin-left: 1px; }
+    .logo-badge-lg { width: 44px; height: 44px; }
+    .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; }
+    .nav-links a {
+      text-decoration: none; color: var(--text-primary);
+      font-size: 0.88rem; font-weight: 500; padding: 8px 14px;
+      border-radius:0; transition: all 0.2s;
+    }
+    .nav-links a:hover { background: var(--pearl); }
+    .nav-links .btn-member { background: var(--navy); color: var(--white); font-weight: 600; margin-left: 6px; }
+    .nav-links .btn-member:hover { background: var(--navy-mid); }
+    .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+    .mobile-toggle span { display: block; width: 22px; height: 2px; background: var(--navy); margin: 5px 0; }
+
+    .container { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
+    .container-narrow { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+
+    /* PAGE HEADER */
+    .page-header {
+      background: var(--cloud);
+      border-bottom: 1px solid var(--border-light);
+      padding: 64px 0 56px;
+      text-align: center;
+    }
+    .page-header .section-label {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--blue-accent); margin-bottom: 12px;
+    }
+    .page-header h1 {
+      font-family: var(--font-display);
+      font-size: 2.1rem; font-weight: 700; line-height: 1.2;
+      letter-spacing: -0.02em; color: var(--navy); margin-bottom: 12px;
+    }
+    .page-header p {
+      font-size: 1rem; color: var(--text-secondary); line-height: 1.7;
+    }
+    .page-header .version {
+      font-size: 0.78rem; color: var(--text-muted); margin-top: 8px;
+      letter-spacing: 0.02em;
+    }
+
+    /* TERMS CONTENT */
+    .terms-body {
+      padding: 64px 0 80px;
+    }
+    .terms-body h2 {
+      font-family: var(--font-display);
+      font-size: 1.15rem; font-weight: 700; color: var(--navy);
+      margin: 48px 0 14px; padding-top: 32px;
+      border-top: 1px solid var(--border-light);
+    }
+    .terms-body h2:first-of-type {
+      margin-top: 0; padding-top: 0; border-top: none;
+    }
+    .terms-body p {
+      font-size: 0.92rem; color: var(--text-secondary); line-height: 1.8;
+      margin-bottom: 14px;
+    }
+    .terms-body p:last-child { margin-bottom: 0; }
+    .terms-body ul {
+      list-style: none; padding: 0; margin: 0 0 14px;
+    }
+    .terms-body ul li {
+      font-size: 0.92rem; color: var(--text-secondary); line-height: 1.8;
+      padding: 4px 0 4px 20px; position: relative;
+    }
+    .terms-body ul li::before {
+      content: '';
+      position: absolute; left: 0; top: 14px;
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--blue-accent);
+    }
+    .terms-divider {
+      font-family: var(--font-display);
+      font-size: 1.35rem; font-weight: 700; color: var(--navy);
+      margin: 56px 0 8px; padding-top: 40px;
+      border-top: 2px solid var(--navy);
+      letter-spacing: -0.01em;
+    }
+    .terms-body .contact-block {
+      margin-top: 16px;
+      font-size: 0.92rem; color: var(--text-secondary); line-height: 1.8;
+    }
+    .terms-body .contact-block a {
+      color: var(--blue-accent); text-decoration: none;
+    }
+    .terms-body .contact-block a:hover { text-decoration: underline; }
+
+    /* FOOTER */
+    footer { background: var(--navy); color: var(--ice); padding: 56px 0 0; }
+    .footer-grid {
+      display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 44px; padding-bottom: 44px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .footer-brand p { font-size: 0.86rem; color: var(--ice); line-height: 1.7; margin-top: 14px; max-width: 280px; }
+    .footer-brand p a { color: var(--ice); text-decoration: underline; transition: color 0.2s; }
+    .footer-brand p a:hover { color: var(--blue-accent-soft); }
+    .footer-col h4 { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 14px; }
+    .footer-col a { display: block; font-size: 0.86rem; color: var(--steel); text-decoration: none; margin-bottom: 10px; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--white); }
+    .footer-bottom {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 0; font-size: 0.78rem; color: var(--slate);
+    }
+    .footer-bottom a { color: var(--steel); text-decoration: none; }
+    .footer-bottom a:hover { color: var(--white); }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .mobile-toggle { display: block; }
+      .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+      .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+    }
+    @media (max-width: 600px) {
+      body { padding-top: calc(var(--utility-height-mobile) + 56px); }
+      .main-nav { top: var(--utility-height-mobile); }
+      .main-nav .container { height: 56px; }
+      .logo-badge-lg { width: 32px; height: 32px; }
+      .logo-text { font-size: 1.15rem; }
+      .page-header { padding: 44px 0 40px; }
+      .page-header h1 { font-size: 1.6rem; }
+      .terms-body { padding: 44px 0 56px; }
+      .terms-body h2 { font-size: 1.05rem; margin: 36px 0 12px; padding-top: 24px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+    }
+    @media (max-width: 380px) {
+      .page-header h1 { font-size: 1.4rem; }
+      .container { padding: 0 14px; }
+    }
+
+    /* MOBILE MENU */
+    .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--white); z-index: 1000; flex-direction: column; padding: 24px; }
+    .mobile-menu.active { display: flex; }
+    .mobile-menu-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; }
+    .mobile-menu-close { background: none; border: none; cursor: pointer; font-size: 1.5rem; color: var(--navy); padding: 8px; }
+    .mobile-menu a { display: block; padding: 14px 0; font-size: 1.05rem; font-weight: 500; color: var(--navy); text-decoration: none; border-bottom: 1px solid var(--border-light); }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu .btn-member-mobile { display: block; margin-top: 24px; padding: 14px; background: var(--navy); color: var(--white); text-align: center; border-radius:0; font-weight: 600; text-decoration: none; font-size: 0.95rem; }
+
+    .terms-body ol { margin: 0 0 14px; padding-left: 22px; }
+    .terms-body ol li {
+      font-size: 0.92rem; color: var(--text-secondary); line-height: 1.8;
+      padding: 4px 0 4px 6px;
+    }
+    .terms-body strong { color: var(--navy); font-weight: 600; }
+    .terms-body a { color: var(--blue-accent); text-decoration: none; }
+    .terms-body a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <!-- Utility Bar -->
+  <div class="utility-bar">
+    <a href="https://securefunder.org/contact/" class="utility-text utility-banner-link">
+      <span class="utility-copy">
+        <span class="utility-eyebrow">Apply</span>
+        <span class="utility-message">Now accepting applications</span>
+      </span>
+    </a>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="main-nav">
+    <div class="container">
+      <a href="https://securefunder.org/" class="logo">
+        <img class="logo-badge-lg" src="../../blue-ring.png" alt="Secure Funder">
+        <div class="logo-text">Secure Funder<span class="logo-tm">™</span></div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="https://securefunder.org/#about">About</a></li>
+        <li><a href="https://securefunder.org/directory">Directory</a></li>
+        <li><a href="https://securefunder.org/#leadership">Leadership</a></li>
+        <li><a href="https://securefunder.org/#press">Press</a></li>
+        <li><a href="https://securefunder.org/#membership">Membership</a></li>
+        <li><a href="https://securefunder.org/contact/" class="btn-member">Apply Now</a></li>
+      </ul>
+      <button class="mobile-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="container-narrow">
+      <h1>Download Safeguards</h1>
+      <p>What we accept when submission documents are downloadable.</p>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="terms-body">
+    <div class="container-narrow">
+
+      <h2>Overview</h2>
+      <p>The program focuses on protecting the initial submission package, where unauthorized use most often occurs. View-only access meets this requirement. Downloadable files are permitted, but once downloaded they are stored locally and can potentially be sent outside company systems, so a safeguard is needed.</p>
+      <p>Guidelines apply to deal-processing roles (e.g. underwriters, sales).</p>
+
+      <h2>Acceptable Safeguards</h2>
+      <p>This item can clear upon receipt of one of the following:</p>
+      <ol>
+        <li>Change document access to view-only.</li>
+        <li>Documents watermarked with the company name or logo before reaching the system of record, or at the time of download. Watermarking is accepted as a reasonable deterrent against misuse.</li>
+        <li>If documents must remain downloadable, browser restrictions that block access to personal email and cloud storage domains, along with device controls that prevent file transfers through USB.</li>
+        <li>Other: another safeguard or approach that meets the intent of the requirement. We&rsquo;re happy to review alternatives or schedule a brief call to discuss practical options.</li>
+      </ol>
+
+      <h2>Methods</h2>
+      <p>Common ways organizations put browser and device controls in place:</p>
+      <ul>
+        <li><strong>Managed devices:</strong> Company-owned computers configured with security rules that control what users can access, download, or move. Examples may include Group Policy (GPO) on Windows devices.</li>
+        <li><strong>Virtual/remote workspaces:</strong> A controlled company desktop or workspace that employees access remotely. Files and applications stay inside that environment rather than on the employee&rsquo;s personal device. Examples include Windows 365, Azure Virtual Desktop, and Amazon WorkSpaces.</li>
+        <li><strong>Endpoint management:</strong> Software used to centrally apply and enforce security settings on employee devices, such as blocking USB, restricting apps, or controlling file transfers. Examples include Microsoft Intune and Jamf.</li>
+        <li><strong>Enterprise browser controls:</strong> A managed browser that limits what users can do inside the browser, such as blocking personal email, cloud storage, downloads, or copy/paste. Examples include <a href="https://www.island.io/" target="_blank" rel="noopener noreferrer">Island</a> and <a href="https://www.paloaltonetworks.com/sase/prisma-browser" target="_blank" rel="noopener noreferrer">Prisma</a>.</li>
+      </ul>
+
+      <h2>Questions</h2>
+      <p>Not sure whether your setup qualifies? See the full <a href="https://securefunder.org/program-quiz-and-guidelines/">program guidelines</a> or reach out:</p>
+      <div class="contact-block">
+        Secure Funder&trade;<br>
+        <a href="mailto:info@aquamark.io">info@aquamark.io</a><br>
+        (415) 500-1117
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo" style="color: white;">
+            <div class="logo-text" style="color: white;">Secure Funder<span class="logo-tm">™</span></div>
+          </div>
+          <p>An independent certification program establishing baseline data-handling standards in alternative finance. Administered by <a href="https://aquamark.io" target="_blank" rel="noopener noreferrer">Aquamark</a>.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Program</h4>
+          <a href="https://securefunder.org/#about">About</a>
+          <a href="https://securefunder.org/certification">Requirements</a>
+          <a href="https://securefunder.org/#membership">Membership</a>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <a href="https://securefunder.org/directory">Member Directory</a>
+          <a href="https://securefunder.org/#press">Press & Media</a>
+          <a href="https://securefunder.org/contact/">Ask a Question</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="https://securefunder.org/contact/">Send a Message</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Secure Funder™ Certification Program. All rights reserved.</span>
+        <span>Independently administered by <a href="https://aquamark.io" target="_blank">Aquamark</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-header">
+      <a href="https://securefunder.org/" class="logo">
+        <img src="../../blue-ring.png" alt="Secure Funder" style="width:30px;height:30px;">
+        <div class="logo-text">Secure Funder<span class="logo-tm">™</span></div>
+      </a>
+      <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">✕</button>
+    </div>
+    <a href="https://securefunder.org/#about" onclick="closeMobileMenu()">About</a>
+    <a href="https://securefunder.org/directory" onclick="closeMobileMenu()">Directory</a>
+    <a href="https://securefunder.org/#leadership" onclick="closeMobileMenu()">Leadership</a>
+    <a href="https://securefunder.org/#press" onclick="closeMobileMenu()">Press</a>
+    <a href="https://securefunder.org/#membership" onclick="closeMobileMenu()">Membership</a>
+    <a href="https://securefunder.org/contact/" class="btn-member-mobile">Apply Now</a>
+  </div>
+
+  <script>
+    const toggle = document.querySelector('.mobile-toggle');
+    const menu = document.getElementById('mobileMenu');
+    const closeBtn = document.getElementById('mobileMenuClose');
+    function closeMobileMenu() { menu.classList.remove('active'); document.body.style.overflow = ''; }
+    toggle.addEventListener('click', () => { menu.classList.add('active'); document.body.style.overflow = 'hidden'; });
+    closeBtn.addEventListener('click', closeMobileMenu);
+  </script>
+
+</body>
+</html>
