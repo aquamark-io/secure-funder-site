@@ -486,7 +486,7 @@
                               <div class="safeguard-option-row">
                                 <div class="safeguard-option-main">
                                   <span class="safeguard-option-title">Download Safeguards</span>
-                                  <button type="button" class="safeguard-detail-toggle" onclick="showSafeguardDetail(this)" aria-label="More information about Download Safeguards" title="More information about Download Safeguards">Details</button>
+                                  <a class="safeguard-detail-toggle" href="/download-safeguards/" target="_blank" rel="noopener" style="text-decoration:none;" aria-label="Download Safeguards details (opens in a new tab)" title="Download Safeguards details">Details</a>
                                 </div>
                               </div>
                               <div class="safeguard-option-body">
@@ -553,7 +553,7 @@
                                   <div class="safeguard-option-row">
                                     <div class="safeguard-option-main">
                                       <span class="safeguard-option-title">Download Safeguards</span>
-                                      <button type="button" class="safeguard-detail-toggle" onclick="showSafeguardDetail(this)" aria-label="More information about Download Safeguards" title="More information about Download Safeguards">Details</button>
+                                      <a class="safeguard-detail-toggle" href="/download-safeguards/" target="_blank" rel="noopener" style="text-decoration:none;" aria-label="Download Safeguards details (opens in a new tab)" title="Download Safeguards details">Details</a>
                                     </div>
                                   </div>
                                   <div class="safeguard-option-body">
@@ -596,7 +596,7 @@
                             <div class="safeguard-option-row">
                               <div class="safeguard-option-main">
                                 <span class="safeguard-option-title">Download Safeguards</span>
-                                <button type="button" class="safeguard-detail-toggle" onclick="showSafeguardDetail(this)" aria-label="More information about Download Safeguards" title="More information about Download Safeguards">Details</button>
+                                <a class="safeguard-detail-toggle" href="/download-safeguards/" target="_blank" rel="noopener" style="text-decoration:none;" aria-label="Download Safeguards details (opens in a new tab)" title="Download Safeguards details">Details</a>
                               </div>
                             </div>
                             <div class="safeguard-option-body">
@@ -798,8 +798,7 @@
 
   function openSafeguardsFromHash(){
     if (location.hash !== '#download-safeguards') return;
-    var btn = document.querySelector('.safeguard-detail-toggle');
-    if (btn) showSafeguardDetail(btn);
+    location.replace('/download-safeguards/');
   }
   openSafeguardsFromHash();
   window.addEventListener('hashchange', openSafeguardsFromHash);
