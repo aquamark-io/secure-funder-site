@@ -2622,6 +2622,10 @@
       max-width: min(200px, 100%);
     }
     .participant-logos-section .container { max-width: 1640px; }
+    @media (min-width: 1800px) {
+      .participant-logos-section .container { max-width: 90vw; }
+      .participant-logos-grid { max-width: none; column-gap: clamp(44px, 3.2vw, 110px); }
+    }
     .participant-logos-cta {
       display: flex;
       justify-content: center;
