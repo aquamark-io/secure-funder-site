@@ -2584,8 +2584,8 @@
     }
     .participant-logos-grid {
       display: grid;
-      grid-template-columns: repeat(6, minmax(0, 1fr));
-      column-gap: 64px;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      column-gap: 52px;
       align-items: center;
       max-width: 1560px;
       margin: 0 auto;
@@ -2642,14 +2642,17 @@
       background: #F4F5F6;
     }
     @media (max-width: 1280px) {
-      .participant-logos-grid { column-gap: 56px; }
+      .participant-logos-grid { column-gap: 40px; }
     }
     @media (max-width: 800px) {
       .participant-logos-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
         column-gap: 32px;
         row-gap: 36px;
       }
+      .participant-logo { flex: 0 0 calc((100% - 64px) / 3); }
       .participant-logo img,
       .participant-logo.logo-wide img {
         max-height: 54px;
@@ -2660,11 +2663,10 @@
       .participant-logos-section { padding: 40px 0 44px; }
       .participant-logos-header { margin-bottom: 28px; }
       .participant-logos-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
         column-gap: 28px;
         row-gap: 32px;
       }
-      .participant-logo { min-height: 56px; }
+      .participant-logo { min-height: 56px; flex: 0 0 calc((100% - 28px) / 2); }
       .participant-logo img,
       .participant-logo.logo-wide img {
         max-height: 48px;
@@ -2748,6 +2750,7 @@
       </div>
       <div class="participant-logos-grid">
         <div class="participant-logo"><img src="big.png" alt="Big Think Capital"></div>
+        <div class="participant-logo logo-wide"><img src="niche.png" alt="Niche Capital"></div>
         <div class="participant-logo logo-wide"><img src="kalamata.png" alt="Kalamata Capital"></div>
         <div class="participant-logo logo-wide"><img src="green.png" alt="Greenbridge"></div>
         <div class="participant-logo logo-wide"><img src="clara.png" alt="Clara Capital"></div>
