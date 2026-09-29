@@ -340,16 +340,23 @@
               <li><strong>Web &amp; Domain Restrictions:</strong> Block access to personal email, personal cloud storage, and unauthorized file-transfer services.</li>
               <li><strong>USB &amp; Removable Storage Restrictions:</strong> Block or restrict copying company files to physical media.</li>
             </ul>
-            <p>Options to look into, depending on your current setup. Most companies need only one or two to cover both requirements:</p>
-            <ul>
-              <li><strong>Endpoint/MDM Policies:</strong> <span class="cov-tag" style="display:inline-block; font-size:0.66rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; line-height:1.5; padding:0 7px; margin:0 6px 0 2px; border:1px solid #4FA3D1; vertical-align:2px; background:#4FA3D1; color:#FFFFFF; border-color:#4FA3D1;">Both</span> Microsoft Intune, Jamf, Hexnode, or ManageEngine. Centrally manage company devices; can cover both web and USB restrictions.</li>
-              <li><strong>Windows Group Policy (GPO):</strong> <span class="cov-tag" style="display:inline-block; font-size:0.66rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; line-height:1.5; padding:0 7px; margin:0 6px 0 2px; border:1px solid #4FA3D1; vertical-align:2px; background:#4FA3D1; color:#FFFFFF; border-color:#4FA3D1;">Both</span> Built into Windows; can block USB storage and restrict browser settings on company computers.</li>
-              <li><strong>Enterprise Browsers:</strong> <span class="cov-tag" style="display:inline-block; font-size:0.66rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; line-height:1.5; padding:0 7px; margin:0 6px 0 2px; border:1px solid #4FA3D1; vertical-align:2px; color:#4FA3D1;">Web</span> Island or Talon. Control what users can access, upload, and download within the browser.</li>
-              <li><strong>Web/DNS Filtering:</strong> <span class="cov-tag" style="display:inline-block; font-size:0.66rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; line-height:1.5; padding:0 7px; margin:0 6px 0 2px; border:1px solid #4FA3D1; vertical-align:2px; color:#4FA3D1;">Web</span> Palo Alto Prisma, Cloudflare One, or DNSFilter. Block personal email, cloud storage, and file-transfer sites at the network or device level.</li>
-              <li><strong>Virtual Desktops (VDI):</strong> <span class="cov-tag" style="display:inline-block; font-size:0.66rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; line-height:1.5; padding:0 7px; margin:0 6px 0 2px; border:1px solid #4FA3D1; vertical-align:2px; background:#4FA3D1; color:#FFFFFF; border-color:#4FA3D1;">Both</span> Windows 365, Azure Virtual Desktop, or Amazon WorkSpaces. Keep company files inside a controlled workspace rather than on the local machine.</li>
-              <li><strong>Conditional Access:</strong> <span class="cov-tag" style="display:inline-block; font-size:0.66rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; line-height:1.5; padding:0 7px; margin:0 6px 0 2px; border:1px solid #4FA3D1; vertical-align:2px; color:#4FA3D1;">Supporting</span> Okta, JumpCloud, or Entra ID. Limits logins to approved, managed devices so the other controls can&rsquo;t be bypassed. Use alongside one of the options above.</li>
+            <p>Common options, grouped by what they cover. Most companies need only one or two:</p>
+            <p style="margin:20px 0 4px; font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#4FA3D1;">Covers web and USB</p>
+            <ul style="margin-bottom:4px;">
+              <li><strong style="font-weight:600;">Endpoint/MDM policies</strong> &mdash; Microsoft Intune, Jamf, Hexnode, or ManageEngine</li>
+              <li><strong style="font-weight:600;">Windows Group Policy (GPO)</strong> &mdash; built into Windows</li>
+              <li><strong style="font-weight:600;">Virtual desktops</strong> &mdash; Windows 365, Azure Virtual Desktop, or Amazon WorkSpaces</li>
             </ul>
-            <p>Comparable solutions that achieve the same security outcomes may also be used.</p>
+            <p style="margin:20px 0 4px; font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#4FA3D1;">Covers web only &mdash; pair with a USB control</p>
+            <ul style="margin-bottom:4px;">
+              <li><strong style="font-weight:600;">Enterprise browsers</strong> &mdash; Island or Talon</li>
+              <li><strong style="font-weight:600;">Web/DNS filtering</strong> &mdash; Palo Alto Prisma, Cloudflare One, or DNSFilter</li>
+            </ul>
+            <p style="margin:20px 0 4px; font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#4FA3D1;">Supporting</p>
+            <ul style="margin-bottom:4px;">
+              <li><strong style="font-weight:600;">Conditional access</strong> &mdash; Okta, JumpCloud, or Entra ID (limits logins to managed devices so the controls above can&rsquo;t be bypassed)</li>
+            </ul>
+            <p style="margin-top:18px;">Comparable solutions that achieve the same security outcomes may also be used.</p>
 
             <div class="ds-or">AND/OR</div>
 
