@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Program Framework — Secure Funder™</title>
+  <meta name="description" content="How submission handling and document safeguards are evaluated, from intake to the system of record.">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../blue-ring.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../blue-ring.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../blue-ring.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --utility-height: 0px;
+      --utility-height-mobile: 0px;
+      --nav-height: 68px;
+      --navy: #0F2137;
+      --navy-mid: #1A3455;
+      --slate: #3D5A80;
+      --steel: #6B8BAD;
+      --ice: #C5D9E8;
+      --pearl: #EFF4F8;
+      --cloud: #F6F9FC;
+      --white: #FFFFFF;
+      --blue-accent: #4FA3D1;
+      --blue-accent-soft: #7BBCE1;
+      --blue-accent-pale: #E7F2FA;
+      --text-primary: #0F2137;
+      --text-secondary: #4A6480;
+      --text-muted: #7A96AE;
+      --border: #DAE3EC;
+      --border-light: #EAF0F5;
+      --font-display: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-body: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      color: var(--text-primary);
+      background: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      padding-top: calc(var(--utility-height) + var(--nav-height));
+    }
+
+    /* UTILITY BAR */
+    .utility-bar {
+      background: linear-gradient(90deg, #0D1B2D 0%, #13263D 52%, #17304C 100%);
+      color: var(--white);
+      font-size: 0.82rem; font-weight: 600;
+      height: var(--utility-height);
+      letter-spacing: 0.04em;
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 200;
+      display: flex; align-items: center; justify-content: center;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .utility-text { width: 100%; text-align: center; }
+    .utility-banner-link {
+      width: 100%; min-height: 100%;
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 0 18px; text-decoration: none; color: var(--white);
+    }
+    .utility-banner-link:hover { background: rgba(255,255,255,0.04); }
+    .utility-copy { display: inline-flex; align-items: baseline; gap: 8px; flex-wrap: wrap; justify-content: center; }
+    .utility-eyebrow { color: var(--blue-accent-soft); text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.68rem; font-weight: 700; }
+    .utility-message { color: rgba(255,255,255,0.95); }
+    @media (max-width: 640px) {
+      body { padding-top: calc(var(--utility-height-mobile) + var(--nav-height)); }
+      .utility-bar { height: var(--utility-height-mobile); }
+      .utility-copy { display: flex; flex-direction: column; align-items: center; gap: 2px; text-align: center; }
+      .utility-eyebrow { font-size: 0.58rem; letter-spacing: 0.16em; line-height: 1; }
+      .utility-message { display: block; font-size: 0.80rem; line-height: 1.22; }
+    }
+
+    /* NAV */
+    .main-nav {
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      position: fixed; top: var(--utility-height); left: 0; right: 0;
+      z-index: 190;
+      
+    }
+    .main-nav .container { display: flex; justify-content: space-between; align-items: center; height: 68px; }
+    .logo { display: flex; align-items: center; text-decoration: none; color: var(--navy); gap: 12px; }
+    .logo-text { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; letter-spacing: -0.01em; }
+    .logo-tm { font-size: 0.55em; vertical-align: super; font-weight: 400; margin-left: 1px; }
+    .logo-badge-lg { width: 44px; height: 44px; }
+    .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; }
+    .nav-links a {
+      text-decoration: none; color: var(--text-primary);
+      font-size: 0.88rem; font-weight: 500; padding: 8px 14px;
+      border-radius:0; transition: all 0.2s;
+    }
+    .nav-links a:hover { background: var(--pearl); }
+    .nav-links .btn-member { background: var(--navy); color: var(--white); font-weight: 600; margin-left: 6px; }
+    .nav-links .btn-member:hover { background: var(--navy-mid); }
+    .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+    .mobile-toggle span { display: block; width: 22px; height: 2px; background: var(--navy); margin: 5px 0; }
+
+    .container { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
+    .container-narrow { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+
+    /* PAGE HEADER */
+    .page-header {
+      background: var(--cloud);
+      border-bottom: 1px solid var(--border-light);
+      padding: 64px 0 56px;
+      text-align: center;
+    }
+    .page-header .section-label {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--blue-accent); margin-bottom: 12px;
+    }
+    .page-header h1 {
+      font-family: var(--font-display);
+      font-size: 2.4rem; font-weight: 700; line-height: 1.2;
+      letter-spacing: -0.02em; color: var(--navy); margin-bottom: 12px;
+    }
+    .page-header p {
+      font-size: 1.12rem; color: var(--text-secondary); line-height: 1.7;
+    }
+    .page-header .version {
+      font-size: 0.78rem; color: var(--text-muted); margin-top: 8px;
+      letter-spacing: 0.02em;
+    }
+
+    /* TERMS CONTENT */
+    .terms-body {
+      padding: 64px 0 80px;
+    }
+    .terms-body h2 {
+      font-family: var(--font-display);
+      font-size: 1.35rem; font-weight: 700; color: var(--navy);
+      margin: 48px 0 14px; padding-top: 32px;
+      border-top: 1px solid var(--border-light);
+    }
+    .terms-body h2:first-of-type {
+      margin-top: 0; padding-top: 0; border-top: none;
+    }
+    .terms-body p {
+      font-size: 1.04rem; color: var(--text-secondary); line-height: 1.75;
+      margin-bottom: 14px;
+    }
+    .terms-body p:last-child { margin-bottom: 0; }
+    .terms-body ul {
+      list-style: none; padding: 0; margin: 0 0 14px;
+    }
+    .terms-body ul li {
+      font-size: 1.04rem; color: var(--text-secondary); line-height: 1.75;
+      padding: 4px 0 4px 20px; position: relative;
+    }
+    .terms-body ul li::before {
+      content: '';
+      position: absolute; left: 0; top: 14px;
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--blue-accent);
+    }
+    .terms-divider {
+      font-family: var(--font-display);
+      font-size: 1.35rem; font-weight: 700; color: var(--navy);
+      margin: 56px 0 8px; padding-top: 40px;
+      border-top: 2px solid var(--navy);
+      letter-spacing: -0.01em;
+    }
+    .terms-body .contact-block {
+      margin-top: 16px;
+      font-size: 1.04rem; color: var(--text-secondary); line-height: 1.75;
+    }
+    .terms-body .contact-block a {
+      color: var(--blue-accent); text-decoration: none;
+    }
+    .terms-body .contact-block a:hover { text-decoration: underline; }
+
+    /* FOOTER */
+    footer { background: var(--navy); color: var(--ice); padding: 56px 0 0; }
+    .footer-grid {
+      display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 44px; padding-bottom: 44px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .footer-brand p { font-size: 0.86rem; color: var(--ice); line-height: 1.7; margin-top: 14px; max-width: 280px; }
+    .footer-brand p a { color: var(--ice); text-decoration: underline; transition: color 0.2s; }
+    .footer-brand p a:hover { color: var(--blue-accent-soft); }
+    .footer-col h4 { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 14px; }
+    .footer-col a { display: block; font-size: 0.86rem; color: var(--steel); text-decoration: none; margin-bottom: 10px; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--white); }
+    .footer-bottom {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 0; font-size: 0.78rem; color: var(--slate);
+    }
+    .footer-bottom a { color: var(--steel); text-decoration: none; }
+    .footer-bottom a:hover { color: var(--white); }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .mobile-toggle { display: block; }
+      .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+      .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+    }
+    @media (max-width: 600px) {
+      body { padding-top: calc(var(--utility-height-mobile) + 56px); }
+      .main-nav { top: var(--utility-height-mobile); }
+      .main-nav .container { height: 56px; }
+      .logo-badge-lg { width: 32px; height: 32px; }
+      .logo-text { font-size: 1.15rem; }
+      .page-header { padding: 44px 0 40px; }
+      .page-header h1 { font-size: 1.85rem; }
+      .terms-body { padding: 44px 0 56px; }
+      .terms-body h2 { font-size: 1.2rem; margin: 36px 0 12px; padding-top: 24px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+    }
+    @media (max-width: 380px) {
+      .page-header h1 { font-size: 1.4rem; }
+      .container { padding: 0 14px; }
+    }
+
+    /* MOBILE MENU */
+    .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--white); z-index: 1000; flex-direction: column; padding: 24px; }
+    .mobile-menu.active { display: flex; }
+    .mobile-menu-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; }
+    .mobile-menu-close { background: none; border: none; cursor: pointer; font-size: 1.5rem; color: var(--navy); padding: 8px; }
+    .mobile-menu a { display: block; padding: 14px 0; font-size: 1.05rem; font-weight: 500; color: var(--navy); text-decoration: none; border-bottom: 1px solid var(--border-light); }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu .btn-member-mobile { display: block; margin-top: 24px; padding: 14px; background: var(--navy); color: var(--white); text-align: center; border-radius:0; font-weight: 600; text-decoration: none; font-size: 0.95rem; }
+
+    .terms-body ol { margin: 0 0 14px; padding-left: 22px; }
+    .terms-body ol li {
+      font-size: 1.04rem; color: var(--text-secondary); line-height: 1.75;
+      padding: 4px 0 4px 6px;
+    }
+    .terms-body strong { color: var(--navy); font-weight: 600; }
+    .terms-body a { color: var(--blue-accent); text-decoration: none; }
+    .terms-body a:hover { text-decoration: underline; }
+
+    /* PROGRAM FRAMEWORK */
+    .fw { padding: 64px 0 88px; }
+    .fw-wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+    .fw-section + .fw-section { margin-top: 72px; }
+    .fw-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding-bottom: 14px; border-bottom: 2px solid var(--navy); margin-bottom: 12px; }
+    .fw-head h2 { font-size: 1.35rem; font-weight: 700; color: var(--navy); letter-spacing: -0.01em; }
+    .fw-head a { font-size: 0.9rem; font-weight: 600; color: var(--navy); text-decoration: underline; text-underline-offset: 3px; white-space: nowrap; }
+    .fw-intro { font-size: 1.04rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 36px; max-width: 720px; }
+
+    .fw-flow { display: grid; grid-template-columns: minmax(0, 1.25fr) 48px minmax(0, 0.8fr) 48px minmax(0, 1fr); align-items: center; }
+    .fw-stage { display: flex; flex-direction: column; gap: 16px; }
+    .fw-stage-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-secondary); }
+    .fw-labels { display: grid; grid-template-columns: minmax(0, 1.25fr) 48px minmax(0, 0.8fr) 48px minmax(0, 1fr); padding-bottom: 12px; margin-bottom: 24px; border-bottom: 1px solid var(--border-light); }
+    .fw-flow .fw-stage-label { display: none; }
+    @media (max-width: 900px) {
+      .fw-labels { display: none; }
+      .fw-flow .fw-stage-label { display: block; }
+    }
+    .fw-arrow { display: flex; align-items: center; justify-content: center; color: var(--navy); }
+    .fw-arrow svg { width: 28px; height: 16px; }
+
+    .fw-card { background: var(--white); border: 1px solid #B9C7D6; padding: 22px 24px; }
+    .fw-card h3 { font-size: 1.08rem; font-weight: 700; color: var(--navy); line-height: 1.35; margin-bottom: 6px; }
+    .fw-card p { font-size: 0.96rem; color: var(--text-secondary); line-height: 1.6; }
+    .fw-card-sor { background: var(--navy); border-color: var(--navy); padding: 36px 24px; }
+    .fw-card-sor h3 { color: var(--white); font-size: 1.3rem; }
+    .fw-card-sor p { color: #C5D9E8; }
+
+    .fw-sub { margin-top: 16px; border-top: 1px solid var(--border); }
+    .fw-sub-item { padding: 14px 0 0; }
+    .fw-sub-item + .fw-sub-item { margin-top: 14px; border-top: 1px solid var(--border-light); }
+    .fw-sub-item h4 { font-size: 0.98rem; font-weight: 700; color: var(--navy); margin-bottom: 2px; }
+    .fw-sub-item p { font-size: 0.93rem; }
+
+    .fw-or { text-align: center; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); }
+    .fw-result { display: block; margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--border); font-size: 0.92rem; font-weight: 700; color: var(--navy); }
+    .fw-result.pass { color: #1E6B47; }
+    .fw-result a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+
+    .fw-options { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--border); }
+    .fw-options li { padding: 24px 28px 4px 28px; border-left: 1px solid var(--border); }
+    .fw-options li:first-child { padding-left: 0; border-left: none; }
+    .fw-options .num { display: block; font-size: 0.85rem; font-weight: 600; color: var(--text-muted); margin-bottom: 8px; }
+    .fw-options h3 { font-size: 1.08rem; font-weight: 700; color: var(--navy); line-height: 1.35; margin-bottom: 8px; }
+    .fw-options p { font-size: 0.96rem; color: var(--text-secondary); line-height: 1.65; }
+
+    .fw-note { margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--border-light); font-size: 1rem; color: var(--text-secondary); line-height: 1.7; }
+    .fw-note a { color: var(--navy); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+
+    @media (max-width: 900px) {
+      .fw-flow { grid-template-columns: minmax(0, 1fr); }
+      .fw-arrow { padding: 14px 0; }
+      .fw-arrow svg { transform: rotate(90deg); }
+      .fw-card-sor { padding: 26px 24px; }
+      .fw-options { grid-template-columns: minmax(0, 1fr); }
+      .fw-options li, .fw-options li:first-child { padding: 22px 0; border-left: none; }
+      .fw-options li + li { border-top: 1px solid var(--border-light); }
+    }
+    @media (max-width: 600px) {
+      .fw { padding: 44px 0 64px; }
+      .fw-head { flex-direction: column; gap: 6px; }
+      .fw-section + .fw-section { margin-top: 56px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="main-nav">
+    <div class="container">
+      <a href="https://securefunder.org/" class="logo">
+        <img class="logo-badge-lg" src="../../blue-ring.png" alt="Secure Funder">
+        <div class="logo-text">Secure Funder<span class="logo-tm">™</span></div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="https://securebroker.org">For Brokers</a></li>
+        <li><a href="https://securefunder.org">For Funders</a></li>
+        <li><a href="https://securefunder.org/contact/">Contact Us</a></li>
+        <li><a href="https://portal.securefunder.org/login" class="btn-member">Sign In</a></li>
+      </ul>
+      <button class="mobile-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="container-narrow">
+      <h1>Program Framework</h1>
+      <p>How we evaluate submission handling and document safeguards.</p>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <main class="fw">
+    <div class="fw-wrap">
+
+      <section class="fw-section" aria-labelledby="fw-sp">
+        <div class="fw-head">
+          <h2 id="fw-sp">Submission Protection</h2>
+        </div>
+        <p class="fw-intro">Submissions reach the system of record directly, through an email inbox, or both. The requirement is then determined by whether files can be downloaded from the system of record.</p>
+
+        <div class="fw-labels" aria-hidden="true">
+          <div class="fw-stage-label">1 &middot; Intake</div><div></div>
+          <div class="fw-stage-label">2 &middot; Storage</div><div></div>
+          <div class="fw-stage-label">3 &middot; Access</div>
+        </div>
+        <div class="fw-flow">
+          <div class="fw-stage">
+            <div class="fw-stage-label">1 &middot; Intake</div>
+            <div class="fw-card">
+              <h3>Direct to system of record</h3>
+              <p>Applications and bank statements are submitted straight into the system of record.</p>
+            </div>
+            <div class="fw-or">and / or</div>
+            <div class="fw-card">
+              <h3>Email inbox</h3>
+              <p>Applications and bank statements are received by email.</p>
+              <div class="fw-sub">
+                <div class="fw-sub-item">
+                  <h4>Automated routing</h4>
+                  <p>Rules or integrations (e.g. Salesforce, Zoho) move files into the system of record.</p>
+                  <span class="fw-result pass">Satisfies requirement for email submissions</span>
+                </div>
+                <div class="fw-sub-item">
+                  <h4>Human handling</h4>
+                  <p>Staff move files into the system of record. Files may be downloaded from the inbox.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="fw-arrow" aria-hidden="true"><svg viewBox="0 0 28 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M0 8 H26 M19 1 L26 8 L19 15"/></svg></div>
+
+          <div class="fw-stage">
+            <div class="fw-stage-label">2 &middot; Storage</div>
+            <div class="fw-card fw-card-sor">
+              <h3>System of record</h3>
+              <p>CRM, LOS, or equivalent.</p>
+            </div>
+          </div>
+
+          <div class="fw-arrow" aria-hidden="true"><svg viewBox="0 0 28 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M0 8 H26 M19 1 L26 8 L19 15"/></svg></div>
+
+          <div class="fw-stage">
+            <div class="fw-stage-label">3 &middot; Access</div>
+            <div class="fw-card">
+              <h3>View-only</h3>
+              <p>Files can be viewed but not downloaded.</p>
+              <span class="fw-result pass">Satisfies requirement</span>
+            </div>
+            <div class="fw-or">or</div>
+            <div class="fw-card">
+              <h3>Downloadable</h3>
+              <p>Files can be downloaded.</p>
+              <span class="fw-result">Requires a download safeguard (below)</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="fw-section" aria-labelledby="fw-ds">
+        <div class="fw-head">
+          <h2 id="fw-ds">Download Safeguards</h2>
+          <a href="https://securefunder.org/download-safeguards/">Full details</a>
+        </div>
+        <p class="fw-intro">If documents must remain downloadable, at least one of the following is in place.</p>
+
+        <ol class="fw-options">
+          <li>
+            <span class="num">1</span>
+            <h3>Document watermarking</h3>
+            <p>Files are watermarked with the company name or logo before reaching the system of record, or at the time of download.</p>
+          </li>
+          <li>
+            <span class="num">2</span>
+            <h3>Browser and device controls</h3>
+            <p>Browser restrictions block personal email and cloud storage domains, and device controls prevent file transfers through USB.</p>
+          </li>
+          <li>
+            <span class="num">3</span>
+            <h3>Other</h3>
+            <p>Another safeguard or approach that meets the intent of the requirement, subject to review.</p>
+          </li>
+        </ol>
+      </section>
+
+      <p class="fw-note">Not sure whether your setup qualifies? See the full <a href="https://securefunder.org/program-quiz-and-guidelines/">program guidelines</a> or <a href="https://securefunder.org/contact/">contact us</a>.</p>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo" style="color: white;">
+            <div class="logo-text" style="color: white;">Secure Funder<span class="logo-tm">™</span></div>
+          </div>
+          <p>An independent certification program establishing baseline data-handling standards in alternative finance. Administered by <a href="https://aquamark.io" target="_blank" rel="noopener noreferrer" style="color:inherit; font-weight:600; text-decoration:underline; text-underline-offset:3px;">Aquamark</a>.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Program</h4>
+          <a href="https://securefunder.org/#about">About</a>
+          <a href="https://securefunder.org/certification">Requirements</a>
+          <a href="https://securefunder.org/#membership">Membership</a>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <a href="https://securefunder.org/directory">Member Directory</a>
+          <a href="https://securefunder.org/#press">Press & Media</a>
+          <a href="https://securefunder.org/contact/">Ask a Question</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="https://securefunder.org/contact/">Send a Message</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Secure Funder™ Certification Program. All rights reserved.</span>
+        <span>Independently administered by <a href="https://aquamark.io" target="_blank">Aquamark</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-header">
+      <a href="https://securefunder.org/" class="logo">
+        <img src="../../blue-ring.png" alt="Secure Funder" style="width:30px;height:30px;">
+        <div class="logo-text">Secure Funder<span class="logo-tm">™</span></div>
+      </a>
+      <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">✕</button>
+    </div>
+    <a href="https://securebroker.org" onclick="closeMobileMenu()">For Brokers</a>
+    <a href="https://securefunder.org" onclick="closeMobileMenu()">For Funders</a>
+    <a href="https://securefunder.org/contact/" onclick="closeMobileMenu()">Contact Us</a>
+    <a href="https://portal.securefunder.org/login" class="btn-member-mobile">Sign In</a>
+  </div>
+
+  <script>
+    const toggle = document.querySelector('.mobile-toggle');
+    const menu = document.getElementById('mobileMenu');
+    const closeBtn = document.getElementById('mobileMenuClose');
+    function closeMobileMenu() { menu.classList.remove('active'); document.body.style.overflow = ''; }
+    toggle.addEventListener('click', () => { menu.classList.add('active'); document.body.style.overflow = 'hidden'; });
+    closeBtn.addEventListener('click', closeMobileMenu);
+  </script>
+
+</body>
+</html>
