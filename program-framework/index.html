@@ -239,13 +239,20 @@
     .terms-body a:hover { text-decoration: underline; }
 
     /* PROGRAM FRAMEWORK */
-    .fw-diagram-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; padding: 8px 0 4px; }
-    .fw-diagram { display: block; width: 100%; max-width: none; min-width: 900px; margin: 0 auto; height: auto; }
-    .fw-scroll-hint { display: none; font-size: 0.85rem; color: var(--text-muted); margin-top: 10px; }
-    @media (max-width: 900px) { .fw-scroll-hint { display: block; } }
+    .fw-diagram-wrap { max-width: 680px; margin: 8px auto 0; }
+    .fw-diagram { display: block; width: 100%; height: auto; }
+    .fw-sg:hover rect { fill: #E6EAEE; }
+    .fw-sg:focus-visible rect { outline: 2px solid #0F2137; outline-offset: 3px; }
+    @media (max-width: 520px) {
+      .fw-wrap { padding: 0 12px; }
+      .fw-diagram .s { display: none; }
+      .fw-diagram .s.sl { display: inline; }
+      .fw-diagram .t { font-size: 25px; transform: translateY(9px); }
+      .fw-diagram .t.tl { font-size: 23px; transform: none; }
+    }
 
     .fw { padding: 64px 0 88px; }
-    .fw-wrap { max-width: 1560px; margin: 0 auto; padding: 0 24px; }
+    .fw-wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
     .fw-section + .fw-section { margin-top: 72px; }
     .fw-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding-bottom: 14px; border-bottom: 2px solid var(--navy); margin-bottom: 12px; }
     .fw-head h2 { font-size: 1.35rem; font-weight: 700; color: var(--navy); letter-spacing: -0.01em; }
@@ -261,8 +268,6 @@
       .fw-labels { display: none; }
       .fw-flow .fw-stage-label { display: block; }
     }
-    .fw-sg:hover rect { fill: #F6E4E0; }
-    .fw-sg:focus-visible rect { outline: 2px solid #0F2137; outline-offset: 3px; }
     .fw-arrow { display: flex; align-items: center; justify-content: center; color: var(--navy); }
     .fw-arrow svg { width: 28px; height: 16px; }
 
@@ -309,17 +314,6 @@
       .fw-section + .fw-section { margin-top: 56px; }
     }
 
-    .main-nav .container { max-width: 1560px; }
-    /* NO-SCROLL LAYOUT */
-    @media (min-width: 901px) {
-      html, body { height: 100%; overflow: hidden; }
-      .fw { height: calc(100dvh - var(--nav-height)); padding: 24px 0 28px; display: flex; flex-direction: column; }
-      .fw-wrap { width: 100%; flex: 1; min-height: 0; display: flex; flex-direction: column; }
-      .fw-section { flex: 1; min-height: 0; display: flex; flex-direction: column; }
-      .fw-head { flex: none; margin-bottom: 20px; }
-      .fw-diagram-wrap { flex: 1; min-height: 0; overflow: hidden; padding: 0; }
-      .fw-diagram { width: 100%; height: 100%; max-width: none; min-width: 0; }
-    }
   </style>
 </head>
 <body>
@@ -344,17 +338,16 @@
         </div>
 
         <div class="fw-diagram-wrap">
-<svg class="fw-diagram" viewBox="-2 -2 1276 646" role="img" aria-labelledby="fw-dt" xmlns="http://www.w3.org/2000/svg" font-family="Inter, system-ui, -apple-system, sans-serif"><title id="fw-dt">Submissions go to email or directly to the CRM or LOS. Email handled manually requires safeguards; email routed automatically goes to the CRM or LOS. From the CRM or LOS, view-only access meets the requirement; downloadable access requires safeguards.</title><g fill="none" stroke="#0F2137" stroke-width="1.5">
-<path d="M210 243 H255 M255 135 V350 M255 135 H299 M255 350 H299"/><path d="M289 129.5 L299 135 L289 140.5"/><path d="M289 344.5 L299 350 L289 355.5"/>
-<path d="M520 135 H590 M590 38 V234 M590 38 H649 M590 234 H649"/><path d="M639 32.5 L649 38 L639 43.5"/><path d="M639 228.5 L649 234 L639 239.5"/>
-<path d="M870 38 H1019"/><path d="M1009 32.5 L1019 38 L1009 43.5"/>
-<path d="M760 272 V350 H521"/><path d="M531 344.5 L521 350 L531 355.5"/>
-<path d="M410 395 V425 M300 425 H630 M300 425 V454 M630 425 V454"/><path d="M294.5 444 L300 454 L305.5 444"/><path d="M624.5 444 L630 454 L635.5 444"/>
-<path d="M740 493 H1019"/><path d="M1009 487.5 L1019 493 L1009 498.5"/>
-<path d="M300 531 V564"/><path d="M294.5 554 L300 564 L305.5 554"/>
-</g><rect x="0" y="205" width="210" height="76" fill="#FFFFFF" stroke="#0F2137" stroke-width="1.5"/><text x="105" y="240" text-anchor="middle" font-size="20" font-weight="700" fill="#0F2137">Submission</text><text x="105" y="264" text-anchor="middle" font-size="15" fill="#4A6480">Application package</text><rect x="300" y="97" width="220" height="76" fill="#FFFFFF" stroke="#0F2137" stroke-width="1.5"/><text x="410" y="132" text-anchor="middle" font-size="20" font-weight="700" fill="#0F2137">Email</text><text x="410" y="156" text-anchor="middle" font-size="15" fill="#4A6480">Received in inbox</text><rect x="650" y="0" width="220" height="76" fill="#FFFFFF" stroke="#0F2137" stroke-width="1.5"/><text x="760" y="35" text-anchor="middle" font-size="20" font-weight="700" fill="#0F2137">Manual</text><text x="760" y="59" text-anchor="middle" font-size="15" fill="#4A6480">Handled by staff</text><a class="fw-sg" href="https://securefunder.org/download-safeguards/" target="_blank" rel="noopener"><rect x="1020" y="0" width="250" height="76" fill="#FBF3F1" stroke="#9A2A1E" stroke-width="2"/><text x="1145" y="35" text-anchor="middle" font-size="20" font-weight="700" fill="#8A2419">Safeguards Needed</text><text x="1145" y="59" text-anchor="middle" font-size="15" fill="#8A2419" text-decoration="underline">See details</text></a><rect x="650" y="196" width="220" height="76" fill="#FFFFFF" stroke="#0F2137" stroke-width="1.5"/><text x="760" y="231" text-anchor="middle" font-size="20" font-weight="700" fill="#0F2137">Auto</text><text x="760" y="255" text-anchor="middle" font-size="15" fill="#4A6480">Rules or integrations</text><rect x="300" y="305" width="220" height="90" fill="#0F2137" stroke="#0F2137" stroke-width="1.5"/><text x="410" y="347" text-anchor="middle" font-size="20" font-weight="700" fill="#FFFFFF">CRM / LOS</text><text x="410" y="371" text-anchor="middle" font-size="15" fill="#C5D9E8">System of record</text><rect x="190" y="455" width="220" height="76" fill="#FFFFFF" stroke="#0F2137" stroke-width="1.5"/><text x="300" y="490" text-anchor="middle" font-size="20" font-weight="700" fill="#0F2137">View-only</text><text x="300" y="514" text-anchor="middle" font-size="15" fill="#4A6480">Files cannot be downloaded</text><rect x="520" y="455" width="220" height="76" fill="#FFFFFF" stroke="#0F2137" stroke-width="1.5"/><text x="630" y="490" text-anchor="middle" font-size="20" font-weight="700" fill="#0F2137">Downloadable</text><text x="630" y="514" text-anchor="middle" font-size="15" fill="#4A6480">Files can be downloaded</text><a class="fw-sg" href="https://securefunder.org/download-safeguards/" target="_blank" rel="noopener"><rect x="1020" y="455" width="250" height="76" fill="#FBF3F1" stroke="#9A2A1E" stroke-width="2"/><text x="1145" y="490" text-anchor="middle" font-size="20" font-weight="700" fill="#8A2419">Safeguards Needed</text><text x="1145" y="514" text-anchor="middle" font-size="15" fill="#8A2419" text-decoration="underline">See details</text></a><rect x="190" y="565" width="220" height="76" fill="#F0F6F2" stroke="#2D5B43" stroke-width="2"/><text x="300" y="600" text-anchor="middle" font-size="20" font-weight="700" fill="#24503A">Requirement Met</text><text x="300" y="624" text-anchor="middle" font-size="15" fill="#24503A">No safeguards needed</text></svg>
+<svg class="fw-diagram" viewBox="2 -2 624 852" role="img" aria-labelledby="fw-dt" xmlns="http://www.w3.org/2000/svg" font-family="Inter, system-ui, -apple-system, sans-serif"><title id="fw-dt">Submissions go to email or directly to the CRM or LOS. Email handled manually requires safeguards; email routed automatically goes to the CRM or LOS. From the CRM or LOS, view-only access meets the requirement; downloadable access requires safeguards.</title><g fill="none" stroke="#0F2137" stroke-width="1.75">
+<path d="M305 96 V123 M140 123 H612 M140 123 V149 M612 123 V498 H591"/><path d="M134 138 L140 149 L146 138"/><path d="M602 492 L591 498 L602 504"/>
+<path d="M140 246 V273 M140 273 H460 M140 273 V299 M460 273 V299"/><path d="M134 288 L140 299 L146 288"/><path d="M454 288 L460 299 L466 288"/>
+<path d="M140 396 V449"/><path d="M134 438 L140 449 L146 438"/>
+<path d="M460 396 V449"/><path d="M454 438 L460 449 L466 438"/>
+<path d="M460 546 V573 M140 573 H460 M140 573 V599 M460 573 V599"/><path d="M134 588 L140 599 L146 588"/><path d="M454 588 L460 599 L466 588"/>
+<path d="M140 696 V749"/><path d="M134 738 L140 749 L146 738"/>
+<path d="M460 696 V749"/><path d="M454 738 L460 749 L466 738"/>
+</g><rect x="175" y="0" width="260" height="96" fill="#FFFFFF" stroke="#0F2137" stroke-width="1.5"/><text class="t" x="305" y="45" text-anchor="middle" font-size="23" font-weight="700" fill="#0F2137">Submission</text><text class="s" x="305" y="69" text-anchor="middle" font-size="17" fill="#4A6480">Application package</text><rect x="10" y="150" width="260" height="96" fill="#FFFFFF" stroke="#0F2137" stroke-width="1.5"/><text class="t" x="140" y="195" text-anchor="middle" font-size="23" font-weight="700" fill="#0F2137">Email</text><text class="s" x="140" y="219" text-anchor="middle" font-size="17" fill="#4A6480">Received in inbox</text><rect x="10" y="300" width="260" height="96" fill="#FFFFFF" stroke="#0F2137" stroke-width="1.5"/><text class="t" x="140" y="345" text-anchor="middle" font-size="23" font-weight="700" fill="#0F2137">Manual</text><text class="s" x="140" y="369" text-anchor="middle" font-size="17" fill="#4A6480">Handled by staff</text><rect x="330" y="300" width="260" height="96" fill="#FFFFFF" stroke="#0F2137" stroke-width="1.5"/><text class="t" x="460" y="345" text-anchor="middle" font-size="23" font-weight="700" fill="#0F2137">Auto</text><text class="s" x="460" y="369" text-anchor="middle" font-size="17" fill="#4A6480">Rules or integrations</text><a class="fw-sg" href="https://securefunder.org/download-safeguards/" target="_blank" rel="noopener"><rect x="10" y="450" width="260" height="96" fill="#F1F3F5" stroke="#8A97A6" stroke-width="1.5"/><text class="t tl" x="140" y="495" text-anchor="middle" font-size="23" font-weight="700" fill="#0F2137">Safeguards Needed</text><text class="s sl" x="140" y="519" text-anchor="middle" font-size="17" fill="#B42318" text-decoration="underline" font-weight="600">See details</text></a><rect x="330" y="450" width="260" height="96" fill="#0F2137" stroke="#0F2137" stroke-width="1.5"/><text class="t" x="460" y="495" text-anchor="middle" font-size="23" font-weight="700" fill="#FFFFFF">CRM / LOS</text><text class="s" x="460" y="519" text-anchor="middle" font-size="17" fill="#C5D9E8">System of record</text><rect x="10" y="600" width="260" height="96" fill="#FFFFFF" stroke="#0F2137" stroke-width="1.5"/><text class="t" x="140" y="645" text-anchor="middle" font-size="23" font-weight="700" fill="#0F2137">View-only</text><text class="s" x="140" y="669" text-anchor="middle" font-size="17" fill="#4A6480">Files cannot be downloaded</text><rect x="330" y="600" width="260" height="96" fill="#FFFFFF" stroke="#0F2137" stroke-width="1.5"/><text class="t" x="460" y="645" text-anchor="middle" font-size="23" font-weight="700" fill="#0F2137">Downloadable</text><text class="s" x="460" y="669" text-anchor="middle" font-size="17" fill="#4A6480">Files can be downloaded</text><rect x="10" y="750" width="260" height="96" fill="#F0F6F2" stroke="#2D5B43" stroke-width="1.5"/><text class="t" x="140" y="795" text-anchor="middle" font-size="23" font-weight="700" fill="#24503A">Requirement Met</text><text class="s" x="140" y="819" text-anchor="middle" font-size="17" fill="#24503A">No safeguards needed</text><a class="fw-sg" href="https://securefunder.org/download-safeguards/" target="_blank" rel="noopener"><rect x="330" y="750" width="260" height="96" fill="#F1F3F5" stroke="#8A97A6" stroke-width="1.5"/><text class="t tl" x="460" y="795" text-anchor="middle" font-size="23" font-weight="700" fill="#0F2137">Safeguards Needed</text><text class="s sl" x="460" y="819" text-anchor="middle" font-size="17" fill="#B42318" text-decoration="underline" font-weight="600">See details</text></a></svg>
         </div>
-        <p class="fw-scroll-hint">Scroll sideways to see the full diagram.</p>
       </section>
 
 
