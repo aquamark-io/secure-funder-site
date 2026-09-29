@@ -205,6 +205,10 @@
     }
     .ds-body a { color: inherit; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
     .ds-sub-head { font-family: var(--font-display); font-size: 1.02rem; font-weight: 700; color: var(--navy); margin: 0 0 8px; }
+    .terms-body .ds-body ul.ds-nested ul { margin: 6px 0 4px; }
+    .terms-body .ds-body ul.ds-nested ul li { padding-left: 18px; }
+    .terms-body .ds-body ul.ds-nested ul li::before { width: 5px; height: 5px; background: transparent; border: 1.5px solid var(--text-muted, #8A96A3); top: 13px; }
+    .terms-body .ds-body ul.ds-nested em { font-style: normal; font-weight: 600; }
     .ds-path { background: #FFF9D6; padding: 3px 8px; }
     .ds-or { display: flex; align-items: center; gap: 14px; margin: 22px 0; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.14em; color: var(--blue-accent); }
     .ds-or::before, .ds-or::after { content: ""; flex: 1; height: 1px; background: var(--border-light); }
@@ -318,7 +322,7 @@
               <li>Change document access to view-only.</li>
               <li>If documents must remain downloadable, two practical options:
                 <ol class="ds-sub">
-                  <li>Browser/device controls that restrict personnel from moving company data outside approved systems.</li>
+                  <li>Browser and device controls that restrict personnel from moving company data outside approved systems.</li>
                   <li>Watermark files with the company name or logo.</li>
                 </ol>
               </li>
@@ -330,13 +334,25 @@
         <details class="ds-card">
           <summary>How you can do it</summary>
           <div class="ds-body">
-            <h3 class="ds-sub-head"><span class="ds-path">Path 1: Browser/device controls</span></h3>
-            <p>Safeguards should restrict personnel from moving company data outside approved systems. At a minimum, controls should address:</p>
-            <ul>
-              <li><strong>Web/domain restrictions:</strong> Block access to personal email, personal cloud storage, and other unauthorized file-transfer services. Examples may include Microsoft Intune, Island, Prisma, or other managed browser/web filtering tools.</li>
-              <li><strong>USB/removable storage restrictions:</strong> Block or restrict copying company files to USB drives and other removable storage devices. Examples may include Microsoft Intune, Jamf, Windows Group Policy (GPO), Windows 365, Azure Virtual Desktop, or Amazon WorkSpaces.</li>
-            </ul>
-            <p>Comparable solutions may also be used.</p>
+            <h3 class="ds-sub-head"><span class="ds-path">Path 1: Browser and Device Controls</span></h3>
+            <p>Safeguards must restrict personnel from moving company data outside approved systems. At a minimum, controls must address:</p>
+            <ul class="ds-nested">
+      <li><strong>Web &amp; Domain Restrictions:</strong> Block access to personal email, personal cloud storage, and unauthorized file-transfer services. Examples include:
+        <ul>
+          <li><em>Endpoint/MDM Policies:</em> Microsoft Intune, Hexnode, or ManageEngine.</li>
+          <li><em>Enterprise Browsers:</em> Island or Talon.</li>
+          <li><em>Web/DNS Filtering:</em> Palo Alto Prisma, Cloudflare One, or DNSFilter.</li>
+        </ul>
+      </li>
+      <li><strong>Unmanaged &amp; Off-site Devices (BYOD):</strong> Restrict corporate data access on personal or remote endpoints. Examples include:
+        <ul>
+          <li><em>Conditional Access:</em> Restricting cloud logins to managed devices only (via Okta, JumpCloud, or Entra ID).</li>
+          <li><em>Virtual Desktops (VDI):</em> Windows 365, Azure Virtual Desktop, or Amazon WorkSpaces to isolate data from the local machine.</li>
+        </ul>
+      </li>
+      <li><strong>USB &amp; Removable Storage Restrictions:</strong> Block or restrict copying company files to physical media. Examples include Microsoft Intune, Jamf, or Windows Group Policy (GPO).</li>
+    </ul>
+            <p>Comparable solutions that achieve the same security outcomes may also be used.</p>
 
             <div class="ds-or">AND/OR</div>
 
