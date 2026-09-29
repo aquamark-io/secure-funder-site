@@ -317,7 +317,7 @@
               <li>Change document access to view-only.</li>
               <li>If documents must remain downloadable, two practical options:
                 <ol class="ds-sub">
-                  <li>Browser and/or device restrictions that prevent the files from leaving the company.</li>
+                  <li>Browser/device controls that restrict personnel from moving company data outside approved systems.</li>
                   <li>Watermark files with the company name or logo.</li>
                 </ol>
               </li>
@@ -330,13 +330,12 @@
           <summary>How you can do it</summary>
           <div class="ds-body">
             <h3 class="ds-sub-head">Browser/device controls</h3>
-            <p>We&rsquo;re looking for safeguards that prevent personnel from moving company data out of the company, specifically by blocking file transfers to USB drives and blocking access to personal email and cloud storage accounts through the browser. Common ways to put these in place:</p>
+            <p>Safeguards should restrict personnel from moving company data outside approved systems. At a minimum, controls should address:</p>
             <ul>
-        <li><strong>Managed devices:</strong> Company-owned computers configured with security rules that control what users can access, download, or move. Examples may include Group Policy (GPO) on Windows devices.</li>
-        <li><strong>Virtual/remote workspaces:</strong> A controlled company desktop or workspace that employees access remotely. Files and applications stay inside that environment rather than on the employee&rsquo;s personal device. Examples include Windows 365, Azure Virtual Desktop, and Amazon WorkSpaces.</li>
-        <li><strong>Endpoint management:</strong> Software used to centrally apply and enforce security settings on employee devices, such as blocking USB, restricting apps, or controlling file transfers. Examples include Microsoft Intune and Jamf.</li>
-        <li><strong>Enterprise browser controls:</strong> A managed browser that limits what users can do inside the browser, such as blocking personal email, cloud storage, downloads, or copy/paste. Examples include Island and Prisma.</li>
-      </ul>
+              <li><strong>Web/domain restrictions:</strong> Block access to personal email, personal cloud storage, and other unauthorized file-transfer services. Examples may include Island, Prisma, Microsoft Intune, or other managed browser/web filtering tools.</li>
+              <li><strong>USB/removable storage restrictions:</strong> Block or restrict copying company files to USB drives and other removable storage devices. Examples may include Microsoft Intune, Jamf, Windows Group Policy (GPO), Windows 365, Azure Virtual Desktop, or Amazon WorkSpaces.</li>
+            </ul>
+            <p>Comparable solutions may also be used.</p>
 
             <div class="ds-or">OR</div>
 
