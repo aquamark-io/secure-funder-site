@@ -319,7 +319,7 @@
       <p class="lead">Downloaded files without safeguards can leave company systems without the company&rsquo;s knowledge.</p>
 
       <div class="ds-list">
-        <details class="ds-card">
+        <details class="ds-card" name="ds-sections">
           <summary>What you can do</summary>
           <div class="ds-body">
             <p>At least one is recommended for deal-processing roles (e.g. underwriters, sales):</p>
@@ -336,7 +336,7 @@
           </div>
         </details>
 
-        <details class="ds-card">
+        <details class="ds-card" name="ds-sections">
           <summary>How you can do it</summary>
           <div class="ds-body">
             <h3 class="ds-sub-head"><span class="ds-path">Option 1: Watermarking</span></h3>
@@ -391,5 +391,16 @@
     closeBtn.addEventListener('click', closeMobileMenu);
   </script>
 
+<script>
+  // Only one Download Safeguards section open at a time
+  document.querySelectorAll('.ds-card').forEach(function (card) {
+    card.addEventListener('toggle', function () {
+      if (!card.open) return;
+      document.querySelectorAll('.ds-card').forEach(function (other) {
+        if (other !== card && other.open) other.open = false;
+      });
+    });
+  });
+</script>
 </body>
 </html>
