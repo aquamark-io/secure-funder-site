@@ -204,6 +204,9 @@
       border-radius: 0; top: 2px; font-weight: 600; color: var(--navy);
     }
     .ds-body a { color: inherit; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+    .ds-sub-head { font-family: var(--font-display); font-size: 1.02rem; font-weight: 700; color: var(--navy); margin: 0 0 8px; }
+    .ds-or { display: flex; align-items: center; gap: 14px; margin: 22px 0; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.14em; color: var(--blue-accent); }
+    .ds-or::before, .ds-or::after { content: ""; flex: 1; height: 1px; background: var(--border-light); }
     @media (max-width: 640px) { .ds-card > summary { padding: 16px 50px 16px 18px; font-size: 1.05rem; } .ds-body { padding: 16px 18px 18px; } }
 
     /* FOOTER */
@@ -326,13 +329,19 @@
         <details class="ds-card">
           <summary>How you can do it</summary>
           <div class="ds-body">
-            <p>Common ways organizations put browser and device controls in place:</p>
+            <h3 class="ds-sub-head">Browser/device controls</h3>
+            <p>We&rsquo;re looking for safeguards that prevent personnel from moving company data out of the company, specifically by blocking file transfers to USB drives and blocking access to personal email and cloud storage accounts through the browser. Common ways to put these in place:</p>
             <ul>
         <li><strong>Managed devices:</strong> Company-owned computers configured with security rules that control what users can access, download, or move. Examples may include Group Policy (GPO) on Windows devices.</li>
         <li><strong>Virtual/remote workspaces:</strong> A controlled company desktop or workspace that employees access remotely. Files and applications stay inside that environment rather than on the employee&rsquo;s personal device. Examples include Windows 365, Azure Virtual Desktop, and Amazon WorkSpaces.</li>
         <li><strong>Endpoint management:</strong> Software used to centrally apply and enforce security settings on employee devices, such as blocking USB, restricting apps, or controlling file transfers. Examples include Microsoft Intune and Jamf.</li>
         <li><strong>Enterprise browser controls:</strong> A managed browser that limits what users can do inside the browser, such as blocking personal email, cloud storage, downloads, or copy/paste. Examples include Island and Prisma.</li>
       </ul>
+
+            <div class="ds-or">OR</div>
+
+            <h3 class="ds-sub-head">Watermarking</h3>
+            <p>Stamp files with your company logo before they reach the system of record, or at the time of download. A visible mark shows where the document came from and discourages anyone from forwarding or reusing it elsewhere. Examples include <a href="https://aquamark.io/" target="_blank" rel="noopener noreferrer">Aquamark</a> or any equivalent watermarking tool.</p>
           </div>
         </details>
       </div>
