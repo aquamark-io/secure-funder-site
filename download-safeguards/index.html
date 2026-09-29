@@ -176,6 +176,36 @@
     }
     .terms-body .contact-block a:hover { text-decoration: underline; }
 
+    /* COLLAPSIBLE SECTIONS */
+    .ds-list { display: grid; gap: 16px; margin-top: 32px; }
+    .ds-card { border: 1px solid #D8D8D8; background: var(--white); }
+    .ds-card > summary {
+      list-style: none; cursor: pointer; position: relative;
+      padding: 18px 56px 18px 22px; border-bottom: 1px solid transparent;
+      font-family: var(--font-display); font-size: 1.15rem; font-weight: 700;
+      color: var(--navy); transition: background 0.2s, border-color 0.2s;
+    }
+    .ds-card > summary::-webkit-details-marker { display: none; }
+    .ds-card > summary::after {
+      content: ""; position: absolute; right: 26px; top: 22px;
+      width: 11px; height: 11px;
+      border-right: 3px solid var(--blue-accent); border-bottom: 3px solid var(--blue-accent);
+      transform: rotate(45deg); transition: transform 0.2s, top 0.2s;
+    }
+    .ds-card > summary:hover { background: var(--cloud); }
+    .ds-card[open] > summary { background: var(--cloud); border-bottom-color: var(--border-light); }
+    .ds-card[open] > summary::after { transform: rotate(-135deg); top: 28px; }
+    .ds-body { padding: 20px 22px 22px; }
+    .terms-body .ds-body > :last-child { margin-bottom: 0; }
+    .terms-body .ds-body ol.ds-sub { list-style: none; counter-reset: ds; margin: 6px 0 0; padding: 0; }
+    .terms-body .ds-body ol.ds-sub li { counter-increment: ds; padding: 2px 0 2px 32px; }
+    .terms-body .ds-body ol.ds-sub li::before {
+      content: "(" counter(ds) ")"; background: none; width: auto; height: auto;
+      border-radius: 0; top: 2px; font-weight: 600; color: var(--navy);
+    }
+    .ds-body a { color: inherit; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+    @media (max-width: 640px) { .ds-card > summary { padding: 16px 50px 16px 18px; font-size: 1.05rem; } .ds-body { padding: 16px 18px 18px; } }
+
     /* FOOTER */
     footer { background: var(--navy); color: var(--ice); padding: 56px 0 0; }
     .footer-grid {
@@ -275,23 +305,37 @@
 
       <p class="lead">Once a file is downloaded, the file sits in the local downloads folder, where it can be forwarded through personal email, uploaded to a personal cloud account, or copied to a USB drive without the company knowing.</p>
 
-      <h2>Acceptable Safeguards</h2>
-      <p>At least one is recommended for deal-processing roles (e.g. underwriters, sales):</p>
-      <ol>
-        <li>Change document access to view-only.</li>
-        <li>If documents must remain downloadable, they are watermarked with the company name or logo before reaching the system of record, or at the time of download. Watermarking is accepted as a reasonable deterrent against misuse. Examples include <a href="https://aquamark.io" target="_blank" rel="noopener noreferrer" style="color:inherit; font-weight:600; text-decoration:underline; text-underline-offset:3px;">Aquamark</a> or any equivalent watermarking tool.</li>
-        <li>If documents must remain downloadable, browser restrictions that block access to personal email and cloud storage domains, along with device controls that prevent file transfers through USB.</li>
-        <li>Other: another safeguard or approach that meets the intent of the requirement. We&rsquo;re happy to review alternatives or schedule a brief call to discuss practical options. <a href="https://securefunder.org/contact/">Contact us</a>.</li>
-      </ol>
+      <div class="ds-list">
+        <details class="ds-card">
+          <summary>What you can do</summary>
+          <div class="ds-body">
+            <p>At least one is recommended for deal-processing roles (e.g. underwriters, sales):</p>
+            <ul>
+              <li>Change document access to view-only.</li>
+              <li>If documents must remain downloadable, two practical options:
+                <ol class="ds-sub">
+                  <li>Browser and/or device restrictions that prevent the files from leaving the company.</li>
+                  <li>Watermark files with the company name or logo.</li>
+                </ol>
+              </li>
+              <li>Other: We&rsquo;re happy to review alternatives or schedule a brief call to discuss practical options. <a href="https://securefunder.org/contact/">Contact us</a>.</li>
+            </ul>
+          </div>
+        </details>
 
-      <h2>Methods</h2>
-      <p>Common ways organizations put browser and device controls in place:</p>
-      <ul>
+        <details class="ds-card">
+          <summary>How you can do it</summary>
+          <div class="ds-body">
+            <p>Common ways organizations put browser and device controls in place:</p>
+            <ul>
         <li><strong>Managed devices:</strong> Company-owned computers configured with security rules that control what users can access, download, or move. Examples may include Group Policy (GPO) on Windows devices.</li>
         <li><strong>Virtual/remote workspaces:</strong> A controlled company desktop or workspace that employees access remotely. Files and applications stay inside that environment rather than on the employee&rsquo;s personal device. Examples include Windows 365, Azure Virtual Desktop, and Amazon WorkSpaces.</li>
         <li><strong>Endpoint management:</strong> Software used to centrally apply and enforce security settings on employee devices, such as blocking USB, restricting apps, or controlling file transfers. Examples include Microsoft Intune and Jamf.</li>
         <li><strong>Enterprise browser controls:</strong> A managed browser that limits what users can do inside the browser, such as blocking personal email, cloud storage, downloads, or copy/paste. Examples include Island and Prisma.</li>
       </ul>
+          </div>
+        </details>
+      </div>
 
 
     </div>
