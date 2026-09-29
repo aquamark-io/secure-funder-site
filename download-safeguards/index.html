@@ -205,6 +205,7 @@
     }
     .ds-body a { color: inherit; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
     .ds-sub-head { font-family: var(--font-display); font-size: 1.02rem; font-weight: 700; color: var(--navy); margin: 0 0 8px; }
+    .ds-path { background: #FFF9D6; padding: 3px 8px; }
     .ds-or { display: flex; align-items: center; gap: 14px; margin: 22px 0; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.14em; color: var(--blue-accent); }
     .ds-or::before, .ds-or::after { content: ""; flex: 1; height: 1px; background: var(--border-light); }
     @media (max-width: 640px) { .ds-card > summary { padding: 16px 50px 16px 18px; font-size: 1.05rem; } .ds-body { padding: 16px 18px 18px; } }
@@ -329,7 +330,7 @@
         <details class="ds-card">
           <summary>How you can do it</summary>
           <div class="ds-body">
-            <h3 class="ds-sub-head">Browser/device controls</h3>
+            <h3 class="ds-sub-head"><span class="ds-path">Path 1: Browser/device controls</span></h3>
             <p>Safeguards should restrict personnel from moving company data outside approved systems. At a minimum, controls should address:</p>
             <ul>
               <li><strong>Web/domain restrictions:</strong> Block access to personal email, personal cloud storage, and other unauthorized file-transfer services. Examples may include Island, Prisma, Microsoft Intune, or other managed browser/web filtering tools.</li>
@@ -337,9 +338,9 @@
             </ul>
             <p>Comparable solutions may also be used.</p>
 
-            <div class="ds-or">OR</div>
+            <div class="ds-or">AND/OR</div>
 
-            <h3 class="ds-sub-head">Watermarking</h3>
+            <h3 class="ds-sub-head"><span class="ds-path">Path 2: Watermarking</span></h3>
             <p>Stamp files with your company logo before they reach the system of record, or at the time of download. A visible mark shows where the document came from and discourages anyone from forwarding or reusing it elsewhere. Examples include <a href="https://aquamark.io/" target="_blank" rel="noopener noreferrer">Aquamark</a> or any equivalent watermarking tool.</p>
           </div>
         </details>
