@@ -773,14 +773,17 @@
     <div class="accepted-heading">Browser and Device Controls</div>
     <p style="margin-top:14px;">Safeguards must restrict personnel from moving company data outside approved systems. At a minimum, controls must address:</p>
     <ul class="example-list" style="margin-top:14px;">
-      <li><strong style="background:#FFF3B0; padding:1px 4px;">Web &amp; Domain Restrictions:</strong> Block access to personal email, personal cloud storage, and unauthorized file-transfer services. Examples include:
-        <ul style="list-style:none; margin:4px 0 2px; padding-left:18px;">
-          <li><em>Endpoint/MDM Policies:</em> <strong style="color:#4FA3D1">Microsoft Intune</strong>, <strong style="color:#4FA3D1">Hexnode</strong>, or <strong style="color:#4FA3D1">ManageEngine</strong>.</li>
-          <li><em>Enterprise Browsers:</em> <strong style="color:#4FA3D1">Island</strong> or <strong style="color:#4FA3D1">Talon</strong>.</li>
-          <li><em>Web/DNS Filtering:</em> <strong style="color:#4FA3D1">Palo Alto Prisma</strong>, <strong style="color:#4FA3D1">Cloudflare One</strong>, or <strong style="color:#4FA3D1">DNSFilter</strong>.</li>
-        </ul>
-      </li>
-      <li><strong style="background:#FFF3B0; padding:1px 4px;">USB &amp; Removable Storage Restrictions:</strong> Block or restrict copying company files to physical media. Examples include <strong style="color:#4FA3D1">Microsoft Intune</strong>, <strong style="color:#4FA3D1">Jamf</strong>, or <strong style="color:#4FA3D1">Windows Group Policy (GPO)</strong>.</li>
+      <li><strong style="background:#FFF3B0; padding:1px 4px;">Web &amp; Domain Restrictions:</strong> Block access to personal email, personal cloud storage, and unauthorized file-transfer services.</li>
+      <li><strong style="background:#FFF3B0; padding:1px 4px;">USB &amp; Removable Storage Restrictions:</strong> Block or restrict copying company files to physical media.</li>
+    </ul>
+    <p style="margin-top:14px;">Options to look into, depending on your current setup:</p>
+    <ul class="example-list" style="margin-top:14px;">
+      <li><strong style="background:#FFF3B0; padding:1px 4px;">Endpoint/MDM Policies:</strong> <strong style="color:#4FA3D1">Microsoft Intune</strong>, <strong style="color:#4FA3D1">Jamf</strong>, <strong style="color:#4FA3D1">Hexnode</strong>, or <strong style="color:#4FA3D1">ManageEngine</strong>. Centrally manage company devices; can cover both web and USB restrictions.</li>
+      <li><strong style="background:#FFF3B0; padding:1px 4px;">Windows Group Policy (GPO):</strong> Built into Windows; can block USB storage and restrict browser settings on company computers.</li>
+      <li><strong style="background:#FFF3B0; padding:1px 4px;">Enterprise Browsers:</strong> <strong style="color:#4FA3D1">Island</strong> or <strong style="color:#4FA3D1">Talon</strong>. Control what users can access, upload, and download within the browser.</li>
+      <li><strong style="background:#FFF3B0; padding:1px 4px;">Web/DNS Filtering:</strong> <strong style="color:#4FA3D1">Palo Alto Prisma</strong>, <strong style="color:#4FA3D1">Cloudflare One</strong>, or <strong style="color:#4FA3D1">DNSFilter</strong>. Block personal email, cloud storage, and file-transfer sites at the network or device level.</li>
+      <li><strong style="background:#FFF3B0; padding:1px 4px;">Conditional Access:</strong> <strong style="color:#4FA3D1">Okta</strong>, <strong style="color:#4FA3D1">JumpCloud</strong>, or <strong style="color:#4FA3D1">Entra ID</strong>. Restrict logins to company systems to approved, managed devices only.</li>
+      <li><strong style="background:#FFF3B0; padding:1px 4px;">Virtual Desktops (VDI):</strong> <strong style="color:#4FA3D1">Windows 365</strong>, <strong style="color:#4FA3D1">Azure Virtual Desktop</strong>, or <strong style="color:#4FA3D1">Amazon WorkSpaces</strong>. Keep company files inside a controlled workspace rather than on the local machine.</li>
     </ul>
     <p style="margin-top:14px;">Comparable solutions that achieve the same security outcomes may also be used.</p>
   </div>

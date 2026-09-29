@@ -336,16 +336,19 @@
           <div class="ds-body">
             <h3 class="ds-sub-head"><span class="ds-path">Path 1: Browser and Device Controls</span></h3>
             <p>Safeguards must restrict personnel from moving company data outside approved systems. At a minimum, controls must address:</p>
-            <ul class="ds-nested">
-      <li><strong>Web &amp; Domain Restrictions:</strong> Block access to personal email, personal cloud storage, and unauthorized file-transfer services. Examples include:
-        <ul>
-          <li><em>Endpoint/MDM Policies:</em> Microsoft Intune, Hexnode, or ManageEngine.</li>
-          <li><em>Enterprise Browsers:</em> Island or Talon.</li>
-          <li><em>Web/DNS Filtering:</em> Palo Alto Prisma, Cloudflare One, or DNSFilter.</li>
-        </ul>
-      </li>
-      <li><strong>USB &amp; Removable Storage Restrictions:</strong> Block or restrict copying company files to physical media. Examples include Microsoft Intune, Jamf, or Windows Group Policy (GPO).</li>
-    </ul>
+            <ul>
+              <li><strong>Web &amp; Domain Restrictions:</strong> Block access to personal email, personal cloud storage, and unauthorized file-transfer services.</li>
+              <li><strong>USB &amp; Removable Storage Restrictions:</strong> Block or restrict copying company files to physical media.</li>
+            </ul>
+            <p>Options to look into, depending on your current setup:</p>
+            <ul>
+              <li><strong>Endpoint/MDM Policies:</strong> Microsoft Intune, Jamf, Hexnode, or ManageEngine. Centrally manage company devices; can cover both web and USB restrictions.</li>
+              <li><strong>Windows Group Policy (GPO):</strong> Built into Windows; can block USB storage and restrict browser settings on company computers.</li>
+              <li><strong>Enterprise Browsers:</strong> Island or Talon. Control what users can access, upload, and download within the browser.</li>
+              <li><strong>Web/DNS Filtering:</strong> Palo Alto Prisma, Cloudflare One, or DNSFilter. Block personal email, cloud storage, and file-transfer sites at the network or device level.</li>
+              <li><strong>Conditional Access:</strong> Okta, JumpCloud, or Entra ID. Restrict logins to company systems to approved, managed devices only.</li>
+              <li><strong>Virtual Desktops (VDI):</strong> Windows 365, Azure Virtual Desktop, or Amazon WorkSpaces. Keep company files inside a controlled workspace rather than on the local machine.</li>
+            </ul>
             <p>Comparable solutions that achieve the same security outcomes may also be used.</p>
 
             <div class="ds-or">AND/OR</div>
