@@ -308,6 +308,17 @@
       .fw-head { flex-direction: column; gap: 6px; }
       .fw-section + .fw-section { margin-top: 56px; }
     }
+
+    /* NO-SCROLL LAYOUT */
+    @media (min-width: 901px) {
+      html, body { height: 100%; overflow: hidden; }
+      .fw { height: calc(100dvh - var(--nav-height)); padding: 28px 0 32px; display: flex; flex-direction: column; }
+      .fw-wrap { width: 100%; flex: 1; min-height: 0; display: flex; flex-direction: column; }
+      .fw-section { flex: 1; min-height: 0; display: flex; flex-direction: column; }
+      .fw-head { flex: none; margin-bottom: 20px; }
+      .fw-diagram-wrap { flex: 1; min-height: 0; overflow: hidden; padding: 0; }
+      .fw-diagram { width: 100%; height: 100%; max-width: none; min-width: 0; }
+    }
   </style>
 </head>
 <body>
@@ -319,15 +330,6 @@
         <img class="logo-badge-lg" src="../../blue-ring.png" alt="Secure Funder">
         <div class="logo-text">Secure Funder<span class="logo-tm">™</span></div>
       </a>
-      <ul class="nav-links">
-        <li><a href="https://securebroker.org">For Brokers</a></li>
-        <li><a href="https://securefunder.org">For Funders</a></li>
-        <li><a href="https://securefunder.org/contact/">Contact Us</a></li>
-        <li><a href="https://portal.securefunder.org/login" class="btn-member">Sign In</a></li>
-      </ul>
-      <button class="mobile-toggle" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
     </div>
   </nav>
 
@@ -353,34 +355,9 @@
         <p class="fw-scroll-hint">Scroll sideways to see the full diagram.</p>
       </section>
 
-      <p class="fw-note">Not sure whether your setup qualifies? See the full <a href="https://securefunder.org/program-quiz-and-guidelines/">program guidelines</a> or <a href="https://securefunder.org/contact/">contact us</a>.</p>
 
     </div>
   </main>
-
-  <!-- Mobile Menu -->
-  <div class="mobile-menu" id="mobileMenu">
-    <div class="mobile-menu-header">
-      <a href="https://securefunder.org/" class="logo">
-        <img src="../../blue-ring.png" alt="Secure Funder" style="width:30px;height:30px;">
-        <div class="logo-text">Secure Funder<span class="logo-tm">™</span></div>
-      </a>
-      <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">✕</button>
-    </div>
-    <a href="https://securebroker.org" onclick="closeMobileMenu()">For Brokers</a>
-    <a href="https://securefunder.org" onclick="closeMobileMenu()">For Funders</a>
-    <a href="https://securefunder.org/contact/" onclick="closeMobileMenu()">Contact Us</a>
-    <a href="https://portal.securefunder.org/login" class="btn-member-mobile">Sign In</a>
-  </div>
-
-  <script>
-    const toggle = document.querySelector('.mobile-toggle');
-    const menu = document.getElementById('mobileMenu');
-    const closeBtn = document.getElementById('mobileMenuClose');
-    function closeMobileMenu() { menu.classList.remove('active'); document.body.style.overflow = ''; }
-    toggle.addEventListener('click', () => { menu.classList.add('active'); document.body.style.overflow = 'hidden'; });
-    closeBtn.addEventListener('click', closeMobileMenu);
-  </script>
 
 </body>
 </html>
