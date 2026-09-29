@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=1280">
   <title>Program Framework — Secure Funder™</title>
   <meta name="description" content="How submission handling and document safeguards are evaluated, from intake to the system of record.">
   <link rel="icon" type="image/png" sizes="32x32" href="../../blue-ring.png">
@@ -252,7 +252,7 @@
     }
 
     .fw { padding: 64px 0 88px; }
-    .fw-wrap { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+    .fw-wrap { max-width: 1400px; margin: 0 auto; padding: 0 24px; }
     .fw-section + .fw-section { margin-top: 72px; }
     .fw-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding-bottom: 14px; border-bottom: 2px solid var(--navy); margin-bottom: 12px; }
     .fw-head h2 { font-size: 1.35rem; font-weight: 700; color: var(--navy); letter-spacing: -0.01em; }
@@ -314,17 +314,19 @@
       .fw-section + .fw-section { margin-top: 56px; }
     }
 
+    html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+    .main-nav .container { max-width: 1448px; }
     /* FRAMEWORK DIAGRAM (HTML) */
-    .fw-dg { position: relative; margin: 40px auto 0; padding-right: 48px; }
+    .fw-dg { position: relative; margin: 40px auto 0; }
     .fw-lines { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
-    .fw-grid { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 88px; row-gap: 88px;
-      grid-template-areas: "sub sub" "email ." "manual aut" "sg1 crm" "view dl" "met sg2"; }
+    .fw-grid { position: relative; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 80px; row-gap: 56px;
+      grid-template-areas: ". email manual sg1" "sub email aut ." "sub crm . ." "view dl . sg2" "met . . ."; }
+    .fw-grid > .fw-n { align-self: center; }
     .fw-n { background: var(--white); border: 1px solid #B4BFCB; padding: 18px 20px 20px; }
     .fw-n h3 { font-size: 1.06rem; font-weight: 700; color: var(--navy); line-height: 1.3; margin-bottom: 6px; }
     .fw-n p { font-size: 0.92rem; color: var(--text-secondary); line-height: 1.55; }
     .fw-n .kicker { display: block; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 6px; }
-    .n-sub { grid-area: sub; justify-self: center; width: calc(50% - 44px); }
-    .n-email { grid-area: email; } .n-manual { grid-area: manual; } .n-auto { grid-area: aut; }
+    .n-sub { grid-area: sub; } .n-email { grid-area: email; } .n-manual { grid-area: manual; } .n-auto { grid-area: aut; }
     .n-sg1 { grid-area: sg1; } .n-crm { grid-area: crm; } .n-view { grid-area: view; } .n-dl { grid-area: dl; }
     .n-met { grid-area: met; } .n-sg2 { grid-area: sg2; }
     .fw-n.crm { background: var(--navy); border-color: var(--navy); }
@@ -334,15 +336,6 @@
     .fw-n.ok h3 { color: #24503A; } .fw-n.ok p { color: #34503F; }
     .fw-n .see { display: inline-block; margin-top: 10px; font-size: 0.92rem; font-weight: 600; color: #B42318; text-decoration: underline; text-underline-offset: 3px; }
     .fw-n .see:hover { color: #8F1C13; }
-    @media (max-width: 640px) {
-      .fw-dg { padding-right: 22px; margin-top: 28px; }
-      .fw-grid { column-gap: 28px; row-gap: 64px; }
-      .n-sub { width: calc(50% - 14px); }
-      .fw-n { padding: 12px 12px 14px; }
-      .fw-n h3 { font-size: 0.95rem; }
-      .fw-n p, .fw-n .see { font-size: 0.8rem; line-height: 1.45; }
-      .fw-n .kicker { font-size: 0.6rem; }
-    }
   </style>
 </head>
 <body>
@@ -429,23 +422,27 @@
         var el = document.getElementById(id), w = wrap.getBoundingClientRect(), r = el.getBoundingClientRect();
         return { l: r.left - w.left, r: r.right - w.left, t: r.top - w.top, b: r.bottom - w.top, cx: (r.left + r.right) / 2 - w.left, cy: (r.top + r.bottom) / 2 - w.top };
       }
-      function down(x, y) { return 'M' + (x - 5) + ' ' + (y - 9) + ' L' + x + ' ' + y + ' L' + (x + 5) + ' ' + (y - 9); }
-      function left(x, y) { return 'M' + (x + 9) + ' ' + (y - 5) + ' L' + x + ' ' + y + ' L' + (x + 9) + ' ' + (y + 5); }
-      function split(from, a, b) {
-        var m = (from.b + Math.min(a.t, b.t)) / 2;
-        return 'M' + from.cx + ' ' + from.b + ' V' + m + ' M' + a.cx + ' ' + m + ' H' + b.cx +
-               ' M' + a.cx + ' ' + m + ' V' + (a.t - 1) + ' M' + b.cx + ' ' + m + ' V' + (b.t - 1) + ' ' + down(a.cx, a.t - 1) + ' ' + down(b.cx, b.t - 1);
+      function ar(x, y) { return 'M' + (x - 9) + ' ' + (y - 5) + ' L' + x + ' ' + y + ' L' + (x - 9) + ' ' + (y + 5); }
+      function al(x, y) { return 'M' + (x + 9) + ' ' + (y - 5) + ' L' + x + ' ' + y + ' L' + (x + 9) + ' ' + (y + 5); }
+      function ad(x, y) { return 'M' + (x - 5) + ' ' + (y - 9) + ' L' + x + ' ' + y + ' L' + (x + 5) + ' ' + (y - 9); }
+      function fork(from, a, b) {
+        var x = (from.r + Math.min(a.l, b.l)) / 2;
+        return 'M' + from.r + ' ' + from.cy + ' H' + x + ' M' + x + ' ' + a.cy + ' V' + b.cy +
+               ' M' + x + ' ' + a.cy + ' H' + (a.l - 1) + ' ' + ar(a.l - 1, a.cy) +
+               ' M' + x + ' ' + b.cy + ' H' + (b.l - 1) + ' ' + ar(b.l - 1, b.cy);
       }
-      function drop(a, b) { return 'M' + a.cx + ' ' + a.b + ' V' + (b.t - 1) + ' ' + down(b.cx, b.t - 1); }
+      function across(a, b) { return 'M' + a.r + ' ' + a.cy + ' H' + (b.l - 1) + ' ' + ar(b.l - 1, a.cy); }
       function draw() {
-        var W = wrap.getBoundingClientRect().width, lane = W - 10;
         var s = box('fn-sub'), e = box('fn-email'), mn = box('fn-manual'), au = box('fn-auto'), g1 = box('fn-sg1'),
             c = box('fn-crm'), v = box('fn-view'), d = box('fn-dl'), mt = box('fn-met'), g2 = box('fn-sg2');
-        var m1 = (s.b + e.t) / 2;
-        var p = 'M' + s.cx + ' ' + s.b + ' V' + m1 + ' M' + e.cx + ' ' + m1 + ' H' + lane +
-                ' M' + e.cx + ' ' + m1 + ' V' + (e.t - 1) + ' ' + down(e.cx, e.t - 1) +
-                ' M' + lane + ' ' + m1 + ' V' + c.cy + ' H' + (c.r + 1) + ' ' + left(c.r + 1, c.cy) +
-                ' ' + split(e, mn, au) + ' ' + drop(mn, g1) + ' ' + drop(au, c) + ' ' + split(c, v, d) + ' ' + drop(v, mt) + ' ' + drop(d, g2);
+        var my = (c.b + Math.min(v.t, d.t)) / 2;
+        var p = fork(s, e, c) + ' ' + fork(e, mn, au) + ' ' + across(mn, g1) +
+                ' M' + au.cx + ' ' + au.b + ' V' + c.cy + ' H' + (c.r + 1) + ' ' + al(c.r + 1, c.cy) +
+                ' M' + c.cx + ' ' + c.b + ' V' + my + ' M' + v.cx + ' ' + my + ' H' + d.cx +
+                ' M' + v.cx + ' ' + my + ' V' + (v.t - 1) + ' ' + ad(v.cx, v.t - 1) +
+                ' M' + d.cx + ' ' + my + ' V' + (d.t - 1) + ' ' + ad(d.cx, d.t - 1) +
+                ' M' + v.cx + ' ' + v.b + ' V' + (mt.t - 1) + ' ' + ad(v.cx, mt.t - 1) +
+                ' ' + across(d, g2);
         svg.innerHTML = '<path d="' + p + '" fill="none" stroke="#0F2137" stroke-width="1.6"/>';
       }
       draw();
