@@ -492,7 +492,7 @@
                               <div class="safeguard-option-body">
                                 <p>This item can clear with one of the following (for deal-processing roles):</p><ul style="margin:10px 0 0; padding-left:20px; list-style:disc;"><li style="margin-bottom:6px;">Change document access to view-only.</li><li style="margin-bottom:6px;">If documents must remain downloadable:<div style="margin-top:4px;">(1) Browser and device controls that block personal email, personal cloud storage, and USB transfers.</div><div style="margin-top:2px;">(2) Watermark files with the company logo, e.g. <a href="https://aquamark.io" target="_blank" rel="noopener noreferrer" style="color:inherit; font-weight:600; text-decoration:underline; text-underline-offset:3px;">Aquamark</a>.</div></li><li>Using something else? <a href="https://securefunder.org/contact/" target="_blank" rel="noopener" style="color:inherit; font-weight:600; text-decoration:underline; text-underline-offset:3px;">Contact us</a> and we&rsquo;ll review it.</li></ul>
                                 <div style="margin-top:22px;">
-                                  <button type="button" class="safeguard-detail-toggle safeguard-methods-toggle" onclick="event.stopPropagation(); showMethodsModal();" aria-label="See options" title="See options">See options &rarr;</button>
+                                  <a class="safeguard-detail-toggle safeguard-methods-toggle" href="/download-safeguards/" target="_blank" rel="noopener" style="text-decoration:none;" onclick="event.stopPropagation();" aria-label="See options (opens the Download Safeguards page)" title="See options">See options &rarr;</a>
                                 </div>
                               </div>
                             </div>
@@ -541,7 +541,7 @@
                                   <div class="safeguard-option-body">
                                     <p>This item can clear with one of the following (for deal-processing roles):</p><ul style="margin:10px 0 0; padding-left:20px; list-style:disc;"><li style="margin-bottom:6px;">Change document access to view-only.</li><li style="margin-bottom:6px;">If documents must remain downloadable:<div style="margin-top:4px;">(1) Browser and device controls that block personal email, personal cloud storage, and USB transfers.</div><div style="margin-top:2px;">(2) Watermark files with the company logo, e.g. <a href="https://aquamark.io" target="_blank" rel="noopener noreferrer" style="color:inherit; font-weight:600; text-decoration:underline; text-underline-offset:3px;">Aquamark</a>.</div></li><li>Using something else? <a href="https://securefunder.org/contact/" target="_blank" rel="noopener" style="color:inherit; font-weight:600; text-decoration:underline; text-underline-offset:3px;">Contact us</a> and we&rsquo;ll review it.</li></ul>
                                     <div style="margin-top:22px;">
-                                      <button type="button" class="safeguard-detail-toggle safeguard-methods-toggle" onclick="event.stopPropagation(); showMethodsModal();" aria-label="See options" title="See options">See options &rarr;</button>
+                                      <a class="safeguard-detail-toggle safeguard-methods-toggle" href="/download-safeguards/" target="_blank" rel="noopener" style="text-decoration:none;" onclick="event.stopPropagation();" aria-label="See options (opens the Download Safeguards page)" title="See options">See options &rarr;</a>
                                     </div>
                                   </div>
                                 </div>
@@ -566,7 +566,7 @@
                             <div class="safeguard-option-body">
                               <p>This item can clear with one of the following (for deal-processing roles):</p><ul style="margin:10px 0 0; padding-left:20px; list-style:disc;"><li style="margin-bottom:6px;">Change document access to view-only.</li><li style="margin-bottom:6px;">If documents must remain downloadable:<div style="margin-top:4px;">(1) Browser and device controls that block personal email, personal cloud storage, and USB transfers.</div><div style="margin-top:2px;">(2) Watermark files with the company logo, e.g. <a href="https://aquamark.io" target="_blank" rel="noopener noreferrer" style="color:inherit; font-weight:600; text-decoration:underline; text-underline-offset:3px;">Aquamark</a>.</div></li><li>Using something else? <a href="https://securefunder.org/contact/" target="_blank" rel="noopener" style="color:inherit; font-weight:600; text-decoration:underline; text-underline-offset:3px;">Contact us</a> and we&rsquo;ll review it.</li></ul>
                               <div style="margin-top:22px;">
-                                <button type="button" class="safeguard-detail-toggle safeguard-methods-toggle" onclick="event.stopPropagation(); showMethodsModal();" aria-label="See options" title="See options">See options &rarr;</button>
+                                <a class="safeguard-detail-toggle safeguard-methods-toggle" href="/download-safeguards/" target="_blank" rel="noopener" style="text-decoration:none;" onclick="event.stopPropagation();" aria-label="See options (opens the Download Safeguards page)" title="See options">See options &rarr;</a>
                               </div>
                             </div>
                           </div>
@@ -713,30 +713,6 @@
     <div id="detailsModalContent"></div>
   </div>
 </div>
-<div class="details-modal-overlay" id="methodsModalOverlay" style="z-index:10000;" onclick="if(event.target===this) closeMethodsModal()">
-  <div class="details-modal">
-    <button class="details-modal-close" onclick="closeMethodsModal()" aria-label="Close">&times;</button>
-    <div class="accepted-heading">Browser and Device Controls</div>
-    <p style="margin-top:14px;">Safeguards must restrict personnel from moving company data outside approved systems. At a minimum, controls must address:</p>
-    <ul class="example-list" style="margin-top:14px;">
-      <li><strong style="background:#FFF3B0; padding:1px 4px;">Domain Restrictions:</strong> Block access to personal email, personal cloud storage, and unauthorized file-transfer services.</li>
-      <li><strong style="background:#FFF3B0; padding:1px 4px;">USB Restrictions:</strong> Block or restrict copying company files to physical media.</li>
-    </ul>
-    <p style="margin-top:14px;">Most companies need only one or two:</p>
-    <p style="margin:20px 0 4px; font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#4FA3D1;">Covers domain and USB</p>
-    <ul class="example-list" style="margin-top:0;">
-      <li><strong style="font-weight:600;">Endpoint/MDM policies</strong> &mdash; Microsoft Intune, Jamf, Hexnode, or ManageEngine</li>
-      <li><strong style="font-weight:600;">Windows Group Policy (GPO)</strong> &mdash; built into Windows</li>
-      <li><strong style="font-weight:600;">Virtual desktops</strong> &mdash; Windows 365, Azure Virtual Desktop, or Amazon WorkSpaces</li>
-    </ul>
-    <p style="margin:20px 0 4px; font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#4FA3D1;">Covers domain only &mdash; pair with a USB control</p>
-    <ul class="example-list" style="margin-top:0;">
-      <li><strong style="font-weight:600;">Enterprise browsers</strong> &mdash; Island or Talon</li>
-      <li><strong style="font-weight:600;">Web/DNS filtering</strong> &mdash; Palo Alto Prisma, Cloudflare One, or DNSFilter</li>
-    </ul>
-    <p style="margin-top:14px;">Comparable solutions that achieve the same security outcomes may also be used.</p>
-  </div>
-</div>
 <script>
   function showSafeguardDetail(btn){
     var option = btn.closest('.safeguard-option');
@@ -746,12 +722,6 @@
   }
   function closeDetailsModal(){
     document.getElementById('detailsModalOverlay').classList.remove('open');
-  }
-  function showMethodsModal(){
-    document.getElementById('methodsModalOverlay').classList.add('open');
-  }
-  function closeMethodsModal(){
-    document.getElementById('methodsModalOverlay').classList.remove('open');
   }
 
   function openSafeguardsFromHash(){
