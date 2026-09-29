@@ -209,6 +209,11 @@
     .terms-body .ds-body ul.ds-nested ul li { padding-left: 18px; }
     .terms-body .ds-body ul.ds-nested ul li::before { width: 5px; height: 5px; background: transparent; border: 1.5px solid var(--text-muted, #8A96A3); top: 13px; }
     .terms-body .ds-body ul.ds-nested em { font-style: normal; font-weight: 600; }
+    .ds-label { margin: 22px 0 8px !important; font-size: 0.72rem !important; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue-accent) !important; line-height: 1.4 !important; }
+    .ds-req { display: grid; gap: 10px; margin: 0 0 6px; }
+    .ds-req-item { background: var(--cloud); border: 1px solid var(--border-light); border-left: 3px solid var(--blue-accent); padding: 12px 16px; }
+    .ds-req-item strong { display: block; font-family: var(--font-display); color: var(--navy); font-size: 0.98rem; margin-bottom: 2px; }
+    .ds-req-item span { font-size: 0.98rem; color: var(--text-secondary); line-height: 1.6; }
     .ds-path { background: #FFF9D6; padding: 3px 8px; }
     .ds-or { display: flex; align-items: center; gap: 14px; margin: 22px 0; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.14em; color: var(--blue-accent); }
     .ds-or::before, .ds-or::after { content: ""; flex: 1; height: 1px; background: var(--border-light); }
@@ -335,12 +340,13 @@
           <summary>How you can do it</summary>
           <div class="ds-body">
             <h3 class="ds-sub-head"><span class="ds-path">Option 1: Browser and Device Controls</span></h3>
-            <p>Safeguards must restrict personnel from moving company data outside approved systems. At a minimum, controls must address:</p>
-            <ul>
-              <li><strong>Domain Restrictions:</strong> Block access to personal email, personal cloud storage, and unauthorized file-transfer services.</li>
-              <li><strong>USB Restrictions:</strong> Block or restrict copying company files to physical media.</li>
-            </ul>
-            <p>Most companies need only one or two:</p>
+            <p>Safeguards must restrict personnel from moving company data outside approved systems.</p>
+            <p class="ds-label">Requirements</p>
+            <div class="ds-req">
+              <div class="ds-req-item"><strong>Domain Restrictions</strong><span>Block access to personal email, personal cloud storage, and unauthorized file-transfer services.</span></div>
+              <div class="ds-req-item"><strong>USB Restrictions</strong><span>Block or restrict copying company files to physical media.</span></div>
+            </div>
+            <p class="ds-label">Tools to consider</p>
             <ul style="margin-bottom:4px;">
               <li><strong style="font-weight:600;">Endpoint/MDM policies</strong> &mdash; Microsoft Intune, Jamf, Hexnode, or ManageEngine</li>
               <li><strong style="font-weight:600;">Windows Group Policy (GPO)</strong> &mdash; built into Windows</li>
