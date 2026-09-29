@@ -239,8 +239,13 @@
     .terms-body a:hover { text-decoration: underline; }
 
     /* PROGRAM FRAMEWORK */
+    .fw-diagram-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; padding: 8px 0 4px; }
+    .fw-diagram { display: block; width: 100%; max-width: 1060px; min-width: 820px; margin: 0 auto; height: auto; }
+    .fw-scroll-hint { display: none; font-size: 0.85rem; color: var(--text-muted); margin-top: 10px; }
+    @media (max-width: 900px) { .fw-scroll-hint { display: block; } }
+
     .fw { padding: 64px 0 88px; }
-    .fw-wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+    .fw-wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
     .fw-section + .fw-section { margin-top: 72px; }
     .fw-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding-bottom: 14px; border-bottom: 2px solid var(--navy); margin-bottom: 12px; }
     .fw-head h2 { font-size: 1.35rem; font-weight: 700; color: var(--navy); letter-spacing: -0.01em; }
@@ -340,65 +345,19 @@
         <div class="fw-head">
           <h2 id="fw-sp">Submission Protection</h2>
         </div>
-        <p class="fw-intro">Submissions reach the system of record directly, through an email inbox, or both. The requirement is then determined by whether files can be downloaded from the system of record.</p>
+        <p class="fw-intro">Submissions arrive by email, directly in the CRM or LOS, or both.</p>
 
-        <div class="fw-labels" aria-hidden="true">
-          <div class="fw-stage-label">1 &middot; Intake</div><div></div>
-          <div class="fw-stage-label">2 &middot; Storage</div><div></div>
-          <div class="fw-stage-label">3 &middot; Access</div>
+        <div class="fw-diagram-wrap">
+<svg class="fw-diagram" viewBox="-2 0 1156 648" role="img" aria-labelledby="fw-dt" xmlns="http://www.w3.org/2000/svg" font-family="Inter, system-ui, -apple-system, sans-serif"><title id="fw-dt">Submissions go to email or directly to the CRM or LOS. Email handled manually requires safeguards; email routed automatically goes to the CRM or LOS. From the CRM or LOS, view-only access satisfies the requirement; downloadable access requires safeguards.</title><g fill="none" stroke="#0F2137" stroke-width="1.5">
+<path d="M180 300 H240 M240 170 V435 M240 170 H299 M240 435 H299"/><path d="M290 165 L299 170 L290 175"/><path d="M290 430 L299 435 L290 440"/>
+<path d="M480 170 H550 M550 60 V260 M550 60 H619 M550 260 H619"/><path d="M610 55 L619 60 L610 65"/><path d="M610 255 L619 260 L610 265"/>
+<path d="M810 60 H949"/><path d="M940 55 L949 60 L940 65"/>
+<path d="M715 300 V435 H481"/><path d="M490 430 L481 435 L490 440"/>
+<path d="M390 490 V530 M240 530 H540 M240 530 V569 M540 530 V569"/><path d="M235 560 L240 569 L245 560"/><path d="M535 560 L540 569 L545 560"/>
+<path d="M630 605 H949"/><path d="M940 600 L949 605 L940 610"/>
+</g><rect x="0" y="260" width="180" height="80" fill="#FFFFFF" stroke="#0F2137" stroke-width="1.5"/><text x="90.0" y="297" text-anchor="middle" font-size="18" font-weight="700" fill="#0F2137">Submission</text><text x="90.0" y="319" text-anchor="middle" font-size="14" fill="#4A6480">Application package</text><rect x="300" y="130" width="180" height="80" fill="#FFFFFF" stroke="#0F2137" stroke-width="1.5"/><text x="390.0" y="167" text-anchor="middle" font-size="18" font-weight="700" fill="#0F2137">Email</text><text x="390.0" y="189" text-anchor="middle" font-size="14" fill="#4A6480">Received in inbox</text><rect x="620" y="20" width="190" height="80" fill="#FFFFFF" stroke="#0F2137" stroke-width="1.5"/><text x="715.0" y="57" text-anchor="middle" font-size="18" font-weight="700" fill="#0F2137">Manual</text><text x="715.0" y="79" text-anchor="middle" font-size="14" fill="#4A6480">Handled by staff</text><rect x="950" y="20" width="200" height="80" fill="#F6F9FC" stroke="#0F2137" stroke-width="1.5"/><text x="1050.0" y="57" text-anchor="middle" font-size="18" font-weight="700" fill="#0F2137">Safeguards</text><text x="1050.0" y="79" text-anchor="middle" font-size="14" fill="#4A6480">See below</text><rect x="620" y="220" width="190" height="80" fill="#FFFFFF" stroke="#0F2137" stroke-width="1.5"/><text x="715.0" y="257" text-anchor="middle" font-size="18" font-weight="700" fill="#0F2137">Auto</text><text x="715.0" y="279" text-anchor="middle" font-size="14" fill="#4A6480">Rules or integrations</text><rect x="300" y="380" width="180" height="110" fill="#0F2137" stroke="#0F2137" stroke-width="1.5"/><text x="390.0" y="432" text-anchor="middle" font-size="18" font-weight="700" fill="#FFFFFF">CRM / LOS</text><text x="390.0" y="454" text-anchor="middle" font-size="14" fill="#C5D9E8">System of record</text><rect x="150" y="570" width="180" height="70" fill="#FFFFFF" stroke="#0F2137" stroke-width="1.5"/><text x="240.0" y="602" text-anchor="middle" font-size="18" font-weight="700" fill="#0F2137">View-only</text><text x="240.0" y="624" text-anchor="middle" font-size="14" fill="#1E6B47" font-weight="600">Satisfies requirement</text><rect x="450" y="570" width="180" height="70" fill="#FFFFFF" stroke="#0F2137" stroke-width="1.5"/><text x="540.0" y="602" text-anchor="middle" font-size="18" font-weight="700" fill="#0F2137">Downloadable</text><text x="540.0" y="624" text-anchor="middle" font-size="14" fill="#4A6480">Files can be downloaded</text><rect x="950" y="565" width="200" height="80" fill="#F6F9FC" stroke="#0F2137" stroke-width="1.5"/><text x="1050.0" y="602" text-anchor="middle" font-size="18" font-weight="700" fill="#0F2137">Safeguards</text><text x="1050.0" y="624" text-anchor="middle" font-size="14" fill="#4A6480">See below</text></svg>
         </div>
-        <div class="fw-flow">
-          <div class="fw-stage">
-            <div class="fw-stage-label">1 &middot; Intake</div>
-            <div class="fw-card">
-              <h3>Direct to system of record</h3>
-              <p>Applications and bank statements are submitted straight into the system of record.</p>
-            </div>
-            <div class="fw-or">and / or</div>
-            <div class="fw-card">
-              <h3>Email inbox</h3>
-              <p>Applications and bank statements are received by email.</p>
-              <div class="fw-sub">
-                <div class="fw-sub-item">
-                  <h4>Automated routing</h4>
-                  <p>Rules or integrations (e.g. Salesforce, Zoho) move files into the system of record.</p>
-                  <span class="fw-result pass">Satisfies requirement for email submissions</span>
-                </div>
-                <div class="fw-sub-item">
-                  <h4>Human handling</h4>
-                  <p>Staff move files into the system of record. Files may be downloaded from the inbox.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="fw-arrow" aria-hidden="true"><svg viewBox="0 0 28 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M0 8 H26 M19 1 L26 8 L19 15"/></svg></div>
-
-          <div class="fw-stage">
-            <div class="fw-stage-label">2 &middot; Storage</div>
-            <div class="fw-card fw-card-sor">
-              <h3>System of record</h3>
-              <p>CRM, LOS, or equivalent.</p>
-            </div>
-          </div>
-
-          <div class="fw-arrow" aria-hidden="true"><svg viewBox="0 0 28 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M0 8 H26 M19 1 L26 8 L19 15"/></svg></div>
-
-          <div class="fw-stage">
-            <div class="fw-stage-label">3 &middot; Access</div>
-            <div class="fw-card">
-              <h3>View-only</h3>
-              <p>Files can be viewed but not downloaded.</p>
-              <span class="fw-result pass">Satisfies requirement</span>
-            </div>
-            <div class="fw-or">or</div>
-            <div class="fw-card">
-              <h3>Downloadable</h3>
-              <p>Files can be downloaded.</p>
-              <span class="fw-result">Requires a download safeguard (below)</span>
-            </div>
-          </div>
-        </div>
+        <p class="fw-scroll-hint">Scroll sideways to see the full diagram.</p>
       </section>
 
       <section class="fw-section" aria-labelledby="fw-ds">
