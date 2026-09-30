@@ -3101,7 +3101,7 @@
   </script>
 
 
-<!-- AB 2116 announcement: one-time popup for every visitor -->
+<!-- AB 2116 announcement: shows once per visit (browser session). Temporary; remove mid-Oct 2026 -->
 <style>
   #ab2116-pop[hidden] { display: none !important; }
   #ab2116-pop { position: fixed; inset: 0; z-index: 9998; display: flex; align-items: center; justify-content: center; padding: 24px; background: rgba(15, 23, 42, 0.45); }
@@ -3129,8 +3129,8 @@
 </div>
 <script>
   (function () {
-    var KEY = 'ab2116-signed-seen';
-    try { if (localStorage.getItem(KEY)) return; } catch (e) {}
+    var KEY = 'ab2116-signed-seen-session';
+    try { if (sessionStorage.getItem(KEY)) return; } catch (e) {}
     // Don't stack on top of the sign-up confirmation popup
     var signup = document.getElementById('sb-notify');
     if (signup && !signup.hidden) return;
@@ -3140,7 +3140,7 @@
     function onKey(e) { if (e.key === 'Escape') close(); }
     setTimeout(function () {
       pop.hidden = false;
-      try { localStorage.setItem(KEY, '1'); } catch (e) {}
+      try { sessionStorage.setItem(KEY, '1'); } catch (e) {}
       var x = pop.querySelector('.ab-close');
       x.focus();
       x.addEventListener('click', close);
