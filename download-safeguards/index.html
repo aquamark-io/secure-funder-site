@@ -216,6 +216,14 @@
     .ds-req-item span { font-size: 0.98rem; color: var(--text-secondary); line-height: 1.6; }
     .terms-body .ds-body ol.ds-sub li.ds-or-li { counter-increment: none; padding: 8px 0 8px 32px; font-family: var(--font-display); font-size: 1.1rem; font-weight: 800; letter-spacing: 0.12em; color: var(--blue-accent); }
     .terms-body .ds-body ol.ds-sub li.ds-or-li::before { content: none; }
+    .terms-body .ds-opt-title { font-family: var(--font-display); font-size: 1.08rem; font-weight: 700; color: var(--navy); margin: 0 0 8px; padding: 0; border: 0; }
+    .terms-body .ds-sep { border: 0; border-top: 1px solid var(--border-light); margin: 26px 0; }
+    .terms-body .ds-req-list { margin: 10px 0 0; }
+    .terms-body .ds-req-list strong { color: var(--navy); font-weight: 600; }
+    .terms-body .ds-tools-lead { margin: 22px 0 6px !important; font-size: 0.92rem !important; font-weight: 600; color: var(--navy) !important; }
+    .terms-body ul.ds-tools { margin: 0; }
+    .terms-body ul.ds-tools li { font-size: 0.92rem; line-height: 1.6; padding-top: 2px; padding-bottom: 2px; color: var(--text-secondary); }
+    .terms-body ul.ds-tools li::before { width: 4px; height: 4px; top: 12px; opacity: 0.7; }
     .ds-path { background: #FFF9D6; padding: 3px 8px; }
     .ds-or { display: flex; align-items: center; gap: 14px; margin: 22px 0; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.14em; color: var(--blue-accent); }
     .ds-or::before, .ds-or::after { content: ""; flex: 1; height: 1px; background: var(--border-light); }
@@ -340,25 +348,24 @@
         <details class="ds-card" name="ds-sections">
           <summary>How you can do it</summary>
           <div class="ds-body">
-            <h3 class="ds-sub-head"><span class="ds-path">Option 1: Watermarking</span></h3>
+            <h3 class="ds-opt-title">Option 1: Watermarking</h3>
             <p>Watermark files to keep them visibly connected to your company, reasonably deterring misuse. <a href="https://aquamark.io/" target="_blank" rel="noopener noreferrer">Aquamark</a> or equivalent service is acceptable.</p>
 
-            <div style="height:28px;"></div>
+            <hr class="ds-sep">
 
-            <h3 class="ds-sub-head"><span class="ds-path">Option 2: Browser and Device Controls</span></h3>
-            <p>Safeguards must restrict personnel from moving data outside the company.</p>
-            <p class="ds-label">Requirements</p>
-            <div class="ds-req">
-              <div class="ds-req-item"><strong>Domain Restrictions</strong><span>Block access to personal email, personal cloud storage, and unauthorized file-transfer services.</span></div>
-              <div class="ds-req-item"><strong>USB Restrictions</strong><span>Block or restrict copying company files to physical media.</span></div>
-            </div>
-            <p class="ds-label" style="margin-top:40px !important;">Tools that can help</p>
-            <ul style="margin-bottom:4px;">
-              <li><strong style="font-weight:600;">Endpoint/MDM policies</strong> &mdash; Microsoft Intune, Jamf, Hexnode, or ManageEngine</li>
-              <li><strong style="font-weight:600;">Windows Group Policy (GPO)</strong> &mdash; built into Windows</li>
-              <li><strong style="font-weight:600;">Virtual desktops</strong> &mdash; Windows 365, Azure Virtual Desktop, or Amazon WorkSpaces</li>
-              <li><strong style="font-weight:600;">Enterprise browsers</strong> &mdash; Island or Talon</li>
-              <li><strong style="font-weight:600;">Web/DNS filtering</strong> &mdash; Palo Alto Prisma, Cloudflare One, or DNSFilter</li>
+            <h3 class="ds-opt-title">Option 2: Browser and Device Controls</h3>
+            <p>Safeguards must restrict personnel from moving data outside the company. At a minimum:</p>
+            <ul class="ds-req-list">
+              <li><strong>Domain restrictions:</strong> Block access to personal email, personal cloud storage, and unauthorized file-transfer services.</li>
+              <li><strong>USB restrictions:</strong> Block or restrict copying company files to physical media.</li>
+            </ul>
+            <p class="ds-tools-lead">Tools that can help</p>
+            <ul class="ds-tools">
+              <li>Endpoint/MDM policies: Microsoft Intune, Jamf, Hexnode, or ManageEngine</li>
+              <li>Windows Group Policy (GPO): built into Windows</li>
+              <li>Virtual desktops: Windows 365, Azure Virtual Desktop, or Amazon WorkSpaces</li>
+              <li>Enterprise browsers: Island or Talon</li>
+              <li>Web/DNS filtering: Palo Alto Prisma, Cloudflare One, or DNSFilter</li>
             </ul>
           </div>
         </details>
