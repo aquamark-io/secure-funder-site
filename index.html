@@ -3099,5 +3099,56 @@
   </script>
 
 
+<!-- AB 2116 announcement: one-time popup for every visitor -->
+<style>
+  #ab2116-pop[hidden] { display: none !important; }
+  #ab2116-pop { position: fixed; inset: 0; z-index: 9998; display: flex; align-items: center; justify-content: center; padding: 24px; background: rgba(15, 23, 42, 0.45); }
+  #ab2116-pop .ab-box { position: relative; width: 100%; max-width: 480px; background: #FFFFFF; border: 1px solid #D4DBE3; padding: 40px 36px 32px; text-align: left; }
+  #ab2116-pop .ab-eyebrow { margin: 0 0 10px; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #C62828; }
+  #ab2116-pop h2 { margin: 0; font-size: 22px; line-height: 30px; font-weight: 700; color: #0F2137; }
+  #ab2116-pop p.ab-text { margin: 12px 0 0; font-size: 15px; line-height: 24px; color: #4A5568; }
+  #ab2116-pop .ab-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 24px; }
+  #ab2116-pop .ab-primary { display: inline-block; background: #0F2137; color: #FFFFFF; font-size: 13px; font-weight: 700; letter-spacing: 0.04em; padding: 11px 20px; text-decoration: none; border: 1px solid #0F2137; }
+  #ab2116-pop .ab-secondary { background: #FFFFFF; color: #4A5568; font: inherit; font-size: 13px; font-weight: 600; padding: 11px 20px; border: 1px solid #D4DBE3; cursor: pointer; }
+  #ab2116-pop .ab-close { position: absolute; top: 10px; right: 12px; background: none; border: 0; font-size: 24px; line-height: 1; color: #6B7C8E; cursor: pointer; padding: 6px; }
+  @media (max-width: 480px) { #ab2116-pop .ab-box { padding: 34px 22px 24px; } }
+</style>
+<div id="ab2116-pop" role="dialog" aria-modal="true" aria-labelledby="ab2116-title" hidden>
+  <div class="ab-box">
+    <button type="button" class="ab-close" aria-label="Close">&times;</button>
+    <p class="ab-eyebrow">Industry News</p>
+    <h2 id="ab2116-title">California AB 2116 Signed Into Law</h2>
+    <p class="ab-text">Governor Newsom signed AB 2116 on September 30, 2026. Its licensing and oversight requirements for commercial financing providers and brokers begin January 1, 2028. We&rsquo;ll keep members informed as guidance develops.</p>
+    <div class="ab-actions">
+      <a class="ab-primary" href="https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260AB2116" target="_blank" rel="noopener">Read the bill</a>
+      <button type="button" class="ab-secondary">Close</button>
+    </div>
+  </div>
+</div>
+<script>
+  (function () {
+    var KEY = 'ab2116-signed-seen';
+    try { if (localStorage.getItem(KEY)) return; } catch (e) {}
+    // Don't stack on top of the sign-up confirmation popup
+    var signup = document.getElementById('sb-notify');
+    if (signup && !signup.hidden) return;
+    var pop = document.getElementById('ab2116-pop');
+    if (!pop) return;
+    function close() { pop.hidden = true; document.removeEventListener('keydown', onKey); }
+    function onKey(e) { if (e.key === 'Escape') close(); }
+    setTimeout(function () {
+      pop.hidden = false;
+      try { localStorage.setItem(KEY, '1'); } catch (e) {}
+      var x = pop.querySelector('.ab-close');
+      x.focus();
+      x.addEventListener('click', close);
+      pop.querySelector('.ab-secondary').addEventListener('click', close);
+      pop.querySelector('.ab-primary').addEventListener('click', close);
+      pop.addEventListener('click', function (e) { if (e.target === pop) close(); });
+      document.addEventListener('keydown', onKey);
+    }, 800);
+  })();
+</script>
 </body>
+
 </html>
