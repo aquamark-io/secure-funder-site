@@ -1184,21 +1184,11 @@
 
     /* ===== INDUSTRY NEWS ===== */
     /* Compliance Center (coming soon) */
-    .compliance-soon-section { background: var(--white); border-bottom: 1px solid var(--border-light); padding: 76px 0; }
-    .compliance-soon { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 56px; max-width: 1040px; margin: 0 auto; align-items: center; }
-    .compliance-soon-meta { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 18px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); }
-    .compliance-soon-meta::before { content: ''; width: 18px; height: 2px; background: var(--navy); }
-    .compliance-soon h3 { font-family: var(--font-display); font-size: 2rem; font-weight: 700; line-height: 1.18; letter-spacing: -0.02em; color: var(--navy); margin: 0 0 18px; }
-    .compliance-soon-copy p { font-size: 1rem; line-height: 1.72; color: var(--text-secondary); margin: 0; max-width: 520px; }
-    .compliance-soon-copy a { color: var(--navy); font-weight: 700; text-decoration: none; border-bottom: 1px solid var(--navy); padding-bottom: 1px; }
-    .compliance-soon-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--border-light); }
-    .compliance-soon-list li { padding: 18px 0; border-bottom: 1px solid var(--border-light); font-size: 0.98rem; line-height: 1.6; color: var(--text-secondary); }
-    .compliance-soon-list strong { display: block; color: var(--navy); font-weight: 700; margin-bottom: 2px; }
-    @media (max-width: 860px) {
-      .compliance-soon-section { padding: 56px 0; }
-      .compliance-soon { grid-template-columns: 1fr; gap: 28px; }
-      .compliance-soon h3 { font-size: 1.6rem; }
-    }
+    .compliance-soon-section { background: var(--white); border-bottom: 1px solid var(--border-light); padding: 56px 0; text-align: center; }
+    .compliance-soon-meta { margin: 0 0 10px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); }
+    .compliance-soon-section h3 { font-family: var(--font-display); font-size: 1.6rem; font-weight: 700; letter-spacing: -0.01em; color: var(--navy); margin: 0 0 10px; }
+    .compliance-soon-section p.compliance-soon-text { font-size: 1rem; line-height: 1.65; color: var(--text-secondary); margin: 0 auto; max-width: 680px; }
+    @media (max-width: 860px) { .compliance-soon-section { padding: 44px 0; } .compliance-soon-section h3 { font-size: 1.4rem; } }
     .industry-news-section {
       background: var(--white);
       border-bottom: 1px solid var(--border-light);
@@ -2902,19 +2892,10 @@
 
   <!-- Compliance Center (coming soon) -->
   <section class="compliance-soon-section">
-    <div class="container">
-      <div class="compliance-soon reveal">
-        <div class="compliance-soon-copy">
-          <div class="compliance-soon-meta">Coming Soon</div>
-          <h3>Compliance Center</h3>
-          <p>An industry resource for states that require licensing or registration. Each state&rsquo;s requirements, broken down in plain language, with the steps and links needed to get them done. <a href="#newsletter">Stay informed</a> to hear when it launches.</p>
-        </div>
-        <ul class="compliance-soon-list">
-          <li><strong>State-by-state requirements</strong>Who needs to register or be licensed, and what applies to you.</li>
-          <li><strong>Step-by-step instructions</strong>What to file, in what order, and what to have ready.</li>
-          <li><strong>Direct links</strong>The agency pages and forms you&rsquo;ll need, in one place.</li>
-        </ul>
-      </div>
+    <div class="container reveal">
+      <p class="compliance-soon-meta">Coming Soon</p>
+      <h3>Compliance Center</h3>
+      <p class="compliance-soon-text">Plain-language guidance for states that require licensing or registration.</p>
     </div>
   </section>
 
