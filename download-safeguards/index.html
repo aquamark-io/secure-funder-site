@@ -292,6 +292,11 @@
     .terms-body a:hover { text-decoration: underline; }
     .terms-body p.lead + h2 { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--border-light); }
       .page-header .container-narrow > p { max-width: 800px; margin-left: auto; margin-right: auto; text-wrap: balance; }
+      /* Card headers stay tinted when closed so each card stands out from the white page */
+    .ds-card { border-color: #C9D1DA; }
+    .ds-card > summary { background: #F1F4F7; }
+    .ds-card > summary:hover { background: #E7ECF1; }
+    .ds-card[open] > summary { background: #F1F4F7; border-bottom-color: #DDE3E9; }
   </style>
 </head>
 <body>
