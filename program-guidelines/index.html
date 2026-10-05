@@ -372,7 +372,8 @@
     #document-protection .question-block.quiz-intro{border-top:none;}
     .quiz-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:22px 24px;}
     .quiz-actions .questionnaire-reset{margin:0;}
-    .quiz-actions .quiz-join{text-decoration:none;font-size:.92rem;font-weight:700;padding:12px 22px;}
+    .quiz-actions .quiz-join{text-decoration:none;}
+    .quiz-actions .questionnaire-reset,.quiz-actions .quiz-join{box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;gap:0;min-width:120px;height:44px;padding:0 22px;font-size:.92rem;font-weight:700;line-height:1;}
     @media (max-width:640px){.quiz-actions{margin:22px 20px;}}
   </style>
 
@@ -533,7 +534,7 @@
                     </div>
                   </div>
                   <div id="quizCompleteNote" class="conditional-panel quiz-done"><h4 class="quiz-done-title">Done.</h4><p>Any gaps can be closed after you join. We&rsquo;ll also ask about the items below. Companies are reviewed holistically. &ldquo;No&rdquo; responses do not automatically prevent certification.</p><ul><li>Is MFA enabled for email and system of record?</li><li>Do you run background checks?</li><li>Is screen lock enabled (15 minutes or less)?</li><li>Do you have a documented off-boarding process?</li></ul></div>
-                  <div class="quiz-actions"><button type="button" class="questionnaire-reset" id="protectionReset">Reset answers</button><a class="btn-join quiz-join" href="/contact/">Join Now</a></div>
+                  <div class="quiz-actions"><button type="button" class="questionnaire-reset" id="protectionReset">Reset</button><a class="btn-join quiz-join" href="/contact/">Join</a></div>
                 </div>
               </div>
             </details>
