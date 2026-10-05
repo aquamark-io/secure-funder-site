@@ -297,6 +297,13 @@
     .ds-card > summary { background: #F1F4F7; }
     .ds-card > summary:hover { background: #E7ECF1; }
     .ds-card[open] > summary { background: #F1F4F7; border-bottom-color: #DDE3E9; }
+  
+    /* Important callout (matches Program Guidelines callouts) */
+    .ds-important{background:#F2F2F2;padding:16px 20px;margin:0 0 24px;}
+    .terms-body .ds-important p{margin:0;font-size:1rem;line-height:1.65;color:var(--text-secondary);}
+    .terms-body .ds-important strong{color:#000000;font-weight:700;}
+    .page-header h1{margin-bottom:0;}
+    @media (max-width:600px){.page-header{padding:36px 0 32px;}.ds-important{padding:14px 16px;}.terms-body .ds-important p{font-size:.95rem;}}
   </style>
 </head>
 <body>
@@ -324,13 +331,14 @@
   <div class="page-header">
     <div class="container-narrow">
       <h1>Download Safeguards</h1>
-      <p>If the application package can be downloaded from email or your system of record, safeguards are required to reduce transfer through personal email, cloud storage, or USB.</p>
     </div>
   </div>
 
   <!-- Content -->
   <div class="terms-body">
     <div class="container-narrow">
+
+      <div class="ds-important"><p><strong>Important.</strong> If the application package can be downloaded from email or your system of record, safeguards are required to reduce transfer through personal email, cloud storage, or USB.</p></div>
 
       <div class="ds-list">
         <details class="ds-card" name="ds-sections">
