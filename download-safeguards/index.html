@@ -307,6 +307,16 @@
       .ds-card-details{margin-top:28px;}
     .ds-card.ds-card-details > summary{background:#FFFFFF;}
     .ds-card.ds-card-details > summary:hover{background:#F7F8FA;}
+  
+    /* Document layout: two path sections, Details as the only toggle */
+    .terms-body .ds-important + h2{margin-top:40px;padding-top:0;border-top:none;}
+    .terms-body ol.ds-steps{margin:4px 0 0;padding-left:24px;}
+    .terms-body ol.ds-steps li{font-size:1.04rem;color:var(--text-secondary);line-height:1.75;padding:5px 0 5px 4px;}
+    .terms-body ol.ds-steps li::marker{font-weight:700;color:var(--text-primary);}
+    .terms-body ol.ds-steps li strong{color:var(--text-primary);}
+    .ds-list-doc{margin-top:48px;}
+    .ds-card.ds-details-doc > summary{background:#F1F4F7;}
+    .ds-card > summary:focus:not(:focus-visible){outline:none;}
   </style>
 </head>
 <body>
@@ -343,38 +353,24 @@
 
       <div class="ds-important"><svg class="alert-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5 22.5 21h-21L12 2.5z" fill="#C62828"/><rect x="11" y="9" width="2" height="6.5" rx="1" fill="#fff"/><circle cx="12" cy="18" r="1.15" fill="#fff"/></svg><p><strong>Important.</strong> If the application package can be downloaded from email or your system of record, safeguards are needed to reduce transfer through personal email, cloud storage, or USB.</p></div>
 
-      <div class="ds-list">
-        <details class="ds-card" name="ds-sections">
-          <summary>If downloadable from email</summary>
-          <div class="ds-body">
-            <p>For applications that arrive by email and are opened by a person. Choose at least one:</p>
-            <h3 class="ds-opt-title">1. Change to automated intake</h3>
-            <p>Route submissions from your inbox straight into your system of record, so no one handles files in email. <a href="https://securefunder.org/contact/">We can help</a>.</p>
-            <hr class="ds-sep">
-            <h3 class="ds-opt-title">2. Watermark before the inbox</h3>
-            <p>Files are watermarked with your company name or logo before they reach the inbox, using <a href="https://aquamark.io/" target="_blank" rel="noopener noreferrer">Aquamark</a> email watermarking or an equivalent provider.</p>
-            <hr class="ds-sep">
-            <h3 class="ds-opt-title">3. Browser and device controls</h3>
-            <p>Block personal email, personal cloud storage, and USB transfers. See Details below.</p>
-          </div>
-        </details>
+      <h2>If downloadable from email</h2>
+      <p>For applications that arrive by email and are opened by a person. Choose at least one:</p>
+      <ol class="ds-steps">
+        <li><strong>Change to automated intake.</strong> Route submissions straight into your system of record, so no one handles files in email. <a href="https://securefunder.org/contact/">We can help</a>.</li>
+        <li><strong>Watermark before the inbox.</strong> <a href="https://aquamark.io/" target="_blank" rel="noopener noreferrer">Aquamark</a> email watermarking or an equivalent provider.</li>
+        <li><strong>Browser and device controls.</strong> Block personal email, cloud storage sites, and USB.</li>
+      </ol>
 
-        <details class="ds-card" name="ds-sections">
-          <summary>If downloadable from system of record</summary>
-          <div class="ds-body">
-            <p>For your CRM or other system of record. Choose at least one:</p>
-            <h3 class="ds-opt-title">1. Change to view-only access</h3>
-            <p>Staff can open application files but can&rsquo;t download them.</p>
-            <hr class="ds-sep">
-            <h3 class="ds-opt-title">2. Watermark</h3>
-            <p>Files are watermarked with your company name or logo before they&rsquo;re stored, or at download, using <a href="https://aquamark.io/" target="_blank" rel="noopener noreferrer">Aquamark</a> or an equivalent service.</p>
-            <hr class="ds-sep">
-            <h3 class="ds-opt-title">3. Browser and device controls</h3>
-            <p>Block personal email, personal cloud storage, and USB transfers. See Details below.</p>
-          </div>
-        </details>
+      <h2>If downloadable from system of record</h2>
+      <p>For your CRM or other system of record. Choose at least one:</p>
+      <ol class="ds-steps">
+        <li><strong>Change to view-only access.</strong> Staff can open application files but can&rsquo;t download them.</li>
+        <li><strong>Watermark.</strong> Before files are stored, or at download, using <a href="https://aquamark.io/" target="_blank" rel="noopener noreferrer">Aquamark</a> or an equivalent service.</li>
+        <li><strong>Browser and device controls.</strong> Block personal email, cloud storage sites, and USB.</li>
+      </ol>
 
-        <details class="ds-card ds-card-details" name="ds-sections">
+      <div class="ds-list ds-list-doc">
+        <details class="ds-card ds-details-doc">
           <summary>Details</summary>
           <div class="ds-body">
             <h3 class="ds-opt-title">Watermarking</h3>
