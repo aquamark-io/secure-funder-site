@@ -299,7 +299,7 @@
     .ds-card[open] > summary { background: #F1F4F7; border-bottom-color: #DDE3E9; }
   
     /* Important callout (matches Program Guidelines callouts) */
-    .ds-important{display:flex;align-items:flex-start;gap:10px;background:#FFFFFF;padding:16px 20px;margin:0 0 24px;}.ds-important .alert-icon{flex-shrink:0;width:20px;height:20px;margin-top:3px;}
+    .ds-important{display:flex;align-items:flex-start;gap:10px;background:#FDF1F1;border:1px solid #F3C9C9;padding:16px 20px;margin:0 0 24px;}.ds-important .alert-icon{flex-shrink:0;width:20px;height:20px;margin-top:3px;}
     .terms-body .ds-important p{margin:0;font-size:1rem;line-height:1.65;color:var(--text-secondary);}
     .terms-body .ds-important strong{color:#000000;font-weight:700;}
     .page-header h1{margin-bottom:0;}
@@ -342,39 +342,39 @@
 
       <div class="ds-list">
         <details class="ds-card" name="ds-sections">
-          <summary>What you can do</summary>
+          <summary>If files can be downloaded from email</summary>
           <div class="ds-body">
-            <p>Choose at least one:</p>
-            <ul>
-              <li>If submissions arrive by email, route them automatically to your system of record so no one handles them in the inbox. <a href="https://securefunder.org/contact/">We can help</a>.</li>
-              <li>Change document access to view-only.</li>
-              <li>If documents must remain downloadable, options include:
-                <ol class="ds-sub">
-                  <li>Watermark files with the company name or logo.</li>
-                  <li class="ds-or-li">OR</li>
-                  <li>Browser and device controls that restrict personnel from moving data outside the company.</li>
-                </ol>
-              </li>
-              <li>Other safeguards are acceptable if they meet the intent. <a href="https://securefunder.org/contact/">Send us a message</a>.</li>
-            </ul>
+            <p>For applications that arrive by email and are opened by a person. Choose at least one:</p>
+            <h3 class="ds-opt-title">1. Automate intake</h3>
+            <p>Route submissions from your inbox straight into your system of record, so no one handles files in email. <a href="https://securefunder.org/contact/">We can help</a>.</p>
+            <hr class="ds-sep">
+            <h3 class="ds-opt-title">2. Watermark before the inbox</h3>
+            <p>Files are watermarked with your company name or logo before they reach the inbox, using <a href="https://aquamark.io/" target="_blank" rel="noopener noreferrer">Aquamark</a> email watermarking or an equivalent provider.</p>
+            <hr class="ds-sep">
+            <h3 class="ds-opt-title">3. Browser and device controls</h3>
+            <p>Block personal email, personal cloud storage, and USB transfers. See Details below.</p>
           </div>
         </details>
 
         <details class="ds-card" name="ds-sections">
-          <summary>How you can do it</summary>
+          <summary>If files can be downloaded from your system of record</summary>
           <div class="ds-body">
-            <h3 class="ds-opt-title">Option 1: Automatic Email Routing</h3>
-            <p>Route submissions from your inbox straight into your system of record, so no one handles files in email. Then only your system of record needs view-only access or a safeguard. <a href="https://securefunder.org/contact/">Send us a message</a> for guidance.</p>
-
+            <p>For your CRM or other system of record. Choose at least one:</p>
+            <h3 class="ds-opt-title">1. View-only access</h3>
+            <p>Staff can open application files but can&rsquo;t download them.</p>
             <hr class="ds-sep">
-
-            <h3 class="ds-opt-title">Option 2: Watermarking</h3>
-            <p>Watermark files to keep them visibly connected to your company, reasonably deterring misuse. <a href="https://aquamark.io/" target="_blank" rel="noopener noreferrer">Aquamark</a> or equivalent service is acceptable. For email, files must be watermarked before they reach the inbox. For your system of record, before files are stored or at download.</p>
-            <p><strong>Evidence needed:</strong> a sample file plus a workflow screenshot or logs showing where the watermark is applied.</p>
-
+            <h3 class="ds-opt-title">2. Watermark</h3>
+            <p>Files are watermarked with your company name or logo before they&rsquo;re stored, or at download, using <a href="https://aquamark.io/" target="_blank" rel="noopener noreferrer">Aquamark</a> or an equivalent service.</p>
             <hr class="ds-sep">
+            <h3 class="ds-opt-title">3. Browser and device controls</h3>
+            <p>Block personal email, personal cloud storage, and USB transfers. See Details below.</p>
+          </div>
+        </details>
 
-            <h3 class="ds-opt-title">Option 3: Browser and Device Controls</h3>
+        <details class="ds-card" name="ds-sections">
+          <summary>Details</summary>
+          <div class="ds-body">
+            <h3 class="ds-opt-title">Browser and device controls</h3>
             <p>Safeguards must restrict personnel from moving data outside the company. At a minimum:</p>
             <ul class="ds-req-list">
               <li><strong>Domain restrictions:</strong> Block access to personal email, personal cloud storage, and unauthorized file-transfer services.</li>
@@ -388,6 +388,15 @@
               <li>Enterprise browsers: Island or Talon</li>
               <li>Web/DNS filtering: Palo Alto Prisma, Cloudflare One, or DNSFilter</li>
             </ul>
+            <hr class="ds-sep">
+            <h3 class="ds-opt-title">Watermarking evidence</h3>
+            <p>A sample file plus a workflow screenshot or logs showing where the watermark is applied.</p>
+            <hr class="ds-sep">
+            <h3 class="ds-opt-title">Covering both</h3>
+            <p>One safeguard can cover both. For example, watermarking before the inbox also covers your system of record, since stored files are already watermarked.</p>
+            <hr class="ds-sep">
+            <h3 class="ds-opt-title">Other safeguards</h3>
+            <p>Other safeguards are acceptable if they meet the intent. <a href="https://securefunder.org/contact/">Send us a message</a>.</p>
           </div>
         </details>
       </div>
