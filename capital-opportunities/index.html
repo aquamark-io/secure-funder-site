@@ -149,8 +149,6 @@
     .co-card-title { font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; color: var(--navy); letter-spacing: -0.01em; }
     .co-card-sub { display: block; font-size: 0.86rem; font-weight: 400; color: var(--text-muted); margin-top: 3px; letter-spacing: 0; }
     .co-toggle { flex: 0 0 auto; display: inline-flex; align-items: center; gap: 10px; font-size: 0.8rem; font-weight: 600; color: var(--slate); letter-spacing: 0.02em; }
-    .co-toggle::before { content: "View details"; }
-    .co-card[open] .co-toggle::before { content: "Hide details"; }
     .co-plus { position: relative; width: 22px; height: 22px; border: 1px solid var(--slate); }
     .co-plus::before, .co-plus::after { content: ""; position: absolute; left: 50%; top: 50%; background: var(--slate); transform: translate(-50%, -50%); }
     .co-plus::before { width: 10px; height: 1.5px; }
@@ -182,7 +180,6 @@
       .co-step, .co-step + .co-step { padding: 14px 0; border-left: 0; }
       .co-step + .co-step { border-top: 1px solid var(--border-light); }
       .co-card > summary { padding: 18px; }
-      .co-toggle::before, .co-card[open] .co-toggle::before { content: none; }
       .co-body { padding: 20px 18px 24px; }
       .co-term { grid-template-columns: 1fr; gap: 2px; }
     }
@@ -311,7 +308,7 @@
       <div class="co-label">What our capital partner offers</div>
           <details class="co-card">
             <summary>
-              <span class="co-card-title">Credit Facilities<span class="co-card-sub">A committed line of capital to fund originations</span></span>
+              <span class="co-card-title">Credit Facilities</span>
               <span class="co-toggle" aria-hidden="true"><span class="co-plus"></span></span>
             </summary>
             <div class="co-body">
@@ -336,7 +333,7 @@
           </details>
           <details class="co-card">
             <summary>
-              <span class="co-card-title">Forward Flow Agreements<span class="co-card-sub">Committed purchases of newly originated assets</span></span>
+              <span class="co-card-title">Forward Flow Agreements</span>
               <span class="co-toggle" aria-hidden="true"><span class="co-plus"></span></span>
             </summary>
             <div class="co-body">
