@@ -128,268 +128,54 @@
     }
 
     /* Document Layout */
-    .doc-wrapper {
-      background: var(--cloud);
-      border-bottom: 1px solid var(--border-light);
-      padding: 64px 0 80px;
-    }
-    .doc-header {
-      max-width: 780px;
-      margin: 0 auto 40px;
-      padding: 0 24px;
-    }
-    .doc-eyebrow {
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--blue-accent);
-      margin-bottom: 14px;
-    }
-    .doc-title {
-      font-family: var(--font-display);
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--navy);
-      letter-spacing: -0.015em;
-      margin-bottom: 12px;
-      line-height: 1.2;
-    }
-    .doc-meta {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-    }
+    .doc-wrapper { background: var(--cloud); border-bottom: 1px solid var(--border-light); padding: 72px 0 88px; }
+    .doc { max-width: 820px; margin: 0 auto; padding: 0 24px; }
+    .doc-eyebrow { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--slate); margin-bottom: 14px; }
+    .doc-title { font-family: var(--font-display); font-size: 2.2rem; font-weight: 700; color: var(--navy); letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 16px; }
+    .doc-lead { font-size: 1.02rem; line-height: 1.7; color: var(--text-secondary); max-width: 680px; }
 
-    .doc-body {
-      max-width: 780px;
-      margin: 0 auto;
-      padding: 48px 48px 56px;
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-    }
+    .co-steps { display: grid; grid-template-columns: repeat(3, 1fr); margin: 40px 0 44px; border-top: 1px solid var(--navy); border-bottom: 1px solid var(--border); }
+    .co-step { padding: 18px 20px 20px 0; }
+    .co-step + .co-step { padding-left: 20px; border-left: 1px solid var(--border); }
+    .co-step-num { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; color: var(--slate); margin-bottom: 6px; }
+    .co-step-text { font-size: 0.92rem; line-height: 1.55; color: var(--text-primary); }
 
-    @media (max-width: 640px) {
-      .doc-wrapper { padding: 40px 0 60px; }
-      .doc-body { padding: 36px 24px 40px; margin: 0 16px; }
-      .doc-header { padding: 0 16px; }
-      .doc-title { font-size: 1.6rem; }
-    }
+    .co-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 12px; }
+    .co-card { background: var(--white); border: 1px solid var(--border); }
+    .co-card + .co-card { border-top: 0; }
+    .co-card > summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 22px 26px; }
+    .co-card > summary::-webkit-details-marker { display: none; }
+    .co-card > summary:hover { background: var(--cloud); }
+    .co-card-title { font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; color: var(--navy); letter-spacing: -0.01em; }
+    .co-card-sub { display: block; font-size: 0.86rem; font-weight: 400; color: var(--text-muted); margin-top: 3px; letter-spacing: 0; }
+    .co-chev { flex: 0 0 auto; width: 9px; height: 9px; border-right: 1.5px solid var(--slate); border-bottom: 1.5px solid var(--slate); transform: rotate(45deg); margin-top: -4px; transition: transform 0.2s; }
+    .co-card[open] > summary .co-chev { transform: rotate(-135deg); margin-top: 4px; }
+    .co-card[open] > summary { border-bottom: 1px solid var(--border-light); }
+    .co-body { padding: 26px 26px 30px; }
+    .co-body > p { font-size: 0.96rem; line-height: 1.75; color: var(--text-secondary); margin-bottom: 26px; }
+    .co-h { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--slate); margin: 0 0 10px; }
+    .co-terms { border-top: 1px solid var(--border); margin-bottom: 28px; }
+    .co-term { display: grid; grid-template-columns: 200px 1fr; gap: 16px; padding: 11px 0; border-bottom: 1px solid var(--border-light); font-size: 0.92rem; line-height: 1.55; }
+    .co-term dt { font-weight: 600; color: var(--navy); }
+    .co-term dd { color: var(--text-secondary); }
+    .co-benefits { list-style: none; border-top: 1px solid var(--border); }
+    .co-benefits li { padding: 10px 0 10px 22px; border-bottom: 1px solid var(--border-light); position: relative; font-size: 0.92rem; color: var(--text-secondary); }
+    .co-benefits li::before { content: ""; position: absolute; left: 2px; top: 19px; width: 8px; height: 1.5px; background: var(--slate); }
 
-    .doc-body h2 {
-      font-family: var(--font-display);
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--navy);
-      letter-spacing: 0.02em;
-      text-transform: uppercase;
-      margin-top: 40px;
-      margin-bottom: 16px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid var(--border-light);
-    }
-    .doc-body h2:first-child {
-      margin-top: 0;
-    }
+    .co-cta { margin-top: 44px; padding-top: 28px; border-top: 1px solid var(--navy); display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .co-cta p { font-size: 0.95rem; color: var(--text-secondary); max-width: 520px; line-height: 1.6; }
+    .co-btn { display: inline-block; background: var(--navy); color: var(--white); text-decoration: none; font-size: 0.9rem; font-weight: 600; padding: 13px 22px; }
+    .co-btn:hover { background: var(--navy-mid); }
 
-    .doc-body h3 {
-      font-family: var(--font-display);
-      font-size: 0.98rem;
-      font-weight: 700;
-      color: var(--navy);
-      margin-top: 22px;
-      margin-bottom: 8px;
-    }
-
-    .doc-body p {
-      font-size: 0.95rem;
-      line-height: 1.75;
-      color: var(--text-primary);
-      margin-bottom: 14px;
-    }
-
-    .doc-body p.lead {
-      font-size: 1rem;
-      color: var(--text-primary);
-      margin-bottom: 18px;
-    }
-
-    .doc-body strong {
-      color: var(--navy);
-      font-weight: 600;
-    }
-
-    .doc-body ul {
-      margin: 8px 0 16px 22px;
-      padding: 0;
-    }
-    .doc-body ul li {
-      font-size: 0.94rem;
-      line-height: 1.75;
-      color: var(--text-primary);
-      margin-bottom: 6px;
-      padding-left: 4px;
-    }
-    .doc-body ul li::marker {
-      color: var(--blue-accent);
-    }
-
-    .doc-body .section-num {
-      display: inline-block;
-      color: var(--text-muted);
-      font-weight: 500;
-      margin-right: 8px;
-      letter-spacing: 0.04em;
-    }
-
-    .doc-body .callout {
-      background: var(--cloud);
-      border-left: 3px solid var(--blue-accent);
-      padding: 18px 22px;
-      margin: 20px 0;
-      border-radius: 0 6px 6px 0;
-    }
-    .doc-body .callout p {
-      font-size: 0.9rem;
-      margin-bottom: 0;
-      color: var(--text-secondary);
-    }
-
-    .doc-body a.inquiry-link {
-      color: var(--blue-accent);
-      font-weight: 500;
-      text-decoration: none;
-    }
-    .doc-body a.inquiry-link:hover {
-      text-decoration: underline;
-    }
-
-    .intro-button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 20px;
-      padding: 12px 18px;
-      border-radius: 8px;
-      background: var(--navy);
-      color: var(--white);
-      text-decoration: none;
-      font-size: 0.92rem;
-      font-weight: 600;
-      transition: background 0.2s ease, transform 0.2s ease;
-    }
-    .intro-button:hover {
-      background: var(--navy-mid);
-      transform: translateY(-1px);
-    }
-
-    .doc-footer-meta {
-      max-width: 780px;
-      margin: 24px auto 0;
-      padding: 0 48px;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
-    @media (max-width: 640px) {
-      .doc-footer-meta { padding: 0 24px; margin: 20px 16px 0; }
-    }
-
-    .intro-note {
-      background: linear-gradient(180deg, #F8FBFE 0%, #F2F7FB 100%);
-      border: 1px solid var(--border-light);
-      border-radius: 10px;
-      padding: 18px 20px;
-      margin-bottom: 28px;
-    }
-    .intro-note p {
-      margin-bottom: 0;
-      color: var(--text-secondary);
-      font-size: 0.93rem;
-    }
-
-    .accordion-group {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin-top: 10px;
-      align-items: start;
-    }
-    @media (max-width: 700px) {
-      .accordion-group { grid-template-columns: 1fr; }
-    }
-    .accordion-card {
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      background: linear-gradient(180deg, #FFFFFF 0%, #FBFDFF 100%);
-      box-shadow: 0 8px 24px rgba(15,33,55,0.04);
-      overflow: hidden;
-    }
-    .accordion-toggle {
-      width: 100%;
-      border: none;
-      background: transparent;
-      padding: 20px 22px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      text-align: left;
-      cursor: pointer;
-      color: var(--navy);
-    }
-    .accordion-toggle:hover {
-      background: rgba(79,163,209,0.04);
-    }
-    .accordion-label {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      min-width: 0;
-    }
-    .accordion-title {
-      font-family: var(--font-display);
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--navy);
-      line-height: 1.35;
-    }
-    .accordion-icon {
-      flex: 0 0 auto;
-      width: 28px;
-      height: 28px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--text-secondary);
-      transition: transform 0.2s ease;
-      font-size: 1rem;
-    }
-    .accordion-card.open .accordion-icon {
-      transform: rotate(45deg);
-    }
-    .accordion-content {
-      display: none;
-      padding: 0 22px 22px;
-      border-top: 1px solid var(--border-light);
-    }
-    .accordion-card.open .accordion-content {
-      display: block;
-    }
-    .accordion-content .content-inner {
-      padding-top: 18px;
-    }
-    .accordion-content h3:first-child,
-    .accordion-content p:first-child,
-    .accordion-content ul:first-child {
-      margin-top: 0;
-    }
-    .accordion-content p:last-child,
-    .accordion-content ul:last-child,
-    .accordion-content .callout:last-child {
-      margin-bottom: 0;
+    @media (max-width: 680px) {
+      .doc-wrapper { padding: 48px 0 64px; }
+      .doc-title { font-size: 1.8rem; }
+      .co-steps { grid-template-columns: 1fr; }
+      .co-step, .co-step + .co-step { padding: 14px 0; border-left: 0; }
+      .co-step + .co-step { border-top: 1px solid var(--border-light); }
+      .co-card > summary { padding: 18px; }
+      .co-body { padding: 20px 18px 24px; }
+      .co-term { grid-template-columns: 1fr; gap: 2px; }
     }
 
     /* Footer */
@@ -509,79 +295,74 @@
   </nav>
 
   <section class="doc-wrapper">
-    <div class="doc-header">
+    <div class="doc">
       <div class="doc-eyebrow">Member Benefit</div>
       <h1 class="doc-title">Capital Opportunities</h1>
-      <div class="doc-meta">Members may request an introduction to capital partners that support the Secure Funder&trade; program initiative &mdash; including credit facilities and forward flow agreements.</div>
-    </div>
+      <p class="doc-lead">Members may request an introduction to capital partners that support the Secure Funder&trade; program initiative, including credit facilities and forward flow agreements.</p>
 
-    <article class="doc-body">
+      <div class="co-steps">
+        <div class="co-step"><div class="co-step-num">01</div><div class="co-step-text">Become a Secure Funder&trade; member.</div></div>
+        <div class="co-step"><div class="co-step-num">02</div><div class="co-step-text">Request a capital introduction.</div></div>
+        <div class="co-step"><div class="co-step-num">03</div><div class="co-step-text">We introduce you to a supporting capital partner.</div></div>
+      </div>
 
-      <div class="accordion-group">
-        <div class="accordion-card">
-          <button class="accordion-toggle" type="button" aria-expanded="false">
-            <span class="accordion-label"><span class="accordion-title">Credit Facilities</span></span>
-            <span class="accordion-icon">+</span>
-          </button>
-          <div class="accordion-content">
-            <div class="content-inner">
-              <p>A credit facility is a structured financing arrangement in which an institutional capital provider extends a committed line of capital to a lender or specialty finance company. The facility is typically secured by the company's underlying loan portfolio or receivables and is designed to fund originations on a revolving or term basis.</p>
-
-              <h3>Core components</h3>
-              <ul>
-                <li><strong>Facility structure</strong> &mdash; revolving, term, or senior-mezzanine configurations</li>
-                <li><strong>Borrowing base</strong> &mdash; the pool of eligible assets that determines available capital</li>
-                <li><strong>Advance rates</strong> &mdash; typically 70%&ndash;90% of eligible collateral</li>
-                <li><strong>Cost of capital</strong> &mdash; SOFR plus spread, or a fixed rate depending on structure</li>
-                <li><strong>Eligibility criteria</strong> &mdash; asset-level standards for inclusion in the borrowing base</li>
-                <li><strong>Covenants &amp; performance triggers</strong> &mdash; portfolio-level metrics monitored over the life of the facility</li>
-              </ul>
-
-              <h3>Strategic benefits</h3>
-              <ul>
+      <div class="co-label">Structures</div>
+          <details class="co-card">
+            <summary>
+              <span class="co-card-title">Credit Facilities<span class="co-card-sub">A committed line of capital to fund originations</span></span>
+              <span class="co-chev" aria-hidden="true"></span>
+            </summary>
+            <div class="co-body">
+              <p>A credit facility is a structured financing arrangement in which an institutional capital provider extends a committed line of capital to a lender or specialty finance company. The facility is typically secured by the company&rsquo;s underlying loan portfolio or receivables and is designed to fund originations on a revolving or term basis.</p>
+              <div class="co-h">Core components</div>
+              <dl class="co-terms">
+                <div class="co-term"><dt>Facility structure</dt><dd>Revolving, term, or senior-mezzanine configurations</dd></div>
+                <div class="co-term"><dt>Borrowing base</dt><dd>The pool of eligible assets that determines available capital</dd></div>
+                <div class="co-term"><dt>Advance rates</dt><dd>Typically 70%&ndash;90% of eligible collateral</dd></div>
+                <div class="co-term"><dt>Cost of capital</dt><dd>SOFR plus spread, or a fixed rate depending on structure</dd></div>
+                <div class="co-term"><dt>Eligibility criteria</dt><dd>Asset-level standards for inclusion in the borrowing base</dd></div>
+                <div class="co-term"><dt>Covenants &amp; triggers</dt><dd>Portfolio-level metrics monitored over the life of the facility</dd></div>
+              </dl>
+              <div class="co-h">Strategic benefits</div>
+              <ul class="co-benefits">
                 <li>Scalable origination volume without proportional equity dilution</li>
                 <li>Improved return on equity through institutional leverage</li>
                 <li>Consistent liquidity across market cycles</li>
                 <li>Greater balance sheet efficiency</li>
               </ul>
             </div>
-          </div>
-        </div>
-
-        <div class="accordion-card">
-          <button class="accordion-toggle" type="button" aria-expanded="false">
-            <span class="accordion-label"><span class="accordion-title">Forward Flow Agreements</span></span>
-            <span class="accordion-icon">+</span>
-          </button>
-          <div class="accordion-content">
-            <div class="content-inner">
+          </details>
+          <details class="co-card">
+            <summary>
+              <span class="co-card-title">Forward Flow Agreements<span class="co-card-sub">Committed purchases of newly originated assets</span></span>
+              <span class="co-chev" aria-hidden="true"></span>
+            </summary>
+            <div class="co-body">
               <p>A forward flow agreement is a contractual arrangement in which a capital provider commits to purchase newly originated assets on an ongoing basis at predefined terms. Forward flow arrangements provide a predictable exit for originated deals and are often used in combination with a credit facility.</p>
-
-              <h3>Core components</h3>
-              <ul>
-                <li><strong>Purchase commitment</strong> &mdash; the volume of assets the buyer agrees to acquire over a defined period</li>
-                <li><strong>Pricing structure</strong> &mdash; purchase price methodology established in advance</li>
-                <li><strong>Eligibility criteria</strong> &mdash; asset-level requirements for qualifying deals</li>
-                <li><strong>Settlement timing</strong> &mdash; typically 0&ndash;5 days from closing</li>
-                <li><strong>Servicing structure</strong> &mdash; defines whether the originator retains servicing post-sale</li>
-                <li><strong>True sale structure</strong> &mdash; assets transfer cleanly off the originator's balance sheet</li>
-              </ul>
-
-              <h3>Strategic benefits</h3>
-              <ul>
+              <div class="co-h">Core components</div>
+              <dl class="co-terms">
+                <div class="co-term"><dt>Purchase commitment</dt><dd>The volume of assets the buyer agrees to acquire over a defined period</dd></div>
+                <div class="co-term"><dt>Pricing structure</dt><dd>Purchase price methodology established in advance</dd></div>
+                <div class="co-term"><dt>Eligibility criteria</dt><dd>Asset-level requirements for qualifying deals</dd></div>
+                <div class="co-term"><dt>Settlement timing</dt><dd>Typically 0&ndash;5 days from closing</dd></div>
+                <div class="co-term"><dt>Servicing structure</dt><dd>Whether the originator retains servicing after the sale</dd></div>
+                <div class="co-term"><dt>True sale structure</dt><dd>Assets transfer cleanly off the originator&rsquo;s balance sheet</dd></div>
+              </dl>
+              <div class="co-h">Strategic benefits</div>
+              <ul class="co-benefits">
                 <li>Immediate liquidity on originated deals</li>
                 <li>Risk transfer to the purchasing counterparty</li>
                 <li>A predictable, contractual exit strategy</li>
                 <li>Scalable growth without accumulating portfolio risk</li>
               </ul>
             </div>
-          </div>
-        </div>
+          </details>
+
+      <div class="co-cta">
+        <p>Interested in a credit facility or forward flow agreement? Tell us about your business and we&rsquo;ll follow up.</p>
+        <a class="co-btn" href="https://securefunder.org/contact/" target="_blank" rel="noopener noreferrer">Request Capital Introduction</a>
       </div>
-
-    </article>
-
-
+    </div>
   </section>
 
   <!-- Footer -->
@@ -639,15 +420,6 @@
     function closeMobileMenu() { menu.classList.remove('active'); document.body.style.overflow = ''; }
     if (toggle) toggle.addEventListener('click', () => { menu.classList.add('active'); document.body.style.overflow = 'hidden'; });
     if (closeBtn) closeBtn.addEventListener('click', closeMobileMenu);
-  <script>
-    document.querySelectorAll('.accordion-toggle').forEach((button) => {
-      button.addEventListener('click', () => {
-        const card = button.closest('.accordion-card');
-        const isOpen = card.classList.contains('open');
-        card.classList.toggle('open', !isOpen);
-        button.setAttribute('aria-expanded', String(!isOpen));
-      });
-    });
   </script>
 
 </body>
