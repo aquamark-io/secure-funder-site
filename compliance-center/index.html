@@ -143,18 +143,16 @@
     .status { font-size: 0.86rem; color: #5A6573; margin: 0 0 16px; min-height: 1.4em; }
 
     .grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
-    .card { appearance: none; background: #FFFFFF; border: 1px solid #E6E8EB; border-top-width: 2px; padding: 14px 14px 12px; text-align: left; font: inherit; cursor: pointer; min-height: 86px; display: flex; flex-direction: column; justify-content: space-between; transition: border-color 0.15s, background 0.15s; }
-    .card:hover { border-color: #C9CFD6; background: #FAFBFC; }
+    .card { appearance: none; background: #FFFFFF; border: 1px solid #E6E8EB; padding: 0 14px; text-align: left; font: inherit; cursor: pointer; min-height: 56px; display: flex; align-items: center; transition: background 0.15s, border-color 0.15s, color 0.15s; }
+    .card:hover { border-color: #C9CFD6; }
     .card:focus-visible { outline: 2px solid #142F52; outline-offset: 2px; }
-    .card .n { font-size: 0.95rem; font-weight: 600; color: #1E2733; line-height: 1.3; }
-    .card .s { font-size: 0.74rem; color: #8A94A0; line-height: 1.35; margin-top: 6px; }
-    .grid.filtered .card { background: #FFFFFF; }
-    .grid.filtered .card .n { color: #A3ABB5; font-weight: 500; }
-    .grid.filtered .card.hit { border-top-color: #142F52; }
+    .card .n { font-size: 0.95rem; font-weight: 500; color: #1E2733; line-height: 1.3; }
+    .grid.filtered .card .n { color: #9AA3AE; }
+    .grid.filtered .card.hit { background: #E4ECF6; border-color: #B7C8DD; }
+    .grid.filtered .card.hit:hover { background: #D8E3F1; }
     .grid.filtered .card.hit .n { color: #142F52; font-weight: 600; }
-    .grid.filtered .card.hit .s { color: #4E5B6B; }
-    .grid.filtered .card.pend { border-top-color: #A9B9CC; }
-    .grid.filtered .card.pend .n { color: #4E5B6B; font-weight: 600; }
+    .grid.filtered .card.pend { background: #F3F6FA; border-color: #D5DEE9; }
+    .grid.filtered .card.pend .n { color: #4E5B6B; }
 
     /* Detail dialog */
     .overlay { position: fixed; inset: 0; background: rgba(20, 30, 45, 0.28); z-index: 400; display: none; align-items: flex-start; justify-content: center; padding: 88px 20px 40px; overflow-y: auto; }
@@ -226,56 +224,56 @@
     <p class="status" id="status"></p>
 
     <div class="grid" id="grid">
-        <button type="button" class="card" data-state="Alabama"><span class="n">Alabama</span><span class="s"></span></button>
-        <button type="button" class="card" data-state="Alaska"><span class="n">Alaska</span><span class="s"></span></button>
-        <button type="button" class="card" data-state="Arizona"><span class="n">Arizona</span><span class="s"></span></button>
-        <button type="button" class="card" data-state="Arkansas"><span class="n">Arkansas</span><span class="s"></span></button>
-        <button type="button" class="card" data-state="California"><span class="n">California</span><span class="s"></span></button>
-        <button type="button" class="card" data-state="Colorado"><span class="n">Colorado</span><span class="s"></span></button>
-        <button type="button" class="card" data-state="Connecticut"><span class="n">Connecticut</span><span class="s"></span></button>
-        <button type="button" class="card" data-state="Delaware"><span class="n">Delaware</span><span class="s"></span></button>
-        <button type="button" class="card" data-state="Florida"><span class="n">Florida</span><span class="s"></span></button>
-        <button type="button" class="card" data-state="Georgia"><span class="n">Georgia</span><span class="s"></span></button>
-        <button type="button" class="card" data-state="Hawaii"><span class="n">Hawaii</span><span class="s"></span></button>
-        <button type="button" class="card" data-state="Idaho"><span class="n">Idaho</span><span class="s"></span></button>
-        <button type="button" class="card" data-state="Illinois"><span class="n">Illinois</span><span class="s"></span></button>
-        <button type="button" class="card" data-state="Indiana"><span class="n">Indiana</span><span class="s"></span></button>
-        <button type="button" class="card" data-state="Iowa"><span class="n">Iowa</span><span class="s"></span></button>
-        <button type="button" class="card" data-state="Kansas"><span class="n">Kansas</span><span class="s"></span></button>
-        <button type="button" class="card" data-state="Kentucky"><span class="n">Kentucky</span><span class="s"></span></button>
-        <button type="button" class="card" data-state="Louisiana"><span class="n">Louisiana</span><span class="s"></span></button>
-        <button type="button" class="card" data-state="Maine"><span class="n">Maine</span><span class="s"></span></button>
-        <button type="button" class="card" data-state="Maryland"><span class="n">Maryland</span><span class="s"></span></button>
-        <button type="button" class="card" data-state="Massachusetts"><span class="n">Massachusetts</span><span class="s"></span></button>
-        <button type="button" class="card" data-state="Michigan"><span class="n">Michigan</span><span class="s"></span></button>
-        <button type="button" class="card" data-state="Minnesota"><span class="n">Minnesota</span><span class="s"></span></button>
-        <button type="button" class="card" data-state="Mississippi"><span class="n">Mississippi</span><span class="s"></span></button>
-        <button type="button" class="card" data-state="Missouri"><span class="n">Missouri</span><span class="s"></span></button>
-        <button type="button" class="card" data-state="Montana"><span class="n">Montana</span><span class="s"></span></button>
-        <button type="button" class="card" data-state="Nebraska"><span class="n">Nebraska</span><span class="s"></span></button>
-        <button type="button" class="card" data-state="Nevada"><span class="n">Nevada</span><span class="s"></span></button>
-        <button type="button" class="card" data-state="New Hampshire"><span class="n">New Hampshire</span><span class="s"></span></button>
-        <button type="button" class="card" data-state="New Jersey"><span class="n">New Jersey</span><span class="s"></span></button>
-        <button type="button" class="card" data-state="New Mexico"><span class="n">New Mexico</span><span class="s"></span></button>
-        <button type="button" class="card" data-state="New York"><span class="n">New York</span><span class="s"></span></button>
-        <button type="button" class="card" data-state="North Carolina"><span class="n">North Carolina</span><span class="s"></span></button>
-        <button type="button" class="card" data-state="North Dakota"><span class="n">North Dakota</span><span class="s"></span></button>
-        <button type="button" class="card" data-state="Ohio"><span class="n">Ohio</span><span class="s"></span></button>
-        <button type="button" class="card" data-state="Oklahoma"><span class="n">Oklahoma</span><span class="s"></span></button>
-        <button type="button" class="card" data-state="Oregon"><span class="n">Oregon</span><span class="s"></span></button>
-        <button type="button" class="card" data-state="Pennsylvania"><span class="n">Pennsylvania</span><span class="s"></span></button>
-        <button type="button" class="card" data-state="Rhode Island"><span class="n">Rhode Island</span><span class="s"></span></button>
-        <button type="button" class="card" data-state="South Carolina"><span class="n">South Carolina</span><span class="s"></span></button>
-        <button type="button" class="card" data-state="South Dakota"><span class="n">South Dakota</span><span class="s"></span></button>
-        <button type="button" class="card" data-state="Tennessee"><span class="n">Tennessee</span><span class="s"></span></button>
-        <button type="button" class="card" data-state="Texas"><span class="n">Texas</span><span class="s"></span></button>
-        <button type="button" class="card" data-state="Utah"><span class="n">Utah</span><span class="s"></span></button>
-        <button type="button" class="card" data-state="Vermont"><span class="n">Vermont</span><span class="s"></span></button>
-        <button type="button" class="card" data-state="Virginia"><span class="n">Virginia</span><span class="s"></span></button>
-        <button type="button" class="card" data-state="Washington"><span class="n">Washington</span><span class="s"></span></button>
-        <button type="button" class="card" data-state="West Virginia"><span class="n">West Virginia</span><span class="s"></span></button>
-        <button type="button" class="card" data-state="Wisconsin"><span class="n">Wisconsin</span><span class="s"></span></button>
-        <button type="button" class="card" data-state="Wyoming"><span class="n">Wyoming</span><span class="s"></span></button>
+        <button type="button" class="card" data-state="Alabama"><span class="n">Alabama</span></button>
+        <button type="button" class="card" data-state="Alaska"><span class="n">Alaska</span></button>
+        <button type="button" class="card" data-state="Arizona"><span class="n">Arizona</span></button>
+        <button type="button" class="card" data-state="Arkansas"><span class="n">Arkansas</span></button>
+        <button type="button" class="card" data-state="California"><span class="n">California</span></button>
+        <button type="button" class="card" data-state="Colorado"><span class="n">Colorado</span></button>
+        <button type="button" class="card" data-state="Connecticut"><span class="n">Connecticut</span></button>
+        <button type="button" class="card" data-state="Delaware"><span class="n">Delaware</span></button>
+        <button type="button" class="card" data-state="Florida"><span class="n">Florida</span></button>
+        <button type="button" class="card" data-state="Georgia"><span class="n">Georgia</span></button>
+        <button type="button" class="card" data-state="Hawaii"><span class="n">Hawaii</span></button>
+        <button type="button" class="card" data-state="Idaho"><span class="n">Idaho</span></button>
+        <button type="button" class="card" data-state="Illinois"><span class="n">Illinois</span></button>
+        <button type="button" class="card" data-state="Indiana"><span class="n">Indiana</span></button>
+        <button type="button" class="card" data-state="Iowa"><span class="n">Iowa</span></button>
+        <button type="button" class="card" data-state="Kansas"><span class="n">Kansas</span></button>
+        <button type="button" class="card" data-state="Kentucky"><span class="n">Kentucky</span></button>
+        <button type="button" class="card" data-state="Louisiana"><span class="n">Louisiana</span></button>
+        <button type="button" class="card" data-state="Maine"><span class="n">Maine</span></button>
+        <button type="button" class="card" data-state="Maryland"><span class="n">Maryland</span></button>
+        <button type="button" class="card" data-state="Massachusetts"><span class="n">Massachusetts</span></button>
+        <button type="button" class="card" data-state="Michigan"><span class="n">Michigan</span></button>
+        <button type="button" class="card" data-state="Minnesota"><span class="n">Minnesota</span></button>
+        <button type="button" class="card" data-state="Mississippi"><span class="n">Mississippi</span></button>
+        <button type="button" class="card" data-state="Missouri"><span class="n">Missouri</span></button>
+        <button type="button" class="card" data-state="Montana"><span class="n">Montana</span></button>
+        <button type="button" class="card" data-state="Nebraska"><span class="n">Nebraska</span></button>
+        <button type="button" class="card" data-state="Nevada"><span class="n">Nevada</span></button>
+        <button type="button" class="card" data-state="New Hampshire"><span class="n">New Hampshire</span></button>
+        <button type="button" class="card" data-state="New Jersey"><span class="n">New Jersey</span></button>
+        <button type="button" class="card" data-state="New Mexico"><span class="n">New Mexico</span></button>
+        <button type="button" class="card" data-state="New York"><span class="n">New York</span></button>
+        <button type="button" class="card" data-state="North Carolina"><span class="n">North Carolina</span></button>
+        <button type="button" class="card" data-state="North Dakota"><span class="n">North Dakota</span></button>
+        <button type="button" class="card" data-state="Ohio"><span class="n">Ohio</span></button>
+        <button type="button" class="card" data-state="Oklahoma"><span class="n">Oklahoma</span></button>
+        <button type="button" class="card" data-state="Oregon"><span class="n">Oregon</span></button>
+        <button type="button" class="card" data-state="Pennsylvania"><span class="n">Pennsylvania</span></button>
+        <button type="button" class="card" data-state="Rhode Island"><span class="n">Rhode Island</span></button>
+        <button type="button" class="card" data-state="South Carolina"><span class="n">South Carolina</span></button>
+        <button type="button" class="card" data-state="South Dakota"><span class="n">South Dakota</span></button>
+        <button type="button" class="card" data-state="Tennessee"><span class="n">Tennessee</span></button>
+        <button type="button" class="card" data-state="Texas"><span class="n">Texas</span></button>
+        <button type="button" class="card" data-state="Utah"><span class="n">Utah</span></button>
+        <button type="button" class="card" data-state="Vermont"><span class="n">Vermont</span></button>
+        <button type="button" class="card" data-state="Virginia"><span class="n">Virginia</span></button>
+        <button type="button" class="card" data-state="Washington"><span class="n">Washington</span></button>
+        <button type="button" class="card" data-state="West Virginia"><span class="n">West Virginia</span></button>
+        <button type="button" class="card" data-state="Wisconsin"><span class="n">Wisconsin</span></button>
+        <button type="button" class="card" data-state="Wyoming"><span class="n">Wyoming</span></button>
     </div>
 
     <p class="fine">Not legal advice. Last reviewed October 12, 2026. Corrections: <a href="mailto:info@aquamark.io">info@aquamark.io</a>.</p>
@@ -366,7 +364,6 @@
           const hit = ps.length && s && applies(s, r, ps);
           c.classList.toggle('hit', !!(hit && s.status === 'active'));
           c.classList.toggle('pend', !!(hit && s.status === 'pending'));
-          c.querySelector('.s').innerHTML = hit ? s.summary : '';
           if (hit) s.status === 'active' ? on++ : pend++;
         });
         status.innerHTML = ps.length
