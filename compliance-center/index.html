@@ -182,6 +182,9 @@
 
     @media (max-width: 900px) { .grid { grid-template-columns: repeat(3, 1fr); } .pick { flex-direction: column; gap: 14px; } }
     @media (max-width: 560px) {
+      .pick { gap: 28px; }
+      .pick-group.products { flex-direction: column; align-items: flex-start; gap: 12px; }
+      .pick-group.products .pick-opts { flex-direction: column; gap: 12px; }
       .grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
       .overlay { padding: 64px 0 0; }
       .dialog { padding: 24px 20px 28px; min-height: calc(100vh - 64px); }
@@ -222,7 +225,7 @@
 
     <div class="pick">
       <div class="pick-group"><span class="pick-label">I am a</span><div class="pick-opts"><label><input type="radio" name="role" value="broker">Broker</label><label><input type="radio" name="role" value="provider">Provider</label><label><input type="radio" name="role" value="both">Both</label></div></div>
-      <div class="pick-group"><span class="pick-label">Products</span><div class="pick-opts"><label><input type="checkbox" name="product" value="mca">Revenue-based</label><label><input type="checkbox" name="product" value="factoring">Factoring</label><label><input type="checkbox" name="product" value="loans">Term loans</label><label><input type="checkbox" name="product" value="loc">Lines of credit</label><label><input type="checkbox" name="product" value="leasing">Equipment leasing</label></div></div>
+      <div class="pick-group products"><span class="pick-label">Products</span><div class="pick-opts"><label><input type="checkbox" name="product" value="mca">Revenue-based</label><label><input type="checkbox" name="product" value="factoring">Factoring</label><label><input type="checkbox" name="product" value="loans">Term loans</label><label><input type="checkbox" name="product" value="loc">Lines of credit</label><label><input type="checkbox" name="product" value="leasing">Equipment leasing</label></div></div>
     </div>
 
     <p class="status" id="status"></p>
