@@ -138,7 +138,10 @@
     .pick-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #5A6573; }
     .pick-opts { display: flex; flex-wrap: wrap; gap: 6px 18px; }
     .pick-opts label { display: inline-flex; align-items: center; gap: 7px; font-size: 0.92rem; color: #1E2733; cursor: pointer; }
-    .pick-opts input { accent-color: #142F52; width: 16px; height: 16px; margin: 0; cursor: pointer; }
+    .pick-opts input { appearance: none; -webkit-appearance: none; width: 16px; height: 16px; margin: 0; border: 1.5px solid #8A94A0; border-radius: 50%; background: #FFFFFF; cursor: pointer; flex-shrink: 0; transition: border-color 0.15s; }
+    .pick-opts input:hover { border-color: #142F52; }
+    .pick-opts input:checked { border-color: #142F52; background: radial-gradient(circle, #142F52 0 4px, #FFFFFF 4.5px); }
+    .pick-opts input:focus-visible { outline: 2px solid #142F52; outline-offset: 2px; }
 
     .status { font-size: 0.86rem; color: #5A6573; margin: 0 0 16px; min-height: 1.4em; }
 
