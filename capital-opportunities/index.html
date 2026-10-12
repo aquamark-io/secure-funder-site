@@ -148,8 +148,16 @@
     .co-card > summary:hover { background: var(--cloud); }
     .co-card-title { font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; color: var(--navy); letter-spacing: -0.01em; }
     .co-card-sub { display: block; font-size: 0.86rem; font-weight: 400; color: var(--text-muted); margin-top: 3px; letter-spacing: 0; }
-    .co-chev { flex: 0 0 auto; width: 9px; height: 9px; border-right: 1.5px solid var(--slate); border-bottom: 1.5px solid var(--slate); transform: rotate(45deg); margin-top: -4px; transition: transform 0.2s; }
-    .co-card[open] > summary .co-chev { transform: rotate(-135deg); margin-top: 4px; }
+    .co-toggle { flex: 0 0 auto; display: inline-flex; align-items: center; gap: 10px; font-size: 0.8rem; font-weight: 600; color: var(--slate); letter-spacing: 0.02em; }
+    .co-toggle::before { content: "View details"; }
+    .co-card[open] .co-toggle::before { content: "Hide details"; }
+    .co-plus { position: relative; width: 22px; height: 22px; border: 1px solid var(--slate); }
+    .co-plus::before, .co-plus::after { content: ""; position: absolute; left: 50%; top: 50%; background: var(--slate); transform: translate(-50%, -50%); }
+    .co-plus::before { width: 10px; height: 1.5px; }
+    .co-plus::after { width: 1.5px; height: 10px; }
+    .co-card[open] .co-plus::after { display: none; }
+    .co-card > summary:hover .co-plus { background: var(--slate); }
+    .co-card > summary:hover .co-plus::before, .co-card > summary:hover .co-plus::after { background: var(--white); }
     .co-card[open] > summary { border-bottom: 1px solid var(--border-light); }
     .co-body { padding: 26px 26px 30px; }
     .co-body > p { font-size: 0.96rem; line-height: 1.75; color: var(--text-secondary); margin-bottom: 26px; }
@@ -174,6 +182,7 @@
       .co-step, .co-step + .co-step { padding: 14px 0; border-left: 0; }
       .co-step + .co-step { border-top: 1px solid var(--border-light); }
       .co-card > summary { padding: 18px; }
+      .co-toggle::before, .co-card[open] .co-toggle::before { content: none; }
       .co-body { padding: 20px 18px 24px; }
       .co-term { grid-template-columns: 1fr; gap: 2px; }
     }
@@ -304,7 +313,7 @@
           <details class="co-card">
             <summary>
               <span class="co-card-title">Credit Facilities<span class="co-card-sub">A committed line of capital to fund originations</span></span>
-              <span class="co-chev" aria-hidden="true"></span>
+              <span class="co-toggle" aria-hidden="true"><span class="co-plus"></span></span>
             </summary>
             <div class="co-body">
               <p>A credit facility is a structured financing arrangement in which an institutional capital provider extends a committed line of capital to a lender or specialty finance company. The facility is typically secured by the company&rsquo;s underlying loan portfolio or receivables and is designed to fund originations on a revolving or term basis.</p>
@@ -329,7 +338,7 @@
           <details class="co-card">
             <summary>
               <span class="co-card-title">Forward Flow Agreements<span class="co-card-sub">Committed purchases of newly originated assets</span></span>
-              <span class="co-chev" aria-hidden="true"></span>
+              <span class="co-toggle" aria-hidden="true"><span class="co-plus"></span></span>
             </summary>
             <div class="co-body">
               <p>A forward flow agreement is a contractual arrangement in which a capital provider commits to purchase newly originated assets on an ongoing basis at predefined terms. Forward flow arrangements provide a predictable exit for originated deals and are often used in combination with a credit facility.</p>
