@@ -220,7 +220,7 @@
     </header>
 
     <div class="pick">
-      <div class="pick-group"><span class="pick-label">I am a</span><div class="pick-opts"><label><input type="radio" name="role" value="broker">Broker</label><label><input type="radio" name="role" value="provider" checked>Provider</label><label><input type="radio" name="role" value="both">Both</label></div></div>
+      <div class="pick-group"><span class="pick-label">I am a</span><div class="pick-opts"><label><input type="radio" name="role" value="broker">Broker</label><label><input type="radio" name="role" value="provider">Provider</label><label><input type="radio" name="role" value="both">Both</label></div></div>
       <div class="pick-group"><span class="pick-label">Products</span><div class="pick-opts"><label><input type="checkbox" name="product" value="mca">Revenue-based</label><label><input type="checkbox" name="product" value="factoring">Factoring</label><label><input type="checkbox" name="product" value="loans">Term loans</label><label><input type="checkbox" name="product" value="loc">Lines of credit</label><label><input type="checkbox" name="product" value="leasing">Equipment leasing</label></div></div>
     </div>
 
@@ -349,9 +349,9 @@
         }
       } catch (e) {}
 
-      const role = () => document.querySelector('input[name="role"]:checked').value;
+      const role = () => { const r = document.querySelector('input[name="role"]:checked'); return r ? r.value : null; };
       const prods = () => [...document.querySelectorAll('input[name="product"]:checked')].map(x => x.value);
-      const roleList = r => r === 'both' ? ['broker', 'provider'] : [r];
+      const roleList = r => (r === 'both' || !r) ? ['broker', 'provider'] : [r];
       const applies = (s, r, ps) => ps.some(p => s.products.includes(p)) && roleList(r).some(x => s.roles.includes(x));
       const li = arr => arr.map(x => '<li>' + x + '</li>').join('');
       const list = arr => arr.map(p => PNAMES[p]).join(', ');
@@ -360,18 +360,19 @@
       function paint() {
         const r = role(), ps = prods();
         try { localStorage.setItem(KEY, JSON.stringify({ role: r, products: ps })); } catch (e) {}
-        grid.classList.toggle('filtered', ps.length > 0);
+        const ready = !!r && ps.length > 0;
+        grid.classList.toggle('filtered', ready);
         let on = 0, pend = 0;
         cards.forEach(c => {
           const s = DATA[c.dataset.state];
-          const hit = ps.length && s && applies(s, r, ps);
+          const hit = ready && s && applies(s, r, ps);
           c.classList.toggle('hit', !!(hit && s.status === 'active'));
           c.classList.toggle('pend', !!(hit && s.status === 'pending'));
           if (hit) s.status === 'active' ? on++ : pend++;
         });
-        status.innerHTML = ps.length
+        status.innerHTML = ready
           ? on + (on === 1 ? ' state has' : ' states have') + ' requirements for your selection' + (pend ? ', ' + pend + ' pending.' : '.')
-          : 'Choose your products to see which states have requirements.';
+          : 'Choose your role and products to see which states have requirements.';
       }
 
       function render(name) {
@@ -380,7 +381,7 @@
         if (!s) {
           return h + '<p class="sum">No commercial-financing-specific law.</p><p class="empty">General laws still apply, including unfair and deceptive practices laws and usury rules for loans.</p>';
         }
-        const all = !ps.length;
+        const all = !ps.length || !r;
         if (!all && !applies(s, r, ps)) {
           const roleMiss = !roleList(r).some(x => s.roles.includes(x));
           return h + '<p class="sum">No state-specific requirement for your selection.</p><p class="empty">' + name + '&rsquo;s law ' +
