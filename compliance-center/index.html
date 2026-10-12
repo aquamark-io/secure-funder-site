@@ -224,8 +224,8 @@
     </header>
 
     <div class="pick">
-      <div class="pick-group"><span class="pick-label">I am a</span><div class="pick-opts"><label><input type="radio" name="role" value="broker">Broker</label><label><input type="radio" name="role" value="provider">Provider</label><label><input type="radio" name="role" value="both">Both</label></div></div>
-      <div class="pick-group products"><span class="pick-label">Products</span><div class="pick-opts"><label><input type="checkbox" name="product" value="mca">Revenue-Based</label><label><input type="checkbox" name="product" value="factoring">Invoice Factoring</label><label><input type="checkbox" name="product" value="abl">Asset-Based Lending</label><label><input type="checkbox" name="product" value="loans">Term Loan</label><label><input type="checkbox" name="product" value="loc">Line of Credit</label><label><input type="checkbox" name="product" value="equip">Equipment Financing</label></div></div>
+      <div class="pick-group"><span class="pick-label">I am a</span><div class="pick-opts"><label><input type="radio" autocomplete="off" name="role" value="broker">Broker</label><label><input type="radio" autocomplete="off" name="role" value="provider">Provider</label><label><input type="radio" autocomplete="off" name="role" value="both">Both</label></div></div>
+      <div class="pick-group products"><span class="pick-label">Products</span><div class="pick-opts"><label><input type="checkbox" autocomplete="off" name="product" value="mca">Revenue-Based</label><label><input type="checkbox" autocomplete="off" name="product" value="factoring">Invoice Factoring</label><label><input type="checkbox" autocomplete="off" name="product" value="abl">Asset-Based Lending</label><label><input type="checkbox" autocomplete="off" name="product" value="loans">Term Loan</label><label><input type="checkbox" autocomplete="off" name="product" value="loc">Line of Credit</label><label><input type="checkbox" autocomplete="off" name="product" value="equip">Equipment Financing</label></div></div>
     </div>
 
     <p class="status" id="status"></p>
@@ -345,13 +345,8 @@
       const cards = document.querySelectorAll('.card');
       let lastFocus = null;
 
-      try {
-        const s = JSON.parse(localStorage.getItem(KEY));
-        if (s) {
-          const r = document.querySelector('input[name="role"][value="' + s.role + '"]'); if (r) r.checked = true;
-          (s.products || []).forEach(v => { const c = document.querySelector('input[name="product"][value="' + v + '"]'); if (c) c.checked = true; });
-        }
-      } catch (e) {}
+      try { localStorage.removeItem(KEY); } catch (e) {}
+      document.querySelectorAll('.pick input').forEach(i => { i.checked = false; });
 
       const role = () => { const r = document.querySelector('input[name="role"]:checked'); return r ? r.value : null; };
       const prods = () => [...document.querySelectorAll('input[name="product"]:checked')].map(x => x.value);
@@ -363,7 +358,6 @@
 
       function paint() {
         const r = role(), ps = prods();
-        try { localStorage.setItem(KEY, JSON.stringify({ role: r, products: ps })); } catch (e) {}
         const ready = !!r && ps.length > 0;
         grid.classList.toggle('filtered', ready);
         let on = 0, pend = 0;
@@ -422,6 +416,7 @@
       document.addEventListener('keydown', e => { if (e.key === 'Escape' && overlay.classList.contains('open')) close(); });
       document.querySelectorAll('input[name="role"], input[name="product"]').forEach(i => i.addEventListener('change', paint));
       paint();
+      window.addEventListener('pageshow', e => { if (e.persisted) { document.querySelectorAll('.pick input').forEach(i => { i.checked = false; }); paint(); } });
     })();
   </script>
 
