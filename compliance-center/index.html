@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compliance Center | Secure Funder&trade;</title>
+  <meta name="description" content="State-by-state registration, licensing, and disclosure requirements for alternative commercial finance providers and brokers.">
+  <link rel="icon" type="image/png" sizes="32x32" href="/blue-ring.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/blue-ring.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/blue-ring.png">
+  <meta property="og:title" content="Compliance Center">
+  <meta property="og:description" content="State-by-state registration, licensing, and disclosure requirements for alternative commercial finance providers and brokers.">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #0F2137;
+      --ink-mid: #1A3455;
+      --accent: #4FA3D1;
+      --accent-pale: #E7F2FA;
+      --wash: #F6F9FC;
+      --text-primary: #0F2137;
+      --text-secondary: #4A6480;
+      --text-muted: #7A96AE;
+      --border: #DAE3EC;
+      --border-light: #EAF0F5;
+      --footer-text: #C5D9E8;
+      --footer-dim: #6B8BAD;
+      --footer-hover: #7BBCE1;
+      --logo-admin: #5E7E96;
+      --white: #FFFFFF;
+      --font-body: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body); font-size: 17px; line-height: 1.75;
+      color: var(--text-primary); background: var(--white); padding-top: 68px;
+      -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+      font-feature-settings: "kern" 1, "liga" 1;
+    }
+    /* ===== NAV ===== */
+    .main-nav { background: rgba(255,255,255,0.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border); position: fixed; top: 0; left: 0; right: 0; z-index: 190; }
+    .main-nav .container { max-width: 1240px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; height: 68px; }
+    .logo { display: flex; align-items: center; gap: 12px; }
+    .logo-badge-link, .logo-text-link { display: flex; align-items: center; text-decoration: none; color: var(--ink); }
+    .logo-badge { width: 36px; height: 36px; object-fit: contain; }
+    .logo-stack { display: flex; flex-direction: column; line-height: 1.1; }
+    .logo-text { font-size: 1.3rem; font-weight: 700; letter-spacing: -0.01em; color: var(--ink); }
+    .logo-tm { font-size: 0.55em; vertical-align: super; font-weight: 400; margin-left: 1px; }
+    .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; margin: 0; padding: 0; }
+    .nav-links a { text-decoration: none; color: var(--text-primary); font-size: 0.88rem; font-weight: 500; padding: 8px 14px; transition: all 0.2s; }
+    .nav-links a:hover { background: var(--wash); }
+    .nav-links .btn-member { background: var(--ink); color: var(--white); font-weight: 600; margin-left: 6px; }
+    .nav-links .btn-member:hover { background: var(--ink-mid); }
+    .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+    .mobile-toggle span { display: block; width: 22px; height: 2px; background: var(--ink); margin: 5px 0; }
+    .mobile-menu { display: none; position: fixed; inset: 0; background: var(--white); z-index: 1000; flex-direction: column; padding: 24px; }
+    .mobile-menu.active { display: flex; }
+    .mobile-menu-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; }
+    .mobile-menu-close { background: none; border: none; cursor: pointer; font-size: 1.5rem; color: var(--ink); padding: 8px; }
+    .mobile-menu a { display: block; padding: 14px 0; font-size: 1.05rem; font-weight: 500; color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--border-light); }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu .btn-member-mobile { display: block; margin-top: 24px; padding: 14px; background: var(--ink); color: var(--white); text-align: center; font-weight: 600; font-size: 0.95rem; }
+
+    /* ===== PAGE ===== */
+    .page { max-width: 1040px; margin: 0 auto; padding: 72px 32px 96px; }
+    .page-header { margin-bottom: 48px; }
+    .eyebrow { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-secondary);
+      margin-bottom: 22px; display: flex; align-items: center; gap: 10px; }
+    .eyebrow a { color: inherit; text-decoration: none; }
+    .eyebrow a:hover { color: var(--ink); }
+    .eyebrow::before { content: ''; width: 22px; height: 1.5px; background: var(--accent); }
+    h1 { font-size: 2.4rem; line-height: 1.18; font-weight: 700; letter-spacing: -0.025em; margin: 0 0 20px; color: var(--ink); }
+    .dek { font-size: 1.18rem; line-height: 1.55; color: var(--text-secondary); margin: 0 0 28px; max-width: 640px; }
+    .meta-line { font-size: 0.8rem; color: var(--text-muted); padding-top: 18px; border-top: 1px solid var(--border-light); }
+    .meta-line strong { color: var(--text-secondary); font-weight: 600; }
+
+    .body h2 { font-size: 1.5rem; line-height: 1.3; font-weight: 700; margin: 0 0 14px; letter-spacing: -0.015em; color: var(--ink); }
+    .body h3 { font-size: 1.05rem; font-weight: 700; margin: 0 0 8px; color: var(--ink); }
+    .body p { margin: 0 0 22px; }
+    .body strong { font-weight: 700; color: var(--ink); }
+    .body a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; font-weight: 500; }
+    .body a:hover { text-decoration-thickness: 2px; }
+    .section { margin: 0 0 64px; }
+    .section-lede { color: var(--text-secondary); margin: 0 0 24px; }
+
+    /* Neutral notice (slate, not brand color) */
+    .notice { border-left: 2px solid #44546A; background: #F5F6F8; padding: 18px 22px; margin: 0 0 48px; font-size: 0.94rem; line-height: 1.65; color: #2B3645; }
+    .notice strong { color: #1E2733; }
+
+    /* Disclaimer */
+    .disclaimer { font-size: 0.82rem; line-height: 1.6; color: var(--text-muted); border-top: 1px solid var(--border-light); padding-top: 20px; margin-top: 56px; }
+    .disclaimer p { margin: 0 0 10px; }
+
+    /* ===== FOOTER ===== */
+    footer { background: var(--ink); color: var(--footer-text); padding: 48px 0 28px; margin-top: 48px; }
+    .footer-inner { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
+    .footer-brand { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+    .footer-brand .logo-text { color: var(--white); font-size: 1.15rem; }
+    .footer-desc { font-size: 0.86rem; color: var(--footer-dim); line-height: 1.7; max-width: 540px; margin: 0 0 28px; }
+    .footer-desc a, .footer-bottom a { color: var(--footer-dim); text-decoration: none; }
+    .footer-desc a:hover, .footer-bottom a:hover { color: var(--footer-hover); }
+    .footer-bottom { padding-top: 22px; border-top: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; font-size: 0.76rem; color: var(--footer-dim); }
+
+    @media (max-width: 900px) { .nav-links { display: none; } .mobile-toggle { display: block; } }
+    @media (max-width: 640px) {
+      body { font-size: 16px; padding-top: 56px; }
+      .main-nav .container { height: 56px; padding: 0 18px; }
+      .logo-badge { width: 30px; height: 30px; }
+      .logo-text { font-size: 1.1rem; }
+      .page { padding: 40px 20px 64px; }
+      .page-header { margin-bottom: 36px; }
+      h1 { font-size: 1.75rem; letter-spacing: -0.02em; margin-bottom: 16px; }
+      .dek { font-size: 1.05rem; }
+      .body h2 { font-size: 1.25rem; }
+      .section { margin-bottom: 48px; }
+      footer { padding: 36px 0 22px; margin-top: 32px; }
+      .footer-inner { padding: 0 20px; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+    }
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; } html { scroll-behavior: auto; } }
+
+
+    /* Featured */
+    .featured { display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: end; border-top: 2px solid var(--ink); border-bottom: 1px solid var(--border); padding: 28px 0; margin: 0 0 64px; }
+    .featured-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 8px; }
+    .featured h2 { margin-bottom: 8px; }
+    .featured p { margin: 0; color: var(--text-secondary); font-size: 0.98rem; }
+    .body a.btn { display: inline-block; background: var(--ink); color: var(--white); text-decoration: none; font-size: 0.84rem; font-weight: 600; letter-spacing: 0.02em; padding: 11px 20px; white-space: nowrap; }
+    .body a.btn:hover { background: var(--ink-mid); }
+
+    /* Filters */
+    .filters { display: flex; flex-wrap: wrap; gap: 0 22px; border-bottom: 1px solid var(--border); margin: 0 0 0; }
+    .filters button { background: none; border: none; border-bottom: 2px solid transparent; margin-bottom: -1px; padding: 10px 0; font: inherit; font-size: 0.86rem; font-weight: 500; color: var(--text-secondary); cursor: pointer; }
+    .filters button:hover { color: var(--ink); }
+    .filters button[aria-pressed="true"] { color: var(--ink); font-weight: 600; border-bottom-color: var(--ink); }
+    .filters .count { color: var(--text-muted); font-weight: 400; margin-left: 4px; }
+
+    /* State table */
+    .states { width: 100%; border-collapse: collapse; font-size: 0.92rem; line-height: 1.5; }
+    .states thead th { text-align: left; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); padding: 16px 16px 10px 0; border-bottom: 1px solid var(--border); }
+    .states tbody tr.row { cursor: pointer; }
+    .states tbody tr.row td { padding: 16px 16px 16px 0; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+    .states tbody tr.row:hover td { background: var(--wash); }
+    .states td.state { font-weight: 700; color: var(--ink); white-space: nowrap; }
+    .states td.state .chev { display: inline-block; width: 14px; color: var(--text-muted); font-weight: 400; transition: transform 0.15s; }
+    .states tr.row[aria-expanded="true"] .chev { transform: rotate(90deg); }
+    .states td.req { color: var(--text-primary); }
+    .states td.muted { color: var(--text-secondary); }
+    .states tr.detail td { padding: 4px 16px 24px 14px; border-bottom: 1px solid var(--border); background: var(--white); }
+    .states tr.detail[hidden] { display: none; }
+    .detail-grid { display: grid; grid-template-columns: 160px 1fr; gap: 6px 24px; font-size: 0.88rem; margin: 6px 0 14px; }
+    .detail-grid dt { color: var(--text-muted); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding-top: 3px; }
+    .detail-grid dd { margin: 0; }
+    .detail-notes { margin: 0 0 12px; padding-left: 18px; font-size: 0.92rem; }
+    .detail-notes li { margin-bottom: 8px; }
+    .detail-notes li::marker { color: var(--accent); }
+    .detail-link { font-size: 0.86rem; }
+    .pending-row td.state { color: var(--text-secondary); }
+    .table-foot { font-size: 0.86rem; color: var(--text-secondary); margin: 22px 0 0; }
+
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 0 48px; }
+    .two-col > div { border-top: 1px solid var(--border); padding-top: 20px; }
+    .two-col p { font-size: 0.95rem; color: var(--text-secondary); }
+
+    @media (max-width: 760px) {
+      .featured { grid-template-columns: 1fr; }
+      .states thead { display: none; }
+      .states, .states tbody, .states tr, .states td { display: block; width: 100%; }
+      .states tbody tr.row { padding: 14px 0; border-bottom: 1px solid var(--border-light); }
+      .states tbody tr.row td { border: none; padding: 2px 0; }
+      .states td.thr, .states td.who { display: none !important; }
+      .states td.eff { font-size: 0.84rem; color: var(--text-muted); }
+      .states tr.detail td { padding: 0 0 20px; }
+      .detail-grid { grid-template-columns: 1fr; gap: 2px; }
+      .detail-grid dd { margin-bottom: 8px; }
+      .two-col { grid-template-columns: 1fr; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="main-nav">
+    <div class="container">
+      <div class="logo">
+        <a href="https://securefunder.org/" class="logo-badge-link" aria-label="Secure Funder Home">
+          <img class="logo-badge" src="/blue-ring.png" alt="Secure Funder">
+        </a>
+        <div class="logo-stack">
+          <a href="https://securefunder.org/" class="logo-text-link" aria-label="Secure Funder Home">
+            <div class="logo-text">Secure Funder<span class="logo-tm">&trade;</span></div>
+          </a>
+        </div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="/compliance-center/">Compliance Center</a></li>
+        <li><a href="https://securefunder.org">For Funders</a></li>
+        <li><a href="https://securebroker.org" target="_blank" rel="noopener noreferrer">For Brokers</a></li>
+        <li><a href="https://portal.securefunder.org/login" class="btn-member">Sign In</a></li>
+      </ul>
+      <button class="mobile-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <main class="page">
+    <header class="page-header">
+      <div class="eyebrow">Compliance Center</div>
+      <h1>Compliance Center</h1>
+      <p class="dek">An industry resource on what alternative commercial finance providers and brokers need to transact in each state: registration, licensing, and disclosure.</p>
+      <div class="meta-line"><strong>Last reviewed</strong> October 12, 2026 &middot; Not legal advice</div>
+    </header>
+
+    <div class="body">
+
+      <div class="featured">
+        <div>
+          <div class="featured-label">California &middot; AB 2116</div>
+          <h2>Preliminary Readiness Checklist</h2>
+          <p>Licensing for commercial financing providers and brokers is required by July 1, 2028. DFPI regulations are still to come. Here is what you can prepare now.</p>
+        </div>
+        <a class="btn" href="california-ab-2116/">View checklist</a>
+      </div>
+
+      <section class="section" id="states">
+        <h2>State Overview</h2>
+        <p class="section-lede">States with commercial financing laws that apply to merchant cash advance, factoring, and other non-bank small business financing. Funders should note where registration or licensing applies to providers, and which states require an APR in the offer disclosure. Select a state for details.</p>
+
+        <div class="filters" role="group" aria-label="Filter states">
+          <button type="button" data-filter="all" aria-pressed="true">All states<span class="count">13</span></button>
+          <button type="button" data-filter="licensing" aria-pressed="false">Licensing<span class="count">2</span></button>
+          <button type="button" data-filter="registration" aria-pressed="false">Registration<span class="count">5</span></button>
+          <button type="button" data-filter="disclosure" aria-pressed="false">Disclosure<span class="count">12</span></button>
+          <button type="button" data-filter="upcoming" aria-pressed="false">Upcoming<span class="count">3</span></button>
+          <button type="button" data-filter="pending" aria-pressed="false">Pending<span class="count">1</span></button>
+        </div>
+
+        <table class="states">
+          <thead>
+            <tr><th>State</th><th>Requirement</th><th>Who</th><th>Deal size</th><th>Status</th></tr>
+          </thead>
+          <tbody>
+            <tr class="row" data-types="licensing disclosure upcoming" tabindex="0" role="button" aria-expanded="false" aria-controls="d-CA">
+              <td class="state"><span class="chev">&rsaquo;</span>California</td>
+              <td class="req">Licensing (from 2028) &middot; Disclosure</td>
+              <td class="muted who">Providers and brokers</td>
+              <td class="muted thr">$500,000</td>
+              <td class="muted eff">Disclosure in effect &middot; Licensing July 1, 2028</td>
+            </tr>
+            <tr class="detail" id="d-CA" data-types="licensing disclosure upcoming" hidden>
+              <td colspan="5">
+                <dl class="detail-grid">
+                  <dt>Regulator</dt><dd>Department of Financial Protection and Innovation (DFPI)</dd>
+                  <dt>Who</dt><dd>Providers and brokers</dd>
+                  <dt>Deal size</dt><dd>$500,000</dd>
+                </dl>
+                <ul class="detail-notes">
+                  <li><strong>AB 2116</strong> (signed Sept. 30, 2026) brings commercial financing under the California Financing Law. Conduct rules begin January 1, 2028. A license is required by July 1, 2028. <a href="california-ab-2116/">See the preliminary checklist</a>.</li>
+                  <li><strong>Disclosure.</strong> The Commercial Financing Disclosure Law (SB 1235) requires providers to disclose an APR with specific offers of $500,000 or less. SB 362, effective January 1, 2026, bars misleading use of terms like &ldquo;interest&rdquo; and &ldquo;rate&rdquo; and requires an APR when a rate is quoted during the application process.</li>
+                  <li><strong>Reporting.</strong> Providers file an annual report on prior-year commercial financing with the DFPI by March 15.</li>
+                </ul>
+                <div class="detail-link"><a href="https://dfpi.ca.gov/" target="_blank" rel="noopener">DFPI</a></div>
+              </td>
+            </tr>
+            <tr class="row" data-types="registration disclosure" tabindex="0" role="button" aria-expanded="false" aria-controls="d-CT">
+              <td class="state"><span class="chev">&rsaquo;</span>Connecticut</td>
+              <td class="req">Registration &middot; Disclosure</td>
+              <td class="muted who">Providers and brokers</td>
+              <td class="muted thr">$250,000</td>
+              <td class="muted eff">In effect since Oct. 1, 2024</td>
+            </tr>
+            <tr class="detail" id="d-CT" data-types="registration disclosure" hidden>
+              <td colspan="5">
+                <dl class="detail-grid">
+                  <dt>Regulator</dt><dd>Department of Banking</dd>
+                  <dt>Who</dt><dd>Providers and brokers</dd>
+                  <dt>Deal size</dt><dd>$250,000</dd>
+                </dl>
+                <ul class="detail-notes">
+                  <li>Providers and brokers of sales-based financing register with the Department of Banking through NMLS. Separate registrations exist for providers and brokers.</li>
+                  <li>Providers give a disclosure with each specific offer, including total repayment, finance charge, payment terms, fees, collateral, and broker compensation paid from the financing amount.</li>
+                  <li>Exempt: providers with five or fewer Connecticut transactions in 12 months, banks and credit unions, and transactions over $250,000.</li>
+                </ul>
+                <div class="detail-link"><a href="https://portal.ct.gov/dob/consumer-credit-licenses/consumer-credit-licenses/commercial-financing-providers-and-brokers-registered-in-ct" target="_blank" rel="noopener">Registered providers and brokers</a></div>
+              </td>
+            </tr>
+            <tr class="row" data-types="disclosure" tabindex="0" role="button" aria-expanded="false" aria-controls="d-FL">
+              <td class="state"><span class="chev">&rsaquo;</span>Florida</td>
+              <td class="req">Disclosure &middot; Broker conduct rules</td>
+              <td class="muted who">Providers (disclosure); brokers (conduct)</td>
+              <td class="muted thr">$500,000</td>
+              <td class="muted eff">In effect since Jan. 1, 2024</td>
+            </tr>
+            <tr class="detail" id="d-FL" data-types="disclosure" hidden>
+              <td colspan="5">
+                <dl class="detail-grid">
+                  <dt>Regulator</dt><dd>Attorney General</dd>
+                  <dt>Who</dt><dd>Providers (disclosure); brokers (conduct)</dd>
+                  <dt>Deal size</dt><dd>$500,000</dd>
+                </dl>
+                <ul class="detail-notes">
+                  <li>Providers disclose the total amount provided, the total dollar cost of financing, the payment schedule, and prepayment terms at or before consummation. No APR is required.</li>
+                  <li>Brokers may not collect advance fees (other than bona fide third-party costs), make false or misleading representations, or advertise without their business address and phone number.</li>
+                  <li>No registration. Applies to providers with more than five Florida transactions in a calendar year.</li>
+                </ul>
+                <div class="detail-link"><a href="https://www.myfloridalegal.com/" target="_blank" rel="noopener">Florida Attorney General</a></div>
+              </td>
+            </tr>
+            <tr class="row" data-types="disclosure" tabindex="0" role="button" aria-expanded="false" aria-controls="d-GA">
+              <td class="state"><span class="chev">&rsaquo;</span>Georgia</td>
+              <td class="req">Disclosure &middot; Broker conduct rules</td>
+              <td class="muted who">Providers (disclosure); brokers (conduct)</td>
+              <td class="muted thr">$500,000</td>
+              <td class="muted eff">In effect since Jan. 1, 2024</td>
+            </tr>
+            <tr class="detail" id="d-GA" data-types="disclosure" hidden>
+              <td colspan="5">
+                <dl class="detail-grid">
+                  <dt>Regulator</dt><dd>Attorney General</dd>
+                  <dt>Who</dt><dd>Providers (disclosure); brokers (conduct)</dd>
+                  <dt>Deal size</dt><dd>$500,000</dd>
+                </dl>
+                <ul class="detail-notes">
+                  <li>Providers disclose total funds provided, total dollar cost, payment terms, and prepayment terms. No APR is required.</li>
+                  <li>Brokers are subject to conduct rules, including limits on advance fees and misleading statements.</li>
+                  <li>No registration.</li>
+                </ul>
+                <div class="detail-link"><a href="https://law.georgia.gov/" target="_blank" rel="noopener">Georgia Attorney General</a></div>
+              </td>
+            </tr>
+            <tr class="row" data-types="disclosure" tabindex="0" role="button" aria-expanded="false" aria-controls="d-KS">
+              <td class="state"><span class="chev">&rsaquo;</span>Kansas</td>
+              <td class="req">Disclosure</td>
+              <td class="muted who">Providers; brokers (conduct)</td>
+              <td class="muted thr">$500,000</td>
+              <td class="muted eff">In effect since July 1, 2024</td>
+            </tr>
+            <tr class="detail" id="d-KS" data-types="disclosure" hidden>
+              <td colspan="5">
+                <dl class="detail-grid">
+                  <dt>Regulator</dt><dd>Attorney General</dd>
+                  <dt>Who</dt><dd>Providers; brokers (conduct)</dd>
+                  <dt>Deal size</dt><dd>$500,000</dd>
+                </dl>
+                <ul class="detail-notes">
+                  <li>Providers disclose total funds provided and disbursed, total payments, total dollar cost, payment amount and frequency, and prepayment terms. No APR and no recipient signature required.</li>
+                  <li>Exempt: providers with five or fewer Kansas transactions in 12 months, depository institutions, and transactions over $500,000.</li>
+                  <li>No registration.</li>
+                </ul>
+                <div class="detail-link"><a href="https://www.ag.ks.gov/" target="_blank" rel="noopener">Kansas Attorney General</a></div>
+              </td>
+            </tr>
+            <tr class="row" data-types="disclosure" tabindex="0" role="button" aria-expanded="false" aria-controls="d-LA">
+              <td class="state"><span class="chev">&rsaquo;</span>Louisiana</td>
+              <td class="req">Disclosure</td>
+              <td class="muted who">Providers</td>
+              <td class="muted thr">See statute</td>
+              <td class="muted eff">In effect since Aug. 1, 2025</td>
+            </tr>
+            <tr class="detail" id="d-LA" data-types="disclosure" hidden>
+              <td colspan="5">
+                <dl class="detail-grid">
+                  <dt>Regulator</dt><dd>Attorney General</dd>
+                  <dt>Who</dt><dd>Providers</dd>
+                  <dt>Deal size</dt><dd>See statute</dd>
+                </dl>
+                <ul class="detail-notes">
+                  <li>Act 198 (HB 470, 2025) requires providers of commercial financing, including revenue-based financing, to disclose key terms, including the total dollar cost of financing.</li>
+                  <li>No registration.</li>
+                </ul>
+                <div class="detail-link"><a href="https://legis.la.gov/" target="_blank" rel="noopener">Louisiana Legislature</a></div>
+              </td>
+            </tr>
+            <tr class="row" data-types="registration disclosure" tabindex="0" role="button" aria-expanded="false" aria-controls="d-MO">
+              <td class="state"><span class="chev">&rsaquo;</span>Missouri</td>
+              <td class="req">Broker registration &middot; Disclosure</td>
+              <td class="muted who">Brokers (registration); providers (disclosure)</td>
+              <td class="muted thr">$500,000</td>
+              <td class="muted eff">In effect since 2025</td>
+            </tr>
+            <tr class="detail" id="d-MO" data-types="registration disclosure" hidden>
+              <td colspan="5">
+                <dl class="detail-grid">
+                  <dt>Regulator</dt><dd>Division of Finance (registration); Attorney General (enforcement)</dd>
+                  <dt>Who</dt><dd>Brokers (registration); providers (disclosure)</dd>
+                  <dt>Deal size</dt><dd>$500,000</dd>
+                </dl>
+                <ul class="detail-notes">
+                  <li>Brokers register with the Division of Finance, post a $10,000 surety bond, and pay a $100 filing fee. Renewal is due each year by January 31 ($50).</li>
+                  <li>Providers disclose total funds provided and disbursed, total payments, total dollar cost, payment terms, and prepayment terms. No APR is required.</li>
+                  <li>Exempt: providers with five or fewer Missouri transactions in 12 months, depository institutions, and transactions over $500,000.</li>
+                </ul>
+                <div class="detail-link"><a href="https://finance.mo.gov/" target="_blank" rel="noopener">Missouri Division of Finance</a></div>
+              </td>
+            </tr>
+            <tr class="row" data-types="disclosure" tabindex="0" role="button" aria-expanded="false" aria-controls="d-NY">
+              <td class="state"><span class="chev">&rsaquo;</span>New York</td>
+              <td class="req">Disclosure</td>
+              <td class="muted who">Providers, including those presenting offers for a third party</td>
+              <td class="muted thr">$2,500,000</td>
+              <td class="muted eff">In effect since Aug. 1, 2023</td>
+            </tr>
+            <tr class="detail" id="d-NY" data-types="disclosure" hidden>
+              <td colspan="5">
+                <dl class="detail-grid">
+                  <dt>Regulator</dt><dd>Department of Financial Services (DFS)</dd>
+                  <dt>Who</dt><dd>Providers, including those presenting offers for a third party</dd>
+                  <dt>Deal size</dt><dd>$2,500,000</dd>
+                </dl>
+                <ul class="detail-notes">
+                  <li>The Commercial Finance Disclosure Law (23 NYCRR Part 600) requires a disclosure with each specific offer, including an estimated APR.</li>
+                  <li>The law&rsquo;s definition of provider reaches parties that solicit and present offers on behalf of a third party.</li>
+                  <li>No registration.</li>
+                </ul>
+                <div class="detail-link"><a href="https://www.dfs.ny.gov/" target="_blank" rel="noopener">NYDFS</a></div>
+              </td>
+            </tr>
+            <tr class="row" data-types="registration disclosure upcoming" tabindex="0" role="button" aria-expanded="false" aria-controls="d-TX">
+              <td class="state"><span class="chev">&rsaquo;</span>Texas</td>
+              <td class="req">Registration &middot; Disclosure</td>
+              <td class="muted who">Providers and brokers of sales-based financing</td>
+              <td class="muted thr">Disclosure under $1,000,000</td>
+              <td class="muted eff">Registration deadline Dec. 31, 2026</td>
+            </tr>
+            <tr class="detail" id="d-TX" data-types="registration disclosure upcoming" hidden>
+              <td colspan="5">
+                <dl class="detail-grid">
+                  <dt>Regulator</dt><dd>Office of Consumer Credit Commissioner (OCCC)</dd>
+                  <dt>Who</dt><dd>Providers and brokers of sales-based financing</dd>
+                  <dt>Deal size</dt><dd>Disclosure under $1,000,000</dd>
+                </dl>
+                <ul class="detail-notes">
+                  <li><strong>HB 700.</strong> Providers and brokers of commercial sales-based financing register with the OCCC through NMLS by <strong>December 31, 2026</strong>, and renew annually. Applications include a business plan and filings for key individuals (including 10%+ direct owners).</li>
+                  <li>Providers give a written disclosure with specific offers under $1 million: total amount financed, finance charge, total repayment, fees, and repayment terms. Contracts must include a notice with OCCC contact information.</li>
+                  <li>Automatic debits are prohibited unless the provider holds a perfected, first-priority security interest in the recipient&rsquo;s accounts receivable. No de minimis exemption.</li>
+                </ul>
+                <div class="detail-link"><a href="https://occc.texas.gov/" target="_blank" rel="noopener">OCCC</a></div>
+              </td>
+            </tr>
+            <tr class="row" data-types="registration disclosure" tabindex="0" role="button" aria-expanded="false" aria-controls="d-UT">
+              <td class="state"><span class="chev">&rsaquo;</span>Utah</td>
+              <td class="req">Registration &middot; Disclosure</td>
+              <td class="muted who">Providers</td>
+              <td class="muted thr">$1,000,000</td>
+              <td class="muted eff">In effect since Jan. 1, 2023</td>
+            </tr>
+            <tr class="detail" id="d-UT" data-types="registration disclosure" hidden>
+              <td colspan="5">
+                <dl class="detail-grid">
+                  <dt>Regulator</dt><dd>Department of Financial Institutions (DFI)</dd>
+                  <dt>Who</dt><dd>Providers</dd>
+                  <dt>Deal size</dt><dd>$1,000,000</dd>
+                </dl>
+                <ul class="detail-notes">
+                  <li>Providers that complete more than five Utah transactions in a calendar year register with the DFI. Registration expires December 31 each year and must be renewed.</li>
+                  <li>Providers disclose total funds provided, total repayment, total dollar cost, payment schedule, and prepayment terms before consummation.</li>
+                  <li>Brokers are defined separately in the statute; registration applies to providers.</li>
+                </ul>
+                <div class="detail-link"><a href="https://dfi.utah.gov/" target="_blank" rel="noopener">Utah DFI</a></div>
+              </td>
+            </tr>
+            <tr class="row" data-types="licensing disclosure upcoming" tabindex="0" role="button" aria-expanded="false" aria-controls="d-VT">
+              <td class="state"><span class="chev">&rsaquo;</span>Vermont</td>
+              <td class="req">Licensing &middot; Disclosure</td>
+              <td class="muted who">Providers and brokers</td>
+              <td class="muted thr">Under $1,000,000</td>
+              <td class="muted eff">July 1, 2027</td>
+            </tr>
+            <tr class="detail" id="d-VT" data-types="licensing disclosure upcoming" hidden>
+              <td colspan="5">
+                <dl class="detail-grid">
+                  <dt>Regulator</dt><dd>Department of Financial Regulation (DFR)</dd>
+                  <dt>Who</dt><dd>Providers and brokers</dd>
+                  <dt>Deal size</dt><dd>Under $1,000,000</dd>
+                </dl>
+                <ul class="detail-notes">
+                  <li><strong>Act 142 (H.648)</strong>, signed June 16, 2026, extends Vermont licensing to sales-based financing and factoring. Providers need a lender license; brokers and others who solicit or refer need a loan solicitation license.</li>
+                  <li>Signed disclosure with each specific offer, including an estimated APR.</li>
+                  <li>Confessions of judgment void the contract. Automatic debits are restricted. Vermont law and forum apply to Vermont recipients.</li>
+                </ul>
+                <div class="detail-link"><a href="https://dfr.vermont.gov/" target="_blank" rel="noopener">Vermont DFR</a></div>
+              </td>
+            </tr>
+            <tr class="row" data-types="registration disclosure" tabindex="0" role="button" aria-expanded="false" aria-controls="d-VA">
+              <td class="state"><span class="chev">&rsaquo;</span>Virginia</td>
+              <td class="req">Registration &middot; Disclosure</td>
+              <td class="muted who">Providers and brokers of sales-based financing</td>
+              <td class="muted thr">$500,000</td>
+              <td class="muted eff">In effect since 2022</td>
+            </tr>
+            <tr class="detail" id="d-VA" data-types="registration disclosure" hidden>
+              <td colspan="5">
+                <dl class="detail-grid">
+                  <dt>Regulator</dt><dd>State Corporation Commission (SCC)</dd>
+                  <dt>Who</dt><dd>Providers and brokers of sales-based financing</dd>
+                  <dt>Deal size</dt><dd>$500,000</dd>
+                </dl>
+                <ul class="detail-notes">
+                  <li>Sales-based financing providers and brokers register with the SCC and renew annually.</li>
+                  <li>Providers disclose the financing and disbursement amounts, finance charge, total repayment, estimated number of payments, fees, prepayment terms, collateral, and any compensation paid to the broker.</li>
+                  <li>Exempt: five or fewer transactions in 12 months, financial institutions, and transactions over $500,000.</li>
+                </ul>
+                <div class="detail-link"><a href="https://www.scc.virginia.gov/" target="_blank" rel="noopener">Virginia SCC</a></div>
+              </td>
+            </tr>
+            <tr class="row pending-row" data-types="pending" tabindex="0" role="button" aria-expanded="false" aria-controls="d-NJ">
+              <td class="state"><span class="chev">&rsaquo;</span>New Jersey</td>
+              <td class="req">Pending legislation</td>
+              <td class="muted who">Providers</td>
+              <td class="muted thr">$500,000 (proposed)</td>
+              <td class="muted eff">Not enacted</td>
+            </tr>
+            <tr class="detail" id="d-NJ" data-types="pending" hidden>
+              <td colspan="5">
+                <dl class="detail-grid">
+                  <dt>Regulator</dt><dd>&mdash;</dd>
+                  <dt>Who</dt><dd>Providers</dd>
+                  <dt>Deal size</dt><dd>$500,000 (proposed)</dd>
+                </dl>
+                <ul class="detail-notes">
+                  <li>Pending bills (including S1760) would require disclosures for sales-based, closed-end, open-end, and factoring transactions, with an exemption for five or fewer transactions in 12 months.</li>
+                </ul>
+                <div class="detail-link"><a href="https://pub.njleg.state.nj.us/Bills/2026/A5000/4580_I1.PDF" target="_blank" rel="noopener">Bill text (A4580)</a></div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="table-foot">Deal size is the offer amount at or below which the law applies. Most states also exempt banks and very low-volume providers.</p>
+      </section>
+
+      <section class="section">
+        <h2>Good to Know</h2>
+        <div class="two-col">
+          <div>
+            <h3>Registration vs. licensing</h3>
+            <p><strong>Registration</strong> is usually a filing with basic company and ownership information, renewed each year. <strong>Licensing</strong> adds review of financials, background, and conduct, with ongoing examination by the regulator.</p>
+          </div>
+          <div>
+            <h3>States not listed</h3>
+            <p>A state not listed here has no commercial-financing-specific statute today. General laws still apply, including unfair and deceptive practices laws, usury rules for loans, and existing broker or lender licensing for commercial loans in some states.</p>
+          </div>
+          <div>
+            <h3>Where the deal is</h3>
+            <p>These laws generally follow the location of the business receiving the financing, not where the provider or broker is based.</p>
+          </div>
+          <div>
+            <h3>NMLS</h3>
+            <p>Several states, including California, Connecticut, and Texas, use the Nationwide Multistate Licensing System. A single NMLS company record can support filings in multiple states.</p>
+          </div>
+        </div>
+      </section>
+
+      <div class="disclaimer">
+        <p><strong>Not legal advice.</strong> The Compliance Center is an educational resource. It summarizes public laws and regulator materials in plain language and may not reflect every requirement, exemption, or recent change. Confirm requirements with the regulator or your counsel before relying on them.</p>
+        <p>Last reviewed October 12, 2026. See something out of date? Email <a href="mailto:info@aquamark.io">info@aquamark.io</a>.</p>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img class="logo-badge" src="/blue-ring.png" alt="Secure Funder">
+        <span class="logo-text">Secure Funder<span class="logo-tm">&trade;</span></span>
+      </div>
+      <p class="footer-desc">An independent certification program for funders establishing baseline data-handling standards in alternative finance. Administered by <a href="https://aquamark.io" target="_blank" rel="noopener noreferrer">Aquamark</a>.</p>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Secure Funder&trade; Certification Program. All rights reserved.</span>
+        <span>Independently administered by <a href="https://aquamark.io" target="_blank" rel="noopener noreferrer">Aquamark</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-header">
+      <a href="https://securefunder.org/" class="logo" aria-label="Secure Funder Home" style="text-decoration:none;border:none;padding:0;">
+        <img class="logo-badge" src="/blue-ring.png" alt="Secure Funder" style="width:30px;height:30px;">
+        <div class="logo-text">Secure Funder<span class="logo-tm">&trade;</span></div>
+      </a>
+      <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">&#10005;</button>
+    </div>
+    <a href="/compliance-center/">Compliance Center</a>
+    <a href="https://securefunder.org">For Funders</a>
+    <a href="https://securebroker.org" target="_blank" rel="noopener noreferrer">For Brokers</a>
+    <a href="https://portal.securefunder.org/login" class="btn-member-mobile">Sign In</a>
+  </div>
+
+  <script>
+    (function() {
+      const toggle = document.querySelector('.mobile-toggle');
+      const menu = document.getElementById('mobileMenu');
+      const closeBtn = document.getElementById('mobileMenuClose');
+      toggle.addEventListener('click', () => { menu.classList.add('active'); document.body.style.overflow = 'hidden'; });
+      closeBtn.addEventListener('click', () => { menu.classList.remove('active'); document.body.style.overflow = ''; });
+    })();
+  </script>
+
+  <script>
+    (function() {
+      const rows = document.querySelectorAll('.states tr.row');
+      rows.forEach(r => {
+        const d = document.getElementById(r.getAttribute('aria-controls'));
+        const flip = () => { const open = r.getAttribute('aria-expanded') === 'true'; r.setAttribute('aria-expanded', String(!open)); d.hidden = open; };
+        r.addEventListener('click', e => { if (e.target.closest('a')) return; flip(); });
+        r.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); flip(); } });
+      });
+      const btns = document.querySelectorAll('.filters button');
+      btns.forEach(btn => btn.addEventListener('click', () => {
+        btns.forEach(x => x.setAttribute('aria-pressed', 'false'));
+        btn.setAttribute('aria-pressed', 'true');
+        const f = btn.dataset.filter;
+        rows.forEach(r => {
+          const show = f === 'all' || r.dataset.types.split(' ').includes(f);
+          const d = document.getElementById(r.getAttribute('aria-controls'));
+          r.style.display = show ? '' : 'none';
+          if (!show) { d.hidden = true; r.setAttribute('aria-expanded', 'false'); }
+        });
+      }));
+    })();
+  </script>
+
+</body>
+</html>
