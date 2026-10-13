@@ -131,8 +131,9 @@
     .page { max-width: 1120px; }
     .band { background: transparent; }
     .band-inner { max-width: 1120px; margin: 0 auto; padding: 72px 32px 0; }
-    .band h1 { font-size: 2.8rem; line-height: 1.1; letter-spacing: -0.03em; margin: 0; color: #142F52; }
+    .band h1 { font-size: 2.15rem; line-height: 1.2; text-wrap: balance; letter-spacing: -0.03em; margin: 0; color: #142F52; }
     .band-sub { margin: 18px 0 0; font-size: 0.86rem; font-weight: 400; text-transform: uppercase; letter-spacing: 0.14em; color: #142F52; }
+    .band-sub.top { margin: 0 0 14px; }
     .page { padding-top: 36px; }
     .page-header { margin-bottom: 28px; }
     .page-header h1 { margin-bottom: 10px; }
@@ -193,7 +194,7 @@
     @media (max-width: 900px) { .grid { grid-template-columns: repeat(3, 1fr); } .pick { flex-direction: column; gap: 14px; } }
     @media (max-width: 560px) {
       .band-inner { padding: 40px 20px 0; }
-      .band h1 { font-size: 2.1rem; }
+      .band h1 { font-size: 1.75rem; }
       .band-sub { font-size: 0.74rem; letter-spacing: 0.12em; line-height: 1.6; }
       .page { padding-top: 32px; }
       .pick { gap: 28px; }
@@ -231,8 +232,8 @@
 
   <div class="band">
     <div class="band-inner">
-      <h1>Compliance Center</h1>
-      <p class="band-sub">Alternative Commercial Finance</p>
+      <p class="band-sub top">Compliance Center</p>
+      <h1>State-Level Regulations for Alternative Commercial Finance</h1>
     </div>
   </div>
   <main class="page">
