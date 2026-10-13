@@ -143,10 +143,13 @@
     .page-header .eyebrow .mark { width: 8px; height: 8px; background: #4FA3D1; flex-shrink: 0; }
     .page-header p { margin: 0; color: #5A6573; font-size: 1.02rem; }
 
-    .pick { display: flex; flex-wrap: wrap; gap: 14px 48px; padding: 18px 22px; background: #F4F5F7; margin: 0 0 28px; }
-    .pick-group { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+    .pick { display: flex; flex-direction: column; gap: 10px; margin: 0 0 28px; }
+    .pick-group { display: flex; align-items: center; gap: 18px; flex-wrap: nowrap; background: #FFFFFF; border: 1px solid #D3D8DE; padding: 13px 18px; transition: border-color 0.15s; }
+    .pick-group:hover { border-color: #A9B2BD; }
+    .pick-group:has(input:checked) { border-color: #142F52; }
+    .pick-label { min-width: 80px; }
     .pick-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #5A6573; }
-    .pick-opts { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+    .pick-opts { display: flex; flex-wrap: wrap; gap: 8px 16px; }
     .pick-opts label { display: inline-flex; align-items: center; gap: 7px; font-size: 0.92rem; color: #1E2733; cursor: pointer; }
     .pick-opts input { appearance: none; -webkit-appearance: none; width: 16px; height: 16px; margin: 0; border: 1.5px solid #8A94A0; border-radius: 50%; background: #FFFFFF; cursor: pointer; flex-shrink: 0; transition: border-color 0.15s; }
     .pick-opts input:hover { border-color: #142F52; }
@@ -191,15 +194,16 @@
     .fine a { color: inherit; }
     .fine strong { font-weight: 600; color: #5A6573; }
 
-    @media (max-width: 900px) { .grid { grid-template-columns: repeat(3, 1fr); } .pick { flex-direction: column; gap: 14px; } }
+    @media (max-width: 900px) { .grid { grid-template-columns: repeat(3, 1fr); } .pick { flex-direction: column; gap: 10px; } }
     @media (max-width: 560px) {
       .band-inner { padding: 40px 20px 0; }
       .band h1 { font-size: 1.75rem; }
       .band-sub { font-size: 0.74rem; letter-spacing: 0.12em; line-height: 1.6; }
       .page { padding-top: 32px; }
-      .pick { gap: 28px; }
-      .pick-group { flex-direction: column; align-items: flex-start; gap: 12px; }
+      .pick { gap: 10px; }
+      .pick-group { flex-direction: column; align-items: flex-start; gap: 12px; padding: 16px 18px; }
       .pick-opts { flex-direction: column; gap: 12px; }
+      .pick-label { min-width: 0; }
       .grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
       .overlay { padding: 64px 0 0; }
       .dialog { padding: 24px 20px 28px; min-height: calc(100vh - 64px); }
