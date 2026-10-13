@@ -172,23 +172,25 @@
     .grid.filtered .card.pend .n { color: #4E5B6B; }
 
     /* Detail dialog */
-    .overlay { position: fixed; inset: 0; background: rgba(20, 30, 45, 0.28); z-index: 400; display: none; align-items: flex-start; justify-content: center; padding: 88px 20px 40px; overflow-y: auto; }
+    .overlay { position: fixed; inset: 0; background: rgba(20, 30, 45, 0.28); z-index: 400; display: none; align-items: flex-start; justify-content: center; padding: 72px 20px 40px; overflow-y: auto; }
     .overlay.open { display: flex; }
-    .dialog { background: #FFFFFF; width: 100%; max-width: 560px; border-top: 2px solid #142F52; padding: 28px 32px 30px; position: relative; font-size: 0.95rem; line-height: 1.6; color: #1E2733; }
-    .dialog .x { position: absolute; top: 14px; right: 16px; background: none; border: none; font-size: 1.3rem; line-height: 1; color: #5A6573; cursor: pointer; padding: 6px; }
+    .dialog { background: #FFFFFF; width: 100%; max-width: 780px; padding: 48px 56px 52px; position: relative; font-size: 1rem; line-height: 1.7; color: #1E2733; }
+    .dialog .x { position: absolute; top: 18px; right: 20px; background: none; border: none; font-size: 1.4rem; line-height: 1; color: #5A6573; cursor: pointer; padding: 6px; }
     .dialog .x:hover { color: #142F52; }
-    .dialog h2 { font-size: 1.6rem; margin: 0 0 4px; color: #142F52; letter-spacing: -0.015em; }
-    .dialog .sum { color: #5A6573; font-size: 0.88rem; margin: 0 0 4px; }
-    .dialog .covers { color: #5A6573; font-size: 0.82rem; margin: 0; }
-    .dialog .empty { color: #5A6573; margin: 14px 0 0; }
-    .dialog h3 { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #5A6573; margin: 24px 0 8px; }
-    .dialog ul, .dialog ol { margin: 0; padding-left: 18px; }
-    .dialog li { margin-bottom: 8px; }
+    .dialog h2 { font-size: 2.1rem; margin: 0 0 10px; color: #142F52; letter-spacing: -0.02em; line-height: 1.15; }
+    .dialog .sum { color: #3E4A59; font-size: 1rem; margin: 0 0 6px; }
+    .dialog .covers { color: #6B7684; font-size: 0.88rem; margin: 0; }
+    .dialog .empty { color: #5A6573; margin: 18px 0 0; }
+    .dialog .sec { margin-top: 32px; padding-top: 26px; border-top: 1px solid #E6E8EB; }
+    .dialog h3 { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #5A6573; margin: 0 0 14px; }
+    .dialog ul, .dialog ol { margin: 0; padding-left: 20px; }
+    .dialog li { margin-bottom: 12px; padding-left: 4px; }
+    .dialog li:last-child { margin-bottom: 0; }
     .dialog li::marker { color: #8A96A5; }
     .dialog a { color: #142F52; text-decoration: underline; text-decoration-color: #9FB3CB; text-underline-offset: 3px; font-weight: 500; }
     .dialog a:hover { text-decoration-color: #142F52; }
     .dialog .links { list-style: none; padding: 0; }
-    .dialog .links li { margin-bottom: 6px; }
+    .dialog .links li { margin-bottom: 8px; padding-left: 0; }
 
     .fine { font-size: 0.78rem; color: #7A8594; margin: 48px 0 0; padding-top: 16px; border-top: 1px solid #E6E8EB; }
     .fine a { color: inherit; }
@@ -206,7 +208,9 @@
       .pick-label { flex: none; padding: 10px 18px; border-right: none; border-bottom: 1px solid #E1E5EA; }
       .grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
       .overlay { padding: 64px 0 0; }
-      .dialog { padding: 24px 20px 28px; min-height: calc(100vh - 64px); }
+      .dialog { padding: 32px 22px 36px; min-height: calc(100vh - 64px); }
+      .dialog h2 { font-size: 1.7rem; }
+      .dialog .sec { margin-top: 26px; padding-top: 22px; }
     }
 
   </style>
@@ -371,7 +375,7 @@
       const applies = (s, r, ps) => ps.some(p => s.products.includes(p)) && roleList(r).some(x => s.roles.includes(x));
       const li = arr => arr.map(x => '<li>' + x + '</li>').join('');
       const list = arr => arr.map(p => PNAMES[p]).join(', ');
-      const links = s => '<h3>The law</h3><ul class="links">' + s.links.map(([t, u]) => '<li><a href="' + u + '" target="_blank" rel="noopener">' + t + '</a></li>').join('') + '</ul>';
+      const links = s => '<div class="sec"><h3>The law</h3><ul class="links">' + s.links.map(([t, u]) => '<li><a href="' + u + '" target="_blank" rel="noopener">' + t + '</a></li>').join('') + '</ul></div>';
 
       function paint() {
         const r = role(), ps = prods();
@@ -405,10 +409,10 @@
         h += '<p class="sum">' + s.summary + '</p><p class="covers">Covers ' + list(s.products) + '</p>';
         const notes = Object.entries(s.pnotes || {}).filter(([k]) => all || ps.includes(k)).map(([, v]) => v);
         if (notes.length) h += '<p class="covers" style="margin-top:6px">' + notes.join(' ') + '</p>';
-        h += '<h3>Requirements</h3><ul>' + li(s.req) + '</ul>';
+        h += '<div class="sec"><h3>Requirements</h3><ul>' + li(s.req) + '</ul></div>';
         const rs = all ? ['broker', 'provider'] : roleList(r);
         rs.filter(x => s.roles.includes(x)).forEach(x => {
-          h += '<h3>What to do' + (rs.length > 1 ? ': ' + (x === 'broker' ? 'Brokers' : 'Providers') : '') + '</h3><ol>' + li(x === 'broker' ? s.brokers : s.funders) + '</ol>';
+          h += '<div class="sec"><h3>What to do' + (rs.length > 1 ? ': ' + (x === 'broker' ? 'Brokers' : 'Providers') : '') + '</h3><ol>' + li(x === 'broker' ? s.brokers : s.funders) + '</ol></div>';
         });
         return h + links(s);
       }
