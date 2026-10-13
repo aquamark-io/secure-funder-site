@@ -173,6 +173,7 @@
     .card:hover { border-color: #C9CFD6; }
     .grid.locked .card { cursor: default; }
     .grid.locked .card:hover { border-color: #E6E8EB; background: #FFFFFF; }
+    .status .hint { color: #1A6DD9; }
     .pick-group.nudge { animation: nudge 0.9s ease; }
     @keyframes nudge { 0%, 100% { border-color: #D3D8DE; } 25%, 60% { border-color: #1A6DD9; box-shadow: 0 0 0 3px rgba(26,109,217,0.15); } }
     .card:focus-visible { outline: 2px solid #142F52; outline-offset: 2px; }
@@ -516,6 +517,7 @@
       cards.forEach(c => c.addEventListener('click', () => {
         if (!prods().length) {
           pickBox.classList.remove('nudge'); void pickBox.offsetWidth; pickBox.classList.add('nudge');
+          status.innerHTML = '<span class="hint">Select a product to view state requirements.</span>';
           return;
         }
         open(c.dataset.state);
