@@ -177,6 +177,7 @@
     .dialog { background: #FFFFFF; width: 100%; max-width: 720px; padding: 44px 52px 48px; position: relative; font-size: 1rem; line-height: 1.7; color: #1E2733; }
     .dialog .x { position: absolute; top: 18px; right: 20px; background: none; border: none; font-size: 1.4rem; line-height: 1; color: #5A6573; cursor: pointer; padding: 6px; }
     .dialog .x:hover { color: #142F52; }
+    .dialog .x:focus { outline: none; }
     .dialog h2 { font-size: 2.1rem; margin: 0 0 10px; color: #142F52; letter-spacing: -0.02em; line-height: 1.15; }
     .dialog .sum { color: #3E4A59; font-size: 1rem; margin: 0 0 6px; }
     .dialog .covers { color: #6B7684; font-size: 0.88rem; margin: 0; }
@@ -187,7 +188,7 @@
     .dialog li { margin-bottom: 12px; padding-left: 4px; }
     .dialog li:last-child { margin-bottom: 0; }
     .dialog li::marker { color: #8A96A5; }
-    .dialog a { color: #142F52; text-decoration: underline; text-decoration-color: #9FB3CB; text-underline-offset: 3px; font-weight: 500; }
+    .dialog a { color: #1A6DD9; text-decoration: none; font-weight: 400; }
     .dialog a:hover { text-decoration-color: #142F52; }
     .dialog .links { list-style: none; padding: 0; }
     .dialog .links li { margin-bottom: 8px; padding-left: 0; }
@@ -198,10 +199,10 @@
     .dialog .rt { color: #1E2733; }
     .dialog .rlinks { display: flex; flex-wrap: wrap; gap: 6px 20px; margin-top: 6px; font-size: 0.9rem; }
     .dialog .sec > .rlinks { margin-top: 0; }
-    .dialog .rlinks a { text-decoration: none; color: #2C5282; font-weight: 500; }
+    .dialog .rlinks a { text-decoration: none; color: #1A6DD9; font-weight: 400; }
     .dialog .rlinks a:hover { text-decoration: underline; text-underline-offset: 3px; }
     .dialog .covers { margin-top: 6px; }
-    .dialog .glance { border-collapse: collapse; margin: 18px 0 4px; font-size: 0.95rem; }
+    .dialog .glance { border-collapse: collapse; margin: 34px 0 4px; font-size: 0.95rem; }
     .dialog .glance th { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #5A6573; text-align: left; padding: 0 0 8px 0; min-width: 110px; }
     .dialog .glance td { padding: 8px 0; border-top: 1px solid #EEF0F3; }
     .dialog .glance td.k { color: #3E4A59; padding-right: 40px; white-space: nowrap; }
@@ -413,10 +414,10 @@
       function rows(items) {
         return '<div class="rows">' + items.map(([label, text, lk]) =>
           '<div class="row"><div class="rl">' + label + '</div><div class="rt">' + text +
-          (lk.length ? '<div class="rlinks">' + lk.map(([t, u]) => '<a href="' + u + '"' + (u.startsWith('http') ? ' target="_blank" rel="noopener"' : '') + '>' + t + ' &rarr;</a>').join('') + '</div>' : '') +
+          (lk.length ? '<div class="rlinks">' + lk.map(([t, u]) => '<a href="' + u + '"' + (u.startsWith('http') ? ' target="_blank" rel="noopener"' : '') + '>' + t + '</a>').join('') + '</div>' : '') +
           '</div></div>').join('') + '</div>';
       }
-      const refs = s => '<div class="sec"><h3>Reference</h3><div class="rlinks">' + s.refs.map(([t, u]) => '<a href="' + u + '" target="_blank" rel="noopener">' + t + ' &rarr;</a>').join('') + '</div></div>';
+      const refs = s => '<div class="sec"><h3>Reference</h3><div class="rlinks">' + s.refs.map(([t, u]) => '<a href="' + u + '" target="_blank" rel="noopener">' + t + '</a>').join('') + '</div></div>';
 
       const KINDS = [['Filing required', ['License', 'Registration']], ['Disclosure required', ['Disclosure']], ['Conduct rules', ['Conduct', 'APR posting', 'ACH']]];
       function glance(s, rs) {
