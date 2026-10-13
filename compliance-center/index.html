@@ -201,6 +201,12 @@
     .dialog .rlinks a { text-decoration: none; color: #2C5282; font-weight: 500; }
     .dialog .rlinks a:hover { text-decoration: underline; text-underline-offset: 3px; }
     .dialog .covers { margin-top: 6px; }
+    .dialog .glance { border-collapse: collapse; margin: 18px 0 4px; font-size: 0.95rem; }
+    .dialog .glance th { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #5A6573; text-align: left; padding: 0 0 8px 0; min-width: 110px; }
+    .dialog .glance td { padding: 8px 0; border-top: 1px solid #EEF0F3; }
+    .dialog .glance td.k { color: #3E4A59; padding-right: 40px; white-space: nowrap; }
+    .dialog .glance td.y { color: #142F52; font-weight: 600; }
+    .dialog .glance td.n { color: #A3ABB5; }
 
     .fine { font-size: 0.78rem; color: #7A8594; margin: 48px 0 0; padding-top: 16px; border-top: 1px solid #E6E8EB; }
     .fine a { color: inherit; }
@@ -412,6 +418,17 @@
       }
       const refs = s => '<div class="sec"><h3>Reference</h3><div class="rlinks">' + s.refs.map(([t, u]) => '<a href="' + u + '" target="_blank" rel="noopener">' + t + ' &rarr;</a>').join('') + '</div></div>';
 
+      const KINDS = [['Filing required', ['License', 'Registration']], ['Disclosure required', ['Disclosure']], ['Conduct rules', ['Conduct', 'APR posting', 'ACH']]];
+      function glance(s, rs) {
+        const has = (x, labels) => (s[x] || []).some(it => labels.includes(it[0]));
+        const kinds = KINDS.filter(([, labels]) => labels !== KINDS[2][1] || rs.some(x => has(x, labels)));
+        let t = '<table class="glance"><thead><tr><th></th>' + rs.map(x => '<th>' + (x === 'broker' ? 'Broker' : 'Provider') + '</th>').join('') + '</tr></thead><tbody>';
+        kinds.forEach(([k, labels]) => {
+          t += '<tr><td class="k">' + k + '</td>' + rs.map(x => has(x, labels) ? '<td class="y">Yes</td>' : '<td class="n">No</td>').join('') + '</tr>';
+        });
+        return t + '</tbody></table>';
+      }
+
       function render(name) {
         const s = DATA[name], r = role(), ps = prods();
         let h = '<h2 id="dlg-title">' + name + '</h2>';
@@ -424,7 +441,9 @@
           return h + '<p class="sum">No requirement for your selection.</p><p class="empty">' + name + '&rsquo;s law ' +
             (roleMiss ? 'applies to ' + s.roles.map(x => x + 's').join(' and ') : 'covers ' + list(s.products)) + '.</p>' + refs(s);
         }
-        h += '<p class="sum">' + s.summary + '</p>';
+        const rsx = (all ? ['broker', 'provider'] : roleList(r)).filter(x => s.roles.includes(x));
+        if (s.status === 'pending') h += '<p class="sum">' + s.summary + '</p>';
+        else h += glance(s, rsx);
         const notes = Object.entries(s.pnotes || {}).filter(([k]) => !all && ps.includes(k)).map(([, v]) => v);
         if (notes.length) h += '<p class="covers">' + notes.join(' ') + '</p>';
         const rs = (all ? ['broker', 'provider'] : roleList(r)).filter(x => s.roles.includes(x));
