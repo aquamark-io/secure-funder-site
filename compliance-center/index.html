@@ -155,10 +155,10 @@
     .pick { display: flex; flex-direction: column; gap: 10px; margin: 0 0 28px; }
     .pick-group { display: flex; align-items: stretch; flex-wrap: nowrap; background: #FFFFFF; border: 1px solid #D3D8DE; padding: 0; transition: border-color 0.15s; }
     .pick-group:hover { border-color: #A9B2BD; }
-    .pick-label { flex: 0 0 108px; display: flex; align-items: center; padding: 13px 18px; background: #F2F4F6; border-right: 1px solid #E1E5EA; }
-    .pick-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #5A6573; }
-    .pick-opts { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; padding: 13px 16px; }
-    .pick-opts label { display: inline-flex; align-items: center; gap: 7px; font-size: 0.9rem; color: #1E2733; cursor: pointer; }
+    .pick-label { flex: 0 0 auto; white-space: nowrap; display: flex; align-items: center; padding: 13px 16px; background: #F2F4F6; border-right: 1px solid #E1E5EA; }
+    .pick-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #5A6573; }
+    .pick-opts { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; padding: 13px 14px; flex-wrap: nowrap; }
+    .pick-opts label { display: inline-flex; align-items: center; gap: 6px; font-size: 0.88rem; white-space: nowrap; color: #1E2733; cursor: pointer; }
     .pick-opts input { appearance: none; -webkit-appearance: none; width: 16px; height: 16px; margin: 0; border: 1.5px solid #8A94A0; border-radius: 50%; background: #FFFFFF; cursor: pointer; flex-shrink: 0; transition: border-color 0.15s; }
     .pick-opts input:hover { border-color: #142F52; }
     .pick-opts input:checked { border-color: #142F52; background: radial-gradient(circle, #142F52 0 4px, #FFFFFF 4.5px); }
@@ -235,6 +235,7 @@
     .fine a { color: inherit; }
     .fine strong { font-weight: 600; color: #5A6573; }
 
+    @media (max-width: 1120px) { .pick-opts { flex-wrap: wrap; } }
     @media (max-width: 900px) { .grid { grid-template-columns: repeat(3, 1fr); } .pick { flex-direction: column; gap: 10px; } }
     @media (max-width: 560px) {
       .band-inner { padding: 40px 20px 0; }
@@ -244,7 +245,7 @@
       .page { padding-top: 32px; }
       .pick { gap: 10px; }
       .pick-group { flex-direction: column; }
-      .pick-opts { flex-direction: column; align-items: flex-start; gap: 12px; padding: 16px 18px; }
+      .pick-opts { flex-direction: column; align-items: flex-start; gap: 12px; padding: 16px 18px; flex-wrap: wrap; }
       .pick-label { flex: none; padding: 10px 18px; border-right: none; border-bottom: 1px solid #E1E5EA; }
       .grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
       .overlay { padding: 64px 0 0; }
@@ -302,7 +303,7 @@
   <main class="page">
 
     <div class="pick">
-      <div class="pick-group products"><span class="pick-label">Products</span><div class="pick-opts"><label><input type="checkbox" autocomplete="off" name="product" value="mca">Revenue-Based</label><label><input type="checkbox" autocomplete="off" name="product" value="factoring">Invoice Factoring</label><label><input type="checkbox" autocomplete="off" name="product" value="abl">Asset-Based Lending</label><label><input type="checkbox" autocomplete="off" name="product" value="loans">Term Loan</label><label><input type="checkbox" autocomplete="off" name="product" value="loc">Line of Credit</label><label><input type="checkbox" autocomplete="off" name="product" value="equip">Equipment Financing</label></div></div>
+      <div class="pick-group products"><span class="pick-label">Select Product(s)</span><div class="pick-opts"><label><input type="checkbox" autocomplete="off" name="product" value="mca">Revenue-Based</label><label><input type="checkbox" autocomplete="off" name="product" value="factoring">Invoice Factoring</label><label><input type="checkbox" autocomplete="off" name="product" value="abl">Asset-Based Lending</label><label><input type="checkbox" autocomplete="off" name="product" value="loans">Term Loan</label><label><input type="checkbox" autocomplete="off" name="product" value="loc">Line of Credit</label><label><input type="checkbox" autocomplete="off" name="product" value="equip">Equipment Financing</label></div></div>
     </div>
 
     <p class="status" id="status"></p>
