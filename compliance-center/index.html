@@ -129,6 +129,14 @@
 
 
     .page { max-width: 1120px; }
+    .gate { display: none; }
+    @media (max-width: 899px), (hover: none) and (pointer: coarse) {
+      .gate { display: block; max-width: 520px; margin: 0 auto; padding: 72px 24px 96px; }
+      .gate-eyebrow { font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: #142F52; margin: 0 0 14px; }
+      .gate h1 { font-size: 1.7rem; line-height: 1.2; letter-spacing: -0.02em; color: #142F52; margin: 0 0 28px; }
+      .gate a.gate-btn { display: inline-block; background: #142F52; color: #FFFFFF; text-decoration: none; font-size: 0.92rem; font-weight: 600; padding: 12px 20px; }
+      .band, main.page, .overlay { display: none !important; }
+    }
     .band { background: transparent; }
     .band-inner { max-width: 1120px; margin: 0 auto; padding: 72px 32px 0; }
     .band h1 { font-size: 2.15rem; line-height: 1.2; text-wrap: balance; letter-spacing: -0.03em; margin: 0; color: #142F52; }
@@ -277,6 +285,12 @@
       <button class="mobile-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </nav>
+
+  <div class="gate">
+    <p class="gate-eyebrow">Compliance Center</p>
+    <h1>Only accessible on desktop.</h1>
+    <a class="gate-btn" href="mailto:?subject=Compliance%20Center&amp;body=https%3A%2F%2Fsecurefunder.org%2Fcompliance-center%2F">Email me the link</a>
+  </div>
 
   <div class="band">
     <div class="band-inner">
