@@ -146,7 +146,6 @@
     .pick { display: flex; flex-direction: column; gap: 10px; margin: 0 0 28px; }
     .pick-group { display: flex; align-items: stretch; flex-wrap: nowrap; background: #FFFFFF; border: 1px solid #D3D8DE; padding: 0; transition: border-color 0.15s; }
     .pick-group:hover { border-color: #A9B2BD; }
-    .pick-group:has(input:checked) { border-color: #142F52; }
     .pick-label { flex: 0 0 108px; display: flex; align-items: center; padding: 13px 18px; background: #F2F4F6; border-right: 1px solid #E1E5EA; }
     .pick-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #5A6573; }
     .pick-opts { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; padding: 13px 16px; }
@@ -154,7 +153,8 @@
     .pick-opts input { appearance: none; -webkit-appearance: none; width: 16px; height: 16px; margin: 0; border: 1.5px solid #8A94A0; border-radius: 50%; background: #FFFFFF; cursor: pointer; flex-shrink: 0; transition: border-color 0.15s; }
     .pick-opts input:hover { border-color: #142F52; }
     .pick-opts input:checked { border-color: #142F52; background: radial-gradient(circle, #142F52 0 4px, #FFFFFF 4.5px); }
-    .pick-opts input:focus-visible { outline: 2px solid #142F52; outline-offset: 2px; }
+    .pick-opts input:focus { outline: none; }
+    .pick-opts input:focus-visible { outline: 2px solid #9FB3CB; outline-offset: 2px; }
 
     .status { font-size: 0.86rem; color: #5A6573; margin: 0 0 16px; }
     .status:empty { display: none; }
@@ -432,6 +432,12 @@
       overlay.addEventListener('click', e => { if (e.target === overlay) close(); });
       document.addEventListener('keydown', e => { if (e.key === 'Escape' && overlay.classList.contains('open')) close(); });
       document.querySelectorAll('input[name="role"], input[name="product"]').forEach(i => i.addEventListener('change', paint));
+      document.querySelectorAll('input[name="role"]').forEach(i => {
+        let was = false;
+        i.addEventListener('pointerdown', () => { was = i.checked; });
+        i.closest('label').addEventListener('pointerdown', () => { was = i.checked; });
+        i.addEventListener('click', () => { if (was) { i.checked = false; was = false; paint(); } });
+      });
       paint();
       window.addEventListener('pageshow', e => { if (e.persisted) { document.querySelectorAll('.pick input').forEach(i => { i.checked = false; }); paint(); } });
     })();
