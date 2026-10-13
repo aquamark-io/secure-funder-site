@@ -220,7 +220,9 @@
     .dialog .upcoming .req td { border-bottom-color: #E2E7ED; }
     .dialog .req tr:last-child td { border-bottom: none; }
     .dialog .req td.rq { color: #142F52; font-weight: 600; font-size: 0.95rem; padding-top: 17px; }
-    .dialog .prep { margin: 18px 0 0; font-size: 0.95rem; color: #3E4A59; }
+    .dialog .prep { display: flex; align-items: center; gap: 8px; margin: 18px 0 0; font-size: 0.95rem; color: #1E2733; }
+    .dialog .prep strong { color: #142F52; font-weight: 600; }
+    .dialog .tri { width: 0; height: 0; border-left: 6px solid transparent; border-right: 6px solid transparent; border-bottom: 11px solid #D93025; flex-shrink: 0; }
     .dialog .req .y { display: block; color: #142F52; font-weight: 700; margin-bottom: 2px; }
     .dialog .req .n { color: #A3ABB5; }
     .dialog .req .d { color: #1E2733; }
@@ -434,7 +436,7 @@
 
       const refs = s => '<div class="sec"><h3>Reference</h3><div class="rlinks">' + s.refs.map(([t, u]) => '<a href="' + u + '" target="_blank" rel="noopener">' + t + '</a>').join('') + '</div></div>';
       const linkHtml = l => l.length ? '<div class="rlinks">' + l.map(([t, u]) => '<a href="' + u + '"' + (u.startsWith('http') ? ' target="_blank" rel="noopener"' : '') + '>' + t + '</a>').join('') + '</div>' : '';
-      const COLS = [['broker', 'Broker'], ['provider', 'Funder']];
+      const COLS = [['broker', 'Broker'], ['provider', 'Provider']];
       const ORDER = ['Licensing', 'Registration', 'Disclosure', 'Conduct'];
 
       function normalize(rowsData) {
@@ -483,9 +485,9 @@
         if (s.upcoming) {
           const u = s.upcoming;
           h += '<div class="up"><h2 class="up-h">Upcoming Changes</h2><div class="up-law">' + u.title + '</div>' +
+            (u.prep ? '<p class="prep"><span class="tri" aria-hidden="true"></span><strong>Prepare now:</strong> <a href="' + u.prep[1] + '">' + u.prep[0] + '</a></p>' : '') +
             '<div class="dates">' + u.dates.map(([d, l]) => '<div class="dt"><span class="dd">' + d + '</span><span class="dl">' + l + '</span></div>').join('') + '</div>' +
-            '<div class="upcoming">' + table(u.rows, ctx, true) + '</div>' +
-            (u.prep ? '<p class="prep">Prepare now: <a href="' + u.prep[1] + '">' + u.prep[0] + '</a></p>' : '') + '</div>';
+            '<div class="upcoming">' + table(u.rows, ctx, true) + '</div></div>';
         }
         return h + refs(s);
       }
