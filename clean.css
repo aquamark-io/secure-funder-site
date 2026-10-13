@@ -1,0 +1,179 @@
+/* Shared clean styles — Secure Broker / Secure Funder content pages.
+   Navy headings, grey body text, hairline borders, soft grey bands, bright-blue links.
+   Brand color stays in the logo, nav Sign In button and footer. */
+
+:root{--cc-navy:#142F52;--cc-text:#3E4A59;--cc-muted:#5A6573;--cc-faint:#8A94A0;--cc-line:#E1E5EA;--cc-line-soft:#ECEFF2;--cc-band:#F4F5F7;--cc-link:#1A6DD9}
+
+/* ---- Article template (articles, spotlights, checklists) ---- */
+.article h1,.article-header h1{color:var(--cc-navy) !important}
+.article-dek{color:var(--cc-muted) !important}
+.article-eyebrow{color:var(--cc-muted) !important}
+.article-eyebrow::before{background:var(--cc-line) !important}
+.author-name{color:var(--cc-navy) !important}
+.author-role{color:var(--cc-faint) !important}
+.author-row{border-top-color:var(--cc-line) !important}
+.article-body h2,.article-body h3,.article-body h4{color:var(--cc-navy) !important}
+.article-body p,.article-body li{color:var(--cc-text) !important}
+.article-body strong{color:var(--cc-navy) !important}
+.article-body li::marker{color:var(--cc-navy) !important}
+.article-body a:not(.article-cta){color:var(--cc-link) !important;font-weight:400 !important;text-decoration:none !important}
+.article-body a:not(.article-cta):hover{text-decoration:underline !important;text-underline-offset:3px}
+.article-body hr{border-top-color:var(--cc-line) !important}
+.article-body blockquote{border-left-color:var(--cc-line) !important;color:var(--cc-text) !important}
+.article-body ul.checklist{border-top-color:var(--cc-line) !important}
+.article-body ul.checklist li{border-bottom-color:var(--cc-line-soft) !important}
+.article-body .checklist-item input[type="checkbox"]{accent-color:var(--cc-navy) !important}
+.article-signoff{border-top:1px solid var(--cc-line) !important}
+.signoff-label{color:var(--cc-muted) !important}
+.signoff-name{color:var(--cc-navy) !important}
+.signoff-role{color:var(--cc-faint) !important}
+.signoff-contact a{color:var(--cc-link) !important;font-weight:400 !important}
+
+/* ---- Terms-style pages (terms, safeguards, verification, watermarking) ---- */
+.page-header{background:#FFFFFF !important;border-bottom:none !important;padding:56px 0 8px !important;text-align:left !important}
+.page-header h1{color:var(--cc-navy) !important;font-size:2.15rem !important;letter-spacing:-.02em;text-align:left !important}
+.page-header p,.page-header .subtitle{color:var(--cc-muted) !important;text-align:left !important}
+.page-header .section-label{color:var(--cc-muted) !important}
+.page-header .container-narrow,.page-header .container{text-align:left !important}
+.terms-body{padding-top:28px !important}
+.terms-body h2{color:var(--cc-navy) !important;border-top:1px solid #E6E8EB !important;font-size:1.2rem !important}
+.terms-body h3{color:var(--cc-navy) !important}
+.terms-body p,.terms-body li{color:var(--cc-text) !important}
+.terms-body strong{color:var(--cc-navy) !important}
+.terms-body a{color:var(--cc-link) !important;font-weight:400 !important;text-decoration:none !important}
+.terms-body a:hover{text-decoration:underline !important;text-underline-offset:3px}
+.terms-body ul li::before{background:var(--cc-navy) !important}
+.terms-body .contact-block{background:var(--cc-band) !important;border:none !important}
+.terms-divider{border-top-color:var(--cc-line) !important;background:var(--cc-line) !important}
+
+/* ---- Publications ---- */
+.pub-header h1{color:var(--cc-navy) !important}
+.pub-dek{color:var(--cc-muted) !important}
+.pub-group-label{color:var(--cc-muted) !important}
+.pub-item-title{color:var(--cc-navy) !important}
+.pub-item:hover .pub-item-title,.pub-item-title:hover{color:var(--cc-link) !important}
+.pub-search-input{border:1px solid #D3D8DE !important;border-radius:0 !important}
+.pub-next-note{color:var(--cc-faint) !important}
+
+/* ---- Section pages (directory, verification) ---- */
+.section-title{color:var(--cc-navy) !important}
+.section-subtitle{color:var(--cc-muted) !important}
+.section-label{color:var(--cc-muted) !important}
+.registry-card{border:1px solid var(--cc-line) !important;box-shadow:none !important;border-radius:0 !important}
+.inline-link{color:var(--cc-link) !important;font-weight:400 !important}
+
+
+/* ---- Accordion cards (guidelines, common approaches) ---- */
+body{color:#1E2733}
+.hero-inner{padding:56px 0 8px}
+.hero h1{color:#142F52 !important;font-size:2.15rem;letter-spacing:-.02em;margin-bottom:12px}
+.hero-notice,.hero-notice p{color:#5A6573 !important;font-size:1rem}
+.requirements-section{padding-top:28px}
+.requirements-layout{max-width:860px}
+.req-list{gap:16px}
+
+/* Cards: hairline box, soft grey header band, navy titles */
+.req-card,.req-card.req-card-intro,.req-card.req-card-solid,.req-card.req-card-dark,.req-card.req-card-accent{border:1px solid #E1E5EA !important;border-top:1px solid #E1E5EA !important;background:#FFFFFF}
+.req-card>summary.req-top,
+.req-card[open]>summary.req-top,
+.req-card.req-card-accent>summary.req-top,.req-card.req-card-accent[open]>summary.req-top,
+.req-card.req-card-dark>summary.req-top,.req-card.req-card-dark[open]>summary.req-top,
+.req-card.req-card-solid>summary.req-top,.req-card.req-card-solid[open]>summary.req-top,
+.req-card.req-card-intro>summary.req-top,.req-card.req-card-intro[open]>summary.req-top{background:#F4F5F7 !important;border-bottom:1px solid #E1E5EA !important;padding:18px 56px 18px 22px}
+.req-card>summary.req-top h3,.req-card.req-card-accent>summary.req-top h3,.req-card.req-card-dark>summary.req-top h3,.req-card.req-card-solid>summary.req-top h3{color:#142F52 !important;font-size:1.2rem;margin:0}
+.req-card>summary.req-top::after,.req-card.req-card-accent>summary.req-top::after,.req-card.req-card-dark>summary.req-top::after,.req-card.req-card-solid>summary.req-top::after{border-color:#142F52 !important;border-right-width:2px;border-bottom-width:2px;width:10px;height:10px;top:26px}
+.req-card[open]>summary.req-top::after{top:31px}
+.req-body{padding:22px 22px 24px}
+
+/* How it works: numbered list in navy */
+.process-checklist li,#how-it-works .process-checklist li{color:#1E2733 !important;font-size:1rem}
+#how-it-works .process-checklist li::before{color:#142F52 !important}
+.inline-link{color:#1A6DD9;font-weight:400}
+
+/* "See Guidelines" opener: navy button on white */
+#document-protection>summary.start-quiz-top,#document-protection[open]>summary.start-quiz-top{background:#F4F5F7 !important;border-bottom:1px solid #E1E5EA}
+#document-protection>summary.start-quiz-top .start-quiz-label{background:#142F52 !important;color:#FFFFFF !important;font-weight:600;font-size:.9rem;padding:11px 22px}
+#document-protection>summary.start-quiz-top:hover .start-quiz-label{filter:none;background:#1F3D66 !important}
+#document-protection>summary.start-quiz-top::after{display:none}
+
+/* Questions: hairline rows, navy labels, small-caps section labels */
+#document-protection .question-block,#document-protection .branch-card{border-top:1px solid #ECEFF2;padding:22px}
+#document-protection .question-block.quiz-intro{border-top:none}
+.quiz-intro p{color:#3E4A59;font-size:.95rem}
+.quiz-intro strong{color:#142F52}
+#document-protection .question-label,.question-label{color:#142F52 !important;font-weight:600}
+.question-hint,#document-protection .question-hint{color:#8A94A0 !important}
+#document-protection .branch-title,.branch-title{font-size:.7rem !important;font-weight:700;letter-spacing:.12em !important;text-transform:uppercase;color:#5A6573 !important}
+.choice-grid label{color:#1E2733 !important;font-size:.95rem}
+
+/* Inputs: Compliance Center circles and squares in navy */
+.choice-grid input[type="radio"]{border-radius:50% !important;border:1.5px solid #8A94A0 !important;width:16px;height:16px}
+.choice-grid input[type="radio"]:checked{background:radial-gradient(circle,#142F52 0 4px,#FFFFFF 4.5px) !important;border-color:#142F52 !important}
+.choice-grid input[type="radio"]:checked::after{display:none}
+.choice-grid input[type="checkbox"]{border:1.5px solid #8A94A0 !important}
+.choice-grid input[type="checkbox"]:checked{background:#142F52 !important;border-color:#142F52 !important}
+.question-select{border:1px solid #D3D8DE !important;color:#1E2733;background-color:#FFFFFF}
+.question-select:focus{outline:2px solid rgba(26,109,217,.18) !important;border-color:#1A6DD9 !important}
+
+/* Results: soft grey panels, navy emphasis, bright-blue links */
+.result-note-ok,.result-note-download{background:#F4F5F7 !important;color:#3E4A59 !important}
+.result-note-ok strong,.result-note-download strong{color:#142F52 !important}
+.result-note a,.result-note-download a{color:#1A6DD9 !important;text-decoration:none !important}
+.result-note a:hover,.result-note-download a:hover{text-decoration:underline !important}
+#questionnaireComplete.quiz-done{border-top:1px solid #ECEFF2}
+.quiz-done-title{color:#142F52 !important}
+.quiz-done p,.quiz-done li{color:#3E4A59}
+
+/* Actions: soft grey reset, navy join */
+.quiz-actions .questionnaire-reset,.questionnaire-reset{background:#EEF0F3 !important;color:#4B5563 !important;font-weight:500 !important}
+.quiz-actions .questionnaire-reset:hover,.questionnaire-reset:hover{background:#E3E6EA !important;filter:none;color:#4B5563 !important}
+.quiz-actions .quiz-join,.btn-join{background:#142F52 !important;color:#FFFFFF !important;font-weight:600 !important}
+.quiz-actions .quiz-join:hover,.btn-join:hover{background:#1F3D66 !important}
+
+/* Fee and details modals: hairline, no heavy shadow */
+.fee-modal,.details-modal{border-radius:0 !important;border:1px solid #E1E5EA !important;box-shadow:0 12px 40px rgba(20,30,45,.12) !important}
+.fee-modal h4{color:#142F52}
+.fee-modal-overlay,.details-modal-overlay{background:rgba(20,30,45,.28) !important}
+
+/* ---- Download safeguards ---- */
+.terms-body .ds-important + h2{border-top:none !important}
+.terms-body p,.terms-body ol.ds-steps li,.terms-body ul li{color:#3E4A59 !important}
+.terms-body strong,.terms-body ol.ds-steps li strong,.terms-body .ds-req-list strong{color:#142F52 !important}
+.terms-body ol.ds-steps li::marker{color:#142F52 !important}
+.terms-body a{color:#1A6DD9 !important;font-weight:400 !important;text-decoration:none !important}
+.terms-body a:hover{text-decoration:underline !important;text-underline-offset:3px}
+.terms-body p > span[style]{text-decoration:none !important;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#5A6573}
+.terms-body ul li::before{background:#142F52 !important}
+
+/* Important: soft grey panel, red marker kept */
+.ds-important{background:#F4F5F7 !important;border:none !important;padding:16px 20px !important}
+.terms-body .ds-important p{color:#3E4A59 !important}
+.terms-body .ds-important strong{color:#142F52 !important}
+
+/* Setup guidance: hairline box with grey header band */
+.terms-body h2.ds-guidance-title{border-top:none !important;margin-bottom:0 !important;padding:16px 22px !important;background:#F4F5F7;border:1px solid #E1E5EA !important;border-bottom:none !important;font-size:1.25rem !important}
+.ds-guidance.ds-details-doc{border:1px solid #E1E5EA;padding:24px 22px;margin-top:0}
+.ds-details-doc .ds-opt-title,.terms-body .ds-opt-title{background:none !important;padding:0 !important;margin-left:0 !important;color:#142F52 !important;font-size:1.05rem !important}
+.terms-body .ds-sep{border-top:1px solid #ECEFF2 !important}
+.terms-body .ds-tools-lead{color:#5A6573 !important;font-size:.72rem !important;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.terms-body ul.ds-tools li{color:#3E4A59 !important}
+/* Setup guidance option bands */
+.ds-guidance.ds-details-doc{padding:0 22px 26px !important}
+.ds-details-doc .ds-opt-title,.terms-body .ds-guidance .ds-opt-title{display:block !important;background:#EEF1F4 !important;margin:28px -22px 18px !important;padding:13px 22px !important;border-top:1px solid #E1E5EA;border-bottom:1px solid #E1E5EA;font-size:.78rem !important;font-weight:700 !important;letter-spacing:.12em;text-transform:uppercase;color:#142F52 !important}
+.ds-guidance .ds-opt-title:first-child{margin-top:0 !important;border-top:none}
+.terms-body .ds-guidance .ds-sep{display:none}
+
+/* ---- Common approaches ---- */
+.req-card > .section-label{background:var(--cc-band) !important;color:var(--cc-navy) !important;border-bottom:1px solid var(--cc-line) !important;font-size:.95rem !important;font-weight:700 !important}
+h1[style*="--forest"],h1[style*="--navy"]{color:var(--cc-navy) !important}
+.approach-summary{color:var(--cc-navy) !important}
+.approach-item{border-bottom-color:var(--cc-line-soft) !important}
+summary[style*="#2B3440"]{background:var(--cc-band) !important;color:var(--cc-navy) !important;border-bottom:1px solid var(--cc-line)}
+.req-card.req-card-intro,.req-card.req-card-intro .req-body,.req-card.req-card-intro>summary.req-top{background:#FFFFFF}
+
+/* ---- Funder info pages ---- */
+.page-header::before,.page-header::after{display:none !important}
+.approach-box{background:var(--cc-band) !important;border:1px solid var(--cc-line) !important;border-radius:0 !important}
+.approach-box h3{color:var(--cc-navy) !important}
+.key-points{background:var(--cc-band) !important;border-color:var(--cc-line) !important;border-radius:0 !important}
+.provider-note{background:var(--cc-band) !important;border-left-color:var(--cc-line) !important}
