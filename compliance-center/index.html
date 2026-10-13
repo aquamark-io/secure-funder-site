@@ -133,6 +133,7 @@
     .band-inner { max-width: 1120px; margin: 0 auto; padding: 72px 32px 0; }
     .band h1 { font-size: 2.15rem; line-height: 1.2; text-wrap: balance; letter-spacing: -0.03em; margin: 0; color: #142F52; }
     .band-sub { margin: 18px 0 0; font-size: 0.86rem; font-weight: 400; text-transform: uppercase; letter-spacing: 0.14em; color: #142F52; }
+    .mbr { display: none; }
     .band-sub.top { margin: 0 0 14px; }
     .page { padding-top: 36px; }
     .page-header { margin-bottom: 28px; }
@@ -184,6 +185,16 @@
     .dialog h3 { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #5A6573; margin: 0 0 14px; }
     .dialog .block { margin-top: 28px; }
     .dialog .upcoming { background: #F5F7FA; padding: 22px 28px 18px; margin-top: 24px; }
+    .dialog .rlist { border-top: 1px solid #E1E5EA; }
+    .dialog .upcoming .rlist { border-top: none; }
+    .dialog .ritem { display: grid; grid-template-columns: 170px 1fr; gap: 24px; padding: 20px 0; border-bottom: 1px solid #ECEFF2; }
+    .dialog .upcoming .ritem { border-bottom-color: #E2E7ED; }
+    .dialog .ritem:last-child { border-bottom: none; }
+    .dialog .ritem .rq { font-weight: 700; color: #142F52; }
+    .dialog .ent + .ent { margin-top: 18px; }
+    .dialog .tag { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #8A94A0; margin-bottom: 4px; }
+    .dialog .tag.you { color: #1A6DD9; }
+    .dialog .ent.dim { opacity: 0.35; }
     .dialog .callout { margin: 24px 0 0; padding: 14px 18px; background: #EEF4FC; border-left: 3px solid #1A6DD9; color: #142F52; font-size: 0.95rem; }
     .dialog .up { margin-top: 48px; padding-top: 40px; border-top: 1px solid #E6E8EB; }
     .dialog .up-h { margin: 0 0 6px; }
@@ -218,7 +229,8 @@
     @media (max-width: 900px) { .grid { grid-template-columns: repeat(3, 1fr); } .pick { flex-direction: column; gap: 10px; } }
     @media (max-width: 560px) {
       .band-inner { padding: 40px 20px 0; }
-      .band h1 { font-size: 1.75rem; }
+      .band h1 { font-size: clamp(1.15rem, 5.5vw, 1.6rem); text-wrap: wrap; }
+      .mbr { display: inline; }
       .band-sub { font-size: 0.74rem; letter-spacing: 0.12em; line-height: 1.6; }
       .page { padding-top: 32px; }
       .pick { gap: 10px; }
@@ -230,6 +242,7 @@
       .dialog { padding: 32px 20px 36px; min-height: calc(100vh - 64px); }
       .dialog h2 { font-size: 1.7rem; }
       .dialog .dt { grid-template-columns: 1fr; gap: 2px; }
+      .dialog .ritem { grid-template-columns: 1fr; gap: 8px; }
       .dialog .upcoming { padding: 20px 16px 16px; }
       .dialog .req thead { display: none; }
       .dialog .req, .dialog .req tbody, .dialog .req tr, .dialog .req td { display: block; width: 100% !important; }
@@ -268,7 +281,7 @@
   <div class="band">
     <div class="band-inner">
       <p class="band-sub top">Compliance Center</p>
-      <h1>State-Level Regulation, Alternative Commercial Finance</h1>
+      <h1>State-Level Regulation,<br class="mbr"> Alternative Commercial Finance</h1>
     </div>
   </div>
   <main class="page">
@@ -411,26 +424,32 @@
       const linkHtml = l => l.length ? '<div class="rlinks">' + l.map(([t, u]) => '<a href="' + u + '"' + (u.startsWith('http') ? ' target="_blank" rel="noopener"' : '') + '>' + t + '</a>').join('') + '</div>' : '';
       const PLABEL = { broker: 'Broker', provider: 'Provider' };
 
-      function cell(c, role, ctx, upcoming) {
-        const off = ctx.r && !roleList(ctx.r).includes(role);
-        const prodOff = c && c.p && ctx.ps.length && !c.p.some(p => ctx.ps.includes(p));
-        const cls = 'c' + (off || prodOff || ctx.allOff ? ' dim' : '');
-        let inner;
-        if (!c) inner = upcoming ? '<span class="n">&mdash;</span>' : '<span class="n">No</span>';
-        else inner = (upcoming ? '' : '<span class="y">Yes</span>') + '<div class="d">' + c.t + '</div>' + linkHtml(c.l);
-        return '<td class="' + cls + '" data-role="' + PLABEL[role] + '">' + inner + '</td>';
-      }
-
-      function table(rowsData, ctx, upcoming) {
-        const roles = ['broker', 'provider'];
-        let t = '<table class="req"><thead><tr><th class="rq"></th>' + roles.map(x => {
-          const off = ctx.r && !roleList(ctx.r).includes(x);
-          return '<th class="' + (off ? 'dim' : '') + '">' + PLABEL[x] + '</th>';
-        }).join('') + '</tr></thead><tbody>';
+      const same = (a, b) => a && b && a.t === b.t && JSON.stringify(a.l) === JSON.stringify(b.l);
+      function items(rowsData) {
+        const out = [];
         rowsData.forEach(row => {
-          t += '<tr><td class="rq">' + row.req + '</td>' + roles.map(x => cell(row[x], x, ctx, upcoming)).join('') + '</tr>';
+          const b = row.broker, p = row.provider, list = [];
+          if (same(b, p)) list.push({ roles: ['broker', 'provider'], c: b });
+          else {
+            if (b) list.push({ roles: ['broker'], c: b });
+            if (p) list.push({ roles: ['provider'], c: p });
+          }
+          if (list.length) out.push({ req: row.req, list });
         });
-        return t + '</tbody></table>';
+        return out;
+      }
+      function reqList(rowsData, ctx) {
+        const groups = items(rowsData);
+        if (!groups.length) return '';
+        return '<div class="rlist">' + groups.map(g => '<div class="ritem"><div class="rq">' + g.req + '</div><div class="rbody">' +
+          g.list.map(it => {
+            const c = it.c;
+            const prodOff = (c.p && ctx.ps.length && !c.p.some(p => ctx.ps.includes(p))) || ctx.allOff;
+            const mine = ctx.r && it.roles.some(x => roleList(ctx.r).includes(x));
+            const tagTxt = it.roles.length === 2 ? 'Brokers and providers' : (it.roles[0] === 'broker' ? 'Brokers' : 'Providers');
+            const tag = '<div class="tag' + (mine && !prodOff ? ' you' : '') + '">' + tagTxt + (mine && !prodOff ? ' &middot; Applies to you' : '') + '</div>';
+            return '<div class="ent' + (prodOff ? ' dim' : '') + '">' + tag + '<div class="d">' + c.t + '</div>' + linkHtml(c.l) + '</div>';
+          }).join('') + '</div></div>').join('') + '</div>';
       }
 
       function render(name) {
@@ -462,12 +481,12 @@
           const txt = (names.length > 1 ? names.slice(0, -1).join(', ') + ' and ' + names.slice(-1) : names[0]) + (names.length > 1 ? ' are' : ' is') + ' not covered by ' + why + '.' + (s.upcoming ? ' See Upcoming Changes below.' : '');
           h += '<div class="callout">' + txt + '</div>';
         });
-        h += '<div class="block">' + (anyNow ? table(s.now, ctx, false) : '<p class="none">Nothing required yet.</p>') + '</div>';
+        h += '<div class="block">' + (anyNow ? reqList(s.now, ctx) : '<p class="none">Nothing required yet.</p>') + '</div>';
         if (s.upcoming) {
           const u = s.upcoming;
           h += '<div class="up"><h2 class="up-h">Upcoming Changes</h2><div class="up-law">' + u.title + '</div>' +
             '<div class="dates">' + u.dates.map(([d, l]) => '<div class="dt"><span class="dd">' + d + '</span><span class="dl">' + l + '</span></div>').join('') + '</div>' +
-            '<div class="upcoming">' + table(u.rows, ctx, true) + '</div></div>';
+            '<div class="upcoming">' + reqList(u.rows, ctx) + '</div></div>';
         }
         return h + refs(s);
       }
