@@ -138,6 +138,8 @@
     .page-header h1 { margin-bottom: 10px; }
     .page-header .eyebrow { font-size: 0.82rem; font-weight: 400; letter-spacing: 0.04em; color: #4B5563; margin-bottom: 14px; }
     .page-header .eyebrow::before { display: none; }
+    .page-header .eyebrow { display: flex; align-items: center; gap: 8px; }
+    .page-header .eyebrow .ico { width: 18px; height: 18px; fill: none; stroke: #B08A2E; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
     .page-header p { margin: 0; color: #5A6573; font-size: 1.02rem; }
 
     .pick { display: flex; flex-wrap: wrap; gap: 14px 48px; padding: 18px 22px; background: #F4F5F7; margin: 0 0 28px; }
@@ -230,7 +232,7 @@
   </div>
   <main class="page">
     <header class="page-header">
-      <div class="eyebrow">Compliance Center</div>
+      <div class="eyebrow"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v17M7 20h10M4 7h16M12 3.5l-1 1.5h2z" /><path d="M6 7l-3 7a3 3 0 0 0 6 0z M18 7l-3 7a3 3 0 0 0 6 0z" /></svg>Compliance Center</div>
       <h1>Commercial Finance Regulation</h1>
     </header>
 
