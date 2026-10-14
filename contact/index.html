@@ -465,7 +465,9 @@
   <link rel="stylesheet" href="/clean.css?v=2">
 
 <style>
-  .cx{padding:72px 0 96px;background:#fff}
+  body{min-height:100vh;display:flex;flex-direction:column}
+  body > nav, body > footer{flex-shrink:0}
+  .cx{padding:72px 0 96px;background:#fff;flex:1 0 auto}
   .cx-grid{display:grid;grid-template-columns:300px 1fr;gap:64px;align-items:start;max-width:1040px;margin:0 auto}
   .cx-eyebrow{font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#8A94A0;margin:0 0 10px}
   .cx h1{font-size:2rem;font-weight:700;letter-spacing:-.02em;color:#142F52;margin:0 0 12px;line-height:1.15}
@@ -519,7 +521,7 @@
           </ul>
         </div>
         <div class="cx-form">
-          <div class="cx-form-head">Send a message</div>
+          <div class="cx-form-head">Contact us</div>
           <div class="cx-form-body">
             <div style="width:100%;height:500px;" data-fillout-id="f4xre3GBxfus" data-fillout-embed-type="standard" data-fillout-inherit-parameters data-fillout-dynamic-resize></div>
             <script src="https://server.fillout.com/embed/v1/"></script>
