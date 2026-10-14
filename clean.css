@@ -252,4 +252,12 @@ h1:not(nav h1):not(footer h1), h2:not(nav h2):not(footer h2):not(.mobile-menu h2
   font-family:'Source Serif 4',Georgia,'Times New Roman',serif !important; font-weight:500 !important; color:#0E1B2E !important;}
 .terms-body h2{font-size:1.6rem !important;line-height:1.25 !important;margin-top:8px;}
 .terms-body h3{font-size:1.25rem !important;}
+.terms-body .ds-important{margin-bottom:48px !important;}
+.terms-body h2{margin-top:56px !important;margin-bottom:12px !important;}
+.terms-body .ds-important + h2{margin-top:0 !important;}
+.terms-body .ds-steps{margin-bottom:56px !important;}
+.terms-body hr:not(.ds-sep){margin:0 0 56px !important;}
+.terms-body h2.ds-guidance-title{margin-top:72px !important;margin-bottom:0 !important;}
+.terms-body .ds-guidance{margin-top:0 !important;}
+.terms-body .ds-guidance h3.ds-opt-title{font-family:'Public Sans',Arial,sans-serif !important;font-weight:600 !important;}
 :root{--sx-accent:#1D4E89;--sx-accent-deep:#163C6A;--sx-dark:#0F2137}
