@@ -155,7 +155,7 @@
     .hero { padding: 56px 0; }
     .hero .wrap, .section > .wrap { grid-template-columns: minmax(0, 1fr); gap: 40px; }
     .hero .figure { order: -1; }
-    .hero .figure-frame img { max-height: 200px; margin: 0; }
+    .hero .figure-frame img { max-height: 260px; margin: 0 auto; }
     .section { padding: 64px 0; }
     .cols-3 { grid-template-columns: minmax(0, 1fr); gap: 32px; }
     .client-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -173,7 +173,7 @@
     .hero-lede { font-size: 17px; margin: 20px 0 28px; }
     .hero-actions .btn { flex: 1 1 0; min-width: 0; }
     .figure-frame { padding: 0; }
-    .hero .figure-frame img { max-height: 150px; margin: 0; }
+    .hero .figure-frame img { max-height: 240px; margin: 0 auto; }
     .client-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 24px; }
     .client-grid img { max-height: 30px; max-width: 120px; }
     .section h2 { font-size: 32px; }
@@ -185,7 +185,9 @@
     .press-row img { width: 64px; }
     .press-row .date { grid-column: 2; }
     .closing { padding: 64px 0; }
-    .closing-actions .btn { flex: 1 1 0; min-width: 0; }
+    .closing .wrap > div { width: 100%; }
+    .closing-actions { width: 100%; }
+    .closing-actions .btn { flex: 1 1 0; min-width: 0; padding-left: 12px; padding-right: 12px; }
     .pull blockquote { font-size: 19px; }
   }
 </style>
