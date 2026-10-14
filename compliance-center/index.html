@@ -489,7 +489,7 @@
         h += '<div class="sect"><h2 class="sect-h">Current Rules</h2>';
         if (anyNow) {
           if (s.scope) h += '<div class="who">' + (s.scopePlain ? '<p>' + s.scope[0] + '</p>' : '<p><span class="wl">' + ((s.scopeLabels || [])[0] || 'Applies to:') + '</span> ' + s.scope[0] + '</p>' + (s.scope[1] ? '<p><span class="wl">' + ((s.scopeLabels || [])[1] || 'Does not apply to:') + '</span> ' + s.scope[1] + '</p>' : '')) + '</div>';
-          h += table(s.now, ctx, false) + '<p class="table-note">&mdash; means no requirement identified under the laws summarized here.</p>';
+          h += table(s.now, ctx, false);
         } else {
           h += '<p class="none">Nothing required yet.</p>';
         }
