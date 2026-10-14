@@ -308,6 +308,7 @@
   .dialog .ab-subtitle { font-size:1rem; line-height:1.55; color:#7A8594; margin:10px 0 0; }
   .dialog .table-note { margin: 10px 0 0; font-size: 0.82rem; color: #7A8594; }
   .grid-note { margin: 22px 0 0; font-size: 14px; color: var(--muted); }
+  .legend-count { margin-left: auto; color: var(--muted); }
 </style>
 </head>
 <body>
@@ -424,17 +425,18 @@
       }
       function paint() {
         const seen = new Set();
+        let lit = 0;
         cards.forEach(c => {
           const s = DATA[c.dataset.state];
           const which = statusOf(s);
           c.className = c.className.replace(/\bstatus-\S+/g, '').trim();
           c.classList.add('status-' + which);
-          if (which !== 'none') seen.add(which);
+          if (which !== 'none') { seen.add(which); lit++; }
           c.disabled = which === 'none';
           c.setAttribute('aria-disabled', which === 'none' ? 'true' : 'false');
         });
         const lg = document.getElementById('legend');
-        if (lg) lg.innerHTML = LEGEND.map(([k, t]) => '<span class="legend-item"><span class="legend-dot ' + k + '"></span>' + t + '</span>').join('');
+        if (lg) lg.innerHTML = LEGEND.map(([k, t]) => '<span class="legend-item"><span class="legend-dot ' + k + '"></span>' + t + '</span>').join('') + '<span class="legend-count">' + lit + ' states</span>';
       }
 
       const linkHtml = l => l.length ? '<div class="rlinks">' + l.map(([t, u]) => '<a href="' + u + '"' + (u.startsWith('http') ? ' target="_blank" rel="noopener"' : '') + '>' + t + '</a>').join('') + '</div>' : '';
