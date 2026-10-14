@@ -309,6 +309,7 @@
   .dialog .table-note { margin: 10px 0 0; font-size: 0.82rem; color: #7A8594; }
   .grid-note { margin: 22px 0 0; font-size: 14px; color: var(--muted); }
   .state-legend { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .legend-n { color: #A3ABB5; }
 </style>
 </head>
 <body>
@@ -436,7 +437,7 @@
           c.setAttribute('aria-disabled', which === 'none' ? 'true' : 'false');
         });
         const lg = document.getElementById('legend');
-        if (lg) lg.innerHTML = LEGEND.map(([k, t]) => '<span class="legend-item"><span class="legend-dot ' + k + '"></span>' + t + ' (' + (counts[k] || 0) + ')</span>').join('');
+        if (lg) lg.innerHTML = LEGEND.map(([k, t]) => '<span class="legend-item"><span class="legend-dot ' + k + '"></span>' + t + ' <span class="legend-n">(' + (counts[k] || 0) + ')</span></span>').join('');
       }
 
       const linkHtml = l => l.length ? '<div class="rlinks">' + l.map(([t, u]) => '<a href="' + u + '"' + (u.startsWith('http') ? ' target="_blank" rel="noopener"' : '') + '>' + t + '</a>').join('') + '</div>' : '';
