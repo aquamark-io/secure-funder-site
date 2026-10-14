@@ -85,8 +85,8 @@
   .body strong { color: var(--ink); font-weight: 600; }
   .note { font-size: 15px; color: var(--muted); }
 
-  .pull { margin: 40px 0 0; padding: 28px 0 0; border-top: 1px solid var(--rule); display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 20px; align-items: start; }
-  .pull img { width: 64px; height: 64px; object-fit: cover; filter: grayscale(100%); }
+  .pull { margin: 40px 0 0; padding: 28px 0 0; border-top: 1px solid var(--rule); display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 24px; align-items: start; }
+  .pull img { width: 96px; height: 96px; object-fit: cover; filter: grayscale(100%); }
   .pull blockquote { margin: 0; font-family: var(--serif); font-size: 22px; line-height: 1.45; color: var(--ink); }
   .pull cite { display: block; font-style: normal; font-size: 14px; color: var(--muted); margin-top: 12px; }
   .pull-links { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 10px; font-size: 14px; }
@@ -189,6 +189,8 @@
     .closing-actions { width: 100%; }
     .closing-actions .btn { flex: 1 1 0; min-width: 0; padding-left: 12px; padding-right: 12px; }
     .pull blockquote { font-size: 19px; }
+    .pull { grid-template-columns: 72px minmax(0, 1fr); gap: 16px; }
+    .pull img { width: 72px; height: 72px; }
   }
 </style>
 </head>
@@ -266,7 +268,7 @@
         <h2>About</h2>
       </div>
       <div class="body">
-        <p><strong>Secure Funder</strong> is a new industry initiative focused on addressing data theft and encouraging responsible data handling. The program establishes a framework designed to reduce opportunities for misuse, distinguish responsible companies, and help small business owners pursue alternative capital with greater confidence and better outcomes.</p>
+        <p><strong>Secure Funder</strong> is a new industry initiative focused on addressing data theft and encouraging responsible data handling. Through an independently administered, evidence-based certification process, the program establishes a practical framework designed to reduce opportunities for misuse, distinguish responsible companies, and help small business owners pursue alternative capital with greater confidence and better outcomes.</p>
         <div class="pull">
           <img src="headshot.png" alt="Christina Duncan">
           <div>
@@ -318,24 +320,13 @@
           <div class="col"><h3>Lead change</h3><p>Standards make unethical practices harder to hide.</p></div>
           <div class="col"><h3>Connect with brokers</h3><p>Build new relationships with participating brokers.</p></div>
           <div class="col"><h3>Stay ahead</h3><p>Expectations are evolving. Get ahead of what&rsquo;s coming.</p></div>
+          <div class="col"><h3>The cost of no standards</h3><p>Without expectations, <strong>harmful practices</strong> are harder to address.</p></div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section band" id="standards">
-    <div class="wrap">
-      <div>
-        <h2>Why standards</h2>
-      </div>
-      <div class="cols-2">
-        <div class="col"><h3>Independently administered</h3><p>Every certification follows the same <strong>evidence-based</strong> review process.</p></div>
-        <div class="col"><h3>The cost of no standards</h3><p>Without expectations, <strong>harmful practices</strong> are harder to address.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="newsletter">
+  <section class="section band" id="newsletter">
     <div class="wrap">
       <div>
         <h2>Stay informed</h2>
