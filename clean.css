@@ -177,3 +177,35 @@ summary[style*="#2B3440"]{background:var(--cc-band) !important;color:var(--cc-na
 .approach-box h3{color:var(--cc-navy) !important}
 .key-points{background:var(--cc-band) !important;border-color:var(--cc-line) !important;border-radius:0 !important}
 .provider-note{background:var(--cc-band) !important;border-left-color:var(--cc-line) !important}
+
+/* ===== Palette remap: content areas only (nav, footer, utility bar, mobile menu keep brand) ===== */
+body > *:not(nav):not(footer):not(.utility-bar):not(.mobile-menu):not(script):not(style){
+  /* broker (green) palette */
+  --forest:#142F52 !important; --forest-mid:#1E3F6B !important; --sage:#3E4A59 !important;
+  --fern:#5A6573 !important; --moss:#8A94A0 !important; --mint:#E1E5EA !important;
+  --frost:#ECEFF2 !important; --meadow:#F4F5F7 !important;
+  --green-accent:#142F52 !important; --green-accent-soft:#1A6DD9 !important; --green-accent-pale:#EEF1F4 !important;
+  /* funder (blue) palette */
+  --navy:#142F52 !important; --navy-mid:#1E3F6B !important; --slate:#3E4A59 !important;
+  --steel:#5A6573 !important; --sky:#8A94A0 !important; --ice:#E1E5EA !important;
+  --pearl:#F4F5F7 !important; --cloud:#F4F5F7 !important;
+  --blue-accent:#142F52 !important; --blue-accent-soft:#1A6DD9 !important; --blue-accent-pale:#EEF1F4 !important;
+  /* shared text + borders */
+  --text-primary:#142F52 !important; --text-secondary:#3E4A59 !important; --text-muted:#8A94A0 !important;
+  --border:#E1E5EA !important; --border-light:#ECEFF2 !important;
+}
+
+/* ===== Contact page ===== */
+.contact-section{ background:#fff !important; }
+.contact-section h1, .contact-section h2{ color:#142F52 !important; }
+.contact-section [class*="label"], .contact-section [class*="eyebrow"]{ color:#8A94A0 !important; letter-spacing:.08em; }
+.contact-phone-card{ background:#F4F5F7 !important; border:1px solid #E1E5EA !important; border-left:1px solid #E1E5EA !important; border-radius:0 !important; box-shadow:none !important; }
+.contact-phone-number{ color:#142F52 !important; }
+.contact-phone-number:hover{ color:#1A6DD9 !important; }
+.contact-phone-action, .contact-phone-action svg{ color:#1A6DD9 !important; }
+.contact-phone-action:hover, .contact-phone-action:hover svg{ color:#142F52 !important; }
+.form-wrapper{ border-radius:0 !important; box-shadow:none !important; border:1px solid #E1E5EA !important; }
+.sidebar-card{ background:#F4F5F7 !important; border:1px solid #E1E5EA !important; border-left:1px solid #E1E5EA !important; border-radius:0 !important; box-shadow:none !important; }
+.sidebar-card h3, .contact-detail h4{ color:#142F52 !important; }
+.sidebar-card a{ color:#1A6DD9 !important; font-weight:400 !important; }
+.contact-detail-icon{ background:#EEF1F4 !important; color:#142F52 !important; border-radius:0 !important; }
