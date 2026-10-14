@@ -194,6 +194,17 @@
     .pull img { width: 72px; height: 72px; }
   }
   .cc-photo { margin: 0 0 24px; } .cc-photo img { display: block; width: 100%; max-width: 560px; height: auto; aspect-ratio: 16/9; object-fit: cover; filter: grayscale(1) contrast(1.05); }
+
+  .mc { display:flex; align-items:center; justify-content:space-between; gap:14px; margin:0; padding-top:22px; border-top:1px solid var(--ink); font-family:var(--serif); font-size:22px; line-height:1.2; color:var(--ink); }
+  .mc-t { white-space:nowrap; }
+  .mc-a { width:52px; height:18px; flex-shrink:0; color:#8A94A0; }
+  @media (max-width:900px){ .mc{flex-direction:column; align-items:flex-start; gap:6px; font-size:24px;} .mc-a{transform:rotate(90deg); width:40px; height:16px; margin:12px 0 12px -8px;} }
+
+  .impact-full > .wrap.impact-wrap { display:block; }
+  .impact-h { margin:0 0 28px; }
+  .impact-full .mc { font-size:30px; }
+  .impact-full .mc-a { width:72px; height:22px; }
+  @media (max-width:900px){ .impact-full .mc{font-size:24px;} .impact-full .mc-a{width:40px; height:16px;} }
 </style>
 </head>
 <body>
@@ -284,6 +295,13 @@
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="section impact-full" id="impact">
+    <div class="wrap impact-wrap">
+      <h2 class="impact-h">The long-term cost</h2>
+      <p class="mc"><span class="mc-t">Data theft</span><svg class="mc-a" viewBox="0 0 64 20" aria-hidden="true"><path d="M2 10 H60 M50 2 L61 10 L50 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="mc-t">Over&#8209;solicitation</span><svg class="mc-a" viewBox="0 0 64 20" aria-hidden="true"><path d="M2 10 H60 M50 2 L61 10 L50 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="mc-t">Excessive stacking</span><svg class="mc-a" viewBox="0 0 64 20" aria-hidden="true"><path d="M2 10 H60 M50 2 L61 10 L50 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="mc-t">Defaults</span></p>
     </div>
   </section>
 
