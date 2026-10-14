@@ -412,7 +412,7 @@
       let lastFocus = null;
       const prods = () => [];
       const joinN = arr => arr.length > 1 ? arr.slice(0, -1).join(', ') + ' and ' + arr.slice(-1) : arr[0];
-      const LEGEND = [['active', 'Active'], ['pending', 'Pending'], ['upcoming', 'Upcoming'], ['active-upcoming', 'Active + Upcoming'], ['active-pending', 'Active + Pending'], ['upcoming-pending', 'Upcoming + Pending'], ['active-upcoming-pending', 'Active + Upcoming + Pending']];
+      const LEGEND = [['active', 'Active'], ['pending', 'Pending'], ['upcoming', 'Upcoming'], ['active-upcoming', 'Active + Upcoming'], ['active-pending', 'Active + Pending'], ['upcoming-pending', 'Upcoming + Pending']];
       function statusOf(s) {
         if (!s) return 'none';
         const parts = [];
