@@ -102,7 +102,7 @@
   .cols-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 48px; }
   .col h3 { font-size: 22px; padding-bottom: 14px; border-bottom: 1px solid var(--ink); margin-bottom: 4px; }
   .col p { margin: 14px 0 0; font-size: 16px; }
-  .cols-3 + .cols-3 { margin-top: 48px; }
+  .cols-2.rows { row-gap: 48px; }
 
   .news { display: grid; grid-template-columns: minmax(0, 1fr) 140px; gap: 40px; align-items: start; border-top: 1px solid var(--ink); padding-top: 22px; }
   .news h3 { font-size: 24px; margin-bottom: 10px; }
@@ -310,12 +310,10 @@
         <h2>Why join</h2>
       </div>
       <div>
-        <div class="cols-3">
+        <div class="cols-2 rows">
           <div class="col"><h3>Protect your business</h3><p>Use the program framework to identify vulnerabilities.</p></div>
           <div class="col"><h3>Trust signal</h3><p>Independent proof. Directory listing. Digital badge.</p></div>
           <div class="col"><h3>Lead change</h3><p>Standards make unethical practices harder to hide.</p></div>
-        </div>
-        <div class="cols-3">
           <div class="col"><h3>Connect with brokers</h3><p>Build new relationships with participating brokers.</p></div>
           <div class="col"><h3>Stay ahead</h3><p>Expectations are evolving. Get ahead of what&rsquo;s coming.</p></div>
         </div>
