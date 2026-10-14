@@ -408,7 +408,7 @@
         if (notes.length) h += '<p class="covers">' + notes.join(' ') + '</p>';
 
         const anyNow = s.now.some(row => row.broker || row.provider);
-        h += '<div class="sect"><h2 class="sect-h">Current and Active</h2>';
+        h += '<div class="sect"><h2 class="sect-h">Current Rules</h2>';
         if (anyNow) {
           if (s.scope) h += '<div class="who"><p><span class="wl">Applies to:</span> ' + s.scope[0] + '</p><p><span class="wl">Does not apply to:</span> ' + s.scope[1] + '</p></div>';
           h += table(s.now, ctx, false);
