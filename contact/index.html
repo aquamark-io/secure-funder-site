@@ -463,6 +463,24 @@
   </style>
 
   <link rel="stylesheet" href="/clean.css?v=2">
+
+<style>
+  .cx{padding:72px 0 96px;background:#fff}
+  .cx-grid{display:grid;grid-template-columns:300px 1fr;gap:64px;align-items:start;max-width:1040px;margin:0 auto}
+  .cx-eyebrow{font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#8A94A0;margin:0 0 10px}
+  .cx h1{font-size:2rem;font-weight:700;letter-spacing:-.02em;color:#142F52;margin:0 0 12px;line-height:1.15}
+  .cx-lead{font-size:.98rem;line-height:1.6;color:#5A6573;margin:0 0 32px}
+  .cx-list{border-top:1px solid #E1E5EA;margin:0;padding:0;list-style:none}
+  .cx-list li{display:flex;flex-direction:column;gap:4px;padding:16px 0;border-bottom:1px solid #E1E5EA}
+  .cx-k{font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#8A94A0}
+  .cx-v{font-size:1rem;color:#1A6DD9;text-decoration:none;font-weight:400}
+  .cx-v:hover{text-decoration:underline}
+  .cx-note{font-size:.85rem;color:#8A94A0;margin:20px 0 0;line-height:1.5}
+  .cx-form{border:1px solid #E1E5EA;background:#fff;min-height:520px}
+  .cx-form-head{background:#F4F5F7;border-bottom:1px solid #E1E5EA;padding:14px 24px;font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#5A6573}
+  .cx-form-body{padding:8px 16px}
+  @media (max-width:860px){.cx{padding:40px 0 64px}.cx-grid{grid-template-columns:1fr;gap:36px}}
+</style>
 </head>
 <body>
 
@@ -487,35 +505,26 @@
   </nav>
 
   <!-- Contact Content -->
-  <section class="contact-section">
+  <section class="cx">
     <div class="container">
-      <div class="contact-layout">
-
-        <!-- Phone card -->
-        <div class="contact-phone-card">
-          <a href="tel:+14155001117" class="contact-phone-number">(415) 500-1117</a>
-          <div class="contact-phone-actions">
-            <a href="https://calendly.com/christina-aquamark/" target="_blank" rel="noopener noreferrer" class="contact-phone-action" aria-label="Schedule a call">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-              <span>Schedule</span>
-            </a>
-            <a href="sms:+14155001117" class="contact-phone-action" aria-label="Text us">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-              <span>Text</span>
-            </a>
-            <a href="tel:+14155001117" class="contact-phone-action" aria-label="Call us">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-              <span>Call</span>
-            </a>
+      <div class="cx-grid">
+        <div class="cx-info">
+          <p class="cx-eyebrow">Contact</p>
+          <h1>Questions?</h1>
+          <p class="cx-lead">Reach out about certification, guidelines, or your review.</p>
+          <ul class="cx-list">
+            <li><span class="cx-k">Call</span><a class="cx-v" href="tel:+14155001117">(415) 500-1117</a></li>
+            <li><span class="cx-k">Text</span><a class="cx-v" href="sms:+14155001117">(415) 500-1117</a></li>
+            <li><span class="cx-k">Meeting</span><a class="cx-v" href="https://calendly.com/christina-aquamark/" target="_blank" rel="noopener noreferrer">Schedule a call</a></li>
+          </ul>
+        </div>
+        <div class="cx-form">
+          <div class="cx-form-head">Send a message</div>
+          <div class="cx-form-body">
+            <div style="width:100%;height:500px;" data-fillout-id="f4xre3GBxfus" data-fillout-embed-type="standard" data-fillout-inherit-parameters data-fillout-dynamic-resize></div>
+            <script src="https://server.fillout.com/embed/v1/"></script>
           </div>
         </div>
-
-        <!-- Fillout Embed -->
-        <div class="form-wrapper">
-          <div style="width:100%;height:500px;" data-fillout-id="f4xre3GBxfus" data-fillout-embed-type="standard" data-fillout-inherit-parameters data-fillout-dynamic-resize></div>
-          <script src="https://server.fillout.com/embed/v1/"></script>
-        </div>
-
       </div>
     </div>
   </section>
