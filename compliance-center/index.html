@@ -433,7 +433,7 @@
           c.setAttribute('aria-disabled', which === 'none' ? 'true' : 'false');
         });
         const lg = document.getElementById('legend');
-        if (lg) lg.innerHTML = LEGEND.filter(([k]) => !k.includes('-') || seen.has(k)).map(([k, t]) => '<span class="legend-item"><span class="legend-dot ' + k + '"></span>' + t + '</span>').join('');
+        if (lg) lg.innerHTML = LEGEND.map(([k, t]) => '<span class="legend-item"><span class="legend-dot ' + k + '"></span>' + t + '</span>').join('');
       }
 
       const linkHtml = l => l.length ? '<div class="rlinks">' + l.map(([t, u]) => '<a href="' + u + '"' + (u.startsWith('http') ? ' target="_blank" rel="noopener"' : '') + '>' + t + '</a>').join('') + '</div>' : '';
