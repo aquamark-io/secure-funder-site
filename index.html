@@ -209,6 +209,12 @@
   #benefits .col { display: flex; align-items: flex-end; border-bottom: 1px solid var(--ink); padding-bottom: 14px; }
   #benefits .col h3 { font-size: 20px; line-height: 1.35; border: 0; padding: 0; margin: 0; }
   .impact-full .mc { border-top: 0; padding-top: 0; }
+  .hw { list-style:none; margin:0; padding:0; border-top:1px solid var(--ink); }
+  .hw li { display:grid; grid-template-columns:48px 180px 1fr; gap:16px; align-items:baseline; padding:16px 0; border-bottom:1px solid var(--rule); }
+  .hw-n { font-size:13px; font-weight:600; letter-spacing:.06em; color:var(--muted); }
+  .hw-t { font-family:var(--serif); font-size:20px; color:var(--ink); }
+  .hw-d { font-size:16px; color:var(--text); }
+  @media (max-width:760px){ .hw li { grid-template-columns:36px 1fr; } .hw-d { grid-column:2; } }
 </style>
 </head>
 <body>
@@ -341,6 +347,17 @@
     <div class="wrap impact-wrap">
       <h2 class="impact-h">The long-term cost</h2>
       <p class="mc"><span class="mc-t">Data theft</span><svg class="mc-a" viewBox="0 0 64 20" aria-hidden="true"><path d="M2 10 H60 M50 2 L61 10 L50 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="mc-t">Over&#8209;solicitation</span><svg class="mc-a" viewBox="0 0 64 20" aria-hidden="true"><path d="M2 10 H60 M50 2 L61 10 L50 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="mc-t">Excessive stacking</span><svg class="mc-a" viewBox="0 0 64 20" aria-hidden="true"><path d="M2 10 H60 M50 2 L61 10 L50 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="mc-t">Defaults</span></p>
+    </div>
+  </section>
+
+  <section class="section" id="how">
+    <div class="wrap">
+      <div>
+        <h2>How it works</h2>
+      </div>
+      <div>
+        <ol class="hw"><li><span class="hw-n">01</span><span class="hw-t">Join</span><span class="hw-d">Get <a href="https://portal.securefunder.org/login" style="color:var(--link); text-decoration:none;">portal access</a>, a member number, and a directory listing.</span></li><li><span class="hw-n">02</span><span class="hw-t">Announcement</span><span class="hw-d">Participation is announced through social media and the newsletter.</span></li><li><span class="hw-n">03</span><span class="hw-t">Evidence</span><span class="hw-d">Upload evidence within 90 days. Extensions and support are available.</span></li><li><span class="hw-n">04</span><span class="hw-t">Final review</span><span class="hw-d">Submit the <a href="/terms-privacy/" style="color:var(--link); text-decoration:none;">member fee</a> to start the final review.</span></li><li><span class="hw-n">05</span><span class="hw-t">Certification</span><span class="hw-d">Receive certification and a digital badge.</span></li></ol>
+      </div>
     </div>
   </section>
 
