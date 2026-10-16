@@ -371,6 +371,10 @@
     .quiz-actions .quiz-join{text-decoration:none;}
     .quiz-actions .questionnaire-reset,.quiz-actions .quiz-join{box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;gap:0;min-width:120px;height:44px;padding:0 22px;font-size:.92rem;font-weight:700;line-height:1;}
     @media (max-width:640px){.quiz-actions{margin:22px 20px;}}
+    .quiz-actions[hidden]{display:none;}
+    .quiz-more{margin:-8px 20px 22px;font-size:.88rem;font-style:italic;color:#6B7686;}
+    .quiz-more[hidden]{display:none;}
+    @media (max-width:640px){.quiz-more{margin:-8px 20px 20px;}}
       .sub-join{display:block;}
     @media (max-width:900px){ .sub-join{margin-top:1.6em;margin-top:1lh;} }
 </style>
@@ -531,8 +535,9 @@
                       </div>
                     </div>
                   </div>
+                  <p class="quiz-more" id="quizMore">More questions will appear as you answer.</p>
                   <div id="quizCompleteNote" class="conditional-panel quiz-done"><h4 class="quiz-done-title">Done.</h4><p>We&rsquo;ll also ask about the items below. Companies are reviewed holistically. &ldquo;No&rdquo; responses do not automatically prevent certification.</p><ul><li>Is MFA enabled for email and system of record?</li><li>Do you run background checks?</li><li>Is screen lock enabled (15 minutes or less)?</li><li>Do you have a documented off-boarding process?</li></ul></div>
-                  <div class="quiz-actions"><button type="button" class="questionnaire-reset" id="protectionReset">Reset</button><a class="btn-join quiz-join" href="/contact/">Join</a></div>
+                  <div class="quiz-actions" id="quizActions" hidden><button type="button" class="questionnaire-reset" id="protectionReset">Reset</button><a class="btn-join quiz-join" href="/contact/">Join</a></div>
                 </div>
               </div>
             </details>
@@ -618,6 +623,8 @@
         }
         var complete = routes.length > 0 && routes.every(routeResolved);
         show(document.getElementById('quizCompleteNote'), complete);
+        var qa = document.getElementById('quizActions'); if (qa) qa.hidden = !complete;
+        var qm = document.getElementById('quizMore'); if (qm) qm.hidden = complete;
 
       }
 
