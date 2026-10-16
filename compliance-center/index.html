@@ -315,6 +315,7 @@
   .state-legend.filtering button.legend-item { opacity:.45; }
   .state-legend.filtering button.legend-item.on { opacity:1; }
   .state-legend.filtering button.legend-item.on .legend-t { font-weight:600; color:var(--ink); }
+  .legend-hint { font-size:13px; color:var(--muted); margin-bottom:2px; }
   .legend-clear { background:none; border:0; padding:0; font:inherit; font-size:13px; color:var(--link, #1A6DD9); cursor:pointer; }
   .grid .card.dim::before { background:#ECEFF3; }
   .grid .card.dim .n, .grid .card.dim:hover .n { color:#C3C9D1; }
@@ -449,7 +450,7 @@
         });
         const lg = document.getElementById('legend');
         if (lg) {
-          lg.innerHTML = LEGEND.map(([k, t]) => '<button type="button" class="legend-item" data-filter="' + k + '" aria-pressed="false"><span class="legend-dot ' + k + '"></span><span class="legend-t">' + t + '</span> <span class="legend-n">(' + (counts[k] || 0) + ')</span></button>').join('') +
+          lg.innerHTML = '<span class="legend-hint">Click a status to filter states.</span>' + LEGEND.map(([k, t]) => '<button type="button" class="legend-item" data-filter="' + k + '" aria-pressed="false"><span class="legend-dot ' + k + '"></span><span class="legend-t">' + t + '</span> <span class="legend-n">(' + (counts[k] || 0) + ')</span></button>').join('') +
             '<button type="button" class="legend-clear" hidden>Show all</button>';
           lg.querySelectorAll('button.legend-item').forEach(b => b.addEventListener('click', () => applyFilter(filter === b.dataset.filter ? null : b.dataset.filter)));
           lg.querySelector('.legend-clear').addEventListener('click', () => applyFilter(null));
