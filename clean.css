@@ -67,6 +67,7 @@
 /* ---- Accordion cards (guidelines, common approaches) ---- */
 body{color:#1E2733}
 .hero-inner{padding:56px 0 8px}
+@media (max-width:900px){.hero-inner{padding-top:20px}}
 .hero h1{color:#142F52 !important;font-size:2.15rem;letter-spacing:-.02em;margin-bottom:12px}
 .hero-notice,.hero-notice p{color:#5A6573 !important;font-size:1rem}
 .requirements-section{padding-top:28px}
