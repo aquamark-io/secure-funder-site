@@ -379,6 +379,14 @@
     @media (max-width:900px){ .sub-join{margin-top:1.6em;margin-top:1lh;} }
     .hero-notice .role-note{margin-top:12px;font-weight:600;color:var(--text-primary)}
     .hero-notice .role-note span{background:#FFF3B0;padding:3px 8px;}
+      .intro-modal{max-width:600px}
+    .intro-modal p{font-size:1rem!important;color:var(--text-secondary)}
+    .intro-modal mark{background:#FFF3B0;color:var(--text-primary);font-weight:700;padding:1px 6px}
+    .intro-modal u{text-decoration:none;border-bottom:2px solid var(--text-primary)}
+    .intro-q{background:#F4F6F9;margin:20px 0;padding:18px 24px 18px 48px}
+    .intro-q li{font-size:1rem;color:var(--text-primary);line-height:1.6;padding:6px 0}
+    .intro-q li::marker{font-weight:700}
+    .intro-continue{margin-top:22px;background:#1D4E89;color:#fff;border:0;padding:12px 22px;font:inherit;font-weight:600;cursor:pointer}
   </style>
 
   <link rel="stylesheet" href="/clean.css?v=5">
@@ -698,5 +706,29 @@
   window.addEventListener('hashchange', openSafeguardsFromHash);
 </script>
 
+
+  <!-- Intro popup: shown on every visit -->
+  <div class="details-modal-overlay open" id="intro-modal" role="dialog" aria-modal="true" aria-labelledby="intro-modal-text">
+    <div class="details-modal intro-modal">
+      <button type="button" class="details-modal-close" aria-label="Close" data-close-intro>&times;</button>
+      <p id="intro-modal-text">If <mark>non-management individuals</mark> can download submission documents (e.g., email, CRM, etc.), answering <mark>YES</mark> to either of the following may indicate a vulnerability to deal theft.</p>
+      <ol class="intro-q">
+        <li>Can they access personal email or cloud storage accounts?</li>
+        <li>Can they copy company files onto USB drives?</li>
+      </ol>
+      <p>Allowing downloads isn&rsquo;t inherently a problem. The risk arises when employees can <u>also</u> transfer files through personal email, cloud storage, or USB.</p>
+      <button type="button" class="intro-continue" data-close-intro>Continue to guidelines</button>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var m = document.getElementById('intro-modal'); if (!m) return;
+      document.body.style.overflow = 'hidden';
+      function close() { m.classList.remove('open'); document.body.style.overflow = ''; }
+      m.querySelectorAll('[data-close-intro]').forEach(function (b) { b.addEventListener('click', close); });
+      m.addEventListener('click', function (e) { if (e.target === m) close(); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && m.classList.contains('open')) close(); });
+    })();
+  </script>
 </body>
 </html>
