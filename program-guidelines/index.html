@@ -388,6 +388,9 @@
     .intro-q li::marker{font-weight:700}
     .intro-continue{margin-top:22px;background:#1D4E89;color:#fff;border:0;padding:12px 22px;font:inherit;font-weight:600;cursor:pointer}
       .hero-notice .role-hl{background:#FFF3B0;padding:1px 6px;font-weight:400;color:var(--text-primary)}
+      .hero-notice .role-hl{white-space:nowrap}
+    .hero-notice .dbr{display:none}
+    @media (min-width:900px){ .hero-notice{max-width:none!important} .hero-notice p{max-width:none!important} .hero-notice .dbr{display:inline} }
   </style>
 
   <link rel="stylesheet" href="/clean.css?v=5">
@@ -433,7 +436,7 @@
         <div class="hero-copy">
           <h1>Program Guidelines</h1>
           <div class="hero-notice">
-            <p>Secure Funder is not software. Don&rsquo;t meet criteria? We will help. <span class="role-hl">Owners and upper management</span> not subject to requirements.</p>
+            <p>Secure Funder is not software. Don&rsquo;t meet criteria? We will help. <span class="role-hl">Owners and upper management</span><br class="dbr"> not subject to requirements.</p>
           </div>
         </div>
       </div>
