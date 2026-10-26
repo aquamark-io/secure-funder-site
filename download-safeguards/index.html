@@ -329,8 +329,89 @@
     .terms-body .ds-guidance .ds-sep{margin:28px 0;}
       .terms-body h2.ds-guidance-title{font-size:1.6rem;}
     @media (max-width:640px){.terms-body h2.ds-guidance-title{font-size:1.35rem;}}
+
+    /* Download Safeguards: simple decision paths and optional implementation details */
+    .terms-body { padding-top: 42px; }
+    .ds-notice { background:#FFFFFF; border:1px solid #DDE5EC; padding:17px 20px; margin-bottom:28px; }
+    .terms-body .ds-notice p { margin:0; font-size:1.04rem; line-height:1.75; }
+    .ds-context { margin:18px 0 26px !important; font-size:1.04rem !important; line-height:1.75 !important; }
+    .ds-paths { display:grid; gap:18px; }
+    .ds-path-card { padding:25px 27px 24px; background:#F8FAFC; border:1px solid #DCE4EC; }
+    .terms-body .ds-path-card h2 { margin:0 0 7px; padding:0; border:0; font-size:1.35rem; line-height:1.6; }
+    .terms-body .ds-path-subtitle { font-size:1.04rem; margin:0 0 17px; line-height:1.75; }
+    .terms-body .ds-choose { margin:0 0 8px; font-size:.72rem; letter-spacing:.09em; font-weight:700; text-transform:uppercase; color:#3D5A80; }
+    .terms-body ol.ds-options { margin:0; padding-left:23px; }
+    .terms-body ol.ds-options li { padding:5px 0 5px 3px; font-size:1.04rem; line-height:1.75; }
+    .terms-body ol.ds-options li::marker { color:#1A3455; font-weight:700; }
+    .terms-body .ds-setup h2 { margin:39px 0 6px; padding:0; border:0; font-size:1.35rem; }
+    .terms-body .ds-setup-intro { font-size:1.04rem; margin-bottom:17px; line-height:1.75; }
+    .ds-accordion-list { display:grid; gap:10px; }
+    .ds-accordion { border:1px solid #D9E1EA; background:#fff; }
+    .ds-accordion summary { cursor:pointer; padding:16px 46px 16px 19px; background:#F1F4F7; list-style:none; position:relative; }
+    .ds-accordion summary::-webkit-details-marker { display:none; }
+    .ds-accordion summary::after { content:''; position:absolute; width:9px; height:9px; right:23px; top:26px; border-right:2px solid #3D5A80; border-bottom:2px solid #3D5A80; transform:rotate(45deg); transition:transform .2s; }
+    .ds-accordion[open] summary::after { transform:rotate(225deg); top:30px; }
+    .ds-accordion summary:hover { background:#E9EEF3; }
+    .ds-accordion summary:focus-visible { outline:2px solid #4FA3D1; outline-offset:2px; }
+    .ds-accordion summary strong { display:block; font-size:1.15rem; line-height:1.6; }
+    .ds-accordion summary small { display:block; font-size:1.04rem; font-weight:400; color:#4A6480; margin-top:2px; line-height:1.5; }
+    .ds-accordion-body { padding:19px 22px 21px; border-top:1px solid #DDE5EC; }
+    .terms-body .ds-accordion-body p, .terms-body .ds-accordion-body li { font-size:1.04rem; line-height:1.75; }
+    .terms-body .ds-accordion-body p { margin-bottom:12px; }
+    .terms-body .ds-accordion-body ul { margin:4px 0 15px; }
+    .terms-body .ds-accordion-body li { padding-top:3px; padding-bottom:3px; }
+    .terms-body .ds-accordion-body h3 { margin:18px 0 8px; font-size:.75rem; text-transform:uppercase; letter-spacing:.08em; color:#3D5A80; }
+    .terms-body .ds-accordion-body ul.ds-tool-list li { font-size:.92rem; }
+    @media(max-width:640px) {
+      .terms-body { padding-top:26px; }
+      .ds-notice { padding:14px 15px; }
+      .ds-path-card { padding:19px 17px; }
+      .terms-body .ds-path-card h2 { font-size:1.2rem; }
+      .ds-accordion summary { padding:14px 42px 14px 15px; }
+      .ds-accordion summary::after { right:18px; }
+      .ds-accordion-body { padding:16px; }
+    }
+
+    /* Match the original Download Safeguards page's type hierarchy and placement.
+       Keep these rules after the existing styles to avoid the new card typography. */
+    .page-header { display:none; }
+    .terms-body { padding-top:30px; }
+    .terms-body .ds-original-title {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size:2.25rem; font-weight:400; letter-spacing:normal;
+      line-height:1.25; color:#0F2137; margin:0 0 34px;
+    }
+    .terms-body .ds-path-card h2,
+    .terms-body .ds-setup h2 {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size:1.7rem; font-weight:400; letter-spacing:normal;
+      line-height:1.4; color:#0F2137;
+    }
+    .terms-body .ds-path-card h2 { margin-bottom:12px; }
+    .terms-body .ds-setup h2 { margin-top:42px; margin-bottom:12px; }
+    .terms-body .ds-notice p,
+    .terms-body .ds-context,
+    .terms-body .ds-path-subtitle,
+    .terms-body .ds-options li,
+    .terms-body .ds-setup-intro,
+    .terms-body .ds-accordion-body p,
+    .terms-body .ds-accordion-body li { color:#3d4b60; }
+    .terms-body .ds-path-card h2, .terms-body .ds-setup h2 { text-transform:none; }
+    .ds-accordion summary strong { font-family:var(--font-body); font-weight:600; }
+    @media(max-width:640px){
+      .terms-body .ds-original-title {font-size:1.85rem; margin-bottom:24px;}
+      .terms-body .ds-path-card h2,.terms-body .ds-setup h2 {font-size:1.45rem;}
+    }
   </style>
   <link rel="stylesheet" href="/clean.css?v=6">
+  <style>
+    /* Navigation is fixed; reserve its full height even when the title header is hidden.
+       Placed after clean.css so site-wide overrides cannot conceal the page title. */
+    html body { padding-top: calc(var(--utility-height) + 68px) !important; }
+    @media (max-width: 600px) {
+      html body { padding-top: calc(var(--utility-height-mobile) + 56px) !important; }
+    }
+  </style>
 </head>
 <body>
 
@@ -364,66 +445,93 @@
   <div class="terms-body">
     <div class="container-narrow">
 
-      <div class="ds-important"><svg class="alert-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5 22.5 21h-21L12 2.5z" fill="#C62828"/><rect x="11" y="9" width="2" height="6.5" rx="1" fill="#fff"/><circle cx="12" cy="18" r="1.15" fill="#fff"/></svg><p><strong>Important.</strong> Program requirements apply to non‑management roles. If your process requires downloading submission files, add safeguards ASAP to prevent them from leaving the company.</p></div>
+      <h1 class="ds-original-title">Download Safeguards</h1>
 
-      <h2>If downloadable from email</h2>
-      <p>For submissions that arrive by email and are processed by a person.<span style="display:block; margin:14px 0 10px; text-decoration:underline; text-underline-offset:3px;">Choose at least one:</span></p>
-      <ol class="ds-steps">
-        <li><strong>Change to automated intake.</strong> Route submissions straight into your system of record, so no one handles files in email.</li>
-        <li><strong>Watermark before the inbox.</strong> <a href="https://aquamark.io/" target="_blank" rel="noopener noreferrer">Aquamark</a> email watermarking or an equivalent provider.</li>
-        <li><strong>Browser and device controls.</strong> Block personal email, cloud storage sites, and USB.</li>
-      </ol>
+      <div class="ds-notice"><p><strong>Downloadable files require safeguards.</strong> If non-management staff can download submission documents, safeguards must be in place to reduce the risk of files leaving the company.</p></div>
 
-      <h2>If downloadable from system of record</h2>
-      <p>For your CRM or other system of record.<span style="display:block; margin:14px 0 10px; text-decoration:underline; text-underline-offset:3px;">Choose at least one:</span></p>
-      <ol class="ds-steps">
-        <li><strong>Change to view-only access.</strong> Staff can view files but can&rsquo;t download them.</li>
-        <li><strong>Watermark.</strong> Before files are stored, or at download, using <a href="https://aquamark.io/" target="_blank" rel="noopener noreferrer">Aquamark</a> or an equivalent service.</li>
-        <li><strong>Browser and device controls.</strong> Block personal email, cloud storage sites, and USB.</li>
-      </ol>
+      <div class="ds-paths">
+        <section class="ds-path-card" aria-labelledby="email-heading">
+          <h2 id="email-heading">If downloadable from email</h2>
+          <p class="ds-path-subtitle">For submissions that arrive by email and are processed by a person.</p>
+          <p class="ds-choose">Choose at least one:</p>
+          <ol class="ds-options">
+            <li><strong>Automated intake.</strong> Route submissions directly into your system of record, so staff do not handle files in email.</li>
+            <li><strong>Watermarking.</strong> Watermark files before they reach the inbox.</li>
+            <li><strong>Browser and device controls.</strong> Block personal email, cloud storage, and USB transfers.</li>
+          </ol>
+        </section>
 
-      <h2 class="ds-guidance-title">Setup tips</h2>
-      <div class="ds-guidance ds-details-doc">
-            <h3 class="ds-opt-title">Automate email intake</h3>
-            <p><strong>No watermarking or browser controls needed.</strong> Continue receiving email submissions.</p>
-            <ul class="ds-req-list">
-              <li><strong>Email address:</strong> Used only for routing. Staff should not work out of this mailbox.</li>
-              <li><strong>Routing:</strong> Files should route to system of record automatically.</li>
-              <li><strong>System of record:</strong> Once stored, system of record safeguards still apply: view-only, watermarking, or browser and device controls.</li>
-            </ul>
-            <p class="ds-tools-lead">Tools that can help</p>
-            <ul class="ds-tools">
-              <li>Inbound email parsing (developer setup): Postmark, SendGrid, Mailgun</li>
-                            <li>Automation tools: Zapier, Make, Microsoft Power Automate</li>
+        <section class="ds-path-card" aria-labelledby="sor-heading">
+          <h2 id="sor-heading">If downloadable from your system of record</h2>
+          <p class="ds-path-subtitle">For your CRM or other system of record.</p>
+          <p class="ds-choose">Choose at least one:</p>
+          <ol class="ds-options">
+            <li><strong>View-only access.</strong> Staff can view files but cannot download them.</li>
+            <li><strong>Watermarking.</strong> Watermark files before storage or at download.</li>
+            <li><strong>Browser and device controls.</strong> Block personal email, cloud storage, and USB transfers.</li>
+          </ol>
+        </section>
+      </div>
 
-              <li>Built-in email intake in your CRM or loan platform</li>
-            </ul>
-            <hr class="ds-sep">
-            <h3 class="ds-opt-title">Watermarking</h3>
-            <p><strong>No browser or device controls needed.</strong> Watermarking is accepted as a reasonable deterrent against theft. Watermarks should include your company name or logo. <a href="https://aquamark.io/" target="_blank" rel="noopener noreferrer">Aquamark</a> or an equivalent service can be used, and watermarked files can stay downloadable.</p>
-            <p><strong>If you accept email submissions and people open them:</strong> watermark files before they reach the inbox. This also covers your system of record, since stored files are already watermarked.</p>
-            <p><strong>If files go straight to your system of record</strong> (online applications, or email routed automatically): watermark files before they&rsquo;re stored, or at the time of download.</p>
-            <hr class="ds-sep">
-            <h3 class="ds-opt-title">Browser and device controls</h3>
-            <p><strong>No watermarking needed.</strong> Files can stay downloadable from email and your system of record if these controls block personal email, cloud storage sites, and USB.</p>
-            <p>Safeguards must restrict personnel from moving data outside the company. At a minimum:</p>
-            <ul class="ds-req-list">
-              <li><strong>Domain restrictions:</strong> Block access to personal email, personal cloud storage, and unauthorized file-transfer services.</li>
-              <li><strong>USB restrictions:</strong> Block or restrict copying company files to physical media.</li>
-            </ul>
-            <p class="ds-tools-lead">Tools that can help</p>
-            <ul class="ds-tools">
-              <li>Endpoint/MDM policies: Microsoft Intune, Jamf, Hexnode, or ManageEngine</li>
-              <li>Windows Group Policy (GPO): built into Windows</li>
-              <li>Virtual desktops: Windows 365, Azure Virtual Desktop, or Amazon WorkSpaces</li>
-              <li>Enterprise browsers: Island or Talon</li>
-              <li>Web/DNS filtering: Palo Alto Prisma, Cloudflare One, or DNSFilter</li>
-            </ul>
-            <hr class="ds-sep">
-            <h3 class="ds-opt-title">Other safeguards</h3>
-            <p>Other safeguards are acceptable if they meet the intent. <a href="https://securefunder.org/contact/">Send us a message</a>.</p>
-          </div>
+      <section class="ds-setup" aria-labelledby="setup-heading">
+        <h2 id="setup-heading">Setup tips</h2>
+        <p class="ds-setup-intro">Select a safeguard for implementation guidance and examples of tools that can help.</p>
+        <div class="ds-accordion-list">
+          <details class="ds-accordion">
+            <summary><span><strong>Automate email intake</strong><small>Route submissions directly into your system of record.</small></span></summary>
+            <div class="ds-accordion-body">
+              <p><strong>No email watermarking or browser controls needed for this intake path.</strong> You can continue receiving email submissions, provided staff do not work from the intake mailbox.</p>
+              <ul>
+                <li><strong>Email address:</strong> Used only for routing. Staff should not work out of this mailbox.</li>
+                <li><strong>Routing:</strong> Files should route to your system of record automatically.</li>
+                <li><strong>System of record:</strong> Once stored, files still require safeguards there: view-only access, watermarking, or browser and device controls.</li>
+              </ul>
+              <h3>Tools that can help</h3>
+              <ul class="ds-tool-list">
+                <li>Inbound email parsing (developer setup): Postmark, SendGrid, Mailgun</li>
+                <li>Automation tools: Zapier, Make, Microsoft Power Automate</li>
+                <li>Built-in email intake in your CRM or loan platform</li>
+              </ul>
+            </div>
+          </details>
 
+          <details class="ds-accordion">
+            <summary><span><strong>Watermarking</strong><small>Keep files downloadable with visible company attribution.</small></span></summary>
+            <div class="ds-accordion-body">
+              <p><strong>No browser or device controls needed for this option.</strong> Watermarking is accepted as a reasonable deterrent against theft. Watermarks should include your company name or logo. <a href="https://aquamark.io/" target="_blank" rel="noopener noreferrer">Aquamark</a> or an equivalent service can be used, and watermarked files can remain downloadable.</p>
+              <p><strong>If people open email submissions:</strong> Watermark files before they reach the inbox. This also covers files subsequently stored in your system of record, since they are already watermarked.</p>
+              <p><strong>If files go directly to your system of record:</strong> For online applications or automatically routed email, watermark before storage or at the time of download.</p>
+            </div>
+          </details>
+
+          <details class="ds-accordion">
+            <summary><span><strong>Browser and device controls</strong><small>Restrict transfers through personal accounts and USB.</small></span></summary>
+            <div class="ds-accordion-body">
+              <p><strong>No watermarking needed for this option.</strong> Files can remain downloadable from email and your system of record if controls block personal email, cloud storage sites, and USB transfers.</p>
+              <p>Safeguards must restrict personnel from moving data outside the company. At a minimum:</p>
+              <ul>
+                <li><strong>Domain restrictions:</strong> Block access to personal email, personal cloud storage, and unauthorized file-transfer services.</li>
+                <li><strong>USB restrictions:</strong> Block or restrict copying company files to physical media.</li>
+              </ul>
+              <h3>Tools that can help</h3>
+              <ul class="ds-tool-list">
+                <li>Endpoint/MDM policies: Microsoft Intune, Jamf, Hexnode, or ManageEngine</li>
+                <li>Windows Group Policy (GPO): built into Windows</li>
+                <li>Virtual desktops: Windows 365, Azure Virtual Desktop, or Amazon WorkSpaces</li>
+                <li>Enterprise browsers: Island or Talon</li>
+                <li>Web/DNS filtering: Palo Alto Prisma, Cloudflare One, or DNSFilter</li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="ds-accordion">
+            <summary><span><strong>Other safeguards</strong><small>Alternative approaches may also be acceptable.</small></span></summary>
+            <div class="ds-accordion-body">
+              <p>Other safeguards are acceptable if they meet the program's intent. <a href="https://securefunder.org/contact/">Send us a message</a> to discuss your approach.</p>
+            </div>
+          </details>
+        </div>
+      </section>
 
     </div>
   </div>
