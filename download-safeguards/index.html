@@ -364,10 +364,10 @@
   <div class="terms-body">
     <div class="container-narrow">
 
-      <div class="ds-important"><svg class="alert-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5 22.5 21h-21L12 2.5z" fill="#C62828"/><rect x="11" y="9" width="2" height="6.5" rx="1" fill="#fff"/><circle cx="12" cy="18" r="1.15" fill="#fff"/></svg><p><strong>Important.</strong> Program requirements apply to non‑management roles. If your process requires downloading, add safeguards ASAP to prevent files from leaving the company.</p></div>
+      <div class="ds-important"><svg class="alert-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5 22.5 21h-21L12 2.5z" fill="#C62828"/><rect x="11" y="9" width="2" height="6.5" rx="1" fill="#fff"/><circle cx="12" cy="18" r="1.15" fill="#fff"/></svg><p><strong>Important.</strong> Program requirements apply to non‑management roles. If your process requires downloading submission files, add safeguards ASAP to prevent them from leaving the company.</p></div>
 
       <h2>If downloadable from email</h2>
-      <p>For applications that arrive by email and are opened by a person.<span style="display:block; margin:14px 0 10px; text-decoration:underline; text-underline-offset:3px;">Choose at least one:</span></p>
+      <p>For submissions that arrive by email and are processed by a person.<span style="display:block; margin:14px 0 10px; text-decoration:underline; text-underline-offset:3px;">Choose at least one:</span></p>
       <ol class="ds-steps">
         <li><strong>Change to automated intake.</strong> Route submissions straight into your system of record, so no one handles files in email.</li>
         <li><strong>Watermark before the inbox.</strong> <a href="https://aquamark.io/" target="_blank" rel="noopener noreferrer">Aquamark</a> email watermarking or an equivalent provider.</li>
@@ -377,7 +377,7 @@
       <h2>If downloadable from system of record</h2>
       <p>For your CRM or other system of record.<span style="display:block; margin:14px 0 10px; text-decoration:underline; text-underline-offset:3px;">Choose at least one:</span></p>
       <ol class="ds-steps">
-        <li><strong>Change to view-only access.</strong> Staff can open application files but can&rsquo;t download them.</li>
+        <li><strong>Change to view-only access.</strong> Staff can view files but can&rsquo;t download them.</li>
         <li><strong>Watermark.</strong> Before files are stored, or at download, using <a href="https://aquamark.io/" target="_blank" rel="noopener noreferrer">Aquamark</a> or an equivalent service.</li>
         <li><strong>Browser and device controls.</strong> Block personal email, cloud storage sites, and USB.</li>
       </ol>
@@ -385,17 +385,18 @@
       <h2 class="ds-guidance-title">Setup tips</h2>
       <div class="ds-guidance ds-details-doc">
             <h3 class="ds-opt-title">Automated email intake</h3>
-            <p><strong>No watermarking or browser controls needed.</strong> Submissions go to a dedicated intake address and route straight into your system of record, so no one opens attachments in email.</p>
+            <p><strong>No watermarking or browser controls needed.</strong> Continue receiving email submissions.</p>
             <ul class="ds-req-list">
-              <li><strong>Intake address:</strong> Used only for routing. Staff don&rsquo;t work out of this mailbox.</li>
-              <li><strong>Routing:</strong> Files attach to the record automatically.</li>
+              <li><strong>Email address:</strong> Used only for routing. Staff should not work out of this mailbox.</li>
+              <li><strong>Routing:</strong> Files should attach to the record automatically.</li>
               <li><strong>System of record:</strong> Once stored, system of record safeguards still apply: view-only, watermarking, or browser and device controls.</li>
             </ul>
             <p class="ds-tools-lead">Tools that can help</p>
             <ul class="ds-tools">
-              <li>Inbound email parsing (developer setup): Postmark, SendGrid, or Mailgun</li>
+              <li>Inbound email parsing (developer setup): Postmark, SendGrid, Mailgun</li>
+                            <li>Automation tools: Zapier, Make, Microsoft Power Automate</li>
+
               <li>Built-in email intake in your CRM or loan platform</li>
-              <li>Automation tools: Microsoft Power Automate, Zapier, or Make</li>
             </ul>
             <hr class="ds-sep">
             <h3 class="ds-opt-title">Watermarking</h3>
