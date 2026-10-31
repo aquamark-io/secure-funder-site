@@ -1,0 +1,16 @@
+/* Shared site footer (matches home page) */
+footer.site-foot { display: block; margin: 0; padding: 56px 0 48px !important; font-family: 'Public Sans', 'Helvetica Neue', Arial, sans-serif !important; font-size: 14px; line-height: 1.65; color: #A9B4C2 !important; background: #0F2137 !important; border-top: 0 !important; text-align: left; }
+footer.site-foot * { box-sizing: border-box; }
+footer.site-foot .wrap { max-width: 1160px; margin: 0 auto; padding: 0 32px; }
+footer.site-foot .foot-grid { display: grid; grid-template-columns: minmax(0, 5fr) repeat(3, minmax(0, 2fr)); gap: 40px; }
+footer.site-foot .foot-brand { font-family: inherit !important; font-weight: 700; font-size: 17px; color: #fff !important; margin: 0 0 10px; }
+footer.site-foot .foot-brand sup { font-size: 9px; font-weight: 500; }
+footer.site-foot p { margin: 0; max-width: 30em; line-height: 1.6; font-size: 14px; color: #A9B4C2 !important; }
+footer.site-foot h4 { margin: 0 0 12px; font-family: inherit !important; font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #8C98A8 !important; }
+footer.site-foot a { color: #DCE3EB !important; text-decoration: none; font-family: inherit; font-size: 14px; }
+footer.site-foot a:hover { color: #fff !important; }
+footer.site-foot .foot-col a { display: block; padding: 3px 0; }
+footer.site-foot .foot-bottom { margin-top: 44px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.15); display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+footer.site-foot span { color: #A9B4C2 !important; font-size: 14px; }
+@media (max-width: 900px) { footer.site-foot .foot-grid { grid-template-columns: 1fr 1fr; } footer.site-foot .foot-grid > div:first-child { grid-column: 1 / -1; } }
+@media (max-width: 560px) { footer.site-foot .wrap { padding: 0 20px; } }
