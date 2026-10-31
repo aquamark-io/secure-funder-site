@@ -212,6 +212,8 @@
   .hw-n { font-size:13px; font-weight:600; letter-spacing:.06em; color:var(--muted); }
   .hw-t { font-family:var(--serif); font-size:20px; color:var(--ink); }
   .hw-d { font-size:16px; color:var(--text); }
+  .hw.plain li { grid-template-columns:180px 1fr; }
+  @media (max-width:760px){ .hw.plain li { grid-template-columns:1fr; gap:4px; } .hw.plain .hw-d { grid-column:1; } }
   @media (max-width:760px){ .hw li { grid-template-columns:36px 1fr; } .hw-d { grid-column:2; } }
 </style>
 </head>
@@ -320,7 +322,18 @@
         <h2>Next steps</h2>
       </div>
       <div>
-        <ol class="hw"><li><span class="hw-n">01</span><span class="hw-t">Join</span><span class="hw-d">Instant portal access, member #, directory listing.</span></li><li><span class="hw-n">02</span><span class="hw-t">Verify</span><span class="hw-d">Self-service or with our help.</span></li><li><span class="hw-n">03</span><span class="hw-t">Certify</span><span class="hw-d">Digital badge.</span></li></ol>
+        <ol class="hw"><li><span class="hw-n">01</span><span class="hw-t">Join</span><span class="hw-d">Instant portal access, member #, directory listing.</span></li><li><span class="hw-n">02</span><span class="hw-t">Verify</span><span class="hw-d">Self-service or with our help.</span></li><li><span class="hw-n">03</span><span class="hw-t">Certify</span><span class="hw-d">Digital badge, public announcements.</span></li></ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="verification">
+    <div class="wrap">
+      <div>
+        <h2>Verification</h2>
+      </div>
+      <div>
+        <ol class="hw plain"><li><span class="hw-t">Independent</span><span class="hw-d">Secure Funder is an independent third party.</span></li><li><span class="hw-t">Evidence-based</span><span class="hw-d">Safeguards are verified through uploaded evidence, such as documents and screenshots.</span></li><li><span class="hw-t">Redaction</span><span class="hw-d">PII and proprietary details can be redacted. We only need enough to confirm the safeguard is in place.</span></li><li><span class="hw-t">Your pace</span><span class="hw-d">Verification moves at your pace.</span></li></ol>
       </div>
     </div>
   </section>
