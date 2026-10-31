@@ -72,7 +72,8 @@
   .clients { padding: 44px 0 48px; border-bottom: 1px solid var(--rule); }
   .clients p { font-size: 14px; color: var(--muted); margin: 0 0 28px; }
   .client-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 32px 48px; align-items: center; }
-  .client-grid img { max-height: 40px; max-width: 150px; width: auto; margin: 0 auto; opacity: 0.6; }
+  .client-grid img { max-height: 40px; max-width: 150px; width: auto; margin: 0 auto; filter: grayscale(100%); opacity: 0.6; }
+  .client-grid img.lg { max-height: 48px; max-width: 180px; }
   .clients .dir-links { margin: 32px 0 0; font-size: 14px; color: var(--muted); }
 
   .section { padding: 88px 0; border-bottom: 1px solid var(--rule); }
@@ -177,6 +178,7 @@
     .hero .figure-frame img { max-height: 240px; margin: 0 auto; }
     .client-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 24px; }
     .client-grid img { max-height: 30px; max-width: 120px; }
+    .client-grid img.lg { max-height: 36px; max-width: 144px; }
     .section h2 { font-size: 32px; }
     .ruled.two, .cols-2 { grid-template-columns: minmax(0, 1fr); }
     .ruled.two li:nth-child(2) { border-top: 0; }
@@ -273,12 +275,13 @@
         <img src="green.png" alt="Greenbridge">
         <img src="clara.png" alt="Clara Capital">
         <img src="capfront.png" alt="CapFront">
-        <img src="oval.png" alt="Oval">
-        <img src="fordham.png" alt="Fordham Capital">
+        <img class="lg" src="oval.png" alt="Oval">
+        <img class="lg" src="fordham.png" alt="Fordham Capital">
         <img src="united.png" alt="United Capital Source">
-        <img src="brite.png" alt="BriteCap">
+        <img class="lg" src="brite.png" alt="BriteCap">
         <img src="qualifi.png" alt="Qualifi">
-        <img src="bizfuelcap.png" alt="BizFuel Capital">
+        <img class="lg" src="bizfuelcap.png" alt="BizFuel Capital">
+        <img src="flatrock.png" alt="Flatrock">
       </div>
       <p class="dir-links">Browse the <a href="https://securebroker.org/directory/">Broker Directory</a> or <a href="https://securefunder.org/directory/">Funder Directory</a>.</p>
     </div>
