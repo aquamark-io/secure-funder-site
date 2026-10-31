@@ -236,15 +236,15 @@ nav.main-nav .mobile-toggle span{background:#0E1B2E !important;}
 .mobile-menu{background:#fff !important;}
 .mobile-menu > a:not(.btn-member-mobile){color:#0E1B2E !important;border-color:#D9DEE5 !important;font-family:'Public Sans',Arial,sans-serif !important;}
 
-/* footer: light, Aquamark-style */
-footer{background:#fff !important;color:#6B7686 !important;border-top:1px solid #D9DEE5 !important;font-family:'Public Sans',Arial,sans-serif !important;}
-footer .logo-text, footer .logo, footer .footer-brand .logo-text{color:#0E1B2E !important;font-family:'Public Sans',Arial,sans-serif !important;}
-footer p, footer span, footer .footer-desc, footer .footer-brand p{color:#6B7686 !important;}
-footer h4{color:#6B7686 !important;font-size:12px !important;font-weight:600 !important;letter-spacing:.08em !important;text-transform:uppercase !important;font-family:'Public Sans',Arial,sans-serif !important;}
-footer a{color:#3A4659 !important;}
-footer a:hover{color:#1A6DD9 !important;}
-footer .footer-brand p a, footer .footer-desc a{color:#1A6DD9 !important;}
-footer .footer-bottom{border-top:1px solid #D9DEE5 !important;}
+/* footer: dark */
+footer{background:#0F2137 !important;color:#A9B4C2 !important;border-top:0 !important;font-family:'Public Sans',Arial,sans-serif !important;}
+footer .logo-text, footer .logo, footer .footer-brand .logo-text{color:#fff !important;font-family:'Public Sans',Arial,sans-serif !important;}
+footer p, footer span, footer .footer-desc, footer .footer-brand p{color:#A9B4C2 !important;}
+footer h4{color:#8C98A8 !important;font-size:12px !important;font-weight:600 !important;letter-spacing:.08em !important;text-transform:uppercase !important;font-family:'Public Sans',Arial,sans-serif !important;}
+footer a{color:#DCE3EB !important;}
+footer a:hover{color:#fff !important;}
+footer .footer-brand p a, footer .footer-desc a{color:#DCE3EB !important;}
+footer .footer-bottom{border-top:1px solid rgba(255,255,255,.15) !important;}
 footer .logo-badge, footer img.logo-badge{filter:none !important;}
 
 .top-banner *, .utility-bar *{color:#C9D2DE !important;font-weight:400 !important;}
