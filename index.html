@@ -95,6 +95,11 @@
   .linkbtn { background: none; border: 0; padding: 0; font: inherit; color: var(--link); cursor: pointer; }
   .linkbtn:hover { text-decoration: underline; text-underline-offset: 3px; }
 
+  .price-row { display: flex; gap: 32px 64px; flex-wrap: wrap; }
+  .price { margin: 0; font-family: var(--serif); font-size: 40px; line-height: 1.1; color: var(--ink); }
+  .price small { font-family: inherit; font-size: 16px; color: var(--muted); }
+  .price-note { margin: 6px 0 0; font-size: 15px; color: var(--muted); }
+  .price-foot { margin: 20px 0 32px; font-size: 15px; color: var(--muted); }
   .ruled { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--ink); }
   .ruled li { padding: 12px 0; border-bottom: 1px solid var(--rule); }
   .ruled.two { display: grid; grid-template-columns: 1fr 1fr; column-gap: 48px; border-top: 0; }
@@ -334,6 +339,30 @@
     </div>
   </section>
 
+  <section class="section" id="membership">
+    <div class="wrap">
+      <div>
+        <h2>Membership</h2>
+      </div>
+      <div>
+        <div class="price-row">
+          <div><p class="price">$2,499 <small>USD/year</small></p></div>
+        </div>
+        <p class="price-foot">Monthly payments available.</p>
+        <ul class="ruled two">
+          <li>Independent review of safeguards</li>
+          <li>Member support and guidance</li>
+          <li>Assessment report</li>
+          <li>Digital badge</li>
+          <li>Directory listing</li>
+          <li>Public announcements (social media, newsletter, press)</li>
+          <li>Industry and state compliance updates</li>
+          <li>Member logos on event displays</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
   <section class="section band" id="newsletter">
     <div class="wrap">
       <div>
@@ -347,7 +376,7 @@
     </div>
   </section>
 
-  <section class="closing" id="membership">
+  <section class="closing" id="join">
     <div class="wrap">
       <div>
         <h2>Join today. Change tomorrow.</h2>
