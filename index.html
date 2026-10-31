@@ -97,7 +97,7 @@
 
   .price-row { display: flex; gap: 32px 64px; flex-wrap: wrap; }
   .price { margin: 0; font-family: var(--serif); font-size: 40px; line-height: 1.1; color: var(--ink); }
-  .price small { font-family: inherit; font-size: 16px; color: var(--muted); }
+  .price small { font-family: inherit; font-size: 16px; color: var(--muted); white-space: nowrap; display: inline-block; }
   .price-note { margin: 6px 0 0; font-size: 15px; color: var(--muted); }
   .price-row { margin-bottom: 32px; }
   .ruled { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--ink); }
@@ -346,7 +346,7 @@
       </div>
       <div>
         <div class="price-row">
-          <div><p class="price">$2,499 <small>USD/year</small></p><p class="price-note">Monthly option available</p></div>
+          <div><p class="price">$2,499 <small>USD/year &middot; monthly available</small></p></div>
         </div>
         <ul class="ruled two">
           <li>Independent review of safeguards</li>
