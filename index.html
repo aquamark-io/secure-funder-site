@@ -127,6 +127,16 @@
   .press-row .date { font-size: 14px; color: var(--muted); white-space: nowrap; }
   .press-more { margin-top: 24px; font-size: 15px; }
 
+  .evidence { padding: 96px 0; background: var(--dark); color: #C9D2DE; }
+  .ev-head { max-width: 40em; margin-bottom: 56px; }
+  .ev-head h2 { color: #fff; font-size: clamp(32px, 4vw, 44px); line-height: 1.1; }
+  .ev-head p { margin: 14px 0 0; font-size: 18px; }
+  .ev-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 48px; }
+  .ev-col { border-top: 1px solid rgba(255,255,255,.25); padding-top: 24px; }
+  .ev-n { font-size: 13px; font-weight: 600; letter-spacing: .06em; color: #8FA0B5; }
+  .evidence h3 { color: #fff; font-family: var(--serif); font-size: 26px; font-weight: 400; margin: 10px 0 12px; border: 0; padding: 0; }
+  .ev-col p { margin: 0; font-size: 16px; line-height: 1.6; }
+  @media (max-width: 760px) { .evidence { padding: 64px 0; } .ev-grid { grid-template-columns: 1fr; gap: 32px; } .ev-head { margin-bottom: 40px; } }
   .closing { padding: 96px 0; background: var(--dark); color: #C9D2DE; }
   .closing .wrap { display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
   .closing h2 { color: #fff; font-size: clamp(32px, 4vw, 44px); line-height: 1.1; max-width: 16em; }
@@ -212,8 +222,6 @@
   .hw-n { font-size:13px; font-weight:600; letter-spacing:.06em; color:var(--muted); }
   .hw-t { font-family:var(--serif); font-size:20px; color:var(--ink); }
   .hw-d { font-size:16px; color:var(--text); }
-  .hw.plain li { grid-template-columns:180px 1fr; }
-  @media (max-width:760px){ .hw.plain li { grid-template-columns:1fr; gap:4px; } .hw.plain .hw-d { grid-column:1; } }
   @media (max-width:760px){ .hw li { grid-template-columns:36px 1fr; } .hw-d { grid-column:2; } }
 </style>
 </head>
@@ -327,13 +335,16 @@
     </div>
   </section>
 
-  <section class="section" id="verification">
+  <section class="evidence" id="verification">
     <div class="wrap">
-      <div>
-        <h2>Verification</h2>
+      <div class="ev-head">
+        <h2>How evidence works</h2>
+        <p>Proof, not paperwork. Show us each safeguard is in place&mdash;nothing more.</p>
       </div>
-      <div>
-        <ol class="hw plain"><li><span class="hw-t">Independent</span><span class="hw-d">Secure Funder is an independent third party.</span></li><li><span class="hw-t">Evidence-based</span><span class="hw-d">Safeguards are verified through uploaded evidence, such as documents and screenshots.</span></li><li><span class="hw-t">Redaction</span><span class="hw-d">PII and proprietary details can be redacted. We only need enough to confirm the safeguard is in place.</span></li><li><span class="hw-t">Your pace</span><span class="hw-d">Verification moves at your pace.</span></li></ol>
+      <div class="ev-grid">
+          <div class="ev-col"><span class="ev-n">01</span><h3>Upload</h3><p>Share documents or screenshots of each safeguard through the member portal.</p></div>
+          <div class="ev-col"><span class="ev-n">02</span><h3>Redact</h3><p>Remove PII and proprietary details. We only need enough to confirm the safeguard is in place.</p></div>
+          <div class="ev-col"><span class="ev-n">03</span><h3>Review</h3><p>An independent third party reviews your evidence. It moves at your pace.</p></div>
       </div>
     </div>
   </section>
