@@ -222,21 +222,39 @@
   .page-head { padding: 88px 0 64px; border-bottom: 1px solid var(--rule); }
   .page-head h1 { font-size: clamp(40px, 5vw, 60px); line-height: 1.06; letter-spacing: -0.015em; font-weight: 400; }
   .page-head .lede { font-size: 19px; line-height: 1.6; margin: 24px 0 0; }
-  .rows { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--ink); }
-  .rows li { display: grid; grid-template-columns: 220px 1fr; gap: 24px; align-items: baseline; padding: 20px 0; border-bottom: 1px solid var(--rule); }
-  .rows .t { font-family: var(--serif); font-size: 21px; color: var(--ink); line-height: 1.3; }
-  .rows .d { font-size: 16px; color: var(--text); }
-  .lead-p { font-family: var(--serif); font-size: 24px; line-height: 1.45; color: var(--ink); margin: 0; max-width: 28em; }
-  .exits { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin: 28px 0; padding: 0; list-style: none; }
-  .exits li { border-top: 2px solid var(--ink); padding: 14px 0 0; font-family: var(--serif); font-size: 22px; color: var(--ink); }
-  .fine { font-size: 15px; color: var(--muted); margin: 20px 0 0; }
-  .req-actions { margin-top: 32px; }
+  .rq-wrap { max-width: 920px; margin: 0 auto; padding: 0 32px; }
+  .rq-block { padding: 72px 0; }
+  .rq-tight { padding-top: 0; }
+  .rq-eyebrow { margin: 0 0 20px; font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+  .qualify { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+  .qualify li { border: 1px solid var(--rule); padding: 22px 22px 26px; display: flex; flex-direction: column; gap: 14px; }
+  .q-n { font-size: 13px; font-weight: 600; letter-spacing: .06em; color: var(--muted); }
+  .q-t { font-family: var(--serif); font-size: 21px; line-height: 1.3; color: var(--ink); }
+  .callout { background: var(--band); border-left: 4px solid #FFE45C; padding: 28px 32px; }
+  .callout .tag-new { margin-bottom: 14px; }
+  .callout-lead { font-family: var(--serif); font-size: 22px; line-height: 1.4; color: var(--ink); margin: 0 0 10px; }
+  .callout p:last-child { margin: 0; }
+  .tech { background: var(--dark); color: #C9D2DE; padding: 80px 0; }
+  .tech .rq-eyebrow { color: #8C98A8; }
+  .tech h2 { color: #fff; font-size: clamp(28px, 3.4vw, 40px); line-height: 1.2; font-weight: 400; }
+  .paths { display: grid; grid-template-columns: 3fr 2fr; gap: 24px; align-items: start; }
+  .path { border: 1px solid var(--rule); border-top: 3px solid var(--ink); padding: 28px 28px 32px; }
+  .path-ok { border-top-color: #2E8B57; }
+  .path-label { margin: 0 0 12px; font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--ink); }
+  .path-lead { font-family: var(--serif); font-size: 20px; line-height: 1.45; color: var(--ink); margin: 0 0 12px; }
+  .path p:last-child { margin-bottom: 0; }
+  .exits-x { list-style: none; margin: 18px 0 28px; padding: 0; }
+  .exits-x li { position: relative; padding: 10px 0 10px 30px; border-bottom: 1px solid var(--rule); font-size: 17px; color: var(--ink); }
+  .exits-x li:first-child { border-top: 1px solid var(--rule); }
+  .exits-x li::before { content: "\2715"; position: absolute; left: 4px; top: 10px; color: #C0392B; font-size: 14px; font-weight: 700; }
   @media (max-width: 760px) {
     .page-head { padding: 56px 0 44px; }
-    .rows li { grid-template-columns: 1fr; gap: 6px; }
-    .lead-p { font-size: 20px; }
-    .exits { grid-template-columns: 1fr; gap: 12px; }
-    .exits li { font-size: 19px; }
+    .rq-wrap { padding: 0 20px; }
+    .rq-block { padding: 48px 0; }
+    .rq-tight { padding-top: 0; }
+    .qualify, .paths { grid-template-columns: 1fr; }
+    .callout { padding: 22px 20px; }
+    .tech { padding: 56px 0; }
   }
 </style>
 </head>
@@ -271,53 +289,58 @@
 <main>
 
   <section class="page-head">
-    <div class="wrap">
+    <div class="rq-wrap">
       <h1>Program Requirements</h1>
       <p class="lede">Secure Funder is not software and does not require specific software.</p>
     </div>
   </section>
 
-  <section class="section" id="basics">
-    <div class="wrap">
-      <div>
-        <h2>The basics</h2>
-      </div>
-      <div>
-        <ul class="rows">
-          <li><span class="t">A program, not software</span><span class="d">Nothing to install or integrate. We certify how your company handles sensitive files.</span></li>
-          <li><span class="t">Evidence-based</span><span class="d">Safeguards are verified through documents and screenshots uploaded to the member portal. PII and proprietary details can be redacted.</span></li>
-          <li><span class="t">Your tools, your choice</span><span class="d">We don&rsquo;t require specific tools. You decide how to meet each requirement.</span></li>
-        </ul>
+  <section class="rq-block">
+    <div class="rq-wrap">
+      <p class="rq-eyebrow">To qualify</p>
+      <ol class="qualify">
+        <li><span class="q-n">01</span><span class="q-t">Registered with Secretary of State</span></li>
+        <li><span class="q-n">02</span><span class="q-t">Company website</span></li>
+        <li><span class="q-n">03</span><span class="q-t">Evidence of technical requirements</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="rq-block rq-tight">
+    <div class="rq-wrap">
+      <div class="callout">
+        <span class="tag-new">Important</span>
+        <p class="callout-lead">Guidelines do not apply to owners and upper management.</p>
+        <p>The guidelines focus on the initial application package you receive from brokers&mdash;where misuse most often occurs.</p>
       </div>
     </div>
   </section>
 
-  <section class="section" id="focus">
-    <div class="wrap">
-      <div>
-        <h2>The focus</h2>
-      </div>
-      <div>
-        <p class="lead-p">The guidelines focus on the initial application package you receive from brokers&mdash;where misuse most often occurs.</p>
-      </div>
+  <section class="tech">
+    <div class="rq-wrap">
+      <p class="rq-eyebrow">Technical requirements</p>
+      <h2>Safeguards in place to prevent application files from being sent outside the company.</h2>
     </div>
   </section>
 
-  <section class="section" id="requirement">
-    <div class="wrap">
-      <div>
-        <h2>The requirement</h2>
-      </div>
-      <div>
-        <p class="lead-p">If the application package can be downloaded from an email inbox or your system of record, it should not be able to leave the company through:</p>
-        <ul class="exits">
-          <li>Personal email</li>
-          <li>Cloud storage</li>
-          <li>USB drives</li>
-        </ul>
-        <p>We look for this in your evidence, or work with you to put safeguards in place. If files are view-only, this requirement is already met.</p>
-        <p class="fine">Applies to non-management roles. Owners and upper management are not included.</p>
-        <div class="req-actions"><a class="btn" href="/download-safeguards/">Acceptable safeguards</a></div>
+  <section class="rq-block">
+    <div class="rq-wrap">
+      <div class="paths">
+        <div class="path">
+          <p class="path-label">If downloadable</p>
+          <p class="path-lead">If the application package can be downloaded from an email inbox or your system of record, it should not be able to leave the company through:</p>
+          <ul class="exits-x">
+            <li>Personal email</li>
+            <li>Cloud storage</li>
+            <li>USB drives</li>
+          </ul>
+          <a class="btn" href="/download-safeguards/">Acceptable safeguards</a>
+        </div>
+        <div class="path path-ok">
+          <p class="path-label">If view-only</p>
+          <p class="path-lead">No safeguards needed.</p>
+          <p>Just provide proof of your view-only settings.</p>
+        </div>
       </div>
     </div>
   </section>
