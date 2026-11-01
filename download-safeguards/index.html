@@ -263,8 +263,8 @@
   .tips .s-d { display: block; font-size: 15px; color: var(--muted); margin-top: 2px; }
   .tips summary:focus { outline: none; }
   .tips summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
-  .s-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
-  .s-tag { background: #FFE45C; color: var(--ink); font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; line-height: 1; padding: 5px 8px; }
+  .s-tags { display: block; margin-top: 4px; font-size: 14px; color: var(--muted); }
+  .s-tag + .s-tag::before { content: "\00B7"; margin: 0 8px; }
   .tip-body { background: var(--band); padding: 28px 32px 24px; margin: 0 0 28px; font-size: 16px; line-height: 1.7; }
   .tip-body p { margin: 0 0 18px; max-width: 42em; }
   .tip-body ul { margin: 0 0 18px; padding-left: 20px; }
