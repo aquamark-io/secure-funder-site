@@ -263,6 +263,8 @@
   .tips .s-d { display: block; font-size: 15px; color: var(--muted); margin-top: 2px; }
   .tips summary:focus { outline: none; }
   .tips summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+  .s-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
+  .s-tag { background: #FFE45C; color: var(--ink); font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; line-height: 1; padding: 5px 8px; }
   .tip-body { background: var(--band); padding: 28px 32px 24px; margin: 0 0 28px; font-size: 16px; line-height: 1.7; }
   .tip-body p { margin: 0 0 18px; max-width: 42em; }
   .tip-body ul { margin: 0 0 18px; padding-left: 20px; }
@@ -322,40 +324,9 @@
 
   <section class="rq-block">
     <div class="rq-wrap">
-      <div class="paths paths-even">
-        <div class="path">
-          <span class="tag-new path-tag">Email inbox</span>
-          <p class="q-t">If downloadable from email</p>
-          <p class="path-d">For submissions that arrive by email and are opened by a person.</p>
-          <p class="choose">Choose at least one:</p>
-          <ul class="opt-list">
-            <li><strong>Automate intake.</strong> Route submissions directly into your system of record, so staff do not handle files in email.</li>
-            <li><strong>Watermarking.</strong> Watermark files before they reach the inbox.</li>
-            <li><strong>Browser and device controls.</strong> Block personal email, cloud storage sites, and USB transfers.</li>
-          </ul>
-        </div>
-        <div class="path">
-          <span class="tag-new path-tag">System of record</span>
-          <p class="q-t">If downloadable from your system of record</p>
-          <p class="path-d">For your CRM or other system of record.</p>
-          <p class="choose">Choose at least one:</p>
-          <ul class="opt-list">
-            <li><strong>Change to view-only access.</strong> Staff can view files but cannot download them.</li>
-            <li><strong>Watermarking.</strong> Watermark files before storage or at download.</li>
-            <li><strong>Browser and device controls.</strong> Block personal email, cloud storage sites, and USB transfers.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="rq-block rq-tight">
-    <div class="rq-wrap">
-      <h2 class="sec-title">Setup tips</h2>
-      <p class="sec-sub">Choose your path</p>
       <div class="tips">
         <details name="tips">
-          <summary><span class="s-t">Automate email intake</span></summary>
+          <summary><span class="s-t">Automate email intake</span><span class="s-tags"><span class="s-tag">Email inbox</span></span></summary>
           <div class="tip-body">
             <p>You can keep receiving email submissions, as long as staff do not work from the intake mailbox. No email watermarking or browser controls are needed for this intake path.</p>
             <ul>
@@ -372,7 +343,14 @@
           </div>
         </details>
         <details name="tips">
-          <summary><span class="s-t">Watermarking</span></summary>
+          <summary><span class="s-t">Change to view-only access</span><span class="s-tags"><span class="s-tag">System of record</span></span></summary>
+          <div class="tip-body">
+            <p>Set your system of record so staff can view files but cannot download them. No watermarking or browser controls are needed for files that stay view-only.</p>
+            <p>For certification, provide proof of your view-only settings, such as a screenshot of user permissions.</p>
+          </div>
+        </details>
+        <details name="tips">
+          <summary><span class="s-t">Watermarking</span><span class="s-tags"><span class="s-tag">Email inbox</span><span class="s-tag">System of record</span></span></summary>
           <div class="tip-body">
             <p>Watermarking is accepted as a reasonable deterrent against theft. Watermarks should include your company name or logo. <a href="https://aquamark.io/" target="_blank" rel="noopener noreferrer">Aquamark</a> or an equivalent service can be used, and watermarked files can remain downloadable. No browser or device controls are needed for this option.</p>
             <ul>
@@ -382,7 +360,7 @@
           </div>
         </details>
         <details name="tips">
-          <summary><span class="s-t">Browser and device controls</span></summary>
+          <summary><span class="s-t">Browser and device controls</span><span class="s-tags"><span class="s-tag">Email inbox</span><span class="s-tag">System of record</span></span></summary>
           <div class="tip-body">
             <p>Files can remain downloadable from email and your system of record if controls block personal email, cloud storage sites, and USB transfers. No watermarking is needed for this option. At a minimum:</p>
             <ul>
