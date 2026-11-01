@@ -240,6 +240,7 @@
   .path { border: 1px solid var(--rule); padding: 22px 22px 26px; display: flex; flex-direction: column; gap: 14px; align-items: flex-start; }
   .path .q-t { margin: 0; }
   .path .path-tag { margin: 0; }
+  .choose { margin: 10px 0 0; font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--ink); }
   .paths.paths-even { grid-template-columns: 1fr 1fr; }
   @media (max-width: 760px) { .paths.paths-even { grid-template-columns: 1fr; } }
   .path-d { margin: 0; font-size: 16px; color: var(--text); }
@@ -324,7 +325,8 @@
         <div class="path">
           <span class="tag-new path-tag">Email inbox</span>
           <p class="q-t">If downloadable from email</p>
-          <p class="path-d">For submissions that arrive by email and are opened by a person. Choose at least one:</p>
+          <p class="path-d">For submissions that arrive by email and are opened by a person.</p>
+          <p class="choose">Choose at least one:</p>
           <ul class="opt-list">
             <li><strong>Automate intake.</strong> Route submissions directly into your system of record, so staff do not handle files in email.</li>
             <li><strong>Watermarking.</strong> Watermark files before they reach the inbox.</li>
@@ -334,7 +336,8 @@
         <div class="path">
           <span class="tag-new path-tag">System of record</span>
           <p class="q-t">If downloadable from your system of record</p>
-          <p class="path-d">For your CRM or other system of record. Choose at least one:</p>
+          <p class="path-d">For your CRM or other system of record.</p>
+          <p class="choose">Choose at least one:</p>
           <ul class="opt-list">
             <li><strong>Change to view-only access.</strong> Staff can view files but cannot download them.</li>
             <li><strong>Watermarking.</strong> Watermark files before storage or at download.</li>
