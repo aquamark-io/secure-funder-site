@@ -1,609 +1,416 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Download Safeguards — Secure Funder™</title>
-  <meta name="description" content="Acceptable safeguards when submission documents are downloadable, with common methods for keeping files within company systems.">
-  <link rel="icon" type="image/png" sizes="32x32" href="../../blue-ring.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../../blue-ring.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="../../blue-ring.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --utility-height: 0px;
-      --utility-height-mobile: 0px;
-      --nav-height: 68px;
-      --navy: #0F2137;
-      --navy-mid: #1A3455;
-      --slate: #3D5A80;
-      --steel: #6B8BAD;
-      --ice: #C5D9E8;
-      --pearl: #EFF4F8;
-      --cloud: #F6F9FC;
-      --white: #FFFFFF;
-      --blue-accent: #4FA3D1;
-      --blue-accent-soft: #7BBCE1;
-      --blue-accent-pale: #E7F2FA;
-      --text-primary: #0F2137;
-      --text-secondary: #4A6480;
-      --text-muted: #7A96AE;
-      --border: #DAE3EC;
-      --border-light: #EAF0F5;
-      --font-display: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      --font-body: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-    }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: var(--font-body);
-      color: var(--text-primary);
-      background: var(--white);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      padding-top: calc(var(--utility-height) + var(--nav-height));
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Acceptable Safeguards — Secure Funder™</title>
+<meta name="description" content="Acceptable safeguards for downloadable application files in the Secure Funder™ program.">
+<meta property="og:title" content="Acceptable Safeguards — Secure Funder™">
+<meta property="og:description" content="Secure Funder™ is an independent certification program for alternative finance funders on responsible data handling.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://securefunder.org/download-safeguards/">
+<meta property="og:image" content="https://securefunder.org/og-blank.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/blue-ring.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/blue-ring.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/blue-ring.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0E1B2E; --text: #3A4659; --muted: #6B7686; --rule: #D9DEE5; --band: #F4F6F9; --paper: #FFFFFF;
+    --link: #1A6DD9; --accent: #1D4E89; --accent-deep: #163C6A; --dark: #0F2137;
+    --serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+    --sans: 'Public Sans', 'Helvetica Neue', Arial, sans-serif;
+    --wrap: 1160px;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; overflow-x: clip; scroll-padding-top: 120px; }
+  body { margin: 0; overflow-x: clip; background: var(--paper); color: var(--text); font-family: var(--sans); font-size: 17px; line-height: 1.65; }
+  h1, h2, h3, p, li, blockquote { overflow-wrap: break-word; }
+  img { max-width: 100%; display: block; }
+  a { color: var(--link); text-decoration: none; }
+  a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--link); outline-offset: 3px; }
+  .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 32px; }
+  h1, h2, h3 { font-family: var(--serif); color: var(--ink); font-weight: 500; margin: 0; }
 
-    /* UTILITY BAR */
-    .utility-bar {
-      background: linear-gradient(90deg, #0D1B2D 0%, #13263D 52%, #17304C 100%);
-      color: var(--white);
-      font-size: 0.82rem; font-weight: 600;
-      height: var(--utility-height);
-      letter-spacing: 0.04em;
-      position: fixed; top: 0; left: 0; right: 0;
-      z-index: 200;
-      display: flex; align-items: center; justify-content: center;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-    .utility-text { width: 100%; text-align: center; }
-    .utility-banner-link {
-      width: 100%; min-height: 100%;
-      display: inline-flex; align-items: center; justify-content: center;
-      padding: 0 18px; text-decoration: none; color: var(--white);
-    }
-    .utility-banner-link:hover { background: rgba(255,255,255,0.04); }
-    .utility-copy { display: inline-flex; align-items: baseline; gap: 8px; flex-wrap: wrap; justify-content: center; }
-    .utility-eyebrow { color: var(--blue-accent-soft); text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.68rem; font-weight: 700; }
-    .utility-message { color: rgba(255,255,255,0.95); }
-    @media (max-width: 640px) {
-      body { padding-top: calc(var(--utility-height-mobile) + var(--nav-height)); }
-      .utility-bar { height: var(--utility-height-mobile); }
-      .utility-copy { display: flex; flex-direction: column; align-items: center; gap: 2px; text-align: center; }
-      .utility-eyebrow { font-size: 0.58rem; letter-spacing: 0.16em; line-height: 1; }
-      .utility-message { display: block; font-size: 0.80rem; line-height: 1.22; }
-    }
+  .btn { display: inline-block; font-family: var(--sans); font-size: 15px; font-weight: 600; padding: 12px 22px; min-width: 148px; text-align: center; border: 1px solid var(--accent); background: var(--accent); color: #fff; line-height: 1.2; cursor: pointer; }
+  .btn:hover { background: var(--accent-deep); border-color: var(--accent-deep); color: #fff; text-decoration: none; }
+  .btn-quiet { background: transparent; color: var(--ink); border-color: var(--ink); }
+  .btn-quiet:hover { background: var(--ink); border-color: var(--ink); color: #fff; }
 
-    /* NAV */
-    .main-nav {
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      position: fixed; top: var(--utility-height); left: 0; right: 0;
-      z-index: 190;
-      
-    }
-    .main-nav .container { display: flex; justify-content: space-between; align-items: center; height: 68px; }
-    .logo { display: flex; align-items: center; text-decoration: none; color: var(--navy); gap: 12px; }
-    .logo-text { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; letter-spacing: -0.01em; }
-    .logo-tm { font-size: 0.55em; vertical-align: super; font-weight: 400; margin-left: 1px; }
-    .logo-badge-lg { width: 44px; height: 44px; }
-    .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; }
-    .nav-links a {
-      text-decoration: none; color: var(--text-primary);
-      font-size: 0.88rem; font-weight: 500; padding: 8px 14px;
-      border-radius:0; transition: all 0.2s;
-    }
-    .nav-links a:hover { background: var(--pearl); }
-    .nav-links .btn-member { background: var(--navy); color: var(--white); font-weight: 600; margin-left: 6px; }
-    .nav-links .btn-member:hover { background: var(--navy-mid); }
-    .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
-    .mobile-toggle span { display: block; width: 22px; height: 2px; background: var(--navy); margin: 5px 0; }
+  .topline { background: #DDF734; color: #000000; font-size: 13px; text-align: center; padding: 8px 16px; position: sticky; top: 0; z-index: 60; }
 
-    .container { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
-    .container-narrow { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+  .nav { border-bottom: 1px solid var(--rule); background: var(--paper); position: sticky; top: 37px; z-index: 50; }
+  .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 72px; gap: 24px; }
+  .nav-logo { display: flex; align-items: center; gap: 10px; color: var(--ink); font-family: var(--sans); font-weight: 700; font-size: 19px; letter-spacing: -0.01em; white-space: nowrap; }
+  .nav-logo:hover { text-decoration: none; }
+  .nav-logo img { width: 30px; height: 30px; }
+  .nav-logo sup { font-size: 10px; font-weight: 500; }
+  .nav-links { display: flex; align-items: center; gap: 28px; font-size: 15px; }
+  .nav-links a { color: var(--ink); }
+  .nav-links a:hover { color: var(--link); text-decoration: none; }
+  .nav-actions { display: flex; align-items: center; gap: 12px; }
+  .nav-toggle { display: none; background: none; border: 1px solid var(--rule); font: 600 14px var(--sans); color: var(--ink); padding: 8px 12px; cursor: pointer; }
+  .mobile-menu { display: none; border-top: 1px solid var(--rule); }
+  .mobile-menu a { display: block; padding: 14px 32px; border-bottom: 1px solid var(--rule); color: var(--ink); }
 
-    /* PAGE HEADER */
-    .page-header {
-      background: var(--cloud);
-      border-bottom: 1px solid var(--border-light);
-      padding: 64px 0 56px;
-      text-align: center;
-    }
-    .page-header .section-label {
-      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em;
-      text-transform: uppercase; color: var(--blue-accent); margin-bottom: 12px;
-    }
-    .page-header h1 {
-      font-family: var(--font-display);
-      font-size: 2.4rem; font-weight: 700; line-height: 1.2;
-      letter-spacing: -0.02em; color: var(--navy); margin-bottom: 12px;
-    }
-    .page-header p {
-      font-size: 1.12rem; color: var(--text-secondary); line-height: 1.7;
-    }
-    .page-header .version {
-      font-size: 0.78rem; color: var(--text-muted); margin-top: 8px;
-      letter-spacing: 0.02em;
-    }
+  .hero { padding: 88px 0 80px; border-bottom: 1px solid var(--rule); }
+  .hero .wrap { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 72px; align-items: center; }
+  .hero h1 { font-size: clamp(40px, 5.2vw, 64px); line-height: 1.06; letter-spacing: -0.015em; font-weight: 400; }
+  .hero h1 strong { font-weight: 700; letter-spacing: -0.025em; }
+  .hero-lede { font-size: 19px; line-height: 1.6; max-width: 30em; margin: 28px 0 0; }
+  .hero-lede strong { color: var(--ink); font-weight: 600; }
+  .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+  .hero-note { font-size: 14px; color: var(--muted); margin-top: 16px; }
+  .figure { margin: 0; }
+  .figure-frame { padding: 0; }
+  .figure-frame img { margin: 0 auto; max-height: 360px; width: auto; }
+  .figure figcaption { font-size: 13px; color: var(--muted); margin-top: 12px; line-height: 1.5; }
 
-    /* TERMS CONTENT */
-    .terms-body {
-      padding: 64px 0 80px;
-    }
-    .terms-body h2 {
-      font-family: var(--font-display);
-      font-size: 1.35rem; font-weight: 700; color: var(--navy);
-      margin: 48px 0 14px; padding-top: 32px;
-      border-top: 1px solid var(--border-light);
-    }
-    .terms-body h2:first-of-type {
-      margin-top: 0; padding-top: 0; border-top: none;
-    }
-    .terms-body p {
-      font-size: 1.04rem; color: var(--text-secondary); line-height: 1.75;
-      margin-bottom: 14px;
-    }
-    .terms-body p:last-child { margin-bottom: 0; }
-    .terms-body ul {
-      list-style: none; padding: 0; margin: 0 0 14px;
-    }
-    .terms-body ul li {
-      font-size: 1.04rem; color: var(--text-secondary); line-height: 1.75;
-      padding: 4px 0 4px 20px; position: relative;
-    }
-    .terms-body ul li::before {
-      content: '';
-      position: absolute; left: 0; top: 14px;
-      width: 6px; height: 6px; border-radius: 50%;
-      background: var(--blue-accent);
-    }
-    .terms-divider {
-      font-family: var(--font-display);
-      font-size: 1.35rem; font-weight: 700; color: var(--navy);
-      margin: 56px 0 8px; padding-top: 40px;
-      border-top: 2px solid var(--navy);
-      letter-spacing: -0.01em;
-    }
-    .terms-body .contact-block {
-      margin-top: 16px;
-      font-size: 1.04rem; color: var(--text-secondary); line-height: 1.75;
-    }
-    .terms-body .contact-block a {
-      color: var(--blue-accent); text-decoration: none;
-    }
-    .terms-body .contact-block a:hover { text-decoration: underline; }
+  .clients { padding: 44px 0 48px; border-bottom: 1px solid var(--rule); }
+  .clients p { font-size: 14px; color: var(--muted); margin: 0 0 28px; }
+  .client-grid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 36px 32px; align-items: center; }
+  .client-grid img { max-height: 40px; max-width: 100%; width: auto; margin: 0 auto; filter: grayscale(100%); opacity: 0.6; }
+  .client-grid img.lg { max-height: 48px; }
+  .clients .dir-links { margin: 32px 0 0; font-size: 14px; color: var(--muted); }
 
-    /* COLLAPSIBLE SECTIONS */
-    .ds-list { display: grid; gap: 16px; margin-top: 0; }
-    .ds-card { border: 1px solid #D8D8D8; background: var(--white); }
-    .ds-card > summary {
-      list-style: none; cursor: pointer; position: relative;
-      padding: 18px 56px 18px 22px; border-bottom: 1px solid transparent;
-      font-family: var(--font-display); font-size: 1.15rem; font-weight: 700;
-      color: var(--navy); transition: background 0.2s, border-color 0.2s;
-    }
-    .ds-card > summary::-webkit-details-marker { display: none; }
-    .ds-card > summary::after {
-      content: ""; position: absolute; right: 26px; top: 22px;
-      width: 11px; height: 11px;
-      border-right: 3px solid var(--blue-accent); border-bottom: 3px solid var(--blue-accent);
-      transform: rotate(45deg); transition: transform 0.2s, top 0.2s;
-    }
-    .ds-card > summary:hover { background: var(--cloud); }
-    .ds-card[open] > summary { background: var(--cloud); border-bottom-color: var(--border-light); }
-    .ds-card[open] > summary::after { transform: rotate(-135deg); top: 28px; }
-    .ds-body { padding: 20px 22px 22px; }
-    .terms-body .ds-body > :last-child { margin-bottom: 0; }
-    .terms-body .ds-body ol.ds-sub { list-style: none; counter-reset: ds; margin: 6px 0 0; padding: 0; }
-    .terms-body .ds-body ol.ds-sub li { counter-increment: ds; padding: 2px 0 2px 32px; }
-    .terms-body .ds-body ol.ds-sub li::before {
-      content: "(" counter(ds) ")"; background: none; width: auto; height: auto;
-      border-radius: 0; top: 2px; font-weight: 600; color: var(--navy);
-    }
-    .ds-body a { color: inherit; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
-    .ds-sub-head { font-family: var(--font-display); font-size: 1.02rem; font-weight: 700; color: var(--navy); margin: 0 0 8px; }
-    .terms-body .ds-body ul.ds-nested ul { margin: 6px 0 4px; }
-    .terms-body .ds-body ul.ds-nested ul li { padding-left: 18px; }
-    .terms-body .ds-body ul.ds-nested ul li::before { width: 5px; height: 5px; background: transparent; border: 1.5px solid var(--text-muted, #8A96A3); top: 13px; }
-    .terms-body .ds-body ul.ds-nested em { font-style: normal; font-weight: 600; }
-    .ds-label { margin: 22px 0 8px !important; font-size: 0.72rem !important; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue-accent) !important; line-height: 1.4 !important; }
-    .ds-req { display: grid; gap: 10px; margin: 0 0 6px; }
-    .ds-req-item { background: var(--cloud); border: 1px solid var(--border-light); border-left: 3px solid var(--blue-accent); padding: 12px 16px; }
-    .ds-req-item strong { display: block; font-family: var(--font-display); color: var(--navy); font-size: 0.98rem; margin-bottom: 2px; }
-    .ds-req-item span { font-size: 0.98rem; color: var(--text-secondary); line-height: 1.6; }
-    .terms-body .ds-body ol.ds-sub li.ds-or-li { counter-increment: none; padding: 8px 0 8px 32px; font-family: var(--font-display); font-size: 1.1rem; font-weight: 800; letter-spacing: 0.12em; color: var(--blue-accent); }
-    .terms-body .ds-body ol.ds-sub li.ds-or-li::before { content: none; }
-    .terms-body .ds-opt-title { font-family: var(--font-display); font-size: 1.08rem; font-weight: 700; color: var(--navy); margin: 0 0 8px; padding: 0; border: 0; }
-    .terms-body .ds-sep { border: 0; border-top: 1px solid var(--border-light); margin: 26px 0; }
-    .terms-body .ds-req-list { margin: 10px 0 0; }
-    .terms-body .ds-req-list strong { color: var(--navy); font-weight: 600; }
-    .terms-body .ds-tools-lead { margin: 22px 0 6px !important; font-size: 0.92rem !important; font-weight: 600; color: var(--navy) !important; }
-    .terms-body ul.ds-tools { margin: 0; }
-    .terms-body ul.ds-tools li { font-size: 0.92rem; line-height: 1.6; padding-top: 2px; padding-bottom: 2px; color: var(--text-secondary); }
-    .terms-body ul.ds-tools li::before { width: 4px; height: 4px; top: 12px; opacity: 0.7; }
-    .ds-path { background: #FFF9D6; padding: 3px 8px; }
-    .ds-or { display: flex; align-items: center; gap: 14px; margin: 22px 0; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.14em; color: var(--blue-accent); }
-    .ds-or::before, .ds-or::after { content: ""; flex: 1; height: 1px; background: var(--border-light); }
-    @media (max-width: 640px) { .ds-card > summary { padding: 16px 50px 16px 18px; font-size: 1.05rem; } .ds-body { padding: 16px 18px 18px; } }
+  .section { padding: 88px 0; border-bottom: 1px solid var(--rule); }
+  .section.dark { background: var(--dark); color: #C9D2DE; border-bottom: 0; }
+  .section.dark h2 { color: #fff; }
+  .section.dark strong { color: #fff; }
+  .section.band { background: var(--band); }
+  .section > .wrap { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: 64px; }
+  .section h2 { font-size: 38px; line-height: 1.15; letter-spacing: -0.01em; }
+  .section-intro { font-size: 15px; color: var(--muted); margin: 14px 0 0; max-width: 22em; }
+  .body p { margin: 0 0 18px; max-width: 38em; }
+  .body p:last-child { margin-bottom: 0; }
+  .body strong { color: var(--ink); font-weight: 600; }
+  .note { font-size: 15px; color: var(--muted); }
+  .tag-new { display: inline-block; background: #FFE45C; color: var(--ink); font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; line-height: 1; padding: 6px 9px; margin-bottom: 14px; }
 
-    /* FOOTER */
-    footer { background: var(--navy); color: var(--ice); padding: 56px 0 0; }
-    .footer-grid {
-      display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr;
-      gap: 44px; padding-bottom: 44px;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-    }
-    .footer-brand p { font-size: 0.86rem; color: var(--ice); line-height: 1.7; margin-top: 14px; max-width: 280px; }
-    .footer-brand p a { color: var(--ice); text-decoration: underline; transition: color 0.2s; }
-    .footer-brand p a:hover { color: var(--blue-accent-soft); }
-    .footer-col h4 { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 14px; }
-    .footer-col a { display: block; font-size: 0.86rem; color: var(--steel); text-decoration: none; margin-bottom: 10px; transition: color 0.2s; }
-    .footer-col a:hover { color: var(--white); }
-    .footer-bottom {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 20px 0; font-size: 0.78rem; color: var(--slate);
-    }
-    .footer-bottom a { color: var(--steel); text-decoration: none; }
-    .footer-bottom a:hover { color: var(--white); }
+  .pull { margin: 0; display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 24px; align-items: start; }
+  .pull img { width: 96px; height: 96px; object-fit: cover; filter: grayscale(100%); }
+  .pull blockquote { margin: 0; font-family: var(--serif); font-size: 22px; line-height: 1.45; color: var(--ink); }
+  .pull cite { display: block; font-style: normal; font-size: 14px; color: var(--muted); margin-top: 12px; }
+  .pull-links { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 10px; font-size: 14px; }
+  .linkbtn { background: none; border: 0; padding: 0; font: inherit; color: var(--link); cursor: pointer; }
+  .linkbtn:hover { text-decoration: underline; text-underline-offset: 3px; }
 
-    /* RESPONSIVE */
-    @media (max-width: 900px) {
-      .nav-links { display: none; }
-      .mobile-toggle { display: block; }
-      .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
-      .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
-    }
-    @media (max-width: 600px) {
-      body { padding-top: calc(var(--utility-height-mobile) + 56px); }
-      .main-nav { top: var(--utility-height-mobile); }
-      .main-nav .container { height: 56px; }
-      .logo-badge-lg { width: 32px; height: 32px; }
-      .logo-text { font-size: 1.15rem; }
-      .page-header { padding: 44px 0 40px; }
-      .page-header h1 { font-size: 1.85rem; }
-      .terms-body { padding: 44px 0 56px; }
-      .terms-body h2 { font-size: 1.2rem; margin: 36px 0 12px; padding-top: 24px; }
-      .footer-grid { grid-template-columns: 1fr; gap: 28px; }
-    }
-    @media (max-width: 380px) {
-      .page-header h1 { font-size: 1.4rem; }
-      .container { padding: 0 14px; }
-    }
+  .price-row { display: flex; gap: 32px 64px; flex-wrap: wrap; }
+  .price { margin: 0; font-family: var(--serif); font-size: 40px; line-height: 1.1; color: var(--ink); }
+  .price small { font-family: inherit; font-size: 16px; color: var(--muted); white-space: nowrap; display: inline-block; }
+  .price-note { margin: 6px 0 0; font-size: 15px; color: var(--muted); }
+  .price-row { margin-bottom: 32px; }
+  .ruled { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--ink); }
+  .ruled li { padding: 12px 0; border-bottom: 1px solid var(--rule); }
+  .ruled.two { display: grid; grid-template-columns: 1fr 1fr; column-gap: 48px; border-top: 0; }
+  .ruled.two li:nth-child(-n+2) { border-top: 1px solid var(--ink); }
 
-    /* MOBILE MENU */
-    .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--white); z-index: 1000; flex-direction: column; padding: 24px; }
-    .mobile-menu.active { display: flex; }
-    .mobile-menu-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; }
-    .mobile-menu-close { background: none; border: none; cursor: pointer; font-size: 1.5rem; color: var(--navy); padding: 8px; }
-    .mobile-menu a { display: block; padding: 14px 0; font-size: 1.05rem; font-weight: 500; color: var(--navy); text-decoration: none; border-bottom: 1px solid var(--border-light); }
-    .mobile-menu a:last-child { border-bottom: none; }
-    .mobile-menu .btn-member-mobile { display: block; margin-top: 24px; padding: 14px; background: var(--navy); color: var(--white); text-align: center; border-radius:0; font-weight: 600; text-decoration: none; font-size: 0.95rem; }
+  .cols-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px; }
+  .cols-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 48px; }
+  .col h3 { font-size: 22px; padding-bottom: 14px; border-bottom: 1px solid var(--ink); margin-bottom: 4px; }
+  .col p { margin: 14px 0 0; font-size: 16px; }
+  .cols-2.rows { row-gap: 48px; }
 
-    .terms-body ol { margin: 0 0 14px; padding-left: 22px; }
-    .terms-body ol li {
-      font-size: 1.04rem; color: var(--text-secondary); line-height: 1.75;
-      padding: 4px 0 4px 6px;
-    }
-    .terms-body strong { color: var(--navy); font-weight: 600; }
-    .terms-body a { color: var(--blue-accent); text-decoration: none; }
-    .terms-body a:hover { text-decoration: underline; }
-    .terms-body p.lead + h2 { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--border-light); }
-      .page-header .container-narrow > p { max-width: 800px; margin-left: auto; margin-right: auto; text-wrap: balance; }
-      /* Card headers stay tinted when closed so each card stands out from the white page */
-    .ds-card { border-color: #C9D1DA; }
-    .ds-card > summary { background: #F1F4F7; }
-    .ds-card > summary:hover { background: #E7ECF1; }
-    .ds-card[open] > summary { background: #F1F4F7; border-bottom-color: #DDE3E9; }
-  
-    /* Important callout (matches Program Guidelines callouts) */
-    .ds-important{display:flex;align-items:flex-start;gap:10px;background:#FDF1F1;border:1px solid #F3C9C9;padding:16px 20px;margin:0 0 24px;}.ds-important .alert-icon{flex-shrink:0;width:20px;height:20px;margin-top:3px;}
-    .terms-body .ds-important p{margin:0;font-size:1rem;line-height:1.65;color:var(--text-secondary);}
-    .terms-body .ds-important strong{color:#000000;font-weight:700;}
-    .page-header h1{margin-bottom:0;}
-    @media (max-width:600px){.page-header{padding:36px 0 32px;}.ds-important{padding:14px 16px;}.terms-body .ds-important p{font-size:.95rem;}}
-      .ds-card-details{margin-top:28px;}
-    .ds-card.ds-card-details > summary{background:#FFFFFF;}
-    .ds-card.ds-card-details > summary:hover{background:#F7F8FA;}
-  
-    /* Document layout: two path sections, Details as the only toggle */
-    .terms-body .ds-important + h2{margin-top:40px;padding-top:0;border-top:none;}
-    .terms-body ol.ds-steps{margin:4px 0 0;padding-left:24px;}
-    .terms-body ol.ds-steps li{font-size:1.04rem;color:var(--text-secondary);line-height:1.75;padding:5px 0 5px 4px;}
-    .terms-body ol.ds-steps li::marker{font-weight:700;color:var(--text-primary);}
-    .terms-body ol.ds-steps li strong{color:var(--text-primary);}
-    .ds-list-doc{margin-top:48px;}
-    .ds-card.ds-details-doc > summary{background:#F1F4F7;}
-    .ds-card > summary:focus:not(:focus-visible){outline:none;}
-      /* Slightly bolder dividers */
-    .terms-body h2 { border-top: 1px solid #CBD2DA; }
-    .terms-body .ds-important + h2 { border-top: none; }
-    .terms-body .ds-sep { border-top: 1px solid #CBD2DA; }
-      /* Setup guidance headings: light marker highlight */
-    .ds-details-doc .ds-opt-title{display:inline-block;background:#FFF6CC;padding:2px 8px;margin-left:-8px;}
-    .ds-details-doc .ds-req-list + p{margin-top:16px;}
-      /* Setup guidance shown as a normal section */
-    .terms-body .ds-guidance .ds-opt-title{margin-top:6px;}
-    .terms-body .ds-guidance .ds-sep{margin:28px 0;}
-      .terms-body h2.ds-guidance-title{font-size:1.6rem;}
-    @media (max-width:640px){.terms-body h2.ds-guidance-title{font-size:1.35rem;}}
+  .news { display: grid; grid-template-columns: minmax(0, 1fr) 140px; gap: 40px; align-items: start; border-top: 1px solid var(--ink); padding-top: 22px; }
+  .news h3 { font-size: 24px; margin-bottom: 10px; }
+  .news p { margin: 0 0 12px; }
+  .news img { width: 140px; border: 1px solid var(--rule); background: #fff; }
 
-    /* Download Safeguards: simple decision paths and optional implementation details */
-    .terms-body { padding-top: 42px; }
-    .ds-notice { background:#FFFFFF; border:1px solid #DDE5EC; padding:17px 20px; margin-bottom:28px; }
-    .terms-body .ds-notice p { margin:0; font-size:1.04rem; line-height:1.75; }
-    .ds-context { margin:18px 0 26px !important; font-size:1.04rem !important; line-height:1.75 !important; }
-    .ds-paths { display:grid; gap:18px; }
-    .ds-path-card { padding:25px 27px 24px; background:#F8FAFC; border:1px solid #DCE4EC; }
-    .terms-body .ds-path-card h2 { margin:0 0 7px; padding:0; border:0; font-size:1.35rem; line-height:1.6; }
-    .terms-body .ds-path-subtitle { font-size:1.04rem; margin:0 0 17px; line-height:1.75; }
-    .terms-body .ds-choose { margin:0 0 8px; font-size:.72rem; letter-spacing:.09em; font-weight:700; text-transform:uppercase; color:#3D5A80; }
-    .terms-body ol.ds-options { margin:0; padding-left:23px; }
-    .terms-body ol.ds-options li { padding:5px 0 5px 3px; font-size:1.04rem; line-height:1.75; }
-    .terms-body ol.ds-options li::marker { color:#1A3455; font-weight:700; }
-    .terms-body .ds-setup h2 { margin:39px 0 6px; padding:0; border:0; font-size:1.35rem; }
-    .terms-body .ds-setup-intro { font-size:1.04rem; margin-bottom:17px; line-height:1.75; }
-    .ds-accordion-list { display:grid; gap:10px; }
-    .ds-accordion { border:1px solid #D9E1EA; background:#fff; }
-    .ds-accordion summary { cursor:pointer; padding:16px 46px 16px 19px; background:#F1F4F7; list-style:none; position:relative; }
-    .ds-accordion summary::-webkit-details-marker { display:none; }
-    .ds-accordion summary::after { content:''; position:absolute; width:9px; height:9px; right:23px; top:26px; border-right:2px solid #3D5A80; border-bottom:2px solid #3D5A80; transform:rotate(45deg); transition:transform .2s; }
-    .ds-accordion[open] summary::after { transform:rotate(225deg); top:30px; }
-    .ds-accordion summary:hover { background:#E9EEF3; }
-    .ds-accordion summary:focus-visible { outline:2px solid #4FA3D1; outline-offset:2px; }
-    .ds-accordion summary strong { display:block; font-size:1.15rem; line-height:1.6; }
-    .ds-accordion summary small { display:block; font-size:1.04rem; font-weight:400; color:#4A6480; margin-top:2px; line-height:1.5; }
-    .ds-accordion-body { padding:19px 22px 21px; border-top:1px solid #DDE5EC; }
-    .terms-body .ds-accordion-body p, .terms-body .ds-accordion-body li { font-size:1.04rem; line-height:1.75; }
-    .terms-body .ds-accordion-body p { margin-bottom:12px; }
-    .terms-body .ds-accordion-body ul { margin:4px 0 15px; }
-    .terms-body .ds-accordion-body li { padding-top:3px; padding-bottom:3px; }
-    .terms-body .ds-accordion-body h3 { margin:18px 0 8px; font-size:.75rem; text-transform:uppercase; letter-spacing:.08em; color:#3D5A80; }
-    .terms-body .ds-accordion-body ul.ds-tool-list li { font-size:.92rem; }
-    @media(max-width:640px) {
-      .terms-body { padding-top:26px; }
-      .ds-notice { padding:14px 15px; }
-      .ds-path-card { padding:19px 17px; }
-      .terms-body .ds-path-card h2 { font-size:1.2rem; }
-      .ds-accordion summary { padding:14px 42px 14px 15px; }
-      .ds-accordion summary::after { right:18px; }
-      .ds-accordion-body { padding:16px; }
-    }
+  .form-frame { border: 1px solid var(--rule); background: var(--paper); padding: 8px 16px; }
 
-    /* Match the original Download Safeguards page's type hierarchy and placement.
-       Keep these rules after the existing styles to avoid the new card typography. */
-    .page-header { display:none; }
-    .terms-body { padding-top:30px; }
-    .terms-body .ds-original-title {
-      font-family: Georgia, 'Times New Roman', serif;
-      font-size:2.25rem; font-weight:400; letter-spacing:normal;
-      line-height:1.25; color:#0F2137; margin:0 0 34px;
-    }
-    .terms-body .ds-path-card h2,
-    .terms-body .ds-setup h2 {
-      font-family: Georgia, 'Times New Roman', serif;
-      font-size:1.7rem; font-weight:400; letter-spacing:normal;
-      line-height:1.4; color:#0F2137;
-    }
-    .terms-body .ds-path-card h2 { margin-bottom:12px; }
-    .terms-body .ds-setup h2 { margin-top:42px; margin-bottom:12px; }
-    .terms-body .ds-notice p,
-    .terms-body .ds-context,
-    .terms-body .ds-path-subtitle,
-    .terms-body .ds-options li,
-    .terms-body .ds-setup-intro,
-    .terms-body .ds-accordion-body p,
-    .terms-body .ds-accordion-body li { color:#3d4b60; }
-    .terms-body .ds-path-card h2, .terms-body .ds-setup h2 { text-transform:none; }
-    .ds-accordion summary strong { font-family:var(--font-body); font-weight:600; }
-    @media(max-width:640px){
-      .terms-body .ds-original-title {font-size:1.85rem; margin-bottom:24px;}
-      .terms-body .ds-path-card h2,.terms-body .ds-setup h2 {font-size:1.45rem;}
-    }
-  </style>
-  <link rel="stylesheet" href="/clean.css?v=6">
-  <style>
-    /* Navigation is fixed; reserve its full height even when the title header is hidden.
-       Placed after clean.css so site-wide overrides cannot conceal the page title. */
-    html body { padding-top: calc(var(--utility-height) + 68px) !important; }
-    @media (max-width: 600px) {
-      html body { padding-top: calc(var(--utility-height-mobile) + 56px) !important; }
-    }
+  .press-row { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 24px; align-items: center; padding: 22px 0; border-bottom: 1px solid var(--rule); color: inherit; }
+  .press-row:first-child { border-top: 1px solid var(--ink); }
+  .press-row:hover { text-decoration: none; }
+  .press-row:hover h3 { color: var(--link); }
+  .press-row img { width: 96px; height: auto; }
+  .press-row h3 { font-size: 20px; line-height: 1.35; }
+  .press-row .date { font-size: 14px; color: var(--muted); white-space: nowrap; }
+  .press-more { margin-top: 24px; font-size: 15px; }
 
-    /* Spacing fixes: the site-wide h2 divider (border + top padding) was being applied
-       inside the path cards, leaving an empty band and a stray line above each heading. */
-    .terms-body .ds-path-card h2 {
-      margin: 0 0 6px !important;
-      padding: 0 !important;
-      border: 0 !important;
-      line-height: 1.3 !important;
-    }
-    .terms-body .ds-path-card { padding: 26px 28px 22px; }
-    .terms-body .ds-path-subtitle { margin: 0 0 18px !important; }
-    .terms-body .ds-choose { margin: 0 0 6px !important; }
-    .terms-body ol.ds-options li { padding: 4px 0 4px 4px; }
+  .closing { padding: 96px 0; background: var(--dark); color: #C9D2DE; }
+  .closing .wrap { display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
+  .closing h2 { color: #fff; font-size: clamp(32px, 4vw, 44px); line-height: 1.1; max-width: 16em; }
+  .closing p { margin: 14px 0 0; font-size: 16px; }
+  .closing .btn { background: #fff; border-color: #fff; color: var(--ink); }
+  .closing .btn:hover { background: #E6EAF0; border-color: #E6EAF0; }
+  .closing .btn-quiet { background: transparent; color: #fff; border-color: #fff; }
+  .closing .btn-quiet:hover { background: #fff; color: var(--ink); }
+  .closing-actions { display: flex; gap: 12px; flex-wrap: wrap; }
 
-    /* Setup tips: one clean divider, with room between it and the heading */
-    .terms-body .ds-setup { margin-top: 48px; padding-top: 36px; border-top: 1px solid #DCE4EC; }
-    .terms-body .ds-setup h2 {
-      margin: 0 0 6px !important;
-      padding: 0 !important;
-      border: 0 !important;
-      line-height: 1.3 !important;
-    }
+  .site-foot { padding: 56px 0 48px; font-size: 14px; color: #A9B4C2; background: var(--dark); }
+  .site-foot .foot-grid { display: grid; grid-template-columns: minmax(0, 5fr) repeat(3, minmax(0, 2fr)); gap: 40px; }
+  .site-foot .foot-brand { font-family: var(--sans); font-weight: 700; font-size: 17px; color: #fff; margin: 0 0 10px; }
+  .site-foot .foot-brand sup { font-size: 9px; font-weight: 500; }
+  .site-foot p { margin: 0; max-width: 30em; line-height: 1.6; }
+  .site-foot h4 { margin: 0 0 12px; font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #8C98A8; }
+  .site-foot .foot-col a { display: block; color: #DCE3EB; padding: 3px 0; }
+  .site-foot a { color: #DCE3EB; }
+  .site-foot a:hover { color: #fff; }
+  .site-foot .foot-bottom { margin-top: 44px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.15); display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+  .site-foot .foot-bottom a { color: #DCE3EB; }
 
-    /* Key-rule notice: left accent bar so it reads as the primary requirement */
-    .ds-notice { border-left: 4px solid #E53935 !important; padding-left: 22px !important; }
+  .bio-overlay { position: fixed; inset: 0; z-index: 100; background: rgba(14,27,46,.45); display: none; align-items: center; justify-content: center; padding: 24px; }
+  .bio-overlay.active { display: flex; }
+  .bio-box { position: relative; background: #fff; max-width: 620px; width: 100%; padding: 44px 40px 36px; border: 1px solid var(--rule); max-height: 90vh; overflow: auto; }
+  .bio-box h3 { font-size: 24px; margin-bottom: 18px; }
+  .bio-box p { margin: 0 0 14px; font-size: 16px; }
+  .bio-close { position: absolute; top: 10px; right: 14px; background: none; border: 0; font-size: 26px; line-height: 1; color: var(--muted); cursor: pointer; }
 
-    /* Accordion: center the chevron on the two-line header */
-    .ds-accordion summary::after { top: 50% !important; margin-top: -7px; }
-    .ds-accordion[open] summary::after { margin-top: -2px; }
+  @media (max-width: 1080px) { .nav-links { gap: 20px; } }
+  @media (max-width: 960px) {
+    .nav-links, .nav-actions .btn-quiet { display: none; }
+    .nav-toggle { display: inline-block; }
+    .mobile-menu.open { display: block; }
+    .hero { padding: 56px 0; }
+    .hero .wrap, .section > .wrap { grid-template-columns: minmax(0, 1fr); gap: 40px; }
+    .hero .figure { order: -1; }
+    .hero .figure-frame img { max-height: 260px; margin: 0 auto; }
+    .section { padding: 64px 0; }
+    .cols-3 { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+    .client-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .site-foot .foot-grid { grid-template-columns: 1fr 1fr; }
+    .site-foot .foot-grid > div:first-child { grid-column: 1 / -1; }
+  }
+  @media (max-width: 640px) {
+    body { font-size: 16px; }
+    .wrap { padding: 0 20px; }
+    .nav .wrap { height: 64px; }
+    .nav-actions .btn { min-width: 0; padding: 9px 16px; }
+    .mobile-menu a { padding: 14px 20px; }
+    .hero { padding: 44px 0 48px; }
+    .hero h1 { font-size: 38px; }
+    .hero-lede { font-size: 17px; margin: 20px 0 28px; }
+    .hero-actions .btn { flex: 1 1 0; min-width: 0; }
+    .figure-frame { padding: 0; }
+    .hero .figure-frame img { max-height: 240px; margin: 0 auto; }
+    .client-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 24px; }
+    .client-grid img { max-height: 30px; max-width: 120px; }
+    .client-grid img.lg { max-height: 36px; max-width: 144px; }
+    .section h2 { font-size: 32px; }
+    .ruled.two, .cols-2 { grid-template-columns: minmax(0, 1fr); }
+    .ruled.two li:nth-child(2) { border-top: 0; }
+    .news { grid-template-columns: minmax(0, 1fr); }
+    .news img { width: 120px; }
+    .press-row { grid-template-columns: 64px minmax(0, 1fr); }
+    .press-row img { width: 64px; }
+    .press-row .date { grid-column: 2; }
+    .closing { padding: 64px 0; }
+    .closing .wrap > div { width: 100%; }
+    .closing-actions { width: 100%; }
+    .closing-actions .btn { flex: 1 1 0; min-width: 0; padding-left: 12px; padding-right: 12px; }
+    .pull blockquote { font-size: 19px; }
+    .pull { grid-template-columns: 72px minmax(0, 1fr); gap: 16px; }
+    .pull img { width: 72px; height: 72px; }
+  }
+  .cc-photo { margin: 0 0 24px; } .cc-photo img { display: block; width: 100%; max-width: 560px; height: auto; aspect-ratio: 16/9; object-fit: cover; filter: grayscale(1) contrast(1.05); }
 
-    @media (max-width: 640px) {
-      .terms-body .ds-path-card { padding: 20px 18px 18px; }
-      .terms-body .ds-setup { margin-top: 36px; padding-top: 28px; }
-    }
-  </style>
+  .mc { display:flex; align-items:center; justify-content:space-between; gap:14px; margin:0; padding-top:22px; border-top:1px solid var(--ink); font-family:var(--serif); font-size:22px; line-height:1.2; color:var(--ink); }
+  .mc-t { white-space:nowrap; }
+  .mc-a { width:52px; height:18px; flex-shrink:0; color:#8A94A0; }
+  @media (max-width:900px){ .mc{flex-direction:column; align-items:flex-start; gap:6px; font-size:24px;} .mc-a{transform:rotate(90deg); width:40px; height:16px; margin:12px 0 12px -8px;} }
+
+  .hw { list-style:none; margin:0; padding:0; border-top:1px solid var(--ink); }
+  .hw li { display:grid; grid-template-columns:48px 180px 1fr; gap:16px; align-items:baseline; padding:16px 0; border-bottom:1px solid var(--rule); }
+  .hw-n { font-size:13px; font-weight:600; letter-spacing:.06em; color:var(--muted); }
+  .hw-t { font-family:var(--serif); font-size:20px; color:var(--ink); }
+  .hw-d { font-size:16px; color:var(--text); }
+  @media (max-width:760px){ .hw li { grid-template-columns:36px 1fr; } .hw-d { grid-column:2; } }
+
+  .page-head { padding: 88px 0 64px; border-bottom: 1px solid var(--rule); }
+  .page-head h1 { font-size: clamp(40px, 5vw, 60px); line-height: 1.06; letter-spacing: -0.015em; font-weight: 400; }
+  .page-head .lede { font-size: 19px; line-height: 1.6; margin: 24px 0 0; }
+  .rq-wrap { max-width: 920px; margin: 0 auto; padding: 0 32px; }
+  .rq-block { padding: 72px 0; }
+  .rq-tight { padding-top: 0; }
+  .rq-eyebrow { margin: 0 0 20px; font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+  .qualify { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+  .qualify li { border: 1px solid var(--rule); padding: 22px 22px 26px; display: flex; flex-direction: column; gap: 14px; }
+  .q-n { font-size: 13px; font-weight: 600; letter-spacing: .06em; color: var(--muted); }
+  .q-t { font-family: var(--serif); font-size: 21px; line-height: 1.3; color: var(--ink); }
+  .callout { background: var(--band); border-left: 4px solid #FFE45C; padding: 28px 32px; }
+  .callout .tag-new { margin-bottom: 14px; }
+  .callout-lead { font-family: var(--serif); font-size: 22px; line-height: 1.4; color: var(--ink); margin: 0 0 10px; }
+  .callout p { margin: 0 0 10px; }
+  .callout p:last-child { margin: 0; }
+  .tech-lead { font-family: var(--serif); font-size: 24px; line-height: 1.4; color: var(--ink); margin: 0 0 24px; max-width: 30em; }
+  .paths { display: grid; grid-template-columns: 3fr 2fr; gap: 16px; align-items: start; }
+  .path { border: 1px solid var(--rule); padding: 22px 22px 26px; display: flex; flex-direction: column; gap: 14px; align-items: flex-start; }
+  .path .q-t { margin: 0; }
+  .path .path-tag { margin: 0; }
+  .paths.paths-even { grid-template-columns: 1fr 1fr; }
+  @media (max-width: 760px) { .paths.paths-even { grid-template-columns: 1fr; } }
+  .path-d { margin: 0; font-size: 16px; color: var(--text); }
+  .also { margin-top: 56px; }
+  .also .q-t { margin: 0 0 8px; }
+  @media (max-width: 760px) { .also { margin-top: 40px; } }
+  .opt-list { list-style: none; margin: 0; padding: 0; align-self: stretch; border-top: 1px solid var(--rule); }
+  .opt-list li { padding: 12px 0; border-bottom: 1px solid var(--rule); font-size: 16px; color: var(--text); }
+  .opt-list strong { color: var(--ink); font-weight: 600; }
+  .sec-title { font-family: var(--serif); font-size: 28px; line-height: 1.25; color: var(--ink); margin: 0 0 8px; font-weight: 400; }
+  .sec-sub { margin: 0 0 24px; color: var(--muted); font-size: 16px; }
+  .tips { border-top: 1px solid var(--ink); }
+  .tips details { border-bottom: 1px solid var(--rule); }
+  .tips summary { list-style: none; cursor: pointer; padding: 20px 36px 20px 0; position: relative; }
+  .tips summary::-webkit-details-marker { display: none; }
+  .tips summary::after { content: "+"; position: absolute; right: 4px; top: 16px; font-size: 24px; color: var(--muted); }
+  .tips details[open] summary::after { content: "\2212"; }
+  .tips .s-t { display: block; font-family: var(--serif); font-size: 21px; color: var(--ink); }
+  .tips .s-d { display: block; font-size: 15px; color: var(--muted); margin-top: 2px; }
+  .tip-body { padding: 0 0 24px; font-size: 16px; }
+  .tip-body p { margin: 0 0 12px; }
+  .tip-body ul { margin: 0 0 12px; padding-left: 20px; }
+  .tip-body li { margin: 4px 0; }
+  .tip-body h4 { margin: 16px 0 8px; font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+  .tip-note { color: var(--muted); font-size: 15px; }
+  .exits-x { list-style: none; margin: 0 0 8px; padding: 0; align-self: stretch; }
+  .exits-x li { padding: 9px 0; border-bottom: 1px solid var(--rule); font-size: 16px; color: var(--text); }
+  .exits-x li:first-child { border-top: 1px solid var(--rule); }
+  @media (max-width: 760px) {
+    .page-head { padding: 56px 0 44px; }
+    .rq-wrap { padding: 0 20px; }
+    .rq-block { padding: 48px 0; }
+    .rq-tight { padding-top: 0; }
+    .qualify, .paths { grid-template-columns: 1fr; }
+    .callout { padding: 22px 20px; }
+  }
+</style>
 </head>
 <body>
 
-  <!-- Navigation -->
-  <nav class="main-nav">
-    <div class="container">
-      <a href="https://securefunder.org/" class="logo">
-        <img class="logo-badge-lg" src="../../blue-ring.png" alt="Secure Funder">
-        <div class="logo-text">Secure Funder<span class="logo-tm">™</span></div>
-      </a>
-      <ul class="nav-links">
-        <li><a href="https://securebroker.org">For Brokers</a></li>
-        <li><a href="https://securefunder.org">For Funders</a></li>
-        <li><a href="https://securefunder.org/contact/">Contact Us</a></li>
-        <li><a href="https://portal.securefunder.org/login" class="btn-member">Sign In</a></li>
-      </ul>
-      <button class="mobile-toggle" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
+<div class="topline">2026 &middot; Alternative finance&rsquo;s new independent certification</div>
 
-  <!-- Page Header -->
-  <div class="page-header">
-    <div class="container-narrow">
-      <h1>Download Safeguards</h1>
+<header class="nav">
+  <div class="wrap">
+    <a class="nav-logo" href="/" aria-label="Secure Funder home"><img src="/blue-ring.png" alt=""><span>Secure Funder<sup>&trade;</sup></span></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="https://securebroker.org" target="_blank" rel="noopener noreferrer">For Brokers</a>
+      <a href="/program-guidelines/">Requirements</a>
+      <a href="/directory/">Directory</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="btn btn-quiet" href="https://portal.securefunder.org/login">Sign in</a>
+      <a class="btn" href="/contact/">Join</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobileMenu">Menu</button>
     </div>
   </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="https://securebroker.org" target="_blank" rel="noopener noreferrer">For Brokers</a>
+    <a href="/program-guidelines/">Requirements</a>
+    <a href="/directory/">Directory</a>
+    <a href="/contact/">Contact</a>
+    <a href="https://portal.securefunder.org/login">Sign in</a>
+  </div>
+</header>
 
-  <!-- Content -->
-  <div class="terms-body">
-    <div class="container-narrow">
+<main>
 
-      <h1 class="ds-original-title">Download Safeguards</h1>
+  <section class="page-head">
+    <div class="rq-wrap">
+      <h1>Acceptable Safeguards</h1>
+      <p class="lede">If application files are downloadable, choose at least one safeguard.</p>
+    </div>
+  </section>
 
-      <div class="ds-notice"><p><strong>Downloadable files require safeguards.</strong> If non-management staff can download submission documents, safeguards must be in place to reduce the risk of files leaving the company.</p></div>
-
-      <div class="ds-paths">
-        <section class="ds-path-card" aria-labelledby="email-heading">
-          <h2 id="email-heading">If downloadable from email</h2>
-          <p class="ds-path-subtitle">For submissions that arrive by email and are processed by a person.</p>
-          <p class="ds-choose">Choose at least one:</p>
-          <ol class="ds-options">
+  <section class="rq-block">
+    <div class="rq-wrap">
+      <div class="paths paths-even">
+        <div class="path">
+          <span class="tag-new path-tag">Email inbox</span>
+          <p class="q-t">If downloadable from email</p>
+          <p class="path-d">For submissions that arrive by email and are opened by a person. Choose at least one:</p>
+          <ul class="opt-list">
             <li><strong>Automate intake.</strong> Route submissions directly into your system of record, so staff do not handle files in email.</li>
             <li><strong>Watermarking.</strong> Watermark files before they reach the inbox.</li>
-            <li><strong>Browser and device controls.</strong> Block personal email and cloud storage sites, and USB transfers.</li>
-          </ol>
-        </section>
-
-        <section class="ds-path-card" aria-labelledby="sor-heading">
-          <h2 id="sor-heading">If downloadable from your system of record</h2>
-          <p class="ds-path-subtitle">For your CRM or other system of record.</p>
-          <p class="ds-choose">Choose at least one:</p>
-          <ol class="ds-options">
+            <li><strong>Browser and device controls.</strong> Block personal email, cloud storage sites, and USB transfers.</li>
+          </ul>
+        </div>
+        <div class="path">
+          <span class="tag-new path-tag">System of record</span>
+          <p class="q-t">If downloadable from your system of record</p>
+          <p class="path-d">For your CRM or other system of record. Choose at least one:</p>
+          <ul class="opt-list">
             <li><strong>View-only access.</strong> Staff can view files but cannot download them.</li>
             <li><strong>Watermarking.</strong> Watermark files before storage or at download.</li>
-            <li><strong>Browser and device controls.</strong> Block personal email and cloud storage sites, and USB transfers.</li>
-          </ol>
-        </section>
-      </div>
-
-      <section class="ds-setup" aria-labelledby="setup-heading">
-        <h2 id="setup-heading">Setup tips</h2>
-        <p class="ds-setup-intro">Select a safeguard for implementation guidance and examples of tools that can help.</p>
-        <div class="ds-accordion-list">
-          <details class="ds-accordion">
-            <summary><span><strong>Automate email intake</strong><small>Route submissions directly into your system of record.</small></span></summary>
-            <div class="ds-accordion-body">
-              <p><strong>No email watermarking or browser controls needed for this intake path.</strong> You can continue receiving email submissions, provided staff do not work from the intake mailbox.</p>
-              <ul>
-                <li><strong>Email address:</strong> Used only for routing. Staff should not work out of this mailbox.</li>
-                <li><strong>Routing:</strong> Files should route to your system of record automatically.</li>
-                <li><strong>System of record:</strong> Once stored, files still require safeguards there: view-only access, watermarking, or browser and device controls.</li>
-              </ul>
-              <h3>Tools that can help</h3>
-              <ul class="ds-tool-list">
-                <li>Inbound email parsing (developer setup): Postmark, SendGrid, Mailgun</li>
-                <li>Automation tools: Zapier, Make, Microsoft Power Automate</li>
-                <li>Built-in email intake in your CRM or loan platform</li>
-              </ul>
-            </div>
-          </details>
-
-          <details class="ds-accordion">
-            <summary><span><strong>Watermarking</strong><small>Keep files downloadable with visible company attribution.</small></span></summary>
-            <div class="ds-accordion-body">
-              <p><strong>No browser or device controls needed for this option.</strong> Watermarking is accepted as a reasonable deterrent against theft. Watermarks should include your company name or logo. <a href="https://aquamark.io/" target="_blank" rel="noopener noreferrer">Aquamark</a> or an equivalent service can be used, and watermarked files can remain downloadable.</p>
-              <p><strong>If people open email submissions:</strong> Watermark files before they reach the inbox. This also covers files subsequently stored in your system of record, since they are already watermarked.</p>
-              <p><strong>If files go directly to your system of record:</strong> Watermark before storage or at the time of download.</p>
-            </div>
-          </details>
-
-          <details class="ds-accordion">
-            <summary><span><strong>Browser and device controls</strong><small>Restrict transfers through personal accounts and USB.</small></span></summary>
-            <div class="ds-accordion-body">
-              <p><strong>No watermarking needed for this option.</strong> Files can remain downloadable from email and your system of record if controls block personal email, cloud storage sites, and USB transfers.</p>
-              <p>Safeguards must restrict personnel from moving data outside the company. At a minimum:</p>
-              <ul>
-                <li><strong>Domain restrictions:</strong> Block access to personal email, personal cloud storage, and unauthorized file-transfer services.</li>
-                <li><strong>USB restrictions:</strong> Block or restrict copying company files to physical media.</li>
-              </ul>
-              <h3>Tools that can help</h3>
-              <ul class="ds-tool-list">
-                <li>Endpoint/MDM policies: Microsoft Intune, Jamf, Hexnode, or ManageEngine</li>
-                <li>Windows Group Policy (GPO): built into Windows</li>
-                <li>Virtual desktops: Windows 365, Azure Virtual Desktop, or Amazon WorkSpaces</li>
-                <li>Enterprise browsers: Island or Talon</li>
-                <li>Web/DNS filtering: Palo Alto Prisma, Cloudflare One, or DNSFilter</li>
-              </ul>
-            </div>
-          </details>
-
-          <details class="ds-accordion">
-            <summary><span><strong>Other safeguards</strong><small>Alternative approaches may also be acceptable.</small></span></summary>
-            <div class="ds-accordion-body">
-              <p>Other safeguards are acceptable if they meet the program's intent. <a href="https://securefunder.org/contact/">Send us a message</a> to discuss your approach.</p>
-            </div>
-          </details>
+            <li><strong>Browser and device controls.</strong> Block personal email, cloud storage sites, and USB transfers.</li>
+          </ul>
         </div>
-      </section>
-
+      </div>
     </div>
-  </div>
+  </section>
 
-  <!-- Mobile Menu -->
-  <div class="mobile-menu" id="mobileMenu">
-    <div class="mobile-menu-header">
-      <a href="https://securefunder.org/" class="logo">
-        <img src="../../blue-ring.png" alt="Secure Funder" style="width:30px;height:30px;">
-        <div class="logo-text">Secure Funder<span class="logo-tm">™</span></div>
-      </a>
-      <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">✕</button>
+  <section class="rq-block rq-tight">
+    <div class="rq-wrap">
+      <h2 class="sec-title">Setup tips</h2>
+      <p class="sec-sub">Implementation guidance and examples of tools that can help.</p>
+      <div class="tips">
+        <details>
+          <summary><span class="s-t">Automate email intake</span><span class="s-d">Route submissions directly into your system of record.</span></summary>
+          <div class="tip-body">
+            <p>You can keep receiving email submissions, as long as staff do not work from the intake mailbox. No email watermarking or browser controls are needed for this intake path.</p>
+            <ul>
+              <li><strong>Email address:</strong> used only for routing.</li>
+              <li><strong>Routing:</strong> files route to your system of record automatically.</li>
+              <li><strong>System of record:</strong> once stored, files still need a safeguard there&mdash;view-only access, watermarking, or browser and device controls.</li>
+            </ul>
+            <h4>Tools that can help</h4>
+            <ul>
+              <li>Inbound email parsing (developer setup): Postmark, SendGrid, Mailgun</li>
+              <li>Automation tools: Zapier, Make, Microsoft Power Automate</li>
+              <li>Built-in email intake in your CRM or loan platform</li>
+            </ul>
+          </div>
+        </details>
+        <details>
+          <summary><span class="s-t">Watermarking</span><span class="s-d">Keep files downloadable with visible company attribution.</span></summary>
+          <div class="tip-body">
+            <p>Watermarking is accepted as a reasonable deterrent against theft. Watermarks should include your company name or logo. <a href="https://aquamark.io/" target="_blank" rel="noopener noreferrer">Aquamark</a> or an equivalent service can be used, and watermarked files can remain downloadable. No browser or device controls are needed for this option.</p>
+            <ul>
+              <li><strong>If people open email submissions:</strong> watermark files before they reach the inbox. This also covers files later stored in your system of record.</li>
+              <li><strong>If files go directly to your system of record:</strong> watermark before storage or at the time of download.</li>
+            </ul>
+          </div>
+        </details>
+        <details>
+          <summary><span class="s-t">Browser and device controls</span><span class="s-d">Restrict transfers through personal accounts and USB.</span></summary>
+          <div class="tip-body">
+            <p>Files can remain downloadable from email and your system of record if controls block personal email, cloud storage sites, and USB transfers. No watermarking is needed for this option. At a minimum:</p>
+            <ul>
+              <li><strong>Domain restrictions:</strong> block personal email, personal cloud storage, and unauthorized file-transfer services.</li>
+              <li><strong>USB restrictions:</strong> block or restrict copying company files to physical media.</li>
+            </ul>
+            <h4>Tools that can help</h4>
+            <ul>
+              <li>Endpoint/MDM policies: Microsoft Intune, Jamf, Hexnode, or ManageEngine</li>
+              <li>Windows Group Policy (GPO): built into Windows</li>
+              <li>Virtual desktops: Windows 365, Azure Virtual Desktop, or Amazon WorkSpaces</li>
+              <li>Enterprise browsers: Island or Talon</li>
+              <li>Web/DNS filtering: Palo Alto Prisma, Cloudflare One, or DNSFilter</li>
+            </ul>
+          </div>
+        </details>
+        <details>
+          <summary><span class="s-t">Other safeguards</span><span class="s-d">Alternative approaches may also be acceptable.</span></summary>
+          <div class="tip-body">
+            <p>Other safeguards are acceptable if they meet the program&rsquo;s intent. <a href="/contact/">Send us a message</a> to discuss your approach.</p>
+          </div>
+        </details>
+      </div>
     </div>
-    <a href="https://securebroker.org" onclick="closeMobileMenu()">For Brokers</a>
-    <a href="https://securefunder.org" onclick="closeMobileMenu()">For Funders</a>
-    <a href="https://securefunder.org/contact/" onclick="closeMobileMenu()">Contact Us</a>
-    <a href="https://portal.securefunder.org/login" class="btn-member-mobile">Sign In</a>
-  </div>
+  </section>
 
-  <script>
-    const toggle = document.querySelector('.mobile-toggle');
-    const menu = document.getElementById('mobileMenu');
-    const closeBtn = document.getElementById('mobileMenuClose');
-    function closeMobileMenu() { menu.classList.remove('active'); document.body.style.overflow = ''; }
-    toggle.addEventListener('click', () => { menu.classList.add('active'); document.body.style.overflow = 'hidden'; });
-    closeBtn.addEventListener('click', closeMobileMenu);
-  </script>
+</main>
 
 <script>
-  // Only one Download Safeguards section open at a time
-  document.querySelectorAll('.ds-card').forEach(function (card) {
-    card.addEventListener('toggle', function () {
-      if (!card.open) return;
-      document.querySelectorAll('.ds-card').forEach(function (other) {
-        if (other !== card && other.open) other.open = false;
-      });
-    });
-  });
+  (function () {
+    var t = document.querySelector('.nav-toggle'), m = document.getElementById('mobileMenu');
+    t.addEventListener('click', function () { var o = m.classList.toggle('open'); t.setAttribute('aria-expanded', o); t.textContent = o ? 'Close' : 'Menu'; });
+    m.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { m.classList.remove('open'); t.setAttribute('aria-expanded', false); t.textContent = 'Menu'; }); });
+  })();
 </script>
+
 </body>
 </html>
