@@ -240,12 +240,10 @@
   .path { border: 1px solid var(--rule); padding: 22px 22px 26px; display: flex; flex-direction: column; gap: 14px; align-items: flex-start; }
   .path .q-t { margin: 0; }
   .path .path-tag { margin: 0; }
+  .path-col { display: flex; flex-direction: column; gap: 16px; }
   .btn.btn-lime { background: #DDF734; border-color: #DDF734; color: var(--ink); }
   .btn.btn-lime:hover { background: #CFEA1F; border-color: #CFEA1F; color: var(--ink); }
   .path-d { margin: 0; font-size: 16px; color: var(--text); }
-  .also { margin-top: 56px; }
-  .also .q-t { margin: 0 0 8px; }
-  @media (max-width: 760px) { .also { margin-top: 40px; } }
   .exits-x { list-style: none; margin: 0 0 8px; padding: 0; align-self: stretch; }
   .exits-x li { padding: 9px 0; border-bottom: 1px solid var(--rule); font-size: 16px; color: var(--text); }
   .exits-x li:first-child { border-top: 1px solid var(--rule); }
@@ -328,15 +326,17 @@
           </ul>
           <a class="btn btn-lime" href="/download-safeguards/">Acceptable safeguards</a>
         </div>
-        <div class="path">
-          <span class="tag-new path-tag">Path 2</span>
-          <p class="q-t">Application files are view-only</p>
-          <p class="path-d">No safeguards needed. Just provide proof of your view-only settings.</p>
+        <div class="path-col">
+          <div class="path">
+            <span class="tag-new path-tag">Path 2</span>
+            <p class="q-t">Application files are view-only</p>
+            <p class="path-d">No safeguards needed. Just provide proof of your view-only settings.</p>
+          </div>
+          <div class="path">
+            <span class="tag-new path-tag">Other</span>
+            <p class="path-d">We&rsquo;ll also ask about MFA for email and system of record, screen lock policy, off-boarding process.</p>
+          </div>
         </div>
-      </div>
-      <div class="also">
-        <p class="q-t">We&rsquo;ll also ask about</p>
-        <p class="path-d">MFA for email and system of record, screen lock policy, copy of documented off-boarding process.</p>
       </div>
     </div>
   </section>
