@@ -236,11 +236,12 @@
   .callout p { margin: 0 0 10px; }
   .callout p:last-child { margin: 0; }
   .tech-lead { font-family: var(--serif); font-size: 24px; line-height: 1.4; color: var(--ink); margin: 0 0 24px; max-width: 30em; }
-  .paths { display: grid; grid-template-columns: 3fr 2fr; gap: 16px; align-items: start; }
+  .paths { display: grid; grid-template-columns: 3fr 2fr; gap: 16px; align-items: stretch; }
   .path { border: 1px solid var(--rule); padding: 22px 22px 26px; display: flex; flex-direction: column; gap: 14px; align-items: flex-start; }
   .path .q-t { margin: 0; }
   .path .path-tag { margin: 0; }
   .path-col { display: flex; flex-direction: column; gap: 16px; }
+  .path-col .path { flex: 1; }
   .btn.btn-lime { background: #DDF734; border-color: #DDF734; color: var(--ink); }
   .btn.btn-lime:hover { background: #CFEA1F; border-color: #CFEA1F; color: var(--ink); }
   .path-d { margin: 0; font-size: 16px; color: var(--text); }
