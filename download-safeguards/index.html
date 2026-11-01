@@ -351,9 +351,9 @@
   <section class="rq-block rq-tight">
     <div class="rq-wrap">
       <h2 class="sec-title">Setup tips</h2>
-      <p class="sec-sub">Implementation guidance and examples of tools that can help.</p>
+      <p class="sec-sub">Choose your path</p>
       <div class="tips">
-        <details>
+        <details name="tips">
           <summary><span class="s-t">Automate email intake</span><span class="s-d">Route submissions directly into your system of record.</span></summary>
           <div class="tip-body">
             <p>You can keep receiving email submissions, as long as staff do not work from the intake mailbox. No email watermarking or browser controls are needed for this intake path.</p>
@@ -370,7 +370,7 @@
             </ul>
           </div>
         </details>
-        <details>
+        <details name="tips">
           <summary><span class="s-t">Watermarking</span><span class="s-d">Keep files downloadable with visible company attribution.</span></summary>
           <div class="tip-body">
             <p>Watermarking is accepted as a reasonable deterrent against theft. Watermarks should include your company name or logo. <a href="https://aquamark.io/" target="_blank" rel="noopener noreferrer">Aquamark</a> or an equivalent service can be used, and watermarked files can remain downloadable. No browser or device controls are needed for this option.</p>
@@ -380,7 +380,7 @@
             </ul>
           </div>
         </details>
-        <details>
+        <details name="tips">
           <summary><span class="s-t">Browser and device controls</span><span class="s-d">Restrict transfers through personal accounts and USB.</span></summary>
           <div class="tip-body">
             <p>Files can remain downloadable from email and your system of record if controls block personal email, cloud storage sites, and USB transfers. No watermarking is needed for this option. At a minimum:</p>
@@ -398,7 +398,7 @@
             </ul>
           </div>
         </details>
-        <details>
+        <details name="tips">
           <summary><span class="s-t">Other safeguards</span><span class="s-d">Alternative approaches may also be acceptable.</span></summary>
           <div class="tip-body">
             <p>Other safeguards are acceptable if they meet the program&rsquo;s intent. <a href="/contact/">Send us a message</a> to discuss your approach.</p>
@@ -416,6 +416,14 @@
     t.addEventListener('click', function () { var o = m.classList.toggle('open'); t.setAttribute('aria-expanded', o); t.textContent = o ? 'Close' : 'Menu'; });
     m.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { m.classList.remove('open'); t.setAttribute('aria-expanded', false); t.textContent = 'Menu'; }); });
   })();
+</script>
+
+<script>
+  document.querySelectorAll('.tips details').forEach(function (d) {
+    d.addEventListener('toggle', function () {
+      if (d.open) document.querySelectorAll('.tips details').forEach(function (o) { if (o !== d) o.open = false; });
+    });
+  });
 </script>
 
 </body>
