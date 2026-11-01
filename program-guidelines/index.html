@@ -239,6 +239,7 @@
   .paths { display: grid; grid-template-columns: 3fr 2fr; gap: 16px; align-items: start; }
   .path { border: 1px solid var(--rule); padding: 22px 22px 26px; display: flex; flex-direction: column; gap: 14px; align-items: flex-start; }
   .path .q-t { margin: 0; }
+  .path .path-tag { margin: 0; }
   .path-d { margin: 0; font-size: 16px; color: var(--text); }
   .exits-x { list-style: none; margin: 0 0 8px; padding: 0; align-self: stretch; }
   .exits-x li { padding: 9px 0; border-bottom: 1px solid var(--rule); font-size: 16px; color: var(--text); }
@@ -313,7 +314,7 @@
     <div class="rq-wrap">
       <div class="paths">
         <div class="path">
-          <span class="q-n">Path 1</span>
+          <span class="tag-new path-tag">Path 1</span>
           <p class="q-t">Application files are downloadable</p>
           <p class="path-d">If the application package can be downloaded from an email inbox or your system of record, it should not be able to leave the company through:</p>
           <ul class="exits-x">
@@ -324,7 +325,7 @@
           <a class="btn btn-quiet" href="/download-safeguards/">Acceptable safeguards</a>
         </div>
         <div class="path">
-          <span class="q-n">Path 2</span>
+          <span class="tag-new path-tag">Path 2</span>
           <p class="q-t">Application files are view-only</p>
           <p class="path-d">No safeguards needed. Just provide proof of your view-only settings.</p>
         </div>
