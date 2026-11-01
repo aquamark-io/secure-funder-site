@@ -127,16 +127,11 @@
   .press-row .date { font-size: 14px; color: var(--muted); white-space: nowrap; }
   .press-more { margin-top: 24px; font-size: 15px; }
 
-  .evidence { padding: 96px 0; background: var(--dark); color: #C9D2DE; }
-  .ev-head { max-width: 40em; margin-bottom: 56px; }
-  .ev-head h2 { color: #fff; font-size: clamp(32px, 4vw, 44px); line-height: 1.1; }
-  .ev-head p { margin: 14px 0 0; font-size: 18px; }
-  .ev-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 48px; }
-  .ev-col { border-top: 1px solid rgba(255,255,255,.25); padding-top: 24px; }
-  .ev-n { font-size: 13px; font-weight: 600; letter-spacing: .06em; color: #8FA0B5; }
-  .evidence h3 { color: #fff; font-family: var(--serif); font-size: 26px; font-weight: 400; margin: 10px 0 12px; border: 0; padding: 0; }
-  .ev-col p { margin: 0; font-size: 16px; line-height: 1.6; }
-  @media (max-width: 760px) { .evidence { padding: 64px 0; } .ev-grid { grid-template-columns: 1fr; gap: 32px; } .ev-head { margin-bottom: 40px; } }
+  .statement { padding: 112px 0; background: var(--dark); color: #C9D2DE; }
+  .st-eyebrow { margin: 0 0 20px; font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: #8C98A8; }
+  .statement h2 { color: #fff; font-size: clamp(34px, 4.6vw, 56px); line-height: 1.08; letter-spacing: -0.01em; max-width: 14em; }
+  .st-body { margin: 28px 0 0; max-width: 36em; font-size: 18px; line-height: 1.65; }
+  @media (max-width: 760px) { .statement { padding: 72px 0; } .st-body { font-size: 16px; } }
   .closing { padding: 96px 0; background: var(--dark); color: #C9D2DE; }
   .closing .wrap { display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
   .closing h2 { color: #fff; font-size: clamp(32px, 4vw, 44px); line-height: 1.1; max-width: 16em; }
@@ -308,14 +303,11 @@
     </div>
   </section>
 
-  <section class="section" id="standard">
+  <section class="statement" id="standard">
     <div class="wrap">
-      <div>
-        <h2>Our Standard</h2>
-      </div>
-      <div class="body">
-        <p>Independent, evidence-based verification. Certification is based on demonstrated safeguards, not self-attestation.</p>
-      </div>
+      <p class="st-eyebrow">Our Standard</p>
+      <h2>Demonstrated safeguards, not <span style="white-space:nowrap">self-attestation.</span></h2>
+      <p class="st-body">Independent, evidence-based verification. Evidence is uploaded through the member portal as documents or screenshots. PII and proprietary details can be redacted&mdash;we only need enough to confirm the safeguard is in place.</p>
     </div>
   </section>
 
