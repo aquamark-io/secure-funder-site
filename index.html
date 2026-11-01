@@ -60,7 +60,7 @@
   .hero .wrap { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 72px; align-items: center; }
   .hero h1 { font-size: clamp(40px, 5.2vw, 64px); line-height: 1.06; letter-spacing: -0.015em; font-weight: 400; }
   .hero h1 strong { font-weight: 700; letter-spacing: -0.025em; }
-  .hero-lede { font-size: 19px; line-height: 1.6; max-width: 30em; margin: 28px 0 36px; }
+  .hero-lede { font-size: 19px; line-height: 1.6; max-width: 30em; margin: 28px 0 0; }
   .hero-lede strong { color: var(--ink); font-weight: 600; }
   .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
   .hero-note { font-size: 14px; color: var(--muted); margin-top: 16px; }
@@ -77,6 +77,9 @@
   .clients .dir-links { margin: 32px 0 0; font-size: 14px; color: var(--muted); }
 
   .section { padding: 88px 0; border-bottom: 1px solid var(--rule); }
+  .section.dark { background: var(--dark); color: #C9D2DE; border-bottom: 0; }
+  .section.dark h2 { color: #fff; }
+  .section.dark strong { color: #fff; }
   .section.band { background: var(--band); }
   .section > .wrap { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: 64px; }
   .section h2 { font-size: 38px; line-height: 1.15; letter-spacing: -0.01em; }
@@ -127,11 +130,6 @@
   .press-row .date { font-size: 14px; color: var(--muted); white-space: nowrap; }
   .press-more { margin-top: 24px; font-size: 15px; }
 
-  .statement { padding: 64px 0; background: var(--dark); color: #C9D2DE; text-align: center; }
-  .st-eyebrow { margin: 0 0 14px; font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: #8C98A8; }
-  .statement h2 { color: #fff; font-size: clamp(28px, 3.4vw, 42px); line-height: 1.15; letter-spacing: -0.01em; }
-  @media (min-width: 901px) { .statement h2 { white-space: nowrap; } }
-  @media (max-width: 760px) { .statement { padding: 48px 0; } }
   .closing { padding: 96px 0; background: var(--dark); color: #C9D2DE; }
   .closing .wrap { display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
   .closing h2 { color: #fff; font-size: clamp(32px, 4vw, 44px); line-height: 1.1; max-width: 16em; }
@@ -259,10 +257,6 @@
       <div>
         <h1><strong>Funder certification</strong> for alternative commercial finance.</h1>
         <p class="hero-lede">Distinguish your company, build trust with merchants and brokers, and get recognized for taking action against backdooring and data theft.</p>
-        <div class="hero-actions">
-          <a class="btn" href="/contact/">Join</a>
-          <a class="btn btn-quiet" href="/program-guidelines/">Guidelines</a>
-        </div>
       </div>
       <figure class="figure">
         <div class="figure-frame"><img src="secure-funder-badge-2026.png" alt="Secure Funder&trade; Certified 2026"></div>
@@ -292,7 +286,7 @@
     </div>
   </section>
 
-  <section class="section" id="about">
+  <section class="section dark" id="about">
     <div class="wrap">
       <div>
         <h2>Our Mission</h2>
@@ -300,13 +294,6 @@
       <div class="body">
         <p><strong>Secure Funder</strong> is a new industry-specific initiative recognizing companies committed to finally addressing backdooring in alternative finance. Through independent verification and a practical framework for data protection, we&rsquo;re making it harder for bad actors to blend in and bringing greater trust and accountability to an industry small businesses depend on.</p>
       </div>
-    </div>
-  </section>
-
-  <section class="statement" id="standard">
-    <div class="wrap">
-      <p class="st-eyebrow">Our Standard</p>
-      <h2>Evidence-based, not <span style="white-space:nowrap">self-attestation.</span></h2>
     </div>
   </section>
 
