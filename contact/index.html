@@ -140,6 +140,27 @@
   .closing .btn-quiet:hover { background: #fff; color: var(--ink); }
   .closing-actions { display: flex; gap: 12px; flex-wrap: wrap; }
 
+  .site-foot .fob { --fob-rule: rgba(255,255,255,0.15); margin-top: 48px; }
+  .site-foot .fob-title { margin: 0 0 6px; font-family: inherit; font-size: 17px; font-weight: 700; color: #fff; }
+  .site-foot .fob-sub { margin: 0; max-width: none; font-size: 14px; color: #A9B4C2; }
+  .fob-row { list-style: none; padding: 0; margin: 24px 0 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--fob-rule); border-bottom: 1px solid var(--fob-rule); }
+  .fob-row li { margin: 0; padding: 0; }
+  .fob-row li + li { border-left: 1px solid var(--fob-rule); }
+  .fob-row a { display: flex !important; align-items: center; justify-content: center; height: 100px; padding: 16px !important; text-decoration: none; }
+  .fob-row a:hover { background: rgba(255,255,255,0.05); }
+  .fob-row .fob-full { display: block; height: 26px; width: auto; max-width: 100%; }
+  .fob-row .fob-badge { display: block; width: 68px; height: 68px; object-fit: contain; }
+  .fob-findex { font-weight: 700; font-size: 24px !important; letter-spacing: -0.02em; color: #ffffff !important; white-space: nowrap; }
+  @media (max-width: 700px) {
+    .fob-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .fob-row li + li { border-left: 0; }
+    .fob-row li:nth-child(even) { border-left: 1px solid var(--fob-rule); }
+    .fob-row li:nth-child(n+3) { border-top: 1px solid var(--fob-rule); }
+    .fob-row a { height: 80px; padding: 12px 8px !important; }
+    .fob-row .fob-full { height: 20px; }
+    .fob-row .fob-badge { width: 56px; height: 56px; }
+    .fob-findex { font-size: 20px !important; }
+  }
   .site-foot { padding: 56px 0 48px; font-size: 14px; color: #A9B4C2; background: var(--dark); }
   .site-foot .foot-grid { display: grid; grid-template-columns: minmax(0, 5fr) repeat(3, minmax(0, 2fr)); gap: 40px; }
   .site-foot .foot-brand { font-family: var(--sans); font-weight: 700; font-size: 17px; color: #fff; margin: 0 0 10px; }
@@ -371,6 +392,16 @@
         <a href="https://www.linkedin.com/company/secure-funder" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       </div>
     </div>
+    <section class="fob" aria-labelledby="fob-title">
+      <h2 id="fob-title" class="fob-title">Family of Brands</h2>
+      <p class="fob-sub">Supporting a more transparent and accountable FinTech.</p>
+      <ul class="fob-row">
+        <li><a href="https://aquamark.io" target="_blank" rel="noopener noreferrer" aria-label="Aquamark homepage"><img class="fob-full" src="/family-of-brands/aquamark.png" alt="Aquamark"></a></li>
+        <li><a href="https://securebroker.org" target="_blank" rel="noopener noreferrer" aria-label="Secure Broker homepage"><img class="fob-badge" src="/family-of-brands/secure-broker-badge.png" alt="Secure Broker certified badge"></a></li>
+        <li><a href="https://securefunder.org" target="_blank" rel="noopener noreferrer" aria-label="Secure Funder homepage"><img class="fob-badge" src="/family-of-brands/secure-funder-badge.png" alt="Secure Funder certified badge"></a></li>
+        <li><a href="https://joinfindex.com" target="_blank" rel="noopener noreferrer" aria-label="FinDex homepage"><span class="fob-findex">FinDex</span></a></li>
+      </ul>
+    </section>
     <div class="foot-bottom">
       <span>&copy; 2026 Secure Funder&trade; Certification Program. All rights reserved.</span>
       <span>Independently administered by <a href="https://aquamark.io" target="_blank" rel="noopener noreferrer">Aquamark</a></span>
