@@ -283,6 +283,7 @@
     .qualify, .paths { grid-template-columns: 1fr; }
     .callout { padding: 22px 20px; }
   }
+.lede-note { margin-top: 14px; color: var(--muted, #5b6472); font-size: 15px; line-height: 1.6; max-width: 760px; }
 </style>
 </head>
 <body>
@@ -318,74 +319,71 @@
   <section class="page-head">
     <div class="rq-wrap">
       <h1>Acceptable Safeguards</h1>
-      <p class="lede">For downloadable files, choose at least one safeguard.</p>
-    </div>
-  </section>
-
-  <section class="rq-block">
-    <div class="rq-wrap">
-      <div class="tips">
-        <details name="tips">
-          <summary><span class="s-t">Automate email intake</span><span class="s-tags"><span class="s-tag">Email inbox</span></span></summary>
-          <div class="tip-body">
-            <p>If you receive new application submissions via email, you can keep receiving them, as long as staff do not work from the intake mailbox. No email watermarking or browser controls are needed for this intake path.</p>
-            <ul>
-              <li><strong>Email address:</strong> used only for routing.</li>
-              <li><strong>Routing:</strong> files route to your system of record automatically.</li>
-              <li><strong>System of record:</strong> once stored, files still need a safeguard there&mdash;view-only access, watermarking, or browser and device controls.</li>
-            </ul>
-            <h4>Tools that can help</h4>
-            <ul>
-              <li>Inbound email parsing: Postmark, SendGrid, Heron, Email Gateway</li>
-              <li>Automation tools: Zapier, Make, n8n, Microsoft Power Automate</li>
-              <li>Built-in email intake in your CRM or loan platform</li>
-            </ul>
-          </div>
-        </details>
-        <details name="tips">
-          <summary><span class="s-t">Change to view-only access</span><span class="s-tags"><span class="s-tag">System of record</span></span></summary>
-          <div class="tip-body">
-            <p>If application files are downloadable in your system of record, transition to view-only access. No watermarking or browser controls needed.</p>
-          </div>
-        </details>
-        <details name="tips">
-          <summary><span class="s-t">Watermarking</span><span class="s-tags"><span class="s-tag">Email inbox</span><span class="s-tag">System of record</span></span></summary>
-          <div class="tip-body">
-            <p>Keep files downloadable from email or system of record and implement watermarking, a reasonable deterrent against theft. Watermarks should include your company name or logo. <a href="https://aquamark.io/" target="_blank" rel="noopener noreferrer">Aquamark</a> or an equivalent service can be used. No browser or device controls are needed for this option.</p>
-            <ul>
-              <li><strong>If people open email submissions:</strong> watermark files before they reach the inbox. This also covers files later stored in your system of record.</li>
-              <li><strong>If files go directly to your system of record:</strong> watermark before storage or at the time of download.</li>
-            </ul>
-          </div>
-        </details>
-        <details name="tips">
-          <summary><span class="s-t">Browser and device controls</span><span class="s-tags"><span class="s-tag">Email inbox</span><span class="s-tag">System of record</span></span></summary>
-          <div class="tip-body">
-            <p>Files can remain downloadable from email and your system of record if controls block personal email, cloud storage sites, and USB transfers. No watermarking is needed for this option. At a minimum:</p>
-            <ul>
-              <li><strong>Domain restrictions:</strong> block personal email, personal cloud storage, and unauthorized file-transfer services.</li>
-              <li><strong>USB restrictions:</strong> block or restrict copying company files to physical media.</li>
-            </ul>
-            <h4>Tools that can help</h4>
-            <ul>
-              <li>Endpoint/MDM policies: Microsoft Intune, Jamf, Hexnode, or ManageEngine</li>
-              <li>Windows Group Policy (GPO): built into Windows</li>
-              <li>Virtual desktops: Windows 365, Azure Virtual Desktop, or Amazon WorkSpaces</li>
-              <li>Enterprise browsers: Island or Talon</li>
-              <li>Web/DNS filtering: Palo Alto Prisma, Cloudflare One, or DNSFilter</li>
-            </ul>
-          </div>
-        </details>
-        <details name="tips">
-          <summary><span class="s-t">Other safeguards</span></summary>
-          <div class="tip-body">
-            <p>Other safeguards are acceptable if they meet the program&rsquo;s intent. <a href="/contact/">Send us a message</a> to discuss your approach.</p>
-          </div>
-        </details>
-      </div>
-    </div>
-  </section>
-
+      <p class="lede">Downloading is allowed. If non-management staff can download application files, choose one safeguard so an unprotected copy can&rsquo;t leave the company from their computer.</p>
+<p class="lede-note">Applies to non-management, deal-processing roles. Owners and management can keep download access. Role-based access and activity logs are good practice, but they don&rsquo;t count as a safeguard on their own: whoever can download still ends up with an unprotected file.</p>
+</div>
+</section>
+<section class="rq-block">
+<div class="rq-wrap">
+<div class="tips">
+<details name="tips">
+<summary><span class="s-t">View-only access</span><span class="s-tags"><span class="s-tag">System of record</span></span></summary>
+<div class="tip-body">
+<p>Transition to view-only and disable file downloads for non-management roles. No watermarking or browser controls are needed.</p>
+<p><strong>Evidence we accept:</strong> a screenshot of a record, taken while logged in as the record owner, showing that downloading is not available.</p>
+</div>
+</details>
+<details name="tips">
+<summary><span class="s-t">Watermarking</span><span class="s-tags"><span class="s-tag">Email inbox</span><span class="s-tag">System of record</span></span></summary>
+<div class="tip-body">
+<p>Keep files downloadable and apply watermarks. Watermarking is accepted as a reasonable deterrent against unauthorized sharing. Watermarks should include your company name or logo. <a href="https://aquamark.io/" target="_blank" rel="noopener noreferrer">Aquamark</a> or any equivalent service is acceptable. No browser or device controls are needed.</p>
+<ul>
+<li><strong>If people open submissions in an email inbox:</strong> watermark files before they reach the inbox. This also covers files later stored in your system of record.</li>
+<li><strong>If files go straight to your system of record:</strong> watermark before files enter it, or when they&rsquo;re downloaded.</li>
+</ul>
+<p><strong>Evidence we accept:</strong> a watermarked sample file plus a screenshot of the workflow or integration that applies the watermark automatically. Watermarking a file by hand doesn&rsquo;t count, because someone handles the unprotected original first.</p>
+</div>
+</details>
+<details name="tips">
+<summary><span class="s-t">Browser and device controls</span><span class="s-tags"><span class="s-tag">Email inbox</span><span class="s-tag">System of record</span></span></summary>
+<div class="tip-body">
+<p>Keep files downloadable, and stop them from leaving the computer. No watermarking is needed.</p>
+<ul>
+<li><strong>Browser:</strong> block personal email and personal cloud storage websites.</li>
+<li><strong>Device:</strong> block USB file transfers.</li>
+</ul>
+<p><strong>Evidence we accept:</strong> screenshots showing personal email and personal cloud storage websites blocked in the browser, and USB file transfers blocked on the device.</p>
+<h4>Tools that can help</h4>
+<ul>
+<li>Endpoint/MDM policies: Microsoft Intune, Jamf, Hexnode, or ManageEngine</li>
+<li>Windows Group Policy (GPO): built into Windows</li>
+<li>Enterprise browsers: Island or Talon</li>
+<li>Web/DNS filtering: Palo Alto Prisma, Cloudflare One, or DNSFilter</li>
+</ul>
+</div>
+</details>
+<details name="tips">
+<summary><span class="s-t">Automate email intake</span><span class="s-tags"><span class="s-tag">Email inbox</span></span></summary>
+<div class="tip-body">
+<p>If you receive submissions by email, you can keep receiving them, as long as no one works from the intake mailbox. Files route automatically into your system of record, and no email watermarking or browser controls are needed. Once stored, files still need view-only access, watermarking, or browser and device controls in your system of record.</p>
+<p><strong>Evidence we accept:</strong> a screenshot of the routing setup (or routing logs showing submissions moving automatically into your system of record), and of who can access the intake mailbox.</p>
+<h4>Tools that can help</h4>
+<ul>
+<li>Inbound email parsing: Postmark, SendGrid, Heron, Email Gateway</li>
+<li>Automation tools: Zapier, Make, n8n, Microsoft Power Automate</li>
+<li>Built-in email intake in your CRM or loan platform</li>
+</ul>
+</div>
+</details>
+<details name="tips">
+<summary><span class="s-t">Other safeguards</span></summary>
+<div class="tip-body">
+<p>Other safeguards are acceptable if they meet the same goal. <a href="/contact/">Send us a message</a> to discuss your approach.</p>
+</div>
+</details>
+</div>
+</div>
+</section>
 </main>
 
 <script>
