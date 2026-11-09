@@ -325,21 +325,21 @@
 <div class="rq-wrap">
 <p style="margin:0 0 16px; font-weight:600; color:var(--ink);">You only need to choose one:</p>
 <div class="tips">
-<details name="tips">
+<details name="tips" id="view-only">
 <summary><span class="s-t">View-only access</span><span class="s-tags"><span class="s-tag">System of record</span></span></summary>
 <div class="tip-body">
 <p>Transition to view-only and disable file downloads for non-management roles. No watermarking or browser controls are needed.</p>
 <p><strong>Evidence we accept:</strong> a screenshot of a record, taken while logged in as the record owner, showing that downloading is not available.</p>
 </div>
 </details>
-<details name="tips">
+<details name="tips" id="watermarking">
 <summary><span class="s-t">Watermarking</span><span class="s-tags"><span class="s-tag">System of record</span></span></summary>
 <div class="tip-body">
 <p>Keep files downloadable and apply watermarks before files enter your system of record, or when they&rsquo;re downloaded. Watermarking is accepted as a reasonable deterrent against unauthorized sharing. Watermarks should include your company name or logo. <a href="https://aquamark.io/" target="_blank" rel="noopener noreferrer">Aquamark</a> or any equivalent service is acceptable. No browser or device controls are needed.</p>
 <p><strong>Evidence we accept:</strong> a watermarked sample file plus a screenshot of the workflow or integration that applies the watermark automatically. Watermarking a file by hand doesn&rsquo;t count, because someone handles the unprotected original first.</p>
 </div>
 </details>
-<details name="tips">
+<details name="tips" id="browser-controls">
 <summary><span class="s-t">Browser and device controls</span><span class="s-tags"><span class="s-tag">Email inbox</span><span class="s-tag">System of record</span></span></summary>
 <div class="tip-body">
 <p>Keep files downloadable, and stop them from leaving the computer. This prevents staff from sending files to themselves or outside the company. No watermarking is needed.</p>
@@ -357,7 +357,7 @@
 </ul>
 </div>
 </details>
-<details name="tips">
+<details name="tips" id="other">
 <summary><span class="s-t">Other safeguards</span></summary>
 <div class="tip-body">
 <p>Other safeguards are acceptable if they meet the same goal. <a href="/contact/">Send us a message</a> to discuss your approach.</p>
@@ -367,7 +367,7 @@
 <p style="margin:88px 0 4px; font-weight:600; color:var(--ink);">If you receive submissions by email:</p>
 <p style="margin:0 0 16px; color:var(--muted);">Browser and device controls (above) also cover your inbox.</p>
 <div class="tips">
-<details name="tips">
+<details name="tips" id="email-intake">
 <summary><span class="s-t">Automate email intake</span><span class="s-tags"><span class="s-tag">Email inbox</span></span></summary>
 <div class="tip-body">
 <p>You can keep receiving submissions by email, as long as no one works from the intake mailbox. Files route automatically into your system of record, and no email watermarking or browser controls are needed. Once stored, files still need view-only access, watermarking, or browser and device controls in your system of record.</p>
@@ -380,7 +380,7 @@
 </ul>
 </div>
 </details>
-<details name="tips">
+<details name="tips" id="email-watermarking">
 <summary><span class="s-t">Watermark before the inbox</span><span class="s-tags"><span class="s-tag">Email inbox</span></span></summary>
 <div class="tip-body">
 <p>If people open submissions in the inbox, watermark files before they reach it. This also covers files later stored in your system of record, so no other safeguard is needed. Watermarks should include your company name or logo. <a href="https://aquamark.io/" target="_blank" rel="noopener noreferrer">Aquamark</a> or any equivalent service is acceptable.</p>
@@ -408,5 +408,16 @@
   });
 </script>
 
+<script>
+// Open the safeguard named in the link (e.g. /download-safeguards/#view-only), so portal links land on it.
+(function () {
+  function openHash() {
+    var d = location.hash && document.getElementById(location.hash.slice(1));
+    if (d && d.tagName === 'DETAILS') { d.open = true; d.scrollIntoView({ block: 'start' }); }
+  }
+  openHash();
+  window.addEventListener('hashchange', openHash);
+})();
+</script>
 </body>
 </html>
