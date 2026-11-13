@@ -280,6 +280,11 @@
   }
   .announce { background: #4693CD; color: #FFFFFF; font-size: 13px; font-weight: 500; line-height: 1.4; text-align: center; padding: 9px 16px; }
   @media (max-width: 640px) { .announce { font-size: min(13px, 3.2vw); padding: 9px 12px; } }
+  /* FAQ: show the first 5 questions, fade the last one, "See all questions" reveals the rest */
+  .faq-list.is-collapsed { position: relative; }
+  .faq-list.is-collapsed .faq-item:nth-child(n+6) { display: none; }
+  .faq-list.is-collapsed::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 72px; background: linear-gradient(rgba(255, 255, 255, 0), var(--paper)); pointer-events: none; }
+  .faq-more { margin-top: 28px; }
 </style>
 </head>
 <body>
@@ -610,5 +615,27 @@
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeBio(); });
 </script>
 
+<script>
+  (function () {
+    var list = document.querySelector('.faq-list'); if (!list) return;
+    var items = list.querySelectorAll('.faq-item'); if (items.length <= 5) return;
+    var btn = document.createElement('button');
+    btn.type = 'button'; btn.className = 'btn btn-quiet faq-more';
+    function set(collapsed) {
+      list.classList.toggle('is-collapsed', collapsed);
+      btn.textContent = collapsed ? 'See all questions' : 'Show fewer';
+      btn.setAttribute('aria-expanded', !collapsed);
+    }
+    btn.addEventListener('click', function () {
+      var collapse = !list.classList.contains('is-collapsed');
+      set(collapse);
+      if (collapse) list.scrollIntoView({ block: 'start' });
+    });
+    var col = document.createElement('div');
+    list.parentNode.insertBefore(col, list);
+    col.appendChild(list); col.appendChild(btn);
+    set(true);
+  })();
+</script>
 </body>
 </html>
