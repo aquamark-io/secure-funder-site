@@ -252,15 +252,16 @@
 
   .faq-list { border-top: 1px solid var(--ink); }
   .faq-item { border-bottom: 1px solid var(--rule); }
-  .faq-item summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 20px 0; font-size: 19px; font-weight: 600; color: var(--ink); }
+  .faq-item summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 26px 0; font-size: 19px; font-weight: 600; color: var(--ink); }
   .faq-item summary::-webkit-details-marker { display: none; }
   .faq-item summary::after { content: "+"; flex: none; font-size: 24px; font-weight: 400; line-height: 1; color: var(--accent); }
   .faq-item[open] summary::after { content: "\2212"; }
   .faq-item summary:hover { color: var(--link); }
-  .faq-a { padding: 0 0 22px; max-width: 42em; }
-  .faq-a p { margin: 0 0 12px; }
-  .faq-a ul { margin: 0 0 12px; padding-left: 1.2em; }
-  .faq-a li { margin: 0 0 8px; }
+  .faq-a { padding: 2px 0 32px; max-width: 42em; line-height: 1.7; }
+  .faq-a p { margin: 0 0 16px; }
+  .faq-a ul { margin: 0 0 16px; padding-left: 1.3em; }
+  .faq-a li { margin: 0 0 16px; padding-left: 4px; }
+  .faq-a li:last-child { margin-bottom: 0; }
   .faq-a p:last-child, .faq-a ul:last-child { margin-bottom: 0; }
   .site-foot .fob { margin-top: 0; margin-bottom: 48px; }
 </style>
@@ -461,6 +462,7 @@
       </div>
       <div class="faq-list">
           <details class="faq-item" name="faq"><summary>What is Secure Funder?</summary><div class="faq-a"><p>An independent certification that recognizes funders taking steps to prevent backdooring and data theft in alternative finance. It&rsquo;s not software, and it doesn&rsquo;t require any specific software.</p></div></details>
+          <details class="faq-item" name="faq"><summary>Why get certified?</summary><div class="faq-a"><ul><li><strong>Earn trust:</strong> show partners and customers that you&rsquo;ve taken steps to protect the information they share with you.</li><li><strong>Stand apart:</strong> demonstrate your commitment through independent verification.</li><li><strong>Gain recognition:</strong> receive a digital badge, public directory listing, and announcement recognizing your company&rsquo;s certification.</li></ul></div></details>
           <details class="faq-item" name="faq"><summary>What if I don&rsquo;t meet the requirements yet?</summary><div class="faq-a"><p>Join now, and we&rsquo;ll help. Most members have gaps to fill when they join, and closing them is the point of the program. You have 90 days to meet the requirements, and extensions and support are available.</p></div></details>
           <details class="faq-item" name="faq"><summary>Who can participate?</summary><div class="faq-a"><p>Companies in revenue-based financing, asset-based lending, equipment finance, factoring, and other non-bank capital.</p></div></details>
           <details class="faq-item" name="faq"><summary>What are the requirements?</summary><div class="faq-a"><p>Registration with your Secretary of State, a company website, and evidence of the technical requirements. The technical requirements apply only to non-management roles. See the full <a href="/program-guidelines/">requirements</a>.</p></div></details>
