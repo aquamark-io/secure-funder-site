@@ -1,5 +1,5 @@
 /* Shared site footer (matches home page) */
-footer.site-foot { display: block; margin: 0; padding: 56px 0 48px !important; font-family: 'Public Sans', 'Helvetica Neue', Arial, sans-serif !important; font-size: 14px; line-height: 1.65; color: #A9B4C2 !important; background: #0F2137 !important; border-top: 0 !important; text-align: left; }
+footer.site-foot { display: block; margin: 0; padding: 56px 0 48px !important; font-family: 'Public Sans', 'Helvetica Neue', Arial, sans-serif !important; font-size: 14px; line-height: 1.65; color: #A9B4C2 !important; background: #173356 !important; border-top: 0 !important; text-align: left; }
 footer.site-foot * { box-sizing: border-box; }
 footer.site-foot .wrap { max-width: 1160px; margin: 0 auto; padding: 0 32px; }
 footer.site-foot .foot-grid { display: grid; grid-template-columns: minmax(0, 5fr) repeat(3, minmax(0, 2fr)); gap: 40px; }
