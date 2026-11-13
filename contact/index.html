@@ -311,6 +311,20 @@
     .qualify, .paths { grid-template-columns: 1fr; }
     .callout { padding: 22px 20px; }
   }
+  /* Menu: hamburger at every screen size (links live in the dropdown) */
+  .nav-links { display: none !important; }
+  .nav-toggle { display: inline-flex !important; flex-direction: column; align-items: center; justify-content: center; gap: 5px; width: 44px; height: 44px; padding: 0; border: 1px solid var(--rule); background: var(--paper); cursor: pointer; }
+  .nav-toggle span { display: block; width: 20px; height: 2px; background: var(--ink); transition: transform .2s ease, opacity .2s ease; }
+  .nav-toggle.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-toggle.is-open span:nth-child(2) { opacity: 0; }
+  .nav-toggle.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .mobile-menu.open { display: block; }
+  @media (min-width: 961px) {
+    .mobile-menu { position: absolute; top: 100%; right: max(32px, calc((100% - var(--wrap)) / 2 + 32px)); width: 300px; background: var(--paper); border: 1px solid var(--rule); box-shadow: 0 12px 32px rgba(14, 27, 46, .12); }
+    .mobile-menu a { padding: 14px 24px; }
+    .mobile-menu a:last-child { border-bottom: 0; }
+    .mobile-menu a[href*="portal."] { display: none; }
+  }
 </style>
 </head>
 <body>
@@ -328,7 +342,7 @@
     <div class="nav-actions">
       <a class="btn btn-quiet" href="https://portal.securefunder.org/login">Sign in</a>
       <a class="btn" href="/join/">Join</a>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobileMenu">Menu</button>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu"><span></span><span></span><span></span></button>
     </div>
   </div>
   <div class="mobile-menu" id="mobileMenu">
@@ -411,8 +425,11 @@
 <script>
   (function () {
     var t = document.querySelector('.nav-toggle'), m = document.getElementById('mobileMenu');
-    t.addEventListener('click', function () { var o = m.classList.toggle('open'); t.setAttribute('aria-expanded', o); t.textContent = o ? 'Close' : 'Menu'; });
-    m.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { m.classList.remove('open'); t.setAttribute('aria-expanded', false); t.textContent = 'Menu'; }); });
+    function set(o) { m.classList.toggle('open', o); t.classList.toggle('is-open', o); t.setAttribute('aria-expanded', o); t.setAttribute('aria-label', o ? 'Close menu' : 'Open menu'); }
+    t.addEventListener('click', function (e) { e.stopPropagation(); set(!m.classList.contains('open')); });
+    m.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { set(false); }); });
+    document.addEventListener('click', function (e) { if (m.classList.contains('open') && !m.contains(e.target)) set(false); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
   })();
 </script>
 

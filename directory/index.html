@@ -1056,6 +1056,14 @@
   <link rel="stylesheet" href="/clean.css?v=4">
   <style>body > .utility-bar{background:#DDF734 !important;color:#000 !important;}body > .utility-bar .utility-text, body > .utility-bar a{color:#000 !important;}</style>
   <link rel="stylesheet" href="/site-footer.css">
+<style id="menu-all-sizes">
+  /* Menu: hamburger at every screen size; on desktop the menu opens as a panel from the right */
+  .main-nav .nav-links { display: none !important; }
+  .main-nav .mobile-toggle { display: block !important; }
+  @media (min-width: 901px) {
+    .mobile-menu { left: auto !important; width: 380px; max-width: 100%; box-shadow: -12px 0 32px rgba(14, 27, 46, .15); }
+  }
+</style>
 </head>
 
 <body>
@@ -1370,5 +1378,8 @@
     });
   </script>
 
+<script>
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { var m = document.getElementById('mobileMenu'); if (m) { m.classList.remove('active'); document.body.style.overflow = ''; } } });
+</script>
 </body>
 </html>
