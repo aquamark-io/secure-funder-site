@@ -270,6 +270,18 @@
     .mobile-menu a:last-child { border-bottom: 0; }
     .mobile-menu a[href*="portal."] { display: none; }
   }
+  /* Program Requirements (simplified) */
+  .req-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--ink); }
+  .req-list li { display: grid; grid-template-columns: 48px 1fr; gap: 16px; align-items: baseline; padding: 18px 0; border-bottom: 1px solid var(--rule); }
+  .req-n { font-size: 13px; font-weight: 600; letter-spacing: .06em; color: var(--muted); }
+  .req-t { font-size: 18px; line-height: 1.55; color: var(--ink); }
+  .req-h2 { font-size: 32px; line-height: 1.15; margin: 0 0 8px; }
+  .req-sub { margin: 0 0 24px; font-size: 16px; color: var(--muted); }
+  .opt-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 48px; border-top: 1px solid var(--ink); }
+  .opt { padding: 20px 0 22px; border-bottom: 1px solid var(--rule); }
+  .opt h3 { font-family: var(--sans); font-size: 17px; font-weight: 700; margin: 0 0 8px; }
+  .opt p { margin: 0; font-size: 16px; line-height: 1.6; }
+  @media (max-width: 760px) { .opt-grid { grid-template-columns: 1fr; } .req-list li { grid-template-columns: 36px 1fr; } .req-t { font-size: 17px; } .req-h2 { font-size: 28px; } }
 </style>
 </head>
 <body>
@@ -310,54 +322,34 @@
   <section class="page-head">
     <div class="rq-wrap">
       <h1>Program Requirements</h1>
-      <p class="lede">Secure Funder is not software and does not require specific software.</p>
+      <p class="lede">Apply only to non-management personnel</p>
     </div>
   </section>
 
   <section class="rq-block">
     <div class="rq-wrap">
-      <p class="rq-eyebrow">To qualify</p>
-      <ol class="qualify">
-        <li><span class="q-n">01</span><span class="q-t">Registered with Secretary of State</span></li>
-        <li><span class="q-n">02</span><span class="q-t">Company website</span></li>
-        <li><span class="q-n">03</span><span class="q-t">Evidence of technical requirements</span></li>
+      <ol class="req-list">
+        <li><span class="req-n">01</span><span class="req-t">Be registered with your Secretary of State.</span></li>
+        <li><span class="req-n">02</span><span class="req-t">Have a company website.</span></li>
+        <li><span class="req-n">03</span><span class="req-t">Provide a screenshot showing that multi-factor authentication (MFA) is enabled for company email.</span></li>
+        <li><span class="req-n">04</span><span class="req-t">Provide a screenshot showing that MFA is enabled for each system of record, such as your CRM or loan origination system.</span></li>
+        <li><span class="req-n">05</span><span class="req-t">Provide a copy of your offboarding checklist. It should show how you promptly remove access when someone leaves and update access when someone changes roles.</span></li>
       </ol>
     </div>
   </section>
 
   <section class="rq-block rq-tight">
     <div class="rq-wrap">
-      <div class="callout">
-        <span class="tag-new">Important</span>
-        <p class="callout-lead">Technical requirements apply only to non-management roles. Join now, meet requirements within 90 days. Extensions and support are available.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="rq-block rq-tight">
-    <div class="rq-wrap">
-      <div class="paths">
-        <div class="path">
-          <span class="tag-new path-tag">Path 1</span>
-          <p class="q-t">The application package is downloadable</p>
-          <p class="path-d">If the application package can be downloaded from an email inbox or your system of record (CRM, LOS, etc.), it should not be able to leave the company through:</p>
-          <ul class="exits-x">
-            <li>Personal email</li>
-            <li>Cloud storage</li>
-            <li>USB drives</li>
-          </ul>
-          <a class="btn btn-lime" href="/download-safeguards/">Acceptable safeguards</a>
+      <h2 class="req-h2">Document Protection</h2>
+      <p class="req-sub">Choose one option</p>
+      <div class="opt-grid">
+        <div class="opt">
+          <h3>View-only access</h3>
+          <p>Non-management staff can view documents but can&rsquo;t download them.</p>
         </div>
-        <div class="path-col">
-          <div class="path">
-            <span class="tag-new path-tag">Path 2</span>
-            <p class="q-t">The application package is view-only</p>
-            <p class="path-d">No safeguards needed. Just provide proof of your view-only settings.</p>
-          </div>
-          <div class="path">
-            <span class="tag-new path-tag">Other</span>
-            <p class="path-d">We&rsquo;ll also ask about MFA for email and system of record, screen lock policy, off-boarding process.</p>
-          </div>
+        <div class="opt">
+          <h3>Downloads with a safeguard</h3>
+          <p>Non-management staff can download documents if you use one of the <a href="/download-safeguards/">acceptable safeguards</a>.</p>
         </div>
       </div>
     </div>
