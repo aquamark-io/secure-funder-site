@@ -75,8 +75,9 @@
   .clients p { font-size: 14px; color: var(--muted); margin: 0 0 28px; }
   .client-grid { --s: 1; display: flex; justify-content: space-between; align-items: center; gap: 40px; }
   .client-grid a { display: block; text-align: center; }
-  .client-grid img { height: calc(var(--h) * var(--s)); width: auto; max-width: 100%; margin: 0 auto; filter: grayscale(100%); opacity: 0.6; transition: filter .2s ease, opacity .2s ease; }
+  .client-grid img { height: calc(var(--h) * var(--s)); width: auto; max-width: 100%; object-fit: contain; margin: 0 auto; filter: grayscale(100%); opacity: 0.6; transition: filter .2s ease, opacity .2s ease; }
   .client-grid a:hover img, .client-grid a:focus-visible img { filter: none; opacity: 1; }
+  @media (min-width: 1181px) { .clients .wrap { max-width: calc(var(--wrap) + 160px); } }
   .clients .dir-links { margin: 36px 0 0; text-align: center; font-size: 14px; color: var(--muted); }
 
   .section { padding: 88px 0; border-bottom: 1px solid var(--rule); }
@@ -220,7 +221,7 @@
     .hero-actions .btn { flex: 1 1 0; min-width: 0; }
     .figure-frame { padding: 0; }
     .hero .figure-frame img { max-height: 240px; margin: 0 auto; }
-    .client-grid { --s: .72; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px 24px; }
+    .client-grid { --s: .88; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px 20px; }
     .section h2 { font-size: 32px; }
     .ruled.two, .cols-2 { grid-template-columns: minmax(0, 1fr); }
     .ruled.two li:nth-child(2) { border-top: 0; }
