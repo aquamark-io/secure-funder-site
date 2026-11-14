@@ -73,12 +73,11 @@
 
   .clients { padding: 44px 0 48px; border-bottom: 1px solid var(--rule); }
   .clients p { font-size: 14px; color: var(--muted); margin: 0 0 28px; }
-  .client-grid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 36px 32px; align-items: center; }
+  .client-grid { --s: 1; display: flex; justify-content: space-between; align-items: center; gap: 40px; }
   .client-grid a { display: block; text-align: center; }
-  .client-grid img { max-height: 40px; max-width: 100%; width: auto; margin: 0 auto; filter: grayscale(100%); opacity: 0.6; transition: filter .2s ease, opacity .2s ease; }
+  .client-grid img { height: calc(var(--h) * var(--s)); width: auto; max-width: 100%; margin: 0 auto; filter: grayscale(100%); opacity: 0.6; transition: filter .2s ease, opacity .2s ease; }
   .client-grid a:hover img, .client-grid a:focus-visible img { filter: none; opacity: 1; }
-  .client-grid img.lg { max-height: 48px; }
-  .clients .dir-links { margin: 32px 0 0; font-size: 14px; color: var(--muted); }
+  .clients .dir-links { margin: 36px 0 0; text-align: center; font-size: 14px; color: var(--muted); }
 
   .section { padding: 88px 0; border-bottom: 1px solid var(--rule); }
   .section.dark { background: var(--dark); color: #C9D2DE; border-bottom: 0; }
@@ -199,9 +198,12 @@
     .hero .figure-frame img { max-height: 260px; margin: 0 auto; }
     .section { padding: 64px 0; }
     .cols-3 { grid-template-columns: minmax(0, 1fr); gap: 32px; }
-    .client-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .client-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px 32px; }
     .site-foot .foot-grid { grid-template-columns: 1fr 1fr; }
     .site-foot .foot-grid > div:first-child { grid-column: 1 / -1; }
+  }
+  @media (min-width: 961px) and (max-width: 1180px) {
+    .client-grid { --s: .82; gap: 28px; }
   }
   @media (max-width: 640px) {
     body { font-size: 16px; }
@@ -218,9 +220,7 @@
     .hero-actions .btn { flex: 1 1 0; min-width: 0; }
     .figure-frame { padding: 0; }
     .hero .figure-frame img { max-height: 240px; margin: 0 auto; }
-    .client-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 24px; }
-    .client-grid img { max-height: 30px; max-width: 120px; }
-    .client-grid img.lg { max-height: 36px; max-width: 144px; }
+    .client-grid { --s: .72; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px 24px; }
     .section h2 { font-size: 32px; }
     .ruled.two, .cols-2 { grid-template-columns: minmax(0, 1fr); }
     .ruled.two li:nth-child(2) { border-top: 0; }
@@ -331,13 +331,12 @@
   <section class="clients" aria-label="Participants">
     <div class="wrap">
       <div class="client-grid">
-        <a href="https://bigthinkcapital.com/" target="_blank" rel="noopener noreferrer"><img src="big.png" alt="Big Think Capital"></a>
-        <a href="https://www.kalamatacapitalgroup.com/" target="_blank" rel="noopener noreferrer"><img src="kalamata.png" alt="Kalamata Capital"></a>
-        <a href="https://claracap.com/" target="_blank" rel="noopener noreferrer"><img src="clara.png" alt="Clara Capital"></a>
-        <a href="https://ovalv.com/" target="_blank" rel="noopener noreferrer"><img class="lg" src="oval.png" alt="Oval"></a>
-        <a href="https://capfront.net/" target="_blank" rel="noopener noreferrer"><img src="capfront.png" alt="CapFront"></a>
-        <a href="https://www.britecap.com/" target="_blank" rel="noopener noreferrer"><img class="lg" src="brite.png" alt="BriteCap"></a>
-        <a href="https://www.greenbridgecapital.com/" target="_blank" rel="noopener noreferrer"><img src="green.png" alt="Greenbridge"></a>
+        <a href="https://bigthinkcapital.com/" target="_blank" rel="noopener noreferrer"><img src="big.png" style="--h:54px" alt="Big Think Capital"></a>
+        <a href="https://www.kalamatacapitalgroup.com/" target="_blank" rel="noopener noreferrer"><img src="kalamata.png" style="--h:44px" alt="Kalamata Capital"></a>
+        <a href="https://claracap.com/" target="_blank" rel="noopener noreferrer"><img src="clara.png" style="--h:35px" alt="Clara Capital"></a>
+        <a href="https://ovalv.com/" target="_blank" rel="noopener noreferrer"><img src="oval.png" style="--h:52px" alt="Oval"></a>
+        <a href="https://capfront.net/" target="_blank" rel="noopener noreferrer"><img src="capfront.png" style="--h:57px" alt="CapFront"></a>
+        <a href="https://www.britecap.com/" target="_blank" rel="noopener noreferrer"><img src="brite.png" style="--h:43px" alt="BriteCap"></a>
       </div>
       <p class="dir-links"><a href="/directory/">View the full directory</a></p>
     </div>
