@@ -275,13 +275,11 @@
   .req-list li { display: grid; grid-template-columns: 48px 1fr; gap: 16px; align-items: baseline; padding: 18px 0; border-bottom: 1px solid var(--rule); }
   .req-n { font-size: 13px; font-weight: 600; letter-spacing: .06em; color: var(--muted); }
   .req-t { font-size: 18px; line-height: 1.55; color: var(--ink); }
-  .req-h2 { font-size: 32px; line-height: 1.15; margin: 0 0 8px; }
-  .req-sub { margin: 0 0 24px; font-size: 16px; color: var(--muted); }
-  .opt { display: grid; grid-template-columns: 48px 1fr; gap: 16px; align-items: baseline; padding: 18px 0 20px; border-bottom: 1px solid var(--rule); }
+  .req-opts { margin-top: 14px; }
+  .req-opt { display: grid; grid-template-columns: 24px 1fr; gap: 10px; align-items: baseline; padding: 8px 0; font-size: 16px; line-height: 1.6; color: var(--text); }
+  .req-opt strong { color: var(--ink); font-weight: 600; }
   .opt-k { font-size: 13px; font-weight: 600; letter-spacing: .06em; color: var(--muted); }
-  .opt h3 { font-family: var(--sans); font-size: 17px; font-weight: 700; margin: 0 0 8px; }
-  .opt p { margin: 0; font-size: 16px; line-height: 1.6; }
-  @media (max-width: 760px) { .opt { grid-template-columns: 36px 1fr; } .req-list li { grid-template-columns: 36px 1fr; } .req-t { font-size: 17px; } .req-h2 { font-size: 28px; } }
+  @media (max-width: 760px) { .req-list li { grid-template-columns: 36px 1fr; } .req-t { font-size: 17px; } }
 </style>
 </head>
 <body>
@@ -333,20 +331,16 @@
         <li><span class="req-n">03</span><span class="req-t">Provide screenshot showing MFA is enabled for company email.</span></li>
         <li><span class="req-n">04</span><span class="req-t">Provide screenshot showing MFA is enabled for system(s) of record (e.g., CRM, LOS).</span></li>
         <li><span class="req-n">05</span><span class="req-t">Provide your off-boarding checklist showing how you promptly remove or update access when staff leave or change roles.</span></li>
+        <li><span class="req-n">06</span><div class="req-t">Document protection: choose one option, applies to non-management only.
+          <div class="req-opts">
+            <div class="req-opt"><span class="opt-k">A</span><div><strong>Documents are view-only.</strong> Non-management staff can view documents but can&rsquo;t download them.</div></div>
+            <div class="req-opt"><span class="opt-k">B</span><div><strong>Documents are downloadable.</strong> Non-management staff can download documents if you use one of the <a href="/download-safeguards/">acceptable safeguards</a>.</div></div>
+          </div>
+        </div></li>
       </ol>
     </div>
   </section>
 
-  <section class="rq-block rq-tight">
-    <div class="rq-wrap">
-      <h2 class="req-h2">Document Protection</h2>
-      <p class="req-sub">Choose one option, applies to non-management only.</p>
-      <div class="opt-list">
-        <div class="opt"><span class="opt-k">A</span><div><h3>Documents are view-only</h3><p>Non-management staff can view documents but can&rsquo;t download them.</p></div></div>
-        <div class="opt"><span class="opt-k">B</span><div><h3>Documents are downloadable</h3><p>Non-management staff can download documents if you use one of the <a href="/download-safeguards/">acceptable safeguards</a>.</p></div></div>
-      </div>
-    </div>
-  </section>
 
 </main>
 
