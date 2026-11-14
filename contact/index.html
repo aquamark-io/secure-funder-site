@@ -339,7 +339,7 @@
       <a href="/#press">News</a>
       <a href="/directory/">Directory</a>
       <a href="https://securebroker.org" target="_blank" rel="noopener noreferrer">Broker Program</a>
-      <a href="https://securevendor.org" target="_blank" rel="noopener noreferrer">Vendor Program (coming soon)</a>
+      <a aria-disabled="true" style="cursor:default;text-decoration:none">Vendor Program <span style="font-size:.8em;font-weight:400;color:#8A94A0;margin-left:4px">(coming soon)</span></a>
       <a href="/contact/">Contact</a>
     </nav>
     <div class="nav-actions">
@@ -354,7 +354,7 @@
     <a href="/#press">News</a>
     <a href="/directory/">Directory</a>
     <a href="https://securebroker.org" target="_blank" rel="noopener noreferrer">Broker Program</a>
-    <a href="https://securevendor.org" target="_blank" rel="noopener noreferrer">Vendor Program (coming soon)</a>
+    <a aria-disabled="true" style="cursor:default;text-decoration:none">Vendor Program <span style="font-size:.8em;font-weight:400;color:#8A94A0;margin-left:4px">(coming soon)</span></a>
     <a href="/contact/">Contact</a>
     <a href="https://portal.securefunder.org/login">Sign in</a>
   </div>
@@ -433,7 +433,7 @@
     var t = document.querySelector('.nav-toggle'), m = document.getElementById('mobileMenu');
     function set(o) { m.classList.toggle('open', o); t.classList.toggle('is-open', o); t.setAttribute('aria-expanded', o); t.setAttribute('aria-label', o ? 'Close menu' : 'Open menu'); }
     t.addEventListener('click', function (e) { e.stopPropagation(); set(!m.classList.contains('open')); });
-    m.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { set(false); }); });
+    m.querySelectorAll('a[href]').forEach(function (a) { a.addEventListener('click', function () { set(false); }); });
     document.addEventListener('click', function (e) { if (m.classList.contains('open') && !m.contains(e.target)) set(false); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
   })();
