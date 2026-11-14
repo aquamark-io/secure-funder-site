@@ -271,8 +271,6 @@
     .mobile-menu a[href*="portal."] { display: none; }
   }
   /* Program Requirements (simplified) */
-  .req-head .rq-wrap { display: flex; align-items: center; justify-content: space-between; gap: 32px; }
-  .req-badge { width: 112px; height: 112px; flex: none; }
   .req-band { background: var(--band); padding: 56px 0 88px; }
   .req-list { list-style: none; margin: 0; padding: 8px 36px; background: var(--paper); border: 1px solid var(--rule); box-shadow: 0 1px 2px rgba(14, 27, 46, .04), 0 12px 32px rgba(14, 27, 46, .06); }
   .req-list li { display: grid; grid-template-columns: 36px 1fr; gap: 20px; align-items: start; padding: 22px 0; border-bottom: 1px solid var(--rule); }
@@ -280,10 +278,10 @@
   .req-n { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background: var(--accent); color: #fff; font-size: 14px; font-weight: 700; }
   .req-t { display: block; padding-top: 3px; font-size: 18px; line-height: 1.55; color: var(--ink); }
   .req-opts { display: grid; gap: 10px; margin-top: 16px; }
-  .req-opt { display: grid; grid-template-columns: 26px 1fr; gap: 12px; align-items: start; padding: 14px 18px; background: #EAF0F8; border-left: 3px solid var(--accent); font-size: 16px; line-height: 1.6; color: var(--text); }
+  .req-opt { display: grid; grid-template-columns: 26px 1fr; gap: 12px; align-items: start; padding: 4px 0; font-size: 16px; line-height: 1.6; color: var(--text); }
   .req-opt strong { color: var(--ink); font-weight: 600; }
   .opt-k { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; margin-top: 1px; border-radius: 50%; border: 1.5px solid var(--accent); color: var(--accent); font-size: 12px; font-weight: 700; background: var(--paper); }
-  @media (max-width: 760px) { .req-badge { width: 72px; height: 72px; } .req-band { padding: 32px 0 56px; } .req-list { padding: 4px 18px; } .req-list li { grid-template-columns: 30px 1fr; gap: 14px; padding: 18px 0; } .req-n { width: 28px; height: 28px; font-size: 13px; } .req-t { font-size: 17px; padding-top: 2px; } .req-opt { padding: 12px 14px; grid-template-columns: 24px 1fr; gap: 10px; } }
+  @media (max-width: 760px) { .req-band { padding: 32px 0 56px; } .req-list { padding: 4px 18px; } .req-list li { grid-template-columns: 30px 1fr; gap: 14px; padding: 18px 0; } .req-n { width: 28px; height: 28px; font-size: 13px; } .req-t { font-size: 17px; padding-top: 2px; } .req-opt { grid-template-columns: 24px 1fr; gap: 10px; } }
 </style>
 </head>
 <body>
@@ -321,10 +319,9 @@
 
 <main>
 
-  <section class="page-head req-head">
+  <section class="page-head">
     <div class="rq-wrap">
       <h1>Program Requirements</h1>
-      <img class="req-badge" src="/secure-funder-badge-2026.png" alt="">
     </div>
   </section>
 
