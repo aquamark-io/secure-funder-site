@@ -298,6 +298,21 @@
     .mobile-menu a:last-child { border-bottom: 0; }
     .mobile-menu a[href*="portal."] { display: none; }
   }
+  /* Acceptable Safeguards (same layout as Program Requirements) */
+  .req-band { background: var(--band); padding: 56px 0 88px; }
+  .req-list { list-style: none; margin: 0; padding: 8px 36px; background: var(--paper); border: 1px solid var(--rule); box-shadow: 0 1px 2px rgba(14, 27, 46, .04), 0 12px 32px rgba(14, 27, 46, .06); }
+  .req-list li { display: grid; grid-template-columns: 36px 1fr; gap: 20px; align-items: start; padding: 22px 0; border-bottom: 1px solid var(--rule); }
+  .req-list li:last-child { border-bottom: 0; }
+  .req-n { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background: var(--accent); color: #fff; font-size: 14px; font-weight: 700; }
+  .req-t { display: block; padding-top: 3px; font-size: 18px; line-height: 1.55; color: var(--ink); }
+  .req-opts { display: grid; gap: 10px; margin-top: 16px; }
+  .req-opt { display: grid; grid-template-columns: 26px 1fr; gap: 12px; align-items: start; padding: 4px 0; font-size: 16px; line-height: 1.6; color: var(--text); }
+  .req-opt strong { color: var(--ink); font-weight: 600; }
+  .opt-k { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; margin-top: 1px; border-radius: 50%; border: 1.5px solid var(--accent); color: var(--accent); font-size: 12px; font-weight: 700; background: var(--paper); }
+  @media (max-width: 760px) { .req-band { padding: 32px 0 56px; } .req-list { padding: 4px 18px; } .req-list li { grid-template-columns: 30px 1fr; gap: 14px; padding: 18px 0; } .req-n { width: 28px; height: 28px; font-size: 13px; } .req-t { font-size: 17px; padding-top: 2px; } .req-opt { grid-template-columns: 24px 1fr; gap: 10px; } }
+  .req-ev { display: block; margin-top: 4px; font-size: 15px; color: var(--muted); }
+  .req-ev em { font-style: normal; font-weight: 600; color: var(--text); }
+  .req-note { margin: 24px 0 0; font-size: 15px; line-height: 1.6; color: var(--muted); }
 </style>
 </head>
 <body>
@@ -338,78 +353,30 @@
   <section class="page-head">
     <div class="rq-wrap">
       <h1>Acceptable Safeguards</h1>
-      <p class="lede">Downloading is allowed. If non-management staff can download the application package, choose at least one safeguard to prevent it from leaving the company. Owners and management can retain download access.</p>
-</div>
-</section>
-<section class="rq-block">
-<div class="rq-wrap">
-<p style="margin:0 0 16px; font-weight:600; color:var(--ink);"><mark class="soft-lime">System of record (CRM, LOS, etc.) &mdash; you only need to choose one:</mark></p>
-<div class="tips">
-<details name="tips" id="view-only">
-<summary><span class="s-t">View-only access</span><span class="s-tags"><span class="s-tag">System of record</span></span></summary>
-<div class="tip-body">
-<p>Transition to view-only and disable file downloads for non-management roles. No watermarking or browser controls are needed.</p>
-<p><strong>Evidence we accept:</strong> a screenshot of a record, taken while logged in as the record owner, showing that downloading is not available.</p>
-</div>
-</details>
-<details name="tips" id="watermarking">
-<summary><span class="s-t">Watermarking</span><span class="s-tags"><span class="s-tag">System of record</span></span></summary>
-<div class="tip-body">
-<p>Keep files downloadable and apply watermarks before files enter your system of record, or when they&rsquo;re downloaded. Watermarking is accepted as a reasonable deterrent against unauthorized sharing. Watermarks should include your company name or logo. <a href="https://aquamark.io/" target="_blank" rel="noopener noreferrer">Aquamark</a> or any equivalent service is acceptable. No browser or device controls are needed.</p>
-<p><strong>Evidence we accept:</strong> a watermarked sample file plus a screenshot of the workflow or integration that applies the watermark automatically. Watermarking a file by hand doesn&rsquo;t count, because someone handles the unprotected original first.</p>
-</div>
-</details>
-<details name="tips" id="browser-controls">
-<summary><span class="s-t">Browser and device controls</span><span class="s-tags"><span class="s-tag">Email inbox</span><span class="s-tag">System of record</span></span></summary>
-<div class="tip-body">
-<p>Keep files downloadable, and stop them from leaving the computer. This prevents staff from sending files to themselves or outside the company. No watermarking is needed.</p>
-<ul>
-<li><strong>Browser:</strong> block personal email and personal cloud storage websites.</li>
-<li><strong>Device:</strong> block USB file transfers.</li>
-</ul>
-<p><strong>Evidence we accept:</strong> screenshots showing both controls are in place to restrict staff from transferring files to personal accounts or external storage.</p>
-<h4>Tools that can help</h4>
-<ul>
-<li>Endpoint/MDM policies: Microsoft Intune, Jamf, Hexnode, or ManageEngine</li>
-<li>Windows Group Policy (GPO): built into Windows</li>
-<li>Enterprise browsers: Island or Talon</li>
-<li>Web/DNS filtering: Palo Alto Prisma, Cloudflare One, or DNSFilter</li>
-</ul>
-</div>
-</details>
-<details name="tips" id="other">
-<summary><span class="s-t">Other safeguards</span></summary>
-<div class="tip-body">
-<p>Other safeguards are acceptable if they meet the same goal. <a href="/contact/">Send us a message</a> to discuss your approach.</p>
-</div>
-</details>
-</div>
-<p style="margin:88px 0 4px; font-weight:600; color:var(--ink);"><mark class="soft-lime">Email inbox &mdash; if you receive submissions by email, choose one:</mark></p>
-<p style="margin:0 0 16px; color:var(--muted);">Browser and device controls (above) also cover your inbox.</p>
-<div class="tips">
-<details name="tips" id="email-intake">
-<summary><span class="s-t">Automate email intake</span><span class="s-tags"><span class="s-tag">Email inbox</span></span></summary>
-<div class="tip-body">
-<p>You can keep receiving submissions by email, as long as no one works from the intake mailbox. Set up automation to route files directly into your system of record. Your inbox then needs no watermarking or browser controls, but files still need safeguards once they&rsquo;re in your system of record.</p>
-<p><strong>Evidence we accept:</strong> a screenshot of the routing setup (or routing logs showing submissions moving automatically into your system of record), and of who can access the intake mailbox.</p>
-<h4>Tools that can help</h4>
-<ul>
-<li>Inbound email parsing: Postmark, SendGrid, Heron, Email Gateway</li>
-<li>Automation tools: Zapier, Make, n8n, Microsoft Power Automate</li>
-<li>Built-in email intake in your CRM or loan platform</li>
-</ul>
-</div>
-</details>
-<details name="tips" id="email-watermarking">
-<summary><span class="s-t">Watermark before the inbox</span><span class="s-tags"><span class="s-tag">Email inbox</span></span></summary>
-<div class="tip-body">
-<p>If people open submissions in the inbox, watermark files before they reach it. This also covers files later stored in your system of record, so no other safeguard is needed. Watermarks should include your company name or logo. <a href="https://aquamark.io/" target="_blank" rel="noopener noreferrer">Aquamark</a> or any equivalent service is acceptable.</p>
-<p><strong>Evidence we accept:</strong> a watermarked sample file plus a screenshot of the workflow or integration that applies the watermark before files reach the inbox. Watermarking a file by hand doesn&rsquo;t count, because someone handles the unprotected original first.</p>
-</div>
-</details>
-</div>
-</div>
-</section>
+    </div>
+  </section>
+
+  <section class="rq-block req-band">
+    <div class="rq-wrap">
+      <ol class="req-list">
+        <li><span class="req-n">1</span><div class="req-t">System of record (choose one)
+          <div class="req-opts">
+            <div class="req-opt"><span class="opt-k">A</span><div><strong>Watermarking.</strong> Files are automatically watermarked with your company name or logo when they enter your system or are downloaded.<span class="req-ev"><em>Evidence:</em> a watermarked sample file and a screenshot of the automation.</span></div></div>
+            <div class="req-opt"><span class="opt-k">B</span><div><strong>Browser and device controls.</strong> Block personal email and cloud storage websites, and block USB transfers.<span class="req-ev"><em>Evidence:</em> screenshots showing both controls.</span></div></div>
+          </div>
+        </div></li>
+        <li><span class="req-n">2</span><div class="req-t">Email inbox, only if you receive submissions by email (choose one)
+          <div class="req-opts">
+            <div class="req-opt"><span class="opt-k">A</span><div><strong>Automated intake.</strong> Submissions route automatically into your system of record, and no one works from the intake mailbox.<span class="req-ev"><em>Evidence:</em> a screenshot of the routing setup and who can access the mailbox.</span></div></div>
+            <div class="req-opt"><span class="opt-k">B</span><div><strong>Watermark before the inbox.</strong> Files are automatically watermarked before they reach the inbox. This also covers your system of record.<span class="req-ev"><em>Evidence:</em> a watermarked sample file and a screenshot of the automation.</span></div></div>
+            <div class="req-opt"><span class="opt-k">C</span><div><strong>Browser and device controls.</strong> Same as 1B.</div></div>
+          </div>
+        </div></li>
+      </ol>
+      <p class="req-note">Watermarking files by hand doesn&rsquo;t count. <a href="https://aquamark.io" target="_blank" rel="noopener noreferrer">Aquamark</a> or any equivalent service is acceptable. Using a different safeguard? <a href="/contact/">Contact us</a>.</p>
+    </div>
+  </section>
+
 </main>
 
 <script>
