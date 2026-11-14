@@ -274,6 +274,35 @@
   @media (max-width: 760px) { .tip-body { padding: 22px 20px 18px; } }
   .pg-eyebrow { margin: 0 0 14px; font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
   .join-only { max-width: 680px; }
+  .join-form { display: grid; gap: 20px; }
+  .join-form[hidden], .jf-done[hidden] { display: none; }
+  .jf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .jf-field label { display: block; font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+  .jf-req, .jf-opt { color: var(--muted); font-weight: 400; }
+  .jf-hint { margin: -2px 0 8px; font-size: 13px; color: var(--muted); }
+  .jf-field input[type=text], .jf-field input[type=email], .jf-field textarea { width: 100%; font: inherit; font-size: 16px; color: var(--ink); background: #fff;
+    border: 1px solid var(--rule); border-radius: 0; padding: 11px 12px; line-height: 1.4; }
+  .jf-field textarea { resize: vertical; min-height: 96px; }
+  .jf-field input:focus, .jf-field textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(26, 109, 217, .15); }
+  .jf-field input[aria-invalid=true] { border-color: #B42318; }
+  .jf-drop { position: relative; display: flex !important; align-items: center; justify-content: center; min-height: 88px; padding: 18px; margin: 0 !important;
+    border: 1px dashed #B8C1CC; background: var(--band); color: var(--text); font-weight: 400 !important; font-size: 15px !important; text-align: center; cursor: pointer; }
+  .jf-drop:hover, .jf-drop.is-over { border-color: var(--accent); background: #EEF3FA; }
+  .jf-drop.has-file { border-style: solid; color: var(--ink); }
+  .jf-drop.is-invalid { border-color: #B42318; }
+  .jf-drop input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+  .jf-drop:focus-within { outline: 2px solid var(--link); outline-offset: 3px; }
+  .jf-hp { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+  .jf-terms { margin: 4px 0 0; font-size: 15px; color: var(--muted); }
+  .jf-terms sup { font-size: 9px; }
+  .jf-error { margin: 0; padding: 12px 14px; border-left: 3px solid #B42318; background: #FEF3F2; color: #7A271A; font-size: 15px; }
+  .jf-submit { justify-self: start; }
+  .jf-submit[disabled] { opacity: .65; cursor: progress; }
+  .jf-done { padding: 28px 30px; border: 1px solid var(--rule); background: var(--band); }
+  .jf-done:focus { outline: none; }
+  .jf-done h2 { font-size: 28px; margin-bottom: 10px; }
+  .jf-done p { margin: 0; }
+  @media (max-width: 560px) { .jf-row { grid-template-columns: 1fr; } }
   .join-grid { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 48px; align-items: start; }
   .join-side { border: 1px solid var(--rule); padding: 24px 24px 22px; position: sticky; top: 140px; }
   .perks { list-style: none; margin: 0 0 24px; padding: 0; }
@@ -358,15 +387,124 @@
   <section class="rq-block rq-tight">
     <div class="rq-wrap">
       <div class="join-only">
-        <div class="join-form">
-          <div style="width:100%;height:500px;" data-fillout-id="f4xre3GBxfus" data-fillout-embed-type="standard" data-fillout-inherit-parameters data-fillout-dynamic-resize></div>
-          <script src="https://server.fillout.com/embed/v1/"></script>
+        <form class="join-form" id="joinForm" novalidate>
+          <div class="jf-field">
+            <label for="jf-company">Company name <span class="jf-req" aria-hidden="true">*</span></label>
+            <input id="jf-company" name="company_name" type="text" autocomplete="organization" maxlength="200" required>
+          </div>
+          <div class="jf-row">
+            <div class="jf-field">
+              <label for="jf-first">First name <span class="jf-req" aria-hidden="true">*</span></label>
+              <input id="jf-first" name="first_name" type="text" autocomplete="given-name" maxlength="100" required>
+            </div>
+            <div class="jf-field">
+              <label for="jf-last">Last name <span class="jf-req" aria-hidden="true">*</span></label>
+              <input id="jf-last" name="last_name" type="text" autocomplete="family-name" maxlength="100" required>
+            </div>
+          </div>
+          <div class="jf-field">
+            <label for="jf-email">Email <span class="jf-req" aria-hidden="true">*</span></label>
+            <input id="jf-email" name="email" type="email" autocomplete="email" maxlength="254" required>
+          </div>
+          <div class="jf-field">
+            <label for="jf-website">Website <span class="jf-req" aria-hidden="true">*</span></label>
+            <input id="jf-website" name="website" type="text" inputmode="url" autocomplete="url" placeholder="yourcompany.com" maxlength="300" required>
+          </div>
+          <div class="jf-field">
+            <label for="jf-logo">Upload your logo <span class="jf-req" aria-hidden="true">*</span></label>
+            <p class="jf-hint" id="jf-logo-hint">Used for the directory and other materials. PNG, JPG or WebP, up to 5 MB.</p>
+            <label class="jf-drop" id="jf-drop" for="jf-logo">
+              <input id="jf-logo" name="logo" type="file" accept="image/png,image/jpeg,image/webp" aria-describedby="jf-logo-hint" required>
+              <span class="jf-drop-text" id="jf-drop-text">Drag and drop a file or <u>browse</u></span>
+            </label>
+          </div>
+          <div class="jf-field">
+            <label for="jf-message">Message <span class="jf-opt">(optional)</span></label>
+            <textarea id="jf-message" name="message" rows="3" maxlength="2000"></textarea>
+          </div>
+          <div class="jf-hp" aria-hidden="true">
+            <label for="jf-fax">Fax</label>
+            <input id="jf-fax" name="fax" type="text" tabindex="-1" autocomplete="off">
+          </div>
+          <input type="hidden" name="t" id="jf-t">
+          <p class="jf-terms">By submitting, I agree to the Secure Funder<sup>&trade;</sup> <a href="/terms-privacy/">program terms and fee</a>.</p>
+          <p class="jf-error" id="jf-error" role="alert" hidden></p>
+          <button class="btn jf-submit" type="submit" id="jf-submit">Submit</button>
+        </form>
+        <div class="jf-done" id="joinDone" hidden tabindex="-1">
+          <h2>Welcome to Secure Funder</h2>
+          <p>Thank you for joining. We&rsquo;re setting up your account now. Check your email in a few minutes for your portal login and next steps.</p>
         </div>
       </div>
     </div>
   </section>
 
 </main>
+
+<script>
+  (function () {
+    var ENDPOINT = 'https://portal.securefunder.org/join';
+    var form = document.getElementById('joinForm'), done = document.getElementById('joinDone');
+    var btn = document.getElementById('jf-submit'), err = document.getElementById('jf-error');
+    var file = document.getElementById('jf-logo'), drop = document.getElementById('jf-drop'), dropText = document.getElementById('jf-drop-text');
+    var MAX = 5 * 1024 * 1024, TYPES = ['image/png', 'image/jpeg', 'image/webp'];
+    document.getElementById('jf-t').value = String(Date.now());
+
+    function showError(msg) { err.textContent = msg; err.hidden = false; }
+    function clearError() { err.hidden = true; err.textContent = ''; }
+    function logoProblem(f) {
+      if (!f) return 'Please add your logo.';
+      if (TYPES.indexOf(f.type) === -1) return 'Your logo must be a PNG, JPG or WebP image.';
+      if (f.size > MAX) return 'Your logo must be 5 MB or smaller.';
+      return '';
+    }
+    function showFile() {
+      var f = file.files[0];
+      drop.classList.toggle('has-file', !!f);
+      drop.classList.remove('is-invalid');
+      dropText.innerHTML = '';
+      if (f) dropText.textContent = f.name;
+      else dropText.innerHTML = 'Drag and drop a file or <u>browse</u>';
+    }
+    file.addEventListener('change', showFile);
+    ['dragenter', 'dragover'].forEach(function (ev) { drop.addEventListener(ev, function (e) { e.preventDefault(); drop.classList.add('is-over'); }); });
+    ['dragleave', 'drop'].forEach(function (ev) { drop.addEventListener(ev, function () { drop.classList.remove('is-over'); }); });
+    drop.addEventListener('drop', function (e) {
+      e.preventDefault();
+      if (e.dataTransfer && e.dataTransfer.files.length) { file.files = e.dataTransfer.files; showFile(); }
+    });
+    form.addEventListener('input', function (e) { if (e.target.getAttribute('aria-invalid')) e.target.removeAttribute('aria-invalid'); });
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      clearError();
+      var firstBad = null;
+      ['jf-company', 'jf-first', 'jf-last', 'jf-email', 'jf-website'].forEach(function (id) {
+        var el = document.getElementById(id), ok = el.value.trim() !== '' && (el.type !== 'email' || /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(el.value.trim()));
+        if (ok) el.removeAttribute('aria-invalid'); else { el.setAttribute('aria-invalid', 'true'); firstBad = firstBad || el; }
+      });
+      var lp = logoProblem(file.files[0]);
+      if (lp) drop.classList.add('is-invalid');
+      if (firstBad || lp) {
+        showError(firstBad ? 'Please fill in the required fields' + (firstBad.id === 'jf-email' && firstBad.value.trim() ? ' and check your email address.' : '.') : lp);
+        (firstBad || file).focus();
+        return;
+      }
+      btn.disabled = true; btn.textContent = 'Submitting\u2026';
+      fetch(ENDPOINT, { method: 'POST', body: new FormData(form) })
+        .then(function (r) { return r.json().catch(function () { return { ok: false }; }); })
+        .then(function (data) {
+          if (data && data.ok) { form.hidden = true; done.hidden = false; done.focus(); window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
+          showError((data && data.error) || 'Something went wrong. Please try again.');
+          btn.disabled = false; btn.textContent = 'Submit';
+        })
+        .catch(function () {
+          showError('We couldn\u2019t reach the server. Please check your connection and try again.');
+          btn.disabled = false; btn.textContent = 'Submit';
+        });
+    });
+  })();
+</script>
 
 <script>
   (function () {
