@@ -560,6 +560,9 @@
     .ab-pending p { margin: 0 0 10px; }
     .ab-pending ul { margin: 0; }
     .ab-pending-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); }
+    .article-body ul.ab-sub { list-style: disc; margin: 10px 0 0; padding-left: 20px; border: 0; }
+    .article-body ul.ab-sub li { margin: 0 0 6px; border: 0; }
+    .article-body ul.ab-sub strong { font-weight: 600; }
     .ab-fine { font-size: 0.85rem; color: var(--text-muted); }
     @media (max-width: 600px) { .ab-date { grid-template-columns: 1fr; gap: 4px; } }
   </style>
@@ -627,17 +630,16 @@
 
       <h2>Key dates</h2>
       <div class="ab-dates">
-        <div class="ab-date"><span class="ab-when">Late 2027</span><span class="ab-what">The <strong>latest</strong> you should file your CFL application through NMLS. Earlier is better. Plan for a wait of several months.</span></div>
-        <div class="ab-date"><span class="ab-when">Jan 1, 2028</span><span class="ab-what">Covered agreements with unlicensed, non-exempt providers become unenforceable, unless an application is already on file.</span></div>
-        <div class="ab-date"><span class="ab-when">Jul 1, 2028</span><span class="ab-what">CFL license required for covered providers and brokers.</span></div>
+        <div class="ab-date"><span class="ab-when">Late 2027</span><span class="ab-what">The <strong>latest</strong> you should file your CFL application through NMLS. Plan for a wait of several months.</span></div>
+        <div class="ab-date"><span class="ab-when">Jan 1, 2028</span><span class="ab-what">Funding agreements with unlicensed providers become unenforceable, unless an application is already on file.</span></div>
+        <div class="ab-date"><span class="ab-when">Jul 1, 2028</span><span class="ab-what">CFL license officially required.</span></div>
         <div class="ab-date"><span class="ab-when">Mar 15, 2029</span><span class="ab-what">First annual activity report due to the DFPI.</span></div>
       </div>
 
       <h2>Everyone</h2>
       <ul class="checklist">
-        <li><label class="checklist-item"><input type="checkbox" id="ab-all-1"><span><strong>Secretary of State.</strong> Make sure your entity is formed or registered to do business in California.</span></label></li>
-        <li><label class="checklist-item"><input type="checkbox" id="ab-all-2"><span><strong>California exposure.</strong> Map every commercial financing offer of $500,000 or less to California businesses, including MCAs, factoring and leases. Out-of-state companies are covered.</span></label></li>
-        <li><label class="checklist-item"><input type="checkbox" id="ab-all-3"><span><strong>Exemptions.</strong> Ask counsel whether your structure, bank partnerships or products qualify for an exemption.</span></label></li>
+        <li><label class="checklist-item"><input type="checkbox" id="ab-all-1"><span><strong>Secretary of State.</strong> Make sure your company is registered with California&rsquo;s Secretary of State.</span></label></li>
+        <li><label class="checklist-item"><input type="checkbox" id="ab-all-3"><span><strong>Determine if you&rsquo;re exempt.</strong> Check your CRM data to see if your California deals are limited to:<ul class="ab-sub"><li><strong>Low volume:</strong> 1 or fewer California deals in 12 months (or 5 or fewer if incidental to your main business).</li><li><strong>Large borrowers:</strong> Businesses with over $16 million in annual gross receipts.</li><li><strong>Deal size:</strong> Offers over $500,000 (traditional commercial loans over $500K still require a standard CFL license).</li></ul></span></label></li>
         <li><label class="checklist-item"><input type="checkbox" id="ab-all-4"><span><strong>Control persons.</strong> Gather org charts (10%+ owners), officer resumes and background disclosures for NMLS.</span></label></li>
         <li><label class="checklist-item"><input type="checkbox" id="ab-all-5"><span><strong>Financial statements.</strong> Work with a CPA on statements that meet CFL net-worth requirements.</span></label></li>
         <li><label class="checklist-item"><input type="checkbox" id="ab-all-6"><span><strong>Surety bond.</strong> Get quotes for the CFL surety bond, posted through NMLS.</span></label></li>
