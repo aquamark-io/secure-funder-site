@@ -524,7 +524,7 @@
         h += '</div>';
         if (s.upcoming) {
           const u = s.upcoming;
-          h += '<div class="sect up"><h2 class="sect-h">Upcoming Changes</h2>' + (name === 'California' ? '<p class="ab-subtitle">2028: Licensing expands to revenue-based financing, factoring, and equipment leasing.</p>' : '<div class="up-law">' + u.title + '</div>') +
+          h += '<div class="sect up"><h2 class="sect-h">Upcoming Changes</h2>' + (name === 'California' ? '<p class="ab-subtitle">2028: Licensing expands to MCA, factoring, ABL and equipment leasing.</p>' : '<div class="up-law">' + u.title + '</div>') +
             (u.prep ? '<p class="prep"><span class="tri" aria-hidden="true"></span><strong>Prepare now:</strong> <a href="' + u.prep[1] + '">' + u.prep[0] + '</a></p>' : '') +
             (u.detail ? '<p class="ab-note">' + u.detail.note + '</p>' : '') + '<div class="dates">' + u.dates.map(([d, l]) => '<div class="dt"><span class="dd">' + d + '</span><span class="dl">' + l + '</span></div>').join('') + '</div>' +
             '<div class="upcoming">' + table(u.rows, ctx, true) + '</div>' + (u.detail ? detail(u.detail) : '') + '</div>';
